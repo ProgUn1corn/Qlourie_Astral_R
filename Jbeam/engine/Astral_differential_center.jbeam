@@ -1,0 +1,24 @@
+{
+"Astral_differential_center_e": {
+	"information":{
+		"name":"Center Differential",
+		"value":2500
+	},
+	"slotType" : "Astral_differential_center",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$torquesplit", "range", "", "Gearing", 0.50, 0, 1, "Torque Split", "Power to Rear",{"subCategory": "Transfer Case", "stepDis": 0.01, "minDis":0,"maxDis":100}]
+		["$lsdpreload_C", "range", "N/m", "Differentials", 20, 0, 200, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center"}],
+		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 0.5, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
+	],
+	//"controller": [ 
+        //["fileName"],
+        //["ElectronicCenterDifferential", {"transfercaseName":"transfercase"}],
+    //],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$torquesplit", "uiName":"Center Differential", "defaultVirtualInertia":0.1}]
+	]
+}
+}

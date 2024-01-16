@@ -1,0 +1,58 @@
+{
+	"Astral_DSE": {
+		"information":{
+			"name":"Launch Control",
+			"value":999
+		}
+		"slotType" : "Astral_DSE",
+		"controller": [
+			["fileName"],
+			["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
+			["drivingDynamics/sensors/sensorHub" ],
+			["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
+			["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
+			["drivingDynamics/supervisors/components/motorTorqueControl" {"name":"motorTorqueControl"}],
+			["drivingDynamics/supervisors/components/brakeControl" {"name":"brakeControl"}],
+			["Launch"],
+			["driveModes"]
+		],
+		"driveModes": {
+			"enabledModes":["gravel", "tarmac", "off"],
+			"defaultMode": "off",
+			"modes": {
+				"gravel": {
+					"name": "Gravel Mode",
+					"order": 10,
+					"settings": [
+						["type"],
+						["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "238BE6"}],
+						["controller", {"controllerName":"Launch", "isEnabled":true, "launchRPM":6000}],
+					]
+				},
+				"tarmac": {
+					"name": "Tarmac Mode",
+					"order": 20,
+					"settings": [
+						["type"],
+						["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFFF00"}],
+						["controller", {"controllerName":"Launch", "isEnabled":true, "launchRPM":7000}],
+					]
+				},
+				"off": {
+					"name": "Off Mode",
+					"order": 50,
+					"settings": [
+						["type"],
+						["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+						["controller", {"controllerName":"Launch", "isEnabled":false, "launchRPM":8500}],
+					]
+				}
+				
+			}
+		}
+		"vehicleData": {
+			"skewStiffnessFront": 151662.09521097,
+			"skewStiffnessRear": 125568.61998714
+		}
+	},
+}

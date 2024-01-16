@@ -1,0 +1,75 @@
+{
+"Astral_differential_F_race": {
+	"information":{
+		"name":"Front Differential",
+		"value":1500
+	},
+	"slotType" : "Astral_differential_F",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_halfshafts_F","Astral_halfshafts_F","Front Halfshafts"],
+		["Astral_finaldrive_F","Astral_finaldrive_F_race","Front Final Drive", {"coreSlot":true}]
+	],
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$lsdpreload_F", "range", "N/m", "Differentials", 85, 0, 500, "Pre-load Torque", "Initial locking torque between left and right wheels", {"subCategory":"Front"}],
+		["$lsdlockcoef_F", "range", "", "Differentials", 0.15, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Front"}],
+		["$lsdlockcoefrev_F", "range", "", "Differentials", 0.12, 0, 0.5, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Front"}]
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["torsionReactor", "torsionReactorF", "transferCase", 1],
+		["differential", "frontDiff", "torsionReactorF", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_F", "lsdLockCoef":"$lsdlockcoef_F", "lsdRevLockCoef":"$lsdlockcoefrev_F", "uiName":"Front Differential", "defaultVirtualInertia":0.25}]
+	]
+	"frontDiffF": {
+        "friction": 3,
+        "dynamicFriction": 0.0012,
+        "torqueLossCoef": 0.015,
+    },
+    "torsionReactorF": {
+        "torqueReactionNodes:":["eg1","eg0","eg4"],
+    },
+},
+"Astral_halfshafts_F": {
+	"information":{
+		"name":"Front Halfshafts",
+		"value":500
+	},
+	"slotType" : "Astral_halfshafts_F",
+	"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//shaft
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":0.2},
+		{"beamSpring":0,"beamDamp":0,"beamDeform":9500,"beamStrength":18550},
+		{"beamLimitSpring":7501000,"beamLimitDamp":300},
+		["fw1r","ftrar", {"name":"halfshaft_FR", "breakGroup":"wheel_FR", "breakGroupType":1, "deformGroup":"wheelaxleFR", "deformationTriggerRatio":0.001, "optional":true}],
+		["fw1l","ftral", {"name":"halfshaft_FL", "breakGroup":"wheel_FL", "breakGroupType":1, "deformGroup":"wheelaxleFL", "deformationTriggerRatio":0.001, "optional":true}],
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		//["shaft", "wheelaxleFL", "frontDiff", 1, {"connectedWheel":"FL", "friction":0}],
+		//["shaft", "wheelaxleFR", "frontDiff", 2, {"connectedWheel":"FR", "friction":0}],
+		["shaft", "halfshaftFL", "frontDiff", 1, {"deformGroups":["wheelaxleFL"], "breakTriggerBeam":"halfshaft_FL", "uiName":"Front Left Halfshaft", "friction":1.5, "dynamicFriction":0.004}],
+		["shaft", "halfshaftFR", "frontDiff", 2, {"deformGroups":["wheelaxleFR"], "breakTriggerBeam":"halfshaft_FR", "uiName":"Front Right Halfshaft", "friction":1.5, "dynamicFriction":0.004}]
+	]
+},
+"Astral_finaldrive_F_race": {
+	"information":{
+		"name":"Front Final Drive",
+		"value":1000
+	},
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$finaldrive_f", "range", ":1", "Gearing", 4.7, 4, 5.5, "Front Final Drive", "Gear ratio",{"subCategory": "Differentials", "stepDis": 0.01}]
+	],
+	"slotType" : "Astral_finaldrive_F",
+	"torsionReactorF":{
+		"gearRatio": "$finaldrive_f"
+	}
+}
+}

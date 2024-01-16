@@ -1,0 +1,64 @@
+{
+"Astral_fueltank": {
+	"information":{
+		"name":"Fuel Tank",
+		"value":250
+	},
+	"slotType" : "Astral_fueltank",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$fuel", "range", "L", "Engine", 10, 0, 65, "Fuel Volume", "Initial Fuel Volume", {"stepDis":0.5}]
+	],
+	"energyStorage": [
+		["type", "name"],
+		["fuelTank", "mainTank"]
+	],
+	"mainTank": {
+		"energyType":"gasoline", //Type of fuel (must match engine for engine to run)
+		"fuelCapacity": 65,
+	    "startingFuelCapacity": "$fuel", //Litres
+		"fuel": {"[engineGroup]:":["fuel"]}, //Adds fuel mass to nodes in this engineGroup
+		"breakTriggerBeam": "fuelTank", //Fuel tank drains if beam with this name is broken
+	},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+        {"frictionCoef":1},
+        {"collision":true},
+        {"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
+		//--Fuel Tank--
+		{"nodeWeight":2},
+		{"group":[""]},
+		{"engineGroup":["fuel"]},
+		{"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":97,"specHeat":0.03,"selfIgnitionCoef":0.03,"smokePoint":220,"containerBeam":"fuelTank"},
+		["a45", -0.47, 0.75, 0.11],
+		["a46",  0.47, 0.75, 0.11],
+		{"chemEnergy":false,"burnRate":false,"flashPoint":false,"vaporPoint":false,"specHeat":false,"selfIgnitionCoef":false,"smokePoint":false,"containerBeam":false},
+        {"engineGroup":""},
+	],
+	"beams": [
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Fuel tank--
+		{"beamSpring":101000,"beamDamp":100},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		["a45", "a46", {"name":"fuelTank","containerBeam": "fuelTank"}]
+		["a45", "a12"],
+		["a45", "a13"],
+		["a45", "a8"],
+		["a45", "a9"],
+		["a45", "a41"],
+		["a46", "cup"],
+		//*
+		["a46", "a15"],
+		["a46", "a14"],
+		["a46", "a11"],
+		["a46", "a10"],
+		["a46", "a42"],
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1} 
+	]
+}
+}
