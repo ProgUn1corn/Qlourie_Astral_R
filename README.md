@@ -76,6 +76,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel (**need refinement**)
 - Spring rates:
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
+
   Tarmac: 30.0 to 65N/m, incremental difference of 2.5 N/m
   Helper: 2.0N/m
 ## Tyres
