@@ -19,6 +19,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - 1190KG without crew and spare wheel
 - 1360KG with driver and co-driver and one spare wheel
 - 20KG per tarmac wheel and 25kg per gravel wheel, node weight calculated based on the rim weight limit as specified by WRC regulations
+- Wheel beam properties are tested and modified
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
 - 380HP at 6500RPM, 430Nm at 5000-6000RPM
@@ -30,8 +31,15 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Front and rear adjustable LSD
 - Active center differential in response to steering and throttle input (**WIP**)
 - Steering wheel and pedal shifter animation
-## Suspenion
+## Suspension
 - Front and rear MacPherson Strut suspension
+- Reinforced front and rear subframe for stronger rigidity
+- Calculated suspension geometry for optimal performance, minimized bump steer and toe steer
+- 540 degree steering wheel
+- 8:1 quick steering ratio with maximum wheel angle of 33 degree
+- 300mm gravel brake disc, 370mm tarmac brake disc
+- Front and rear ducted brake
+## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - 800mm gravel damper length, 600mm tarmac damper length
 - over 320mm of travel on gravel damper
@@ -47,6 +55,8 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip and rear diffuser react to ground clearance change
+- Body aerodynamic designs are reflected with triangles for downforce generation
+- Two layer WRC style rear wing with winglet attached
+- Rear wing endplate aerodynamics for better control when sliding
 - Total about 400kg of downforce at 200km/h
 
-- 
