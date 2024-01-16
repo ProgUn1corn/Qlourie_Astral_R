@@ -81,7 +81,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Spare wheel selection for weight accuracy
 - Troll driver's model, hands moving with steering wheel LOL
 
-# Existing Problems (that is mostly not going to be fixed)
+# Existing Problems (that are mostly not going to be fixed)
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
 - All colors and materials are none adjustable, the color theme is fixed. (You can manually adjust in Material Editor though, but it's not RGB image so no simple way to change color)
 - Due to the way Automation exports (when I exported), all decals and skins are actual models instead of decal image. This means the skin and decal will sometimes clip through car model. Also, it will take more space to load
