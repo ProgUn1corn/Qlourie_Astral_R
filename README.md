@@ -35,11 +35,11 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 
 # Features
 ## Chassis
+- Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
 - 2.565m wheelbase and 1.875m track width
 - 1190KG without crew and spare wheel
 - 1360KG with driver and co-driver and one spare wheel
-- 20KG per tarmac wheel and 25kg per gravel wheel, node weight calculated based on the rim weight limit as specified by WRC regulations
-- Wheel beam properties are tested and modified
+- Rollcage installed for maximum safety
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
 - 380HP at 6500RPM, 430Nm at 5000-6000RPM
@@ -74,6 +74,10 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
   Tarmac: 30.0 to 65N/m, incremental difference of 2.5 N/m
   Helper: 2.0N/m
+## Tyres
+- 20KG per tarmac wheel and 25kg per gravel wheel, node weight calculated based on the rim weight limit as specified by WRC regulations
+- 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
+- Wheel beam properties are tested and modified
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip and rear diffuser react to ground clearance change
@@ -84,6 +88,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 ## Misc
 - 25KG ballast for center of gravity adjustment
 - Driver weight included in racing seat part
+- Rally light for better vision at night events (about 7kg, also act as ballast)
 - Spare wheel selection for weight accuracy
 - Troll driver's model, hands moving with steering wheel LOL
 
