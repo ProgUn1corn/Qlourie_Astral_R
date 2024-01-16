@@ -85,5 +85,5 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
 - All colors and materials are none adjustable, the color theme is fixed. (You can manually adjust in Material Editor though, but it's not RGB image so no simple way to change color)
 - Due to the way Automation exports (when I exported), all decals and skins are actual models instead of decal image. This means the skin and decal will sometimes clip through car model. Also, it will take more space to load
-- The opacity maps is not high resolution enough so there are jagged edges around the place where opacity map applies
+- The opacity maps are not high resolution enough so there are jagged edges around the place where opacity map applies
 - Meshes are still Automation level so it may not be compatible to a full fledged mod
