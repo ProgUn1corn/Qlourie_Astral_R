@@ -87,7 +87,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Spare wheel selection for weight accuracy
 - Troll driver's model, hands moving with steering wheel LOL
 
-[Astral_R](Docs/3.jpg)
+![Astral_R](Docs/3.jpg)
 
 # Existing Problems (that are mostly not going to be fixed)
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
