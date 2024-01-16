@@ -9,6 +9,8 @@ It comes from Automation, I made the car in Automation and rewrote almost everyt
 # What Is It
 This mod is inspired by the World Rally Championship (WRC). While the vanilla game features the Vivace, it doesn’t fully adhere to the actual WRC regulations concerning aspects such as weight and the center differential, and real WRC bodykits. My goal is to craft a WRC car that complies with the 2017-2021 WRC regulations and to simulate the physics with as realistic as possible. At the very least, the suspension system will offer a more authentic feel compared to rally cars in the game.
 
+![Astral_R](Docs/2.jpg)
+
 # How to Use This Repo
 ## What's In This Repo?
 This repo contains engine sound files, all Jbeam files, and Lua files. i will create engine sound with FMOD, update Jbeam files when something is refined, and start to write lua codes for active center differential, launch control and potentially new detection method for LRS.
@@ -29,6 +31,7 @@ I have a main work and it's quite busy, so I can't take my time fully on this pr
 However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart and Rally4, Rally2 variant. I'm really looking forward to it.
 
 Also some fiction brands and sponsors! There is actually now in the mod but I'm planning to make my own original sponsors.
+![Astral_R](Docs/1.jpg)
 
 # Features
 ## Chassis
@@ -83,6 +86,8 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Driver weight included in racing seat part
 - Spare wheel selection for weight accuracy
 - Troll driver's model, hands moving with steering wheel LOL
+
+[Astral_R](Docs/3.jpg)
 
 # Existing Problems (that are mostly not going to be fixed)
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
