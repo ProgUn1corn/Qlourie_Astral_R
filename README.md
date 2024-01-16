@@ -1,7 +1,10 @@
 # Qlourie_Astral_R
 My personal BeamNG mod project with some simple Lua codes.
 
-It comes from Automation, I made the car in Automation and rewrote almost everything's Jbeam by myself so the physics are completely new. The project started at about 2022/8/30, and this Github repo is created at 2024/1/16.
+It comes from Automation, I made the car in Automation and rewrote almost everything's Jbeam by myself so the physics are completely new. The project started at about 2022/7, and this Github repo is created at 2024/1/16.
+
+[2022/07/24](https://www.bilibili.com/video/BV17S4y1E7BH/)
+[2022/08/23](https://www.bilibili.com/video/BV1ea41157pe/)
 
 # What Is It
 This mod is inspired by the World Rally Championship (WRC). While the vanilla game features the Vivace, it doesn’t fully adhere to the actual WRC regulations concerning aspects such as weight and the center differential, and real WRC bodykits. My goal is to craft a WRC car that complies with the 2017-2021 WRC regulations and to simulate the physics with as realistic as possible. At the very least, the suspension system will offer a more authentic feel compared to rally cars in the game.
