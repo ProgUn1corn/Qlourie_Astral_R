@@ -1,0 +1,98 @@
+{
+"Astral_diveplane": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"WRC Dive Plane",
+        "value":1000
+    },
+	"slotType" : "Astral_diveplane",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_diveplane", ["Astral_bumper_F"]]
+    ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Diveplane--
+		{"nodeWeight":0.5},
+		{"group":["Astral_bumper_F"]},
+		["dp1r", -0.919, -1.846, 0.408],
+		["dp1l",  0.919, -1.846, 0.408],
+		{"collision":false},
+        {"selfCollision":false},
+		["dp2r", -0.809, -1.79, 0.363],
+		["dp2l",  0.809, -1.79, 0.363],
+		{"collision":true},
+        {"selfCollision":true},
+		{"group":[""]}
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Diveplane--
+		//shape
+		{"beamSpring":350100,"beamDamp":80},
+		{"beamDeform":7500,"beamStrength":"FLT_MAX"},
+		["fbe2r", "dp1r"],
+		["dp1r", "fb3r"],
+		//*
+		["fbe2l", "dp1l"],
+		["dp1l", "fb3l"],
+		//crossing
+		{"beamDeform":4500},
+		["fbe2r", "fb3r"],
+		["fbe1r", "dp1r"],
+		["fbe2l", "fb3l"],
+		["fbe1l", "dp1l"],
+		//rigidifier
+		{"beamSpring":200100,"beamDamp":50},
+		{"beamDeform":3000},
+		["dp2r", "dp1r"],
+		["dp2r", "fb3r"],
+		["dp2r", "fbe1r"],
+		["dp2r", "fbe2r"],
+		//*
+		["dp2l", "dp1l"],
+		["dp2l", "fb3l"],
+		["dp2l", "fbe1l"],
+		["dp2l", "fbe2l"],
+		//attach to bumper
+		{"beamSpring":551000,"beamDamp":50},
+		{"beamDeform":8000,"beamStrength":65000},
+		{"breakGroup":"diveplane"},
+		["dp1r", "fb4r"],
+		["dp1r", "fbe3r"],
+		["dp1r", "fb7r"],
+		//*
+		["dp1l", "fb4l"],
+		["dp1l", "fbe3l"],
+		["dp1l", "fb7l"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+  	"triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Front Downforce--
+		//front blades
+		{"dragCoef":80},
+		{"liftCoef":130,"stallAngle":1.1}
+		{"breakGroup":"fbr"},
+		["fbe2r", "dp1r", "fb3r"],
+		["fs1r", "dp1r", "fb3r"],
+		//*
+		{"breakGroup":"fbl"},
+		["fbe2l", "fb3l", "dp1l"],
+		["fs1l", "fb3l", "dp1l"],
+		{"breakGroup":""},
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+	]
+}
+}

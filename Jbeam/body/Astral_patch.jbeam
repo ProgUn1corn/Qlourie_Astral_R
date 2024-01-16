@@ -1,0 +1,273 @@
+{
+"Astral_patch_F":{
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"Front WRC Inside Patch",
+    	"value":20
+	},
+	"slotType" : "Astral_patch_F",
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_patch_F", ["Astral_patch_F"]],
+	],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_PLASTIC"},
+		//--Inside Patch--
+		//shape
+		{"nodeWeight":0.25},
+		{"group":["Astral_patch_F"]},
+		["fp1r", -0.921, -1.25, 0.727, {"selfCollision":false}],
+		["fp2r", -0.921, -1.538, 0.607],
+		["fp3r", -0.921, -1.656, 0.103],
+		["fp4r", -0.552, -1.538, 0.607],
+		["fp5r", -0.552, -1.656, 0.103],
+		//*
+		["fp1l",  0.921, -1.25, 0.727, {"selfCollision":false}],
+		["fp2l",  0.921, -1.538, 0.607],
+		["fp3l",  0.921, -1.656, 0.103],
+		["fp4l",  0.552, -1.538, 0.607],
+		["fp5l",  0.552, -1.656, 0.103],
+		//rigidifier
+		{"nodeWeight":1},
+		{"group":[""]},
+		{"collision":false},
+        {"selfCollision":false},
+		["pr1r", -0.716, -1.754, 0.511],
+		["pr1l",  0.716, -1.754, 0.511],
+		{"collision":true},
+        {"selfCollision":true},
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Inside Patch--
+		//main shape
+		{"beamSpring":101000,"beamDamp":50},
+		{"beamDeform":18500,"beamStrength":"FLT_MAX"},
+		["fp1r", "chs3r", {"breakGroup":"pcr","beamStrength":20000}],
+		["fp2r", "fp4r"],
+		["fp3r", "fp5r"],
+		["fp1r", "fp2r"],
+		["fp2r", "fp3r"],
+		["fp4r", "fp5r"],
+		["chs3r", "fp4r", {"breakGroup":"pcr","beamStrength":20000}],
+		//*
+		["fp1l", "chs3l", {"breakGroup":"pcl","beamStrength":20000}],
+		["fp2l", "fp4l"],
+		["fp3l", "fp5l"],
+		["fp1l", "fp2l"],
+		["fp2l", "fp3l"],
+		["fp4l", "fp5l"],
+		["chs3l", "fp4l", {"breakGroup":"pcl","beamStrength":20000}],
+		//crossing
+		{"beamDeform":15500},
+		["fp1r", "fp4r"],
+		["fp2r", "chs3r", {"breakGroup":"pcr","beamStrength":20000}],
+		["fp2r", "fp5r"],
+		["fp3r", "fp4r"],
+		//*
+		["fp1l", "fp4l"],
+		["fp2l", "chs3l", {"breakGroup":"pcl","beamStrength":20000}],
+		["fp2l", "fp5l"],
+		["fp3l", "fp4l"],
+		//rigids
+		{"beamDeform":12500},
+		["fp1r", "fp3r"],
+		["fp1l", "fp3l"],
+		["fp5r", "chs3r", {"breakGroup":"pcr","beamStrength":20000}],
+		["fp5l", "chs3l", {"breakGroup":"pcl","beamStrength":20000}],
+		//rigidifier
+		{"beamSpring":451000,"beamDamp":50},
+		{"beamDeform":10500},
+		["pr1r", "fp1r"],
+		["pr1r", "fp2r"],
+		["pr1r", "fp3r"],
+		["pr1r", "fp4r"],
+		["pr1r", "fp5r"],
+		["pr1l", "fp1l"],
+		["pr1l", "fp2l"],
+		["pr1l", "fp3l"],
+		["pr1l", "fp4l"],
+		["pr1l", "fp5l"],
+		//attach to chassis
+		{"beamSpring":651000,"beamDamp":80},
+		{"beamDeform":16500,"beamStrength":18500},
+		{"breakGroup":"pcr"},
+		["fp2r", "fs1r"],
+		["fp3r", "a25"],
+		["fp4r", "chs4r"],
+		["fp4r", "br1r"],
+		["fp4r", "chsf"],
+		["fp5r", "chsf"],
+		//*
+		{"breakGroup":"pcl"},
+		["fp2l", "fs1l"],
+		["fp3l", "a26"],
+		["fp4l", "chs4l"],
+		["fp4l", "br1l"],
+		["fp4l", "chsf"],
+		["fp5l", "chsf"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+	"triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Front Patch--	
+		//shape
+	    {"dragCoef":0},
+		["fp1r", "fp4r", "chs3r"],
+		["fp1r", "fp2r", "fp4r"],
+		["fp2r", "fp5r", "fp4r"],
+		["fp2r", "fp3r", "fp5r"],
+		//*
+		["fp1l", "chs3l", "fp4l"],
+		["fp1l", "fp4l", "fp2l"],
+		["fp2l", "fp4l", "fp5l"],
+		["fp2l", "fp5l", "fp3l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0},
+	]
+},
+"Astral_patch_R":{
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"Rear WRC Inside Patch",
+    	"value":20
+	},
+	"slotType" : "Astral_patch_R",
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_patch_R", ["Astral_patch_R"]],
+	],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_PLASTIC"},
+		//--Inside Patch--
+		//shape
+		{"nodeWeight":0.4},
+		{"group":["Astral_patch_R"]},
+		["rp1r", -0.785,  1.468, 0.652, {"selfCollision":false}],
+		["rp2r", -0.778,  1.618, 0.474],
+		["rp3r", -0.766,  1.687, 0.168],
+		["rp4r", -0.537,  1.618, 0.474],
+		["rp5r", -0.528,  1.687, 0.168],
+		//*
+		["rp1l",  0.785,  1.468, 0.652, {"selfCollision":false}],
+		["rp2l",  0.778,  1.618, 0.474],
+		["rp3l",  0.766,  1.687, 0.168],
+		["rp4l",  0.537,  1.618, 0.474],
+		["rp5l",  0.528,  1.687, 0.168],
+		{"group":[""]},
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Inside Patch--
+		//main shape
+		{"beamSpring":101000,"beamDamp":50},
+		{"beamDeform":18500,"beamStrength":"FLT_MAX"},
+		["rp1r", "chs1r"],
+		["rp2r", "rp4r"],
+		["rp3r", "rp5r"],
+		["rp1r", "rp2r"],
+		["rp2r", "rp3r"],
+		["rp4r", "rp5r"],
+		["chs1r", "rp4r"],
+		//*
+		["rp1l", "chs1l"],
+		["rp2l", "rp4l"],
+		["rp3l", "rp5l"],
+		["rp1l", "rp2l"],
+		["rp2l", "rp3l"],
+		["rp4l", "rp5l"],
+		["chs1l", "rp4l"],
+		//crossing
+		{"beamDeform":15500},
+		["rp1r", "rp4r"],
+		["rp2r", "chs1r"],
+		["rp2r", "rp5r"],
+		["rp3r", "rp4r"],
+		//*
+		["rp1l", "rp4l"],
+		["rp2l", "chs1l"],
+		["rp2l", "rp5l"],
+		["rp3l", "rp4l"],
+		//rigids
+		{"beamDeform":12500},
+		["rp1r", "rp3r"],
+		["rp1l", "rp3l"],
+		["rp5r", "chs1r"],
+		["rp5l", "chs1l"],
+		//rigidifier
+		{"beamSpring":451000,"beamDamp":50},
+		{"beamDeform":10500},
+		{"breakGroup":"patchRR"},
+		["a32", "rp1r"],
+		["a32", "rp2r"],
+		["a32", "rp3r"],
+		["a32", "rp4r"],
+		["a32", "rp5r"],
+		{"breakGroup":"patchRL"},
+		["a35", "rp1l"],
+		["a35", "rp2l"],
+		["a35", "rp3l"],
+		["a35", "rp4l"],
+		["a35", "rp5l"],
+		//attach to chassis
+		{"beamSpring":651000,"beamDamp":80},
+		{"beamDeform":17500,"beamStrength":42500},
+		{"breakGroup":"patchRR"},
+		["rp1r", "rs1r"],
+		["rp2r", "a65"],
+		["rp3r", "a5", {"breakGroup":"","beamStrength":114514}],
+		["rp4r", "chs2r"],
+		["rp4r", "a37"],
+		["rp4r", "chsr"],
+		["rp5r", "chsr", {"breakGroup":"","beamStrength":114514}],
+		//*
+		{"breakGroup":"patchRL"},
+		["rp1l", "rs1l"],
+		["rp2l", "a68"],
+		["rp3l", "a6", {"breakGroup":"","beamStrength":114514}],
+		["rp4l", "chs2l"],
+		["rp4l", "a38"],
+		["rp4l", "chsr"],
+		["rp5l", "chsr", {"breakGroup":"","beamStrength":114514}],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+	"triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Rear Patch--	
+		//shape
+	    {"dragCoef":0},
+		["rp1r", "rp4r", "chs1r"],
+		["rp1r", "rp2r", "rp4r"],
+		["rp2r", "rp5r", "rp4r"],
+		["rp2r", "rp3r", "rp5r"],
+		//*
+		["rp1l", "chs1l", "rp4l"],
+		["rp1l", "rp4l", "rp2l"],
+		["rp2l", "rp4l", "rp5l"],
+		["rp2l", "rp5l", "rp3l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0},
+
+	]
+}
+}

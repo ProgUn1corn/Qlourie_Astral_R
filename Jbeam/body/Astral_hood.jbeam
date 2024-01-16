@@ -1,0 +1,280 @@
+{
+"Astral_hood": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Hood Panel",
+        "value":640
+    },
+	"slotType" : "Astral_hood",
+	"slots":[
+		["type", "default", "description"],
+		["Astral_rallylight", "", "Rally Light"]
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_hood", ["Astral_hood"]]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Hood--
+		//hood
+		{"nodeWeight":0.5},
+		{"group":["Astral_hood"]},
+		["hd1r", -0.683, -1.04, 0.875],
+		["hd1l",  0.683, -1.04, 0.875],
+		["hd2r", -0.287, -1.19, 0.875],
+		["hd2l",  0.287, -1.19, 0.875],
+		["hd3r", -0.683, -1.55, 0.825],
+		["hd3l",  0.683, -1.55, 0.825],
+		{"group":["Astral_hood","Astral_rlight"]},
+		["hd4r", -0.287, -1.5922, 0.814],
+		["hd4l",  0.287, -1.5922, 0.814],
+		{"group":["Astral_hood"]},
+		["hd5r", -0.287, -1.9445, 0.669, {"selfCollision":false}],
+		["hd5l",  0.287, -1.9445, 0.669, {"selfCollision":false}],
+		//rigidifier
+		{"nodeWeight":1.5},
+		{"group":[""]},
+		["hd1", 0, -1.4, 0.4520,{"selfCollision":false}]
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Hood--
+		//main shape
+		{"beamSpring":451000,"beamDamp":50},
+		{"beamDeform":7500,"beamStrength":"FLT_MAX"},
+		["hd1r", "hd2r"],
+		["hd2r", "hd2l"],
+		["hd2l", "hd1l"],
+		["hd3r", "hd4r"],
+		["hd4r", "hd4l"],
+		["hd4l", "hd3l"],
+		["hd5r", "hd5l"],
+		["hd1r", "hd3r"],
+		["hd1l", "hd3l"],
+		["hd2r", "hd4r"],
+		["hd2l", "hd4l"],
+		["hd3r", "hd5r"],
+		["hd3l", "hd5l"],
+		["hd4r", "hd5r"],
+		["hd4l", "hd5l"],
+		//crossing
+		{"beamDeform":6000},
+		["hd1r", "hd4r"],
+		["hd3r", "hd2r"],
+		["hd2r", "hd4l"],
+		["hd4r", "hd2l"],
+		["hd2l", "hd3l"],
+		["hd4l", "hd1l"],
+		["hd5r", "hd4l"],
+		["hd5l", "hd4r"],
+		//rigids
+		{"beamDeform":5500},
+		["hd1r", "hd5r"],
+		["hd1l", "hd5l"],
+		["hd2r", "hd5r"],
+		["hd2l", "hd5l"],
+		//rigidifier
+		{"beamSpring":451000,"beamDamp":50},
+		{"beamDeform":4500,"beamStrength":"FLT_MAX"},
+		["hd1","hd1r"],
+		["hd1","hd1l"],
+		["hd1","hd2r"],
+		["hd1","hd2l"],
+		["hd1","hd3r"],
+		["hd1","hd3l"],
+		{"beamDeform":21500,"beamStrength":"FLT_MAX"},
+		["hd1","hd4r"],
+		["hd1","hd4l"],
+		["hd1","hd5r"],
+		["hd1","hd5l"],
+		//hinge
+		{"beamSpring":751000,"beamDamp":65},
+		{"beamDeform":8500,"beamStrength":87500},
+		{"breakGroup":"hooddetach"},
+		{"breakGroupType":0},
+		["hd1r", "a84"],
+		["hd1r", "a53"],
+		["hd1r", "a88"],
+		//*
+		["hd1l", "a87"],
+		["hd1l", "a54"],
+		["hd1l", "a91"],
+		//hood strut
+		{"beamSpring":25500,"beamDamp":80},
+		{"beamDeform":1500,"beamStrength":6500},
+		{"breakGroupType":1},
+		["hd3r", "a88"],
+		["hd3l", "a91"],
+		["hd5r", "a80"],
+		["hd5l", "a83"],
+		{"breakGroup":""},
+		{"breakGroupType":0},
+		//limiters
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":6},
+        {"beamSpring":1201000,"beamDamp":100},
+        {"beamDeform":10000,"beamStrength":115000},
+		["hd5r", "a25"],
+		["hd5l", "a26"],
+		["hd4r", "br1r"],
+		["hd4l", "br1l"],
+		["hd3r", "br1r"],
+		["hd3l", "br1l"],
+		["hd3r", "a25"],
+		["hd3l", "a26"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Hood--
+		//hood
+		{"dragCoef":8},
+		{"liftCoef":5,"stallAngle":0}
+		["hd1r", "hd4r", "hd2r"],
+		["hd1r", "hd3r", "hd4r"],
+		["hd2r", "hd4r", "hd2l"],
+		["hd3r", "hd5r", "hd4r"],
+		["hd4r", "hd5r", "hd4l"],
+		//*
+		["hd1l", "hd2l", "hd4l"],
+		["hd1l", "hd4l", "hd3l"],
+		["hd2l", "hd4r", "hd4l"],
+		["hd3l", "hd4l", "hd5l"],
+		["hd4l", "hd5r", "hd5l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+}, 
+"Astral_rallylight": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally Light",
+        "value":1000
+    },
+	"slotType" : "Astral_rallylight",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_rallylight", ["Astral_rlight"]]
+    ],
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//rally light
+		{
+            "lightInnerAngle":40,
+            "lightOuterAngle":70,
+            "lightColor":{"r":235, "g":235, "b":255, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+		//highbeam
+		["highbeam", "SPOTLIGHT", "rly1l", "rly2l", "rly1", { "x":15, "y":55, "z":180 }, { "x":0, "y":0, "z":0 }, { "x":0, "y":0, "z":0 }, 0, 0, 0, 1, {"baseTranslation":{"x":0, "y":0.5, "z":-0.05}, "lightRange":120,"lightBrightness":1.2,"flareScale":0.05,"deformGroup":"rallylight_break"}],
+		//highbeam
+		["highbeam", "SPOTLIGHT", "rly1r", "rly2r", "rly1", { "x":15, "y":55, "z":0 },   { "x":0, "y":0, "z":0 }, { "x":0, "y":0, "z":0 }, 0, 0, 0, 1, {"baseTranslation":{"x":0, "y":0.5, "z":0.05}, "lightRange":120,"lightBrightness":1.2,"flareScale":0.05,"deformGroup":"rallylight_break"}]
+	],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_PLASTIC"},
+		//--Rally Light--
+		//ref nodes
+		{"nodeWeight":1.25},
+		{"group":["Astral_rlight"]},
+		["rly1", 0, -2.0, 0.705],
+		["rly1r", -0.27, -2.0, 0.705],
+		["rly1l",  0.27, -2.0, 0.705],
+		["rly2r", -0.27, -2.0, 0.835],
+		["rly2l",  0.27, -2.0, 0.835],
+		{"group":[""]}
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rally Light--
+		//light shape
+		{"beamSpring":451000,"beamDamp":80},
+		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
+		["rly1r", "rly1"],
+		["rly1", "rly1l"],
+		["rly2r", "rly2l"],
+		["rly1r", "rly2r"],
+		["rly1l", "rly2l"],
+		//crossing
+		{"beamDeform":5500},
+		["rly1r", "rly2l"],
+		["rly1l", "rly2r"],
+		["rly2r", "rly1"],
+		["rly2l", "rly1"],
+		//rigids
+		{"beamDeform":3800},
+		["rly1r", "rly1l"],
+		//connect to hood
+		{"beamSpring":651000,"beamDamp":50},
+		{"beamDeform":4500,"beamStrength":22500},
+		{"breakGroup":"rlr"},
+		["rly2r", "hd2r"],
+		["rly2r", "hd2l"],
+		["rly2r", "hd4r"],
+		["rly2r", "hd4l"],
+		["rly1r", "hd5r"],
+		["rly1r", "hd5l"],
+		["rly1r", "hd4r"],
+		["rly1r", "hd4l"],
+		["rly1r", "hd3r"],
+		["rly1r", "hd3l"],
+		["rly1", "hd5r"],
+		["rly1", "hd4r"],
+		["rly1", "hd1r"],
+		//*
+		{"breakGroup":"rll"},
+		["rly2l", "hd2l"],
+		["rly2l", "hd2r"],
+		["rly2l", "hd4l"],
+		["rly2l", "hd4r"],
+		["rly1l", "hd5l"],
+		["rly1l", "hd5r"],
+		["rly1l", "hd4l"],
+		["rly1l", "hd4r"],
+		["rly1l", "hd3l"],
+		["rly1l", "hd3r"],
+		["rly1", "hd5l"],
+		["rly1", "hd4l"],
+		["rly1", "hd1l"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Rallylight--
+		{"dragCoef":5},
+		{"liftCoef":0,"stallAngle":0}
+		["rly1r", "rly2l", "rly2r"],
+		["rly1r", "rly1l", "rly2l"],
+		["rly1r", "rly2r", "hd4r"],
+		["rly1l", "hd4l", "rly2l"],
+		["rly2r", "hd4l", "hd4r"],
+		["rly2r", "rly2l", "hd4l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+}
+}
