@@ -12,13 +12,13 @@ This repo contains engine sound files, all Jbeam files, and Lua files. i will cr
 ## How to make it your mode?
 I'm not very familiar with Github, but I know Github can't store empty folders, so maybe it's not the best idea to upload everything because there are lot's of empty folders. However you can build yourself, manually download files and the folder structure should look like this:
 
-**Materials: BeamNG Userdata\(version)\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\files**
+**Materials: BeamNG Userdata\version\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\files**
 
-**Jbeam: BeamNG Userdata\(version)\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\(body and engine)\files**
+**Jbeam: BeamNG Userdata\version\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\body and engine\files**
 
-**Lua: BeamNG Userdata\(version)\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\(Lua)\files**
+**Lua: BeamNG Userdata\version\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\Lua\files**
 
-**Engine Sound: BeamNG Userdata\(version)\mods\unpacked\un1corn_qlourie_astral_r\art\sound\(blends and engine and shift)\files**
+**Engine Sound: BeamNG Userdata\version\mods\unpacked\un1corn_qlourie_astral_r\art\sound\blends and engine and shift\files**
 
 # Things to Remind
 I have a main work and it's quite busy, so I can't take my time fully on this project. As experimenting and testing Jbeam properties are quite heavy work, there are some imperfections. Also, I've found it's not worth to dig deeper with Automation model as there are tons of hassle with opacity map and mesh overlap, this mod will be at where it is. I'm not planning to make the model more detailed or get Jbeam revamped.
