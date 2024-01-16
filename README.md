@@ -34,6 +34,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 ## Suspension
 - Front and rear MacPherson Strut suspension
 - Reinforced front and rear subframe for stronger rigidity
+- Extra long suspension arms for better FVSA length, optimized FVSA for less camber change
 - Calculated suspension geometry for optimal performance, minimized bump steer and toe steer
 - 540 degree steering wheel
 - 8:1 quick steering ratio with maximum wheel angle of 33 degree
@@ -42,6 +43,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - 800mm gravel damper length, 600mm tarmac damper length
+- Independently modelled mesh with flexbody help to enhances animations
 - over 320mm of travel on gravel damper
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
 - 32 levels of HS and LS bump, 32 levels of rebound, 16 levels or hydraulic bump stop adjustment
@@ -59,4 +61,15 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Two layer WRC style rear wing with winglet attached
 - Rear wing endplate aerodynamics for better control when sliding
 - Total about 400kg of downforce at 200km/h
+## Misc
+- 25KG ballast for center of gravity adjustment
+- Driver weight included in racing seat part
+- Spare wheel selection for weight accuracy
+- Troll driver's model, hands moving with steering wheel LOL
 
+# Existing Problems (that is mostly not going to be fixed)
+- Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
+- All colors and materials are none adjustable, the color theme is fixed. (You can manually adjust in Material Editor though, but it's not RGB image so no simple way to change color)
+- Due to the way Automation exports (when I exported), all decals and skins are actual models instead of decal image. This means the skin and decal will sometimes clip through car model. Also, it will take more space to load
+- The opacity maps is not high resolution enough so there are jagged edges around the place where opacity map applies
+- Meshes are still Automation level so it may not be compatible to a full fledged mod
