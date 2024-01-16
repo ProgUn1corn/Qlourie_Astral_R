@@ -13,9 +13,11 @@ This mod is inspired by the World Rally Championship (WRC). While the vanilla ga
 
 # How to Use This Repo
 ## What's in this repo?
-This repo contains engine sound files, all Jbeam files, and Lua files. i will create engine sound with FMOD, update Jbeam files when something is refined, and start to write lua codes for active center differential, launch control and potentially new detection method for LRS.
+This repo contains engine sound files, all Jbeam files, and Lua files. I will create engine sound with FMOD, update Jbeam files when something is refined, and start to write lua codes for active center differential, launch control and potentially new detection method for LRS.
 ## How to make it your mod?
-I'm not very familiar with Github, but I know Github can't store empty folders, so maybe it's not the best idea to upload everything because there are lot's of empty folders. However you can build yourself, manually download files and the folder structure should look like this:
+I'm not very familiar with Github, but I know Github can't store empty folders, so maybe it's not the best idea to upload everything because there are lot's of empty folders. The reason I'm using Github is tracking of Jbeam edits and Lua writing. 
+
+However you can build yourself, manually download files and the folder structure should look like this:
 
 **Materials: BeamNG Userdata\version\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\files**
 
