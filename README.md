@@ -67,7 +67,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - over 320mm of travel on gravel damper
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
 - 32 levels of HS and LS bump, 32 levels of rebound, 16 levels or hydraulic bump stop adjustment
-- Bump velocity threshold is in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
+- Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
 - Progressive damping with increased damping during fast bump events, enhancing absorption of significant impacts in rallying
 - LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel (**need refinement**)
 - Spring rates:
