@@ -107,3 +107,4 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Due to the way Automation exports (when I exported), all decals and skins are actual models instead of decal image. This means the skin and decal will sometimes clip through car model. Also, it will take more space to load
 - The opacity maps are not high resolution enough so there are jagged edges around the place where opacity map applies
 - Meshes are still Automation level so it may not be compatible to a full fledged mod
+- Flexbody animations are not perfect, especially around engine and transmission, it just works but it's not accurate
