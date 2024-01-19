@@ -161,7 +161,7 @@
         //--Steering Rack--
         //steering box
         {"beamSpring":6501000,"beamDamp":180},
-        {"beamDeform":75000,"beamStrength":"FLT_MAX"},
+        {"beamDeform":65000,"beamStrength":"FLT_MAX"},
         ["st1r","st1l"],
         //mounting to subframe
         {"beamSpring":4501000,"beamDamp":180},
@@ -434,7 +434,7 @@
         //--Hub and Wheel--
         //hub form
         {"beamSpring":8001000,"beamDamp":150},
-        {"beamDeform":85000,"beamStrength":350000},
+        {"beamDeform":85000,"beamStrength":"FLT_MAX"},
         ["fh1r","fh3r"],
         ["fh2r","fh1r"],
         ["fh2r","fh3r"],
@@ -452,7 +452,7 @@
         ["fh2l","fh5l"],
         //damper flexbody help
         {"beamSpring":251000,"beamDamp":125},
-        {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+        {"beamDeform":"FLT_MAX"},
         ["fh4l","fh1l"],
         ["fh4r","fh1r"],
         ["fh4l","fh3l"],
@@ -463,7 +463,7 @@
         ["fh4r","fh5r"],
         //hub to wheel axle nodes
         {"beamSpring":8501000,"beamDamp":180},
-        {"beamDeform":95000,"beamStrength":350000},
+        {"beamDeform":85000,"beamStrength":350000},
         {"breakGroup":"wheel_FR"},
         {"optional":true},
         ["fh1r","fw1r", {"name":"axle_FR"}],
@@ -788,7 +788,7 @@
         //--Hub and Wheel--
         //hub form
         {"beamSpring":8001000,"beamDamp":150},
-        {"beamDeform":90000,"beamStrength":350000},
+        {"beamDeform":85000,"beamStrength":"FLT_MAX"},
         ["fh1r","fh3r"],
         ["fh2r","fh1r"],
         ["fh2r","fh3r"],
@@ -806,7 +806,7 @@
         ["fh2l","fh5l"],
         //damper flexbody help
         {"beamSpring":251000,"beamDamp":125},
-        {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+        {"beamDeform":"FLT_MAX"},
         ["fh4l","fh1l"],
         ["fh4r","fh1r"],
         ["fh4l","fh3l"],
@@ -817,7 +817,7 @@
         ["fh4r","fh5r"],
         //hub to wheel axle nodes
         {"beamSpring":8501000,"beamDamp":180},
-        {"beamDeform":95000,"beamStrength":350000},
+        {"beamDeform":85000,"beamStrength":350000},
         {"breakGroup":"wheel_FR"},
         {"optional":true},
         ["fh1r","fw1r", {"name":"axle_FR"}],
@@ -935,7 +935,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.38+($dampRate_bump_F_fast-4500)/48000-($dampRate_bump_F-1100)/36000,0.35,0.45)",
+            "beamDampVelocitySplit":"$=clamp(0.38+($dampRate_bump_F_fast-4500)/48000-($dampRate_bump_F-1100)/36000,0.35,0.50)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
             "beamDampVelocitySplitRebound":0.24
@@ -948,7 +948,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.38+($dampRate_bump_F_fast-4500)/48000-($dampRate_bump_F-1100)/36000,0.35,0.45)",
+            "beamDampVelocitySplit":"$=clamp(0.38+($dampRate_bump_F_fast-4500)/48000-($dampRate_bump_F-1100)/36000,0.35,0.50)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
             "beamDampVelocitySplitRebound":0.24
