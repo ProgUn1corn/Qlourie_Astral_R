@@ -1,208 +1,15 @@
 {
-"Astral_strut_R": {
+"Astral_group_R_Rally2_tarmac": {
     "information":{
         "authors":"Un1corn",
-        "name":"MacPherson Rear Suspension",
-        "value":6400
-    },
-    "slotType" : "Astral_suspension_R",
-    "slots": [
-        ["type", "default", "description"],
-        ["Astral_group_R","Astral_group_R_BRC_tarmac", "Rear Strut Group"],
-        ["Astral_swaybar_R","Astral_swaybar_R_race", "Rear ARB"],
-        ["Astral_subframe_R","Astral_subframe_R", "Rear Subframe", {"coreSlot":true}],
-        ["Astral_guard_R","Astral_guard_R_tarmac", "Rear Under Guard"]
-    ],
-},
-"Astral_subframe_R": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rear Subframe",
-        "value":1000
-    },
-    "slotType" : "Astral_subframe_R",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_subframe_R", ["Astral_sub_R"]],
-        ["Astral_subframe_mount_R", ["Astral_sub_R"]]
-    ],
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$platRear", "range", "+m", "Suspension", 0, -0.15, 0.15, "Rear Strut Platform Height", "Adjust Rear Platform Height", {"stepDis":0.001,"subCategory":"Alignment"}],
-        ["$toe_R", "range", "", "Suspension", 1, 0.98, 1.02, "Rear Toe Adjust", "Adjusts the wheel toe-in angle",{"subCategory":"Alignment"}],
-        ["$trackOffset_R", "range", "+m", "Suspension", 0, -0.3, 0.3, "Rear Track Offset", "Spacing of rear wheels", {"stepDis":0.001,"subCategory":"Alignment"}],
-        ["$CamberRear", "range", "", "Suspension", 1, 0.9, 1.09, "Rear Camber Offset", "Adjust camber offset", {"stepDis":0.001,"subCategory":"Alignment","minDis":90,"maxDis":109}]
-    ],
-    "nodes": [
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
-        //--Subframe--
-        //running gear
-        {"nodeWeight":6},
-        {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rod_R"]},
-        ["rx1r", -0.215, 1.03, "$=$platRear+0.115"],
-        ["rx1l",  0.215, 1.03, "$=$platRear+0.115"],
-        ["rx2r", -0.215, 1.35, "$=$platRear+0.115"],
-        ["rx2l",  0.215, 1.35, "$=$platRear+0.115"],
-        //mounting points
-        {"nodeWeight":2.5},
-        {"group":["Astral_sub_R"]},
-        ["rx3r", -0.378, 0.994, 0.369],
-        ["rx3l",  0.378, 0.994, 0.369],
-        ["rx4r", -0.353, 1.386, 0.375],
-        ["rx4l",  0.353, 1.386, 0.375],
-        //rigidifier
-        {"collision":false},
-        {"nodeWeight":3},
-        {"group":[""]},
-        ["rx1", 0, 1, 0.55],
-        {"collision":true},
-        {"selfCollision":true},
-    ],  
-    "beams": [
-        ["id1:", "id2:"],
-        //--Subframe--
-        //running gear
-        {"beamSpring":8501000,"beamDamp":180},
-        {"beamDeform":65000,"beamStrength":"FLT_MAX"},
-        ["rx1r", "rx2r"],
-        ["rx2r", "rx2l"],
-        ["rx2l", "rx1l"],
-        ["rx1l", "rx1r"],
-        //mounting points
-        {"beamSpring":2001000,"beamDamp":150},
-        {"beamDeform":35000,"beamStrength":"FLT_MAX"},
-        ["rx3r", "rx3l"],
-        ["rx4r", "rx4l"],
-        ["rx3r", "rx4r"],
-        ["rx3l", "rx4l"],
-        ["rx3l", "rx1l"],
-        ["rx3r", "rx1r"],
-        ["rx4l", "rx2l"],
-        ["rx4r", "rx2r"],
-        //crossing
-        {"beamSpring":6001500,"beamDamp":150},
-        {"beamDeform":45000,"beamStrength":"FLT_MAX"},
-        ["rx1r", "rx2l"],
-        ["rx1l", "rx2r"],
-        {"beamSpring":2001000,"beamStrength":"FLT_MAX"},
-        ["rx4l", "rx3r"],
-        ["rx4r", "rx3l"],
-        ["rx4l", "rx2r"],
-        ["rx2l", "rx4r"],
-        ["rx3l", "rx1r"],
-        ["rx1l", "rx3r"],
-        ["rx2r", "rx3r"],
-        ["rx1r", "rx4r"],
-        ["rx2l", "rx3l"],
-        ["rx4l", "rx1l"],
-        //rigids
-        {"beamSpring":2001000,"beamDamp":100},
-        {"beamDeform":10000,"beamStrength":"FLT_MAX"},
-        ["rx2l", "rx3r"],
-        ["rx2r", "rx3l"],
-        ["rx1l", "rx4r"],
-        ["rx1r", "rx4l"],
-        //rigidifier
-        {"beamSpring":1501000,"beamDamp":150},
-        {"beamDeform":20000,"beamStrength":"FLT_MAX"},
-        ["rx1", "rx1l"],
-        ["rx1", "rx2l"],
-        ["rx1", "rx1r"],
-        ["rx1", "rx2r"],
-        ["rx1", "rx3l"],
-        ["rx1", "rx3r"],
-        ["rx1", "rx4l"],
-        ["rx1", "rx4r"],
-        //attach to body
-        {"beamSpring":2501000,"beamDamp":150},
-        ["rx3r", "chsr"],
-        ["rx3r", "a41"],
-        ["rx3r", "a42"],
-        ["rx3r", "a37"],
-        ["rx3r", "chs1r"],
-        ["rx4r", "a37"],
-        ["rx4r", "a38"],
-        ["rx4r", "a5"],
-        ["rx4r", "a9"],
-        ["rx4r", "chs2r"],
-        ["rx1r", "a9"],
-        ["rx1r", "a10"],
-        ["rx1r", "a42"],
-        ["rx1r", "a41"],
-        ["rx2r", "a38"],
-        ["rx2r", "a37"],
-        //*
-        ["rx3l", "chsr"],
-        ["rx3l", "a42"],
-        ["rx3l", "a41"],
-        ["rx3l", "a38"],
-        ["rx3l", "chs1l"],
-        ["rx4l", "a38"],
-        ["rx4l", "a37"],
-        ["rx4l", "a6"],
-        ["rx4l", "a10"],
-        ["rx4l", "chs2l"],
-        ["rx1l", "a10"],
-        ["rx1l", "a9"],
-        ["rx1l", "a41"],
-        ["rx1l", "a42"],
-        ["rx2l", "a37"],
-        ["rx2l", "a38"],
-
-        //--Limiters--
-        //subframe limiter
-        {"beamPrecompression":0.95, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":4001000,"beamDamp":100},
-        {"beamDeform":15000,"beamStrength":80000},
-        {"deformLimitExpansion":""},
-        ["rx3r", "a9"],
-        ["rx3r", "a41"],
-        ["rx3r", "a13"],
-        ["rx3r", "chs1r"],
-        ["rx4r", "a37"],
-        ["rx4r", "chs1r"],
-        ["rx1r", "a41"],
-        ["rx2r", "chs1r"],
-        //*
-        ["rx3l", "a10"],
-        ["rx3l", "a41"],
-        ["rx3l", "a14"],
-        ["rx3l", "chs1l"],
-        ["rx4l", "a38"],
-        ["rx4l", "chs1l"],
-        ["rx1l", "a42"],
-        ["rx2l", "chs1l"],
-        {"beamPrecompression":1},
-        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":false,"beamLimitDamp":false},
-        {"beamPrecompression":1},
-        {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0}
-    ],
-    "triangles": [
-        ["id1:", "id2:", "id3:"],
-        {"groundModel":"metal"},
-        {"dragCoef":0},
-        {"triangleType":"NORMALTYPE"},
-        //cross member
-        ["rx1r", "rx2r", "rx1l"],
-        ["rx1l", "rx2r", "rx2l"]
-    ]
-},
-"Astral_group_R_BRC_tarmac": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rear BRC Tarmac Strut Group",
+        "name":"Rally2 Tarmac Strut Group",
         "value":3200,
     },
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_BRC","Hub", {"nodeOffset":{"x":"$=0.34+$trackOffset_R", "y":1.28, "z":0.155}}],
-        ["Astral_brake_R","Astral_brake_R_BRC_tarmac", "Brake", {"nodeOffset":{"x":0, "y":1.28, "z":0.155}}],
+        ["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.32+$trackOffset_R", "y":1.28, "z":0.155}}],
+        ["Astral_brake_R","Astral_brake_R_Rally2_gravel", "Brake", {"nodeOffset":{"x":0, "y":1.28, "z":0.155}}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_differential_R", "Astral_differential_R_race", "Rear Differential", {"coreSlot":true}]
     ],
@@ -568,17 +375,17 @@
         {"brakeVentingCoef":false}
     ]
 },
-"Astral_group_R_BRC_gravel": {
+"Astral_group_R_Rally2_gravel": {
     "information":{
         "authors":"Un1corn",
-        "name":"Rear BRC Gravel Strut Group",
+        "name":"Rally2 Gravel Strut Group",
         "value":3200,
     },
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_R_BRC","Hub", {"nodeOffset":{"x":"$=0.295+$trackOffset_R", "y":1.28, "z":0}}],
-        ["Astral_brake_R","Astral_brake_R_BRC_gravel", "Brake", {"nodeOffset":{"x":0, "y":1.28, "z":0}}],
+        ["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.282+$trackOffset_R", "y":1.28, "z":0}}],
+        ["Astral_brake_R","Astral_brake_R_Rally2_gravel", "Brake", {"nodeOffset":{"x":0, "y":1.28, "z":0}}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_differential_R", "Astral_differential_R_race", "Rear Differential", {"coreSlot":true}]
     ],
@@ -699,8 +506,8 @@
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":10,"beamDeform":35000,"beamStrength":250000},
         {"beamLimitSpring":1501000,"beamLimitDamp":1000},
-        ["rh1r","rs1r", {"longBoundRange":0,"shortBoundRange":0.36,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
-        ["rh1l","rs1l", {"longBoundRange":0,"shortBoundRange":0.36,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
+        ["rh1r","rs1r", {"longBoundRange":0,"shortBoundRange":0.28,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
+        ["rh1l","rs1l", {"longBoundRange":0,"shortBoundRange":0.28,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
@@ -943,101 +750,6 @@
         {"brakeType":false},
         {"rotorMaterial":false},
         {"brakeVentingCoef":false}
-    ]
-},
-"Astral_wheeldata_R": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rear Spindles",
-        "value":10
-    },
-    "slotType" : "Astral_wheeldata_R",
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        //some wheel properties
-        {"selfCollision":false},
-        {"collision":true},
-        {"hubcapBreakGroup":"hubcap_RR"},
-        {"hubcapGroup":"hubcap_RR"},
-        {"axleBeams":["axle_RR"]},
-        //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
-        {"hubcapBreakGroup":"hubcap_RL"},
-        {"hubcapGroup":"hubcap_RL"},
-        {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx1r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
-        //cancel out a bunch of properties before future wheel parts are loaded
-        {"selfCollision":true},
-        {"axleBeams":[]},
-        {"disableMeshBreaking":false,"disableTriangleBreaking":false},
-        {"hubcapBreakGroup":""},
-        {"hubcapGroup":""},
-        {"enableHubcaps":false}
-    ],
-    "powertrain" : [
-        ["type", "name", "inputName", "inputIndex"],
-        ["shaft", "spindleRL", "halfshaftRL", 1, {"connectedWheel":"RL","breakTriggerBeam":"axle_RL","uiName":"Rear Left Axle", "friction":1.35, "dynamicFriction":0.003}],
-        ["shaft", "spindleRR", "halfshaftRR", 1, {"connectedWheel":"RR","breakTriggerBeam":"axle_RR","uiName":"Rear Right Axle", "friction":1.35, "dynamicFriction":0.003}]
-    ]
-},
-"Astral_swaybar_R_race": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rear Anti-Roll Bar",
-        "value":2000
-    },
-    "slotType" : "Astral_swaybar_R",
-    "torsionbars": [
-        ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":"$=$swayBarStiffness_R*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
-        ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
-    ],
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_ARB_R", ["Astral_arb_R"]]
-    ],
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$swayBarStiffness_R", "range", "N/m", "Suspension", 8500, 0, 55000, "Anti-roll Bar Stiffness", "Stiffness of the anti-roll bar", {"stepDis":500,"subCategory":"Rear Suspension"}]
-    ],
-    "nodes": [
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
-        //--ARB--
-        //arb
-        {"group":["Astral_arb_R","Astral_arm_R"]},
-        {"nodeWeight":2},
-        ["rarb1r", -0.503, 1.357, 0.183],
-        ["rarb1l",  0.503, 1.357, 0.183],
-        ["rarb2r", -0.503, 1.538, 0.305],
-        ["rarb2l",  0.503, 1.538, 0.305],
-        {"group":[""]}
-    ], 
-    "beams": [
-        ["id1:", "id2:"],
-        //--Anti-Roll Bar--
-        //bar lever
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":2501000,"beamDamp":100},
-        {"beamDeform":15000,"beamStrength":312000},
-        ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r"],
-        ["rarb1r", "rarb3r"],
-        ["rarb2r", "a37"],
-        ["rarb2r", "a41"],
-        ["rarb2r", "chs1r"],
-        ["rarb2r", "a38"],
-        //*
-        ["rarb1l", "rarb3l"],
-        ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l"],
-        ["rarb2l", "a38"],
-        ["rarb2l", "a42"],
-        ["rarb2l", "chs1l"],
-        ["rarb2l", "a37"]
     ]
 }
 }
