@@ -127,7 +127,265 @@
         {"brakeVentingCoef":false}
     ]
 }, 
+"Astral_wheels_F_tarmac_Rally2":{
+    "information":{
+        "authors":"Un1corn",
+        "name":"235/40R18 Tarmac Front Wheels",
+    },
+    "slotType" : "Astral_wheels_F_BRC",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_tyre_f4", ["tire_FL", "wheel_FL"], [], {"pos":{"x": 0.465, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_tyre_f4", ["tire_FR", "wheel_FR"], [], {"pos":{"x":-0.465, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_wheel_f4", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.46, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_wheel_f4", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.46, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
+     ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+	    //--Front Axle--
+        {"nodeWeight":5.0},
+        {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
+		["fw1r", -0.235, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+		["fw1ll", 0.585, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
+		["fw1l",  0.235, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
+		["fw1rr",-0.585, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
+    ],
+	"beams": [   
+        ["id1:", "id2:"], 
+        {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"breakGroup":""},
+        {"beamDeform":78500,"beamStrength":434000},
+        {"beamSpring":1501000,"beamDamp":25},
+        ["fw1ll", "fw1l"],
+        ["fw1rr", "fw1r"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0}
+	],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$frontPSI", "range", "PSI", "Tyres", 29, 5, 45, "Front Tyre Pressure", "Initial Tyre Pressure", {"stepDis":0.5}]
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+        {"hasTire":true},
+        {"enableTireReinfBeams":false},
+        {"enableTireLbeams":true},
+        {"enableTireSideReinfBeams":false},
+        {"enableTreadReinfBeams":true},
+        {"enableTirePeripheryReinfBeams":true},
+        {"triangleCollision":false},
+
+        //general settings
+        {"radius":0.325},
+        {"hubRadius":0.23},
+        {"wheelOffset":-0.055},
+        {"hubWidth":0.225},
+        {"tireWidth":0.210},
+        {"numRays":16},
+
+        //hub options
+        {"hubTreadBeamSpring":800900, "hubTreadBeamDamp":10},
+        {"hubPeripheryBeamSpring":805000, "hubPeripheryBeamDamp":10},
+        {"hubSideBeamSpring":1401000, "hubSideBeamDamp":10},
+        {"hubNodeWeight":0.45},
+        {"hubNodeMaterial":"|NM_METAL"},
+        {"hubFrictionCoef":0.5},
+
+        //tire options
+        {"wheelSideBeamSpring":"$=$frontPSI*700","wheelSideBeamDamp":30},
+        {"wheelSideBeamSpringExpansion":301000,"wheelSideBeamDampExpansion":60},
+        {"wheelSideTransitionZone":0.06,"wheelSideBeamPrecompression":0.99},
+
+        {"wheelReinfBeamSpring":41000,"wheelReinfBeamDamp":200},
+        {"wheelReinfBeamDampCutoffHz":500,"wheelReinfBeamPrecompression":0.99},
+
+        {"wheelTreadBeamSpring":161000,"wheelTreadBeamDamp":60},
+        {"wheelTreadBeamDampCutoffHz":500,"wheelTreadBeamPrecompression":0.99},
+
+        {"wheelTreadReinfBeamSpring":80000,"wheelTreadReinfBeamDamp":60},
+        {"wheelTreadReinfBeamDampCutoffHz":500,"wheelTreadReinfBeamPrecompression":0.99},
+
+        {"wheelPeripheryBeamSpring":155000,"wheelPeripheryBeamDamp":60},
+        {"wheelPeripheryBeamDampCutoffHz":500,"wheelPeripheryBeamPrecompression":0.99},
+
+        {"wheelPeripheryReinfBeamSpring":155000,"wheelPeripheryReinfBeamDamp":60},
+        {"wheelPeripheryReinfBeamDampCutoffHz":500,"wheelPeripheryReinfBeamPrecompression":0.99},
+
+        //general tire values
+        {"nodeWeight":0.17},
+        {"nodeMaterial":"|NM_RUBBER"},
+        {"pressurePSI":"$frontPSI"},
+        {"dragCoef":5},
+
+        //groundmodel friction multipliers
+        {"frictionCoef":1},
+        {"slidingFrictionCoef":1.02},
+        {"treadCoef":0.22},
+        {"stribeckExponent":1.52},
+        {"stribeckVelMult":1},
+
+        //advanced friction values
+        {"noLoadCoef":1.95},
+        {"loadSensitivitySlope":0.00028},
+        {"fullLoadCoef":0.58},
+        {"softnessCoef":1},
+        
+        //deform values
+        {"hubBeamDeform":85000, "hubBeamStrength":125000},
+
+        {"wheelSideBeamDeform":38200,"wheelSideBeamStrength":55000},
+        {"wheelReinfBeamDeform":101000,"wheelReinfBeamStrength":155000},
+        {"wheelTreadBeamDeform":25100,"wheelTreadBeamStrength":40505},
+        {"wheelTreadReinfBeamDeform":25100,"wheelTreadReinfBeamStrength":40505},
+        {"wheelPeripheryBeamDeform":50405,"wheelPeripheryBeamStrength":60405},
+
+        //cancel out brake properties before future wheel parts are loaded
+        {"brakeTorque":0},
+        {"parkingTorque":0},
+        {"enableBrakeThermals":false},
+        {"brakeDiameter":false},
+        {"brakeMass":false},
+        {"brakeType":false},
+        {"rotorMaterial":false},
+        {"brakeVentingCoef":false}
+    ]
+}, 
 "Astral_wheels_F_gravel_BRC":{
+    "information":{
+        "authors":"Un1corn",
+        "name":"205/65R15 Gravel Front Wheels",
+    },
+    "slotType" : "Astral_wheels_F_BRC",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_tyre_f3", ["tire_FL", "wheel_FL"], [], {"pos":{"x": 0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_tyre_f3", ["tire_FR", "wheel_FR"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_wheel_f3", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_wheel_f3", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
+     ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+	    //--Front Axle--
+        {"nodeWeight":5.0},
+        {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
+		["fw1r", -0.31, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+		["fw1ll", 0.57, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
+		["fw1l",  0.31, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
+		["fw1rr",-0.57, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
+    ],
+	"beams": [   
+        ["id1:", "id2:"], 
+        {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"breakGroup":""},
+        {"beamDeform":78500,"beamStrength":434000},
+        {"beamSpring":1501000,"beamDamp":25},
+        ["fw1ll", "fw1l"],
+        ["fw1rr", "fw1r"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0}
+	],
+    
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$frontPSI", "range", "PSI", "Tyres", 29, 5, 45, "Front Tyre Pressure", "Initial Tyre Pressure", {"stepDis":0.5}]
+    ],
+	
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+        {"hasTire":true},
+        {"enableTireReinfBeams":false},
+        {"enableTireLbeams":true},
+        {"enableTireSideReinfBeams":false},
+        {"enableTreadReinfBeams":true},
+        {"enableTirePeripheryReinfBeams":true},
+        {"triangleCollision":false},
+
+        //general settings
+        {"radius":0.324},
+        {"hubRadius":0.190},
+        {"wheelOffset":-0.04},
+        {"hubWidth":0.205},
+        {"tireWidth":0.195},
+        {"numRays":16},
+
+        //hub options
+        {"hubTreadBeamSpring":950900, "hubTreadBeamDamp":8},
+        {"hubPeripheryBeamSpring":925000, "hubPeripheryBeamDamp":8},
+        {"hubSideBeamSpring":1651000, "hubSideBeamDamp":8},
+        {"hubNodeWeight":0.53},
+        {"hubNodeMaterial":"|NM_METAL"},
+        {"hubFrictionCoef":0.5},
+
+        //tire options
+        {"wheelSideBeamSpring":"$=$frontPSI*800","wheelSideBeamDamp":50},
+        {"wheelSideBeamSpringExpansion":401000,"wheelSideBeamDampExpansion":50},
+        {"wheelSideTransitionZone":0.08,"wheelSideBeamPrecompression":1},
+
+        {"wheelReinfBeamSpring":65000,"wheelReinfBeamDamp":200},
+        {"wheelReinfBeamDampCutoffHz":500,"wheelReinfBeamPrecompression":1},
+
+        {"wheelTreadBeamSpring":251000,"wheelTreadBeamDamp":60},
+        {"wheelTreadBeamDampCutoffHz":500,"wheelTreadBeamPrecompression":1},
+
+        {"wheelTreadReinfBeamSpring":101500,"wheelTreadReinfBeamDamp":60},
+        {"wheelTreadReinfBeamDampCutoffHz":500,"wheelTreadReinfBeamPrecompression":0.9},
+
+        {"wheelPeripheryBeamSpring":181000,"wheelPeripheryBeamDamp":65},
+        {"wheelPeripheryBeamDampCutoffHz":500,"wheelPeripheryBeamPrecompression":1},
+
+        {"wheelPeripheryReinfBeamSpring":181000,"wheelPeripheryReinfBeamDamp":45},
+        {"wheelPeripheryReinfBeamDampCutoffHz":500,"wheelPeripheryReinfBeamPrecompression":1},
+
+        //general tire values
+        {"nodeWeight":0.24},
+        {"nodeMaterial":"|NM_RUBBER"},
+        {"triangleCollision":false},
+        {"pressurePSI":"$frontPSI"},
+        {"dragCoef":5},
+
+        //groundmodel friction multipliers
+        {"frictionCoef":1},
+        {"slidingFrictionCoef":1.15},
+        {"stribeckExponent":1.6},
+        {"treadCoef":0.80},
+
+        //advanced friction values
+        {"noLoadCoef":1.2},
+        {"loadSensitivitySlope":0.00007},
+        {"fullLoadCoef":0.55},
+        {"softnessCoef":0.98},
+        
+        //deform values
+        {"hubBeamDeform":85000, "hubBeamStrength":125000},
+
+        {"wheelSideBeamDeform":38200,"wheelSideBeamStrength":55000},
+        {"wheelReinfBeamDeform":101000,"wheelReinfBeamStrength":155000},
+        {"wheelTreadBeamDeform":25100,"wheelTreadBeamStrength":40505},
+        {"wheelTreadReinfBeamDeform":25100,"wheelTreadReinfBeamStrength":40505},
+        {"wheelPeripheryBeamDeform":50405,"wheelPeripheryBeamStrength":60405},
+
+        //cancel out brake properties before future wheel parts are loaded
+        {"brakeTorque":0},
+        {"parkingTorque":0},
+        {"enableBrakeThermals":false},
+        {"brakeDiameter":false},
+        {"brakeMass":false},
+        {"brakeType":false},
+        {"rotorMaterial":false},
+        {"brakeVentingCoef":false}
+    ]
+},
+"Astral_wheels_F_gravel_Rally2":{
     "information":{
         "authors":"Un1corn",
         "name":"205/65R15 Gravel Front Wheels",
