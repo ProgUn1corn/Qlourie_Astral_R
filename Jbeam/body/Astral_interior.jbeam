@@ -12,8 +12,9 @@
 		["Astral_pedal", "Astral_pedal", "Pedal"],
 		["Astral_copilot", "Astral_copilot", "Co-Pilot Gauge"],
 		["Astral_handbrake", "Astral_handbrake", "Handbrake"],
-		["Astral_strwheel", "Astral_strwheel", "Steering Wheel",{"coreSlot":true}],
-		["Astral_shiftlight", "Astral_shiftlight", "Shift Light"],
+		["Astral_strwheel", "Astral_strwheel", "Steering Wheel"],
+		["Astral_shifter", "Astral_shifter_paddle", "Shifter"],
+		["Astral_shiftlight", "Astral_shiftlight_BRC", "Shift Light"],
 		["Astral_spare", "", "Spare Wheel"],
 		["Astral_gauge", "Astral_gauge", "Gauge"],
 		["soundscape_horn", "soundscape_horn_6", "Horn"]
@@ -69,12 +70,12 @@
 		//--Dash for Steering Wheel--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//dash nodes
-		{"beamSpring":851000,"beamDamp":50},
+		{"beamSpring":851000,"beamDamp":80},
 		["dsh1", "dsh2"],
 		["dsh2", "dsh3"],
 		["dsh3", "dsh1"],
 		//mount to rollcage
-		{"beamSpring":651000,"beamDamp":100},
+		{"beamSpring":651000,"beamDamp":125},
 		["dsh1", "rc6l"],
 		["dsh2", "rc6l"],
 		["dsh3", "rc6l"],
@@ -108,7 +109,7 @@
 },
 "Astral_seat_BRC":{
 	"information":{
-        "authors":"Camshaft Software",
+        "authors":"Un1corn",
         "name":"BRC Racing Seat",
         "value":320
 	},
@@ -168,7 +169,7 @@
 },
 "Astral_seat_Rally2":{
 	"information":{
-        "authors":"Camshaft Software",
+        "authors":"Un1corn",
         "name":"Rally2 Racing Seat",
         "value":320
 	},
@@ -228,7 +229,7 @@
 },
 "Astral_pedal":{
 	"information":{
-        "authors":"Camshaft Software",
+        "authors":"Un1corn",
         "name":"Rally Pedal",
         "value":320
 	},
@@ -307,22 +308,15 @@
 },
 "Astral_strwheel":{
 	"information":{
-        "authors":"Camshaft Software",
+        "authors":"Un1corn",
         "name":"BRC Steering Wheel",
         "value":320
 	},
 	"slotType" : "Astral_strwheel",
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_shift", ["Astral_dash"]],
-		["Astral_cable", ["Astral_carbody"]]
-	],
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//steering wheel
-        ["steering", "Astral_steering", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}],
-		//paddle shifter
-		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":10}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.07, "y":-0.085, "z":0}}]
+        ["steering", "Astral_steering", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -355,9 +349,45 @@
         ["driver", "$=0.3768+$dashCamX", "$=-0.257+$dashCamY", "$=0.975+$dashCamZ", 58, "a85","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
     ]
 },
+"Astral_shifter_paddle":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"Paddle Shifter",
+        "value":320
+	},
+	"slotType" : "Astral_shifter",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shift", ["Astral_dash"]],
+		["Astral_cable", ["Astral_carbody"]]
+	],
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//paddle shifter
+		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":10}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.07, "y":-0.085, "z":0}}]
+	]
+},
+"Astral_shifter_stick":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"Stick Shifter",
+        "value":320
+	},
+	"slotType" : "Astral_shifter",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shift", ["Astral_dash"]],
+		["Astral_cable", ["Astral_carbody"]]
+	],
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//paddle shifter
+		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":10}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.07, "y":-0.085, "z":0}}]
+	]
+},
 "Astral_handbrake":{
 	"information":{
-        "authors":"Camshaft Software",
+        "authors":"Un1corn",
         "name":"BRC Handbrake",
         "value":320
 	},
@@ -377,18 +407,6 @@
         ["handbrakeDisengaged","event:>Vehicle>Interior>Handbrake_Race>Race_01_Unlock"],
         ["handbrakeEngaging","event:>Vehicle>Interior>Handbrake_Race>Race_01_Lock"]
     ]
-},
-"Astral_copilot":{
-	"information":{
-        "authors":"Camshaft Software",
-        "name":"Rally Copilot Gauge",
-        "value":320
-	},
-	"slotType" : "Astral_copilot",
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_copilot", ["Astral_copilot","Astral_chassis"]]
-	]
 },
 "Astral_spare_gravel":{
 	"information":{
@@ -484,6 +502,18 @@
 		["spr1", "chs1r"]
 	]
 },
+"Astral_copilot":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"Rally Copilot Gauge",
+        "value":320
+	},
+	"slotType" : "Astral_copilot",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_copilot", ["Astral_copilot","Astral_chassis"]]
+	]
+},
 "Astral_driver":{
 	"information":{
         "authors":"Un1corn",
@@ -515,8 +545,8 @@
 },
 "Astral_gauge":{
 	"information":{
-        "authors":"Camshaft Software",
-        "name":"BRC Gauge",
+        "authors":"Un1corn",
+        "name":"Rally Gauge",
         "value":320
 	},
 	"slotType" : "Astral_gauge",
@@ -529,7 +559,7 @@
         ["Astral_gauge", ["Astral_dash"]]
 	]
 },
-"Astral_shiftlight": {
+"Astral_shiftlight_BRC": {
     "information":{
         "authors":"Un1corn",
         "name":"BRC Shift Light",
@@ -547,6 +577,41 @@
     "shiftLights": {
         "engineName":"mainEngine",
         "maxEngineRPMOffset": 1550,
+        "rpmRange": 1000,
+        "keepLEDsActive": true,
+        "hasStallWarning": false,
+        "outputElectrics": ["led0", "led1", "led2",],
+        "flashDuration":0.03
+		"flashingOutputElectrics": ["led0", "led1", "led2"],
+        "flashingAlternateOutputElectrics": []
+    },
+    "glowMap":{
+        "material_113_12b74":     {"simpleFunction":{"led0":1}, "off":"material_113_12b74_off", "on":"material_113_12b74_on"},
+        "material_111_12b74":     {"simpleFunction":{"led1":1}, "off":"material_111_12b74_off", "on":"material_111_12b74_on"},
+        "material_112_12b74":     {"simpleFunction":{"led2":1}, "off":"material_112_12b74_off", "on":"material_112_12b74_on"},
+		"dashblue":               {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
+        "dashyellow":             {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
+        "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
+    }
+},
+"Astral_shiftlight_Rally2": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally2 Shift Light",
+        "value":340,
+    },
+    "slotType" : "Astral_shiftlight",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shiftlight", ["Astral_dash"]]
+	],
+	"controller": [
+        ["fileName"],
+        ["shiftLights"]
+    ],
+    "shiftLights": {
+        "engineName":"mainEngine",
+        "maxEngineRPMOffset": 1050,
         "rpmRange": 1000,
         "keepLEDsActive": true,
         "hasStallWarning": false,
