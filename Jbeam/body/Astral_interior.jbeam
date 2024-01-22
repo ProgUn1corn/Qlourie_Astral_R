@@ -8,7 +8,7 @@
 	"slotType" : "Astral_interior",
 	"slots"	: [
 		["type", "default", "description"],
-		["Astral_seat", "Astral_seat", "Seat"],
+		["Astral_seat", "Astral_seat_BRC", "Seat"],
 		["Astral_pedal", "Astral_pedal", "Pedal"],
 		["Astral_copilot", "Astral_copilot", "Co-Pilot Gauge"],
 		["Astral_handbrake", "Astral_handbrake", "Handbrake"],
@@ -54,7 +54,7 @@
         {"nodeMaterial":"|NM_METAL"},
 		//--Dashboard for Wheel--
 		{"group":["Astral_dash"]},
-		{"nodeWeight":0.5},
+		{"nodeWeight":1},
 		["dsh1", 0.376824, -0.471224, 0.7936],
 		["dsh2", 0.376824, -0.551224, 0.78055],
 		["dsh3", 0.459824, -0.471224, 0.7936],
@@ -69,12 +69,12 @@
 		//--Dash for Steering Wheel--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//dash nodes
-		{"beamSpring":501000,"beamDamp":50},
+		{"beamSpring":851000,"beamDamp":50},
 		["dsh1", "dsh2"],
 		["dsh2", "dsh3"],
 		["dsh3", "dsh1"],
 		//mount to rollcage
-		{"beamSpring":351000,"beamDamp":100},
+		{"beamSpring":651000,"beamDamp":100},
 		["dsh1", "rc6l"],
 		["dsh2", "rc6l"],
 		["dsh3", "rc6l"],
@@ -106,10 +106,10 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ]
 },
-"Astral_seat":{
+"Astral_seat_BRC":{
 	"information":{
         "authors":"Camshaft Software",
-        "name":"Racing Seat",
+        "name":"BRC Racing Seat",
         "value":320
 	},
 	"slotType" : "Astral_seat",
@@ -123,7 +123,7 @@
 	],
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"nodeWeight":2},
+        {"nodeWeight":1},
         {"selfCollision":false},
         {"collision":false},
         {"beamDeform":5001000},
@@ -140,7 +140,67 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":74},
+        {"nodeWeight":74.5},
+		{"group":["Astral_seat"]},
+		["a49", -0.378, 0.1, 0.66, {"group":["Astral_seat","Astral_copilot"]}],
+		["a50",  0.378, 0.1, 0.66],
+		{"selfCollision":true},
+		{"group":[""]} 
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Seat--
+		//connect to chassis
+		{"beamSpring":2501000,"beamDamp":150},
+		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
+		["a49", "a12"],
+		["a49", "a13"],
+		["a49", "a16"],
+		["a49", "a17"],
+		//*
+		["a50", "a15"],
+		["a50", "a14"],
+		["a50", "a19"],
+		["a50", "a18"],
+	]
+},
+"Astral_seat_Rally2":{
+	"information":{
+        "authors":"Camshaft Software",
+        "name":"Rally2 Racing Seat",
+        "value":320
+	},
+	"slotType" : "Astral_seat",
+	"slots"	: [
+		["type", "default", "description"],
+		["Astral_driver", "", "Driver"]
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_seat", ["Astral_seat"]]
+	],
+	"camerasInternal":[
+        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+        {"nodeWeight":1},
+        {"selfCollision":false},
+        {"collision":false},
+        {"beamDeform":5001000},
+        {"beamStrength":"FLT_MAX"},
+		{"beamSpring":1000},
+        {"beamDamp":150},
+		["copilot", "$=-0.3768+$dashCamX", "$=0.035+$dashCamY", "$=1.02+$dashCamZ", 60, "a85","a84","a80","a81","a18","d3r"],
+    ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
+		{"selfCollision":false}
+        {"nodeWeight":69.5},
 		{"group":["Astral_seat"]},
 		["a49", -0.378, 0.1, 0.66, {"group":["Astral_seat","Astral_copilot"]}],
 		["a50",  0.378, 0.1, 0.66],
