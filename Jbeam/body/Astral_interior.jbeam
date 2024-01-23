@@ -12,11 +12,11 @@
 		["Astral_pedal", "Astral_pedal", "Pedal"],
 		["Astral_copilot", "Astral_copilot", "Co-Pilot Gauge"],
 		["Astral_handbrake", "Astral_handbrake", "Handbrake"],
-		["Astral_strwheel", "Astral_strwheel", "Steering Wheel"],
+		["Astral_strwheel", "Astral_strwheel_BRC", "Steering Wheel"],
 		["Astral_shifter", "Astral_shifter_paddle", "Shifter"],
 		["Astral_shiftlight", "Astral_shiftlight_BRC", "Shift Light"],
 		["Astral_spare", "", "Spare Wheel"],
-		["Astral_gauge", "Astral_gauge", "Gauge"],
+		["Astral_gauge", "Astral_gauge_BRC", "Gauge"],
 		["soundscape_horn", "soundscape_horn_6", "Horn"]
 	],
 	"flexbodies": [
@@ -45,7 +45,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1501000},
         {"beamDamp":600},
-		["neardash", "$=0.375+$dashCamX", "$=-0.65+$dashCamY", "$=1+$dashCamZ", 60, "a86","a87","a83","a82","a18","d3l"]
+		["neardash", 0.377, -0.65, 1, 60, "a86","a87","a83","a82","a18","d3l"]
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -56,8 +56,8 @@
 		//--Dashboard for Wheel--
 		{"group":["Astral_dash"]},
 		{"nodeWeight":1},
-		["dsh1", 0.376824, -0.471224, 0.7936],
-		["dsh2", 0.376824, -0.551224, 0.78055],
+		["dsh1", 0.377, -0.471224, 0.7936],
+		["dsh2", 0.377, -0.551224, 0.78055],
 		["dsh3", 0.459824, -0.471224, 0.7936],
 		{"collision":true},
 		{"selfCollision":true},
@@ -131,7 +131,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1000},
         {"beamDamp":150},
-		["copilot", "$=-0.3768+$dashCamX", "$=0.035+$dashCamY", "$=1.02+$dashCamZ", 60, "a85","a84","a80","a81","a18","d3r"],
+		["copilot", -0.377, 0.035, 1.04, 60, "a85","a84","a80","a81","a18","d3r"],
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -191,7 +191,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1000},
         {"beamDamp":150},
-		["copilot", "$=-0.3768+$dashCamX", "$=0.035+$dashCamY", "$=1.02+$dashCamZ", 60, "a85","a84","a80","a81","a18","d3r"],
+		["copilot", -0.377, 0.035, 1.04, 60, "a85","a84","a80","a81","a18","d3r"],
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -306,7 +306,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ]
 },
-"Astral_strwheel":{
+"Astral_strwheel_BRC":{
 	"information":{
         "authors":"Un1corn",
         "name":"BRC Steering Wheel",
@@ -316,18 +316,42 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//steering wheel
-        ["steering", "Astral_steering", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
+        ["steering", "Astral_steering_BRC", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"nodeWeight":2},
+        {"nodeWeight":1.5},
         {"selfCollision":false},
         {"collision":false},
         {"beamDeform":5001000},
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1000},
         {"beamDamp":150},
-        ["driver", "$=0.3768+$dashCamX", "$=0.035+$dashCamY", "$=1.02+$dashCamZ", 60, "a86","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
+        ["driver", 0.377, 0.035, 1.04, 60, "a86","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
+	],
+},
+"Astral_strwheel_Rally2":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"Rally2 Steering Wheel",
+        "value":320
+	},
+	"slotType" : "Astral_strwheel",
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//steering wheel
+        ["steering", "Astral_steering_Rally2", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
+	],
+	"camerasInternal":[
+		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+        {"nodeWeight":1.5},
+        {"selfCollision":false},
+        {"collision":false},
+        {"beamDeform":5001000},
+        {"beamStrength":"FLT_MAX"},
+		{"beamSpring":1000},
+        {"beamDamp":150},
+        ["driver", 0.377, 0.035, 1.04, 60, "a86","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
 	],
 },
 "Astral_dashcam":{
@@ -339,14 +363,14 @@
 	"slotType" : "Astral_strwheel",
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"nodeWeight":2},
+        {"nodeWeight":1.5},
         {"selfCollision":false},
         {"collision":false},
         {"beamDeform":5001000},
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1501000},
-        {"beamDamp":600},
-        ["driver", "$=0.3768+$dashCamX", "$=-0.257+$dashCamY", "$=0.975+$dashCamZ", 58, "a85","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
+        {"beamDamp":500},
+        ["driver", 0.377, -0.257, 0.975, 60, "a85","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
     ]
 },
 "Astral_shifter_paddle":{
@@ -382,13 +406,13 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//paddle shifter
-		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":10}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.07, "y":-0.085, "z":0}}]
+		["sequentialLeverY", "Astral_stickshift", "a17","a18","a21", {"x":-90, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.135, "y":0.115, "z":0.255}}]
 	]
 },
 "Astral_handbrake":{
 	"information":{
         "authors":"Un1corn",
-        "name":"BRC Handbrake",
+        "name":"Rally Handbrake",
         "value":320
 	},
 	"slotType" : "Astral_handbrake",
@@ -543,87 +567,343 @@
         ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
 	]
 },
-"Astral_gauge":{
+"Astral_gauge_BRC":{
 	"information":{
         "authors":"Un1corn",
-        "name":"Rally Gauge",
+        "name":"BRC Gauge",
         "value":320
 	},
 	"slotType" : "Astral_gauge",
-	"slots"	: [
-		["type", "default", "description"],
-		["digidash_screen_logic", "digidash_screen_logic_bng", "Screen"]
-	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_gauge", ["Astral_dash"]]
-	]
-},
-"Astral_shiftlight_BRC": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"BRC Shift Light",
-        "value":340,
-    },
-    "slotType" : "Astral_shiftlight",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_shiftlight", ["Astral_dash"]]
+        ["Astral_gauge_BRC", ["Astral_dash"]],
+		["Astral_shiftlight_BRC", ["Astral_dash"]]
 	],
 	"controller": [
         ["fileName"],
-        ["shiftLights"]
+        ["shiftLights"],
+		["gauges/genericGauges", {"name":"gauge", }],
+        ["gauges/customModules/combustionEngineData"],
+        ["gauges/customModules/accelerationData"],
+        ["gauges/customModules/tireData"]
     ],
-    "shiftLights": {
+	"gauge": {
+		"configuration": {
+			"materialName": "@digidash_screen"
+			"htmlPath": "local://local/vehicles/common/racinginterior/digidash/screen_v1.0.html"
+			"displayWidth":1024,
+			"displayHeight":512,
+			"cells":{} //incase no subparts
+		},
+		"displayData": {
+			"electrics": [
+				"gear",
+				"fuel",
+				"watertemp",
+				"wheelspeed",
+				"rpmTacho",
+				"oiltemp",
+				"maxrpm",
+				"fuelVolume",
+				"engineRunning",
+				"lowfuel",
+				"turboBoost",
+				"checkengine",
+				"lights",
+				"odometer",
+				"throttle_input",
+                "brake_input",
+                "clutch_input",
+			],
+			"customModules": [
+				["moduleName", "property"]
+				["environmentData", "time"],
+				["environmentData", "temperature"],
+				["combustionEngineData", "currentPower"],
+				["combustionEngineData", "remainingRange"],
+				["tireData", "pressures"]
+				["tireData", "temperatures"]
+			]
+		},
+		"configuration_top_left_widget": {
+			"cells":{
+				"top_left": {
+					"widgetCells": "wheel",
+					"unit":"pressure",
+					"FR":"customModules.tireData.pressures.FR",
+					"FL":"customModules.tireData.pressures.FL",
+					"RR":"customModules.tireData.pressures.RR",
+					"RL":"customModules.tireData.pressures.RL",
+					/*"FRcolor":"customModules.tireData.temperatures.FR",
+					"FLcolor":"customModules.tireData.temperatures.FL",
+					"RRcolor":"customModules.tireData.temperatures.RR",
+					"RLcolor":"customModules.tireData.temperatures.RL"*/
+				}
+			}
+		},
+		"configuration_top_center": {
+			"cells":{
+				"top_center": {
+					"label": "GEAR",
+					"unit":"gear",
+					"path":"electrics.gear"
+				}
+			}
+		},
+		"configuration_top_right0": {
+			"cells":{
+				"top_right0": {
+					"label": "TORQUE",
+					"unit":"torque",
+					"path":"customModules.combustionEngineData.currentTorque"
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_top_right1": {
+			"cells":{
+				"top_right1": {
+					"label": "WATER",
+					"unit":"",
+					"path":"electrics.watertemp",
+					"tenPrecision":0
+				}
+			}
+        },
+		"configuration_top_right2": {
+			"cells":{
+				"top_right2": {
+					"label": "FUEL",
+					"unit":"",
+					"path":"electrics.fuelVolume",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_right_widget": {
+			"cells":{
+				"bottom_right": {
+					"widgetCells": "input",
+					"bar0_path":"electrics.throttle_input",
+					"bar1_path":"electrics.brake_input",
+					"bar2_path":"electrics.clutch_input"
+				}
+			}
+		},
+		"configuration_bottom_center": {
+			"cells":{
+				"bottom_center": {
+					"label": "WSPD",
+					"unit":"speed",
+					"path":"electrics.wheelspeed",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_left": {
+			"cells":{
+				"bottom_left": {
+					"label": "BOOST",
+					"unit":"pressureFromPsi",
+					"path":"electrics.turboBoost"
+				}
+			}
+        },
+		"configuration_top_bar": {
+			"cells":{
+				"top_bar": {
+					"label": "RPM",
+					"unit":"",
+					"path":"electrics.rpmTacho",
+					"max":"electrics.maxrpm"
+					"tenPrecision":0
+				}
+			}
+		}
+    },
+	"shiftLights": {
         "engineName":"mainEngine",
-        "maxEngineRPMOffset": 1550,
-        "rpmRange": 1000,
+        "maxEngineRPMOffset": 1500,
+        "rpmRange": 650,
         "keepLEDsActive": true,
         "hasStallWarning": false,
         "outputElectrics": ["led0", "led1", "led2",],
-        "flashDuration":0.03
+        "flashDuration": 0.03,
 		"flashingOutputElectrics": ["led0", "led1", "led2"],
         "flashingAlternateOutputElectrics": []
     },
     "glowMap":{
-        "material_113_12b74":     {"simpleFunction":{"led0":1}, "off":"material_113_12b74_off", "on":"material_113_12b74_on"},
-        "material_111_12b74":     {"simpleFunction":{"led1":1}, "off":"material_111_12b74_off", "on":"material_111_12b74_on"},
-        "material_112_12b74":     {"simpleFunction":{"led2":1}, "off":"material_112_12b74_off", "on":"material_112_12b74_on"},
 		"dashblue":               {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
         "dashyellow":             {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
         "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
     }
 },
-"Astral_shiftlight_Rally2": {
-    "information":{
+"Astral_gauge_Rally2":{
+	"information":{
         "authors":"Un1corn",
-        "name":"Rally2 Shift Light",
-        "value":340,
-    },
-    "slotType" : "Astral_shiftlight",
-    "flexbodies": [
+        "name":"Rally2 Gauge",
+        "value":320
+	},
+	"slotType" : "Astral_gauge",
+	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_shiftlight", ["Astral_dash"]]
+        ["Astral_gauge_Rally2", ["Astral_dash"]],
+		["Astral_shiftlight_Rally2", ["Astral_dash"]]
 	],
 	"controller": [
         ["fileName"],
-        ["shiftLights"]
+        ["shiftLights"],
+		["gauges/genericGauges", {"name":"gauge", }],
+        ["gauges/customModules/combustionEngineData"],
+        ["gauges/customModules/accelerationData"],
+        ["gauges/customModules/tireData"]
     ],
-    "shiftLights": {
+	"gauge": {
+		"configuration": {
+			"materialName": "@digidash_screen"
+			"htmlPath": "local://local/vehicles/common/racinginterior/digidash/screen_v1.0.html"
+			"displayWidth":1024,
+			"displayHeight":512,
+			"cells":{} //incase no subparts
+		},
+		"displayData": {
+			"electrics": [
+				"gear",
+				"fuel",
+				"watertemp",
+				"wheelspeed",
+				"rpmTacho",
+				"oiltemp",
+				"maxrpm",
+				"fuelVolume",
+				"engineRunning",
+				"lowfuel",
+				"turboBoost",
+				"checkengine",
+				"lights",
+				"odometer",
+				"throttle_input",
+                "brake_input",
+                "clutch_input",
+			],
+			"customModules": [
+				["moduleName", "property"]
+				["environmentData", "time"],
+				["environmentData", "temperature"],
+				["combustionEngineData", "currentPower"],
+				["combustionEngineData", "remainingRange"],
+				["tireData", "pressures"]
+				["tireData", "temperatures"]
+			]
+		},
+		"configuration_top_left_widget": {
+			"cells":{
+				"top_left": {
+					"widgetCells": "wheel",
+					"unit":"pressure",
+					"FR":"customModules.tireData.pressures.FR",
+					"FL":"customModules.tireData.pressures.FL",
+					"RR":"customModules.tireData.pressures.RR",
+					"RL":"customModules.tireData.pressures.RL",
+					/*"FRcolor":"customModules.tireData.temperatures.FR",
+					"FLcolor":"customModules.tireData.temperatures.FL",
+					"RRcolor":"customModules.tireData.temperatures.RR",
+					"RLcolor":"customModules.tireData.temperatures.RL"*/
+				}
+			}
+		},
+		"configuration_top_center": {
+			"cells":{
+				"top_center": {
+					"label": "GEAR",
+					"unit":"gear",
+					"path":"electrics.gear"
+				}
+			}
+		},
+		"configuration_top_right0": {
+			"cells":{
+				"top_right0": {
+					"label": "TORQUE",
+					"unit":"torque",
+					"path":"customModules.combustionEngineData.currentTorque"
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_top_right1": {
+			"cells":{
+				"top_right1": {
+					"label": "WATER",
+					"unit":"",
+					"path":"electrics.watertemp",
+					"tenPrecision":0
+				}
+			}
+        },
+		"configuration_top_right2": {
+			"cells":{
+				"top_right2": {
+					"label": "FUEL",
+					"unit":"",
+					"path":"electrics.fuelVolume",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_right_widget": {
+			"cells":{
+				"bottom_right": {
+					"widgetCells": "input",
+					"bar0_path":"electrics.throttle_input",
+					"bar1_path":"electrics.brake_input",
+					"bar2_path":"electrics.clutch_input"
+				}
+			}
+		},
+		"configuration_bottom_center": {
+			"cells":{
+				"bottom_center": {
+					"label": "WSPD",
+					"unit":"speed",
+					"path":"electrics.wheelspeed",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_left": {
+			"cells":{
+				"bottom_left": {
+					"label": "BOOST",
+					"unit":"pressureFromPsi",
+					"path":"electrics.turboBoost"
+				}
+			}
+        },
+		"configuration_top_bar": {
+			"cells":{
+				"top_bar": {
+					"label": "RPM",
+					"unit":"",
+					"path":"electrics.rpmTacho",
+					"max":"electrics.maxrpm"
+					"tenPrecision":0
+				}
+			}
+		}
+    },
+	"shiftLights": {
         "engineName":"mainEngine",
-        "maxEngineRPMOffset": 1050,
-        "rpmRange": 1000,
+        "maxEngineRPMOffset": 1200,
+        "rpmRange": 650,
         "keepLEDsActive": true,
         "hasStallWarning": false,
         "outputElectrics": ["led0", "led1", "led2",],
-        "flashDuration":0.03
+        "flashDuration": 0.03,
 		"flashingOutputElectrics": ["led0", "led1", "led2"],
         "flashingAlternateOutputElectrics": []
     },
     "glowMap":{
-        "material_113_12b74":     {"simpleFunction":{"led0":1}, "off":"material_113_12b74_off", "on":"material_113_12b74_on"},
-        "material_111_12b74":     {"simpleFunction":{"led1":1}, "off":"material_111_12b74_off", "on":"material_111_12b74_on"},
-        "material_112_12b74":     {"simpleFunction":{"led2":1}, "off":"material_112_12b74_off", "on":"material_112_12b74_on"},
 		"dashblue":               {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
         "dashyellow":             {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
         "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
