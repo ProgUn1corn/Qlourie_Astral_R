@@ -7,7 +7,7 @@
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$torquesplit", "range", "", "Gearing", 0.50, 0, 1, "Torque Split", "Power to Rear",{"subCategory": "Transfer Case", "stepDis": 0.01, "minDis":0,"maxDis":100}]
+		["$torquesplit", "range", "", "Gearing", 0.50, 0.3, 1, "Torque Split", "Power to Rear",{"subCategory": "Transfer Case", "stepDis": 1, "minDis":30,"maxDis":100}]
 		["$lsdpreload_C", "range", "N/m", "Differentials", 20, 0, 200, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center"}],
 		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 0.5, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
@@ -18,7 +18,7 @@
     //],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$torquesplit", "uiName":"Center Diff", "defaultVirtualInertia":0.1}]
+		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=1-$torquesplit", "friction":0.5, "dynamicFriction":0.0003, "torqueLossCoef": 0.013, "uiName":"Center Diff", "defaultVirtualInertia":0.1}]
 	]
 },
 "Astral_differential_center_locked": {
@@ -29,11 +29,11 @@
 	"slotType" : "Astral_transfercase",
 	"controller": [
         ["fileName"],
-        ["drivingDynamics/actuators/electronicSplitShaftLock" {"name": "electronicSplitShaftLock", "splitShaftName":"transfercase", "minimumLock":1, "applyMinimumLockOnlyWithThrottle": false}]
+        ["drivingDynamics/actuators/electronicSplitShaftLock" {"name": "electronicSplitShaftLock", "splitShaftName":"transferCase", "minimumLock":1, "applyMinimumLockOnlyWithThrottle": false}]
     ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":3000, "friction":0.35, "dynamicFriction":0.00037, "torqueLossCoef": 0.012, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
+		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transferCase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":5000, "friction":0.6, "dynamicFriction":0.0004, "torqueLossCoef": 0.012, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
 	]
 }
 }
