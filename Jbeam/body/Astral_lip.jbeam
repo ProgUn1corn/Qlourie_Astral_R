@@ -144,7 +144,6 @@
 		//downforce node
 		{"beamSpring":80100,"beamDamp":50},
 		{"beamDeform":810810,"beamStrength":1145141919810},
-		{"breakGroup":"$='splitter_R' or 'fbr'"},
 		["spr", "fb2r"],
 		["spr", "fb3r"],
 		["spr", "fb5r"],
@@ -153,7 +152,6 @@
 		["spr", "fbr1r"],
 		["spr", "fbe3r"],
 		//*
-		{"breakGroup":"$='splitter_L' or 'fbl'"},
 		["spl", "fb2l"],
 		["spl", "fb3l"],
 		["spl", "fb5l"],
@@ -161,7 +159,6 @@
 		["spl", "fb7l"],
 		["spl", "fbr1l"],
 		["spl", "fbe3l"],
-		{"breakGroup":""},
 		//attach to body
 		{"beamSpring":251000,"beamDamp":80},
 		{"beamDeform":5500,"beamStrength":13500},
@@ -267,9 +264,9 @@
 		{"optional":true},
 		{"dragCoef":30},
 		{"liftCoef":65,"stallAngle":0.38}
-		{"breakGroup":"$='splitter_L' or 'fbl'"},
+		{"breakGroup":["fbl","splitter_L"]},
 		["fh1r", "spl", "fh1l"],
-		{"breakGroup":"$='splitter_R' or 'fbr'"},
+		{"breakGroup":["fbr","splitter_R"]},
 		["fh1r", "spr", "fh1l"],
 		{"breakGroup":""},
 		{"dragCoef":0},
