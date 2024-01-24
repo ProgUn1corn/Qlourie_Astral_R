@@ -6,6 +6,10 @@
         "value":10
 	},
 	"slotType" : "Astral_chassis",
+	"slots"	: [
+		["type", "default", "description"],
+		["Astral_rollcage", "Astral_rollcage", "Rollcage"],
+	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_chassis_F", ["Astral_chassis_F"]],
@@ -556,7 +560,6 @@
 		["Astral_patch_F","Astral_patch_F","Front Inside Patch"],
 		["Astral_patch_R","Astral_patch_R","Rear Inside Patch"],
 		//Inside
-		["Astral_rollcage", "Astral_rollcage", "Rollcage"],
 		["Astral_interior", "Astral_interior", "Interior"],
 		//Chassis and suspension
 		["Astral_chassis","Astral_chassis","Chassis", {"coreSlot":true}],
@@ -591,8 +594,8 @@
 		["Astral_name", ["Astral_carbody"]],
 		["Astral_taillight_L", ["Astral_carbody"]]
 		["Astral_taillight_R", ["Astral_carbody"]]
-		["Astral_roof", ["Astral_roof"]],
-		["Astral_window_F", ["Astral_window_F"]],
+		["Astral_roof", ["Astral_carbody"]],
+		["Astral_window_F", ["Astral_carbody"]],
 		["Astral_antenna", ["Astral_antenna"]],
     ],
     "nodes": [       
@@ -650,30 +653,29 @@
 		//--Firewall--
 		//firewall
 		{"nodeWeight":5},
-		{"group":["Astral_carbody","Astral_dash","Astral_window_F"]},
-		["a84", -0.707, -0.891, 0.835, {"group":["Astral_carbody","Astral_dash","Astral_window_F","Astral_door_R"]}],
-		["a87",  0.707, -0.891, 0.835, {"group":["Astral_carbody","Astral_dash","Astral_window_F","Astral_door_L"]}],
+		{"group":["Astral_carbody","Astral_dash"]},
+		["a84", -0.707, -0.891, 0.835, {"group":["Astral_carbody","Astral_dash","Astral_door_R"]}],
+		["a87",  0.707, -0.891, 0.835, {"group":["Astral_carbody","Astral_dash","Astral_door_L"]}],
 		["a85", -0.287, -1.112, 0.85],
 		["a86",  0.287, -1.112, 0.85],
 		
 		//--Roof--
         //roof
 		{"nodeWeight":2.2},
-		{"group":["Astral_roof"]},
-		["a72", -0.521, 1.187, 1.256, {"group":["Astral_roof","Astral_tailgate","Astral_carbody"]}],
-		["a73", -0.287, 1.157, 1.296, {"group":["Astral_roof","Astral_antenna","Astral_tailgate"]}],
-		["a74",  0.287, 1.157, 1.296, {"group":["Astral_roof","Astral_antenna","Astral_tailgate"]}],
-		["a75",  0.521, 1.187, 1.256, {"group":["Astral_roof","Astral_tailgate","Astral_carbody"]}],
-		["a76", -0.562, 0.43, 1.29, {"group":["Astral_roof","Astral_carbody"]}],
-		["a77", -0.243, 0.43, 1.34, {"group":["Astral_roof","Astral_antenna"]}],
-		["a78",  0.243, 0.43, 1.34, {"group":["Astral_roof","Astral_antenna"]}],
-		["a79",  0.562, 0.43, 1.29, {"group":["Astral_roof","Astral_carbody"]}],
+		{"group":["Astral_carbody"]},
+		["a72", -0.521, 1.187, 1.256, {"group":["Astral_tailgate","Astral_carbody"]}],
+		["a73", -0.287, 1.157, 1.296, {"group":["Astral_carbody","Astral_antenna","Astral_tailgate"]}],
+		["a74",  0.287, 1.157, 1.296, {"group":["Astral_carbody","Astral_antenna","Astral_tailgate"]}],
+		["a75",  0.521, 1.187, 1.256, {"group":["Astral_tailgate","Astral_carbody"]}],
+		["a76", -0.562, 0.43, 1.29],
+		["a77", -0.243, 0.43, 1.34, {"group":["Astral_carbody","Astral_antenna"]}],
+		["a78",  0.243, 0.43, 1.34, {"group":["Astral_carbody","Astral_antenna"]}],
+		["a79",  0.562, 0.43, 1.29],
 		//window
-		{"group":["Astral_roof","Astral_window_F"]},
-		["a80", -0.567, -0.328, 1.25, {"group":["Astral_window_F","Astral_carbody"]}],
+		["a80", -0.567, -0.328, 1.25],
 		["a81",	-0.196, -0.402, 1.31],
 		["a82",  0.196, -0.402, 1.31],
-		["a83",  0.567, -0.328, 1.25, {"group":["Astral_window_F","Astral_carbody"]}],
+		["a83",  0.567, -0.328, 1.25],
 		//antenna
 		{"nodeWeight":0.25},
 		{"group":["Astral_antenna"]},
