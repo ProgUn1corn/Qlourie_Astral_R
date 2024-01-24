@@ -576,6 +576,8 @@
 		["gauges/genericGauges", {"name":"gauge", }],
         ["gauges/customModules/combustionEngineData"],
         ["gauges/customModules/accelerationData"],
+        ["gauges/customModules/tireData"],
+		["gauges/customModules/environmentData"]
     ],
 	"gauge": {
 		"configuration": {
@@ -588,19 +590,48 @@
 		"displayData": {
 			"electrics": [
 				"gear",
+				"fuel",
+				"watertemp",
+				"wheelspeed",
 				"rpmTacho",
 				"oiltemp",
 				"maxrpm",
+				"fuelVolume",
 				"engineRunning",
 				"lowfuel",
+				"turboBoost",
 				"checkengine",
 				"lights",
 				"odometer",
+				"throttle_input",
+                "brake_input",
+                "clutch_input",
 			],
 			"customModules": [
 				["moduleName", "property"]
+				["environmentData", "time"],
+				["environmentData", "temperature"],
 				["combustionEngineData", "currentPower"],
+				["combustionEngineData", "remainingRange"],
+				["tireData", "pressures"]
+				["tireData", "temperatures"]
 			]
+		},
+		"configuration_top_left_widget": {
+			"cells":{
+				"top_left": {
+					"widgetCells": "wheel",
+					"unit":"pressure",
+					"FR":"customModules.tireData.pressures.FR",
+					"FL":"customModules.tireData.pressures.FL",
+					"RR":"customModules.tireData.pressures.RR",
+					"RL":"customModules.tireData.pressures.RL",
+					/*"FRcolor":"customModules.tireData.temperatures.FR",
+					"FLcolor":"customModules.tireData.temperatures.FL",
+					"RRcolor":"customModules.tireData.temperatures.RR",
+					"RLcolor":"customModules.tireData.temperatures.RL"*/
+				}
+			}
 		},
 		"configuration_top_center": {
 			"cells":{
@@ -611,6 +642,65 @@
 				}
 			}
 		},
+		"configuration_top_right0": {
+			"cells":{
+				"top_right0": {
+					"label": "TORQUE",
+					"unit":"torque",
+					"path":"customModules.combustionEngineData.currentTorque"
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_top_right1": {
+			"cells":{
+				"top_right1": {
+					"label": "WATER",
+					"unit":"",
+					"path":"electrics.watertemp",
+					"tenPrecision":0
+				}
+			}
+        },
+		"configuration_top_right2": {
+			"cells":{
+				"top_right2": {
+					"label": "FUEL",
+					"unit":"",
+					"path":"electrics.fuelVolume",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_right_widget": {
+			"cells":{
+				"bottom_right": {
+					"widgetCells": "input",
+					"bar0_path":"electrics.throttle_input",
+					"bar1_path":"electrics.brake_input",
+					"bar2_path":"electrics.clutch_input"
+				}
+			}
+		},
+		"configuration_bottom_center": {
+			"cells":{
+				"bottom_center": {
+					"label": "WSPD",
+					"unit":"speed",
+					"path":"electrics.wheelspeed",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_left": {
+			"cells":{
+				"bottom_left": {
+					"label": "BOOST",
+					"unit":"pressureFromPsi",
+					"path":"electrics.turboBoost"
+				}
+			}
+        },
 		"configuration_top_bar": {
 			"cells":{
 				"top_bar": {
@@ -658,7 +748,8 @@
 		["gauges/genericGauges", {"name":"gauge", }],
         ["gauges/customModules/combustionEngineData"],
         ["gauges/customModules/accelerationData"],
-        ["gauges/customModules/tireData"]
+        ["gauges/customModules/tireData"],
+		["gauges/customModules/environmentData"]
     ],
 	"gauge": {
 		"configuration": {
