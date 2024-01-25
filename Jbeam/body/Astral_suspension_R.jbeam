@@ -31,7 +31,6 @@
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$platRear", "range", "+m", "Suspension", 0, -0.15, 0.15, "Rear Strut Platform Height", "Adjust Rear Platform Height", {"stepDis":0.001,"subCategory":"Alignment"}],
         ["$toe_R", "range", "", "Suspension", 1, 0.98, 1.02, "Rear Toe Adjust", "Adjusts the wheel toe-in angle",{"subCategory":"Alignment"}],
-        ["$trackOffset_R", "range", "+m", "Suspension", 0, -0.3, 0.3, "Rear Track Offset", "Spacing of rear wheels", {"stepDis":0.001,"subCategory":"Alignment"}],
         ["$CamberRear", "range", "", "Suspension", 1, 0.9, 1.09, "Rear Camber Offset", "Adjust camber offset", {"stepDis":0.001,"subCategory":"Alignment","minDis":90,"maxDis":109}]
     ],
     "nodes": [
@@ -202,7 +201,7 @@
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs","Hub", {"nodeOffset":{"x":"$=0.34+$trackOffset_R", "y":1.28, "z":0.155}}],
+        ["Astral_hubs_R","Astral_hubs","Hub", {"nodeOffset":{"x":0.34, "y":1.28, "z":0.155}}],
         ["Astral_brake_R","Astral_brake_R_BRC_tarmac", "Brake", {"nodeOffset":{"x":0, "y":1.28, "z":0.155}}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
     ],
@@ -577,7 +576,7 @@
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_R","Hub", {"nodeOffset":{"x":"$=0.295+$trackOffset_R", "y":1.28, "z":0}}],
+        ["Astral_hubs_R","Astral_hubs_R","Hub", {"nodeOffset":{"x":0.295, "y":1.28, "z":0}}],
         ["Astral_brake_R","Astral_brake_R_BRC_gravel", "Brake", {"nodeOffset":{"x":0, "y":1.28, "z":0}}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
     ],
