@@ -130,7 +130,7 @@
 		//--Tailgate--
 		//main shape
 		{"beamSpring":401000,"beamDamp":80},
-		{"beamDeform":28000,"beamStrength":45000},
+		{"beamDeform":15500,"beamStrength":"FLT_MAX"},
 		["t1r", "t2r"],
 		["t1r", "t1l"],
 		["t1l", "t2l"],
@@ -151,7 +151,7 @@
 		["t4l", "w7l"],
 		//crossing
 		{"beamSpring":401000,"beamDamp":80},
-		{"beamDeform":18000},
+		{"beamDeform":12000},
 		["t1r", "t3l"],
 		["t2r", "t3r"],
 		["t1r", "t4r"],
@@ -174,7 +174,7 @@
 		["t2l", "w7l"],
 		//rigidifier
 		{"beamSpring":601000,"beamDamp":50},
-		{"beamDeform":5000,"beamStrength":25000},
+		{"beamDeform":6000,"beamStrength":25000},
 		["t3", "t1r"],
 		["t3", "t1l"],
 		["t3", "t2r"],
@@ -225,7 +225,8 @@
 		["rl1l", "w8r"],
 		//connect to hinge
 		{"beamSpring":651000,"beamDamp":80},
-		{"beamDeform":20000},
+		{"beamDeform":18000,"beamStrength":35000,
+		{"breakGroup":"tailgate_hinge"},
 		["w7r", "a72"],
 		["w7r", "a73"],
 		["w8r", "a73"],
@@ -237,21 +238,23 @@
 		["w8l", "a74"],
 		["w8l", "a75"],
 		["w8l", "a73"],
+		{"breakGroup":""},
 		//gas struts
-        {"breakGroupType":1},
         {"beamSpring":800,"beamDamp":200},
         {"beamDeform":4000,"beamStrength":10000},
         {"beamPrecompression":4.5,"beamPrecompressionTime":0.2},
-        ["t4r", "a33", {"breakGroup":"tailgate_R"}],
-        ["t4l", "a34", {"breakGroup":"tailgate_L"}],
+        {"breakGroupType":1},
+        {"breakGroup":"tailgate_hinge"},
+		["t4r", "a33", {"breakGroup":"tailgate_hinge"}],
+        ["t4l", "a34", {"breakGroup":"tailgate_hinge"}],
         {"beamPrecompression":1},
-        {"breakGroupType":0},
-        {"breakGroup":""},
         //pop open
         {"beamPrecompression":1.03,"beamSpring":50000,"beamDamp":1320,"beamDeform":40000,"beamStrength":10000,"breakGroupType":1,"beamType":"|SUPPORT", "beamLongBound":25},
-        ["t1r", "a5", {"breakGroup":"tailgate_R"}],
-        ["t1l", "a6", {"breakGroup":"tailgate_L"}],
-        {"beamPrecompression":1}
+        ["t1r", "a5", {"breakGroup":"tailgate_hinge"}],
+        ["t1l", "a6", {"breakGroup":"tailgate_hinge"}],
+        {"beamPrecompression":1},
+		{"breakGroupType":0},
+		 {"breakGroup":""},
 		//support beams
         {"beamType":"|SUPPORT", "beamLongBound":4},
         {"beamSpring":1001000,"beamDamp":50},
