@@ -31,7 +31,6 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$platFront", "range", "+m", "Suspension", 0, -0.15, 0.15, "Front Strut Platform Height", "Adjust Front Platform Height", {"stepDis":0.001,"subCategory":"Alignment"}],
-	    ["$trackOffset_F", "range", "+m", "Suspension", 0, -0.3, 0.3, "Front Track Offset", "Spacing of front wheels", {"stepDis":0.001,"subCategory":"Alignment"}],	
         ["$CamberFront", "range", "", "Suspension", 1, 0.9, 1.09, "Front Camber Offset", "Adjust camber offset", {"stepDis":0.001,"subCategory":"Alignment","minDis":90,"maxDis":109}]
     ],
     "nodes": [
@@ -314,7 +313,7 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":"$=0.34+$trackOffset_F", "y":-1.285, "z":0.18}}],
+        ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":0.34, "y":-1.285, "z":0.18}}],
         ["Astral_brake_F","Astral_brake_F_BRC_tarmac", "Brake", {"nodeOffset":{"x":0, "y":-1.285, "z":0.18}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
     ],
@@ -668,7 +667,7 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":"$=0.295+$trackOffset_F", "y":-1.285, "z":0.03}}],
+        ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":0.295, "y":-1.285, "z":0.03}}],
         ["Astral_brake_F","Astral_brake_F_BRC_gravel", "Brake", {"nodeOffset":{"x":0, "y":-1.285, "z":0.03}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
     ],
