@@ -543,7 +543,6 @@
 		["spr1", "chs1r"]
 	]
 },
-
 "Astral_gauge_BRC":{
 	"information":{
         "authors":"Un1corn",
@@ -727,6 +726,179 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_gauge_Rally2", ["Astral_dash"]],
 		["Astral_shiftlight_Rally2", ["Astral_dash"]]
+	],
+	"controller": [
+        ["fileName"],
+        ["shiftLights"],
+		["gauges/genericGauges", {"name":"gauge"}],
+        ["gauges/customModules/combustionEngineData"],
+        ["gauges/customModules/accelerationData"],
+        ["gauges/customModules/tireData"],
+		["gauges/customModules/environmentData"]
+    ],
+	"gauge": {
+		"configuration": {
+			"materialName": "@digidash_screen"
+			"htmlPath": "local://local/vehicles/common/racinginterior/digidash/screen_v1.0.html"
+			"displayWidth":1024,
+			"displayHeight":512,
+			"cells":{} //incase no subparts
+		},
+		"displayData": {
+			"electrics": [
+				"gear",
+				"fuel",
+				"watertemp",
+				"wheelspeed",
+				"rpmTacho",
+				"oiltemp",
+				"maxrpm",
+				"fuelVolume",
+				"engineRunning",
+				"lowfuel",
+				"turboBoost",
+				"checkengine",
+				"lights",
+				"odometer",
+				"throttle_input",
+                "brake_input",
+                "clutch_input",
+			],
+			"customModules": [
+				["moduleName", "property"]
+				["environmentData", "time"],
+				["environmentData", "temperature"],
+				["combustionEngineData", "currentPower"],
+				["combustionEngineData", "remainingRange"],
+				["tireData", "pressures"]
+				["tireData", "temperatures"]
+			]
+		},
+		"configuration_top_left_widget": {
+			"cells":{
+				"top_left": {
+					"widgetCells": "wheel",
+					"unit":"pressure",
+					"FR":"customModules.tireData.pressures.FR",
+					"FL":"customModules.tireData.pressures.FL",
+					"RR":"customModules.tireData.pressures.RR",
+					"RL":"customModules.tireData.pressures.RL",
+					/*"FRcolor":"customModules.tireData.temperatures.FR",
+					"FLcolor":"customModules.tireData.temperatures.FL",
+					"RRcolor":"customModules.tireData.temperatures.RR",
+					"RLcolor":"customModules.tireData.temperatures.RL"*/
+				}
+			}
+		},
+		"configuration_top_center": {
+			"cells":{
+				"top_center": {
+					"label": "GEAR",
+					"unit":"gear",
+					"path":"electrics.gear"
+				}
+			}
+		},
+		"configuration_top_right0": {
+			"cells":{
+				"top_right0": {
+					"label": "TORQUE",
+					"unit":"torque",
+					"path":"customModules.combustionEngineData.currentTorque"
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_top_right1": {
+			"cells":{
+				"top_right1": {
+					"label": "WATER",
+					"unit":"",
+					"path":"electrics.watertemp",
+					"tenPrecision":0
+				}
+			}
+        },
+		"configuration_top_right2": {
+			"cells":{
+				"top_right2": {
+					"label": "FUEL",
+					"unit":"",
+					"path":"electrics.fuelVolume",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_right_widget": {
+			"cells":{
+				"bottom_right": {
+					"widgetCells": "input",
+					"bar0_path":"electrics.throttle_input",
+					"bar1_path":"electrics.brake_input",
+					"bar2_path":"electrics.clutch_input"
+				}
+			}
+		},
+		"configuration_bottom_center": {
+			"cells":{
+				"bottom_center": {
+					"label": "WSPD",
+					"unit":"speed",
+					"path":"electrics.wheelspeed",
+					"tenPrecision":0
+				}
+			}
+		},
+		"configuration_bottom_left": {
+			"cells":{
+				"bottom_left": {
+					"label": "BOOST",
+					"unit":"pressureFromPsi",
+					"path":"electrics.turboBoost"
+				}
+			}
+        },
+		"configuration_top_bar": {
+			"cells":{
+				"top_bar": {
+					"label": "RPM",
+					"unit":"",
+					"path":"electrics.rpmTacho",
+					"max":"electrics.maxrpm"
+					"tenPrecision":0
+				}
+			}
+		}
+    },
+	"shiftLights": {
+        "engineName":"mainEngine",
+        "maxEngineRPMOffset": 1000,
+        "rpmRange": 650,
+        "keepLEDsActive": true,
+        "hasStallWarning": false,
+        "outputElectrics": ["led0", "led1", "led2",],
+        "flashDuration": 0.02,
+		"flashingOutputElectrics": ["led0", "led1", "led2"],
+        "flashingAlternateOutputElectrics": []
+    },
+    "glowMap":{
+		"dashblue":               {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
+        "dashyellow":             {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
+        "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
+    }
+},
+"Astral_gauge_RX":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"RX1 Gauge",
+        "value":320
+	},
+	"slotType" : "Astral_gauge",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_gauge_RX", ["Astral_dash"]],
+		["Astral_shiftlight_RX", ["Astral_dash"]],
+		["Astral_brakelight_RX", ["Astral_chassis"]],
 	],
 	"controller": [
         ["fileName"],
