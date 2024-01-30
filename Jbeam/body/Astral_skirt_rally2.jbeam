@@ -1,0 +1,242 @@
+{
+"Astral_skirt_R_Rally2": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally2 Right Skirt",
+        "value":1050
+    },
+	"slotType" : "Astral_skirt_R",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_skirt_R_Rally2", ["Astral_skirt_R"]],
+		["Astral_skirtattach_R", ["Astral_skirt_R"]]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_PLASTIC"},
+		//--Side skirt--
+		//door frame
+		{"nodeWeight":2.5},
+		{"group":["Astral_skirt_R","Astral_carbody"]},
+		["d1r", -0.821, 0.861, 0.151],
+		["d2r", -0.811, 0.363, 0.151],
+		["d3r", -0.801, -0.288, 0.151],
+		["d4r", -0.801, -0.886, 0.151, {"group":["Astral_door_R","Astral_skirt_R","Astral_carbody"]}],
+		{"nodeWeight":3},
+		["sk1r", -0.867, 0.861, 0.072],
+		["sk2r", -0.859, 0.363, 0.072],
+		["sk3r", -0.848, -0.288, 0.072],
+		["sk4r", -0.845, -0.886, 0.072],
+		//rigidifier
+		{"nodeWeight":4.2},
+		{"collision":false},
+        {"selfCollision":false},
+		["skr1r", -0.889, 0.635, 0.195],
+		["skr2r", -0.889, -0.611, 0.175],
+		{"group":[""]},
+		{"collision":true}
+        {"selfCollision":true}
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Side skirt right--
+		//under part
+		{"beamSpring":951000,"beamDamp":60},
+		{"beamDeform":18500,"beamStrength":"FLT_MAX"},
+		["sk1r", "sk2r"], 
+		["sk2r", "sk3r"], 
+		["sk3r", "sk4r"], 
+		["sk1r", "d1r"], 
+		["sk2r", "d2r"], 
+		["sk3r", "d3r"], 
+		["sk4r", "d4r"], 
+		//crossing
+		{"beamDeform":16000},
+		["sk1r", "d2r"],
+		["sk2r", "d1r"], 
+		["sk2r", "d3r"],
+		["sk3r", "d2r"], 
+		["sk3r", "d4r"],
+		["sk4r", "d3r"], 
+		//rigids
+		{"beamDeform":13500},
+		["sk1r", "sk3r"], 
+		["sk2r", "sk4r"], 
+		//rigidifier
+		{"beamSpring":1401000,"beamDamp":120},
+		{"beamDeform":15500,"beamStrength":"FLT_MAX"},
+		["skr1r", "skr2r"],
+		["skr1r", "sk1r"],
+		["skr1r", "sk2r"],
+		["skr1r", "d1r"],
+		["skr1r", "d2r"],
+		["skr2r", "sk3r"],
+		["skr2r", "sk4r"],
+		["skr2r", "d3r"],
+		["skr2r", "d4r"],
+		//attach to body
+		{"beamSpring":1401000,"beamDamp":60},
+		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
+		["sk1r", "a8"], 
+		["sk1r", "a41"], 
+		["sk2r", "a12"], 
+		["sk2r", "a13"], 
+		["sk2r", "a16"], 
+		["sk3r", "a16"], 
+		["sk3r", "a17"],
+		["sk3r", "a20"],  
+		["sk4r", "a20"], 
+		["sk4r", "a21"],
+		["sk4r", "a17"], 
+		["skr1r", "a8"], 
+		["skr1r", "a12"],
+		["skr2r", "a16"], 
+		["skr2r", "a20"], 
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Side skirts--
+		//shape
+		{"dragCoef":0},
+		["sk2r", "d1r", "sk1r"],
+		["sk2r", "d2r", "d1r"],
+		["sk3r", "d2r", "sk2r"],
+		["sk3r", "d3r", "d2r"],
+		["sk4r", "d3r", "sk3r"],
+		["sk4r", "d4r", "d3r"],
+		//downforce
+		{"dragCoef":2},
+		{"liftCoef":2, "stallAngle":0.38}
+		["sk2l", "sk2r", "cur"],
+		{"dragCoef":0},
+		{"liftCoef":0, "stallAngle":0}
+	]
+},
+"Astral_skirt_L_Rally2": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally2 Left Skirt",
+        "value":1050
+    },
+	"slotType" : "Astral_skirt_L",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_skirt_L_Rally2", ["Astral_skirt_L"]],
+		["Astral_skirtattach_L", ["Astral_skirt_L"]]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_PLASTIC"},
+		//--Side skirt--
+		//door frame
+		{"nodeWeight":2.5},
+		{"group":["Astral_skirt_L","Astral_carbody"]},
+		["d1l",  0.821, 0.861, 0.151],
+		["d2l",  0.811, 0.363, 0.151],
+		["d3l",  0.801, -0.288, 0.151],
+		["d4l",  0.801, -0.886, 0.151, {"group":["Astral_door_L","Astral_skirt_L","Astral_carbody"]}],
+		{"nodeWeight":3},
+		["sk1l",  0.867, 0.861, 0.072],
+		["sk2l",  0.859, 0.363, 0.072],
+		["sk3l",  0.848, -0.288, 0.072],
+		["sk4l",  0.845, -0.886, 0.072],
+		//rigidifier
+		{"nodeWeight":4.2},
+		{"collision":false},
+        {"selfCollision":false},
+		["skr1l",  0.889, 0.635, 0.195],
+		["skr2l",  0.889, -0.611, 0.175],
+		{"group":[""]},
+		{"collision":true}
+        {"selfCollision":true}
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Side skirt left--
+		//under part
+		{"beamSpring":951000,"beamDamp":60},
+		{"beamDeform":18500,"beamStrength":"FLT_MAX"},
+		["sk1l", "sk2l"], 
+		["sk2l", "sk3l"], 
+		["sk3l", "sk4l"], 
+		["sk1l", "d1l"], 
+		["sk2l", "d2l"], 
+		["sk3l", "d3l"], 
+		["sk4l", "d4l"], 
+		//crossing
+		{"beamDeform":16000},
+		["sk1l", "d2l"],
+		["sk2l", "d1l"], 
+		["sk2l", "d3l"],
+		["sk3l", "d2l"], 
+		["sk3l", "d4l"],
+		["sk4l", "d3l"], 
+		//rigids
+		{"beamDeform":13500},
+		["sk1l", "sk3l"], 
+		["sk2l", "sk4l"], 
+		//rigidifier
+		{"beamSpring":1401000,"beamDamp":120},
+		{"beamDeform":15500,"beamStrength":"FLT_MAX"},
+		["skr1l", "skr2l"],
+		["skr1l", "sk1l"],
+		["skr1l", "sk2l"],
+		["skr1l", "d1l"],
+		["skr1l", "d2l"],
+		["skr2l", "sk3l"],
+		["skr2l", "sk4l"],
+		["skr2l", "d3l"],
+		["skr2l", "d4l"],
+		//attach to body
+		{"beamSpring":1401000,"beamDamp":60},
+		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
+		["sk1l", "a11"], 
+		["sk1l", "a42"], 
+		["sk2l", "a15"], 
+		["sk2l", "a14"], 
+		["sk2l", "a19"], 
+		["sk3l", "a19"], 
+		["sk3l", "a18"],
+		["sk3l", "a23"],  
+		["sk4l", "a23"], 
+		["sk4l", "a22"],
+		["sk4l", "a18"], 
+		["skr1l", "a11"], 
+		["skr1l", "a15"],
+		["skr2l", "a19"], 
+		["skr2l", "a23"], 
+		{"bleakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecomplession":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Side skirts--
+		//shape
+		{"dragCoef":0},
+		["sk1l", "d1l", "sk2l"],
+		["sk2l", "d1l", "d2l"],
+		["sk2l", "d2l", "sk3l"],
+		["sk3l", "d2l", "d3l"],
+		["sk3l", "d3l", "sk4l"],
+		["sk4l", "d3l", "d4l"],
+	]
+}
+}
