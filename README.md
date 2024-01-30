@@ -110,6 +110,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
   (2024/01/20: I tried to make a proper skin but UV is so messed that it's basically impossible to make it clean. Automation now has a feature to export decal as skin, but I have changed so much things to an extend that it's not worth to go back to Automation.)
 - Due to the way Automation exports (when I exported), all decals and skins are actual models instead of decal image. This means the skin and decal will sometimes clip through car model. Also, it will take more space to load
 - The opacity maps are not high resolution enough so there are jagged edges around the place where opacity map applies
+- Also because of UV is messed, sometimes there are messed up textures due to modified mesh.
 
   (2024/01/22: Removed most opacity maps besides hood latch and tail lights.)
 - Meshes are still Automation level so it may not be comparable to a full fledged mod
