@@ -1,5 +1,5 @@
 {
-"Astral_engine": {
+"Astral_engine_1598": {
 	"information":{
 		"authors":"Un1corn",
 		"name":"H1598P4 1.6L Inline 4",
@@ -226,90 +226,232 @@
 		["combustionEngine", "mainEngine", "dummy", 0]
 	],
 },
-"Astral_radiator": {
+"Astral_engine_1998": {
 	"information":{
-		"name":"Radiator",
-		"value":50
-	},
+		"authors":"Un1corn",
+		"name":"H1998P4 2.0L Inline 4",
+		"value":3,
+	}
+	"slotType" : "Astral_engine",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_enginemanagement", "Astral_enginemanagement_race", "Engine Management", {"coreSlot": true}],
+		["Astral_enginemount", "Astral_enginemount", "Engine Mount", {"coreSlot": true}],
+		["Astral_turbo", "Astral_turbo_BRC", "Turbocharger"],
+		["Astral_exhaust", "Astral_exhaust", "Exhaust"],
+		["Astral_transmission", "Astral_transmission_sequential_BRC", "Transmission"]
+		["Astral_radiator","Astral_radiator","Radiator"],
+		["Astral_engineduct","Astral_engineduct","Engine Duct"],
+		["Astral_fueltank","Astral_fueltank","Fuel Tank"],
+	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_rad", ["Astral_rad"]]
+		["Astral_engine", ["Astral_engine"]],
+		["Astral_shaft", ["Astral_chassis"]],
 	],
-	"slotType" : "Astral_radiator",
+	"mainEngine": {
+		"torque":[
+			["rpm", "torque"],
+			[0, 0],
+			[500, 119],
+			[1000, 148],
+			[1500, 163],
+			[2000, 175],
+			[2500, 183],
+			[3000, 190],
+			[3500, 195],
+			[4000, 193],
+			[4500, 189],
+			[5000, 184],
+			[5500, 175],
+			[6000, 165],
+			[6500, 157],
+			[7000, 149],
+			[7500, 142],
+			[8000, 133],
+			[8500, 124],
+			[9000, 118],
+		],
+		"thermalsEnabled":true,
+		"engineBlockMaterial":"aluminium",
+
+		"hasRevLimiter":false, 
+		"idleRPM":800
+		"idleRPMRoughness":200
+		"maxRPM":9000,
+		"inertia":0.085,
+		"friction":15,
+		"dynamicFriction":0.015,
+		"engineBrakeTorque":40,
+
+		"starterMaxRPM":1500,
+		"starterTorque":150,
+
+		//Exhaust Settings
+		"particulates":0.01,
+		//Exhaust Sound/back fires
+		"instantAfterFireCoef": 1,
+		"sustainedAfterFireCoef": 1,
+		"instantAfterFireVolumeCoef":0.7,
+		"sustainedAfterFireVolumeCoef":0.5,
+		"afterFireMufflingCoef":0.2,
+		"shiftAfterFireVolumeCoef":1
+		"instantAfterFireSound": "event:>Vehicle>Afterfire>01_Single_EQ1",
+		"sustainedAfterFireSound": "event:>Vehicle>Afterfire>01_Multi_EQ1",
+		"shiftAfterFireSound": "event:>Vehicle>Afterfire>i4_01>shift",
+
+		//node beam interface
+		"torqueReactionNodes:":["eg6","eg7","eg3"],
+		"waterDamage": {"[engineGroup]:":["engine_intake"]},
+		"radiator": {"[engineGroup]:":["radiator"]},
+		"engineBlock": {"[engineGroup]:":["engine_block"]},
+		"breakTriggerBeam":"engine",
+		"uiName":"Engine",
+        "soundConfigExhaust": "soundConfigExhaust",
+
+		//oil radiator
+		"oilRadiatorArea":6,
+		"oilRadiatorEffectiveness":2000,
+		"oilThermostatTemperature":100,
+		"oilVolume":5, //Litres
+
+		//engine durability
+		"cylinderWallTemperatureDamageThreshold":120,
+		"headGasketDamageThreshold":1700000,
+		"pistonRingDamageThreshold":1700000,
+		"connectingRodDamageThreshold":1400000,
+		"maxTorqueRating": 600,
+		"maxOverTorqueDamage": 50,
+		
+		//fuel tank
+		"energyStorage": "mainTank",
+		"requiredEnergyType":"gasoline",
+		"burnEfficiency":[
+            [0.00, 0.13],
+            [0.05, 0.30],
+            [0.40, 0.45],
+            [0.70, 0.55],
+            [1.00, 0.37],
+        ],
+
+		//sound config
+		"starterSample":"event:>Engine>Starter>i4_2011_eng",
+		"starterSampleExhaust":"event:>Engine>Starter>i4_2011_exh",
+		"shutOffSampleEngine":"event:>Engine>Shutoff>i4_2011_eng",
+		"shutOffSampleExhaust":"event:>Engine>Shutoff>i4_2011_exh",
+		"starterVolume":0.7,
+		"starterVolumeExhaust":0.8,
+		"shutOffVolumeEngine":0.7,
+		"shutOffVolumeExhaust":0.7,
+		"starterThrottleKillTime":0.65,
+        "idleRPMStartRate":2,
+        "idleRPMStartCoef":1,
+
+		//damage deformGroups
+        "deformGroups":["mainEngine"]
+	},
+	"soundConfigExhaust": {
+		"sampleName": "WRC",
+		"mainGain": -1,
+		"lowShelfFreq": 350,
+		"lowShelfGain": 5,
+		"highShelfFreq": 6550,
+		"highShelfGain": -1,
+		"maxLoadMix": 1,
+		"minLoadMix": 0.2,
+		"onLoadGain": 1,
+		"offLoadGain": 0,
+		"eqLowGain": 2,
+		"eqLowFreq": 550,
+		"eqLowWidth": 0.46,
+		"eqHighGain": -15,
+		"eqHighFreq": 3850,
+		"eqHighWidth": 0.03,
+		"lowCutFreq": 50,
+		"fundamentalFrequencyCylinderCount": 4,
+		"eqFundamentalGain": 2
+	},
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":false},
+		{"chemEnergy":1000,"burnRate":0.39,"flashPoint":1000,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":850,"baseTemp":"thermals","conductionRadius":0.12}
 		//--Engine--
-		//radiator
-		{"group":["Astral_rad"]},
-		{"nodeWeight":4},
-		{"chemEnergy":200,"burnRate":0.4,"flashPoint":850,"specHeat":0.5,"smokePoint":250,"selfIgnitionCoef":false},
-		["rad1",  0.38, -1.84, 0.52, {"engineGroup":["radiator"]}],
-		["rad2", -0.38, -1.84, 0.52, {"engineGroup":["radiator"]}],
-		["rad3",  0.38, -1.76, 0.197, {"engineGroup":["radiator"]}],
-		["rad4", -0.38, -1.76, 0.197, {"engineGroup":["radiator"]}],
+		//engine block
+		{"nodeWeight":12.5},
+		{"group":["Astral_engine"]},
+		["eg0", -0.255, -1.62, 0.241, {"engineGroup":["engine_block"]}],
+		["eg1",  0.290, -1.62, 0.241, {"engineGroup":["engine_block"]}],
+		["eg2",  0.290, -1.28, 0.191, {"engineGroup":["engine_block"]}],
+		["eg3", -0.255, -1.28, 0.191, {"engineGroup":["engine_block"]}],
+		["eg4", -0.255, -1.62, 0.606, {"engineGroup":["engine_block", "engine_intake"]}],
+		["eg5",  0.290, -1.62, 0.606, {"engineGroup":["engine_block", "engine_intake"]}],
+		["eg6",  0.290, -1.28, 0.556, {"engineGroup":["engine_block"], "isExhaust":"mainEngine"}],
+		["eg7", -0.255, -1.28, 0.556, {"engineGroup":["engine_block"]}],
+		//engine mount
+		{"engineGroup":""},
+        {"nodeWeight":4.5},
 		{"group":""},
+		["em1l",  0.412, -1.36, 0.538],
 		{"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false}
 	],
 	"beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Radiator--
-		//shape
-		{"beamSpring":1001000,"beamDamp":50},
-		{"beamDeform":8000,"beamStrength":"FLT_MAX"},
-		{"deformGroup":"radiator_damage", "deformationTriggerRatio":0.01},
-		["rad1", "rad2"],
-		["rad2", "rad3"],
-		["rad3", "rad4"],
-		["rad4", "rad1"],
-		["rad1", "rad3"],
-		["rad4", "rad2"],
-		//radiator connect
-		{"beamSpring":3501000,"beamDamp":100},
-		{"beamDeform":5500,"beamStrength":225000},
-		{"breakGroup":"rad"},
-		["rad1", "eg4"],
-		["rad1", "eg5"],
-		["rad1", "eg1"],
-		["rad2", "eg4"],
-		["rad2", "eg5"],
-		["rad2", "eg0"],
-		["rad3", "eg1"],
-		["rad3", "eg0"],
-		["rad3", "eg5"],
-		["rad4", "eg1"],
-		["rad4", "eg0"],
-		["rad4", "eg4"],
-		//radiator mount
-		{"beamSpring":2501000,"beamDamp":100},
-        {"beamDeform":8000,"beamStrength":185000},
-		["rad2", "br1r"],
-		["rad1", "br1l"],
-		["rad4", "a25"],
-		["rad3", "a26"],
-		{"breakGroup":""}
-		{"deformationTriggerRatio":0.01, "deformGroup":""},
+		//--Engine--
+		//engine block simplified
+		{"beamSpring":14501000,"beamDamp":650},
+		{"beamDeform":155000,"beamStrength":"FLT_MAX"},
+		{"deformGroup":"mainEngine", "deformationTriggerRatio":0.001},
+		{"name":"engine"},
+		["eg0", "eg1"],
+		["eg1", "eg2"],
+		["eg2", "eg3"],
+		["eg3", "eg0"],
+		["eg0", "eg2"],
+		["eg1", "eg3"],
+		["eg4", "eg5"],
+		["eg5", "eg6"],
+		["eg6", "eg7"],
+		["eg7", "eg4"],
+		["eg4", "eg6"],
+		["eg5", "eg7"],
+		["eg0", "eg4"],
+		["eg1", "eg5"],
+		["eg2", "eg6"],
+		["eg3", "eg7"],
+		["eg0", "eg7"],
+		["eg1", "eg6"],
+		["eg2", "eg5"],
+		["eg3", "eg4"],
+		["eg0", "eg5"],
+		["eg1", "eg4"],
+		["eg2", "eg7"],
+		["eg3", "eg6"],
+		{"name":""},
+		{"deformGroup":""},
+		//engine mount node
+        {"beamSpring":4501000,"beamDamp":150},
+        {"beamDeform":90000,"beamStrength":"FLT_MAX"},
+		["em1l", "eg0"],
+		["em1l", "eg1"],
+		["em1l", "eg2"],
+		["em1l", "eg3"],
+		["em1l", "eg4"],
+		["em1l", "eg5"],
+		["em1l", "eg6"],
+		["em1l", "eg7"],
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
-	"mainEngine":{
-        "radiatorArea":0.3,
-        "radiatorEffectiveness":10000,
-        "coolantVolume":10,
-        "radiatorFanType":"electric",
-        "radiatorFanTemperature":90,
-        "radiatorFanMaxAirSpeed":4,
-        "thermostatTemperature":85,
-        "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
-        "radiatorFanVolume": 0.65,
-		"deformGroups_radiator":["radiator_damage"],
-	}
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["combustionEngine", "mainEngine", "dummy", 0]
+	],
 },
 "Astral_engineduct": {
 	"information":{

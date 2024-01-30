@@ -1,7 +1,7 @@
 {
 "Astral_turbo": {
 	"information":{
-		"name":"Anti-Lag Turbocharger",
+		"name":"Rally Anti-Lag Turbocharger",
 		"value":150000,
 	},
 	"slotType": "Astral_turbo",
@@ -68,48 +68,88 @@
 		"hissVolumePerPSI": 0.01,
 		"whineVolumePer10kRPM": 0.005,
 		"whinePitchPer10kRPM": 0.015,
-		"turboSizeCoef": 0.75,
-		"wastegateStart":[35.4, 36]
-		"maxExhaustPower": 25000,
-		"backPressureCoef":  0.00003,
-		"pressureRatePSI": 60,
 		"frictionCoef":15,
 		"inertia":5,
 		"damageThresholdTemperature": 650,
 		"deformGroups_turbo":["mainEngine_turbo","mainEngine_intercooler"]
-		"pressurePSI":[
-			[0, -4.500000],
-			[25000, -3],
-			[50000, -1.5],
-			[75000, 16],
-			[100000, 24],
-			[125000, 36],
-			[150000, 36],
-			[175000, 36],
-			[200000, 36],
-			[225000, 36],
-			[250000, 36],
-		],
-		"engineDef":[
-			[0, 0, 0.5],
-			[500, 0.001, 0.6],
-			[1000, 0.010, 0.9],
-			[1500, 0.035, 1],
-			[2000, 0.126, 1],
-			[2500, 0.351, 1],
-			[3000, 0.588, 1],
-			[3500, 0.645, 1],
-			[4000, 0.671, 1],
-			[4500, 0.696, 1],
-			[5000, 0.729, 1],
-			[5500, 0.791, 1],
-			[6000, 0.858, 1],
-			[6500, 0.858, 1],
-			[7000, 0.835, 1],
-			[7500, 0.791, 1],
-			[8000, 0.721, 1],
-			[8500, 0.658, 1],
-		]
+	},
+	"mainEngine": {
+		"turbocharger":"turbocharger"
+	},
+},
+"Astral_turbo_RX": {
+	"information":{
+		"name":"RX Anti-Lag Turbocharger",
+		"value":150000,
+	},
+	"slotType": "Astral_turbo",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_restrictor_RX", "Astral_restrictor_RX", "Turbo Restrictor", {"coreSlot": true}],
+	],
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_turbo", ["Astral_engine"]],
+		["Astral_intercooler", ["Astral_rad"]]
+	],
+	"nodes": [       
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":false},
+		{"selfCollision":false},
+		//--Engine--
+		//turbo and intercooler
+		{"nodeWeight":4},
+		{"group":["Astral_engine"]},
+		["tb1", 0.051, -1.134, 0.448],
+		{"group":["Astral_rad"]},
+		["ic1", 0, -1.78, 0.269],
+		{"collision":true},
+		{"selfCollision":true},
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Turbo and intercooler--
+		//turbo mount
+		{"beamSpring":2501000,"beamDamp":150},
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+        {"deformGroup":"mainEngine_turbo", "deformationTriggerRatio":0.001},
+		["tb1", "eg0"],
+		["tb1", "eg1"],
+		["tb1", "eg2"],
+		["tb1", "eg3"],
+		["tb1", "eg4"],
+		["tb1", "eg5"],
+		["tb1", "eg6"],
+		["tb1", "eg7"],
+		//intercooler mount
+		{"beamSpring":2001000,"beamDamp":450},
+        {"beamDeform":3000,"beamStrength":"FLT_MAX"},
+        {"deformGroup":"mainEngine_intercooler", "deformationTriggerRatio":0.02}
+		["ic1", "tb1", {"breakGroup":"rad"}],
+		["ic1", "rad1"],
+		["ic1", "rad2"],
+		["ic1", "rad3"],
+		["ic1", "rad4"],
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+	"turbocharger": {
+		"bovSoundFileName":"event:>Vehicle>Forced_Induction>Turbo_04>turbo_bov_race",
+		"hissLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_04>turbo_hiss_race",
+		"whineLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_04>turbo_spin_race",
+		"bovSoundVolumeCoef": 0.5,
+		"hissVolumePerPSI": 0.01,
+		"whineVolumePer10kRPM": 0.005,
+		"whinePitchPer10kRPM": 0.015,
+		"frictionCoef":15,
+		"inertia":5,
+		"damageThresholdTemperature": 650,
+		"deformGroups_turbo":["mainEngine_turbo","mainEngine_intercooler"]
 	},
 	"mainEngine": {
 		"turbocharger":"turbocharger"
@@ -124,10 +164,26 @@
 	"turbocharger": {
 		"$*bovSoundVolumeCoef": 1.15,
 		"$*turboSizeCoef": 1,
-		"$*maxExhaustPower": 1,
-		"$*pressureRatePSI": 1,
+		"turboSizeCoef": 0.75,
+		"wastegateStart":[35.4, 36]
+		"maxExhaustPower": 25000,
+		"backPressureCoef":  0.00003,
+		"pressureRatePSI": 60,
 		"$*frictionCoef":0.8,
 		"$*inertia":0.8,
+		"pressurePSI":[
+			[0, -4.500000],
+			[25000, -3],
+			[50000, -1.5],
+			[75000, 16],
+			[100000, 24],
+			[125000, 36],
+			[150000, 36],
+			[175000, 36],
+			[200000, 36],
+			[225000, 36],
+			[250000, 36],
+		],
 		"engineDef":[
 			[0, 0, 0.5],
 			[500, 0.001, 0.6],
@@ -158,11 +214,26 @@
 	"slotType": "Astral_restrictor",
 	"turbocharger": {
 	    "$*bovSoundVolumeCoef": 0.95,
-		"$*turboSizeCoef": 1,
-		"$*maxExhaustPower": 0.95,
-		"$*pressureRatePSI": 0.9,
+		"turboSizeCoef": 0.75,
+		"wastegateStart":[35.4, 36]
+		"maxExhaustPower": 23000,
+		"backPressureCoef": 0.00003,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.95,
 		"$*inertia":1,
+		"pressurePSI":[
+			[0, -4.500000],
+			[25000, -3],
+			[50000, -1.5],
+			[75000, 16],
+			[100000, 24],
+			[125000, 36],
+			[150000, 36],
+			[175000, 36],
+			[200000, 36],
+			[225000, 36],
+			[250000, 36],
+		],
 		"engineDef":[
 			[0, 0, 0.5],
 			[500, 0.001, 0.6],
@@ -192,12 +263,28 @@
 	},
 	"slotType": "Astral_restrictor",
 	"turbocharger": {
-		"$*bovSoundVolumeCoef": 1.25,
+		"$*bovSoundVolumeCoef": 1.15,
 		"$*turboSizeCoef": 1,
-		"$*maxExhaustPower": 1,
-		"$*pressureRatePSI": 1,
-		"$*frictionCoef":0.9,
-		"$*inertia":0.9,
+		"turboSizeCoef": 0.75,
+		"wastegateStart":[35.4, 36]
+		"maxExhaustPower": 25000,
+		"backPressureCoef":  0.00003,
+		"pressureRatePSI": 60,
+		"$*frictionCoef":0.8,
+		"$*inertia":0.8,
+		"pressurePSI":[
+			[0, -4.500000],
+			[25000, -3],
+			[50000, -1.5],
+			[75000, 16],
+			[100000, 24],
+			[125000, 36],
+			[150000, 36],
+			[175000, 36],
+			[200000, 36],
+			[225000, 36],
+			[250000, 36],
+		],
 		"engineDef":[
 			[0, 0, 0.5],
 			[500, 0.001, 0.6],
@@ -219,5 +306,56 @@
 			[8500, 0.999, 1],
 		]
 	}
-}
+},
+"Astral_restrictor_RX": {
+	"information":{
+		"name":"45mm BRC Restrictor",
+		"value":150000,
+	},
+	"slotType": "Astral_restrictor",
+	"turbocharger": {
+		"$*bovSoundVolumeCoef": 1.15,
+		"$*turboSizeCoef": 1,
+		"turboSizeCoef": 0.75,
+		"wastegateStart":[45, 50]
+		"maxExhaustPower": 25000,
+		"backPressureCoef":  0.00003,
+		"pressureRatePSI": 60,
+		"$*frictionCoef":0.8,
+		"$*inertia":0.8,
+		"pressurePSI":[
+			[0, -4.500000],
+			[25000, -3],
+			[50000, -1.5],
+			[75000, 16],
+			[100000, 24],
+			[125000, 36],
+			[150000, 50],
+			[175000, 50],
+			[200000, 50],
+			[225000, 50],
+			[250000, 50],
+		],
+		"engineDef":[
+			[0, 0, 0.5],
+			[500, 0.001, 0.6],
+			[1000, 0.010, 0.9],
+			[1500, 0.035, 1],
+			[2000, 0.226, 1],
+			[2500, 0.481, 1],
+			[3000, 0.618, 1],
+			[3500, 0.645, 1],
+			[4000, 0.671, 1],
+			[4500, 0.696, 1],
+			[5000, 0.729, 1],
+			[5500, 0.791, 1],
+			[6000, 0.858, 1],
+			[6500, 0.858, 1],
+			[7000, 0.835, 1],
+			[7500, 0.791, 1],
+			[8000, 0.721, 1],
+			[8500, 0.658, 1],
+		]
+	}
+},
 }
