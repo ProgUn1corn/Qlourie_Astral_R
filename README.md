@@ -42,13 +42,13 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 # Features
 ## Chassis
 - Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
-- 2.565m wheelbase and 1.875m track width
+- 2.535m wheelbase and 1.875m track width
 - 1190KG without crew and spare wheel
 - 1360KG with driver and co-driver and one spare wheel
 - Rollcage installed for maximum safety
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
-- 380HP at 6500RPM, 430Nm at 5000-6000RPM
+- 380HP at 6500RPM, 450Nm at 5000-6000RPM
 - 2.5 bar anti-lag turbocharger
 - 6 speed sequential transmission
 - Front and rear adjustable final ratio
