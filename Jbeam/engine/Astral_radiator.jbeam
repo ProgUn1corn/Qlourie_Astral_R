@@ -84,7 +84,7 @@
         "coolantVolume":10,
         "radiatorFanType":"electric",
         "radiatorFanTemperature":90,
-        "radiatorFanMaxAirSpeed":6,
+        "radiatorFanMaxAirSpeed":3.5,
         "thermostatTemperature":85,
         "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
         "radiatorFanVolume": 0.65,
@@ -98,9 +98,17 @@
 	},
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_rad_RX", ["Astral_rad_RX"]]
+		["Astral_rad_RX", ["Astral_rad_RX"]],
+		["Astral_rad_RX_mount", ["Astral_chassis"]],
+		["Astral_rad_RX_duct", ["Astral_chassis"]]
 	],
 	"slotType" : "Astral_radiator",
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//--Radiator Fan--
+		["radiatorFanSpin", "Astral_fan1_RX", "eg0","eg1","eg3",  {"x":75, "y":0, "z":0}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
+		["radiatorFanSpin", "Astral_fan2_RX", "eg0","eg1","eg3",  {"x":75, "y":0, "z":0}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
+	],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
@@ -164,15 +172,15 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
 	"mainEngine":{
-        "radiatorArea":0.3,
-        "radiatorEffectiveness":10000,
+        "radiatorArea":0.4,
+        "radiatorEffectiveness":12000,
         "coolantVolume":10,
         "radiatorFanType":"electric",
-        "radiatorFanTemperature":90,
+        "radiatorFanTemperature":70,
         "radiatorFanMaxAirSpeed":4,
-        "thermostatTemperature":85,
+        "thermostatTemperature":65,
         "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
-        "radiatorFanVolume": 0.65,
+        "radiatorFanVolume": 0.9,
 		"deformGroups_radiator":["radiator_damage"],
 	}
 }
