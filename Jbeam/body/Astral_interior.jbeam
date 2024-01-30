@@ -8,9 +8,8 @@
 	"slotType" : "Astral_interior",
 	"slots"	: [
 		["type", "default", "description"],
-		["Astral_seat", "Astral_seat_BRC", "Seat"],
+		["Astral_seat", "Astral_seat", "Driver and Seat"],
 		["Astral_pedal", "Astral_pedal", "Pedal"],
-		["Astral_copilot", "Astral_copilot", "Co-Pilot Gauge"],
 		["Astral_handbrake", "Astral_handbrake", "Handbrake"],
 		["Astral_strwheel", "Astral_strwheel_BRC", "Steering Wheel"],
 		["Astral_shifter", "Astral_shifter_paddle", "Shifter"],
@@ -107,32 +106,26 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ]
 },
-"Astral_seat_BRC":{
+"Astral_seat":{
 	"information":{
         "authors":"Un1corn",
-        "name":"BRC Racing Seat",
+        "name":"Driver (Weight)",
         "value":320
 	},
 	"slotType" : "Astral_seat",
 	"slots"	: [
 		["type", "default", "description"],
 		["Astral_driver", "", "Driver"]
+		["Astral_copilot", "", "Co-Driver"]
 	],
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$driverWeight", "range", "", "Center of Gravity", 0, 0.5, 1.5, "Driver Weight", "Adjust driver's weight"]
+    ],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_seat", ["Astral_seat"]]
 	],
-	"camerasInternal":[
-        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"nodeWeight":1},
-        {"selfCollision":false},
-        {"collision":false},
-        {"beamDeform":5001000},
-        {"beamStrength":"FLT_MAX"},
-		{"beamSpring":1000},
-        {"beamDamp":150},
-		["copilot", -0.377, 0.115, 1.045, 60, "a85","a84","a80","a81","a18","d3r"],
-    ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -141,9 +134,8 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":74.5},
+        {"nodeWeight":"$=$driverWeight*74.5"},
 		{"group":["Astral_seat"]},
-		["a49", -0.378, 0.1, 0.66, {"group":["Astral_seat","Astral_copilot"]}],
 		["a50",  0.378, 0.1, 0.66],
 		{"selfCollision":true},
 		{"group":[""]} 
@@ -156,31 +148,22 @@
 		//connect to chassis
 		{"beamSpring":2501000,"beamDamp":150},
 		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
-		["a49", "a12"],
-		["a49", "a13"],
-		["a49", "a16"],
-		["a49", "a17"],
-		//*
 		["a50", "a15"],
 		["a50", "a14"],
 		["a50", "a19"],
 		["a50", "a18"],
 	]
 },
-"Astral_seat_Rally2":{
+"Astral_copilot":{
 	"information":{
         "authors":"Un1corn",
-        "name":"Rally2 Racing Seat",
+        "name":"Rally Copilot",
         "value":320
 	},
-	"slotType" : "Astral_seat",
-	"slots"	: [
-		["type", "default", "description"],
-		["Astral_driver", "", "Driver"]
-	],
+	"slotType" : "Astral_copilot",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_seat", ["Astral_seat"]]
+        ["Astral_copilot", ["Astral_copilot","Astral_chassis"]]
 	],
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -201,10 +184,9 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":69.5},
-		{"group":["Astral_seat"]},
-		["a49", -0.378, 0.1, 0.66, {"group":["Astral_seat","Astral_copilot"]}],
-		["a50",  0.378, 0.1, 0.66],
+        {"nodeWeight":"$=$driverWeight*74.5"},
+		{"group":["Astral_seat","Astral_copilot"]},
+		["a49", -0.378, 0.1, 0.66],
 		{"selfCollision":true},
 		{"group":[""]} 
 	],
@@ -220,11 +202,35 @@
 		["a49", "a13"],
 		["a49", "a16"],
 		["a49", "a17"],
-		//*
-		["a50", "a15"],
-		["a50", "a14"],
-		["a50", "a19"],
-		["a50", "a18"],
+	]
+},
+"Astral_driver":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"Literally Two Sticks of People LOL",
+        "value":6969
+	},
+	"slotType" : "Astral_driver",
+	"slots"	: [
+		["type", "default", "description"],
+		["Astral_hands", "", "Hands"],
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_driver", ["Astral_seat"]]
+	],
+},
+"Astral_hands":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"Don't Select If You Don't Want Driver Hands",
+        "value":6969
+	},
+	"slotType" : "Astral_hands",
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//hands
+        ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
 	]
 },
 "Astral_pedal":{
@@ -537,47 +543,7 @@
 		["spr1", "chs1r"]
 	]
 },
-"Astral_copilot":{
-	"information":{
-        "authors":"Un1corn",
-        "name":"Rally Copilot Gauge",
-        "value":320
-	},
-	"slotType" : "Astral_copilot",
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_copilot", ["Astral_copilot","Astral_chassis"]]
-	]
-},
-"Astral_driver":{
-	"information":{
-        "authors":"Un1corn",
-        "name":"Literally Two Sticks of People LOL",
-        "value":6969
-	},
-	"slotType" : "Astral_driver",
-	"slots"	: [
-		["type", "default", "description"],
-		["Astral_hands", "", "Hands"],
-	],
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_driver", ["Astral_seat"]]
-	],
-},
-"Astral_hands":{
-	"information":{
-        "authors":"Un1corn",
-        "name":"Don't Select If You Don't Want Driver Hands",
-        "value":6969
-	},
-	"slotType" : "Astral_hands",
-	"props": [
-		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
-		//hands
-        ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
-	]
-},
+
 "Astral_gauge_BRC":{
 	"information":{
         "authors":"Un1corn",
