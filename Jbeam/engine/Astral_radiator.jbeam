@@ -10,6 +10,12 @@
 		["Astral_engineduct", ["Astral_frame"]]
 	],
 	"slotType" : "Astral_radiator",
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//--Radiator Fan--
+		["radiatorFanSpin", "Astral_fan1", "eg0","eg1","eg3",  {"x":113, "y":0, "z":0}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
+		["radiatorFanSpin", "Astral_fan2", "eg0","eg1","eg3",  {"x":113, "y":0, "z":0}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
+	],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
@@ -73,12 +79,12 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
 	"mainEngine":{
-        "radiatorArea":0.3,
-        "radiatorEffectiveness":10000,
+        "radiatorArea":0.35,
+        "radiatorEffectiveness":12000,
         "coolantVolume":10,
         "radiatorFanType":"electric",
         "radiatorFanTemperature":90,
-        "radiatorFanMaxAirSpeed":4,
+        "radiatorFanMaxAirSpeed":6,
         "thermostatTemperature":85,
         "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
         "radiatorFanVolume": 0.65,
