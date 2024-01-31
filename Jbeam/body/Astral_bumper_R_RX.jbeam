@@ -19,7 +19,7 @@
         {"nodeMaterial":"|NM_PLASTIC"},
 		//--Rear Bumper--
 		//bumper
-		{"nodeWeight":0.6},
+		{"nodeWeight":1.2},
 		{"group":["Astral_bumper_R"]},
 		["rb1r", -0.368, 1.96, 0.477],
 		["rb1",  0, 2, 0.477],
@@ -28,29 +28,29 @@
 		["rb4l",  0.814, 1.59, 0.57],
 		["rb2r", -0.246, 1.97, 0.337, {"selfCollision":false}],
 		["rb2l",  0.246, 1.97, 0.337, {"selfCollision":false}],
-		["rb3r", -0.64, 1.82, 0.563],
-		["rb3l",  0.64, 1.82, 0.563],
+		["rb3r", -0.726, 1.821, 0.389, {"group":["Astral_bumper_R","Astral_flap_R"]}],
+		["rb3l",  0.726, 1.821, 0.389, {"group":["Astral_bumper_R","Astral_flap_R"]}],
 		["rb5r", -0.275, 1.82, 0.133],
 		["rb5",  0, 1.82, 0.133],
 		["rb5l",  0.275, 1.82, 0.133],
 		["rb6r", -0.572, 1.89, 0.269],
 		["rb6l",  0.572, 1.89, 0.269],
-		["rb7r", -0.768, 1.74, 0.154, {"group":["Astral_bumper_R","Astral_flap_R"]}],
-		["rb7l",  0.768, 1.74, 0.154, {"group":["Astral_bumper_R","Astral_flap_R"]}],
+		["rb7r", -0.834, 1.783, 0.178],
+		["rb7l",  0.834, 1.783, 0.178],
 		//fender
 		{"nodeWeight":0.8},
 		{"group":["Astral_bumper_R"]},
-		["rbe1r", -0.673, 1.79, 0.775],
-		["rbe1l",  0.673, 1.79, 0.775],
-		["rbe2r", -0.937, 1.79, 0.775],
-		["rbe2l",  0.937, 1.79, 0.775],
+		["rbe1r", -0.702, 1.68, 0.756],
+		["rbe1l",  0.702, 1.68, 0.756],
+		["rbe2r", -0.910, 1.699, 0.674],
+		["rbe2l",  0.910, 1.699, 0.674],
 		{"group":["Astral_bumper_R","Astral_flap_R"]},
-		["rbe3r", -0.937, 1.80, 0.288],
-		["rbe3l",  0.937, 1.80, 0.288],
+		["rbe3r", -0.925, 1.743, 0.376],
+		["rbe3l",  0.925, 1.743, 0.376],
 		//rigidifier
 		{"collision":false},
 		{"selfCollision":false},
-		{"nodeWeight":1},
+		{"nodeWeight":2},
 		{"group":[""]},
 		["rbr1r", -0.516, 1.54, 0.496],
 		["rbr1l",  0.516, 1.54, 0.496],
@@ -64,7 +64,7 @@
 		//--Rear Bumper--
 		//bumper shape
 		{"beamSpring":101000,"beamDamp":50},
-        {"beamDeform":10000,"beamStrength":"FLT_MAX"},
+        {"beamDeform":6000,"beamStrength":"FLT_MAX"},
 		["rb1r", "rb1"],
 		["rb4r", "rb1r"],
 		["rb2r", "rb3r"],
@@ -90,7 +90,7 @@
 		["rb4l", "rbe1l"],
 		["rb2l", "rb5l"],
 		//crossing
-		{"beamDeform":7500},
+		{"beamDeform":5500},
 		["rb1", "rb2r"],
 		["rb1r", "rb2l"],
 		["rb1r", "rb3r"],
@@ -115,7 +115,7 @@
 		["rb3l", "rb6l"],
 		["rb3l", "rb7l"],
 		//rigids
-		{"beamDeform":5500},
+		{"beamDeform":4500},
 		["rb1", "rb5"],
 		["rb1r", "rb5r"],
 		["rb1r", "rb6r"],
@@ -132,7 +132,7 @@
 		["rb5l", "rb7l"],
 		//fender shape
 		{"beamSpring":350100,"beamDamp":80},
-		{"beamDeform":7500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["rbe3r", "rbe2r"],
 		["rbe1r", "rbe2r"],
 		["rbe3r", "rb7r"],
@@ -152,28 +152,6 @@
 		{"beamDeform":3500},
 		["rbe3r", "rb6r"],
 		["rbe3l", "rb6l"],
-		//attach to patch
-		{"beamSpring":151000,"beamDamp":50},
-		{"beamDeform":3500,"beamStrength":25000},
-		{"breakGroupType":1},
-		{"breakGroup":"rbr"},
-		["rbe1r", "or1r"],
-		["rbe2r", "or1r"],
-		["rbe3r", "or1r"],
-		["rb6r", "or1r"],
-		["rp1r", "rb4r"],
-		["rp2r", "rbe1r"],
-		["rp3r", "rb6r"],
-		//*
-		{"breakGroup":"rbl"},
-		["rbe1l", "or1l"],
-		["rbe2l", "or1l"],
-		["rbe3l", "or1l"],
-		["rb6l", "or1l"],
-		["rp1l", "rb4l"],
-		["rp2l", "rbe1l"],
-		["rp3l", "rb6l"],
-		{"breakGroupType":0},
 		//rigidifier
         {"beamSpring":35000,"beamDamp":150},
 		{"beamDeform":1500,"beamStrength":"FLT_MAX"},
@@ -267,7 +245,7 @@
 		["rb5", "a38"],
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":1.5},
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":1.5},
         {"beamSpring":101000,"beamDamp":30},
         {"beamDeform":10000,"beamStrength":125000},
 		["rb5", "a33"],
@@ -326,12 +304,17 @@
 		{"dragCoef":30},
 		{"liftCoef":50,"stallAngle":0.68}
 		["re4r", "rbe1r", "rbe2r"],
-		["re4r", "re1r", "rbe1r"],
 		//*
 		["re4l", "rbe2l", "rbe1l"],
-		["re4l", "rbe1l", "re1l"],
+		//ground effect
+		{"optional":true},
+		{"liftCoef":60,"stallAngle":0.38}
+		{"breakGroup":"rbm"},
+		["rh1r", "cbk", "rh1l"],
+		{"breakGroup":""},
 		{"dragCoef":0},
-		{"liftCoef":0,"stallAngle":0}
+		{"liftCoef":0,"stallAngle":0},
+		{"optional":false},
     ]
 }
 }
