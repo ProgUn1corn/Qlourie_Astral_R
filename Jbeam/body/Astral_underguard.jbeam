@@ -158,122 +158,15 @@
 		{"optional":false}
 	]
 }, 
-"Astral_guard_R_tarmac": {
+"Astral_guard_R": {
     "information":{
         "authors":"Camshaft Software",
-        "name":"Tarmac Rear Under Guard",
+        "name":"Rear Under Guard",
         "value":50,
     },
 	"slotType" : "Astral_guard_R",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_guard_R", ["Astral_guard_R"]],
-		["Astral_armguard_r9", ["Astral_rarmg"]]
-    ],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
-		//--Front undertray--
-		//front under guard
-		{"nodeWeight":1},
-		{"group":["Astral_guard_R"]},
-		["rg1r", -0.259, 1.58, 0.09, {"group":["Astral_guard_R","Astral_rarmg"]}],
-		["rg1l",  0.259, 1.58, 0.09, {"group":["Astral_guard_R","Astral_rarmg"]}],
-		["rg2r", -0.259, 0.916, 0.085],
-		["rg2l",  0.259, 0.916, 0.085],
-		{"selfCollision":true},
-		{"group":[""]}
-	],
-	"beams": [   
-		["id1:", "id2:"], 
-		{"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Rear Undertray--
-		//main shape
-		{"beamSpring":305000,"beamDamp":125},
-		{"beamDeform":15000,"beamStrength":105000},
-		["rg1r", "rg1l"],
-		["rg2r", "rg2l"],
-		["rg1r", "rg2r"],
-		["rg1l", "rg2l"],
-		//crossing
-		{"beamDeform":12000},
-		["rg1r", "rg2l"],
-		["rg1l", "rg2r"],
-		//rigidifier
-		{"beamDeform":6000},
-		["rx1", "rg1l"],
-		["rx1", "rg2l"],
-		["rx1", "rg1r"],
-		["rx1", "rg2r"],
-		//attach to subframe
-		{"beamSpring":151000,"beamDamp":100},
-		{"beamDeform":85000, "beamStrength":12000},
-		{"breakGroup":"rearguard_R"},
-		["rg1r", "rx2r"],
-		["rg1r", "rx2l"],
-		["rg1r", "chs2r"],
-		["rg1r", "rx4l"],
-		["rg1r", "a6"],
-		["rg1r", "a5"],
-		["rg2r", "rx1r"],
-		["rg2r", "rx1l"],
-		["rg2r", "a41"],
-		["rg2r", "rx3r"],
-		["rg2r", "a9"],
-		//*
-		{"breakGroup":"rearguard_L"},
-		["rg1l", "rx2l"],
-		["rg1l", "rx2r"],
-		["rg1l", "chs2l"],
-		["rg1l", "rx4r"],
-		["rg1l", "a5"],
-		["rg1l", "a6"],
-		["rg2l", "rx1l"],
-		["rg2l", "rx1r"],
-		["rg2l", "a42"],
-		["rg2l", "rx3l"],
-		["rg2l", "a10"],
-		{"breakGroup":""},
-		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":false,"beamLimitDamp":false},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-	],
-	"triangles": [   
-		["id1:", "id2:", "id3:"], 
-		{"groundModel":"metal"},
-		//--Rear undertray--
-		{"dragCoef":0},
-		{"breakGroup":""},
-		["rg1r", "rg1l", "rg2r"],
-		{"breakGroup":"rbr"},
-		["rg1r", "rb5r", "rb5l"],
-		["rg1r", "rb7r", "rb5r"],
-		{"breakGroup":""},
-		//*
-		["rg1l", "rg2l", "rg2r"],
-		{"breakGroup":"rbl"},
-		["rg1l", "rg1r", "rb5l"],
-		["rg1l", "rb5l", "rb7l"],
-		{"breakGroup":""},
-		{"dragCoef":0},
-		{"liftCoef":0,"stallAngle":0}
-	]
-},
-"Astral_guard_R_gravel": {
-    "information":{
-        "authors":"Camshaft Software",
-        "name":"Gravel Rear Under Guard",
-        "value":50,
-    },
-	"slotType" : "Astral_guard_R",
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_guard_R", ["Astral_guard_R"]],
-		["Astral_armguard_r8", ["Astral_rarmg"]]
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
