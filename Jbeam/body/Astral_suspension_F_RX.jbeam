@@ -30,7 +30,7 @@
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 3500, 3200, 5000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F_fast", "range", "Click", "Suspension", 2250, 1500, 3000, "Fast Rebound", "Increasing the clicks results in greater rebound force. This is used for better wheel contact.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$springRate_F", "range", "N/m", "Suspension", 35000, 22500, 50000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":2500,"subCategory":"Front Suspension"}],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, -0.15, 0.15, "Spring Preload", "Spring Preload affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.001,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, -0.15, 0.15, "Spring Preload", "Spring Preload affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -118,9 +118,9 @@
         //suspension travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":50,"beamDeform":105000,"beamStrength":250000},
-        {"beamLimitSpring":1001000,"beamLimitDamp":1000},
-        ["fh1r","fs1r", {"longBoundRange":0,"shortBoundRange":0.30,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
-        ["fh1l","fs1l", {"longBoundRange":0,"shortBoundRange":0.30,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
+        {"beamLimitSpring":1201000,"beamLimitDamp":1000},
+        ["fh1r","fs1r", {"longBoundRange":1,"shortBoundRange":0.30,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
+        ["fh1l","fs1l", {"longBoundRange":1,"shortBoundRange":0.30,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
@@ -295,12 +295,36 @@
             "beamDampReboundFast":"$=$dampRate_rebound_F_fast",
             "dampCutoffHz":500}
         ],
-        //hydraulic bump stop
         {"beamSpring":0,"beamDamp":0},
-        {"beamLimitSpring":15000,"beamLimitDamp":15000},
-        ["fh1r","fs1r", {"longBoundRange":1,"shortBoundRange":0.26,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":250}],
-        ["fh1l","fs1l", {"longBoundRange":1,"shortBoundRange":0.26,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":250}],
-        
+        //hydraulic bump stop
+        ["fh1r","fs1r", {
+            //travel = travel limit-shortBoundRange
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.015,
+            //bump stop active
+            "beamLimitSpring":15000,"beamLimitDamp":15000, "beamLimitDampRebound":1000,"dampCutoffHz":500}
+        ],
+        ["fh1l","fs1l", {
+            //travel = travel limit-shortBoundRange
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.015,
+            //bump stop active
+            "beamLimitSpring":15000,"beamLimitDamp":15000, "beamLimitDampRebound":1000,"dampCutoffHz":500}
+        ],
+        {"beamSpring":0,"beamDamp":0},
+        //hard rebound stop
+        ["fh1r","fs1r", {
+            //travel = boundZone
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
+            //rebound stop active
+            "beamLimitSpring":1201000,"beamLimitDamp":1000, "beamLimitDampRebound":1000,"dampCutoffHz":500}
+        ],
+        ["fh1l","fs1l", {
+            //travel = boundZone
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
+            //rebound stop active
+            "beamLimitSpring":1201000,"beamLimitDamp":1000, "beamLimitDampRebound":1000,"dampCutoffHz":500}
+        ],
+        {"beamSpring":0,"beamDamp":0},
+
         //--Limiter--
         //wheel intrusion limiter
         {"beamPrecompression":0.9,"beamType":"|SUPPORT","beamLongBound":1},
