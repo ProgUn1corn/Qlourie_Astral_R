@@ -41,7 +41,7 @@
         //--Hub--
         //hub mounting points for control arm
         {"nodeWeight":6.5},
-        {"group":["Astral_hub_R","Astral_arm_R","Astral_rarmg"]},
+        {"group":["Astral_hub_R","Astral_arm_R"]},
         ["rh1r", -0.736, 1.32, 0.015],
         ["rh1l",  0.736, 1.32, 0.015],
         //strut body slidenode
@@ -52,7 +52,7 @@
         ["rh2l",  0.6325, 1.314, 0.496],
         //toe link
         {"nodeWeight":5.25},
-        {"group":["Astral_hub_R","Astral_rarmg","Astral_rod_R"]},
+        {"group":["Astral_hub_R","Astral_rod_R"]},
         ["rh3r", -0.736, 1.17, 0.016],
         ["rh3l",  0.736, 1.17, 0.016],
         //brake caliper
@@ -71,9 +71,18 @@
         ["rarb3l",  0.511, 1.32, 0.0582],
         //toe link
         {"nodeWeight":4},
-        {"group":["Astral_rarmg","Astral_rod_R"]},
+        {"group":["Astral_rod_R"]},
         ["rx5r", -0.335, 1.0737, 0.092],
         ["rx5l",  0.335, 1.0737, 0.092],
+        //arm gurad
+        {"nodeWeight":0.25},
+        {"group":["Astral_rarmg"]},
+        ["rarmg1r", -0.587, 0.661, 0.085],
+        ["rarmg2r", -0.612, 1.485, 0.010],
+        ["rarmg3r", -0.612, 0.978, 0.010],
+        ["rarmg1l",  0.587, 0.661, 0.085],
+        ["rarmg2l",  0.612, 1.485, 0.010],
+        ["rarmg3l",  0.612, 0.978, 0.010],
         {"selfCollision":true},
 
         //--Strut--
@@ -220,6 +229,47 @@
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
         ["rx5l","rx1l", {"dampCutoffHz":500}],
+        
+        //--Arm guard--
+        //arm guard shape
+        {"beamSpring":25000,"beamDamp":150},
+        {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+        ["rarmg1r","rarmg2r"],
+        ["rarmg1r","rg1r"],
+        ["rarmg2r","rg2r"],
+        //*
+        ["rarmg1l","rarmg2l"],
+        ["rarmg1l","rg1l"],
+        ["rarmg2l","rg2l"],
+        //arm guard crossing
+        ["rarmg1r","rg2r"],
+        ["rarmg2r","rg1r"],
+        //*
+        ["rarmg1l","rg2l"],
+        ["rarmg2l","rg1l"],
+        //guard flexbody help
+        {"beamSpring":45000,"beamDamp":125},
+        ["rarmg3r","rg1r"],
+        ["rarmg3r","rg2r"],
+        ["rarmg3r","rarmg1r"],
+        //*
+        ["rarmg3l","rg1l"],
+        ["rarmg3l","rg2l"],
+        ["rarmg3l","rarmg1l"],
+        //attach to suspension
+        {"beamSpring":61000,"beamDamp":80},
+        {"beamDeform":20000,"beamStrength":65000},
+        ["rarmg2r","rh2r"],
+        ["rarmg1r","a8"],
+        ["rarmg1r","a9"],
+        ["rarmg1r","a41"],
+        ["rarmg3r","rh4r"],
+        //*
+        ["rarmg2l","rh2l"],
+        ["rarmg1l","a11"],
+        ["rarmg1l","a10"],
+        ["rarmg1l","a42"],
+        ["rarmg3l","rh4l"],
 
         //--Shock--
         //shock tower mount to body
@@ -433,7 +483,7 @@
         //--Hub--
         //hub mounting points for control arm
         {"nodeWeight":6.5},
-        {"group":["Astral_hub_R","Astral_arm_R","Astral_rarmg"]},
+        {"group":["Astral_hub_R","Astral_arm_R"]},
         ["rh1r", -0.736, 1.32, -0.125],
         ["rh1l",  0.736, 1.32, -0.125],
         //strut body slidenode
@@ -444,7 +494,7 @@
         ["rh2l",  0.6577, 1.3156, 0.3],
         //toe link
         {"nodeWeight":5.25},
-        {"group":["Astral_hub_R","Astral_rarmg","Astral_rod_R"]},
+        {"group":["Astral_hub_R","Astral_rod_R"]},
         ["rh3r", -0.736, 1.17, -0.124],
         ["rh3l",  0.736, 1.17, -0.124],
         //brake caliper
@@ -463,9 +513,18 @@
         ["rarb3l",  0.511, 1.32, -0.02135],
         //toe link
         {"nodeWeight":4},
-        {"group":["Astral_rarmg","Astral_rod_R"]},
+        {"group":["Astral_rod_R"]},
         ["rx5r", -0.335, 1.0737, 0.0597],
         ["rx5l",  0.335, 1.0737, 0.0597],
+        //arm gurad
+        {"nodeWeight":0.25},
+        {"group":["Astral_rarmg"]},
+        ["rarmg1r", -0.587, 0.661,  0.085],
+        ["rarmg2r", -0.601, 1.485, -0.100],
+        ["rarmg3r", -0.601, 0.978, -0.100],
+        ["rarmg1l",  0.587, 0.661, 0.085],
+        ["rarmg2l",  0.601, 1.485, -0.100],
+        ["rarmg3l",  0.601, 0.978, -0.100],
         {"selfCollision":true},
 
         //--Strut--
@@ -613,6 +672,47 @@
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
         ["rx5l","rx1l", {"dampCutoffHz":500}],
+
+        //--Arm guard--
+        //arm guard shape
+        {"beamSpring":25000,"beamDamp":150},
+        {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+        ["rarmg1r","rarmg2r"],
+        ["rarmg1r","rg1r"],
+        ["rarmg2r","rg2r"],
+        //*
+        ["rarmg1l","rarmg2l"],
+        ["rarmg1l","rg1l"],
+        ["rarmg2l","rg2l"],
+        //arm guard crossing
+        ["rarmg1r","rg2r"],
+        ["rarmg2r","rg1r"],
+        //*
+        ["rarmg1l","rg2l"],
+        ["rarmg2l","rg1l"],
+        //guard flexbody help
+        {"beamSpring":45000,"beamDamp":125},
+        ["rarmg3r","rg1r"],
+        ["rarmg3r","rg2r"],
+        ["rarmg3r","rarmg1r"],
+        //*
+        ["rarmg3l","rg1l"],
+        ["rarmg3l","rg2l"],
+        ["rarmg3l","rarmg1l"],
+        //attach to suspension
+        {"beamSpring":61000,"beamDamp":80},
+        {"beamDeform":20000,"beamStrength":65000},
+        ["rarmg2r","rh2r"],
+        ["rarmg1r","a8"],
+        ["rarmg1r","a9"],
+        ["rarmg1r","a41"],
+        ["rarmg3r","rh4r"],
+        //*
+        ["rarmg2l","rh2l"],
+        ["rarmg1l","a11"],
+        ["rarmg1l","a10"],
+        ["rarmg1l","a42"],
+        ["rarmg3l","rh4l"],
 
         //--Shock--
         //shock tower mount to body
