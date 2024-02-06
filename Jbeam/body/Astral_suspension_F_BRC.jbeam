@@ -10,7 +10,7 @@
         ["type", "default", "description"],
         ["Astral_group_F","Astral_group_F_BRC_tarmac", "Front Damper Group"],
         ["Astral_swaybar_F","Astral_swaybar_F_race", "Front ARB"],
-        ["Astral_steering","Astral_steering", "Steering"],
+        ["Astral_steering","Astral_steering_h", "Steering"],
         ["Astral_subframe_F","Astral_subframe_F", "Front Subframe", {"coreSlot":true}],
         ["Astral_guard_F","Astral_guard_F", "Front Under Guard"]
     ],
@@ -210,7 +210,7 @@
         ["fx1l", "fx2l", "fx2r", "fx3r"],
     ]
 },
-"Astral_steering": {
+"Astral_steering_h": {
     "information":{
         "authors":"Un1corn",
         "name":"8:1 Ratio Steering",
@@ -262,10 +262,10 @@
         //steering limit
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":2},
         {"beamSpring":5001000,"beamDamp":250,"beamDeform":150000,"beamStrength":550000},
-        {"beamPrecompression":0.69},
+        {"beamPrecompression":0.55},
         ["fh3r","fx1r"],
         ["fh3l","fx1l"],
-        {"beamPrecompression":0.69},
+        {"beamPrecompression":0.55},
         ["fh5r","fx2r"],
         ["fh5l","fx2l"],
         {"beamPrecompression":1},
@@ -274,10 +274,10 @@
         {"beamDeform":15350,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamSpring":0,"beamDamp":150},
-        ["fh3r","fx1r",{"beamDampVelocitySplit":0.12,"beamDampFast":800,"dampCutoffHz":1000}],
-        ["fh3l","fx1l",{"beamDampVelocitySplit":0.12,"beamDampFast":800,"dampCutoffHz":1000}],
-        ["fh5r","fx2r",{"beamDampVelocitySplit":0.12,"beamDampFast":800,"dampCutoffHz":1000}],
-        ["fh5l","fx2l",{"beamDampVelocitySplit":0.12,"beamDampFast":800,"dampCutoffHz":1000}],
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.12,"beamDampFast":1000,"dampCutoffHz":1000}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.12,"beamDampFast":1000,"dampCutoffHz":1000}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.12,"beamDampFast":1000,"dampCutoffHz":1000}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.12,"beamDampFast":1000,"dampCutoffHz":1000}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
@@ -297,6 +297,100 @@
         {"beamSpring":12001000,"beamDamp":50,"beamDeform":"FLT_MAX","beamStrength":199640},
         ["st2l","st1r",{"factor":"$=0.193*$maxSteeringMult", "steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l",{"factor":"$=-0.193*$maxSteeringMult","steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
+        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "input": {
+        //modifier for force feedback to account for differences in vehicles
+        "FFBcoef":"$=9.5*$ffbTune"
+    }
+},
+"Astral_steering_l": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"10:1 Ratio Steering",
+        "value":1200
+    },
+    "slotType" : "Astral_steering",
+    "slots": [
+        ["type", "default", "description"],
+        ["Astral_power_steering", "Astral_power_steering", "Power Steering"]
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$toe_F", "range", "", "Suspension", 1, 0.98, 1.02, "Front Toe Adjust", "Adjusts the wheel toe-in angle",{"subCategory":"Alignment"}],
+        ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
+       	["$maxSteeringMult", "range", "", "Suspension", 1, 0.5, 1.5, "Maximum steering angle multiplier", "Adjusts the max steering angle", {"subCategory":"Steering","minDis":50,"maxDis":150,"stepDis":0.01}]
+        ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 900, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":900,"stepDis":5}],
+        ["$steer_center_F", "range", "", "Suspension", 0, -0.002, 0.002, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+        //--Steering Rack--
+        //steering rack ends
+        {"nodeWeight":5.25},
+        {"group":["Astral_str_F","Astral_rod_F"]},
+        ["st2r", -0.215, -1.148, 0.145],
+        ["st2l",  0.215, -1.148, 0.145]
+    ],
+    //steering rack rail
+    "rails": {
+        "steeringrack":{"links:":["st2r", "st2l"], "broken:":[], "looped":false, "capped":true}
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["st1r", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"]
+    ],
+    "beams": [
+        ["id1:","id2:"],
+        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Steering Rod--
+        {"beamSpring":12001000,"beamDamp":800,"beamDeform":95000,"beamStrength":325000},
+        ["st2r","st2l", {"dampCutoffHz":1000}],
+        
+        //--Limiter and Damper--
+        //steering limit
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":2},
+        {"beamSpring":5001000,"beamDamp":250,"beamDeform":150000,"beamStrength":550000},
+        {"beamPrecompression":0.42},
+        ["fh3r","fx1r"],
+        ["fh3l","fx1l"],
+        {"beamPrecompression":0.42},
+        ["fh5r","fx2r"],
+        ["fh5l","fx2l"],
+        {"beamPrecompression":1},
+        //steering damper
+        {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"beamDeform":15350,"beamStrength":45000},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
+        {"beamSpring":0,"beamDamp":150},
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1000,"dampCutoffHz":1000}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1000,"dampCutoffHz":1000}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1000,"dampCutoffHz":1000}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1000,"dampCutoffHz":1000}],
+        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":false,"beamDamp":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false}
+    ],
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        {"spring":100000, "damp":0, "deform":25000, "strength":100000},
+        //rigidify steering arm
+        ["fw1rr", "fw1r", "fh1r", "fh3r"],
+        ["fw1ll", "fw1l", "fh1l", "fh3l"],
+        ["fw1r", "fw1rr", "fh1r", "fh3r"],
+        ["fw1l", "fw1ll", "fh1l", "fh3l"]
+    ],
+    "hydros": [
+        ["id1:","id2:"],
+        {"beamPrecompression":1.0, "beamType":"| BOUNDED", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":12001000,"beamDamp":50,"beamDeform":"FLT_MAX","beamStrength":199640},
+        ["st2l","st1r",{"factor":"$=0.165*$maxSteeringMult", "steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
+        ["st2r","st1l",{"factor":"$=-0.165*$maxSteeringMult","steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
     "input": {
@@ -330,9 +424,9 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 4150, 2800, 5500, "Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7100, 5500, 8700, "Fast Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the fast bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and fast bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 5150, 3800, 6500, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 4200, 2400, 6000, "Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 5800, 9000, "Fast Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the fast bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and fast bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 5800, 4000, 7600, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 16000, 14000, 18000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$springRate_F", "range", "N/m", "Suspension", 45000, 30000, 65000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":2500,"subCategory":"Front Suspension"}],
         ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, -0.1, 0.1, "Spring Preload", "Spring Preload affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"subCategory":"Front Suspension"}],
@@ -581,10 +675,10 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-5500)/40000-($dampRate_bump_F-2800)/27000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-5800)/32000-($dampRate_bump_F-2400)/36000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.28
+            "beamDampVelocitySplitRebound":0.24
             "beamDampReboundFast":"$=$dampRate_rebound_F/3",
             "dampCutoffHz":500}
         ],
@@ -594,10 +688,10 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-5500)/40000-($dampRate_bump_F-2800)/27000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-5800)/32000-($dampRate_bump_F-2400)/36000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.28
+            "beamDampVelocitySplitRebound":0.24
             "beamDampReboundFast":"$=$dampRate_rebound_F/3",
             "dampCutoffHz":500}
         ],
@@ -607,13 +701,13 @@
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.17,"boundZone":0.01,
             //bump stop active
-            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":1000,"dampCutoffHz":500}
+            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F/2","dampCutoffHz":500}
         ],
         ["fh1l","fs1l", {
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.17,"boundZone":0.01,
             //bump stop active
-            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":1000,"dampCutoffHz":500}
+            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F/2","dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
         //hydraulic rebound stop
@@ -633,14 +727,14 @@
         
         //--Limiter--
         //wheel intrusion limiter
-        {"beamPrecompression":0.9,"beamType":"|SUPPORT","beamLongBound":1},
+        {"beamPrecompression":0.8,"beamType":"|SUPPORT","beamLongBound":1},
         {"beamSpring":2500000,"beamDamp":280,"beamDeform":165000,"beamStrength":900000},
-        //["fw1ll","fx1r"],
-        //["fw1ll","fx2r"],
-        //["fw1rr","fx1l"],
-        //["fw1rr","fx2l"],
-        //["fw1ll","fs1r"],
-        //["fw1rr","fs1l"],
+        ["fw1ll","fx1r"],
+        ["fw1ll","fx2r"],
+        ["fw1rr","fx1l"],
+        ["fw1rr","fx2l"],
+        ["fw1ll","fs1r"],
+        ["fw1rr","fs1l"],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -705,9 +799,9 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 2650, 1300, 4000, "Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 6000, 4000, 8000, "Fast Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the fast bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and fast bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3350, 2000, 4700, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 2800, 1000, 4600, "Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 4000, 7200, "Fast Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the fast bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and fast bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 4200, 2400, 6000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 14000, 10000, 18000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$springRate_F", "range", "N/m", "Suspension", 27500, 17500, 40000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":2500,"subCategory":"Front Suspension"}],
         ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, -0.2, 0.2, "Spring Preload", "Spring Preload affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"subCategory":"Front Suspension"}],
@@ -955,7 +1049,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-4000)/40000-($dampRate_bump_F-1300)/27000,0.50,0.70)",
+            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-4000)/32000-($dampRate_bump_F-1000)/36000,0.50,0.70)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
             "beamDampVelocitySplitRebound":0.26
@@ -968,7 +1062,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-4000)/40000-($dampRate_bump_F-1300)/27000,0.50,0.70)",
+            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-4000)/32000-($dampRate_bump_F-1000)/36000,0.50,0.70)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
             "beamDampVelocitySplitRebound":0.26
@@ -981,13 +1075,13 @@
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.27,"boundZone":0.015,
             //bump stop active
-            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":1000,"dampCutoffHz":500}
+            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F/2","dampCutoffHz":500}
         ],
         ["fh1l","fs1l", {
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.27,"boundZone":0.015,
             //bump stop active
-            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":1000,"dampCutoffHz":500}
+            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F/2","dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
         //hydraulic rebound stop
@@ -1007,14 +1101,14 @@
 
         //--Limiter--
         //wheel intrusion limiter
-        {"beamPrecompression":0.9,"beamType":"|SUPPORT","beamLongBound":1},
+        {"beamPrecompression":0.8,"beamType":"|SUPPORT","beamLongBound":1},
         {"beamSpring":2500000,"beamDamp":280,"beamDeform":165000,"beamStrength":900000},
-        //["fw1ll","fx1r"],
-        //["fw1ll","fx2r"],
-        //["fw1rr","fx1l"],
-        //["fw1rr","fx2l"],
-        //["fw1ll","fs1r"],
-        //["fw1rr","fs1l"],
+        ["fw1ll","fx1r"],
+        ["fw1ll","fx2r"],
+        ["fw1rr","fx1l"],
+        ["fw1rr","fx2l"],
+        ["fw1ll","fs1r"],
+        ["fw1rr","fs1l"],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
