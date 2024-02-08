@@ -1,24 +1,23 @@
 {
 "Astral_differential_center_e": {
 	"information":{
-		"name":"Electronic Center Differential",
+		"name":"Active Center Differential",
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$torquesplit", "range", "", "Gearing", 0.50, 0.3, 0.7, "Torque Split", "Power to Rear",{"subCategory": "Transfer Case", "stepDis": 1, "minDis":30,"maxDis":70}]
 		["$lsdpreload_C", "range", "N/m", "Differentials", 20, 0, 150, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center"}],
-		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 0.5, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
+		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 1.0, "Max Lock Rate", "Max differential lock rate", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 1.0, "Min Lock Rate", "Minimum differential lock rate", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
 	],
-	//"controller": [ 
-        //["fileName"],
-        //["ElectronicCenterDifferential", {"transfercaseName":"transfercase"}],
-    //],
+	"controller": [ 
+        ["fileName"],
+        ["eCenterDiff", {"transfercaseName":"transferCase"}],
+    ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=1-$torquesplit", "friction":0.5, "dynamicFriction":0.0003, "torqueLossCoef": 0.013, "uiName":"Center Diff", "defaultVirtualInertia":0.2}]
+		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	]
 },
 "Astral_differential_center_m": {
@@ -29,18 +28,14 @@
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$torquesplit", "range", "", "Gearing", 0.50, 0.3, 0.7, "Torque Split", "Power to Rear",{"subCategory": "Transfer Case", "stepDis": 1, "minDis":30,"maxDis":70}]
+		["$torquesplit", "range", "", "Differentials", 0.50, 0.3, 0.7, "Torque Split", "Power to Rear",{"subCategory": "Center", "stepDis": 5, "minDis":30,"maxDis":70}]
 		["$lsdpreload_C", "range", "N/m", "Differentials", 20, 0, 150, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center"}],
-		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 0.5, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
+		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 1.0, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 1.0, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
 	],
-	//"controller": [ 
-        //["fileName"],
-        //["ElectronicCenterDifferential", {"transfercaseName":"transfercase"}],
-    //],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=1-$torquesplit", "friction":0.5, "dynamicFriction":0.0003, "torqueLossCoef": 0.013, "uiName":"Center Diff", "defaultVirtualInertia":0.2}]
+		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=1-$torquesplit", "friction":0.5, "dynamicFriction":0.0003, "torqueLossCoef": 0.013, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	]
 },
 "Astral_differential_center_locked": {
