@@ -208,7 +208,7 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_r9", ["Astral_arm_R"]],
-        ["Astral_rod_r9", ["Astral_rod_R"]],
+        ["Astral_rod_r9", ["Astral_rod_R","Astral_arm_R"]],
         ["Astral_arb_r9", ["Astral_arb_R"]],
         ["Astral_hub_r9", ["Astral_hub_R"]],
         ["Astral_shockup_r9", ["Astral_shock_R"]],
@@ -247,8 +247,8 @@
         //toe link
         {"nodeWeight":5},
         {"group":["Astral_hub_R","Astral_rod_R"]},
-        ["rh3r", -0.736, 1.17, 0.016],
-        ["rh3l",  0.736, 1.17, 0.016],
+        ["rh3r", -0.729, 1.18, 0.0158],
+        ["rh3l",  0.729, 1.18, 0.0158],
         //brake caliper
         {"nodeWeight":3.5},
         {"group":["Astral_hub_R","Astral_duct_R"]},
@@ -390,10 +390,10 @@
         {"beamDeform":155000,"beamStrength":350000},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.022","beamPrecompressionTime":0.1}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.02","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.022","beamPrecompressionTime":0.1}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.02","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -407,8 +407,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":1200},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0009","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0009","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":25000,"beamStrength":"FLT_MAX"},
@@ -617,10 +617,12 @@
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":155000, "damp":0, "deform":55000, "strength":150000},
+        {"spring":95000, "damp":0, "deform":45000, "strength":150000},
         //rigidify toe link
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"],
+        ["rw1r", "rw1rr", "rh1r", "rh3r"],
+        ["rw1l", "rw1ll", "rh1l", "rh3l"],
     ],
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -651,7 +653,7 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_r8", ["Astral_arm_R"]],
-        ["Astral_rod_r8", ["Astral_rod_R"]],
+        ["Astral_rod_r8", ["Astral_rod_R","Astral_arm_R"]],
         ["Astral_arb_r8", ["Astral_arb_R"]],
         ["Astral_hub_r8", ["Astral_hub_R"]],
         ["Astral_shockup_r8", ["Astral_shock_R"]],
@@ -690,8 +692,8 @@
         //toe link
         {"nodeWeight":5},
         {"group":["Astral_hub_R","Astral_rod_R"]},
-        ["rh3r", -0.736, 1.17, -0.1245],
-        ["rh3l",  0.736, 1.17, -0.1245],
+        ["rh3r", -0.729, 1.18, -0.1245],
+        ["rh3l",  0.729, 1.18, -0.1245],
         //brake caliper
         {"nodeWeight":3.5},
         {"group":["Astral_hub_R","Astral_duct_R"]},
@@ -851,8 +853,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":14001000,"beamDamp":1400},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -1061,10 +1063,12 @@
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":155000, "damp":0, "deform":55000, "strength":150000},
+        {"spring":95000, "damp":0, "deform":45000, "strength":150000},
         //rigidify toe link
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"],
+        ["rw1r", "rw1rr", "rh1r", "rh3r"],
+        ["rw1l", "rw1ll", "rh1l", "rh3l"],
     ],
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
