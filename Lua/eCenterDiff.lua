@@ -42,7 +42,7 @@ local function updateWheelsIntermediate()
 
   --calculate new lock coef and bias
   local normalSteer = abs(steer) --make value 0 to 1
-  local normalThrottle = abs(throttle*throttleRatio*2-brake*brakeRatio*2) --make value 0 to 1
+  local normalThrottle = max(0, min(abs(throttle*throttleRatio*2-brake*brakeRatio*2), maxLockCoef)) --make value 0 to 1
   local contributionThrottle = max(0, min(lockRange*normalThrottle*(1/maxKnee) + minLockCoef, maxLockCoef))
   local contributionSteer = lockRange*normalSteer + minLockCoef
   local lockEffect = max(0, min(contributionThrottle-contributionSteer, lockRange))
