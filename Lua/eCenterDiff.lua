@@ -13,8 +13,8 @@ local max = math.max
 local transfercase = nil
 local maxLockCoef = 0
 local minLockCoef = 0
+local maxKnee = 0
 local newLockCoef = 0
-local oldLockCoef = 0
 local rearBias = 0
 
 local function updateWheelsIntermediate()
@@ -28,6 +28,7 @@ local function updateWheelsIntermediate()
   --get lock range
   maxLockCoef = transfercase.lsdLockCoef
   minLockCoef = transfercase.lsdRevLockCoef
+  maxKnee = transfercase.lsdPreload
   if minLockCoef - maxLockCoef < 0 then --make sure min is larger than max
     lockRange = 1
   else
@@ -37,17 +38,18 @@ local function updateWheelsIntermediate()
   --calculate new lock coef and bias
   local normalSteer = abs(steer) --make value 0 to 1
   local normalThrottle = abs(throttle-brake) --make value 0 to 1
-  local contributionThrottle = lockRange*normalThrottle + minLockCoef
+  local contributionThrottle = lockRange*(normalThrottle*(1/maxKnee)) + minLockCoef
   local contributionSteer = lockRange*normalSteer + minLockCoef
   local lockEffect = max(0,min(contributionThrottle-contributionSteer,lockRange))
   newLockCoef = minLockCoef + lockEffect
-  rearBias = 0.756 + normalSteer*0.244
+  rearBias = 0.556 + normalSteer*0.244
 
   --apply values to diff
   transfercase.lsdLockCoef = newLockCoef
   transfercase.lsdRevLockCoef = minLockCoef
   transfercase.diffTorqueSplitA = 1 - rearBias
   transfercase.diffTorqueSplitB = rearBias
+  transfercase.lsdPreload = 20
 
   --handbrake
   if input.parkingbrake > 0.5 then
