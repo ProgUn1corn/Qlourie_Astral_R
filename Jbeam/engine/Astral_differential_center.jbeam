@@ -7,9 +7,9 @@
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$lsdpreload_C", "range", "N/m", "Differentials", 20, 0, 150, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center"}],
-		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 1.0, "Max Lock Rate", "Max differential lock rate", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 1.0, "Min Lock Rate", "Minimum differential lock rate", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
+		["$lsdpreload_C", "range", "", "Differentials", 1, 0.3, 1, "Max Knee Point", "The throttle/brake point where lock is at maximum", {"minDis":30, "maxDis":100, "subCategory":"Center"}],
+		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0.5, 1, "Max Lock Rate", "Max differential lock rate", {"minDis":50, "maxDis":100, "subCategory":"Center"}],
+		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 0.5, "Min Lock Rate", "Minimum differential lock rate", {"minDis":0, "maxDis":50, "subCategory":"Center"}]
 	],
 	"controller": [ 
         ["fileName"],
