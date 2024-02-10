@@ -49,17 +49,18 @@ local function updateWheelsIntermediate()
   newLockCoef = minLockCoef + lockEffect
   rearBias = 0.556 + normalSteer*0.244
 
+  --handbrake
+  if input.parkingbrake > 0.5 then
+    newLockCoef = 0
+    minLockCoef = 0
+  end  
+
   --apply values to diff
   transfercase.lsdLockCoef = newLockCoef
   transfercase.lsdRevLockCoef = minLockCoef
   transfercase.diffTorqueSplitA = 1 - transfercase.diffTorqueSplitB
   transfercase.diffTorqueSplitB = rearBias
   transfercase.lsdPreload = 20
-
-  --handbrake
-  if input.parkingbrake > 0.5 then
-    transfercase.lsdLockCoef = 0
-  end  
 end
 
 local function init(jbeamData)
