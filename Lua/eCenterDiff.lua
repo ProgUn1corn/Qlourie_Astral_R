@@ -42,9 +42,8 @@ local function updateWheelsIntermediate()
   local normalThrottle = clamp(abs(throttle*throttleRatio*2-brake*brakeRatio*2), 0, 1) --make value 0 to 1
   local contributionThrottle = clamp(lockRange*normalThrottle*(1/maxKnee) + minLockCoef, minLockCoef, maxLockCoef)
   local contributionSteer = lockRange*normalSteer + minLockCoef
-  newLockCoef = clamp(contributionThrottle-(contributionSteer/2) + minLockCoef, 0, maxLockCoef)
-  rearBias = 0.556 + normalSteer*0.244
-  newPreload = 20
+  newLockCoef = clamp(contributionThrottle-(contributionSteer*1.15) + minLockCoef, 0, maxLockCoef)
+  newPreload = 30
   
   if input.parkingbrake > 0.5 then --handbrake
     transfercase.lsdLockCoef = 0
@@ -54,7 +53,9 @@ local function updateWheelsIntermediate()
   --countersteer bias controll
   local yaw = obj:getYawAngularVelocity() --left is positive
   if steer*yaw < 0 then
-    rearBias = 0.5 - normalSteer*0.2
+    rearBias = 0.525 - normalSteer*0.125
+  else
+    rearBias = 0.525 + normalSteer*0.375
   end
 
   --apply values to diff
