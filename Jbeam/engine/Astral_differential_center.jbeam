@@ -7,9 +7,10 @@
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$lsdpreload_C", "range", "", "Differentials", 1, 0.3, 1, "Max Knee Point", "The throttle/brake point where lock is at maximum", {"minDis":30, "maxDis":100, "subCategory":"Center"}],
-		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0.5, 1, "Max Lock Rate", "Max differential lock rate", {"minDis":50, "maxDis":100, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 0.5, "Min Lock Rate", "Minimum differential lock rate", {"minDis":0, "maxDis":50, "subCategory":"Center"}]
+		["$knee_C", "range", "", "Differentials", 1, 0.3, 1, "Max Knee Point", "The throttle/brake point where lock is at maximum", {"minDis":30, "maxDis":100, "subCategory":"Center"}],
+		["$maxLock_C", "range", "", "Differentials", 0.325, 0.5, 1, "Max Lock Rate", "Max differential lock rate", {"minDis":50, "maxDis":100, "subCategory":"Center"}],
+		["$minLock_C", "range", "", "Differentials", 0.175, 0, 0.5, "Min Lock Rate", "Minimum differential lock rate", {"minDis":0, "maxDis":50, "subCategory":"Center"}],
+		["$ratio_C", "range", "B<->T", "Differentials", 0.5, 0, 1, "Throttle/Brake Contribution Ratio", "How much the lock is biased to throttle or brake", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -17,7 +18,7 @@
     ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$knee_C", "lsdLockCoef":"$maxLock_C", "lsdRevLockCoef":"$minLock_C", "diffTorqueSplit":"$ratio_C", "friction":0.6, "dynamicFriction":0.0005, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	]
 },
 "Astral_differential_center_m": {
@@ -35,7 +36,7 @@
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=1-$torquesplit", "friction":0.5, "dynamicFriction":0.0003, "torqueLossCoef": 0.013, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=1-$torquesplit", "friction":0.65, "dynamicFriction":0.0005, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	]
 },
 "Astral_differential_center_locked": {
@@ -50,7 +51,7 @@
     ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transferCase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":5000, "friction":0.6, "dynamicFriction":0.0004, "torqueLossCoef": 0.012, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
+		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transferCase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":5000, "friction":0.8, "dynamicFriction":0.0004, "torqueLossCoef": 0.015, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
 	]
 }
 }
