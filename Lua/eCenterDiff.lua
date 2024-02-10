@@ -42,7 +42,7 @@ local function updateWheelsIntermediate()
   local normalThrottle = clamp(abs(throttle*throttleRatio*2-brake*brakeRatio*2), 0, 1) --make value 0 to 1
   local contributionThrottle = clamp(lockRange*normalThrottle*(1/maxKnee) + minLockCoef, minLockCoef, maxLockCoef)
   local contributionSteer = lockRange*normalSteer + minLockCoef
-  newLockCoef = clamp(contributionThrottle-contributionSteer + minLockCoef, 0, maxLockCoef)
+  newLockCoef = clamp(contributionThrottle-(contributionSteer/2) + minLockCoef, 0, maxLockCoef)
   rearBias = 0.556 + normalSteer*0.244
   newPreload = 20
   
@@ -66,7 +66,7 @@ local function updateWheelsIntermediate()
 
   --print(transfercase.diffTorqueSplitB)
   --print(transfercase.lsdLockCoef)
-  print(transfercase.lsdPreload)
+  --print(transfercase.lsdPreload)
 end
 
 local function updateGFX(dt)
