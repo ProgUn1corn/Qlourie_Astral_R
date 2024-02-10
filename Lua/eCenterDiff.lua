@@ -17,16 +17,18 @@ local maxKnee = 0
 local throttleRatio = 0
 local brakeRatio = 0
 local newLockCoef = 0
+local newPreload = 0
 local rearBias = 0
 
 local function updateWheelsIntermediate()
-  
   --get input value
   local throttle = electrics.values['throttle_input']
   local brake = electrics.values['brake_input']
   local steer = electrics.values['steering_input']
   local lockRange = 0
-
+  local normalSteer = abs(steer) --make value 0 to 1
+  local normalThrottle = max(0, min(abs(throttle*throttleRatio*2-brake*brakeRatio*2), 1)) --make value 0 to 1
+  
   --get lock range
   maxLockCoef = transfercase.lsdLockCoef
   minLockCoef = transfercase.lsdRevLockCoef
@@ -40,27 +42,27 @@ local function updateWheelsIntermediate()
     lockRange = abs(maxLockCoef - minLockCoef) 
   end
 
-  --calculate new lock coef and bias
-  local normalSteer = abs(steer) --make value 0 to 1
-  local normalThrottle = max(0, min(abs(throttle*throttleRatio*2-brake*brakeRatio*2), 1)) --make value 0 to 1
-  local contributionThrottle = max(0, min(lockRange*normalThrottle*(1/maxKnee) + minLockCoef, maxLockCoef))
-  local contributionSteer = lockRange*normalSteer + minLockCoef
-  local lockEffect = max(0, min(contributionThrottle-contributionSteer, lockRange))
-  newLockCoef = minLockCoef + lockEffect
-  rearBias = 0.556 + normalSteer*0.244
-
-  --handbrake
-  if input.parkingbrake > 0.5 then
+  if input.parkingbrake < 0.5 then --handbrake
+    --calculate new lock coef and bias
+    local contributionThrottle = max(0, min(lockRange*normalThrottle*(1/maxKnee) + minLockCoef, maxLockCoef))
+    local contributionSteer = lockRange*normalSteer + minLockCoef
+    local lockEffect = max(0, min(contributionThrottle-contributionSteer, lockRange))
+    newLockCoef = minLockCoef + lockEffect
+    rearBias = 0.556 + normalSteer*0.244
+    newPreload = 20
+  else --disconnect front and rear
     newLockCoef = 0
     minLockCoef = 0
+    rearBias = 0.556 + normalSteer*0.244
+    newPreload = 0
   end  
-
+  
   --apply values to diff
   transfercase.lsdLockCoef = newLockCoef
   transfercase.lsdRevLockCoef = minLockCoef
   transfercase.diffTorqueSplitA = 1 - transfercase.diffTorqueSplitB
   transfercase.diffTorqueSplitB = rearBias
-  transfercase.lsdPreload = 20
+  transfercase.lsdPreload = newPreload
 end
 
 local function init(jbeamData)
