@@ -8,8 +8,8 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$knee_C", "range", "", "Differentials", 1, 0.3, 1, "Max Knee Point", "The throttle/brake point where lock is at maximum", {"minDis":30, "maxDis":100, "subCategory":"Center"}],
-		["$maxLock_C", "range", "", "Differentials", 0.325, 0.5, 1, "Max Lock Rate", "Max differential lock rate", {"minDis":50, "maxDis":100, "subCategory":"Center"}],
-		["$minLock_C", "range", "", "Differentials", 0.175, 0, 0.5, "Min Lock Rate", "Minimum differential lock rate", {"minDis":0, "maxDis":50, "subCategory":"Center"}],
+		["$maxLock_C", "range", "", "Differentials", 1, 0.5, 1, "Max Lock Rate", "Max differential lock rate", {"minDis":50, "maxDis":100, "subCategory":"Center"}],
+		["$minLock_C", "range", "", "Differentials", 0.35, 0, 0.5, "Min Lock Rate", "Minimum differential lock rate", {"minDis":0, "maxDis":50, "subCategory":"Center"}],
 		["$ratio_C", "range", "B<->T", "Differentials", 0.5, 0, 1, "Throttle/Brake Contribution Ratio", "How much the lock is biased to throttle or brake", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [ 
@@ -31,8 +31,8 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$torquesplit", "range", "", "Differentials", 0.50, 0.3, 0.7, "Torque Split", "Power to Rear",{"subCategory": "Center", "stepDis": 5, "minDis":30,"maxDis":70}]
 		["$lsdpreload_C", "range", "N/m", "Differentials", 20, 0, 150, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center"}],
-		["$lsdlockcoef_C", "range", "", "Differentials", 0.325, 0, 1.0, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.175, 0, 1.0, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
+		["$lsdlockcoef_C", "range", "", "Differentials", 1, 0, 1, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.35, 0, 1.0, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
