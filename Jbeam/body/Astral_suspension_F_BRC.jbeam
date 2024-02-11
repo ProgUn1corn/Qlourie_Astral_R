@@ -678,7 +678,7 @@
             "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-4200)/48000-($dampRate_bump_F-2400)/36000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.24
+            "beamDampVelocitySplitRebound":0.32
             "beamDampReboundFast":2000,
             "dampCutoffHz":500}
         ],
@@ -691,7 +691,7 @@
             "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-4200)/48000-($dampRate_bump_F-2400)/36000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.24
+            "beamDampVelocitySplitRebound":0.32
             "beamDampReboundFast":2000,
             "dampCutoffHz":500}
         ],
@@ -1049,11 +1049,11 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.58+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-1000)/36000,0.45,0.65)",
+            "beamDampVelocitySplit":"$=clamp(0.65+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-1000)/36000,0.55,0.75)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.32
-            "beamDampReboundFast":1800,
+            "beamDampVelocitySplitRebound":0.68
+            "beamDampReboundFast":2200,
             "dampCutoffHz":500}
         ],
         ["fh1l","fs1l", {
@@ -1062,11 +1062,11 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.58+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-1000)/36000,0.45,0.65)",
+            "beamDampVelocitySplit":"$=clamp(0.65+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-1000)/36000,0.55,0.75)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.32
-            "beamDampReboundFast":1800,
+            "beamDampVelocitySplitRebound":0.68
+            "beamDampReboundFast":2200,
             "dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
@@ -1163,11 +1163,11 @@
         {"hubcapGroup":"hubcap_FR"},
         {"axleBeams":["axle_FR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"fh1r", "torqueArm:":"fh3r", "torqueArm2:":"fw1rr","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
+        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"ftrar", "torqueArm:":"eg3", "torqueArm2:":"eg0","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
         {"hubcapBreakGroup":"hubcap_FL"},
         {"hubcapGroup":"hubcap_FL"},
         {"axleBeams":["axle_FL"]},
-        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"fh1l", "torqueArm:":"fh3l", "torqueArm2:":"fw1ll","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
+        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"ftral", "torqueArm:":"eg2", "torqueArm2:":"eg1","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},
