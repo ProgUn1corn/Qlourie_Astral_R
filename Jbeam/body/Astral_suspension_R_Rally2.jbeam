@@ -94,7 +94,7 @@
         //damper flexbody help
         {"selfCollision":false},
         {"collision":false},
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.35},
         {"group":["Astral_shock_R"]},
         ["rh4r", -0.561, 1.23, 0.239],
         ["rh4l",  0.561, 1.23, 0.239],
@@ -145,7 +145,7 @@
 
         //--Hub and Wheel--
         //hub form
-        {"beamSpring":8001000,"beamDamp":150},
+        {"beamSpring":9001000,"beamDamp":150},
         {"beamDeform":85000,"beamStrength":"FLT_MAX"},
         ["rh1r","rh3r"],
         ["rh2r","rh1r"],
@@ -154,7 +154,7 @@
         ["rh1l","rh3l"],
         ["rh2l","rh1l"],
         ["rh2l","rh3l"],
-        {"beamSpring":5501000,"beamDamp":100},
+        {"beamSpring":6001000,"beamDamp":100},
         ["rh1r","rh5r"],
         ["rh3r","rh5r"],
         ["rh2r","rh5r"],
@@ -165,8 +165,6 @@
         //damper flexbody help
         {"beamSpring":251000,"beamDamp":125},
         {"beamDeform":"FLT_MAX"},
-        ["rh4l","rh1l"],
-        ["rh4r","rh1r"],
         ["rh4l","rh3l"],
         ["rh4r","rh3r"],
         ["rh4l","rh2l"],
@@ -174,25 +172,29 @@
         ["rh4l","rh5l"],
         ["rh4r","rh5r"],
         //hub to wheel axle nodes
-        {"beamSpring":8501000,"beamDamp":180},
-        {"beamDeform":82500,"beamStrength":350000},
+        {"beamSpring":9001000,"beamDamp":150},
+        {"beamDeform":82500,"beamStrength":400000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
         ["rh3r","rw1r", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4r","rw1r", {"beamSpring":151000,"beamDamp":120}],
         ["rh5r","rw1r", {"beamSpring":6001000,"beamDamp":80}],
         ["rh1r","rw1rr"],
         ["rh3r","rw1rr", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4r","rw1rr", {"beamSpring":151000,"beamDamp":120}],
         ["rh5r","rw1rr", {"beamSpring":6001000,"beamDamp":80}],
         {"breakGroup":"wheel_RL"},
         ["rh1l","rw1l", {"name":"axle_RL"}],
         ["rh3l","rw1l", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4l","rw1ll", {"beamSpring":151000,"beamDamp":120}],
         ["rh5l","rw1l", {"beamSpring":6001000,"beamDamp":80}],
         ["rh1l","rw1ll"],
         ["rh3l","rw1ll", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4l","rw1ll", {"beamSpring":151000,"beamDamp":120}],
         ["rh5l","rw1ll", {"beamSpring":6001000,"beamDamp":80}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":7001000,"beamDamp":125},
         {"beamDeform":155000,"beamStrength":350000},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
@@ -423,7 +425,7 @@
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":95000, "damp":0, "deform":45000, "strength":150000},
+        {"spring":85000, "damp":0, "deform":45000, "strength":150000},
         //rigidify toe link
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"],
@@ -470,9 +472,9 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Suspension", 2500, 1200, 4800, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Rear Suspension"}],
+		["$dampRate_bump_R", "range", "Click", "Suspension", 2500, 1000, 3700, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Rear Suspension"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 4800, 3200, 8000, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the fast bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and fast bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Rear Suspension"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 3600, 1200, 4800, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Rear Suspension"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 3600, 2000, 4700, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$springRate_R", "range", "N/m", "Suspension", 25000, 17500, 40000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":2500,"subCategory":"Rear Suspension"}],
         ["$RideHeightOffsetRear", "range", "+m", "Suspension", 0, -0.2, 0.2, "Spring Preload", "Spring Preload affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"subCategory":"Rear Suspension"}],
     ],
@@ -538,7 +540,7 @@
         //damper flexbody help
         {"selfCollision":false},
         {"collision":false},
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.35},
         {"group":["Astral_shock_R"]},
         ["rh4r", -0.559, 1.21, 0.028],
         ["rh4l",  0.559, 1.21, 0.028],
@@ -590,7 +592,7 @@
 
         //--Hub and Wheel--
         //hub form
-        {"beamSpring":8001000,"beamDamp":150},
+        {"beamSpring":9001000,"beamDamp":150},
         {"beamDeform":85000,"beamStrength":"FLT_MAX"},
         ["rh1r","rh3r"],
         ["rh2r","rh1r"],
@@ -610,8 +612,6 @@
         //damper flexbody help
         {"beamSpring":251000,"beamDamp":125},
         {"beamDeform":"FLT_MAX"},
-        ["rh4l","rh1l"],
-        ["rh4r","rh1r"],
         ["rh4l","rh3l"],
         ["rh4r","rh3r"],
         ["rh4l","rh2l"],
@@ -619,25 +619,29 @@
         ["rh4l","rh5l"],
         ["rh4r","rh5r"],
         //hub to wheel axle nodes
-        {"beamSpring":8501000,"beamDamp":180},
-        {"beamDeform":82500,"beamStrength":350000},
+        {"beamSpring":9001000,"beamDamp":150},
+        {"beamDeform":82500,"beamStrength":400000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
         ["rh3r","rw1r", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4r","rw1r", {"beamSpring":151000,"beamDamp":120}],
         ["rh5r","rw1r", {"beamSpring":6001000,"beamDamp":80}],
         ["rh1r","rw1rr"],
         ["rh3r","rw1rr", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4r","rw1rr", {"beamSpring":151000,"beamDamp":120}],
         ["rh5r","rw1rr", {"beamSpring":6001000,"beamDamp":80}],
         {"breakGroup":"wheel_RL"},
         ["rh1l","rw1l", {"name":"axle_RL"}],
         ["rh3l","rw1l", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4l","rw1ll", {"beamSpring":151000,"beamDamp":120}],
         ["rh5l","rw1l", {"beamSpring":6001000,"beamDamp":80}],
         ["rh1l","rw1ll"],
         ["rh3l","rw1ll", {"beamSpring":12001000,"beamDamp":25}],
+        ["rh4l","rw1ll", {"beamSpring":151000,"beamDamp":120}],
         ["rh5l","rw1ll", {"beamSpring":6001000,"beamDamp":80}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":7001000,"beamDamp":125},
         {"beamDeform":155000,"beamStrength":350000},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
@@ -781,10 +785,10 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_R_fast-3200)/48000-($dampRate_bump_R-1200)/36000,0.50,0.70)",
+            "beamDampVelocitySplit":"$=clamp(0.55+($dampRate_bump_R_fast-3200)/48000-($dampRate_bump_R-1200)/36000,0.45,0.65)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.55,
+            "beamDampVelocitySplitRebound":0.52,
             "beamDampReboundFast":1200,
             "dampCutoffHz":500}
         ],
@@ -794,10 +798,10 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //fast bump
-            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_R_fast-3200)/48000-($dampRate_bump_R-1200)/36000,0.50,0.70)",
+            "beamDampVelocitySplit":"$=clamp(0.55+($dampRate_bump_R_fast-3200)/48000-($dampRate_bump_R-1200)/36000,0.45,0.65)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //load release system (LRS)
-            "beamDampVelocitySplitRebound":0.55,
+            "beamDampVelocitySplitRebound":0.52,
             "beamDampReboundFast":1200,
             "dampCutoffHz":500}
         ],
@@ -868,7 +872,7 @@
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":95000, "damp":0, "deform":45000, "strength":150000},
+        {"spring":85000, "damp":0, "deform":45000, "strength":150000},
         //rigidify toe link
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"],
