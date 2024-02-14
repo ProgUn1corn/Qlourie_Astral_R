@@ -8,7 +8,7 @@
 	"slotType" : "Astral_diveplane",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_diveplane", ["Astral_bumper_F"]]
+		["Astral_diveplane", ["Astral_diveplane"]]
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -17,16 +17,12 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
 		//--Diveplane--
-		{"nodeWeight":0.3},
-		{"group":["Astral_bumper_F"]},
-		["dp1r", -0.919, -1.846, 0.363],
-		["dp1l",  0.919, -1.846, 0.363],
-		{"collision":false},
-        {"selfCollision":false},
-		["dp2r", -0.809, -1.79, 0.504],
-		["dp2l",  0.809, -1.79, 0.504],
-		{"collision":true},
-        {"selfCollision":true},
+		{"nodeWeight":0.25},
+		{"group":["Astral_diveplane"]},
+		["dp1r", -0.905, -1.911, 0.504],
+		["dp1l",  0.905, -1.911, 0.504],
+		["dp2r", -0.878, -1.957, 0.265],
+		["dp2l",  0.878, -1.957, 0.265],
 		{"group":[""]}
 	],
 	"beams": [   
@@ -34,42 +30,54 @@
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Diveplane--
-		//shape
-		{"beamSpring":250100,"beamDamp":80},
-		{"beamDeform":7500,"beamStrength":"FLT_MAX"},
+		//top shape
+		{"beamSpring":140100,"beamDamp":60},
+		{"beamDeform":6500,"beamStrength":20000},
 		["fbe2r", "dp1r"],
-		["dp1r", "fb3r"],
+		["dp1r", "fb4r"],
 		//*
 		["fbe2l", "dp1l"],
-		["dp1l", "fb3l"],
-		//crossing
+		["dp1l", "fb4l"],
+		//top crossing
 		{"beamDeform":4500},
-		["fbe2r", "fb3r"],
-		["fbe1r", "dp1r"],
-		["fbe2l", "fb3l"],
-		["fbe1l", "dp1l"],
-		//rigidifier
-		{"beamDeform":3000},
-		["dp2r", "dp1r"],
-		["dp2r", "fb3r"],
-		["dp2r", "fbe1r"],
-		["dp2r", "fbe2r"],
+		["dp1r", "fbe1r"],
+		["fb4r", "fbe2r"],
 		//*
-		["dp2l", "dp1l"],
+		["dp1l", "fbe1l"],
+		["fb4l", "fbe2l"],
+		//bottom shape
+		{"beamSpring":140100,"beamDamp":60},
+		{"beamDeform":6500,"beamStrength":20000},
+		["fbe2r", "dp2r"],
+		["dp2r", "fb3r"],
+		//*
+		["fbe2l", "dp2l"],
 		["dp2l", "fb3l"],
+		//bottom crossing
+		{"beamDeform":4500},
+		["dp2r", "fbe1r"],
+		["fb3r", "fbe2r"],
+		//*
 		["dp2l", "fbe1l"],
-		["dp2l", "fbe2l"],
+		["fb3l", "fbe2l"],
 		//attach to bumper
-		{"beamSpring":200100,"beamDamp":50},
-		{"beamDeform":8000,"beamStrength":65000},
-		{"breakGroup":"diveplane"},
-		["dp1r", "fb4r"],
+		{"beamSpring":100100,"beamDamp":50},
+		{"beamDeform":5500,"beamStrength":35000},
+		{"breakGroup":"diveplane_R"},
+		["dp1r", "fb3r"],
 		["dp1r", "fbe3r"],
 		["dp1r", "fb7r"],
+		["dp2r", "fb4r"],
+		["dp2r", "fbe3r"],
+		["dp2r", "fb6r"],
 		//*
-		["dp1l", "fb4l"],
+		{"breakGroup":"diveplane_L"},
+		["dp1l", "fb3l"],
 		["dp1l", "fbe3l"],
 		["dp1l", "fb7l"],
+		["dp2l", "fb4l"],
+		["dp2l", "fbe3l"],
+		["dp2l", "fb6l"],
 		{"breakGroup":""},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
@@ -81,14 +89,18 @@
 		//--Front Downforce--
 		//front blades
 		{"dragCoef":80},
-		{"liftCoef":120,"stallAngle":1.1}
-		{"breakGroup":"fbr"},
-		["fbe2r", "dp1r", "fb3r"],
-		["fs1r", "dp1r", "fb3r"],
+		{"liftCoef":120,"stallAngle":0.75}
+		{"breakGroup":"diveplane_R"},
+		["dp1r", "fbe1r", "fbe2r"],
+		["dp1r", "fb4r", "fbe1r"],
+		["dp2r", "fbe1r", "fbe2r"],
+		["dp2r", "fb3r", "fbe1r"],
 		//*
-		{"breakGroup":"fbl"},
-		["fbe2l", "fb3l", "dp1l"],
-		["fs1l", "fb3l", "dp1l"],
+		{"breakGroup":"diveplane_L"},
+		["dp1l", "fbe2l", "fbe1l"],
+		["dp1l", "fbe1l", "fb4l"],
+		["dp2l", "fbe2l", "fbe1l"],
+		["dp2l", "fbe1l", "fb3l"],
 		{"breakGroup":""},
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
