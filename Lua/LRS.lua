@@ -7,7 +7,6 @@ M.type = "auxilliary"
 local abs = math.abs
 local min = math.min
 local max = math.max
-local clamp = math.clamp
 
 local gMass = {}
 local dampers = {}
@@ -22,8 +21,17 @@ function clamp(value, min, max)
 end
 
 local function updateWheelsIntermediate()
-  local restMassLength = obj:getBeamLength(gMass[1].bCid)
-  print(restMassLength)
+  local restMassLengthR = obj:getBeamLength(gMass[1].bCid)
+  local restMassLengthL = obj:getBeamLength(gMass[2].bCid)
+
+  if restMassLengthR > 0.25 then
+    obj:setBoundedBeamDamp(dampers[1].bCid, 1500, 1600, 5000, 1600, 0.65, 0.55)
+  end
+
+  if restMassLengthL > 0.25 then
+    obj:setBoundedBeamDamp(dampers[2].bCid, 1500, 1600, 5000, 1600, 0.65, 0.55)
+  end
+  --print(restMassLength)
   --for _, v in ipairs(damper) do
   --end
 end
