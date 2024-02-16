@@ -1,7 +1,7 @@
 {
 "Astral_differential_R_race": {
 	"information":{
-		"name":"Rear Differential",
+		"name":"Rear Mechanical LSD",
 		"value":1500
 	},
 	"slotType" : "Astral_differential_R",
@@ -9,7 +9,7 @@
 		["type", "default", "description"],
 		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
 		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
-		["Astral_finaldrive_R","Astral_finaldrive_R_race","Rear Final Drive", {"coreSlot":true}]
+		["Astral_finaldrive_R","Astral_finaldrive_R_4.5","Rear Final Drive", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -30,6 +30,9 @@
         "dynamicFriction": 0.0015,
         "torqueLossCoef": 0.02,
     },
+	"torsionReactorR": {
+        "torqueReactionNodes:":["eg6","eg1","eg0"],
+    }
 },
 "Astral_driveshaft": {
     "information":{
@@ -42,10 +45,7 @@
         ["type", "name", "inputName", "inputIndex"],
         ["torsionReactor", "torsionReactorR", "transferCase", 2],
         ["shaft", "driveShaft", "torsionReactorR", 1, {"uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":0.3, "dynamicFriction":0.003}],
-    ],
-    "torsionReactorR": {
-        "torqueReactionNodes:":["eg6","eg1","eg0"],
-    }
+    ]
 },
 "Astral_halfshafts_R": {
 	"information":{
@@ -109,18 +109,54 @@
 		["shaft", "halfshaftRR", "rearDiff", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.4, "dynamicFriction":0.003}]
 	]
 },
-"Astral_finaldrive_R_race": {
+"Astral_finaldrive_R_5": {
 	"information":{
-		"name":"Rear Final Drive",
+		"name":"Final Drive 5",
 		"value":1000
 	},
-	"variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$finaldrive_r", "range", ":1", "Gearing", 4.7, 4, 5, "Rear Final Drive", "Gear ratio",{"subCategory": "Differentials", "stepDis": 0.01}]
-	],
 	"slotType" : "Astral_finaldrive_R",
 	"rearDiff":{
-		"gearRatio": "$finaldrive_r"
+		"gearRatio": 5
+	}
+},
+"Astral_finaldrive_R_4.7": {
+	"information":{
+		"name":"Final Drive 4.7",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.7
+	}
+},
+"Astral_finaldrive_R_4.5": {
+	"information":{
+		"name":"Final Drive 4.5",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.5
+	}
+},
+"Astral_finaldrive_R_4.3": {
+	"information":{
+		"name":"Final Drive 4.3",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.3
+	}
+},
+"Astral_finaldrive_R_4": {
+	"information":{
+		"name":"Final Drive 4",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4
 	}
 }
 }

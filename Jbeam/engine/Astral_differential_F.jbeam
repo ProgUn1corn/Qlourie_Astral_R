@@ -1,14 +1,14 @@
 {
 "Astral_differential_F_race": {
 	"information":{
-		"name":"Front Differential",
+		"name":"Front Mechanical LSD",
 		"value":1500
 	},
 	"slotType" : "Astral_differential_F",
 	"slots": [
 		["type", "default", "description"],
 		["Astral_halfshafts_F","Astral_halfshafts_F","Front Halfshafts"],
-		["Astral_finaldrive_F","Astral_finaldrive_F_race","Front Final Drive", {"coreSlot":true}]
+		["Astral_finaldrive_F","Astral_finaldrive_F_4.5","Front Final Drive", {"coreSlot":true}]
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -28,7 +28,7 @@
     },
     "torsionReactorF": {
         "torqueReactionNodes:":["eg1","eg0","eg4"],
-    },
+    }
 },
 "Astral_halfshafts_F": {
 	"information":{
@@ -55,18 +55,54 @@
 		["shaft", "halfshaftFR", "frontDiff", 2, {"deformGroups":["wheelaxleFR"], "breakTriggerBeam":"halfshaft_FR", "uiName":"Front Right Halfshaft", "friction":1.5, "dynamicFriction":0.004}]
 	]
 },
-"Astral_finaldrive_F_race": {
+"Astral_finaldrive_F_5": {
 	"information":{
-		"name":"Front Final Drive",
+		"name":"Final Drive 5",
 		"value":1000
 	},
-	"variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$finaldrive_f", "range", ":1", "Gearing", 4.7, 4, 5, "Front Final Drive", "Gear ratio",{"subCategory": "Differentials", "stepDis": 0.01}]
-	],
 	"slotType" : "Astral_finaldrive_F",
-	"torsionReactorF":{
-		"gearRatio": "$finaldrive_f"
+	"frontDiff":{
+		"gearRatio": 5
+	}
+},
+"Astral_finaldrive_F_4.7": {
+	"information":{
+		"name":"Final Drive 4.7",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_F",
+	"frontDiff":{
+		"gearRatio": 4.7
+	}
+},
+"Astral_finaldrive_F_4.5": {
+	"information":{
+		"name":"Final Drive 4.5",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_F",
+	"frontDiff":{
+		"gearRatio": 4.5
+	}
+},
+"Astral_finaldrive_F_4.3": {
+	"information":{
+		"name":"Final Drive 4.3",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_F",
+	"frontDiff":{
+		"gearRatio": 4.3
+	}
+},
+"Astral_finaldrive_F_4": {
+	"information":{
+		"name":"Final Drive 4",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_F",
+	"frontDiff":{
+		"gearRatio": 4
 	}
 }
 }
