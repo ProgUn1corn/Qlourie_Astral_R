@@ -160,11 +160,11 @@
 
         //--Steering Rack--
         //steering box
-        {"beamSpring":6501000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":180},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["st1r","st1l"],
         //mounting to subframe
-        {"beamSpring":4501000,"beamDamp":180},
+        {"beamSpring":5501000,"beamDamp":150},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
         ["st1r", "fx1r"],
         ["st1r", "fx2r"],
@@ -249,14 +249,14 @@
     },
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"]
+        ["st1r", "steeringrack", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":800,"beamDeform":95000,"beamStrength":325000},
+        {"beamSpring":10001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
@@ -343,14 +343,14 @@
     },
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"]
+        ["st1r", "steeringrack", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":800,"beamDeform":95000,"beamStrength":325000},
+        {"beamSpring":10001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
@@ -426,7 +426,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 3650, 2300, 5000, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 4200, 9000, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 3800, 7000, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 3500, 6200, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 16000, 14000, 18000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$springRate_F", "range", "N/m", "Suspension", 45000, 30000, 65000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":2500,"subCategory":"Front Suspension"}],
@@ -449,8 +449,8 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.2", "$=clamp(0.32+($dampRate_bump_F_fast-4200)/48000-($dampRate_bump_F-2300)/27000,0.22,0.42)", 0.32]  //normal damping
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.75", "$=$dampRate_rebound_F*0.75", "$=clamp(0.32+($dampRate_bump_F_fast-4200)/48000-($dampRate_bump_F-2300)/27000,0.22,0.42)", 0.30] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.2", "$=clamp(0.32+($dampRate_bump_F_fast-3800)/32000-($dampRate_bump_F-2300)/27000,0.22,0.42)", 0.32]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.32+($dampRate_bump_F_fast-3800)/32000-($dampRate_bump_F-2300)/27000,0.22,0.42)", 0.30] //LRS active
         ]
     },
     "nodes": [
@@ -675,7 +675,7 @@
             "maxStress":9000}
         ],
         //helper spring
-        {"beamSpring":2500,"beamDamp":10},
+        {"beamSpring":2000,"beamDamp":10},
         ["fhe1r","fh2r"],
         ["fhe1l","fh2l"],
 
@@ -696,7 +696,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-4200)/48000-($dampRate_bump_F-2300)/27000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-3800)/32000-($dampRate_bump_F-2300)/27000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":0.32
@@ -709,7 +709,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-4200)/48000-($dampRate_bump_F-2300)/27000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_F_fast-3800)/32000-($dampRate_bump_F-2300)/27000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":0.32
@@ -722,13 +722,13 @@
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.17,"boundZone":0.01,
             //bump stop active
-            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2+500","dampCutoffHz":500}
         ],
         ["fh1l","fs1l", {
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.17,"boundZone":0.01,
             //bump stop active
-            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":20000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2+500","dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
         //hydraulic rebound stop
@@ -736,13 +736,13 @@
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.02,
             //rebound stop active
-            "beamLimitSpring":651000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":651000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*0.5","dampCutoffHz":500}
         ],
         ["fh1l","fs1l", {
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.02,
             //rebound stop active
-            "beamLimitSpring":651000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":651000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*0.5","dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
         
@@ -821,7 +821,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 2350, 500, 3200, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 3200, 8000, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 3200, 6400, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1500, 4200, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 14000, 10000, 18000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$springRate_F", "range", "N/m", "Suspension", 27500, 17500, 40000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":2500,"subCategory":"Front Suspension"}],
@@ -844,8 +844,8 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.2", "$=clamp(0.60+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-500)/27000,0.50,0.70)", 0.58]  //normal damping
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.75", "$=$dampRate_rebound_F*0.75", "$=clamp(0.60+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-500)/27000,0.50,0.70)", 0.58] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.2", "$=clamp(0.60+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-500)/27000,0.50,0.70)", 0.58]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.60+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-500)/27000,0.50,0.70)", 0.58] //LRS active
         ]
     },
     "nodes": [
@@ -1070,7 +1070,7 @@
             "maxStress":9000}
         ],
         //helper spring
-        {"beamSpring":2500,"beamDamp":10},
+        {"beamSpring":2000,"beamDamp":10},
         ["fhe1r","fh2r"],
         ["fhe1l","fh2l"],
         
@@ -1090,7 +1090,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-500)/27000,0.50,0.70)",
+            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-500)/27000,0.50,0.70)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":0.58
@@ -1103,7 +1103,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-3200)/48000-($dampRate_bump_F-500)/27000,0.50,0.70)",
+            "beamDampVelocitySplit":"$=clamp(0.60+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-500)/27000,0.50,0.70)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":0.58
@@ -1116,13 +1116,13 @@
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.275,"boundZone":0.015,
             //bump stop active
-            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2+500","dampCutoffHz":500}
         ],
         ["fh1l","fs1l", {
             //travel = travel limit-shortBoundRange
             "longBoundRange":1,"shortBoundRange":0.275,"boundZone":0.015,
             //bump stop active
-            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":12000,"beamLimitDamp":"$dampRate_stop_F", "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2+500","dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
         //hydraulic rebound stop
@@ -1130,13 +1130,13 @@
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.04,
             //rebound stop active
-            "beamLimitSpring":801000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":801000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*0.5","dampCutoffHz":500}
         ],
         ["fh1l","fs1l", {
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.04,
             //rebound stop active
-            "beamLimitSpring":801000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*1.2","dampCutoffHz":500}
+            "beamLimitSpring":801000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_F*0.5","dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
 
