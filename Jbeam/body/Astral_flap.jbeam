@@ -1,0 +1,147 @@
+{
+"Astral_flap_F": {
+    "information":{
+        "authors":"Camshaft Software",
+        "name":"Front Mud Flap",
+        "value":5
+    },
+	"slotType" : "Astral_flap_F",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_flap_F", ["Astral_flap_F"]]
+	],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_RUBBER"},
+		//--Front Flap--
+		{"nodeWeight":0.25},
+		{"group":["Astral_flap_F"]},
+		["ff1r", -0.915, -0.836, 0.0],
+		["ff1l",  0.915, -0.836, 0.0],
+		["ff2r", -0.687, -0.836, 0.0],
+		["ff2l",  0.687, -0.836, 0.0],
+		{"group":[""]}
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Front Flap--
+		//main shape
+		{"beamSpring":1000,"beamDamp":80},
+		{"beamDeform":2500,"beamStrength":15500},
+		{"breakGroup":"ffender1r"},
+		["fe8r", "ff1r"],
+		["ff1r", "ff2r"],
+		["ff2r", "fe7r"],
+		//*
+		{"breakGroup":"ffender1l"},
+		["fe8l", "ff1l"],
+		["ff1l", "ff2l"],
+		["ff2l", "fe7l"],
+		//crossing
+		{"breakGroup":"ffender1r"},
+		["fe8r", "ff2r"],
+		["fe7r", "ff1r"],
+		//*
+		{"breakGroup":"ffender1l"},
+		["fe8l", "ff2l"],
+		["fe7l", "ff1l"],
+		//attach
+		{"beamSpring":3000,"beamDamp":150},
+		{"breakGroup":"ffender1r"},
+		["ff1r", "d3r"],
+		["ff2r", "d3r"],
+		{"beamSpring":1000,"beamDamp":50},
+		["ff1r", "sk4r"],
+		["ff2r", "sk4r"]
+		{"breakGroup":""},
+		//*
+		{"beamSpring":3000,"beamDamp":150},
+		{"breakGroup":"ffender1l"},
+		["ff1l", "d3l"],
+		["ff2l", "d3l"],
+		{"beamSpring":1000,"beamDamp":50},
+		["ff1l", "sk4l"],
+		["ff2l", "sk4l"],
+		{"breakGroup":""}
+		{"breakGroupType":0},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	]
+},
+"Astral_flap_R": {
+    "information":{
+        "authors":"Camshaft Software",
+        "name":"Rear Mud Flap",
+        "value":5
+    },
+	"slotType" : "Astral_flap_R",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_flap_R", ["Astral_flap_R"]]
+    ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_RUBBER"},
+		//--Front Flap--
+		{"nodeWeight":0.25},
+		{"group":["Astral_flap_R"]},
+		["rf1r", -0.915, 1.78, -0.035],
+		["rf1l",  0.915, 1.78, -0.035],
+		["rf2r", -0.687, 1.78, -0.035],
+		["rf2l",  0.687, 1.78, -0.035],
+		{"group":[""]}
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rear Flap--
+		//main shape
+		{"beamSpring":1000,"beamDamp":80},
+		{"beamDeform":2500,"beamStrength":15500},
+		["rbe3r", "rf1r"],
+		["rf1r", "rf2r"],
+		["rf2r", "rb7r"],
+		//*
+		["rb7l", "rf1l"],
+		["rf1l", "rf2l"],
+		["rf2l", "rbe3l"],
+		//crossing
+		["rbe3r", "rf2r"],
+		["rb7r", "rf1r"],
+		["rb7l", "rf2l"],
+		["rbe3l", "rf1l"],
+		//attach
+		{"beamSpring":3000,"beamDamp":150},
+		["rf1r", "rbe2r"],
+		["rf2r", "rbe2r"],
+		["rf1r", "rbe1r"],
+		["rf2r", "rbe1r"],
+		//*
+		{"beamSpring":3000,"beamDamp":150},
+		["rf1l", "rbe2l"],
+		["rf2l", "rbe2l"],
+		["rf1l", "rbe1l"],
+		["rf2l", "rbe1l"],
+		{"beamSpring":1000,"beamDamp":50},
+		{"optional":true},
+		["rf1r", "rb6r"],
+		["rf2r", "rb6r"]
+		["rf1l", "rb6l"],
+		["rf2l", "rb6l"],
+		{"optional":false},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	]
+}
+}
