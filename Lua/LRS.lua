@@ -13,10 +13,6 @@ local dampers = {}
 local damping = {}
 local loads = {}
 local activeFlag = 0
-local orgLSRebound = 0
-local orgHSRebound = 0
-local newLSRebound = 0
-local newHSRebound = 0
 
 
 function clamp(value, min, max)
@@ -27,28 +23,31 @@ local function updateWheelsIntermediate()
   for _, spring in ipairs(loads) do
     --get suspension load
     local springLoad = clamp(0-obj:getBeamStress(spring.bCid),0,9999) or 0
-    activeFlag = false
     if springLoad <= 1500 then 
-      activeFlag = true
-      newLSRebound = damping[2].beamDampRebound
-      newHSRebound = damping[2].beamDampReboundFast
+      spring.activeFlag = true
     else
-      activeFlag = false
-      newLSRebound = orgLSRebound
-      newHSRebound = orgHSRebound
+      spring.activeFlag = false
     end
-    --print(activeFlag)
-  end
+
+    for _, damper in ipairs(dampers) do
+      if activeFlag == true then
+        dampers.newLSRebound = damping[2].beamDampRebound
+        dampers.newHSRebound = damping[2].beamDampReboundFast
+      else
+        dampers.newLSRebound = damping[1].beamDampRebound
+        dampers.newHSRebound = damping[1].beamDampReboundFast
+      end
   
-  for _, damper in ipairs(dampers) do
-    --apply new rebound
-    if activeFlag == true then
-      obj:setBoundedBeamDamp(damper.bCid, damping[1].beamDamp, newLSRebound, damping[1].beamDampFast, newHSRebound, damping[1].beamDampVelocitySplit, damping[1].beamDampVelocitySplitRebound)
-    else
-      obj:setBoundedBeamDamp(damper.bCid, damping[1].beamDamp, orgLSRebound, damping[1].beamDampFast, orgHSRebound, damping[1].beamDampVelocitySplit, damping[1].beamDampVelocitySplitRebound)
+      --apply new rebound
+      obj:setBoundedBeamDamp(damper.bCid, damping[1].beamDamp, damper.newLSRebound, damping[1].beamDampFast, damper.newHSRebound, damping[1].beamDampVelocitySplit, damping[1].beamDampVelocitySplitRebound) 
+      
     end
-  end
+  end  
+  
+  --print(loads[1].activeFlag) 
+  --print(loads[2].activeFlag) 
 end
+
 
 local function init(jbeamData)
   local beamNameTable = {}
@@ -68,24 +67,26 @@ local function init(jbeamData)
     local l = {
       name = load.name,
       bCid = bCid,
+      activeFlag = false
     }
     table.insert(loads, l)
   end
   
   local LRS = tableFromHeaderTable(jbeamData.dampers or {}) --call out damper in Jbeam
+  damping = tableFromHeaderTable(jbeamData.damping or {}) --call out damping values in Jbeam
   for _, damper in pairs(LRS) do
     local bCid = beamNameTable[damper.beamName]
     local d = {
       name = damper.name,
       bCid = bCid,
+      orgLSRebound = damping[1].beamDampRebound,
+      orgHSRebound = damping[1].beamDampReboundFast,
+      newLSRebound = damping[2].beamDampRebound,
+      newHSRebound = damping[2].beamDampReboundFast,
     }
     table.insert(dampers, d)
   end
   
-  damping = tableFromHeaderTable(jbeamData.damping or {}) --call out damping values in Jbeam
-  orgLSRebound = damping[1].beamDampRebound
-  orgHSRebound = damping[1].beamDampReboundFast
-
   --print(orgLSRebound)
   --print(loads[1].bCid)
   --print(loads[2].bCid)
