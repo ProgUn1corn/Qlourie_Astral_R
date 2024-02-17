@@ -55,7 +55,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Fully adjustable gear ratios
 - Top speed 201 km/h
 - Front and rear adjustable LSD
-- Active center differential in response to steering and throttle input (**WIP**)
+- Active center differential in response to steering and throttle input
 - Steering wheel and pedal shifter animation
 ## Suspension
 - Front and rear MacPherson Strut suspension
@@ -75,7 +75,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - 32 levels of HS and LS bump, 32 levels of rebound, 16 levels or hydraulic bump stop adjustment
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
 - Biased to progressive damping with increased damping during fast bump events, enhancing absorption of significant impacts in rallying
-- LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel (**need refinement**)
+- LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
 - Spring rates:
 
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
