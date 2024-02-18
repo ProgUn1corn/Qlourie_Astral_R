@@ -32,7 +32,7 @@ local function updateWheelsIntermediate()
   --front and rear separate process
   for i, spring in ipairs(fLoads) do
     local springLoad = clamp(0-obj:getBeamStress(spring.bCid),0,9999) or 0 --get suspension load
-    if springLoad <= 1500 then 
+    if springLoad <= 1250 then 
       spring.activeFlag = true
     else
       spring.activeFlag = false
@@ -52,13 +52,13 @@ local function updateWheelsIntermediate()
     
     --apply new rebound
     obj:setBoundedBeamDamp(damper.bCid, fDamping[1].beamDamp, damper.newLSRebound, fDamping[1].beamDampFast, damper.newHSRebound, fDamping[1].beamDampVelocitySplit, fDamping[1].beamDampVelocitySplitRebound) 
-    --print(fDampers[1].newHSRebound)
+    print(fDampers[1].newHSRebound)
     --print(fDampers[2].newHSRebound)
   end
   
   for i, spring in ipairs(rLoads) do
     local springLoad = clamp(0-obj:getBeamStress(spring.bCid),0,9999) or 0 --get suspension load
-    if springLoad <= 1500 then 
+    if springLoad <= 1250 then 
       spring.activeFlag = true
     else
       spring.activeFlag = false
@@ -81,6 +81,7 @@ local function updateWheelsIntermediate()
     --print(rDampers[1].newHSRebound)
     --print(rDampers[2].newHSRebound)
   end
+  --print(obj:getBeamStress(2414))
 end
 
 local function init(jbeamData)
