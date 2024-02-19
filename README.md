@@ -82,7 +82,7 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 
   Tarmac: 30.0 to 65N/m, incremental difference of 2.5 N/m
 
-  Helper: 2.0N/m
+  Helper: 2.5N/m
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel, node weight calculated based on the rim weight limit as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
