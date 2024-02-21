@@ -29,7 +29,7 @@
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3650, 2300, 5000, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Rear Suspension"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6600, 3800, 7000, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3650, 3300, 6000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Rear Suspension"}],
-        ["$springRate_R", "range", "N/m", "Suspension", 42500, 30000, 65000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":5000,"subCategory":"Rear Suspension"}],
+        ["$springRate_R", "range", "N/m", "Suspension", 42500, 35000, 70000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":5000,"subCategory":"Rear Suspension"}],
         ["$RideHeightOffsetRear", "range", "+m", "Suspension", 0, -0.1, 0.1, "Spring Preload", "Spring Preload affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"subCategory":"Rear Suspension"}],
     ],
     "nodes": [
@@ -302,7 +302,7 @@
             "maxStress":9000}
         ],
         //helper spring
-        {"beamSpring":2500,"beamDamp":10},
+        {"beamSpring":2500,"beamDamp":3},
         ["rhe1r","rh2r"],
         ["rhe1l","rh2l"],
         
@@ -732,7 +732,7 @@
             "maxStress":9000}
         ],
         //helper spring
-        {"beamSpring":2500,"beamDamp":10},
+        {"beamSpring":2500,"beamDamp":3},
         ["rhe1r","rh2r"],
         ["rhe1l","rh2l"],
         
@@ -777,13 +777,13 @@
         //hydraulic bump stop
         ["rh1r","rs1r", {
             //travel = travel limit-shortBoundRange
-            "longBoundRange":1,"shortBoundRange":0.255,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.015,
             //bump stop active
             "beamLimitSpring":12000,"beamLimitDamp":15000, "beamLimitDampRebound":"$=$dampRate_rebound_R*1.5+1000","dampCutoffHz":500}
         ],
         ["rh1l","rs1l", {
             //travel = travel limit-shortBoundRange
-            "longBoundRange":1,"shortBoundRange":0.255,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.015,
             //bump stop active
             "beamLimitSpring":12000,"beamLimitDamp":15000, "beamLimitDampRebound":"$=$dampRate_rebound_R*1.5+1000","dampCutoffHz":500}
         ],
