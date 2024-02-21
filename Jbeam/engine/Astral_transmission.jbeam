@@ -2,7 +2,7 @@
 "Astral_transmission_sequential_BRC": {
 	"information":{
 		"authors":"Un1corn",
-		"name":"6-Speed Sequential Transmission",
+		"name":"5-Speed Sequential Transmission",
 	}
 	"slotType" : "Astral_transmission",
 	"slots": [
@@ -18,7 +18,7 @@
 		["$gear_3", "range", ":1", "Gearing", 1.90, 0.1, 16, "Gear 3", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
 		["$gear_4", "range", ":1", "Gearing", 1.60, 0.1, 16, "Gear 4", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
 		["$gear_5", "range", ":1", "Gearing", 1.32, 0.1, 16, "Gear 5", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
-		["$gear_6", "range", ":1", "Gearing", 1.10, 0.1, 16, "Gear 6", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}]
+		["$gear_6", "range", ":1", "Gearing", 1.10, 0.1, 16, "Gear 5", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -42,22 +42,22 @@
 		"dynamicFriction":0.0015,
 		"torqueLossCoef": 0.01,
 		"gearboxNode:":["ftrar"],
-		"gearWhineCoefsInput":  [2, 0.00, 2, 2, 2, 2, 2, 2],
-		"gearWhineCoefsOutput": [0.00, 0.00, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5],
+		"gearWhineCoefsInput":  [5, 0.00, 5, 5, 5, 5, 5, 5],
+		"gearWhineCoefsOutput": [0.00, 0.00, 5, 5, 5, 5, 5, 5],
 		"gearWhineInputEvent": "event:>Vehicle>Transmission>straight_01>twine_in_race_sq",
 		"gearWhineOutputEvent": "event:>Vehicle>Transmission>straight_01>twine_out_race_sq",
 	},
 	"clutch": {
 		"clutchFreePlay":0.5,
 		"lockSpringCoef":0.3,
-		"clutchMass":3,
+		"clutchMass":4,
 	},
 	"vehicleController":{
 		"setGearboxMode": "realistic",
 		"calculateOptimalLoadShiftPoints": false,
 		"shiftDownRPMOffsetCoef":1.20,
 		"aggressionHoldOffThrottleDelay":3,
-		"ignitionCutTime": 0.08
+		"ignitionCutTime": 0.1
 		"revMatchThrottle":0.25, 
 		"clutchInRate":40,
 		"clutchOutRate":40, 
@@ -68,7 +68,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":false},
-		{"nodeWeight":6.5},
+		{"nodeWeight":5.5},
 		//--Front Drivetrain--
 		{"group":["engine"]},
 		["ftrar", -0.292, -1.275, 0.255],
@@ -181,7 +181,7 @@
 		"calculateOptimalLoadShiftPoints": false,
 		"shiftDownRPMOffsetCoef":1.20,
 		"aggressionHoldOffThrottleDelay":3,
-		"ignitionCutTime": 0.1
+		"ignitionCutTime": 0.11
 		"revMatchThrottle":0.25, 
 		"clutchInRate":30,
 		"clutchOutRate":30, 
@@ -192,7 +192,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":false},
-		{"nodeWeight":6.5},
+		{"nodeWeight":5.5},
 		//--Front Drivetrain--
 		{"group":["engine"]},
 		["ftrar", -0.292, -1.275, 0.255],
