@@ -10,6 +10,7 @@ local min = math.min
 local max = math.max
 local clamp = math.clamp
 
+local lockMap = {}
 local transfercase = nil
 local minLockCoef = 0
 local lockRange = 0
@@ -20,10 +21,21 @@ local brakeRatio = 0
 local steerRatio = 0
 local yLockCoef = 0
 local xLockCoef = 0
-local rearBias = 0
 
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
+end
+
+function printTable(t, indent)
+  indent = indent or ""
+  for k, v in pairs(t) do
+    if type(v) == "table" then
+      print(indent .. "[" .. k .. "] => LockMap:")
+      printTable(v, indent .. "  ")
+    else
+      print(indent .. "[" .. k .. "] => " .. tostring(v))
+    end
+  end
 end
 
 local function updateWheelsIntermediate()
@@ -107,44 +119,44 @@ local function updateWheelsIntermediate()
   end
 
   --bias and countersteer control
-  local yaw = obj:getYawAngularVelocity() --left is positive
-  if steer*yaw < 0 then
-    rearBias = 0.5 - normalSteer*steerRatio*0.1
-  else
-    rearBias = 0.5 + normalSteer*steerRatio*0.25
-  end
+  --local yaw = obj:getYawAngularVelocity() --left is positive
+  --if steer*yaw < 0 then
+    --rearBias = 0.5 - normalSteer*steerRatio*0.1
+  --else
+    --rearBias = 0.5 + normalSteer*steerRatio*0.25
+  --end
 
   --apply values to diff
   transfercase.lsdLockCoef = newLockCoef
   transfercase.lsdRevLockCoef = transfercase.lsdLockCoef
-  transfercase.diffTorqueSplitA = 1 - transfercase.diffTorqueSplitB
+  transfercase.diffTorqueSplitA = 1- rearBias
   transfercase.diffTorqueSplitB = rearBias
-  transfercase.lsdPreload = 20
-  transfercase.friction = 10
-  transfercase.dynamicFriction = 0.0005
 
-  print(transfercase.diffTorqueSplitB)
   --print(transfercase.lsdLockCoef)
-  --print(transfercase.lsdPreload)
 end
 
 local function init(jbeamData)
   transfercase = powertrain.getDevice(jbeamData.transfercaseName)
- 
+  
   --get tuning data
-  minLockCoef = transfercase.lsdPreload or 0
-  steerRatio = transfercase.diffTorqueSplitA or 0
-  throttleRatio = transfercase.lsdLockCoef or 0
-  brakeRatio = transfercase.lsdRevLockCoef or 0
-  lbLockCoef = transfercase.friction or 0
-  lbThreshold = transfercase.dynamicFriction or 0
-
+  if transfercase then 
+    lockMap = tableFromHeaderTable(jbeamData.lockMap or {})
+    minLockCoef = lockMap[1].minLock
+    steerRatio = lockMap[1].steerRatio
+    throttleRatio = lockMap[1].lockThrottle
+    brakeRatio = lockMap[1].lockBrake
+    lbLockCoef = lockMap[1].leftLock
+    lbThreshold = lockMap[1].leftThreshold
+    rearBias = lockMap[1].rearBias
+  end
+  
+  --printTable(lockMap)
   M.updateWheelsIntermediate = updateWheelsIntermediate
   M.updateGFX = updateGFX
 end
 
 M.init = init
-M.reset = nop
+M.reset = reset
 M.updateWheelsIntermediate = nil
 M.updateGFX = nil
 
