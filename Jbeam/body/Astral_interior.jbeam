@@ -123,10 +123,6 @@
 		["Astral_driver", "", "Driver"]
 		["Astral_copilot", "", "Co-Driver"]
 	],
-	"variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$driverWeight", "range", "", "Body", 1, 0.5, 1.5, "Driver Weight", "Adjust driver's weight", {"subCategory":"Center of Gravity", "minDis":50,"maxDis":150}]
-    ],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_seat", ["Astral_seat"]]
@@ -139,9 +135,9 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":"$=$driverWeight*74.5"},
+        {"nodeWeight":74},
 		{"group":["Astral_seat"]},
-		["a50",  0.378, 0.1, 0.471],
+		["a50",  0.378, 0.06, 0.501],
 		{"selfCollision":true},
 		{"group":[""]} 
 	],
@@ -178,7 +174,8 @@
 	"slotType" : "Astral_copilot",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_copilot", ["Astral_copilot","Astral_chassis"]]
+        ["Astral_copilotseat", ["Astral_copilot","Astral_chassis"]],
+		["Astral_copilot", ["Astral_copilot","Astral_chassis"]],
 	],
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -201,7 +198,7 @@
 		{"selfCollision":false}
         {"nodeWeight":"$=$driverWeight*74.5"},
 		{"group":["Astral_seat","Astral_copilot"]},
-		["a49", -0.378, 0.1, 0.471],
+		["a49", -0.378, 0.06, 0.501],
 		{"selfCollision":true},
 		{"group":[""]} 
 	],
@@ -251,7 +248,7 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//hands
-        ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
+        ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":180 "z":180}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":-0.69, "z":0}}]
 	]
 },
 "Astral_pedal":{

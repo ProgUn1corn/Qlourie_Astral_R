@@ -2,14 +2,13 @@
 "Astral_ballast": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"20kg Ballast",
+    	"name":"10kg Ballast",
     	"value":250,
     },
     "slotType" : "Astral_ballast",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$ballastMod", "range", "", "Body", 1, 0.5, 1.5, "Ballast Weight", "Adjusts ballast's weight", {"subCategory":"Center of Gravity", "stepDis":25, "minDis":50, "maxDis":150}],
-		["$ballastPos", "range", "F<->R", "Body", 0, -0.9, 0.9, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+		["$ballastPos", "range", "F<->R", "Body", 0, -0.3, 0.3, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":-30,"maxDis":30}]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -18,9 +17,9 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":"$=$ballastMod*20"},
+		{"nodeWeight":10},
 		{"group":[""]},
-        ["ballast", 0, "$ballastPos", 0.15],
+        ["ballast", 0, "$=0.6+$ballastPos", 0.15],
     ],
     "beams": [   
 		["id1:", "id2:"], 
