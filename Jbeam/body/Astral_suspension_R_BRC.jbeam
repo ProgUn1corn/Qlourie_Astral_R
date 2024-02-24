@@ -220,7 +220,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3650, 2300, 5500, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Suspension"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6600, 3800, 7000, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Rear Suspension"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6600, 5300, 8500, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3650, 3300, 6500, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 16000, 14000, 18000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$springRate_R", "range", "N/m", "Suspension", 42500, 30000, 65000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":5000,"subCategory":"Rear Suspension"}],
@@ -243,8 +243,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*1.5", "$=clamp(0.32+($dampRate_bump_R_fast-3800)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)", "$=0.15+($dampRate_rebound_R-3300)/16000"]  //normal damping
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.2", "$dampRate_rebound_R", "$=clamp(0.32+($dampRate_bump_R_fast-3800)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)", "$=0.15+($dampRate_rebound_R-3300)/16000"] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*1.5", "$=clamp(0.32+($dampRate_bump_R_fast-5300)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)", "$=0.15+($dampRate_rebound_R-3300)/16000"]  //normal damping
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.2", "$dampRate_rebound_R", "$=clamp(0.32+($dampRate_bump_R_fast-5300)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)", "$=0.15+($dampRate_rebound_R-3300)/16000"] //LRS active
         ]
     },
     "nodes": [
@@ -430,8 +430,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":1200},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0015","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0015","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":25000,"beamStrength":"FLT_MAX"},
@@ -538,7 +538,7 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_R_fast-3800)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_R_fast-5300)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":"$=0.15+($dampRate_rebound_R-3300)/16000",
@@ -551,7 +551,7 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_R_fast-3800)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_R_fast-5300)/32000-($dampRate_bump_R-2300)/32000,0.22,0.42)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":"$=0.15+($dampRate_rebound_R-3300)/16000",
@@ -578,13 +578,13 @@
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.02,
             //rebound stop active
-            "beamLimitSpring":851000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.2","dampCutofrhz":500}
+            "beamLimitSpring":451000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.5","dampCutofrhz":500}
         ],
         ["rh1l","rs1l", {
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.02,
             //rebound stop active
-            "beamLimitSpring":851000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.2","dampCutofrhz":500}
+            "beamLimitSpring":451000,"beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.5","dampCutofrhz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
 
@@ -860,10 +860,10 @@
         {"beamDeform":155000,"beamStrength":350000},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.085","beamPrecompressionTime":0.1}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.098","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.085","beamPrecompressionTime":0.1}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.098","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -877,8 +877,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":14001000,"beamDamp":1400},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0037","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0037","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0045","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0045","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -973,8 +973,8 @@
         //helper stopper
         {"beamSpring":0,"beamDamp":25},
         {"beamLimitSpring":1201000,"beamLimitDamp":50},
-        ["rhe1r","rh2r", {"longBoundRange":"$=clamp(-$RideHeightOffsetRear,0,0.2)","shortBoundRange":"$=0.08-$RideHeightOffsetRear","boundZone":0.01,"beamLimitDampRebound":0}],
-        ["rhe1l","rh2l", {"longBoundRange":"$=clamp(-$RideHeightOffsetRear,0,0.2)","shortBoundRange":"$=0.08-$RideHeightOffsetRear","boundZone":0.01,"beamLimitDampRebound":0}],
+        ["rhe1r","rh2r", {"longBoundRange":"$=clamp(-$RideHeightOffsetRear,0,0.2)","shortBoundRange":"$=0.065-$RideHeightOffsetRear","boundZone":0.01,"beamLimitDampRebound":0}],
+        ["rhe1l","rh2l", {"longBoundRange":"$=clamp(-$RideHeightOffsetRear,0,0.2)","shortBoundRange":"$=0.065-$RideHeightOffsetRear","boundZone":0.01,"beamLimitDampRebound":0}],
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamSpring":0,"beamDamp":0},
         //damper
@@ -1028,16 +1028,16 @@
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.04,
             //rebound stop active
-            "beamLimitSpring":801000,
-            "beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.2",
+            "beamLimitSpring":251000,
+            "beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.5",
             "dampCutoffHz":500}
         ],
         ["rh1l","rs1l", {
             //travel = boundZone
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.04,
             //rebound stop active
-            "beamLimitSpring":801000,
-            "beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.2",
+            "beamLimitSpring":251000,
+            "beamLimitDamp":1000, "beamLimitDampRebound":"$=$dampRate_rebound_R*0.5",
             "dampCutoffHz":500}
         ],
         {"beamSpring":0,"beamDamp":0},
