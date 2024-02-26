@@ -28,60 +28,65 @@ function printTable(t, indent)
   end
 end
 
+function clamp(value, min, max)
+  return math.min(math.max(value, min), max)
+end
+
 local function updateWheelsIntermediate()
   --front and rear separate process
   for i, spring in ipairs(fLoads) do
-    local springLoad = clamp(0-obj:getBeamStress(spring.bCid),0,9999) or 0 --get suspension load
-    if springLoad <= 888 then 
+    local springLoad = obj:getBeamStress(spring.bCid) or 0 --get suspension load
+    if springLoad >= 0.648 then 
       spring.activeFlag = true
     else
       spring.activeFlag = false
     end
+    --print(obj:getBeamStress(fLoads[1].bCid))
   end  
 
-  for i, damper in ipairs(fDampers) do
+  for i, damperF in ipairs(fDampers) do
     if fLoads[i].activeFlag == true then --active LRS
-      damper.newLSRebound = fDamping[2].beamDampRebound
-      damper.newHSRebound = fDamping[2].beamDampReboundFast
+      damperF.newLSRebound = clamp(fDamping[2].beamDampRebound, 1000, 2500)
+      damperF.newHSRebound = clamp(fDamping[2].beamDampReboundFast, 1000, 2500)
     else
-      damper.newLSRebound = damper.orgLSRebound
-      damper.newHSRebound = damper.orgHSRebound
+      damperF.newLSRebound = damperF.orgLSRebound
+      damperF.newHSRebound = damperF.orgHSRebound
     end
     --print(fLoads[1].activeFlag)
     --print(fLoads[2].activeFlag)
     
     --apply new rebound
-    obj:setBoundedBeamDamp(damper.bCid, fDamping[1].beamDamp, damper.newLSRebound, fDamping[1].beamDampFast, damper.newHSRebound, fDamping[1].beamDampVelocitySplit, fDamping[1].beamDampVelocitySplitRebound) 
-    --print(fDampers[1].newHSRebound)
-    --print(fDampers[2].newHSRebound)
+    obj:setBoundedBeamDamp(damperF.bCid, fDamping[1].beamDamp, damperF.newLSRebound, fDamping[1].beamDampFast, damperF.newHSRebound, fDamping[1].beamDampVelocitySplit, fDamping[1].beamDampVelocitySplitRebound) 
+    --print(fDampers[1].newLSRebound)
+    --print(fDampers[2].newLSRebound)
   end
   
   for i, spring in ipairs(rLoads) do
-    local springLoad = clamp(0-obj:getBeamStress(spring.bCid),0,9999) or 0 --get suspension load
-    if springLoad <= 888 then 
+    local springLoad = obj:getBeamStress(spring.bCid) or 0 --get suspension load
+    if springLoad >= 0.648 then 
       spring.activeFlag = true
     else
       spring.activeFlag = false
     end
+    --print(obj:getBeamStress(rLoads[1].bCid))
   end  
 
-  for i, damper in ipairs(rDampers) do
+  for i, damperR in ipairs(rDampers) do
     if rLoads[i].activeFlag == true then --active LRS
-      damper.newLSRebound = rDamping[2].beamDampRebound
-      damper.newHSRebound = rDamping[2].beamDampReboundFast
+      damperR.newLSRebound = clamp(rDamping[2].beamDampRebound, 1000, 2500)
+      damperR.newHSRebound = clamp(rDamping[2].beamDampReboundFast, 1000, 2500)
     else
-      damper.newLSRebound = damper.orgLSRebound
-      damper.newHSRebound = damper.orgHSRebound
+      damperR.newLSRebound = damperR.orgLSRebound
+      damperR.newHSRebound = damperR.orgHSRebound
     end
     --print(rLoads[1].activeFlag)
     --print(rLoads[2].activeFlag)
     
     --apply new rebound
-    obj:setBoundedBeamDamp(damper.bCid, rDamping[1].beamDamp, damper.newLSRebound, rDamping[1].beamDampFast, damper.newHSRebound, rDamping[1].beamDampVelocitySplit, rDamping[1].beamDampVelocitySplitRebound) 
+    obj:setBoundedBeamDamp(damperR.bCid, rDamping[1].beamDamp, damperR.newLSRebound, rDamping[1].beamDampFast, damperR.newHSRebound, rDamping[1].beamDampVelocitySplit, rDamping[1].beamDampVelocitySplitRebound) 
     --print(rDampers[1].newHSRebound)
     --print(rDampers[2].newHSRebound)
   end
-  --print(obj:getBeamStress(2414))
 end
 
 local function init(jbeamData)
