@@ -127,7 +127,7 @@ local function updateWheelsIntermediate()
   --end
 
   --apply values to diff
-  transfercase.lsdLockCoef = newLockCoef
+  transfercase.lsdLockCoef = newLockCoef * 0.499
   transfercase.lsdRevLockCoef = transfercase.lsdLockCoef
   transfercase.diffTorqueSplitA = 1- rearBias
   transfercase.diffTorqueSplitB = rearBias
