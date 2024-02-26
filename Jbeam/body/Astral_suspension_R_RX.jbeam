@@ -305,8 +305,8 @@
         ],
         //helper spring
         {"beamSpring":3300,"beamDamp":7},
-        ["rhe1r","rh2r"],
-        ["rhe1l","rh2l"],
+        ["rhe1r","rh2r", {"precompressionRange":0.08}],
+        ["rhe1l","rh2l", {"precompressionRange":0.08}],
         
         //--Damper--
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
@@ -365,7 +365,7 @@
         //hydraulic bump stop
         ["rh1r","rs1r", {
             //travel = travel limit-shortBoundRange
-            "longBoundRange":1,"shortBoundRange":0.27,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.215,"boundZone":0.015,
             //bump stop active
             "beamLimitSpring":18000,
             "beamLimitDamp":15000,
@@ -374,7 +374,7 @@
         ],
         ["rh1l","rs1l", {
             //travel = travel limit-shortBoundRange
-            "longBoundRange":1,"shortBoundRange":0.27,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.215,"boundZone":0.015,
             //bump stop active
             "beamLimitSpring":18000,
             "beamLimitDamp":15000,
