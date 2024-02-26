@@ -180,10 +180,10 @@
         {"beamDeform":155000,"beamStrength":350000},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.05","beamPrecompressionTime":0.1}],
+        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.04","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.05","beamPrecompressionTime":0.1}],
+        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.04","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -197,8 +197,8 @@
 
         //tie rods
         {"beamSpring":14001000,"beamDamp":700},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.003","beamPrecompressionTime":0.1, "dampCutoffHz":1000}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.003","beamPrecompressionTime":0.1, "dampCutoffHz":1000}],
+        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0025","beamPrecompressionTime":0.1, "dampCutoffHz":1000}],
+        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0025","beamPrecompressionTime":0.1, "dampCutoffHz":1000}],
 
         //--Anti-Roll Bar--
         //arb mount point (and arm strength)
@@ -268,7 +268,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.38+($dampRate_bump_F_fast-3000)/32000-($dampRate_bump_F-2000)/32000,0.28,0.48)",
+            "beamDampVelocitySplit":"$=clamp(0.35+($dampRate_bump_F_fast-3000)/32000-($dampRate_bump_F-2000)/32000,0.25,0.45)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":0.25
@@ -281,7 +281,7 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.38+($dampRate_bump_F_fast-3000)/32000-($dampRate_bump_F-2000)/32000,0.28,0.48)",
+            "beamDampVelocitySplit":"$=clamp(0.35+($dampRate_bump_F_fast-3000)/32000-($dampRate_bump_F-2000)/32000,0.25,0.45)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":0.25
