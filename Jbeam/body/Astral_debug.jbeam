@@ -654,4 +654,90 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ]
 }
+"Astral_wheeljack": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Wheel Jack",
+        "value":9999999
+    },
+	"slotType" : "Astral_debug",
+	"nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //--Damper base--
+        //base box
+        {"nodeWeight":30},
+        {"frictionCoef":0.5},
+        {"group":"damperbase"},
+        ["wj1r", -0.95, -0.55, -0.42],
+        ["wj1l",  0.95, -0.55, -0.42],
+        ["wj2r", -0.95,  0.55, -0.42],
+        ["wj2l",  0.95,  0.55, -0.42],
+        ["wjs1r", -0.95, -0.55, 0.02],
+        ["wjs1l",  0.95, -0.55, 0.02],
+        ["wjs2r", -0.95,  0.55, 0.02],
+        ["wjs2l",  0.95,  0.55, 0.02],
+        {"frictionCoef":0.5},
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Wheel Jack--
+        //base main shape
+        {"beamSpring":10001000,"beamDamp":2500},
+        {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+        ["wj1r","wj2r"],
+        ["wj2r","wj2l"],
+        ["wj2l","wj1l"],
+        ["wj1l","wj1r"],
+        ["wjs1r","wjs2r"],
+        ["wjs2r","wjs2l"],
+        ["wjs2l","wjs1l"],
+        ["wjs1l","wjs1r"],
+        ["wj1r","wjs1r"],
+        ["wj2r","wjs2r"],
+        ["wj2l","wjs2l"],
+        ["wj1l","wjs1l"],
+        //base crossing
+        ["wj1r","wj2l"],
+        ["wj2r","wj1l"],
+        ["wjs1r","wjs2l"],
+        ["wjs2r","wjs1l"],
+        ["wj1r","wjs2r"],
+        ["wjs1r","wj2r"],
+        ["wj1l","wjs2l"],
+        ["wjs1l","wj2l"],
+        ["wjs1r","wj1l"],
+        ["wjs1l","wj1r"],
+        ["wjs2r","wj2l"],
+        ["wjs2l","wj2r"],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles":[
+        ["id1:", "id2:", "id3:"],
+        {"dragCoef":0},
+		{"liftCoef":0, "stallAngle":0},
+        {"groundModel":"metal"},
+        //--Slip--
+        //base
+        ["wj1r", "wj2r", "wj2l"],
+        ["wj1r", "wj2l", "wj1l"],
+        ["wjs1r", "wjs2l", "wjs2r"],
+        ["wjs1r", "wjs1l", "wjs2l"],
+        ["wj1r", "wjs1l", "wjs1r"],
+        ["wj1r", "wj1l", "wjs1l"],
+        ["wj2r", "wjs2r", "wjs2l"],
+        ["wj2r", "wjs2l", "wj2l"],
+        ["wj1r", "wjs1r", "wjs2r"],
+        ["wj1r", "wjs2r", "wj2r"],
+        ["wj1l", "wjs2l", "wjs1l"],
+        ["wj1l", "wj2l", "wjs2l"],
+    ],
+},
 }
