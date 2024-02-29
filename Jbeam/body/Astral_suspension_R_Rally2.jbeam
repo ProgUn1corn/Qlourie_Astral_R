@@ -48,8 +48,8 @@
         {"selfCollision":false},
         {"nodeWeight":4.5},
         {"group":["Astral_hub_R"]},
-        ["rh2r", -0.6325, 1.314, 0.496],
-        ["rh2l",  0.6325, 1.314, 0.496],
+        ["rh2r", "$=-0.6593+(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3157+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.291+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
+        ["rh2l", "$= 0.6593-(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3157+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.291+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
         //toe link
         {"nodeWeight":5},
         {"group":["Astral_hub_R","Astral_rod_R","Astral_arm_R"]},
@@ -100,8 +100,8 @@
         ["rh4l",  0.561, 1.23, 0.239],
         //helper spring collar
         {"nodeWeight":1.5},
-        ["rhe1r", -0.6091, 1.3129, 0.605],
-        ["rhe1l",  0.6091, 1.3129, 0.605],
+        ["rhe1r", "$=-0.6347+(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3144+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.425+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
+        ["rhe1l", "$= 0.6347-(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3144+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.425+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
         {"collision":true},
         {"selfCollision":true},
         {"group":[""]}
@@ -122,8 +122,8 @@
         ["rh2r", "strut_RR", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
         ["rh2l", "strut_RL", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
         //string collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1r", "strut_RR", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1l", "strut_RL", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
@@ -275,7 +275,7 @@
         {"beamDeform":85000,"beamStrength":255000},
         ["rhe1r","rs1r", {
             "name":"spring_RR",
-            "precompressionRange":"$=$RideHeightOffsetRear",
+            "precompressionRange":"$=$RideHeightOffsetRear/2",
             "beamPrecompressionTime":0.1, 
             "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01",
             "colorFactor":1,
@@ -287,7 +287,7 @@
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
-            "precompressionRange":"$=$RideHeightOffsetRear",
+            "precompressionRange":"$=$RideHeightOffsetRear/2",
             "beamPrecompressionTime":0.1, 
             "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01",
             "colorFactor":1,
@@ -344,8 +344,8 @@
             "beamDampRebound":"$=$dampRate_rebound_R*0.25",
             //helper stopper
             "longBoundRange":0,"shortBoundRange":0.070,"boundZone":0.01,
-            "beamLimitSpring":1001000,"beamLimitDamp":50,
-            "beamLimitDampRebound":0,
+            "beamLimitSpring":1201000,"beamLimitDamp":50,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
         ["rhe1l","rh2l", {
@@ -354,8 +354,8 @@
             "beamDampRebound":"$=$dampRate_rebound_R*0.25",
             //helper stopper
             "longBoundRange":0,"shortBoundRange":0.070,"boundZone":0.01,
-            "beamLimitSpring":1001000,"beamLimitDamp":50,
-            "beamLimitDampRebound":0,
+            "beamLimitSpring":1201000,"beamLimitDamp":50,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
         //hydraulic bump stop
@@ -497,8 +497,8 @@
         {"selfCollision":false},
         {"nodeWeight":4.5},
         {"group":["Astral_hub_R"]},
-        ["rh2r", -0.6667, 1.3161, 0.251],
-        ["rh2l",  0.6667, 1.3161, 0.251],
+        ["rh2r", "$=-0.6593+(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3157+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.291+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
+        ["rh2l", "$= 0.6593-(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3157+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.291+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
         //toe link
         {"nodeWeight":5},
         {"group":["Astral_hub_R","Astral_rod_R","Astral_arm_R"]},
@@ -550,8 +550,8 @@
         //helper spring collar
         {"group":["Astral_coil_R"]},
         {"nodeWeight":1.5},
-        ["rhe1r", -0.6347, 1.3144, 0.425],
-        ["rhe1l",  0.6347, 1.3144, 0.425],
+        ["rhe1r", "$=-0.6347+(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3144+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.425+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
+        ["rhe1l", "$= 0.6347-(0.736-0.556)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=1.3144+(1.31-1.32)/0.951565153*($RideHeightOffsetRear/0.951565153)", "$=0.425+(0.852+0.125)/0.951565153*($RideHeightOffsetRear/0.951565153)"],
         {"collision":true},
         {"selfCollision":true},
         {"group":[""]}
@@ -572,8 +572,8 @@
         ["rh2r", "strut_RR", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
         ["rh2l", "strut_RL", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
         //string collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1r", "strut_RR", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1l", "strut_RL", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
@@ -725,7 +725,7 @@
         {"beamDeform":105000,"beamStrength":255000},
         ["rhe1r","rs1r", {
             "name":"spring_RR",
-            "precompressionRange":"$=$RideHeightOffsetRear",
+            "precompressionRange":"$=$RideHeightOffsetRear/2",
             "beamPrecompressionTime":0.1, 
             "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01",
             "colorFactor":1,
@@ -737,7 +737,7 @@
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
-            "precompressionRange":"$=$RideHeightOffsetRear",
+            "precompressionRange":"$=$RideHeightOffsetRear/2",
             "beamPrecompressionTime":0.1, 
             "soundFile":"event:>Vehicle>Suspension>car_modn_med_01>spring_compress_01",
             "colorFactor":1,
@@ -794,9 +794,9 @@
             "beamDampRebound":"$=$dampRate_rebound_R*0.5",
             //helper stopper
             "longBoundRange":0,"shortBoundRange":0.070,"boundZone":0.01,
-            "beamLimitSpring":1001000,
+            "beamLimitSpring":1201000,
             "beamLimitDamp":50,
-            "beamLimitDampRebound":0,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
         ["rhe1l","rh2l", {
@@ -805,9 +805,9 @@
             "beamDampRebound":"$=$dampRate_rebound_R*0.5",
             //helper stopper
             "longBoundRange":0,"shortBoundRange":0.070,"boundZone":0.01,
-            "beamLimitSpring":1001000,
+            "beamLimitSpring":1201000,
             "beamLimitDamp":50,
-            "beamLimitDampRebound":0,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
         //hydraulic bump stop
