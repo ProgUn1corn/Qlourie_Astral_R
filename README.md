@@ -96,8 +96,8 @@ The pinnacle rallying class which now is anticipating BRC.
 - 300mm gravel brake disc, 370mm tarmac brake disc
 - Adjustable brake bias
 - Front and rear ducted brake
+- ![Astral_R](Docs/25.jpg)
 ## Damper and Spring
-![Astral_R](Docs/35.jpg)
 - CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
 - Around 325mm of travel on gravel damper
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
@@ -111,6 +111,7 @@ The pinnacle rallying class which now is anticipating BRC.
   Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
 
   Helper: 2.5N/m
+  ![Astral_R](Docs/35.jpg)
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
@@ -123,7 +124,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Two layer WRC style rear wing with winglet attached, 50mm higher than roof front projection and 40mm longer than rear bumper side projection
 - Rear wing endplate aerodynamics for better control when sliding
 - Total about 400kg of downforce at 200km/h
-  ![Astral_R](Docs/19.jpg)
+![Astral_R](Docs/19.jpg)
 
 # Rally2
 The most popular class around the world. 
@@ -150,9 +151,7 @@ The most popular class around the world.
 - 300mm gravel brake disc, 355mm tarmac brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
-
 ## Damper and Spring
-![Astral_R](Docs/14.jpg)
 - CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
 - Around 305mm of travel on gravel damper
 - Hydraulic bump stop equipped on MSR80, hard bump stop on MSR60, hard rebound stop on both MSR80 and MSR60
@@ -166,7 +165,7 @@ The most popular class around the world.
   Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
 
   Helper: 2.5N/m
-
+![Astral_R](Docs/14.jpg)
 ## Tyres
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
 - Wheel beam properties are tested and modified, a little bit less performance than BRC wheels
@@ -202,7 +201,6 @@ The rallycross beast converted from Rally2.
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
 ## Damper and Spring
-![Astral_R](Docs/8.jpg)
 - CTM Racing twin-tube MRX75 4Way damper
 - Around 300mm of travel
 - Hydraulic bump stop and hard rebound stop 
@@ -213,7 +211,7 @@ The rallycross beast converted from Rally2.
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
 
   Helper: 2.5N/m
-
+![Astral_R](Docs/8.jpg)
 ## Tyres
 - 225/640 R17 RX wheels
 - Wheel beam properties are tested and modified, biased to sliding performance
@@ -234,6 +232,5 @@ The rallycross beast converted from Rally2.
 - Also because of UV is messed, sometimes there are messed up textures due to modified mesh.
 - Meshes are still Automation level so it may not be comparable to a full fledged mod
 - Flexbody animations are not perfect, especially around engine and transmission, it just works but it's not accurate
-![Astral_R](Docs/26.jpg)
 ![Astral_R](Docs/23.jpg)
 ![Astral_R](Docs/17.jpg)
