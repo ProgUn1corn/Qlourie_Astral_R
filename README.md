@@ -47,10 +47,8 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
 - Realistic engine curve referenced from telemetry of simluators
-- Gear ratio
-- Top speed limit 201 km/h
-- Mechanical LSD
-- Steering wheel and pedal shifter animation
+- Top speed limit 201 km/h within regulation
+- Indepent turbo restrictor and ECU setting for different variant
 ## Suspension
 - Front and rear MacPherson Strut suspension
 - Reinforced front and rear subframe for stronger rigidity
@@ -72,17 +70,18 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Spare wheel selection for weight accuracy
 
 # BRC (Former WRC and now Rally1)
+The pinnacle WRC variant which now is anticipating BRC.
 ## Chassis
 - Lightweight Chassis
-- 1190KG without crew and spare wheel
-- 1360KG with driver and co-driver and one spare wheel 
+- 1190KG minimum without crew and spare wheel
+- 1360KG minimum with driver and co-driver and one spare wheel 
 - ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with WRC modification
 - 383HP at 6000RPM, 457Nm at 5500RPM (within the 3.1kg/hp regulation)
 - 2.5 bar anti-lag turbocharger
-- 6 speed sequential transmission
+- 6 speed sequential transmission, paddle shifter
 - Adjustable gear ratios
 - Top speed 201 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
@@ -99,7 +98,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
 - 64 levels of LS bump, 64 levels of rebound, 32levels of HS bump and 16 levels or hydraulic bump stop adjustment
-- Spring rates:
+- Spring rates (needs experiment):
   
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
 
@@ -108,14 +107,63 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
   Helper: 2.5N/m
 
 ## Tyres
-- 20KG per tarmac wheel and 25kg per gravel wheel, node weight calculated based on the rim weight limit as specified by WRC regulations
+- 20KG per tarmac wheel and 25kg per gravel wheel
+- Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
-- Wheel beam properties are tested and modified
+- Wheel beam properties are tested and modified to get best performance
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip and rear diffuser react to ground clearance change
-- Body aerodynamic designs are reflected with triangles for downforce generation
-- Two layer WRC style rear wing with winglet attached
+- Two layer WRC style rear wing with winglet attached, 50mm higher than roof front projection and 40mm longer than rear bumper side projection
+- Rear wing endplate aerodynamics for better control when sliding
+- Total about 400kg of downforce at 200km/h
+
+# Rally2
+The most popular class around the world. 
+## Chassis
+- Lightweight Chassis (10kg heavier than BRC)
+- 1230KG minimum without crew and spare wheel
+- 1390KG minimum with driver and co-driver and one spare wheel 
+- ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
+- ~50/50 weight distribution for optimal chassis dynamics
+## Engine and Transmission
+- 1.6L Inline4 H1598P4 with WRC modification
+- 383HP at 6000RPM, 457Nm at 5500RPM (within the 3.1kg/hp regulation)
+- 2.5 bar anti-lag turbocharger
+- 6 speed sequential transmission, paddle shifter
+- Adjustable gear ratios
+- Top speed 201 km/h (ratio specific)
+- Front and rear adjustable mechanical LSD
+- 2 homologated active center differential in response to steering and throttle input. Power bias 48/52 for gravel and 36/64 for tarmac.
+## Suspension
+- 10:1 and 8:1 quick steering ratio selectable
+- 300mm gravel brake disc, 370mm tarmac brake disc
+- Adjustable brake bias
+- Front and rear ducted brake
+## Damper and Spring
+- CTM Racing MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
+- Around 325mm of travel on gravel damper
+- Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
+- LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
+- HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
+- 64 levels of LS bump, 64 levels of rebound, 32levels of HS bump and 16 levels or hydraulic bump stop adjustment
+- Spring rates (needs experiment):
+  
+  Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
+
+  Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
+
+  Helper: 2.5N/m
+
+## Tyres
+- 20KG per tarmac wheel and 25kg per gravel wheel
+- Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
+- 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
+- Wheel beam properties are tested and modified to get best performance
+## Aerodynamics
+- Front and rear independent aerodynamics
+- Front lip and rear diffuser react to ground clearance change
+- Two layer WRC style rear wing with winglet attached, 50mm higher than roof front projection and 40mm longer than rear bumper side projection
 - Rear wing endplate aerodynamics for better control when sliding
 - Total about 400kg of downforce at 200km/h
 
