@@ -201,7 +201,7 @@ The rallycross beast converted from Rally2.
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
 ## Damper and Spring
-![Astral_R](Docs/37.jpg)
+![Astral_R](Docs/8.jpg)
 - CTM Racing twin-tube MRX75 4Way damper
 - Around 300mm of travel
 - Hydraulic bump stop and hard rebound stop 
