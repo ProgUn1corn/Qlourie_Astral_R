@@ -203,7 +203,8 @@ The rallycross beast converted from Rally2.
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
-- Two layer RX style rear wing, geared towards anti-diving when jumping
+- Aero geared to anti-diving when jumping instead of high speed downforce
+- Two layer RX style rear wing
 - Total about 200kg of downforce at 200km/h
 
 
