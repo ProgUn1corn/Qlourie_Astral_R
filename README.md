@@ -66,7 +66,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
 - Biased to progressive damping with increased damping during fast bump events, enhancing absorption of significant impacts in rallying
 ## Misc
-- 10KG ballast for center of gravity adjustment
+- 10/20KG ballast for center of gravity adjustment (10KG needed to meet minimum weight regulations)
 - Driver weight included in racing seat part
 - Rally light for better vision at night events (about 7kg, also act as ballast)
 - Spare wheel selection for weight accuracy
@@ -78,7 +78,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Lightweight chassis
 - 1190KG minimum measured with only one spare
 - 1360KG minimum with driver and co-driver and one spare
-- ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
+- ~1390KG tarmac running weight, ~1415kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 - 4105mm long, 1875mm track width, 2535mm wheelbase
 ![Astral_R](Docs/26.jpg)
@@ -107,11 +107,11 @@ The pinnacle rallying class which now is anticipating BRC.
 - 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels or hydraulic bump stop adjustment
 - Spring rates (needs experiment):
   
-  Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
+  Gravel: 12.5 to 32.5N/mm front, 10.0 to 30.0N/mm rear, incremental difference of 2.5N/mm
 
-  Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
+  Tarmac: 30.0 to 60.0N/mm front, 25.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
 
-  Helper: 2.5N/m
+  Helper: 2.5N/mm
 ![Astral_R](Docs/35.jpg)
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
@@ -134,7 +134,7 @@ The most popular class around the world.
 - Lightweight chassis (10kg heavier than BRC)
 - 1230KG minimum measured with only one spare
 - 1390KG minimum with driver and co-driver and one spare wheel 
-- ~1410KG tarmac running weight, ~1430kg gravel running weight (Running weight includes fuel and tools like in real life)
+- ~1420KG tarmac running weight, ~1445kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 - 3985mm long, 1820mm track width, 2535mm wheelbase
 ![Astral_R](Docs/33.jpg)
@@ -163,11 +163,11 @@ The most popular class around the world.
 - 56 levels of LS bump, 56 levels of rebound, 28 levels of HS bump adjustment
 - Spring rates (needs experiment):
   
-  Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
+  Gravel: 17.5 to 30.0N/mm front, 12.5 to 25.0N/mm rear, incremental difference of 2.5N/mm
 
-  Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
+  Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
 
-  Helper: 2.5N/m
+  Helper: 2.5N/mm
 ![Astral_R](Docs/14.jpg)
 ## Tyres
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
@@ -212,9 +212,9 @@ The rallycross beast converted from Rally2.
 - 40 levels of LS bump, 40 levels of LS rebound, 28 levels of HS bump and 20 levels of HS rebound adjustment
 - Spring rates (needs experiment):
   
-  Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
+  RX: 20.0 to 45.0N/m front, 15.0 to 40.0N/mm rear, incremental difference of 5.0N/m
 
-  Helper: 2.5N/m
+  Helper: 3.3N/m
 ![Astral_R](Docs/8.jpg)
 ## Tyres
 - 225/640 R17 RX wheels
