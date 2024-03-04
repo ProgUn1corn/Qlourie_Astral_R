@@ -57,7 +57,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Extra long suspension arms for better FVSA length, optimized FVSA for less camber change
 - Calculated suspension geometry for optimal bump steer and toe steer performance
 - 540 degree steering wheel lock
-- 8:1 quick steering ratio
+- 11:1 and 13:1 quick steering ratio selectable
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - 800mm gravel damper length, 600mm tarmac damper length
@@ -93,7 +93,6 @@ The pinnacle rallying class which now is anticipating BRC.
 - 2 homologated active center differential in response to steering and throttle input. Power bias 48/52 for gravel and 36/64 for tarmac.
 ![Astral_R](Docs/21.jpg)
 ## Suspension
-- 10:1 and 8:1 quick steering ratio selectable
 - 300mm gravel brake disc, 370mm tarmac brake disc
 - Adjustable brake bias
 - Front and rear ducted brake
@@ -149,7 +148,6 @@ The most popular class around the world.
 - Locked transfer case with 50/50 power bias
 ![Astral_R](Docs/31.jpg)
 ## Suspension
-- 10:1 and 8:1 quick steering ratio selectable
 - 300mm gravel brake disc, 355mm tarmac brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
@@ -199,7 +197,6 @@ The rallycross beast converted from Rally2.
 - Mechanical center LSD with max 30/70 power bias adjustable
 ![Astral_R](Docs/11.jpg)
 ## Suspension
-- 10:1 and 8:1 quick steering ratio selectable
 - 355mm brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
