@@ -79,8 +79,8 @@ The pinnacle WRC variant which now is anticipating BRC.
 - ~50/50 weight distribution for optimal chassis dynamics
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with WRC modification
-- 383HP at 6000RPM, 457Nm at 5500RPM (within the 3.1kg/hp regulation)
 - 2.5 bar anti-lag turbocharger
+- 383HP at 6000RPM, 457Nm at 5500RPM (within the 3.1kg/hp regulation)
 - 6 speed sequential transmission, paddle shifter
 - Adjustable gear ratios
 - Top speed 201 km/h (ratio specific)
@@ -124,13 +124,13 @@ The most popular class around the world.
 - Lightweight Chassis (10kg heavier than BRC)
 - 1230KG minimum without crew and spare wheel
 - 1390KG minimum with driver and co-driver and one spare wheel 
-- ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
+- ~1410KG tarmac running weight, ~1430kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 ## Engine and Transmission
-- 1.6L Inline4 H1598P4 with WRC modification
-- 383HP at 6000RPM, 457Nm at 5500RPM (within the 3.1kg/hp regulation)
+- 1.6L Inline4 H1598P4 with Rally2 modification
 - 2.5 bar anti-lag turbocharger
-- 6 speed sequential transmission, paddle shifter
+- 290HP at 4500RPM, 452Nm at 4500RPM (within the 4.2kg/hp regulation)
+- 5 speed sequential transmission, stick shifter
 - Adjustable gear ratios
 - Top speed 201 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
