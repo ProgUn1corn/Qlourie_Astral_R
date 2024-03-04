@@ -112,7 +112,7 @@ The pinnacle rallying class which now is anticipating BRC.
   Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
 
   Helper: 2.5N/m
-  ![Astral_R](Docs/35.jpg)
+![Astral_R](Docs/35.jpg)
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
@@ -152,6 +152,7 @@ The most popular class around the world.
 - 300mm gravel brake disc, 355mm tarmac brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
+![Astral_R](Docs/17.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
 - Around 305mm of travel on gravel damper
@@ -234,4 +235,3 @@ The rallycross beast converted from Rally2.
 - Meshes are still Automation level so it may not be comparable to a full fledged mod
 - Flexbody animations are not perfect, especially around engine and transmission, it just works but it's not accurate
 ![Astral_R](Docs/23.jpg)
-![Astral_R](Docs/17.jpg)
