@@ -76,8 +76,8 @@ The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/2.jpg)
 ## Chassis
 - Lightweight chassis
-- 1190KG minimum without crew and spare wheel
-- 1360KG minimum with driver and co-driver and one spare wheel 
+- 1190KG minimum measured with only one spare
+- 1360KG minimum with driver and co-driver and one spare
 - ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 - 4105mm long, 1875mm track width, 2535mm wheelbase
@@ -132,7 +132,7 @@ The most popular class around the world.
 ![Astral_R](Docs/1.jpg)
 ## Chassis
 - Lightweight chassis (10kg heavier than BRC)
-- 1230KG minimum without crew and spare wheel
+- 1230KG minimum measured with only one spare
 - 1390KG minimum with driver and co-driver and one spare wheel 
 - ~1410KG tarmac running weight, ~1430kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
@@ -175,7 +175,7 @@ The most popular class around the world.
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
-- One layer Rally2 style rear wing, within the front project projection of the car
+- One layer Rally2 style rear wing, within the frontal projection of the car
 - Total about 150kg of downforce at 200km/h
 ![Astral_R](Docs/15.jpg)
 
@@ -184,7 +184,6 @@ The rallycross beast converted from Rally2.
 ![Astral_R](Docs/3.jpg)
 ## Chassis
 - Rally2 chassis
-- 1225KG minimum spare car
 - 1300KG minimum with driver and fuel, no matter running weight
 - ~52/48 weight distribution for optimal chassis dynamics
 - 4043mm long, 1850mm track width, 2535mm wheelbase
@@ -224,7 +223,7 @@ The rallycross beast converted from Rally2.
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - Aero geared to anti-diving when jumping instead of high speed downforce
-- Two layer RX style rear wing
+- Two layer RX style rear wing, within the frontal projection and within the projection of the car seen from above. Width 1360mm, height 290mm, top layer length 190mm, bottom layer length 450mm.
 - Total about 200kg of downforce at 200km/h
 ![Astral_R](Docs/5.jpg)
 
