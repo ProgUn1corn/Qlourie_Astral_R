@@ -70,7 +70,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Spare wheel selection for weight accuracy
 
 # BRC (Former WRC and now Rally1)
-The pinnacle WRC variant which now is anticipating BRC.
+The pinnacle rallying class which now is anticipating BRC.
 ## Chassis
 - Lightweight Chassis
 - 1190KG minimum without crew and spare wheel
@@ -92,12 +92,12 @@ The pinnacle WRC variant which now is anticipating BRC.
 - Adjustable brake bias
 - Front and rear ducted brake
 ## Damper and Spring
-- CTM Racing MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
+- CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
 - Around 325mm of travel on gravel damper
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
 - LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
-- 64 levels of LS bump, 64 levels of rebound, 32levels of HS bump and 16 levels or hydraulic bump stop adjustment
+- 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels or hydraulic bump stop adjustment
 - Spring rates (needs experiment):
   
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
@@ -132,21 +132,21 @@ The most popular class around the world.
 - 290HP at 4500RPM, 452Nm at 4500RPM (within the 4.2kg/hp regulation)
 - 5 speed sequential transmission, stick shifter
 - Adjustable gear ratios
-- Top speed 201 km/h (ratio specific)
+- Top speed 193 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
-- 2 homologated active center differential in response to steering and throttle input. Power bias 48/52 for gravel and 36/64 for tarmac.
+- Locked transfer case with 50/50 power bias
 ## Suspension
 - 10:1 and 8:1 quick steering ratio selectable
-- 300mm gravel brake disc, 370mm tarmac brake disc
+- 300mm gravel brake disc, 355mm tarmac brake disc
 - Adjustable brake bias
-- Front and rear ducted brake
+- Front ducted brake, rear not ducted
 ## Damper and Spring
-- CTM Racing MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
-- Around 325mm of travel on gravel damper
-- Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
+- CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
+- Around 305mm of travel on gravel damper
+- Hydraulic bump stop equipped on MSR80, hard bump stop on MSR60, hard rebound stop on both MSR80 and MSR60
 - LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
-- HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
-- 64 levels of LS bump, 64 levels of rebound, 32levels of HS bump and 16 levels or hydraulic bump stop adjustment
+- HS (High Speed) and LS (Low Speed) bump, rebound, 3WAY adjustable
+- 56 levels of LS bump, 56 levels of rebound, 28 levels of HS bump adjustment
 - Spring rates (needs experiment):
   
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
@@ -156,16 +156,55 @@ The most popular class around the world.
   Helper: 2.5N/m
 
 ## Tyres
-- 20KG per tarmac wheel and 25kg per gravel wheel
-- Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
-- Wheel beam properties are tested and modified to get best performance
+- Wheel beam properties are tested and modified, a little bit less performance than BRC wheels
 ## Aerodynamics
 - Front and rear independent aerodynamics
-- Front lip and rear diffuser react to ground clearance change
-- Two layer WRC style rear wing with winglet attached, 50mm higher than roof front projection and 40mm longer than rear bumper side projection
-- Rear wing endplate aerodynamics for better control when sliding
-- Total about 400kg of downforce at 200km/h
+- Front lip react to ground clearance change
+- One layer Rally2 style rear wing, within the front project projection of the car
+- Total about 150kg of downforce at 200km/h
+
+# RX1
+The rallycross beast converted from Rally2.
+## Chassis
+- Rally2 chassis
+- 1225KG minimum spare car
+- 1300KG minimum with driver and fuel, no matter running weight
+- ~52/48 weight distribution for optimal chassis dynamics
+## Engine and Transmission
+- 2.0L Inline4 H2000P4 with WRX modification
+- 3.4 bar anti-lag turbocharger
+- 600HP at 6000RPM, 800Nm at 7000RPM
+- 5 speed sequential transmission, stick shifter
+- Adjustable gear ratios
+- Top speed 210 km/h (ratio specific)
+- Front and rear adjustable mechanical LSD
+- Mechanical center LSD
+## Suspension
+- 10:1 and 8:1 quick steering ratio selectable
+- 355mm brake disc
+- Adjustable brake bias
+- Front ducted brake, rear not ducted
+## Damper and Spring
+- CTM Racing twin-tube MRX75 4Way damper
+- Around 300mm of travel
+- Hydraulic bump stop and hard rebound stop 
+- HS (High Speed) and LS (Low Speed) bump and rebound, 4WAY adjustable
+- 40 levels of LS bump, 40 levels of LS rebound, 28 levels of HS bump and 20 levels of HS rebound adjustment
+- Spring rates (needs experiment):
+  
+  Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
+
+  Helper: 2.5N/m
+
+## Tyres
+- 225/640 R17 RX wheels
+- Wheel beam properties are tested and modified, biased to sliding performance
+## Aerodynamics
+- Front and rear independent aerodynamics
+- Front lip react to ground clearance change
+- Two layer RX style rear wing, geared towards anti-diving when jumping
+- Total about 200kg of downforce at 200km/h
 
 
 # Existing Problems (that are mostly not going to be fixed)
