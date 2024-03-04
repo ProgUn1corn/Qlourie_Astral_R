@@ -8,10 +8,12 @@ It comes from Automation, I made the car in Automation and rewrote almost everyt
 
 # What Is It
 This mod is inspired by the World Rally Championship (WRC). While the vanilla game features the Vivace, it doesn’t fully adhere to the actual WRC regulations concerning aspects such as weight and the center differential, suspension design and WRC aero bodykits. My goal is to craft a WRC car that complies with the 2017-2021 WRC regulations and to simulate the physics with as realistic as possible. This car will participate BRC, BeamNG Rally Championship. At the very least, the suspension system will offer a more authentic feel compared to rally cars in the game.
+![Astral_R](Docs/28.jpg)
+![Astral_R](Docs/37.jpg)
 
 Also, there will be a Rally2 variant and a World RX RX1 variant, since they share some similarities.
-
-![Astral_R](Docs/2.jpg)
+![Astral_R](Docs/11.jpg)
+![Astral_R](Docs/16.jpg)
 
 # How to Use This Repo
 ## What's in this repo?
@@ -37,9 +39,9 @@ I have a main work and it's quite busy, so I can't take my time fully on this pr
 However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart also Rally4, Rally2 variant. I'm really looking forward to it.
 
 Also some fiction brands and sponsors! There is actually now in the mod by Automation modders but I'm planning to make my own original sponsors.
-![Astral_R](Docs/1.jpg)
 
 # Features
+![Astral_R](Docs/24.jpg)
 ## Chassis
 - Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
 - 2.535m wheelbase and 1.875m track width
@@ -71,12 +73,14 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 
 # BRC (Former WRC and now Rally1)
 The pinnacle rallying class which now is anticipating BRC.
+![Astral_R](Docs/2.jpg)
 ## Chassis
 - Lightweight chassis
 - 1190KG minimum without crew and spare wheel
 - 1360KG minimum with driver and co-driver and one spare wheel 
 - ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
+![Astral_R](Docs/26.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with WRC modification
 - 2.5 bar anti-lag turbocharger
@@ -86,12 +90,14 @@ The pinnacle rallying class which now is anticipating BRC.
 - Top speed 201 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
 - 2 homologated active center differential in response to steering and throttle input. Power bias 48/52 for gravel and 36/64 for tarmac.
+![Astral_R](Docs/21.jpg)
 ## Suspension
 - 10:1 and 8:1 quick steering ratio selectable
 - 300mm gravel brake disc, 370mm tarmac brake disc
 - Adjustable brake bias
 - Front and rear ducted brake
 ## Damper and Spring
+![Astral_R](Docs/34.jpg)
 - CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
 - Around 325mm of travel on gravel damper
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
@@ -117,15 +123,18 @@ The pinnacle rallying class which now is anticipating BRC.
 - Two layer WRC style rear wing with winglet attached, 50mm higher than roof front projection and 40mm longer than rear bumper side projection
 - Rear wing endplate aerodynamics for better control when sliding
 - Total about 400kg of downforce at 200km/h
+  ![Astral_R](Docs/19.jpg)
 
 # Rally2
 The most popular class around the world. 
+![Astral_R](Docs/1.jpg)
 ## Chassis
 - Lightweight chassis (10kg heavier than BRC)
 - 1230KG minimum without crew and spare wheel
 - 1390KG minimum with driver and co-driver and one spare wheel 
 - ~1410KG tarmac running weight, ~1430kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
+![Astral_R](Docs/33.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with Rally2 modification
 - 2.5 bar anti-lag turbocharger
@@ -135,12 +144,15 @@ The most popular class around the world.
 - Top speed 193 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
 - Locked transfer case with 50/50 power bias
+![Astral_R](Docs/31.jpg)
 ## Suspension
 - 10:1 and 8:1 quick steering ratio selectable
 - 300mm gravel brake disc, 355mm tarmac brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
+
 ## Damper and Spring
+![Astral_R](Docs/14.jpg)
 - CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
 - Around 305mm of travel on gravel damper
 - Hydraulic bump stop equipped on MSR80, hard bump stop on MSR60, hard rebound stop on both MSR80 and MSR60
@@ -163,14 +175,17 @@ The most popular class around the world.
 - Front lip react to ground clearance change
 - One layer Rally2 style rear wing, within the front project projection of the car
 - Total about 150kg of downforce at 200km/h
+![Astral_R](Docs/15.jpg)
 
 # RX1
 The rallycross beast converted from Rally2.
+![Astral_R](Docs/3.jpg)
 ## Chassis
 - Rally2 chassis
 - 1225KG minimum spare car
 - 1300KG minimum with driver and fuel, no matter running weight
 - ~52/48 weight distribution for optimal chassis dynamics
+![Astral_R](Docs/12.jpg)
 ## Engine and Transmission
 - 2.0L Inline4 H2000P4 with WRX modification
 - 3.4 bar anti-lag turbocharger
@@ -180,12 +195,14 @@ The rallycross beast converted from Rally2.
 - Top speed 210 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
 - Mechanical center LSD with max 30/70 power bias adjustable
+![Astral_R](Docs/10.jpg)
 ## Suspension
 - 10:1 and 8:1 quick steering ratio selectable
 - 355mm brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
 ## Damper and Spring
+![Astral_R](Docs/8.jpg)
 - CTM Racing twin-tube MRX75 4Way damper
 - Around 300mm of travel
 - Hydraulic bump stop and hard rebound stop 
@@ -200,23 +217,25 @@ The rallycross beast converted from Rally2.
 ## Tyres
 - 225/640 R17 RX wheels
 - Wheel beam properties are tested and modified, biased to sliding performance
+![Astral_R](Docs/4.jpg)
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - Aero geared to anti-diving when jumping instead of high speed downforce
 - Two layer RX style rear wing
 - Total about 200kg of downforce at 200km/h
+![Astral_R](Docs/5.jpg)
 
 
 # Existing Problems (that are mostly not going to be fixed)
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
 - All colors and materials are none adjustable, the color theme is fixed. (You can manually adjust in Material Editor though, but it's not RGB image so no simple way to change color)
-  
-  (2024/01/20: I tried to make a proper skin but UV is so messed that it's basically impossible to make it clean. Automation now has a feature to export decal as skin, but I have changed so much things to an extend that it's not worth to go back to Automation.)
 - Due to the way Automation exports (when I exported), all decals and skins are actual models instead of decal image. This means the skin and decal will sometimes clip through car model. Also, it will take more space to load
-- The opacity maps are not high resolution enough so there are jagged edges around the place where opacity map applies
 - Also because of UV is messed, sometimes there are messed up textures due to modified mesh.
-
-  (2024/01/22: Removed most opacity maps besides hood latch and tail lights.)
 - Meshes are still Automation level so it may not be comparable to a full fledged mod
 - Flexbody animations are not perfect, especially around engine and transmission, it just works but it's not accurate
+![Astral_R](Docs/35.jpg)
+![Astral_R](Docs/29.jpg)
+![Astral_R](Docs/26.jpg)
+![Astral_R](Docs/23.jpg)
+![Astral_R](Docs/17.jpg)
