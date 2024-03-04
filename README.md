@@ -97,7 +97,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Adjustable brake bias
 - Front and rear ducted brake
 ## Damper and Spring
-![Astral_R](Docs/34.jpg)
+![Astral_R](Docs/36.jpg)
 - CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
 - Around 325mm of travel on gravel damper
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
@@ -111,7 +111,7 @@ The pinnacle rallying class which now is anticipating BRC.
   Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
 
   Helper: 2.5N/m
-
+![Astral_R](Docs/35.jpg)
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
