@@ -9,7 +9,7 @@ It comes from Automation, I made the car in Automation and rewrote almost everyt
 # What Is It
 This mod is inspired by the World Rally Championship (WRC). While the vanilla game features the Vivace, it doesn’t fully adhere to the actual WRC regulations concerning aspects such as weight and the center differential, suspension design and WRC aero bodykits. My goal is to craft a WRC car that complies with the 2017-2021 WRC regulations and to simulate the physics with as realistic as possible. This car will participate BRC, BeamNG Rally Championship. At the very least, the suspension system will offer a more authentic feel compared to rally cars in the game.
 ![Astral_R](Docs/28.jpg)
-![Astral_R](Docs/8.jpg)
+![Astral_R](Docs/14.jpg)
 
 Also, there will be a Rally2 variant and a World RX RX1 variant, since they share some similarities.
 ![Astral_R](Docs/11.jpg)
