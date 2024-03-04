@@ -12,7 +12,7 @@ This mod is inspired by the World Rally Championship (WRC). While the vanilla ga
 ![Astral_R](Docs/34.jpg)
 
 Also, there are Rally2 variant and WorldRX RX1 variant, since they share some similarities.
-![Astral_R](Docs/11.jpg)
+![Astral_R](Docs/10.jpg)
 ![Astral_R](Docs/16.jpg)
 
 # How to Use This Repo
@@ -197,12 +197,13 @@ The rallycross beast converted from Rally2.
 - Top speed 210 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
 - Mechanical center LSD with max 30/70 power bias adjustable
-![Astral_R](Docs/10.jpg)
+![Astral_R](Docs/11.jpg)
 ## Suspension
 - 10:1 and 8:1 quick steering ratio selectable
 - 355mm brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
+- ![Astral_R](Docs/38.jpg)
 ## Damper and Spring
 - CTM Racing twin-tube MRX75 4Way damper
 - Around 300mm of travel
