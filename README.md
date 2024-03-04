@@ -11,7 +11,7 @@ This mod is inspired by the World Rally Championship (WRC). While the vanilla ga
 ![Astral_R](Docs/28.jpg)
 ![Astral_R](Docs/34.jpg)
 
-Also, there will be a Rally2 variant and a World RX RX1 variant, since they share some similarities.
+Also, there are Rally2 variant and WorldRX RX1 variant, since they share some similarities.
 ![Astral_R](Docs/11.jpg)
 ![Astral_R](Docs/16.jpg)
 
