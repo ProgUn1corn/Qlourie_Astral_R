@@ -57,7 +57,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Extra long suspension arms for better FVSA length, optimized FVSA for less camber change
 - Calculated suspension geometry for optimal bump steer and toe steer performance
 - 540 degree steering wheel lock
-- 11:1 and 13:1 quick steering ratio selectable
+- 10:1 and 13:1 quick steering ratio selectable
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - 800mm gravel damper length, 600mm tarmac damper length
