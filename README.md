@@ -72,7 +72,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 # BRC (Former WRC and now Rally1)
 The pinnacle rallying class which now is anticipating BRC.
 ## Chassis
-- Lightweight Chassis
+- Lightweight chassis
 - 1190KG minimum without crew and spare wheel
 - 1360KG minimum with driver and co-driver and one spare wheel 
 - ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
@@ -121,7 +121,7 @@ The pinnacle rallying class which now is anticipating BRC.
 # Rally2
 The most popular class around the world. 
 ## Chassis
-- Lightweight Chassis (10kg heavier than BRC)
+- Lightweight chassis (10kg heavier than BRC)
 - 1230KG minimum without crew and spare wheel
 - 1390KG minimum with driver and co-driver and one spare wheel 
 - ~1410KG tarmac running weight, ~1430kg gravel running weight (Running weight includes fuel and tools like in real life)
@@ -179,7 +179,7 @@ The rallycross beast converted from Rally2.
 - Adjustable gear ratios
 - Top speed 210 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
-- Mechanical center LSD
+- Mechanical center LSD with max 30/70 power bias adjustable
 ## Suspension
 - 10:1 and 8:1 quick steering ratio selectable
 - 355mm brake disc
