@@ -7,7 +7,9 @@ It comes from Automation, I made the car in Automation and rewrote almost everyt
 [2022/08/23](https://www.bilibili.com/video/BV1ea41157pe/)
 
 # What Is It
-This mod is inspired by the World Rally Championship (WRC). While the vanilla game features the Vivace, it doesn’t fully adhere to the actual WRC regulations concerning aspects such as weight and the center differential, and real WRC bodykits. My goal is to craft a WRC car that complies with the 2017-2021 WRC regulations and to simulate the physics with as realistic as possible. This car will participate BRC, BeamNG Rally Championship. At the very least, the suspension system will offer a more authentic feel compared to rally cars in the game.
+This mod is inspired by the World Rally Championship (WRC). While the vanilla game features the Vivace, it doesn’t fully adhere to the actual WRC regulations concerning aspects such as weight and the center differential, suspension design and WRC aero bodykits. My goal is to craft a WRC car that complies with the 2017-2021 WRC regulations and to simulate the physics with as realistic as possible. This car will participate BRC, BeamNG Rally Championship. At the very least, the suspension system will offer a more authentic feel compared to rally cars in the game.
+
+Also, there will be a Rally2 variant and a World RX RX1 variant, since they share some similarities.
 
 ![Astral_R](Docs/2.jpg)
 
@@ -30,21 +32,20 @@ However you can update yourself if there's something you want to, manually downl
 Alternatively, you can download releases for pre-release test, and eventually I will upload to BeamNG's mod repo for free.
 
 # Things to Remind
-I have a main work and it's quite busy, so I can't take my time fully on this project. As experimenting and testing Jbeam properties are quite heavy work, there are some imperfections. Also, I've found it's not worth to dig deeper with Automation model as there are tons of hassle with opacity map and mesh overlap, this mod will be at where it is. I'm not planning to make the model more detailed or get Jbeam revamped.
+I have a main work and it's quite busy, so I can't take my time fully on this project. As experimenting and testing Jbeam properties are quite heavy work, there are some imperfections. Also, I've found it's not worth to dig deeper with Automation model as there are tons of hassle with opacity map and mesh overlap, this mod will be at where it is. I'm not planning to make the model more detailed or get whole Jbeam design revamped.
 
-However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart and Rally4, Rally2 variant. I'm really looking forward to it.
+However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart also Rally4, Rally2 variant. I'm really looking forward to it.
 
-2024/01/20: I have rebuilt front bumper mesh and opacity map, so probably I will make a Rally2 variant.
-
-Also some fiction brands and sponsors! There is actually now in the mod but I'm planning to make my own original sponsors.
+Also some fiction brands and sponsors! There is actually now in the mod by Automation modders but I'm planning to make my own original sponsors.
 ![Astral_R](Docs/1.jpg)
 
 # Features
 ## Chassis
-- Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
+- Lightweight modified chassis for better stability and rigidity, also slightly moved suspension mounting points
 - 2.535m wheelbase and 1.875m track width
 - 1190KG without crew and spare wheel
-- 1360KG with driver and co-driver and one spare wheel
+- 1360KG with driver and co-driver and one spare wheel (It's actually heavier with running weight, including fuel and tools like in real life.)
+- ~1390KG tarmac running weight, ~1410kg gravel running weight
 - Rollcage installed for maximum safety
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
@@ -101,7 +102,11 @@ Also some fiction brands and sponsors! There is actually now in the mod but I'm 
 - Spare wheel selection for weight accuracy
 - Troll driver's model, hands moving with steering wheel LOL
 
+# BRC (Former WRC and now Rally1)
+
 ![Astral_R](Docs/3.jpg)
+
+
 
 # Existing Problems (that are mostly not going to be fixed)
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
