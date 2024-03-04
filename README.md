@@ -223,7 +223,7 @@ The rallycross beast converted from Rally2.
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - Aero geared to anti-diving when jumping instead of high speed downforce
-- Two layer RX style rear wing, within the frontal projection and within the projection of the car seen from above. Width 1360mm, height 290mm, top layer length 190mm, bottom layer length 450mm.
+- Two layer RX style rear wing, within the frontal projection and within the projection of the car seen from above, within the size regulations
 - Total about 200kg of downforce at 200km/h
 ![Astral_R](Docs/5.jpg)
 
