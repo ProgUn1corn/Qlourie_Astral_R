@@ -116,6 +116,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
 - Wheel beam properties are tested and modified to get best performance
+![Astral_R](Docs/20.jpg)
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip and rear diffuser react to ground clearance change
