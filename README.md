@@ -40,6 +40,7 @@ However I'm really looking forward to build a new car from the ground up. I'm le
 
 Also some fiction brands and sponsors! There is actually now in the mod by Automation modders but I'm planning to make my own original sponsors.
 ![Astral_R](Docs/24.jpg)
+![Astral_R](Docs/29.jpg)
 
 # Features
 ## Chassis
