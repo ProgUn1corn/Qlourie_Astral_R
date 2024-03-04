@@ -72,7 +72,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Rally light for better vision at night events (about 7kg, also act as ballast)
 - Spare wheel selection for weight accuracy
 
-# BRC (Former WRC and now Rally1)
+# BRC (Formerly WRC and now Rally1)
 The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/2.jpg)
 ## Chassis
@@ -127,7 +127,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Total about 400kg of downforce at 200km/h
 ![Astral_R](Docs/19.jpg)
 
-# Rally2
+# Rally2 (Formerly R5)
 The most popular class around the world. 
 ![Astral_R](Docs/1.jpg)
 ## Chassis
@@ -178,7 +178,7 @@ The most popular class around the world.
 - Total about 150kg of downforce at 200km/h
 ![Astral_R](Docs/15.jpg)
 
-# RX1
+# RX1 (Formerly RX Supercar)
 The rallycross beast converted from Rally2.
 ![Astral_R](Docs/3.jpg)
 ## Chassis
