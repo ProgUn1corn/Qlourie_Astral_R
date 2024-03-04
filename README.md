@@ -45,7 +45,6 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 # Features
 ## Chassis
 - Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
-- 2.535m wheelbase and 1.875m track width
 - Rollcage installed for maximum safety
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
@@ -81,6 +80,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - 1360KG minimum with driver and co-driver and one spare wheel 
 - ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
+- 4105mm long, 1875mm track width, 2535mm wheelbase
 ![Astral_R](Docs/26.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with WRC modification
@@ -136,6 +136,7 @@ The most popular class around the world.
 - 1390KG minimum with driver and co-driver and one spare wheel 
 - ~1410KG tarmac running weight, ~1430kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
+- 3985mm long, 1820mm track width, 2535mm wheelbase
 ![Astral_R](Docs/33.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with Rally2 modification
@@ -186,6 +187,7 @@ The rallycross beast converted from Rally2.
 - 1225KG minimum spare car
 - 1300KG minimum with driver and fuel, no matter running weight
 - ~52/48 weight distribution for optimal chassis dynamics
+- 4043mm long, 1850mm track width, 2535mm wheelbase
 ![Astral_R](Docs/12.jpg)
 ## Engine and Transmission
 - 2.0L Inline4 H2000P4 with WRX modification
