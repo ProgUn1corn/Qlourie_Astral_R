@@ -1,4 +1,4 @@
-# Qlourie_Astral_R
+# Qlourie Astral R
 My personal BeamNG mod project with some simple Lua codes.
 
 It comes from Automation, I made the car in Automation and rewrote almost everything's Jbeam by myself so the physics are completely new. The project started at about 2022/7, and this Github repo is created at 2024/1/16.
@@ -41,49 +41,72 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 
 # Features
 ## Chassis
-- Lightweight modified chassis for better stability and rigidity, also slightly moved suspension mounting points
+- Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
 - 2.535m wheelbase and 1.875m track width
-- 1190KG without crew and spare wheel
-- 1360KG with driver and co-driver and one spare wheel (It's actually heavier with running weight, including fuel and tools like in real life.)
-- ~1390KG tarmac running weight, ~1410kg gravel running weight
 - Rollcage installed for maximum safety
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
-- 380HP at 6500RPM, 450Nm at 5000-6000RPM
-- 2.5 bar anti-lag turbocharger
-- 6 speed sequential transmission
-- Front and rear adjustable final ratio
-- Fully adjustable gear ratios
-- Top speed 201 km/h
-- Front and rear adjustable LSD
-- Active center differential in response to steering and throttle input
+- Realistic engine curve referenced from telemetry of simluators
+- Gear ratio
+- Top speed limit 201 km/h
+- Mechanical LSD
 - Steering wheel and pedal shifter animation
 ## Suspension
 - Front and rear MacPherson Strut suspension
 - Reinforced front and rear subframe for stronger rigidity
 - Extra long suspension arms for better FVSA length, optimized FVSA for less camber change
-- Calculated suspension geometry for optimal performance, minimized bump steer and toe steer
-- 540 degree steering wheel
-- 8:1 quick steering ratio with maximum wheel angle of 33 degree
-- 300mm gravel brake disc, 370mm tarmac brake disc
-- Front and rear ducted brake
+- Calculated suspension geometry for optimal bump steer and toe steer performance
+- 540 degree steering wheel lock
+- 8:1 quick steering ratio
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - 800mm gravel damper length, 600mm tarmac damper length
 - Independently modelled mesh with flexbody help to enhances animations
-- over 320mm of travel on gravel damper
-- HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
-- 32 levels of HS and LS bump, 32 levels of rebound, 16 levels or hydraulic bump stop adjustment
+- Piston node and Jbeam writing for even more realistic bump stop and rebound stop simulation
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
 - Biased to progressive damping with increased damping during fast bump events, enhancing absorption of significant impacts in rallying
-- LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
-- Spring rates:
+## Misc
+- 10KG ballast for center of gravity adjustment
+- Driver weight included in racing seat part
+- Rally light for better vision at night events (about 7kg, also act as ballast)
+- Spare wheel selection for weight accuracy
 
+# BRC (Former WRC and now Rally1)
+## Chassis
+- Lightweight Chassis
+- 1190KG without crew and spare wheel
+- 1360KG with driver and co-driver and one spare wheel 
+- ~1390KG tarmac running weight, ~1410kg gravel running weight (Running weight includes fuel and tools like in real life)
+- ~50/50 weight distribution for optimal chassis dynamics
+## Engine and Transmission
+- 1.6L Inline4 H1598P4 with WRC modification
+- 383HP at 6000RPM, 457Nm at 5500RPM (within the 3.1kg/hp regulation)
+- 2.5 bar anti-lag turbocharger
+- 6 speed sequential transmission
+- Adjustable gear ratios
+- Top speed 201 km/h (ratio specific)
+- Front and rear adjustable mechanical LSD
+- 2 homologated active center differential in response to steering and throttle input. Power bias 48/52 for gravel and 36/64 for tarmac.
+## Suspension
+- 10:1 and 8:1 quick steering ratio selectable
+- 300mm gravel brake disc, 370mm tarmac brake disc
+- Adjustable brake bias
+- Front and rear ducted brake
+## Damper and Spring
+- CTM Racing MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
+- Around 325mm of travel on gravel damper
+- Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
+- LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
+- HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
+- 64 levels of LS bump, 64 levels of rebound, 32levels of HS bump and 16 levels or hydraulic bump stop adjustment
+- Spring rates:
+  
   Gravel: 17.5 to 40N/m, incremental difference of 2.5 N/m
 
-  Tarmac: 30.0 to 65N/m, incremental difference of 2.5 N/m
+  Tarmac: 30.0 to 65N/m, incremental difference of 5.0 N/m
 
   Helper: 2.5N/m
+
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel, node weight calculated based on the rim weight limit as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
@@ -95,17 +118,6 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Two layer WRC style rear wing with winglet attached
 - Rear wing endplate aerodynamics for better control when sliding
 - Total about 400kg of downforce at 200km/h
-## Misc
-- 25KG ballast for center of gravity adjustment
-- Driver weight included in racing seat part
-- Rally light for better vision at night events (about 7kg, also act as ballast)
-- Spare wheel selection for weight accuracy
-- Troll driver's model, hands moving with steering wheel LOL
-
-# BRC (Former WRC and now Rally1)
-
-![Astral_R](Docs/3.jpg)
-
 
 
 # Existing Problems (that are mostly not going to be fixed)
