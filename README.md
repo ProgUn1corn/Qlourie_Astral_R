@@ -39,9 +39,9 @@ I have a main work and it's quite busy, so I can't take my time fully on this pr
 However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart also Rally4, Rally2 variant. I'm really looking forward to it.
 
 Also some fiction brands and sponsors! There is actually now in the mod by Automation modders but I'm planning to make my own original sponsors.
+![Astral_R](Docs/24.jpg)
 
 # Features
-![Astral_R](Docs/24.jpg)
 ## Chassis
 - Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
 - 2.535m wheelbase and 1.875m track width
