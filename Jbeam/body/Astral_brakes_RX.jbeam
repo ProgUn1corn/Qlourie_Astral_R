@@ -10,7 +10,7 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brake_f4", ["Astral_hub_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
         ["Astral_brakeduct_f4", ["Astral_duct_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
-        ["Astral_brakedisc_fr", ["Astral_hub_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
+        ["Astral_brakedisc_f9", ["Astral_hub_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -19,7 +19,7 @@
 	],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=2750*$BrakeBias*$BrakeStrength"}, 
+        {"brakeTorque":"$=2650*$BrakeBias*$BrakeStrength"}, 
         {"brakeInputSplit":1}, 
         {"brakeSplitCoef":1},
         {"parkingTorque":0},
@@ -47,7 +47,7 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brake_r9", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakedisc_rr", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
+        ["Astral_brakedisc_r8", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -55,10 +55,10 @@
 	],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=2750*(1-$BrakeBias)*$BrakeStrength"},
+        {"brakeTorque":"$=2650*(1-$BrakeBias)*$BrakeStrength"},
         {"brakeInputSplit":1},
         {"brakeSplitCoef":1},
-        {"parkingTorque":"$=2750*$HBStrength"},
+        {"parkingTorque":"$=2650*$HBStrength"},
         {"brakeSpring":60},
 
         //brake thermals
@@ -68,7 +68,7 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.1},
+        {"brakeVentingCoef":1.0},
         //sound
         {"squealCoefNatural": 1.5, "squealCoefLowSpeed": 1.6}
     ]

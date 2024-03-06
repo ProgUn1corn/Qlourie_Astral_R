@@ -361,6 +361,7 @@
         {"collision":true},
         {"selfCollision":true},
         {"frictionCoef":0.5},
+        
     ],
     "beams":[
         ["id1:", "id2:"],
@@ -403,7 +404,7 @@
         ["slr4","sls7l"],
         ["slr4","sls8l"],
         //chassis
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":1501000,"beamDamp":150},
         ["sl7r","a5"],
         ["sl7r","a6"],
         ["sl7l","a5"],
@@ -440,7 +441,6 @@
 	"slots"	: [
 		["type", "default", "description"],
 		["Astral_damper", "Astral_damper", "Damper", {"nodeMove":{"x": -1.875, "y":0, "z":0.0}}],
-        ["Astral_spring", "Astral_spring_22.5", "Spring", {"nodeMove":{"x": -1.875, "y":0, "z":0.0}}],
 	]
 },
 "Astral_damper": {
@@ -454,6 +454,8 @@
 		["$bump", "range", "N/m/s", "Debug", 2350, 0, 3000, "LS Bump", "1", {"stepDis":50, "subCategory":"Damper"}],
 		["$bump_fast", "range", "N/m/s", "Debug", 5600, 0, 8000, "HS Bump", "2", {"stepDis":50, "subCategory":"Damper"}],
         ["$rebound", "range", "N/m/s", "Debug", 2350, 0, 5000, "Rebound", "3", {"stepDis":50, "subCategory":"Damper"}],
+		["$spring", "range", "N/mm", "Debug", 22500, 0, 35000, "Spring", "1", {"stepDis":2500, "subCategory":"Spring"}],
+        ["$comp", "range", "m", "Debug", 0, -0.1, 0.1, "Preload", "1", {"stepDis":0.005, "subCategory":"Spring"}],
     ],
 	"slotType" : "Astral_damper",
 	"nodes": [
@@ -484,6 +486,8 @@
         ["ds1", 0, 0, 0.815],
         {"nodeWeight":1.5},
         ["db1", 0, 0, 0.15, {"selfCollision":false}],
+        ["dm1", 0, 0, "$=$comp+0.371"],
+        ["dp1", 0, 0, 0.505, {"nodeWeight":1.5}],
         {"collision":true},
         {"selfCollision":true}
     ],
@@ -491,6 +495,12 @@
         //strut shaft rail
         "damper":{"links:":["ds1", "db1"], "broken:":[], "looped":false, "capped":true},
     },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        //attach strut body to strut shaft rail
+        ["dm1", "damper", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
+        ["dp1", "damper", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
+    ],
     "beams": [
         ["id1:", "id2:"],
         {"deformLimitExpansion":1.2},
@@ -525,7 +535,7 @@
         ["dbs2r","db2l"],
         ["dbs2l","db2r"],
         //damper mount to base
-        {"beamSpring":5001000,"beamDamp":125},
+        {"beamSpring":2501000,"beamDamp":150},
         ["db1","db1r"],
         ["db1","db2r"],
         ["db1","db1l"],
@@ -534,26 +544,41 @@
         ["dm1","dbs2r"],
         ["dm1","dbs1l"],
         ["dm1","dbs2l"],
-        
+        //strut platform body
+        {"beamSpring":1501000,"beamDamp":150},
+        ["db1","dm1"]
+
+        //--Spring--
+        //main spring
+        {"beamSpring":0,"beamDamp":0},
+        {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+        ["ds1","dm1", {
+            "name":"mainspring",
+            "beamSpring":"$spring","beamDamp":10,
+            "precompressionRange":"$comp",
+            "beamPrecompressionTime":1}
+        ],
+
         //--Damper Physics--
+        //piston
+        {"beamSpring":1501000,"beamDamp":150},
+        ["db1","dp1"]
         //travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        ["ds1","db1", {
+        {"beamLimitSpring":0},
+        ["ds1","dm1", {
             "longBoundRange":0,"shortBoundRange":0.35,"boundZone":0.01,
             "beamLimitSpring":1001000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
-        //damper oil rigid
-        ["ds1","db1", {
-            "beamSpring":3250,"beamDamp":0
-            "dampCutoffHz":500}
-        ],
         //damping
-        ["ds1","db1", {
+        ["ds1","dm1", {
             "name":"damper_test", 
+            //internal pressure 
+            "beamSpring":4514,
             //LS Control
             "beamDamp":"$bump"
             "beamDampRebound":"$rebound"
@@ -609,11 +634,8 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Spring--
         //main spring to helper collar
-        {"nodeWeight":1},
+        {"nodeWeight":2},
         ["sp1", 0, 0, 0.371],  //22.5N/mm, 444mm free length from Fabia RS
-        //helper collar to end
-        {"nodeWeight":1},
-        ["dm1", 0, 0, 0.194],   //2.0N/mm ,177mm free length from Fabia RS
     ],
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
@@ -642,12 +664,6 @@
             "precompressionRange":0,
             "beamPrecompressionTime":1
             }
-        ],
-        //spring reload ride height
-        {"beamSpring":3501000,"beamDamp":150},
-        ["db1","dm1",{
-            "precompressionRange":0
-            "beamPrecompressionTime":1}
         ],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},

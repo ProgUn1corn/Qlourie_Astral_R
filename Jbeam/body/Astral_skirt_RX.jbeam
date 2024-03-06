@@ -8,8 +8,8 @@
 	"slotType" : "Astral_skirt_R",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_skirt_R_RX", ["Astral_skirt_R"]],
-		["Astral_skirtattach_R", ["Astral_skirt_R"]]
+		["Astral_skirt_R_RX", ["Astral_skirt_R","Astral_carbody"]],
+		["Astral_skirtattach_R", ["Astral_skirt_R","Astral_carbody"]]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -18,20 +18,13 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_PLASTIC"},
 		//--Side skirt--
-		//door frame
 		{"nodeWeight":2.5},
-		{"group":["Astral_skirt_R","Astral_carbody"]},
-		["d1r", -0.821, 0.861, 0.151],
-		["d2r", -0.811, 0.363, 0.151],
-		["d3r", -0.801, -0.288, 0.151],
-		["d4r", -0.801, -0.886, 0.151, {"group":["Astral_door_R","Astral_skirt_R","Astral_carbody"]}],
-		{"nodeWeight":2},
 		["sk1r", -0.924, 0.861, 0.065],
 		["sk2r", -0.911, 0.363, 0.065],
 		["sk3r", -0.875, -0.288, 0.065],
 		["sk4r", -0.875, -0.886, 0.065],
 		//rigidifier
-		{"nodeWeight":4},
+		{"nodeWeight":4.5},
 		{"collision":false},
         {"selfCollision":false},
 		["skr1r", -0.889, 0.635, 0.195],
@@ -80,8 +73,8 @@
 		["skr2r", "d3r"],
 		["skr2r", "d4r"],
 		//attach to body
-		{"beamSpring":3501000,"beamDamp":150},
-		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
+		{"beamSpring":1501000,"beamDamp":150},
+		{"beamDeform":15000,"beamStrength":"FLT_MAX"},
 		["sk1r", "a8"], 
 		["sk1r", "a41"], 
 		["sk2r", "a12"], 
@@ -148,8 +141,8 @@
 	"slotType" : "Astral_skirt_L",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_skirt_L_RX", ["Astral_skirt_L"]],
-		["Astral_skirtattach_L", ["Astral_skirt_L"]]
+		["Astral_skirt_L_RX", ["Astral_skirt_L","Astral_carbody"]],
+		["Astral_skirtattach_L", ["Astral_skirt_L","Astral_carbody"]]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -158,20 +151,13 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_PLASTIC"},
 		//--Side skirt--
-		//door frame
 		{"nodeWeight":2.5},
-		{"group":["Astral_skirt_L","Astral_carbody"]},
-		["d1l",  0.821, 0.861, 0.151],
-		["d2l",  0.811, 0.363, 0.151],
-		["d3l",  0.801, -0.288, 0.151],
-		["d4l",  0.801, -0.886, 0.151, {"group":["Astral_door_L","Astral_skirt_L","Astral_carbody"]}],
-		{"nodeWeight":2},
 		["sk1l",  0.924, 0.861, 0.065],
 		["sk2l",  0.911, 0.363, 0.065],
 		["sk3l",  0.875, -0.288, 0.065],
 		["sk4l",  0.875, -0.886, 0.065],
 		//rigidifier
-		{"nodeWeight":4},
+		{"nodeWeight":4.5},
 		{"collision":false},
         {"selfCollision":false},
 		["skr1l", 0.889, 0.635, 0.195],
@@ -220,8 +206,8 @@
 		["skr2l", "d3l"],
 		["skr2l", "d4l"],
 		//attach to body
-		{"beamSpring":3501000,"beamDamp":150},
-		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
+		{"beamSpring":1501000,"beamDamp":150},
+		{"beamDeform":15000,"beamStrength":"FLT_MAX"},
 		["sk1l", "a11"], 
 		["sk1l", "a42"], 
 		["sk2l", "a15"], 
