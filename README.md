@@ -63,7 +63,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - 800mm gravel damper length, 600mm tarmac damper length
 - Independently modelled mesh with flexbody help to enhances animations
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
-- Biased to progressive damping with increased damping during fast bump events, enhancing absorption of significant impacts in rallying
+- Biased to progressive damping with increased damping during fast bump events, enhancing performance to significant impacts in rallying
 ## Misc
 - 10/20KG ballast for center of gravity adjustment (10KG needed to meet minimum weight regulations)
 - Driver weight included in racing seat part
