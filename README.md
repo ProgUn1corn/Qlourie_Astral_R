@@ -82,7 +82,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - 4105mm long, 1875mm track width, 2535mm wheelbase
 ![Astral_R](Docs/26.jpg)
 ## Engine and Transmission
-- 1.6L Inline4 H1598P4 with WRC modification
+- 1.6L Inline4 H1598P4 with WRC ECU
 - 2.5 bar anti-lag turbocharger
 - 383HP at 6000RPM, 457Nm at 5500RPM (within the 3.1kg/hp regulation)
 - 6 speed sequential transmission, paddle shifter
@@ -137,7 +137,7 @@ The most popular class around the world.
 - 3985mm long, 1820mm track width, 2535mm wheelbase
 ![Astral_R](Docs/33.jpg)
 ## Engine and Transmission
-- 1.6L Inline4 H1598P4 with Rally2 modification
+- 1.6L Inline4 H1598P4 with Rally2 ECU
 - 2.5 bar anti-lag turbocharger
 - 290HP at 4500RPM, 452Nm at 4500RPM (within the 4.2kg/hp regulation)
 - 5 speed sequential transmission, stick shifter
