@@ -57,12 +57,11 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Extra long suspension arms for better FVSA length, optimized FVSA for less camber change
 - Calculated suspension geometry for optimal bump steer and toe steer performance
 - 540 degree steering wheel lock
-- 10:1 and 13:1 quick steering ratio selectable
+- About 10:1 quick steering ratio
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - 800mm gravel damper length, 600mm tarmac damper length
 - Independently modelled mesh with flexbody help to enhances animations
-- Piston node and Jbeam writing for even more realistic bump stop and rebound stop simulation
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
 - Biased to progressive damping with increased damping during fast bump events, enhancing absorption of significant impacts in rallying
 ## Misc
@@ -99,7 +98,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - ![Astral_R](Docs/25.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
-- Around 325mm of travel on gravel damper
+- Over 300mm of travel on gravel damper
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
 - LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
@@ -154,7 +153,7 @@ The most popular class around the world.
 ![Astral_R](Docs/17.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
-- Around 305mm of travel on gravel damper
+- Around 310mm of travel on gravel damper
 - Hydraulic bump stop equipped on MSR80, hard bump stop on MSR60, hard rebound stop on both MSR80 and MSR60
 - LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, 3WAY adjustable
