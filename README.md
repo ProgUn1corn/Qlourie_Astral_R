@@ -85,7 +85,7 @@ The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/26.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with WRC ECU
-- 2.5 bar anti-lag turbocharger
+- 2.5 bar anti-lag turbocharger, 36mm turbo restrictor
 - Over 380HP at 6000RPM, 450Nm at 5500RPM (within the 3.1kg/hp regulation)
 - 6 speed sequential transmission, paddle shifter
 - Adjustable gear ratios
@@ -140,7 +140,7 @@ The most popular class around the world.
 ![Astral_R](Docs/33.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with Rally2 ECU
-- 2.5 bar anti-lag turbocharger
+- 2.5 bar anti-lag turbocharger, 32mm turbo restrictor
 - 290HP at 5000RPM, 438Nm at 4500RPM (within the 4.2kg/hp regulation)
 - 5 speed sequential transmission, stick shifter
 - Adjustable gear ratios
@@ -189,8 +189,8 @@ The rallycross beast converted from Rally2.
 ![Astral_R](Docs/12.jpg)
 ## Engine and Transmission
 - 2.0L Inline4 H2000P4 with WRX modification
-- 3.4 bar anti-lag turbocharger
-- 600HP at 6000RPM, 820Nm at 4500RPM
+- 3.4 bar anti-lag turbocharger, 45mm turbo restrictor
+- 600HP at 6000RPM, 820Nm at 4500RPM, without restrictor over 1000HP and 1500Nm
 - 5 speed sequential transmission, stick shifter
 - Adjustable gear ratios
 - Top speed 210 km/h (ratio specific)
