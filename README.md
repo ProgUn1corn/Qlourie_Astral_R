@@ -105,7 +105,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - LRS implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
 - 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels or hydraulic bump stop adjustment
-- Spring rates (needs experiment):
+- Spring rates:
   
   Gravel: 12.5 to 32.5N/mm front, 10.0 to 30.0N/mm rear, incremental difference of 2.5N/mm
 
@@ -160,7 +160,7 @@ The most popular class around the world.
 - LRS implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, 3WAY adjustable
 - 56 levels of LS bump, 56 levels of rebound, 28 levels of HS bump adjustment
-- Spring rates (needs experiment):
+- Spring rates:
   
   Gravel: 17.5 to 30.0N/mm front, 12.5 to 25.0N/mm rear, incremental difference of 2.5N/mm
 
@@ -208,7 +208,7 @@ The rallycross beast converted from Rally2.
 - Hydraulic bump stop and hard rebound stop 
 - HS (High Speed) and LS (Low Speed) bump and rebound, 4WAY adjustable
 - 40 levels of LS bump, 40 levels of LS rebound, 28 levels of HS bump and 20 levels of HS rebound adjustment
-- Spring rates (needs experiment):
+- Spring rates:
   
   RX: 20.0 to 45.0N/m front, 15.0 to 40.0N/mm rear, incremental difference of 5.0N/m
 
@@ -217,7 +217,7 @@ The rallycross beast converted from Rally2.
 ## Tyres
 - 225/640 R17 RX wheels
 - Wheel beam properties are tested and modified, biased to sliding performance
-![Astral_R](Docs/4.jpg)
+![Astral_R](Docs/9.jpg)
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
@@ -244,4 +244,4 @@ The rallycross beast converted from Rally2.
 ![Astral_R](Docs/13.jpg)
 ![Astral_R](Docs/6.jpg)
 ![Astral_R](Docs/7.jpg)
-![Astral_R](Docs/9.jpg)
+![Astral_R](Docs/4.jpg)
