@@ -61,6 +61,8 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - 800mm gravel damper length, 600mm tarmac damper length
+- LRS (Load Release System): Release rebound damping when wheel load below a set threshold is detected, allowing faster wheel contact and put all power to the ground. The damping curve is returned to normal is wheel load is above threshold
+- Hydraulic Bump Stop: Additional damping valve that will active at around from the last 50mm of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 45KN of damping force at 2m/s. Smoother ride quality when riding one bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection.
 - Independently modelled mesh with flexbody help to enhances animations
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
 - Biased to progressive damping with increased damping during fast bump events, enhancing performance to significant impacts in rallying
@@ -98,9 +100,9 @@ The pinnacle rallying class which now is anticipating BRC.
 - ![Astral_R](Docs/25.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
-- Over 300mm of travel on gravel damper
+- Over 300mm of travel on gravel damper, around 220mm of travel on tarmac damper
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
-- LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
+- LRS implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
 - 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels or hydraulic bump stop adjustment
 - Spring rates (needs experiment):
@@ -153,9 +155,9 @@ The most popular class around the world.
 ![Astral_R](Docs/17.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
-- Around 310mm of travel on gravel damper
+- Around 310mm of travel on gravel damper, around 210mm of travel on tarmac damper
 - Hydraulic bump stop equipped on MSR80, hard bump stop on MSR60, hard rebound stop on both MSR80 and MSR60
-- LRS (Load Release System) implemented for faster wheel extension when no load is applied to the wheel
+- LRS implemented for faster wheel extension when no load is applied to the wheel
 - HS (High Speed) and LS (Low Speed) bump, rebound, 3WAY adjustable
 - 56 levels of LS bump, 56 levels of rebound, 28 levels of HS bump adjustment
 - Spring rates (needs experiment):
