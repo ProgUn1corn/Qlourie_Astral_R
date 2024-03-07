@@ -190,7 +190,7 @@ The rallycross beast converted from Rally2.
 ## Engine and Transmission
 - 2.0L Inline4 H2000P4 with WRX modification
 - 3.4 bar anti-lag turbocharger
-- 600HP at 6000RPM, 800Nm at 7000RPM
+- 600HP at 6000RPM, 820Nm at 4500RPM
 - 5 speed sequential transmission, stick shifter
 - Adjustable gear ratios
 - Top speed 210 km/h (ratio specific)
