@@ -62,7 +62,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Dampers developed with **CTM Racing Suspension**
 - Around 800mm gravel damper length, 600mm tarmac damper length
 - LRS (Load Release System): Release rebound damping when wheel load below a set threshold is detected, allowing faster wheel contact and all power to the ground. The damping curve is returned to normal is wheel load is above threshold
-- Hydraulic Bump Stop: Additional damping valve that will active at around from the last 65mm (45mm on tarmac if implemented) of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 45KN of damping force at 2m/s. Smoother ride quality when riding one bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection.
+- Hydraulic Bump Stop: Additional damping valve that will active at around from the last 70mm (45mm on tarmac if implemented) of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 45KN of damping force at 2m/s. Smoother ride quality when riding one bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection.
 - Independently modelled mesh instead of Automation suspension with flexbody help node to enhances animations
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
 - Biased to progressive damping with increased damping during fast bump events, enhancing performance to significant impacts in rallying
