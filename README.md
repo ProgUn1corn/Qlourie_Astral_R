@@ -210,7 +210,7 @@ The rallycross beast converted from Rally2.
 - 40 levels of LS bump, 40 levels of LS rebound, 28 levels of HS bump and 20 levels of HS rebound adjustment
 - Spring rates:
   
-  RX: 20.0 to 45.0N/m front, 15.0 to 40.0N/mm rear, incremental difference of 5.0N/m
+  RX: 20.0 to 45.0N/mm front, 15.0 to 40.0N/mm rear, incremental difference of 5.0N/m
 
   Helper: 3.3N/m
 ![Astral_R](Docs/8.jpg)
