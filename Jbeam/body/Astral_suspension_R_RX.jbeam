@@ -315,12 +315,12 @@
         ["rhe1r","rs1r", {
             "name":"damper_RR", 
             //internal pressure
-            "beamSpring":4514,
+            "beamSpring":5555,
             //LS Control
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":"$=clamp(0.15+($dampRate_rebound_R-3500)/16000,0.15,0.35)"
@@ -330,12 +330,12 @@
         ["rhe1l","rs1l", {
             "name":"damper_RL", 
             //internal pressure
-            "beamSpring":4514,
+            "beamSpring":5555,
             //LS Control
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.32+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.22,0.42)",
+            "beamDampVelocitySplit":"$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampVelocitySplitRebound":"$=clamp(0.15+($dampRate_rebound_R-3500)/16000,0.15,0.35)"
@@ -369,18 +369,18 @@
         ["rh1r","rs1r", { //valve close
             "name":"bumpstop_RR", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":0.8,
+            "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":1,
+            "volumeFactor":0.5,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":10
+            "maxStress":500
             //travel
             "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.01,
             //bump stop active
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
-            "beamLimitDampRebound":1500,
+            "beamLimitDampRebound":17500,
             //adding pressure
             "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.32,
             "beamLimitSpring":175000,
@@ -398,18 +398,18 @@
         ["rh1l","rs1l", { //valve close
             "name":"bumpstop_RL", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":0.8,
+            "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":1,
+            "volumeFactor":0.5,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":10
+            "maxStress":500
             //travel
             "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.01,
             //bump stop active
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
-            "beamLimitDampRebound":1500,
+            "beamLimitDampRebound":17500,
             //adding pressure
             "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.32,
             "beamLimitSpring":175000,
@@ -431,7 +431,7 @@
             //rebound stop active
             "beamLimitSpring":15500,
             "beamLimitDamp":1000, 
-            "beamLimitDampRebound":4000,
+            "beamLimitDampRebound":2000,
             "dampCutoffHz":250}
         ],
         ["rh1l","rs1l", {
@@ -440,7 +440,7 @@
             //rebound stop active
             "beamLimitSpring":15500,
             "beamLimitDamp":1000, 
-            "beamLimitDampRebound":4000,
+            "beamLimitDampRebound":2000,
             "dampCutoffHz":250}
         ],
         {"beamSpring":0,"beamDamp":0},
