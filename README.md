@@ -66,6 +66,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Hydraulic Bump Stop: Additional damping valve that will active at around from the last 60mm of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 45KN of damping force at 2m/s. Smoother ride quality when riding one bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection.
 - Independently modelled mesh instead of Automation suspension with flexbody help node to enhances animations
 - Bump velocity threshold (knee point) is moved in response to changes in fast and slow bump settings, providing a more accurate representation of real-world damper tuning
+- Front and rear interchangeable design, same LS bump and rebound valving, more HS bump on front than rear
 - Biased to progressive damping with increased damping during fast bump events, enhancing performance to significant impacts in rallying
 ## Misc
 - 10/20KG ballast for center of gravity adjustment (10KG needed to meet minimum weight regulations)
