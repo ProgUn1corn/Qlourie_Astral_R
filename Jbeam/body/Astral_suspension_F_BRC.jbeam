@@ -30,7 +30,8 @@
      ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$CamberFront", "range", "", "Suspension", 1, 0.98, 1.02, "Front Camber Offset", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}]
+        ["$CamberFront", "range", "", "Suspension", 1, 0.975, 1.025, "Front Camber", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}]
+        ["$CasterFront", "range", "", "Suspension", 1, 0.985, 1.015, "Front Caster", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}]
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -615,10 +616,10 @@
         //--Control arm--
         {"beamSpring":16001000,"beamDamp":1600},
         {"beamDeform":220100,"beamStrength":350000},
-        ["fx2r", "fh1r", {"dampCutoffHz":500}],
-        ["fx1r", "fh1r", {"dampCutoffHz":500}],
-        ["fx2l", "fh1l", {"dampCutoffHz":500}],
-        ["fx1l", "fh1l", {"dampCutoffHz":500}],
+        ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
         //tie rods
         {"beamSpring":14001000,"beamDamp":600},
@@ -1086,10 +1087,10 @@
         //--Control arm--
         {"beamSpring":16001000,"beamDamp":1600},
         {"beamDeform":220100,"beamStrength":350000},
-        ["fx2r", "fh1r", {"dampCutoffHz":500}],
-        ["fx1r", "fh1r", {"dampCutoffHz":500}],
-        ["fx2l", "fh1l", {"dampCutoffHz":500}],
-        ["fx1l", "fh1l", {"dampCutoffHz":500}],
+        ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
         //tie rods
         {"beamSpring":14001000,"beamDamp":700},
