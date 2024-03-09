@@ -56,6 +56,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Reinforced front and rear subframe for stronger rigidity
 - Extra long suspension arms for better FVSA length, optimized FVSA for less camber change
 - Calculated suspension geometry for optimal bump steer and toe steer performance
+- Front caster adjustable
 - 540 degree steering wheel lock
 - 9:1 quick steering ratio on all models allowing maximum of around 30 degrees of wheel angle
 ## Damper and Spring
