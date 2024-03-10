@@ -7,8 +7,9 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
-		["$launchRPMLow", "range", "RPM", "Engine", 6500, 2000, 8500, "Low Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
-		["$launchRPMHigh", "range", "RPM", "Engine", 7500, 2000, 8500, "High Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMLow", "range", "RPM", "Engine", 5500, 3500, 8500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMMed", "range", "RPM", "Engine", 6800, 3500, 8500, "Medium Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMHigh", "range", "RPM", "Engine", 7600, 3500, 8500, "Aggressive Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
 	],
 	"slotType" : "Astral_enginemanagement_1",
 	"controller": [
@@ -23,30 +24,39 @@
 		["driveModes"]
 	],
 	"driveModes": {
-		"enabledModes":["low", "high", "off"],
-		"defaultMode": "low",
+		"enabledModes":["low", "med", "high", "off"],
+		"defaultMode": "med",
 		"modes": {
 			"low": {
-				"name": "Low RPM",
-				"order": 10,
+				"name": "Soft",
+				"order": 1,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "238BE6"}],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
 				]
 			},
-			"high": {
-				"name": "High RPM",
-				"order": 20,
+			"med": {
+				"name": "Medium",
+				"order": 2,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFFF00"}],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+				]
+			},
+			"high": {
+				"name": "Aggressive",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
 				]
 			},
 			"off": {
-				"name": "Off Mode",
-				"order": 50,
+				"name": "Off",
+				"order": 4,
 				"settings": [
 					["type"],
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
@@ -146,9 +156,10 @@
 	},
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$idleRPM", "range", "RPM", "Engine", 1750, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
-		["$launchRPMLow", "range", "RPM", "Engine", 5500, 2000, 8500, "Low Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
-		["$launchRPMHigh", "range", "RPM", "Engine", 6500, 2000, 8500, "High Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMLow", "range", "RPM", "Engine", 4500, 3500, 7500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMMed", "range", "RPM", "Engine", 5500, 3500, 7500, "Medium Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMHigh", "range", "RPM", "Engine", 6800, 3500, 7500, "Aggressive Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
 	],
 	"slotType" : "Astral_enginemanagement_1",
 	"controller": [
@@ -163,34 +174,43 @@
 		["driveModes"]
 	],
 	"driveModes": {
-		"enabledModes":["low", "high", "off"],
-		"defaultMode": "low",
+		"enabledModes":["low", "med", "high", "off"],
+		"defaultMode": "med",
 		"modes": {
 			"low": {
-				"name": "Low RPM",
-				"order": 10,
+				"name": "Soft",
+				"order": 1,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "238BE6"}],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
 				]
 			},
-			"high": {
-				"name": "High RPM",
-				"order": 20,
+			"med": {
+				"name": "Medium",
+				"order": 2,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFFF00"}],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+				]
+			},
+			"high": {
+				"name": "Aggressive",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
 				]
 			},
 			"off": {
-				"name": "Off Mode",
-				"order": 50,
+				"name": "Off",
+				"order": 4,
 				"settings": [
 					["type"],
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
-					["controller", {"controllerName":"launch", "isEnabled":false, "launchRPM":7500}],
+					["controller", {"controllerName":"launch", "isEnabled":false, "launchRPM":8500}],
 				]
 			}
 		}
@@ -288,7 +308,9 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$idleRPM", "range", "RPM", "Engine", 2250, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
-		["$launchRPMLow", "range", "RPM", "Engine", 7000, 2250, 8500, "Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMLow", "range", "RPM", "Engine", 5500, 3500, 8500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMMed", "range", "RPM", "Engine", 6300, 3500, 8500, "Medium Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMHigh", "range", "RPM", "Engine", 6900, 3500, 8500, "Aggressive Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
 	],
 	"slotType" : "Astral_enginemanagement_2",
 	"controller": [
@@ -303,21 +325,39 @@
 		["driveModes"]
 	],
 	"driveModes": {
-		"enabledModes":["on", "off"],
-		"defaultMode": "on",
+		"enabledModes":["low", "med", "high", "off"],
+		"defaultMode": "med",
 		"modes": {
-			"on": {
-				"name": "On Mode",
-				"order": 10,
+			"low": {
+				"name": "Soft",
+				"order": 1,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "238BE6"}],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
 				]
 			},
+			"med": {
+				"name": "Medium",
+				"order": 2,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+				]
+			},
+			"high": {
+				"name": "Aggressive",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
+				]
+			},
 			"off": {
-				"name": "Off Mode",
-				"order": 50,
+				"name": "Off",
+				"order": 4,
 				"settings": [
 					["type"],
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
