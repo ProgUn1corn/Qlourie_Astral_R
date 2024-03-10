@@ -243,7 +243,7 @@
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
             ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*1.1", "$=clamp(0.21+($dampRate_bump_R_fast-5000)/64000-($dampRate_bump_R-2300)/64000,0.11,0.31)", "$=clamp(0.10+($dampRate_rebound_R-3800)/64000,0.10,0.26)"]  //normal damping
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*1.1", "$=clamp(0.21+($dampRate_bump_R_fast-5000)/64000-($dampRate_bump_R-2300)/64000,0.11,0.31)", "$=clamp(0.10+($dampRate_rebound_R-3800)/64000,0.10,0.26)"] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.21+($dampRate_bump_R_fast-5000)/64000-($dampRate_bump_R-2300)/64000,0.11,0.31)", "$=clamp(0.10+($dampRate_rebound_R-3800)/64000,0.10,0.26)"] //LRS active
         ]
     },
     "nodes": [
@@ -569,8 +569,8 @@
         //helper hydrualics
         ["rhe1r","rh2r", {
             //helper release
-            "beamDamp":250
-            "beamDampRebound":250
+            "beamDamp":"$dampRate_bump_F",
+            "beamDampRebound":"$=$dampRate_rebound_F",
             //helper stopper
             "longBoundRange":2,"shortBoundRange":0.075,"boundZone":0.01,
             "beamLimitSpring":1351000,
@@ -580,8 +580,8 @@
         ],
         ["rhe1l","rh2l", {
             //helper release
-            "beamDamp":250
-            "beamDampRebound":250
+            "beamDamp":"$dampRate_bump_F",
+            "beamDampRebound":"$=$dampRate_rebound_F",
             //helper stopper
             "longBoundRange":2,"shortBoundRange":0.075,"boundZone":0.01,
             "beamLimitSpring":1351000,
@@ -771,7 +771,7 @@
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
             ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*1.1", "$=clamp(0.42+($dampRate_bump_R_fast-4500)/64000-($dampRate_bump_R-800)/64000,0.32,0.52)", "$=clamp(0.15+($dampRate_rebound_R-1300)/64000,0.15,0.35)"]  //normal damping
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*1.1", "$=clamp(0.42+($dampRate_bump_R_fast-4500)/64000-($dampRate_bump_R-800)/64000,0.32,0.52)", "$=clamp(0.15+($dampRate_rebound_R-1300)/64000,0.15,0.35)"] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.42+($dampRate_bump_R_fast-4500)/64000-($dampRate_bump_R-800)/64000,0.32,0.52)", "$=clamp(0.15+($dampRate_rebound_R-1300)/64000,0.15,0.35)"] //LRS active
         ]
     },
     "nodes": [
@@ -1105,8 +1105,8 @@
         //helper hydrualics
         ["rhe1r","rh2r", {
             //helper release
-            "beamDamp":250
-            "beamDampRebound":250
+            "beamDamp":"$dampRate_bump_F",
+            "beamDampRebound":"$=$dampRate_rebound_F",
             //helper stopper
             "longBoundRange":2,"shortBoundRange":0.075,"boundZone":0.01,
             "beamLimitSpring":1351000,
@@ -1116,8 +1116,8 @@
         ],
         ["rhe1l","rh2l", {
             //helper release
-            "beamDamp":250
-            "beamDampRebound":250
+            "beamDamp":"$dampRate_bump_F",
+            "beamDampRebound":"$=$dampRate_rebound_F",
             //helper stopper
             "longBoundRange":2,"shortBoundRange":0.075,"boundZone":0.01,
             "beamLimitSpring":1351000,
@@ -1271,11 +1271,11 @@
         {"hubcapGroup":"hubcap_RR"},
         {"axleBeams":["axle_RR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx2r","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
+        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx3r", "torqueArm2:":"rx3l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
         {"hubcapBreakGroup":"hubcap_RL"},
         {"hubcapGroup":"hubcap_RL"},
         {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx2l","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
+        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx3l", "torqueArm2:":"rx3r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},

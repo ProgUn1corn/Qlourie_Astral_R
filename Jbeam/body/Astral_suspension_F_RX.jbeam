@@ -118,7 +118,7 @@
         //suspension travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":50,"beamDeform":105000,"beamStrength":250000},
-        {"beamLimitSpring":1201000,"beamLimitDamp":1000},
+        {"beamLimitSpring":1351000,"beamLimitDamp":1000},
         ["fh1r","fs1r", {"longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
         ["fh1l","fs1l", {"longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,"beamLimitDampRebound":1000,"dampCutoffHz":500}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -293,22 +293,22 @@
         //helper hydrualics
         ["fhe1r","fh2r", {
             //helper release
-            "beamDamp":250,
-            "beamDampRebound":250,
+            "beamDamp":"$dampRate_bump_F",
+            "beamDampRebound":"$=$dampRate_rebound_F",
             //helper stopper
             "longBoundRange":2,"shortBoundRange":0.075,"boundZone":0.01,
-            "beamLimitSpring":1201000,
+            "beamLimitSpring":1351000,
             "beamLimitDamp":50,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
         ["fhe1l","fh2l", {
             //helper release
-            "beamDamp":250,
-            "beamDampRebound":250,
+            "beamDamp":"$dampRate_bump_F",
+            "beamDampRebound":"$=$dampRate_rebound_F",
             //helper stopper
             "longBoundRange":2,"shortBoundRange":0.075,"boundZone":0.01,
-            "beamLimitSpring":1201000,
+            "beamLimitSpring":1351000,
             "beamLimitDamp":50,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
