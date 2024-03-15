@@ -31,7 +31,7 @@
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3500, 3500, 6700, "LS Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R_fast", "range", "Click", "Suspension", 2250, 2000, 5200, "HS Rebound", "Increasing the clicks results in greater rebound force. This is used for better wheel contact.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$springRate_R", "range", "N/m", "Suspension", 35000, 15000, 40000, "Main Spring Rate", "Higher spring stiffness will raise the car's ride height if preload is not adjusted. This will improve stability and responsiveness, but can lead to a rougher ride and reduced grip. Lower spring stiffness will lower the car's ride height if preload is not adjusted, providing a smoother ride and improved grip, but may compromise stability and responsiveness.", {"stepDis":5000,"subCategory":"Rear Suspension"}],
-        ["$RideHeightOffsetRear", "range", "+m", "Suspension", 0, 0, 0.04, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.02,"maxDis":0.02,"subCategory":"Rear Suspension"}],
+        ["$RideHeightOffsetRear", "range", "+m", "Suspension", 0, 0, 0.03, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.015,"maxDis":0.015,"subCategory":"Rear Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -43,18 +43,18 @@
         //hub mounting points for control arm
         {"nodeWeight":6},
         {"group":["Astral_hub_R","Astral_arm_R"]},
-        ["rh1r", -0.736, 1.32, -0.125],
-        ["rh1l",  0.736, 1.32, -0.125],
+        ["rh1r", -0.725, 1.32, -0.1],
+        ["rh1l",  0.725, 1.32, -0.1],
         //strut attach
         {"nodeWeight":5},
         {"group":["Astral_hub_R"]},
-        ["rh2r", -0.67, 1.316, 0.235],
-        ["rh2l",  0.67, 1.316, 0.235],
+        ["rh2r", -0.6655, 1.3165, 0.235],
+        ["rh2l",  0.6655, 1.3165, 0.235],
         //toe link
         {"nodeWeight":4.5},
         {"group":["Astral_hub_R","Astral_rod_R","Astral_arm_R"]},
-        ["rh3r", -0.739, 1.18, -0.125],
-        ["rh3l",  0.739, 1.18, -0.125],
+        ["rh3r", -0.725, 1.18, -0.1],
+        ["rh3l",  0.725, 1.18, -0.1],
         //brake caliper
         {"nodeWeight":3.5},
         {"group":["Astral_hub_R","Astral_duct_R"]},
@@ -67,13 +67,13 @@
         {"selfCollision":false},
         {"nodeWeight":1.5},
         {"group":["Astral_arb_R"]},
-        ["rarb3r", -0.511, 1.32, -0.02135],
-        ["rarb3l",  0.511, 1.32, -0.02135],
+        ["rarb3r", -0.511, 1.32, -0.012],
+        ["rarb3l",  0.511, 1.32, -0.012],
         //toe link
         {"nodeWeight":3.75},
         {"group":["Astral_rod_R","Astral_arm_R"]},
-        ["rx5r", -0.335, 1.0737, 0.0597],
-        ["rx5l",  0.335, 1.0737, 0.0597],
+        ["rx5r", -0.335, 1.081, 0.060],
+        ["rx5l",  0.335, 1.081, 0.060],
         //arm gurad
         {"nodeWeight":0.25},
         {"group":["Astral_rarmg"]},
@@ -96,10 +96,10 @@
         //helper spring collar
         {"group":[""]},
         {"nodeWeight":1},
-        ["rhe1r", -0.6347, 1.3144, 0.425],
-        ["rhe1l",  0.6347, 1.3144, 0.425],
-        ["rcl1r", -0.6593, 1.3157, 0.291],
-        ["rcl1l",  0.6593, 1.3157, 0.291],
+        ["rhe1r", -0.6318, 1.3145, 0.425],
+        ["rhe1l",  0.6318, 1.3145, 0.425],
+        ["rcl1r", -0.6556, 1.3159, 0.291],
+        ["rcl1l",  0.6556, 1.3159, 0.291],
         //damper flexbody help
         {"selfCollision":false},
         {"collision":false},
@@ -194,10 +194,10 @@
         {"beamDeform":155000,"beamStrength":350000},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.05","beamPrecompressionTime":0.1}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.035","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.05","beamPrecompressionTime":0.1}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.035","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -295,8 +295,8 @@
         ],
         //helper spring
         {"beamSpring":3300,"beamDamp":10},
-        ["rhe1r","rcl1r", {"precompressionRange":0.06}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.06}],
+        ["rhe1r","rcl1r", {"precompressionRange":0.080,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.080,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
         {"beamSpring":1501000,"beamDamp":50},
@@ -307,8 +307,8 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //strut platform height (preload)
         {"beamSpring":1501000,"beamDamp":50},
-        ["rcl1r", "rh1r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
-        ["rcl1l", "rh1l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
+        ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
+        ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
