@@ -45,7 +45,7 @@
         ["fh1r", -0.736, -1.285, -0.1],
         ["fh1l",  0.736, -1.285, -0.1],
         //strut attach
-        {"nodeWeight":4.5},
+        {"nodeWeight":5},
         {"group":["Astral_hub_F"]},
         ["fh2r", -0.671, -1.254, 0.25],
         ["fh2l",  0.671, -1.254, 0.25], 
@@ -74,17 +74,16 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":6.5},
+        {"nodeWeight":7},
         ["fs1r", -0.5678, -1.204, 0.805],
         ["fs1l",  0.5678, -1.204, 0.805],
-        //helper spring collar
+        //spring collar
         {"group":[""]},
-        {"nodeWeight":1.5},
+        {"nodeWeight":1},
         ["fhe1r", -0.6375, -1.2376, 0.43],
         ["fhe1l",  0.6375, -1.2376, 0.43],
-        //lower spring collar
-        ["fcl1r", "$=-0.6618+(0.736-0.5678)/0.924054782*($RideHeightOffsetFront/0.924054782)", "$=-1.249-(1.204-1.285)/0.924054782*($RideHeightOffsetFront/0.924054782)", "$=0.299+(0.805+0.1)/0.924054782*($RideHeightOffsetFront/0.924054782)"],
-        ["fcl1l", "$= 0.6618-(0.736-0.5678)/0.924054782*($RideHeightOffsetFront/0.924054782)", "$=-1.249-(1.204-1.285)/0.924054782*($RideHeightOffsetFront/0.924054782)", "$=0.299+(0.805+0.1)/0.924054782*($RideHeightOffsetFront/0.924054782)"], //strut length 0.924054782
+        ["fcl1r", -0.6618, -1.249, 0.299],
+        ["fcl1l",  0.6618, -1.249, 0.299],
         //damper flexbody help
         {"selfCollision":false},
         {"collision":false},
@@ -234,9 +233,9 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.06}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":"$=-0.080+$RideHeightOffsetFront","beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":"$=-0.080+$RideHeightOffsetFront","beamPrecompressionTime":0.1}],
+        {"beamSpring":1501000,"beamDamp":50},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
         
         //--Damper--
         //damper tower mount to body
@@ -253,12 +252,10 @@
         ["fs1l", "rc1l"],
         {"breakGroup":""}
         {"optional":false}
-        //strut platform
-        {"beamSpring":1201000,"beamDamp":50},
-        ["fcl1r", "fh1r"],
-        ["fcl1l", "fh1l"],
-        ["fcl1r", "fh2r"],
-        ["fcl1l", "fh2l"],
+        //strut platform height (preload)
+        {"beamSpring":1501000,"beamDamp":50},
+        ["fcl1r", "fh1r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
+        ["fcl1l", "fh1l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
@@ -304,17 +301,17 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.05,
+            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.048,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
             "dampCutoffHz":250}
         ],
-        ["fh1r","fs1r", { //hard bump stop
+        ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":175000,
-            "beamLimitDamp":8000, 
+            "beamLimitSpring":150000,
+            "beamLimitDamp":4000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
@@ -328,17 +325,17 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.05,
+            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.048,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
             "dampCutoffHz":250}
         ],
-        ["fh1l","fs1l", { //hard bump stop
+        ["fh2l","fs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":175000,
-            "beamLimitDamp":8000, 
+            "beamLimitSpring":150000,
+            "beamLimitDamp":4000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],

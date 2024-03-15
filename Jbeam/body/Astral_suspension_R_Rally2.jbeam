@@ -110,17 +110,16 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_R","Astral_chassis_R"]},
-        {"nodeWeight":10},
+        {"nodeWeight":9.5},
         ["rs1r", -0.556, 1.31, 0.852],
         ["rs1l",  0.556, 1.31, 0.852],
         //helper spring collar
         {"group":[""]},
-        {"nodeWeight":1.5},
+        {"nodeWeight":1},
         ["rhe1r", -0.6285, 1.314, 0.515],
         ["rhe1l",  0.6285, 1.314, 0.515],
-        //lower spring collar
-        ["rcl1r", "$=-0.6551+(0.736-0.556)/0.856194487*($RideHeightOffsetRear/0.856194487)", "$=1.3155+(1.31-1.32)/0.856194487*($RideHeightOffsetRear/0.856194487)", "$=0.388+(0.852-0.015)/0.856194487*($RideHeightOffsetRear/0.856194487)"],
-        ["rcl1l", "$= 0.6551-(0.736-0.556)/0.856194487*($RideHeightOffsetRear/0.856194487)", "$=1.3155+(1.31-1.32)/0.856194487*($RideHeightOffsetRear/0.856194487)", "$=0.388+(0.852-0.015)/0.856194487*($RideHeightOffsetRear/0.856194487)"], //strut length 0.856194487
+        ["rcl1r", -0.6551, 1.3155, 0.388],
+        ["rcl1l",  0.6551, 1.3155, 0.388],
         //damper flexbody help
         {"selfCollision":false},
         {"collision":false},
@@ -320,18 +319,16 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.080}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":"$=-0.080+$RideHeightOffsetRear","beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":"$=-0.080+$RideHeightOffsetRear","beamPrecompressionTime":0.1}],
+        {"beamSpring":1501000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
         
         //--Damper--
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //strut platform
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rcl1r", "rh1r"],
-        ["rcl1l", "rh1l"],
-        ["rcl1r", "rh2r"],
-        ["rcl1l", "rh2l"],
+        //strut platform height (preload)
+        {"beamSpring":1501000,"beamDamp":50},
+        ["rcl1r", "rh1r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
+        ["rcl1l", "rh1l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
@@ -365,7 +362,7 @@
             "dampCutoffHz":500}
         ],
         //hard bump stop
-        ["rh1r","rs1r", {
+        ["rh2r","rs1r", {
             "name":"bumpstop_RL", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -381,7 +378,7 @@
             "beamLimitDampRebound":7500,
             "dampCutoffHz":250}
         ],
-        ["rh1l","rs1l", {
+        ["rh2l","rs1l", {
             "name":"bumpstop_RR", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -533,7 +530,7 @@
         ["rh1r", -0.736, 1.32, -0.125],
         ["rh1l",  0.736, 1.32, -0.125],
         //strut attach
-        {"nodeWeight":4.5},
+        {"nodeWeight":5},
         {"group":["Astral_hub_R"]},
         ["rh2r", -0.67, 1.316, 0.235],
         ["rh2l",  0.67, 1.316, 0.235],
@@ -577,17 +574,16 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_R","Astral_chassis_R"]},
-        {"nodeWeight":10},
+        {"nodeWeight":9.5},
         ["rs1r", -0.556, 1.31, 0.852],
         ["rs1l",  0.556, 1.31, 0.852],
         //helper spring collar
         {"group":[""]},
-        {"nodeWeight":1.5},
+        {"nodeWeight":1},
         ["rhe1r", -0.6347, 1.3144, 0.425],
         ["rhe1l",  0.6347, 1.3144, 0.425],
-        //lower spring collar
-        ["rcl1r", "$=-0.6593+(0.736-0.556)/0.993493332*($RideHeightOffsetRear/0.993493332)", "$=1.3157+(1.31-1.32)/0.993493332*($RideHeightOffsetRear/0.993493332)", "$=0.291+(0.852+0.125)/0.993493332*($RideHeightOffsetRear/0.993493332)"],
-        ["rcl1l", "$= 0.6593-(0.736-0.556)/0.993493332*($RideHeightOffsetRear/0.993493332)", "$=1.3157+(1.31-1.32)/0.993493332*($RideHeightOffsetRear/0.993493332)", "$=0.291+(0.852+0.125)/0.993493332*($RideHeightOffsetRear/0.993493332)"], //strut length 0.993493332
+        ["rcl1r", -0.6593, 1.3157, 0.291],
+        ["rcl1l",  0.6593, 1.3157, 0.291],
         //damper flexbody help
         {"selfCollision":false},
         {"collision":false},
@@ -787,18 +783,16 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.080}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":"$=-0.080+$RideHeightOffsetRear","beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":"$=-0.080+$RideHeightOffsetRear","beamPrecompressionTime":0.1}],
+        {"beamSpring":1501000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
         
         //--Damper--
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //strut platform
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rcl1r", "rh1r"],
-        ["rcl1l", "rh1l"],
-        ["rcl1r", "rh2r"],
-        ["rcl1l", "rh2l"],
+        //strut platform height (preload)
+        {"beamSpring":1501000,"beamDamp":50},
+        ["rcl1r", "rh1r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
+        ["rcl1l", "rh1l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
@@ -842,16 +836,16 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.05,
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.048,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
             "dampCutoffHz":250}
         ],
-        ["rh1r","rs1r", { //hard bump stop
+        ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
-            "beamLimitSpring":175000,
+            "beamLimitSpring":150000,
             "beamLimitDamp":4000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -866,16 +860,16 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.05,
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.048,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
             "dampCutoffHz":250}
         ],
-        ["rh1r","rs1r", { //hard bump stop
+        ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
-            "beamLimitSpring":175000,
+            "beamLimitSpring":150000,
             "beamLimitDamp":4000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
