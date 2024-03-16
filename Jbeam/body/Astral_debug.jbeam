@@ -487,7 +487,6 @@
         {"nodeWeight":1.5},
         ["db1", 0, 0, 0.15, {"selfCollision":false}],
         ["dm1", 0, 0, "$=$comp+0.371"],
-        ["dp1", 0, 0, 0.505, {"nodeWeight":1.5}],
         {"collision":true},
         {"selfCollision":true}
     ],
@@ -499,7 +498,6 @@
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
         ["dm1", "damper", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
-        ["dp1", "damper", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -560,9 +558,11 @@
         ],
 
         //--Damper Physics--
-        //piston
-        {"beamSpring":1501000,"beamDamp":150},
-        ["db1","dp1"]
+        //damper internal gas preload
+        {"beamPrecompression":1, "beamType":"|PRESSURED"},
+        {"beamSpring":500,"beamDamp":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
+        ["ds1","dm1", {"pressurePSI":65,"surface":0.0015904,"volumeCoef":1}],
         //travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -572,13 +572,11 @@
             "beamLimitSpring":1001000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         //damping
         ["ds1","dm1", {
             "name":"damper_test", 
-            //internal pressure 
-            "beamSpring":4514,
             //LS Control
             "beamDamp":"$bump"
             "beamDampRebound":"$rebound"
