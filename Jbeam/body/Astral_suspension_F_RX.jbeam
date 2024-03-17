@@ -11,7 +11,7 @@
         ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":0.307, "y":-1.285, "z":0.05}}],
         ["Astral_brake_F","Astral_brake_F_RX", "Brake", {"nodeOffset":{"x":0, "y":-1.285, "z":0.05}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
-        ["Astral_spring_F_RX","Astral_spring_F_RX_24", "Spring"]
+        ["Astral_spring_F_RX","Astral_spring_F_RX_36", "Spring"]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -45,8 +45,8 @@
         //strut attach
         {"nodeWeight":5},
         {"group":["Astral_hub_F"]},
-        ["fh2r", -0.680, -1.2554, 0.25],
-        ["fh2l",  0.680, -1.2554, 0.25], 
+        ["fh2r", -0.687, -1.26, 0.2],
+        ["fh2l",  0.687, -1.26, 0.2], 
         //tie rod end
         {"nodeWeight":4.5},
         {"group":["Astral_hub_F","Astral_rod_F"]},
@@ -78,8 +78,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fcl1r", -0.6731, -1.2508, 0.299],
-        ["fcl1l",  0.6731, -1.2508, 0.299],
+        ["fcl1r", -0.6842, -1.2581, 0.22],
+        ["fcl1l",  0.6842, -1.2581, 0.22],
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_F"]},
@@ -168,10 +168,10 @@
         {"beamDeform":155000,"beamStrength":350000},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.035","beamPrecompressionTime":0.1}],
+        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.07","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.035","beamPrecompressionTime":0.1}],
+        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.07","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -262,7 +262,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.015,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
@@ -286,7 +286,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.015,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
@@ -362,16 +362,16 @@
         {"brakeVentingCoef":false}
     ],
 },
-"Astral_spring_F_RX_12": {
+"Astral_spring_F_RX_36": {
     "information":{
         "authors":"Un1corn",
-        "name":"12.0N/mm",
+        "name":"36.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_F_RX",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.03, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.015,"maxDis":0.015,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.01, 0, 0.12, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.01,"maxDis":0.11,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -383,8 +383,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6547, -1.2387, 0.43],
-        ["fhe1l",  0.6547, -1.2387, 0.43],
+        ["fhe1r", -0.6554, -1.2392, 0.425],
+        ["fhe1l",  0.6554, -1.2392, 0.425],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -401,7 +401,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":12000,"beamDamp":10},
+        {"beamSpring":36000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -425,28 +425,28 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.03,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.03,"beamPrecompressionTime":0.1}],
         //helper stopper
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1501000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.185,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.185,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_F_RX_16": {
+"Astral_spring_F_RX_40": {
     "information":{
         "authors":"Un1corn",
-        "name":"16.0N/mm",
+        "name":"40.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_F_RX",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.03, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.015,"maxDis":0.015,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.02, 0, 0.12, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.02,"maxDis":0.10,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -458,8 +458,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6547, -1.2387, 0.43],
-        ["fhe1l",  0.6547, -1.2387, 0.43],
+        ["fhe1r", -0.6532, -1.2377, 0.441],
+        ["fhe1l",  0.6532, -1.2377, 0.441],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -476,7 +476,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":16000,"beamDamp":10},
+        {"beamSpring":40000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -500,28 +500,28 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.015,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.015,"beamPrecompressionTime":0.1}],
         //helper stopper
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1501000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.200,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.200,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_F_RX_20": {
+"Astral_spring_F_RX_44": {
     "information":{
         "authors":"Un1corn",
-        "name":"20.0N/mm",
+        "name":"44.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_F_RX",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.03, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.015,"maxDis":0.015,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.03, 0, 0.12, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.03,"maxDis":0.09,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -533,8 +533,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6547, -1.2387, 0.43],
-        ["fhe1l",  0.6547, -1.2387, 0.43],
+        ["fhe1r", -0.6508, -1.2361, 0.458],
+        ["fhe1l",  0.6508, -1.2361, 0.458],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -551,7 +551,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":20000,"beamDamp":10},
+        {"beamSpring":44000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -575,241 +575,16 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0,"beamPrecompressionTime":0.1}],
         //helper stopper
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1501000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.215,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.215,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_F_RX_24": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"24.0N/mm",
-        "value":3200,
-    },
-    "slotType" : "Astral_spring_F_RX",
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.03, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.015,"maxDis":0.015,"subCategory":"Front Suspension"}],
-    ],
-    "nodes": [
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
-        //helper spring collar
-        {"group":[""]},
-        {"nodeWeight":1},
-        {"selfCollision":false},
-        ["fhe1r", -0.6547, -1.2387, 0.43],
-        ["fhe1l",  0.6547, -1.2387, 0.43],
-        {"group":[""]},
-        {"collision":true},
-        {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["fhe1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["fhe1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-    ],
-    "beams": [
-        ["id1:", "id2:"],
-        {"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //--Coilover--
-        //main spring
-        {"beamSpring":24000,"beamDamp":10},
-        {"beamDeform":155000,"beamStrength":305000},
-        ["fhe1r","fs1r", {
-            "name":"spring_FR",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        ["fhe1l","fs1l", {
-            "name":"spring_FL",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        //helper spring
-        {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        //helper stopper
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
-        {"beamSpring":1501000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":false,"beamLimitDamp":false},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-},
-"Astral_spring_F_RX_28": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"28.0N/mm",
-        "value":3200,
-    },
-    "slotType" : "Astral_spring_F_RX",
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.03, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.015,"maxDis":0.015,"subCategory":"Front Suspension"}],
-    ],
-    "nodes": [
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
-        //helper spring collar
-        {"group":[""]},
-        {"nodeWeight":1},
-        {"selfCollision":false},
-        ["fhe1r", -0.6547, -1.2387, 0.43],
-        ["fhe1l",  0.6547, -1.2387, 0.43],
-        {"group":[""]},
-        {"collision":true},
-        {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["fhe1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["fhe1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-    ],
-    "beams": [
-        ["id1:", "id2:"],
-        {"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //--Coilover--
-        //main spring
-        {"beamSpring":28000,"beamDamp":10},
-        {"beamDeform":155000,"beamStrength":305000},
-        ["fhe1r","fs1r", {
-            "name":"spring_FR",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        ["fhe1l","fs1l", {
-            "name":"spring_FL",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        //helper spring
-        {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        //helper stopper
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
-        {"beamSpring":1501000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":false,"beamLimitDamp":false},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-},
-"Astral_spring_F_RX_32": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"32.0N/mm",
-        "value":3200,
-    },
-    "slotType" : "Astral_spring_F_RX",
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.03, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.015,"maxDis":0.015,"subCategory":"Front Suspension"}],
-    ],
-    "nodes": [
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
-        //helper spring collar
-        {"group":[""]},
-        {"nodeWeight":1},
-        {"selfCollision":false},
-        ["fhe1r", -0.6547, -1.2387, 0.43],
-        ["fhe1l",  0.6547, -1.2387, 0.43],
-        {"group":[""]},
-        {"collision":true},
-        {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["fhe1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["fhe1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-    ],
-    "beams": [
-        ["id1:", "id2:"],
-        {"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //--Coilover--
-        //main spring
-        {"beamSpring":32000,"beamDamp":10},
-        {"beamDeform":155000,"beamStrength":305000},
-        ["fhe1r","fs1r", {
-            "name":"spring_FR",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        ["fhe1l","fs1l", {
-            "name":"spring_FL",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        //helper spring
-        {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.08,"beamPrecompressionTime":0.1}],
-        //helper stopper
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
-        {"beamSpring":1501000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
-        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":false,"beamLimitDamp":false},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-}
 }
