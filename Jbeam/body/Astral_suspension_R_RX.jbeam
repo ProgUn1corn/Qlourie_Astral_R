@@ -11,7 +11,7 @@
         ["Astral_hubs_R","Astral_hubs_R","Hub", {"nodeOffset":{"x":0.307, "y":1.25, "z":0.02}}],
         ["Astral_brake_R","Astral_brake_R_RX", "Brake", {"nodeOffset":{"x":0, "y":1.25, "z":0.02}}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
-        ["Astral_spring_R_RX","Astral_spring_R_RX_32", "Spring"]
+        ["Astral_spring_R_RX","Astral_spring_R_RX_46", "Spring"]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -31,6 +31,27 @@
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 5100, 4500, 7700, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3500, 3500, 6700, "LS Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Suspension"}],
     ],
+    "controller": [ 
+        ["fileName"],
+        ["LRS", {"name":"RearLRS"}],
+    ],
+    "RearLRS": {
+        "rLoads": [
+            ["name", "beamName"]
+            ["RR", "LRS_RR"]
+            ["RL", "LRS_RL"]
+        ],
+        "rDampers": [
+            ["name", "beamName"]
+            ["RR", "damper_RR"]
+            ["RL", "damper_RL"]
+        ],
+        "rDamping":[
+            ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R", "$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)", 1]  //normal damping
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)", 1] //LRS active
+        ]
+    },
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -54,7 +75,7 @@
         ["rh3r", -0.725, 1.18, -0.1],
         ["rh3l",  0.725, 1.18, -0.1],
         //brake caliper
-        {"nodeWeight":3.5},
+        {"nodeWeight":3.25},
         {"group":["Astral_hub_R","Astral_duct_R"]},
         ["rh5r", -0.755, 1.08, 0.07],
         ["rh5l",  0.755, 1.08, 0.07],
@@ -97,6 +118,10 @@
         {"selfCollision":false},
         ["rcl1r", -0.688, 1.3166, 0.22],
         ["rcl1l",  0.688, 1.3166, 0.22],
+        //mass
+        {"nodeWeight":0.1},
+        ["rmassr", -0.6964, 1.3174, 0.15],
+        ["rmassl",  0.6964, 1.3174, 0.15],
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_R"]},
@@ -124,6 +149,9 @@
         //string collar
         ["rcl1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        //mass
+        ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
+        ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
@@ -269,6 +297,13 @@
         {"beamSpring":1501000,"beamDamp":50},
         ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
         ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
+        //detection mass
+        {"beamSpring":50,"beamDamp":5},
+        ["rmassr", "rh1r"],
+        ["rmassl", "rh1l"],
+        {"beamSpring":100,"beamDamp":5},
+        ["rmassr", "rh2r", {"name":"LRS_RR"}],
+        ["rmassl", "rh2l", {"name":"LRS_RL"}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":500,"beamDamp":0},
@@ -421,10 +456,10 @@
         {"brakeVentingCoef":false}
     ]
 },
-"Astral_spring_R_RX_32": {
+"Astral_spring_R_RX_42": {
     "information":{
         "authors":"Un1corn",
-        "name":"32.0N/mm",
+        "name":"42.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_R_RX",
@@ -460,7 +495,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":32000,"beamDamp":10},
+        {"beamSpring":42000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["rhe1r","rs1r", {
             "name":"spring_RR",
@@ -496,10 +531,10 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_R_RX_36": {
+"Astral_spring_R_RX_46": {
     "information":{
         "authors":"Un1corn",
-        "name":"36.0N/mm",
+        "name":"46.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_R_RX",
@@ -535,7 +570,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":36000,"beamDamp":10},
+        {"beamSpring":46000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["rhe1r","rs1r", {
             "name":"spring_RR",
@@ -571,10 +606,10 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_R_RX_40": {
+"Astral_spring_R_RX_50": {
     "information":{
         "authors":"Un1corn",
-        "name":"40.0N/mm",
+        "name":"50.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_R_RX",
@@ -610,7 +645,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":40000,"beamDamp":10},
+        {"beamSpring":50000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["rhe1r","rs1r", {
             "name":"spring_RR",

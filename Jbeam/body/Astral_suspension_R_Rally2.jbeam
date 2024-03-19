@@ -33,13 +33,13 @@
     ],
     "controller": [ 
         ["fileName"],
-        //["LRS", {"name":"RearLRS"}],
+        ["LRS", {"name":"RearLRS"}],
     ],
     "RearLRS": {
         "rLoads": [
             ["name", "beamName"]
-            ["RR", "damper_RR"]
-            ["RL", "damper_RL"]
+            ["RR", "LRS_RR"]
+            ["RL", "LRS_RL"]
         ],
         "rDampers": [
             ["name", "beamName"]
@@ -49,7 +49,7 @@
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
             ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*1.35", "$=clamp(0.24+($dampRate_bump_R_fast-3900)/56000-($dampRate_bump_R-2500)/56000,0.14,0.34)", 1]  //normal damping
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.24+($dampRate_bump_R_fast-3900)/56000-($dampRate_bump_R-2500)/56000,0.14,0.34)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.4", "$=$dampRate_rebound_R*0.4", "$=clamp(0.24+($dampRate_bump_R_fast-3900)/56000-($dampRate_bump_R-2500)/56000,0.14,0.34)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -75,7 +75,7 @@
         ["rh3r", -0.725, 1.18, 0.02],
         ["rh3l",  0.725, 1.18, 0.02],
         //brake caliper
-        {"nodeWeight":3.5},
+        {"nodeWeight":3.25},
         {"group":["Astral_hub_R","Astral_duct_R"]},
         ["rh5r", -0.765, 1.08, 0.21],
         ["rh5l",  0.765, 1.08, 0.21],
@@ -118,6 +118,10 @@
         {"selfCollision":false},
         ["rcl1r", -0.6811, 1.316, 0.355],
         ["rcl1l",  0.6811, 1.316, 0.355],
+        //mass
+        {"nodeWeight":0.1},
+        ["rmassr", -0.6916, 1.3169, 0.275],
+        ["rmassl",  0.6916, 1.3169, 0.275],
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_R"]},
@@ -145,6 +149,9 @@
         //string collar
         ["rcl1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        //mass
+        ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
+        ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
@@ -287,9 +294,16 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamDeform":155000,"beamStrength":305000},
         //strut platform height (preload)
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
         ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
+        //detection mass
+        {"beamSpring":50,"beamDamp":5},
+        ["rmassr", "rh1r"],
+        ["rmassl", "rh1l"],
+        {"beamSpring":100,"beamDamp":5},
+        ["rmassr", "rh2r", {"name":"LRS_RR"}],
+        ["rmassl", "rh2l", {"name":"LRS_RL"}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":500,"beamDamp":0},
@@ -460,13 +474,13 @@
     ],
     "controller": [ 
         ["fileName"],
-        //["LRS", {"name":"RearLRS"}],
+        ["LRS", {"name":"RearLRS"}],
     ],
     "RearLRS": {
         "rLoads": [
             ["name", "beamName"]
-            ["RR", "damper_RR"]
-            ["RL", "damper_RL"]
+            ["RR", "LRS_RR"]
+            ["RL", "LRS_RL"]
         ],
         "rDampers": [
             ["name", "beamName"]
@@ -476,7 +490,7 @@
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
             ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*1.35", "$=clamp(0.55+($dampRate_bump_R_fast-3700)/56000-($dampRate_bump_R-1000)/56000,0.45,0.65)", 1]  //normal damping
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.55+($dampRate_bump_R_fast-3700)/56000-($dampRate_bump_R-1000)/56000,0.45,0.65)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.6", "$=$dampRate_rebound_R*0.6", "$=clamp(0.55+($dampRate_bump_R_fast-3700)/56000-($dampRate_bump_R-1000)/56000,0.45,0.65)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -502,7 +516,7 @@
         ["rh3r", -0.725, 1.18, -0.1],
         ["rh3l",  0.725, 1.18, -0.1],
         //brake caliper
-        {"nodeWeight":3.5},
+        {"nodeWeight":3.25},
         {"group":["Astral_hub_R","Astral_duct_R"]},
         ["rh5r", -0.755, 1.08, 0.07],
         ["rh5l",  0.755, 1.08, 0.07],
@@ -545,6 +559,10 @@
         {"selfCollision":false},
         ["rcl1r", -0.688, 1.3166, 0.22],
         ["rcl1l",  0.688, 1.3166, 0.22],
+        //mass
+        {"nodeWeight":0.1},
+        ["rmassr", -0.6964, 1.3174, 0.15],
+        ["rmassl",  0.6964, 1.3174, 0.15],
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_R"]},
@@ -570,10 +588,11 @@
         ["rh2r", "strut_RR", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"],
         ["rh2l", "strut_RL", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"],
         //string collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        //mass
+        ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
+        ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
@@ -716,9 +735,16 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamDeform":155000,"beamStrength":305000},
         //strut platform height (preload)
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
         ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.3}],
+        //detection mass
+        {"beamSpring":50,"beamDamp":5},
+        ["rmassr", "rh1r"],
+        ["rmassl", "rh1l"],
+        {"beamSpring":100,"beamDamp":5},
+        ["rmassr", "rh2r", {"name":"LRS_RR"}],
+        ["rmassl", "rh2l", {"name":"LRS_RL"}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":500,"beamDamp":0},
@@ -938,7 +964,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.048,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.137,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.137,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1013,7 +1039,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.036,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.149,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.149,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1088,7 +1114,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.024,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.161,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.161,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1163,7 +1189,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.015,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.17,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.17,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1238,7 +1264,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.005,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.18,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.18,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1313,7 +1339,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.112,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.108,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.108,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1388,7 +1414,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.087,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.133,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.133,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1463,7 +1489,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.054,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.166,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.166,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1538,7 +1564,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.028,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.192,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.192,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1613,7 +1639,7 @@
         ["rhe1l","rcl1l", {"precompressionRange":0.003,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.217,"beamPrecompressionTime":0.3}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.217,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},

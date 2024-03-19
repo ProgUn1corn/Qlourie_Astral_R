@@ -32,13 +32,13 @@
     ],
     "controller": [ 
         ["fileName"],
-        //["LRS", {"name":"FrontLRS"}],
+        ["LRS", {"name":"FrontLRS"}],
     ],
     "FrontLRS": {
         "fLoads": [
             ["name", "beamName"]
-            ["FR", "damper_FR"]
-            ["FL", "damper_FL"]
+            ["FR", "LRS_FR"]
+            ["FL", "LRS_FL"]
         ],
         "fDampers": [
             ["name", "beamName"]
@@ -48,7 +48,7 @@
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
             ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.35", "$=clamp(0.24+($dampRate_bump_F_fast-4400)/56000-($dampRate_bump_F-2500)/56000,0.14,0.34)", 1]  //normal damping
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.15", "$=$dampRate_rebound_F*0.15", "$=clamp(0.24+($dampRate_bump_F_fast-4400)/56000-($dampRate_bump_F-2500)/56000,0.14,0.34)", 1] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.4", "$=$dampRate_rebound_F*0.4", "$=clamp(0.24+($dampRate_bump_F_fast-4400)/56000-($dampRate_bump_F-2500)/56000,0.14,0.34)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -101,6 +101,10 @@
         {"selfCollision":false},
         ["fcl1r", -0.6719, -1.25, 0.37],
         ["fcl1l",  0.6719, -1.25, 0.37],
+        //mass
+        {"nodeWeight":0.1},
+        ["fmassr", -0.6872, -1.26, 0.275],
+        ["fmassl",  0.6872, -1.26, 0.275], 
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_F"]},
@@ -126,6 +130,9 @@
         //spring collar
         ["fcl1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["fcl1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        //mass
+        ["fmassr", "strut_FR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
+        ["fmassl", "strut_FL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["farb3r", "arb_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["farb3l", "arb_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"]
@@ -232,10 +239,17 @@
         {"breakGroup":""}
         {"optional":false}
         //strut platform height (preload)
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         {"beamDeform":155000,"beamStrength":305000},
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
+        //detection mass
+        {"beamSpring":50,"beamDamp":5},
+        ["fmassr", "fh1r"],
+        ["fmassl", "fh1l"],
+        {"beamSpring":100,"beamDamp":5},
+        ["fmassr", "fh2r", {"name":"LRS_FR"}],
+        ["fmassl", "fh2l", {"name":"LRS_FL"}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":500,"beamDamp":0},
@@ -398,13 +412,13 @@
     ],
     "controller": [ 
         ["fileName"],
-        //["LRS", {"name":"FrontLRS"}],
+        ["LRS", {"name":"FrontLRS"}],
     ],
     "FrontLRS": {
         "fLoads": [
             ["name", "beamName"]
-            ["FR", "damper_FR"]
-            ["FL", "damper_FL"]
+            ["FR", "LRS_FR"]
+            ["FL", "LRS_FL"]
         ],
         "fDampers": [
             ["name", "beamName"]
@@ -414,7 +428,7 @@
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
             ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.35", "$=clamp(0.55+($dampRate_bump_F_fast-4200)/56000-($dampRate_bump_F-1000)/56000,0.45,0.65)", 1]  //normal damping
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.5", "$=$dampRate_rebound_F*0.5", "$=clamp(0.55+($dampRate_bump_F_fast-4200)/56000-($dampRate_bump_F-1000)/56000,0.45,0.65)", 1] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.6", "$=$dampRate_rebound_F*0.6", "$=clamp(0.55+($dampRate_bump_F_fast-4200)/56000-($dampRate_bump_F-1000)/56000,0.45,0.65)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -467,6 +481,10 @@
         {"selfCollision":false},
         ["fcl1r", -0.6842, -1.2581, 0.22],
         ["fcl1l",  0.6842, -1.2581, 0.22],
+        //mass
+        {"nodeWeight":0.1},
+        ["fmassr", -0.694, -1.265, 0.15],
+        ["fmassl",  0.694, -1.265, 0.15], 
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_F"]},
@@ -488,10 +506,11 @@
         ["fh2r", "strut_FR", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"],
         ["fh2l", "strut_FL", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"],
         //spring collar
-        ["fhe1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["fhe1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["fcl1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["fcl1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        //mass
+        ["fmassr", "strut_FR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
+        ["fmassl", "strut_FL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["farb3r", "arb_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["farb3l", "arb_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"]
@@ -598,10 +617,17 @@
         {"breakGroup":""}
         {"optional":false}
         //strut platform height (preload)
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         {"beamDeform":155000,"beamStrength":305000},
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
+        //detection mass
+        {"beamSpring":50,"beamDamp":5},
+        ["fmassr", "fh1r"],
+        ["fmassl", "fh1l"],
+        {"beamSpring":100,"beamDamp":5},
+        ["fmassr", "fh2r", {"name":"LRS_FR"}],
+        ["fmassl", "fh2l", {"name":"LRS_FL"}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":500,"beamDamp":0},
@@ -814,7 +840,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.050,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.125,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.125,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -889,7 +915,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.04,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.135,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.135,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -964,7 +990,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.029,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.146,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.146,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1039,7 +1065,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.02,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.155,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.155,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1114,7 +1140,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.007,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.168,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.168,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1189,7 +1215,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.104,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.091,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.091,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1264,7 +1290,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.079,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.116,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.116,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1339,7 +1365,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.051,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.144,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.144,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1414,7 +1440,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0.025,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.170,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.170,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -1489,7 +1515,7 @@
         ["fhe1l","fcl1l", {"precompressionRange":0,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":50},
         ["fhe1r","fcl1r", {"precompressionRange":-0.195,"beamPrecompressionTime":0.3}],
         ["fhe1l","fcl1l", {"precompressionRange":-0.195,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
