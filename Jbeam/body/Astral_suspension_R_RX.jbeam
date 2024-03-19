@@ -28,7 +28,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3100, 2000, 5200, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Suspension"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 5100, 4500, 7700, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Rear Suspension"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 5100, 1800, 5000, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3500, 3500, 6700, "LS Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Rear Suspension"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
@@ -50,8 +50,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R", "$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)", 1]  //normal damping
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.5", "$=$dampRate_rebound_R*0.5", "$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R", "$=clamp(0.28+($dampRate_bump_R_fast-1800)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)", 1]  //normal damping
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.3", "$=$dampRate_rebound_R*0.3", "$=clamp(0.28+($dampRate_bump_R_fast-1800)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -322,7 +322,7 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)",
+            "beamDampVelocitySplit":"$=clamp(0.28+($dampRate_bump_R_fast-1800)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)"
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
@@ -334,7 +334,7 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.28+($dampRate_bump_R_fast-4500)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)",
+            "beamDampVelocitySplit":"$=clamp(0.28+($dampRate_bump_R_fast-1800)/32000-($dampRate_bump_R-2000)/32000,0.18,0.38)"
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
