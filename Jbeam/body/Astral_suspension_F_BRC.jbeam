@@ -9,7 +9,7 @@
     "slots": [
         ["type", "default", "description"],
         ["Astral_group_F","Astral_group_F_BRC_tarmac", "Front Damper Group"],
-        ["Astral_swaybar_F","Astral_swaybar_F_race", "Front ARB"],
+        ["Astral_swaybar_F","Astral_swaybar_F_l", "Front ARB"],
         ["Astral_steering","Astral_steering_h", "Steering"],
         ["Astral_subframe_F","Astral_subframe_F", "Front Subframe", {"coreSlot":true}],
         ["Astral_guard_F","Astral_guard_F", "Front Under Guard"]
@@ -431,6 +431,7 @@
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 3800, 7000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
+        ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -510,8 +511,8 @@
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_F"]},
-        ["fh4r", -0.596, -1.346, 0.224],
-        ["fh4l",  0.596, -1.346, 0.224],
+        ["fh4r", -0.599, -1.24, 0.239],
+        ["fh4l",  0.599, -1.24, 0.239],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -536,8 +537,8 @@
         ["fmassr", "strut_FR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
-        ["farb3r", "arb_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["farb3l", "arb_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"]
+        ["farb3r", "arb_FR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
+        ["farb3l", "arb_FL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -606,24 +607,24 @@
         //--Control arm--
         {"beamSpring":16001000,"beamDamp":1600},
         {"beamDeform":220100,"beamStrength":350000},
-        ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
-        ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
-        ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
-        ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
+        ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
+        ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
+        ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
 
         //tie rods
         {"beamSpring":14001000,"beamDamp":1400},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.0002","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.0002","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
+        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.0002","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
+        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.0002","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
-        //arb mount point (and arm strength)
+        //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
-        {"beamDeform":45000,"beamStrength":"FLT_MAX"},
-        ["farb3r","fx2r"],
-        ["farb3l","fx2l"],
-        ["farb3r","fx1r"],
-        ["farb3l","fx1l"],
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+        ["farb3r","fx2r", {"precompressionRange":"$=-$arb_point_F","beamPrecompressionTime":0.1}],
+        ["farb3l","fx2l", {"precompressionRange":"$=-$arb_point_F","beamPrecompressionTime":0.1}],
+        ["farb3r","fh1r", {"precompressionRange":"$=$arb_point_F","beamPrecompressionTime":0.1}],
+        ["farb3l","fh1l", {"precompressionRange":"$=$arb_point_F","beamPrecompressionTime":0.1}],
 
         //--Damper--
         //shock tower mount to body
@@ -830,6 +831,7 @@
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1800, 5000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 14000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
+        ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -935,8 +937,8 @@
         ["fmassr", "strut_FR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
-        ["farb3r", "arb_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["farb3l", "arb_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["farb3r", "arb_FR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
+        ["farb3l", "arb_FL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1005,10 +1007,10 @@
         //--Control arm--
         {"beamSpring":16001000,"beamDamp":1600},
         {"beamDeform":220100,"beamStrength":350000},
-        ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
-        ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
-        ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
-        ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
+        ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
+        ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
+        ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
 
         //tie rods
         {"beamSpring":14001000,"beamDamp":1400},
@@ -1016,13 +1018,13 @@
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0035","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
-        //arb mount point (and arm strength)
+        //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["farb3r","fx2r"],
-        ["farb3l","fx2l"],
-        ["farb3r","fx1r"],
-        ["farb3l","fx1l"],
+        ["farb3r","fx2r", {"precompressionRange":"$=-$arb_point_F","beamPrecompressionTime":0.1}],
+        ["farb3l","fx2l", {"precompressionRange":"$=-$arb_point_F","beamPrecompressionTime":0.1}],
+        ["farb3r","fh1r", {"precompressionRange":"$=$arb_point_F","beamPrecompressionTime":0.1}],
+        ["farb3l","fh1l", {"precompressionRange":"$=$arb_point_F","beamPrecompressionTime":0.1}],
         
         //--Damper--
         //shock tower mount to body
@@ -1231,26 +1233,134 @@
         ["shaft", "spindleFR", "halfshaftFR", 1, {"connectedWheel":"FR","breakTriggerBeam":"axle_FR","uiName":"Front Right Axle", "friction":1.25, "dynamicFriction":0.003}]
     ]
 },
-"Astral_swaybar_F_race": {
+"Astral_swaybar_F_l": {
     "information":{
         "authors":"Un1corn",
-        "name":"Front Anti-Roll Bar",
+        "name":"12.4N/m Anti-Roll Bar",
         "value":2000
     },
     "slotType" : "Astral_swaybar_F",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":"$=$swayBarStiffness_F*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=12400*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["farb1r", "farb2r", "farb2l", "farb1l", {"name": "ARBFront"}]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_ARB_F", ["Astral_arb_F"]],
-     ],
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$swayBarStiffness_F", "range", "N/m", "Suspension", 8500, 0, 35000, "Anti-roll Bar Stiffness", "Stiffness of the anti-roll bar", {"stepDis":500,"subCategory":"Front Suspension"}]
-    ], 
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"}, 
+        //--ARB--
+        //arb
+        {"group":["Astral_arb_F","arm_F"]},
+        {"nodeWeight":2},
+        ["farb1r", -0.501, -1.145, 0.208],
+        ["farb1l",  0.501, -1.145, 0.208],
+        ["farb2r", -0.501, -0.956, 0.317],
+        ["farb2l",  0.501, -0.956, 0.317],
+        {"group":[""]}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        //--Anti-Roll Bar--
+        //bar lever
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":15000,"beamStrength":312000},
+        ["farb1r", "farb2l"],
+        ["farb1r", "farb2r"],
+        ["farb1r", "farb3r"],
+        ["farb2r", "br1r"],
+        ["farb2r", "a53"],
+        ["farb2r", "chs4r"],
+        ["farb2r", "a54"], 
+        //*
+        ["farb1l", "farb3l"],
+        ["farb1l", "farb2r"],
+        ["farb1l", "farb2l"],
+        ["farb2l", "br1l"],
+        ["farb2l", "a54"],
+        ["farb2l", "chs4l"],
+        ["farb2l", "a53"],
+    ]
+},
+"Astral_swaybar_F_m": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"21.7N/m Anti-Roll Bar",
+        "value":2000
+    },
+    "slotType" : "Astral_swaybar_F",
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        {"spring":"$=21700*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        ["farb1r", "farb2r", "farb2l", "farb1l", {"name": "ARBFront"}]
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_ARB_F", ["Astral_arb_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"}, 
+        //--ARB--
+        //arb
+        {"group":["Astral_arb_F","arm_F"]},
+        {"nodeWeight":2},
+        ["farb1r", -0.501, -1.145, 0.208],
+        ["farb1l",  0.501, -1.145, 0.208],
+        ["farb2r", -0.501, -0.956, 0.317],
+        ["farb2l",  0.501, -0.956, 0.317],
+        {"group":[""]}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        //--Anti-Roll Bar--
+        //bar lever
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":15000,"beamStrength":312000},
+        ["farb1r", "farb2l"],
+        ["farb1r", "farb2r"],
+        ["farb1r", "farb3r"],
+        ["farb2r", "br1r"],
+        ["farb2r", "a53"],
+        ["farb2r", "chs4r"],
+        ["farb2r", "a54"], 
+        //*
+        ["farb1l", "farb3l"],
+        ["farb1l", "farb2r"],
+        ["farb1l", "farb2l"],
+        ["farb2l", "br1l"],
+        ["farb2l", "a54"],
+        ["farb2l", "chs4l"],
+        ["farb2l", "a53"],
+    ]
+},
+"Astral_swaybar_F_h": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"32.2N/m Anti-Roll Bar",
+        "value":2000
+    },
+    "slotType" : "Astral_swaybar_F",
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        {"spring":"$=32200*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        ["farb1r", "farb2r", "farb2l", "farb1l", {"name": "ARBFront"}]
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_ARB_F", ["Astral_arb_F"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},

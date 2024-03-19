@@ -9,7 +9,7 @@
     "slots": [
         ["type", "default", "description"],
         ["Astral_group_R","Astral_group_R_BRC_tarmac", "Rear Damper Group"],
-        ["Astral_swaybar_R","Astral_swaybar_R_race", "Rear ARB"],
+        ["Astral_swaybar_R","Astral_swaybar_R_l", "Rear ARB"],
         ["Astral_subframe_R","Astral_subframe_R", "Rear Subframe", {"coreSlot":true}],
         ["Astral_guard_R","Astral_guard_R", "Rear Under Guard"],
         ["Astral_differential_R", "Astral_differential_R_race", "Rear Differential", {"coreSlot":true}]
@@ -224,6 +224,7 @@
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3650, 3800, 7000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Rear Suspension"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -288,7 +289,7 @@
         ["rx5r", -0.335, 1.0814, 0.091],
         ["rx5l",  0.335, 1.0814, 0.091],
         //arm gurad
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.07},
         {"group":["Astral_rarmg"]},
         {"nodeMaterial":"|NM_PLASTIC"},
         ["rarmg1r", -0.587, 0.661, 0.085],
@@ -319,8 +320,8 @@
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_R"]},
-        ["rh4r", -0.561, 1.23, 0.239],
-        ["rh4l",  0.561, 1.23, 0.239],
+        ["rh4r", -0.599, 1.24, 0.239],
+        ["rh4l",  0.599, 1.24, 0.239],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true},
@@ -347,8 +348,8 @@
         ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
-        ["rarb3r", "arb_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rarb3l", "arb_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3r", "arb_RR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3l", "arb_RL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
         ["rx5r", "arb_RR2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"],
         ["rx5l", "arb_RL2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"]
     ],
@@ -430,11 +431,11 @@
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
-        {"beamDeform":25000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+        ["rarb3r","rx2r", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         //toe link mount point
         {"beamSpring":4001000,"beamDamp":200},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
@@ -683,6 +684,7 @@
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 2350, 1800, 5000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 14000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Rear Suspension"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -747,7 +749,7 @@
         ["rx5r", -0.335, 1.081, 0.060],
         ["rx5l",  0.335, 1.081, 0.060],
         //arm gurad
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.07},
         {"group":["Astral_rarmg"]},
         {"nodeMaterial":"|NM_PLASTIC"},
         ["rarmg1r", -0.587, 0.661,  0.085],
@@ -777,8 +779,8 @@
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_R"]},
-        ["rh4r", -0.559, 1.21, 0.028],
-        ["rh4l",  0.559, 1.21, 0.028],
+        ["rh4r", -0.598, 1.206, 0.029],
+        ["rh4l",  0.598, 1.206, 0.029],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true},
@@ -809,8 +811,8 @@
         ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
-        ["rarb3r", "arb_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rarb3l", "arb_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3r", "arb_RR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3l", "arb_RL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
         ["rx5r", "arb_RR2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"],
         ["rx5l", "arb_RL2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"]
     ],
@@ -893,10 +895,10 @@
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
+        ["rarb3r","rx2r", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         //toe link mount point
         {"beamSpring":4001000,"beamDamp":200},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
@@ -1147,25 +1149,133 @@
         ["shaft", "spindleRR", "halfshaftRR", 1, {"connectedWheel":"RR","breakTriggerBeam":"axle_RR","uiName":"Rear Right Axle", "friction":1.25, "dynamicFriction":0.003}]
     ]
 },
-"Astral_swaybar_R_race": {
+"Astral_swaybar_R_l": {
     "information":{
         "authors":"Un1corn",
-        "name":"Rear Anti-Roll Bar",
+        "name":"11.8N/m Anti-Roll Bar",
         "value":2000
     },
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":"$=$swayBarStiffness_R*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=11800*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_ARB_R", ["Astral_arb_R"]]
     ],
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$swayBarStiffness_R", "range", "N/m", "Suspension", 8500, 0, 35000, "Anti-roll Bar Stiffness", "Stiffness of the anti-roll bar", {"stepDis":500,"subCategory":"Rear Suspension"}]
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //--ARB--
+        //arb
+        {"group":["Astral_arb_R"]},
+        {"nodeWeight":2},
+        ["rarb1r", -0.503, 1.357, 0.183],
+        ["rarb1l",  0.503, 1.357, 0.183],
+        ["rarb2r", -0.503, 1.538, 0.305],
+        ["rarb2l",  0.503, 1.538, 0.305],
+        {"group":[""]}
+    ], 
+    "beams": [
+        ["id1:", "id2:"],
+        //--Anti-Roll Bar--
+        //bar lever
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":15000,"beamStrength":312000},
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r"],
+        ["rarb1r", "rarb3r"],
+        ["rarb2r", "a37"],
+        ["rarb2r", "a41"],
+        ["rarb2r", "chs1r"],
+        ["rarb2r", "a38"],
+        //*
+        ["rarb1l", "rarb3l"],
+        ["rarb1l", "rarb2r"],
+        ["rarb1l", "rarb2l"],
+        ["rarb2l", "a38"],
+        ["rarb2l", "a42"],
+        ["rarb2l", "chs1l"],
+        ["rarb2l", "a37"]
+    ]
+},
+"Astral_swaybar_R_m": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"21.4N/m Anti-Roll Bar",
+        "value":2000
+    },
+    "slotType" : "Astral_swaybar_R",
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        {"spring":"$=21400*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_ARB_R", ["Astral_arb_R"]]
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //--ARB--
+        //arb
+        {"group":["Astral_arb_R","Astral_arm_R"]},
+        {"nodeWeight":2},
+        ["rarb1r", -0.503, 1.357, 0.183],
+        ["rarb1l",  0.503, 1.357, 0.183],
+        ["rarb2r", -0.503, 1.538, 0.305],
+        ["rarb2l",  0.503, 1.538, 0.305],
+        {"group":[""]}
+    ], 
+    "beams": [
+        ["id1:", "id2:"],
+        //--Anti-Roll Bar--
+        //bar lever
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":15000,"beamStrength":312000},
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r"],
+        ["rarb1r", "rarb3r"],
+        ["rarb2r", "a37"],
+        ["rarb2r", "a41"],
+        ["rarb2r", "chs1r"],
+        ["rarb2r", "a38"],
+        //*
+        ["rarb1l", "rarb3l"],
+        ["rarb1l", "rarb2r"],
+        ["rarb1l", "rarb2l"],
+        ["rarb2l", "a38"],
+        ["rarb2l", "a42"],
+        ["rarb2l", "chs1l"],
+        ["rarb2l", "a37"]
+    ]
+},
+"Astral_swaybar_R_h": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"31.6N/m Anti-Roll Bar",
+        "value":2000
+    },
+    "slotType" : "Astral_swaybar_R",
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        {"spring":"$=31600*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_ARB_R", ["Astral_arb_R"]]
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],

@@ -30,6 +30,7 @@
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3650, 2500, 5300, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6600, 3900, 6700, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3650, 4000, 6800, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -94,7 +95,7 @@
         ["rx5r", -0.335, 1.0814, 0.091],
         ["rx5l",  0.335, 1.0814, 0.091],
         //arm gurad
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.07},
         {"group":["Astral_rarmg"]},
         {"nodeMaterial":"|NM_PLASTIC"},
         ["rarmg1r", -0.587, 0.661, 0.085],
@@ -125,8 +126,8 @@
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_R"]},
-        ["rh4r", -0.561, 1.23, 0.239],
-        ["rh4l",  0.561, 1.23, 0.239],
+        ["rh4r", -0.599, 1.24, 0.239],
+        ["rh4l",  0.599, 1.24, 0.239],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true},
@@ -153,8 +154,8 @@
         ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
-        ["rarb3r", "arb_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rarb3l", "arb_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3r", "arb_RR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3l", "arb_RL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
         ["rx5r", "arb_RR2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"],
         ["rx5l", "arb_RL2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"]
     ],
@@ -236,11 +237,11 @@
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
-        {"beamDeform":25000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+        ["rarb3r","rx2r", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         //toe link mount point
         {"beamSpring":4001000,"beamDamp":200},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
@@ -471,6 +472,7 @@
 		["$dampRate_bump_R", "range", "Click", "Suspension", 2350, 1000, 3800, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 4800, 3700, 6500, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 2350, 2000, 4800, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -535,7 +537,7 @@
         ["rx5r", -0.335, 1.081, 0.060],
         ["rx5l",  0.335, 1.081, 0.060],
         //arm gurad
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.07},
         {"group":["Astral_rarmg"]},
         {"nodeMaterial":"|NM_PLASTIC"},
         ["rarmg1r", -0.587, 0.661,  0.085],
@@ -566,8 +568,8 @@
         //damper flexbody help
         {"nodeWeight":0.25},
         {"group":["Astral_shock_R"]},
-        ["rh4r", -0.559, 1.21, 0.028],
-        ["rh4l",  0.559, 1.21, 0.028],
+        ["rh4r", -0.598, 1.206, 0.029],
+        ["rh4l",  0.598, 1.206, 0.029],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true},
@@ -594,8 +596,8 @@
         ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         //arm mounting point
-        ["rarb3r", "arb_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rarb3l", "arb_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3r", "arb_RR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
+        ["rarb3l", "arb_RL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
         ["rx5r", "arb_RR2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"],
         ["rx5l", "arb_RL2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"]
     ],
@@ -678,10 +680,10 @@
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
+        ["rarb3r","rx2r", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         //toe link mount point
         {"beamSpring":4001000,"beamDamp":200},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
@@ -790,7 +792,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.015,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
@@ -814,7 +816,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.25,"boundZone":0.015,
             "beamLimitSpring":11451,
             "beamLimitDamp":15000, 
             "beamLimitDampRebound":17500,
