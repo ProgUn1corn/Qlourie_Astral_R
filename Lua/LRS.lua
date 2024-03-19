@@ -54,8 +54,8 @@ local function updateWheelsIntermediate()
       --print(fLoads[2].activeFlag)
       
       --apply new rebound
-      obj:setBoundedBeamDamp(damperF.bCid, fDamping[1].beamDamp, damperF.newLSRebound, fDamping[1].beamDampFast, damperF.newHSRebound, fDamping[1].beamDampVelocitySplit, fDamping[1].beamDampVelocitySplitRebound) 
-      print(fDampers[1].newLSRebound)
+      obj:setBoundedBeamDamp(damperF.bCid, fDamping[1].beamDamp, damperF.newLSRebound, fDamping[1].beamDampFast, damperF.newHSRebound, fDamping[1].beamDampVelocitySplit, fDamping[1].beamDampVelocitySplit) 
+      --print(fDampers[1].newLSRebound)
       --print(fDampers[2].newLSRebound)
     end
   end  
@@ -80,7 +80,7 @@ local function updateWheelsIntermediate()
       --print(rLoads[2].activeFlag)
       
       --apply new rebound
-      obj:setBoundedBeamDamp(damperR.bCid, rDamping[1].beamDamp, damperR.newLSRebound, rDamping[1].beamDampFast, damperR.newHSRebound, rDamping[1].beamDampVelocitySplit, rDamping[1].beamDampVelocitySplitRebound) 
+      obj:setBoundedBeamDamp(damperR.bCid, rDamping[1].beamDamp, damperR.newLSRebound, rDamping[1].beamDampFast, damperR.newHSRebound, rDamping[1].beamDampVelocitySplit, rDamping[1].beamDampVelocitySplit) 
       --print(rDampers[1].newHSRebound)
       --print(rDampers[2].newHSRebound)
     end
@@ -158,11 +158,11 @@ local function init(jbeamData)
   --print(fDampers[1].bCid)
   --printTable(fDampers)
   --printTable(fLoads)
-  --printTable(fDamping)
+  printTable(fDamping)
   
   --printTable(rDampers)
   --printTable(rLoads)
-  --printTable(rDamping)
+  printTable(rDamping)
 
   M.updateWheelsIntermediate = updateWheelsIntermediate
   M.updateGFX = updateGFX

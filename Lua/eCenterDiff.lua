@@ -10,6 +10,11 @@ local min = math.min
 local max = math.max
 local clamp = math.clamp
 
+local throttle = 0
+local brake = 0
+local steer = 0
+local speed = 0
+
 local lockMap = {}
 local transfercase = nil
 local minLockCoef = 0
@@ -40,13 +45,20 @@ end
 
 local function updateWheelsIntermediate()
   --get input value
-  local throttle = electrics.values['throttle_input'] or 0
-  local brake = electrics.values['brake_input'] or 0
-  local steer = electrics.values['steering_input'] or 0
+  throttle = electrics.values['throttle_input'] or 0
+  brake = electrics.values['brake_input'] or 0
+  steer = electrics.values['steering_input'] or 0
+  speed = electrics.values.wheelspeed*3.6 or 0 --m/s to km/h
   local normalSteer = abs(steer) --make value 0 to 1
+  local clampSpeed = clamp(speed, 0, 120) --make speed-steer factor only affect 0-120 km/h
   
-  --calculate steering contribution
-  xLockCoef = clamp(lockRange*normalSteer*steerRatio, 0, 1)
+  --steering contribution with countersteer control
+  local yaw = obj:getYawAngularVelocity() --left is positive
+  if steer*yaw < 0 then
+    xLockCoef = 0
+  else
+    xLockCoef = clamp(lockRange*normalSteer*steerRatio, 0, 1) --calculate steering contribution
+  end
 
   --set different condition flags
   local throttleFlag = 0
@@ -100,7 +112,7 @@ local function updateWheelsIntermediate()
   --calculate left foot brake map
   if lbFlag == true then
     lockRange = lbLockCoef - minLockCoef
-    local contributionLfBrake = clamp(lockRange*brake + minLockCoef, minLockCoef, 1)
+    local contributionLfBrake = clamp(lockRange*abs(throttle-brake) + minLockCoef, minLockCoef, 1)
     yLockCoef = clamp(contributionLfBrake, 0, 1)
   end
 
@@ -110,24 +122,20 @@ local function updateWheelsIntermediate()
     yLockCoef = minLockCoef
   end
   
+  --speed map that only affects steering contribution
+  local speedFactor = clamp(clampSpeed*(-9/1200) + 1, 0.1, 1)
+  --print(speedFactor)
+
   --sum up X and Y lock factors
-  local newLockCoef = clamp(yLockCoef - xLockCoef, 0, 1)
+  local newLockCoef = clamp(yLockCoef - xLockCoef*speedFactor, 0, 1)
   
   --handbrake
   if input.parkingbrake > 0.5 then 
     newLockCoef = 0
   end
 
-  --bias and countersteer control
-  --local yaw = obj:getYawAngularVelocity() --left is positive
-  --if steer*yaw < 0 then
-    --rearBias = 0.5 - normalSteer*steerRatio*0.1
-  --else
-    --rearBias = 0.5 + normalSteer*steerRatio*0.25
-  --end
-
   --apply values to diff
-  transfercase.lsdLockCoef = newLockCoef * 0.499
+  transfercase.lsdLockCoef = newLockCoef * 0.5
   transfercase.lsdRevLockCoef = transfercase.lsdLockCoef
   transfercase.diffTorqueSplitA = 1- rearBias
   transfercase.diffTorqueSplitB = rearBias
