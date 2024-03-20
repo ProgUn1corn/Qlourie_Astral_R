@@ -92,8 +92,10 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Driver weight included in racing seat part
 - Rally light for better vision at night events (about 7kg, also act as ballast)
 - Spare wheel selection for weight accuracy
-- ![Astral_R](Docs/BRC/28.jpg)
 
+![Astral_R](Docs/BRC/28.jpg)
+![Astral_R](Docs/BRC/22.jpg)
+![Astral_R](Docs/BRC/24.jpg)
 
 # BRC (Formerly WRC and now Rally1)
 The pinnacle rallying class which now is anticipating BRC.
@@ -287,8 +289,6 @@ The rallycross beast converted from Rally2.
 ![Astral_R](Docs/BRC/10.jpg)
 ![Astral_R](Docs/BRC/3.jpg)
 ![Astral_R](Docs/Rally2/13.jpg)
-![Astral_R](Docs/BRC/24.jpg)
-![Astral_R](Docs/BRC/22.jpg)
 ![Astral_R](Docs/Rally2/10.jpg)
 ![Astral_R](Docs/BRC/34.jpg)
 ![Astral_R](Docs/BRC/18.jpg)
