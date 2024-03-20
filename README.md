@@ -244,7 +244,7 @@ The rallycross beast converted from Rally2.
 - Hydraulic bump stop and hard rebound stop
 - LRS implemented for faster wheel extension when no load is applied to the wheel, open factor non adjustable
 - HS (High Speed) and LS (Low Speed) bump, LS rebound, 3WAY adjustable
-- 40 levels of LS bump, 40 levels of LS rebound, 28 levels of HS bump and 20 levels of HS rebound adjustment
+- 40 levels of LS bump, 40 levels of LS rebound, 32 levels of HS bump adjustment
 - Spring rates:
 
   RX: 46.0N/mm, 50.0N/mm, 54.0N/mm front, 42.0N/mm, 46.0N/mm, 50.0N/mm rear
