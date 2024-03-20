@@ -8,12 +8,12 @@ It comes from Automation, I made the car in Automation and rewrote almost everyt
 
 # What Is It
 This mod is inspired by the World Rally Championship (WRC). While the vanilla game features the Vivace, it doesn’t fully adhere to the actual WRC regulations concerning aspects such as weight and the center differential, suspension design and WRC aero bodykits. My goal is to craft a WRC car that complies with the 2017-2021 WRC regulations and to simulate the physics with as realistic as possible. This car will participate BRC, BeamNG Rally Championship. At the very least, the suspension system will offer a more authentic feel compared to rally cars in the game.
-![Astral_R](Docs/28.jpg)
-![Astral_R](Docs/34.jpg)
+![Astral_R](Docs/BRC/28.jpg)
+![Astral_R](Docs/BRC/34.jpg)
 
 Also, there are Rally2 variant and WorldRX RX1 variant, since they share some similarities.
-![Astral_R](Docs/10.jpg)
-![Astral_R](Docs/16.jpg)
+![Astral_R](Docs/Rally2/10.jpg)
+![Astral_R](Docs/RX1/10.jpg)
 
 # How to Use This Repo
 ## What's in this repo?
@@ -76,7 +76,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 
 # BRC (Formerly WRC and now Rally1)
 The pinnacle rallying class which now is anticipating BRC.
-![Astral_R](Docs/2.jpg)
+![Astral_R](Docs/BRC/1.jpg)
 ## Chassis
 - Lightweight chassis
 - 1190KG minimum measured with only one spare
@@ -84,7 +84,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - ~1390KG tarmac running weight, ~1415kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 - 4105mm long, 1875mm track width, 2535mm wheelbase
-![Astral_R](Docs/26.jpg)
+![Astral_R](Docs/BRC/2.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with WRC ECU
 - 2.5 bar anti-lag turbocharger, 36mm turbo restrictor
@@ -94,12 +94,12 @@ The pinnacle rallying class which now is anticipating BRC.
 - Top speed 201 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
 - 2 homologated active center differential in response to steering and throttle input. Power bias 48/52 for gravel and 36/64 for tarmac.
-![Astral_R](Docs/21.jpg)
+![Astral_R](Docs/BRC/3.jpg)
 ## Suspension
 - 300mm gravel brake disc, 370mm tarmac brake disc
 - Adjustable brake bias
 - Front and rear ducted brake
-- ![Astral_R](Docs/25.jpg)
+![Astral_R](Docs/BRC/4.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
 - Over 300mm of travel on gravel damper, around 220mm of travel on tarmac damper
@@ -114,24 +114,24 @@ The pinnacle rallying class which now is anticipating BRC.
   Tarmac: 30.0 to 60.0N/mm front, 25.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
 
   Helper: 2.5N/mm
-![Astral_R](Docs/35.jpg)
+![Astral_R](Docs/BRC/5.jpg)
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
 - Wheel beam properties are tested and modified to get best performance
-![Astral_R](Docs/20.jpg)
+![Astral_R](Docs/BRC/6.jpg)
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip and rear diffuser react to ground clearance change
 - Two layer WRC style rear wing with winglet attached, 50mm higher than frontal projection and 40mm longer than rear bumper side projection
 - Rear wing endplate aerodynamics for better control when sliding
 - Total about 400kg of downforce at 200km/h
-![Astral_R](Docs/19.jpg)
+![Astral_R](Docs/BRC/7.jpg)
 
 # Rally2 (Formerly R5)
 The most popular class around the world. 
-![Astral_R](Docs/1.jpg)
+![Astral_R](Docs/Rally2/1.jpg)
 ## Chassis
 - Lightweight chassis (10kg heavier than BRC)
 - 1230KG minimum measured with only one spare
@@ -139,7 +139,7 @@ The most popular class around the world.
 - ~1420KG tarmac running weight, ~1445kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 - 3985mm long, 1820mm track width, 2535mm wheelbase
-![Astral_R](Docs/33.jpg)
+![Astral_R](Docs/Rally2/2.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with Rally2 ECU
 - 2.5 bar anti-lag turbocharger, 32mm turbo restrictor
@@ -149,12 +149,12 @@ The most popular class around the world.
 - Top speed 193 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
 - Locked transfer case with 50/50 power bias
-![Astral_R](Docs/31.jpg)
+![Astral_R](Docs/Rally2/3.jpg)
 ## Suspension
 - 300mm gravel brake disc, 355mm tarmac brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
-![Astral_R](Docs/17.jpg)
+![Astral_R](Docs/Rally2/4.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
 - Around 310mm of travel on gravel damper, around 210mm of travel on tarmac damper
@@ -169,7 +169,7 @@ The most popular class around the world.
   Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
 
   Helper: 2.5N/mm
-![Astral_R](Docs/14.jpg)
+![Astral_R](Docs/Rally2/5.jpg)
 ## Tyres
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
 - Wheel beam properties are tested and modified, a little bit less performance than BRC wheels
@@ -178,17 +178,17 @@ The most popular class around the world.
 - Front lip react to ground clearance change
 - One layer Rally2 style rear wing, within the frontal projection of the car
 - Total about 150kg of downforce at 200km/h
-![Astral_R](Docs/15.jpg)
+![Astral_R](Docs/Rally2/6.jpg)
 
 # RX1 (Formerly RX Supercar)
 The rallycross beast converted from Rally2.
-![Astral_R](Docs/3.jpg)
+![Astral_R](Docs/RX1/1.jpg)
 ## Chassis
 - Rally2 chassis
 - 1300KG minimum with driver and fuel, no matter running weight
 - ~52/48 weight distribution for optimal chassis dynamics
 - 4043mm long, 1850mm track width, 2535mm wheelbase
-![Astral_R](Docs/12.jpg)
+![Astral_R](Docs/RX1/2.jpg)
 ## Engine and Transmission
 - 2.0L Inline4 H2000P4 with WRX modification
 - 3.4 bar anti-lag turbocharger, 45mm turbo restrictor
@@ -198,12 +198,12 @@ The rallycross beast converted from Rally2.
 - Top speed 210 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
 - Mechanical center LSD with max 30/70 power bias adjustable
-![Astral_R](Docs/11.jpg)
+![Astral_R](Docs/RX1/3.jpg)
 ## Suspension
 - 355mm brake disc
 - Adjustable brake bias
 - Front ducted brake, rear not ducted
-- ![Astral_R](Docs/38.jpg)
+![Astral_R](Docs/RX1/4.jpg)
 ## Damper and Spring
 - CTM Racing twin-tube MRX75 4Way damper
 - Around 300mm of travel
@@ -215,18 +215,18 @@ The rallycross beast converted from Rally2.
   RX: 20.0 to 45.0N/mm front, 15.0 to 40.0N/mm rear, incremental difference of 5.0N/m
 
   Helper: 3.3N/m
-![Astral_R](Docs/8.jpg)
+![Astral_R](Docs/RX1/5.jpg)
 ## Tyres
 - 225/640 R17 RX wheels
 - Wheel beam properties are tested and modified, biased to sliding performance
-![Astral_R](Docs/9.jpg)
+![Astral_R](Docs/RX1/6.jpg)
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - Aero geared to anti-diving when jumping instead of high speed downforce
 - Two layer RX style rear wing, within the frontal projection and within the projection of the car seen from above, within the size regulations
 - Total about 200kg of downforce at 200km/h
-![Astral_R](Docs/5.jpg)
+![Astral_R](Docs/RX1/7.jpg)
 
 
 # Existing Problems (that are mostly not going to be fixed)
@@ -236,13 +236,6 @@ The rallycross beast converted from Rally2.
 - Also because of UV is messed, sometimes there are messed up textures due to modified mesh.
 - Meshes are still Automation level so it may not be comparable to a full fledged mod
 - Flexbody animations are not perfect, especially around engine and transmission, it just works but it's not accurate
-![Astral_R](Docs/37.jpg)
-![Astral_R](Docs/32.jpg)
-![Astral_R](Docs/30.jpg)
-![Astral_R](Docs/27.jpg)
-![Astral_R](Docs/23.jpg)
-![Astral_R](Docs/22.jpg)
-![Astral_R](Docs/18.jpg)
 ![Astral_R](Docs/13.jpg)
 ![Astral_R](Docs/6.jpg)
 ![Astral_R](Docs/7.jpg)
