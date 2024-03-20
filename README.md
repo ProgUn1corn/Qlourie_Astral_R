@@ -133,7 +133,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
 - LRS implemented for faster wheel extension when no load is applied to the wheel, additionally open factor adjustable
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
-- 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels or hydraulic bump stop adjustment
+- 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels of hydraulic bump stop adjustment
 - Spring rates:
   
   Gravel: 17.5 to 30.0N/mm front, 15.0 to 27.5N/mm rear, incremental difference of 2.5N/mm
