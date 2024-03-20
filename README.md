@@ -23,9 +23,13 @@ Also, there are Rally2 variant and WorldRX RX1 variant, since they share some si
 This repo contains engine sound files, all Jbeam files, and Lua files. I will create engine sound with FMOD, update Jbeam files when something is refined, and start to write lua codes for active center differential, launch control and potentially new detection method for LRS.
 
 At the time of 2024/3/21: 
+
 LRS detection is done
+
 Active Center Differential is done
+
 Launch control is BeamNG's vanilla but changed brake trigger to handbrake
+
 ## How to make it your mod?
 I'm not very familiar with Github, but I know Github can't store empty folders, so maybe it's not the best idea to upload everything because there are lot's of empty folders. The reason I'm using Github is tracking of Jbeam edits and Lua writing. 
 
