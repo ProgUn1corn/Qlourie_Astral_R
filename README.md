@@ -63,7 +63,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 ## Engine and Transmission
 - Realistic engine curve referenced from telemetry of simluators
 - Top speed limit 201 km/h within regulation
-- Indepent turbo restrictor and ECU setting for different variant
+- Turbo restrictor and ECU setting for different variant
 ## Suspension
 - Front and rear MacPherson Strut suspension
 - Reinforced front and rear subframe for stronger rigidity
