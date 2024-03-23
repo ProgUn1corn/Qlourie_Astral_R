@@ -170,7 +170,7 @@ The most popular class around the world.
 - ~50/50 weight distribution for optimal chassis dynamics
 - 3985mm long, 1820mm track width, 2535mm wheelbase
 - Safari kit including bullbar and snorkel allowed since 2021
-![Astral_R](Docs/Rally2/24.jpg)
+![Astral_R](Docs/Rally2/24.png)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with Rally2 ECU
 - 2.5 bar anti-lag turbocharger, 32mm turbo restrictor
@@ -200,7 +200,7 @@ The most popular class around the world.
   Tarmac: 38.0 to 58.0N/mm front, 33.0 to 53.0N/mm rear, incremental difference of 5.0N/mm
 ![Astral_R](Docs/Rally2/5.jpg)
   Safari: 16.5N/mm front, 13.5N/mm rear
-![Astral_R](Docs/Rally2/23.jpg)
+![Astral_R](Docs/Rally2/23.png)
   Helper: 2.5N/mm
 ## Tyres
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
