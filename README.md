@@ -11,7 +11,7 @@ This mod is inspired by the World Rally Championship (WRC). While the vanilla ga
 ![Astral_R](Docs/BRC/21.jpg)
 ![Astral_R](Docs/BRC/4.jpg)
 ![Astral_R](Docs/BRC/32.jpg)
-![Astral_R](Docs/BRC/23.jpg)
+![Astral_R](Docs/BRC/6.jpg)
 
 Also, there are Rally2 variant and WorldRX RX1 variant, since they share some similarities.
 ![Astral_R](Docs/Rally2/3.jpg)
@@ -288,7 +288,7 @@ The rallycross beast converted from Rally2.
 ![Astral_R](Docs/BRC/15.jpg)
 ![Astral_R](Docs/Rally2/17.jpg)
 ![Astral_R](Docs/BRC/35.jpg)
-![Astral_R](Docs/BRC/6.jpg)
+![Astral_R](Docs/BRC/23.jpg)
 ![Astral_R](Docs/Rally2/15.jpg)
 ![Astral_R](Docs/BRC/10.jpg)
 ![Astral_R](Docs/BRC/3.jpg)
