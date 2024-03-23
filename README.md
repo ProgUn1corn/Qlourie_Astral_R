@@ -169,7 +169,8 @@ The most popular class around the world.
 - ~1420KG tarmac running weight, ~1445kg gravel running weight (Running weight includes fuel and tools like in real life)
 - ~50/50 weight distribution for optimal chassis dynamics
 - 3985mm long, 1820mm track width, 2535mm wheelbase
-![Astral_R](Docs/Rally2/9.jpg)
+- Safari kit including bullbar and snorkel allowed since 2021
+![Astral_R](Docs/Rally2/24.jpg)
 ## Engine and Transmission
 - 1.6L Inline4 H1598P4 with Rally2 ECU
 - 2.5 bar anti-lag turbocharger, 32mm turbo restrictor
@@ -198,6 +199,8 @@ The most popular class around the world.
 ![Astral_R](Docs/Rally2/16.jpg)
   Tarmac: 38.0 to 58.0N/mm front, 33.0 to 53.0N/mm rear, incremental difference of 5.0N/mm
 ![Astral_R](Docs/Rally2/5.jpg)
+  Safari: 16.5N/mm front, 13.5N/mm rear
+![Astral_R](Docs/Rally2/23.jpg)
   Helper: 2.5N/mm
 ## Tyres
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
@@ -247,7 +250,7 @@ The rallycross beast converted from Rally2.
 - 40 levels of LS bump, 40 levels of LS rebound, 32 levels of HS bump adjustment
 - Spring rates:
 
-  RX: 46.0N/mm, 50.0N/mm, 54.0N/mm front, 42.0N/mm, 46.0N/mm, 50.0N/mm rear
+  RX: 36.0N/mm, 40.0N/mm, 44.0N/mm front, 32.0N/mm, 36.0N/mm, 40.0N/mm rear
   ![Astral_R](Docs/RX1/4.jpg)
   Helper: 2.5N/m
 ## Tyres
@@ -281,6 +284,7 @@ The rallycross beast converted from Rally2.
 ![Astral_R](Docs/BRC/30.jpg)
 ![Astral_R](Docs/Rally2/19.jpg)
 ![Astral_R](Docs/BRC/20.jpg)
+![Astral_R](Docs/Rally2/9.jpg)
 ![Astral_R](Docs/BRC/15.jpg)
 ![Astral_R](Docs/Rally2/17.jpg)
 ![Astral_R](Docs/BRC/35.jpg)
