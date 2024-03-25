@@ -82,7 +82,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Individually tested spring length when spawning for better spring simulation
 - Springs are selected as parts instead of tuning
 - Bump velocity threshold (knee point) is moved in response to changes in bump settings, providing a more accurate representation of real-world damper tuning
-- Biased to progressive damping with increased damping during HS bump events, enhancing performance to significant impacts in rallying
+- Biased to progressive damping with increased damping during HS bump events, enhancing performance and stability to significant impacts in rallying
 - LRS (Load Release System): Release rebound damping when wheel load below a set threshold is detected, allowing even higher rebound damping setting with faster wheel contact and all power to the ground. Rebound damping is lowered according to how much force the internal detection mass have. The damping curve is returned to normal is wheel load is above threshold
 - Hydraulic Bump Stop: Additional damping valve that will active at around from the last 60mm of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 24KN of damping force at 2m/s. Smoother ride quality when riding on bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection.
 -  Independently modelled suspension mesh instead of Automation one, with flexbody help node to enhances animations
