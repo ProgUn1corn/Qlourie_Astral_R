@@ -76,8 +76,8 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - Around 800mm gravel damper length, 600mm tarmac damper length
-- Inverted strut design, 48mm piston diameter, 16mm shaft diameter
-- Spring perch for spring preload adjustment
+- Inverted strut design, 46mm piston diameter, 18mm shaft diameter for better strength
+- Spring perch preload adjustment
 - Pressurized mono-tube dampers that naturally have a force to push the piston out when no load is applied
 - Individually tested spring length when spawning for better spring simulation
 - Springs are selected as parts instead of tuning
