@@ -12,7 +12,6 @@
         ["Astral_swaybar_F","Astral_swaybar_F_l", "Front ARB"],
         ["Astral_steering","Astral_steering_h", "Steering"],
         ["Astral_subframe_F","Astral_subframe_F", "Front Subframe", {"coreSlot":true}],
-        ["Astral_guard_F","Astral_guard_F", "Front Under Guard"]
     ],
 },
 "Astral_subframe_F": {
@@ -428,7 +427,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 3650, 2300, 5500, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 4500, 7700, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 3800, 7000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 3800, 8920, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
         ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
@@ -828,7 +827,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 2350, 800, 4000, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 4000, 7200, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1800, 5000, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1120, 5600, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 14000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
         ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
@@ -1914,13 +1913,13 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.13,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.13,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.122,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.122,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.078,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.078,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.068,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.068,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -1989,13 +1988,13 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.109,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.109,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.119,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.119,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.101,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.101,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.091,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.091,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -2064,13 +2063,13 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.086,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.086,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.096,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.096,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.124,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.124,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.114,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.114,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -2139,13 +2138,13 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.065,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.065,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.075,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.075,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.145,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.145,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.135,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.135,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -2214,13 +2213,13 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.035,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.035,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.06,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.06,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.16,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.16,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.15,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.15,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -2289,13 +2288,13 @@
         ],
         //helper spring
         {"beamSpring":2500,"beamDamp":10},
-        ["fhe1r","fcl1r", {"precompressionRange":0.025,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.025,"beamPrecompressionTime":0.1}],
+        ["fhe1r","fcl1r", {"precompressionRange":0.05,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.05,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.17,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.17,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.16,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.16,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
