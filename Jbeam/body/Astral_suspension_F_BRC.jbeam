@@ -124,34 +124,30 @@
         ["fx1", "fx3r"],
         ["fx1", "fx4r"],
         //attach to chassis
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":150},
         {"beamDeform":80000,"beamStrength":260000},
         {"breakGroup":"subframeFR"},
-        ["fx4r", "a21"],
         ["fx4r", "a25"],
         ["fx4r", "a26"],
         ["fx4r", "a85"],
         ["fx4r", "a53"],
         ["fx4r", "chs4r"],
         ["fx4r", "chs3r"],
-        ["fx3r", "a21"],
-        ["fx3r", "a22"],
         ["fx3r", "a53"],
+        ["fx3r", "a20"],
         ["fx3r", "chs4r"],
         ["fx3r", "chs4l"],
         ["fx1r", "a16"],
         //*
         {"breakGroup":"subframeFL"},
-        ["fx4l", "a22"],
         ["fx4l", "a26"],
         ["fx4l", "a25"],
         ["fx4l", "a86"],
         ["fx4l", "a54"],
         ["fx4l", "chs4l"],
         ["fx4l", "chs3l"],
-        ["fx3l", "a22"],
-        ["fx3l", "a21"],
         ["fx3l", "a54"],
+        ["fx3l", "a23"],
         ["fx3l", "chs4l"],
         ["fx3l", "chs4r"],
         ["fx1l", "a19"],
@@ -425,11 +421,11 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 3650, 2300, 5500, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 4500, 7700, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 3800, 8920, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 3650, 2300, 5500, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 4500, 7700, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 3800, 8920, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "Hydraulic Bump Stop", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
         ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
     ],
     "controller": [ 
@@ -494,7 +490,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":7},
+        {"nodeWeight":6},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lowers spring collar
@@ -777,11 +773,7 @@
         ["fh1l", "fh5l", "fh2l"],
         ["fh2l", "fh5l", "fh3l"],
         {"triangleType":"NORMALTYPE"},
-        //control arm
-        {"dragCoef":0},
-		{"liftCoef":0,"stallAngle":0}
-        ["fh1r", "fx2r", "fx1r"],
-        ["fh1l", "fx1l", "fx2l"],
+        
         {"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
     ],
@@ -825,11 +817,11 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 2350, 800, 4000, "LS Bump", "Increasing the clicks results in greater damping force. Higher damping force will make the car stiffer and more responsive to inputs, but at the cost of reduced grip and worse bump absorption. Lower damping force will have better grip and bump absorption, but the car may react more slowly and exhibit excessive weight transfer.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 4000, 7200, "HS Bump", "Increasing the clicks results in greater damping force. This is used for absorbing fast damper movements and sudden impacts, typically happens when hitting large bumps or landing big jumps. Higher damping force allows the car to withstand larger impacts, but the split threshold is higher, potentially preventing the HS bump from activating or causing excessive stiffness. Lower damping force improves impact absorption, but the split threshold is lower and HS bump will be triggered too early, or cause the car to bottom out if the impact is too big.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1120, 5600, "Rebound", "Increasing the clicks results in greater rebound force. Higher rebound force contributes to greater stability and responsiveness, but the wheel takes longer to contact with the ground. Lower rebound force will improve wheel contact, but may result in instability when the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$dampRate_stop_F", "range", "Click", "Suspension", 14000, 8000, 12000, "Hydraulic Bump Stop", "More click gives you more damping force. Higher damping force helps prevent severe bottom-outs but may result in a rougher feel when hitting bumpstop. Lower damping force allows for better absorption upon hitting the bump stop but offers less protection against bottom-out damage.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when it's at minimum (no load at all). 0.1x means 0.1x the normal rebound when 0 load.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 2350, 800, 4000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 4000, 7200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1120, 5600, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$dampRate_stop_F", "range", "Click", "Suspension", 14000, 8000, 12000, "Hydraulic Bump Stop", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
+        ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
         ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
     ],
     "controller": [ 
@@ -894,7 +886,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":7},
+        {"nodeWeight":6},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lower spring collar
@@ -1176,11 +1168,7 @@
         ["fh1l", "fh5l", "fh2l"],
         ["fh2l", "fh5l", "fh3l"],
         {"triangleType":"NORMALTYPE"},
-        //control arm
-        {"dragCoef":0},
-		{"liftCoef":0,"stallAngle":0}
-        ["fh1r", "fx2r", "fx1r"],
-        ["fh1l", "fx1l", "fx2l"],
+        
         {"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
     ],
@@ -1409,7 +1397,7 @@
     "slotType" : "Astral_spring_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.06, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.025,"maxDis":0.035,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.025, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -1484,7 +1472,7 @@
     "slotType" : "Astral_spring_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.06, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.03,"maxDis":0.03,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.03, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -1559,7 +1547,7 @@
     "slotType" : "Astral_spring_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.06, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.035,"maxDis":0.025,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.035, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -1634,7 +1622,7 @@
     "slotType" : "Astral_spring_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.03, 0, 0.06, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.04,"maxDis":0.02,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.04, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -1709,7 +1697,7 @@
     "slotType" : "Astral_spring_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.06, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.045,"maxDis":0.015,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.045, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -1784,7 +1772,7 @@
     "slotType" : "Astral_spring_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0, 0, 0.06, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.05,"maxDis":0.01,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.05, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -1859,7 +1847,7 @@
     "slotType" : "Astral_spring_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.035, 0, 0.08, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.005,"maxDis":0.075,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.005, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -1934,7 +1922,7 @@
     "slotType" : "Astral_spring_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.01, 0, 0.08, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.02,"maxDis":0.06,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.02, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -2009,7 +1997,7 @@
     "slotType" : "Astral_spring_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.05, 0, 0.08, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.035,"maxDis":0.045,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.035, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -2084,7 +2072,7 @@
     "slotType" : "Astral_spring_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.07, 0, 0.08, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.05,"maxDis":0.03,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.05, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -2159,7 +2147,7 @@
     "slotType" : "Astral_spring_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.09, 0, 0.08, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.06,"maxDis":0.02,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.06, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -2234,7 +2222,7 @@
     "slotType" : "Astral_spring_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetFront", "range", "+m", "Suspension", 0.11, 0, 0.08, "Ride Height", "Ride Height affects the ride height. Higher ride height offers more ground clearance for better off-road capability, but at the expense of a higher center of mass. Lower ride height enhances stability and responsiveness, but risks the car hitting the terrain and causing damage.", {"stepDis":0.005,"minDis":-0.065,"maxDis":0.015,"subCategory":"Front Suspension"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.065, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":0.005,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],

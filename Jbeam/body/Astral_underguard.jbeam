@@ -19,7 +19,7 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_PLASTIC"},
 		//--Center Underguard--
-		{"nodeWeight":0.8},
+		{"nodeWeight":1.25},
 		{"group":["Astral_guard_R","Astral_rarmg"]},
 		["rg1r", -0.218, 0.744, 0.069, {"selfCollision":false}],
 		["rg1l",  0.218, 0.744, 0.069, {"selfCollision":false}],
@@ -28,9 +28,10 @@
 		{"group":["Astral_guard_R"]},
 		["rg3r", -0.674, 1.665, 0.086],
 		["rg3l",  0.674, 1.665, 0.086],
-		{"group":[""]},
+		{"nodeWeight":1.5},
 		["rgr",  0, 1.225, 0.35, {"selfCollision":false}],
-		{"nodeWeight":3},
+		{"group":[""]},
+		{"nodeWeight":5},
 		["ugr",  0, 0, 0.45, {"selfCollision":false}]
 		//arm guard
         {"nodeWeight":0.05},
@@ -41,7 +42,7 @@
         ["rarmg1l",  0.587, 0.661, 0.085, {"selfCollision":false, "nodeWeight":0.8}],
         ["rarmg3l",  0.601, 1.485, -0.100],
         ["rarmg2l",  0.601, 0.978, -0.100],
-		{"nodeWeight":0.08},
+		{"nodeWeight":0.1},
 		["rzr", -0.481, 1.17, 0.114514, {"selfCollision":false}],
 		["rzl",  0.481, 1.17, 0.114514, {"selfCollision":false}],
 		{"group":[""]},
@@ -55,7 +56,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Center Underguard--
 		//center chassis rigidifier
-		{"beamSpring":3501000,"beamDamp":50},
+		{"beamSpring":4501000,"beamDamp":100},
 		{"beamDeform":88000,"beamStrength":"FLT_MAX"},
 		["ugr", "a8"],
 		["ugr", "a9"],
@@ -74,8 +75,8 @@
 		["ugr", "a22"],
 		["ugr", "a23"],
 		//rear guard shape
-		{"beamSpring":781000,"beamDamp":40},
-		{"beamDeform":16000,"beamStrength":"FLT_MAX"},
+		{"beamSpring":881000,"beamDamp":65},
+		{"beamDeform":24000,"beamStrength":"FLT_MAX"},
 		["rg1r", "rg1l"],
 		["rg1l", "rg2l"],
 		["rg2l", "rg3l"],
@@ -84,13 +85,13 @@
 		["rg2r", "rg1r"],
 		["rg2l", "rg2r"],
 		//crossing
-		{"beamDeform":12000},
+		{"beamDeform":18000},
 		["rg2r", "rg1l"],
 		["rg2l", "rg1r"],
 		["rg2r", "rg3l"],
 		["rg2l", "rg3r"],
 		//rigids
-		{"beamDeform":9500},
+		{"beamDeform":15500},
 		["rg1r", "rg3r"],
 		["rg1l", "rg3l"],
 		["rg1r", "rg3l"],
@@ -104,8 +105,8 @@
 		["rgr", "rg1r"],
 		["rgr", "rg3r"],
 		//attach to subframe
-		{"beamSpring":651000,"beamDamp":50},
-		{"beamDeform":25000, "beamStrength":58000},
+		{"beamSpring":851000,"beamDamp":50},
+		{"beamDeform":16500, "beamStrength":50000},
 		{"breakGroup":"rearguard_R"},
 		["ugr", "rg1l"],
 		["ugr", "rg2l"],
@@ -179,7 +180,8 @@
 		["rzl","rg1l"],
 		["rzl","rg2l"],
 		//attach to under guard
-		{"beamSpring":651000,"beamDamp":50},
+		{"beamSpring":851000,"beamDamp":50},
+		{"breakGroup":"rearguard_R"},
 		["ugr","rarmg1r"],
 		["rarmg1r","a41"],
 		["rarmg1r","a9"],
@@ -187,12 +189,14 @@
 		["rarmg1r","a12"],
 		["rarmg1r","a13"],
 		//*
+		{"breakGroup":"rearguard_L"},
 		["ugr","rarmg1l"],
 		["rarmg1l","a42"],
 		["rarmg1l","a10"],
 		["rarmg1l","a11"],
 		["rarmg1l","a15"],
 		["rarmg1l","a14"],
+		{"breakGroup":""},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -201,7 +205,7 @@
 		["id1:", "id2:", "id3:"], 
 		{"groundModel":"metal"},
 		//--Center Undertray--
-		{"dragCoef":0},
+		{"dragCoef":3},
 		{"liftCoef":0, "stallAngle":0}
 		["rg2r", "rg2l", "rg1r"],
 		["rg2l", "rg1l", "rg1r"],
@@ -216,7 +220,8 @@
 		["rarmg2r", "rg1r", "rarmg1r"],
 		["rg2r", "rg1r", "rarmg2r"],
 		["rarmg3r", "rg2r", "rarmg2r"],
-		{"optional":false}
+		{"dragCoef":0},
+		{"liftCoef":0, "stallAngle":0}
 	]
 }, 
 "Astral_guard_F": {
@@ -238,17 +243,19 @@
         {"nodeMaterial":"|NM_METAL"},
 		//--Front undertray--
 		//front under guard
-		{"nodeWeight":0.8},
+		{"nodeWeight":1.25},
 		{"group":["Astral_guard_F"]},
-		["fg1r", -0.447, -1.681, 0.153],
-		["fg1l",  0.447, -1.681, 0.153],
+		["fg1r", -0.447, -1.681, 0.153, {"selfCollision":false}],
+		["fg1l",  0.447, -1.681, 0.153, {"selfCollision":false}],
 		["fg2r", -0.362, -1.324, 0.075],
 		["fg2l",  0.362, -1.324, 0.075],
 		["fg3r", -0.619, -0.508, 0.071, {"selfCollision":false}],
 		["fg3l",  0.619, -0.508, 0.071, {"selfCollision":false}],
-		{"group":[""]}
+		{"nodeWeight":1.5},
 		["fgr", 0, -1.15, 0.45, {"selfCollision":false}],
-		{"selfCollision":true},
+		{"group":[""]}
+		{"collision":true},
+        {"selfCollision":true},
 	],
 	"beams": [   
 		["id1:", "id2:"], 
@@ -256,8 +263,8 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Undertray--
 		//main shape
-		{"beamSpring":781000,"beamDamp":40},
-		{"beamDeform":16000,"beamStrength":"FLT_MAX"},
+		{"beamSpring":881000,"beamDamp":65},
+		{"beamDeform":24000,"beamStrength":"FLT_MAX"},
 		["fg1r", "fg1l"],
 		["fg1l", "fg2l"],
 		["fg2l", "fg3l"],
@@ -266,13 +273,13 @@
 		["fg2r", "fg1r"],
 		["fg2l", "fg2r"],
 		//crossing
-		{"beamDeform":12000},
+		{"beamDeform":18000},
 		["fg2r", "fg1l"],
 		["fg2l", "fg1r"],
 		["fg2r", "fg3l"],
 		["fg2l", "fg3r"],
 		//rigids
-		{"beamDeform":9500},
+		{"beamDeform":15500},
 		["fg1r", "fg3r"],
 		["fg1l", "fg3l"],
 		["fg1r", "fg3l"],
@@ -286,8 +293,8 @@
 		["fgr", "fg1r"],
 		["fgr", "fg3r"],
 		//attach
-		{"beamSpring":651000,"beamDamp":50},
-		{"beamDeform":25000, "beamStrength":68000},
+		{"beamSpring":851000,"beamDamp":50},
+		{"beamDeform":18000, "beamStrength":48000},
 		{"breakGroup":"fguard_R"},
 		["fg1r", "br1r"],
 		["fg1r", "br1l"],
@@ -336,26 +343,14 @@
 		["id1:", "id2:", "id3:"], 
 		{"groundModel":"metal"},
 		//--Front undertray--
-		{"dragCoef":0},
+		{"dragCoef":5},
 		{"liftCoef":0, "stallAngle":0}
 		["fg2r", "fg2l", "fg1r"],
 		["fg2l", "fg1l", "fg1r"],
 		["fg3r", "fg3l", "fg2r"],
 		["fg3l", "fg2l", "fg2r"],
-		{"optional":true}
-		{"breakGroup":"fbr"},
-		["fg1r", "fb6r", "fb7r"],
-		["fg1r", "fb5r", "fb6r"],
-		["fg1r", "fb5", "fb5r"],
-		//*
-		{"breakGroup":"fbl"},
-		["fg1l", "fb7l", "fb6l"],
-		["fg1l", "fb6l", "fb5l"],
-		["fg1l", "fb5l", "fb5"],
-		{"breakGroup":"fbl"},
-		["fg1r", "fg1l", "fb5"]
-		{"breakGroup":""}
-		{"optional":false}
+		{"dragCoef":0},
+		{"liftCoef":0, "stallAngle":0}
 	]
 }
 }
