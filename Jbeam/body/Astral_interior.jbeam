@@ -473,7 +473,7 @@
 "Astral_spare_gravel":{
 	"information":{
         "authors":"Un1corn",
-        "name":"Gravel Spare Wheel",
+        "name":"1 Gravel Spare Wheel",
         "value":320
 	},
 	"slotType" : "Astral_spare",
@@ -517,10 +517,76 @@
 		["spr1", "chs1r"]
 	]
 },
+"Astral_spare_gravel2":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"2 Gravel Spare Wheel",
+        "value":320
+	},
+	"slotType" : "Astral_spare",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spare_3", ["Astral_spare"]]
+		["Astral_spare_32", ["Astral_spare"]]
+	],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//Spare wheel
+        {"nodeWeight":25},
+		{"group":["Astral_spare"]},
+		["spr1", 0, 1.27, 0.48],
+		["spr2", 0, 0.581, 0.643],
+		{"group":[""]} 
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Spare--
+		//connect to chassis
+		{"beamSpring":2501000,"beamDamp":180},
+		{"beamDeform":50000,"beamStrength":"FLT_MAX"},
+		["spr1", "a37"],
+		["spr1", "a38"],
+		["spr1", "a41"],
+		["spr1", "a42"],
+		//fix to rollcage
+		{"optional":true}
+		{"beamSpring":1501000,"beamDamp":150},
+		["spr1", "rs1l"],
+		["spr1", "rs1r"],
+		["spr1", "rc7l"],
+		["spr1", "rc7r"],
+		["spr1", "rcm"],
+		["spr1", "chs1l"],
+		["spr1", "chs1r"]
+		//connect to chassis
+		{"beamSpring":2501000,"beamDamp":180},
+		{"beamDeform":50000,"beamStrength":"FLT_MAX"},
+		["spr2", "a12"],
+		["spr2", "a15"],
+		["spr2", "a41"],
+		["spr2", "a42"],
+		//fix to rollcage
+		{"optional":true}
+		{"beamSpring":1501000,"beamDamp":150},
+		["spr2", "rc3l"],
+		["spr2", "rc3r"],
+		["spr2", "rc7l"],
+		["spr2", "rc7r"],
+		["spr2", "rcm"],
+		["spr2", "rc4l"],
+		["spr2", "rc4r"]
+	]
+},
 "Astral_spare_tarmac":{
 	"information":{
         "authors":"Un1corn",
-        "name":"Tarmac Spare Wheel",
+        "name":"1 Tarmac Spare Wheel",
         "value":320
 	},
 	"slotType" : "Astral_spare",
@@ -562,6 +628,72 @@
 		["spr1", "rcm"],
 		["spr1", "chs1l"],
 		["spr1", "chs1r"]
+	]
+},
+"Astral_spare_tarmac2":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"2 Tarmac Spare Wheel",
+        "value":320
+	},
+	"slotType" : "Astral_spare",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spare_4", ["Astral_spare"]]
+		["Astral_spare_42", ["Astral_spare"]]
+	],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//Spare wheel
+        {"nodeWeight":20},
+		{"group":["Astral_spare"]},
+		["spr1", 0, 1.27, 0.48],
+		["spr2", 0, 0.641, 0.630],
+		{"group":[""]} 
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Spare--
+		//connect to chassis
+		{"beamSpring":2501000,"beamDamp":180},
+		{"beamDeform":50000,"beamStrength":"FLT_MAX"},
+		["spr1", "a37"],
+		["spr1", "a38"],
+		["spr1", "a41"],
+		["spr1", "a42"],
+		//fix to rollcage
+		{"optional":true}
+		{"beamSpring":1501000,"beamDamp":150},
+		["spr1", "rs1l"],
+		["spr1", "rs1r"],
+		["spr1", "rc7l"],
+		["spr1", "rc7r"],
+		["spr1", "rcm"],
+		["spr1", "chs1l"],
+		["spr1", "chs1r"]
+		//connect to chassis
+		{"beamSpring":2501000,"beamDamp":180},
+		{"beamDeform":50000,"beamStrength":"FLT_MAX"},
+		["spr2", "a12"],
+		["spr2", "a15"],
+		["spr2", "a41"],
+		["spr2", "a42"],
+		//fix to rollcage
+		{"optional":true}
+		{"beamSpring":1501000,"beamDamp":150},
+		["spr2", "rc3l"],
+		["spr2", "rc3r"],
+		["spr2", "rc7l"],
+		["spr2", "rc7r"],
+		["spr2", "rcm"],
+		["spr2", "rc4l"],
+		["spr2", "rc4r"]
 	]
 },
 "Astral_gauge_BRC":{
