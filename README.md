@@ -142,7 +142,7 @@ The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/BRC/25.jpg)
   Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
 ![Astral_R](Docs/BRC/12.jpg)
-  Helper: 2.5N/mm
+  Helper: 2.8N/mm
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
@@ -203,7 +203,7 @@ The most popular class around the world.
 ![Astral_R](Docs/Rally2/5.jpg)
   Safari: 16.5N/mm front, 13.5N/mm rear
 ![Astral_R](Docs/Rally2/23.png)
-  Helper: 2.5N/mm
+  Helper: 2.8N/mm
 ## Tyres
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
 - Wheel beam properties are tested and modified, a little bit less performance than BRC wheels
@@ -244,7 +244,7 @@ The rallycross beast converted from Rally2.
 - Front ducted brake, rear not ducted
 ![Astral_R](Docs/RX1/8.jpg)
 ## Damper and Spring
-- CTM Racing mono-tube MRX75 3Way damper
+- CTM Racing mono-tube MRX80 3Way damper
 - Around 300mm of travel
 - Hydraulic bump stop and hard rebound stop
 - LRS implemented for faster wheel extension when no load is applied to the wheel, open factor non adjustable
@@ -254,7 +254,7 @@ The rallycross beast converted from Rally2.
 
   RX: 36.0N/mm, 40.0N/mm, 44.0N/mm front, 32.0N/mm, 36.0N/mm, 40.0N/mm rear
   ![Astral_R](Docs/RX1/4.jpg)
-  Helper: 2.5N/m
+  Helper: 3.3N/m
 ## Tyres
 - 225/640 R17 RX wheels
 - Wheel beam properties are tested and modified, biased to sliding performance
