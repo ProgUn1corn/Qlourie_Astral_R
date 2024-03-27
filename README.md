@@ -133,6 +133,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Over 300mm of travel on gravel damper, around 220mm of travel on tarmac damper
 - Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
 - LRS implemented for faster wheel extension when no load is applied to the wheel, additionally open factor adjustable
+- DSV implemented for better stability when landing huge impacts
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
 - 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels of hydraulic bump stop adjustment
 - Spring rates:
