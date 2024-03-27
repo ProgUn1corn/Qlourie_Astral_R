@@ -2,7 +2,7 @@
 "Astral_group_F_RX": {
     "information":{
         "authors":"Un1corn",
-        "name":"CTM MRX75 4WAY Rallycross Damper",
+        "name":"CTM MRX80 3WAY Rallycross Damper",
         "value":3200,
     },
     "slotType" : "Astral_group_F",
@@ -33,9 +33,12 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"FrontLRS"}],
+        ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false}],
     ],
     "FrontLRS": {
+        "LRSp":0.061 //LRS starting point
+        "LRSc":20 //constant to calculate slope
+        "DSVp":0.068 //DSV starting point
         "fLoads": [
             ["name", "beamName"]
             ["FR", "LRS_FR"]
@@ -49,7 +52,7 @@
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
             ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp(0.28+($dampRate_bump_F_fast-2000)/40000-($dampRate_bump_F-2000)/40000,0.18,0.38)", 1]  //normal damping
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.5", "$=$dampRate_rebound_F*0.5", "$=clamp(0.28+($dampRate_bump_F_fast-2000)/40000-($dampRate_bump_F-2000)/40000,0.18,0.38)", 1] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.3", "$=$dampRate_rebound_F*0.3", "$=clamp(0.28+($dampRate_bump_F_fast-2000)/40000-($dampRate_bump_F-2000)/40000,0.18,0.38)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -245,10 +248,10 @@
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
         //detection mass
-        {"beamSpring":50,"beamDamp":5},
+        {"beamSpring":0,"beamDamp":5},
         ["fmassr", "fh1r"],
         ["fmassl", "fh1l"],
-        {"beamSpring":100,"beamDamp":5},
+        {"beamSpring":75,"beamDamp":5},
         ["fmassr", "fh2r", {"name":"LRS_FR"}],
         ["fmassl", "fh2l", {"name":"LRS_FL"}],
         //damper internal gas preload
