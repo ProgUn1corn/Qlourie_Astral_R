@@ -213,7 +213,7 @@
         //--Control arm--
         //lower control arm
         {"beamSpring":14001000,"beamDamp":1400},
-        {"beamDeform":220100,"beamStrength":350000},
+        {"beamDeform":250100,"beamStrength":375000},
         ["rh1r", "rx2r", {"dampCutoffHz":500}],
         ["rh1r", "rx1r", {"dampCutoffHz":500}],
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
@@ -360,29 +360,28 @@
         ],
         {"beamSpring":0,"beamDamp":0},
 
-        //--Limiter--
-        //wheel intrusion limiter
-        {"beamPrecompression":0.75,"beamType":"|SUPPORT","beamLongBound":1},
-        {"beamSpring":2500000,"beamDamp":280,"beamDeform":165000,"beamStrength":900000},
-        
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
     "triangles": [
-        ["id1:", "id2:", "id3:"],
+        ["id3:", "id2:", "id1:"],
         {"groundModel":"metal"},
         {"triangleType":"NONCOLLIDABLE"},
         //hub
-        ["rh1r", "rh3r", "rh2r"],
-        ["rh1r", "rh2r", "rh5r"],
-        ["rh2r", "rh3r", "rh5r"],
+        ["rh3r", "rh5r", "rh1r"],
+        ["rh2r", "rh1r", "rh5r"],
+        ["rh2r", "rh4r", "rh1r"],
+        ["rh2r", "rh5r", "rh4r"],
+        ["rh3r", "rh4r", "rh5r"],
+        ["rh3r", "rh1r", "rh4r"],
         //*
-        ["rh1l", "rh2l", "rh3l"],
-        ["rh1l", "rh5l", "rh2l"],
-        ["rh2l", "rh5l", "rh3l"],
-        {"triangleType":"NORMALTYPE"},
-        
+        ["rh3l", "rh1l", "rh5l"],
+        ["rh2l", "rh5l", "rh1l"],
+        ["rh2l", "rh1l", "rh4l"],
+        ["rh2l", "rh4l", "rh5l"],
+        ["rh3l", "rh5l", "rh4l"],
+        ["rh3l", "rh4l", "rh1l"],
         {"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
     ],

@@ -16,7 +16,7 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_f4", ["Astral_arm_F"]],
-        ["Astral_rod_f4", ["Astral_rod_F","Astral_arm_F"]],
+        ["Astral_rod_f4", ["Astral_rod_F", "Astral_hub_F"]],
         ["Astral_arb_f4", ["Astral_arb_F"]],
         ["Astral_hub_f4", ["Astral_hub_F"]],
         ["Astral_shockup_f4", ["Astral_shock_F"]],
@@ -79,7 +79,7 @@
         ["fh3l",  0.7132, -1.155, 0.0844],
         //brake caliper
         {"nodeWeight":3.5},
-        {"group":["Astral_hub_F","Astral_duct_F","Astral_rod_F"]},
+        {"group":["Astral_hub_F","Astral_duct_F"]},
         ["fh5r", -0.765, -1.461, 0.235],
         ["fh5l",  0.765, -1.461, 0.235],
         {"selfCollision":true},
@@ -205,7 +205,7 @@
 
         //--Control arm--
         {"beamSpring":14001000,"beamDamp":1400},
-        {"beamDeform":220100,"beamStrength":350000},
+        {"beamDeform":250100,"beamStrength":375000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
         ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
@@ -338,11 +338,32 @@
         ],
         {"beamSpring":0,"beamDamp":0},
         
-        //--Limiter--
-        //wheel intrusion limiter
-        {"beamPrecompression":0.75,"beamType":"|SUPPORT","beamLongBound":1},
-        {"beamSpring":2500000,"beamDamp":280,"beamDeform":165000,"beamStrength":900000},
-        
+        //--Limiters--
+        //wheel limiter
+        {"deformLimitExpansion":""},
+        {"beamPrecompression":0.4, "beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamSpring":2501000,"beamDamp":500,"beamDeform":95000,"beamStrength":900000},
+        {"optional":true},
+        ["fw1rr", "a20"],
+        ["fw1rr", "a16"],
+        ["fw1rr", "a84"],
+        ["fw1rr", "a53"],
+        ["fw1rr", "a21"],
+        ["fw1rr", "a85"],
+        ["fw1r", "a20"],
+        ["fw1r", "a16"],
+        ["fw1r", "a53"],
+        //*
+        ["fw1ll", "a23"],
+        ["fw1ll", "a19"],
+        ["fw1ll", "a87"],
+        ["fw1ll", "a54"],
+        ["fw1ll", "a22"],
+        ["fw1ll", "a86"],
+        ["fw1l", "a23"],
+        ["fw1l", "a19"],
+        ["fw1l", "a54"],
+        {"optional":false},
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -352,15 +373,19 @@
         {"groundModel":"metal"},
         {"triangleType":"NONCOLLIDABLE"},
         //hub
-        ["fh1r", "fh3r", "fh2r"],
-        ["fh1r", "fh2r", "fh5r"],
+        ["fh1r", "fh5r", "fh3r"],
         ["fh2r", "fh3r", "fh5r"],
+        ["fh2r", "fh4r", "fh3r"],
+        ["fh2r", "fh5r", "fh4r"],
+        ["fh1r", "fh4r", "fh5r"],
+        ["fh1r", "fh3r", "fh4r"],
         //*
-        ["fh1l", "fh2l", "fh3l"],
-        ["fh1l", "fh5l", "fh2l"],
+        ["fh1l", "fh3l", "fh5l"],
         ["fh2l", "fh5l", "fh3l"],
-        {"triangleType":"NORMALTYPE"},
-        
+        ["fh2l", "fh3l", "fh4l"],
+        ["fh2l", "fh4l", "fh5l"],
+        ["fh1l", "fh5l", "fh4l"],
+        ["fh1l", "fh4l", "fh3l"],
         {"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
     ],
@@ -394,7 +419,7 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_f3", ["Astral_arm_F"]],
-        ["Astral_rod_f3", ["Astral_rod_F","Astral_arm_F"]],
+        ["Astral_rod_f3", ["Astral_rod_F", "Astral_hub_F"]],
         ["Astral_arb_f3", ["Astral_arb_F"]],
         ["Astral_hub_f3", ["Astral_hub_F"]],
         ["Astral_shockup_f3", ["Astral_shock_F"]],
@@ -457,7 +482,7 @@
         ["fh3l",  0.718, -1.155, -0.0199],
         //brake caliper
         {"nodeWeight":3.5},
-        {"group":["Astral_hub_F","Astral_duct_F","Astral_rod_F"]},
+        {"group":["Astral_hub_F","Astral_duct_F"]},
         ["fh5r", -0.765, -1.461, 0.1],
         ["fh5l",  0.765, -1.461, 0.1],
         {"selfCollision":true},
@@ -581,7 +606,7 @@
 
         //--Control arm--
         {"beamSpring":14001000,"beamDamp":1400},
-        {"beamDeform":220100,"beamStrength":350000},
+        {"beamDeform":250100,"beamStrength":375000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
         ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
@@ -715,7 +740,7 @@
         ["fh2r","fs1r", {
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             //rebound stop active
-            "beamLimitSpring":95000,
+            "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -723,18 +748,39 @@
         ["fh2l","fs1l", {
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             //rebound stop active
-            "beamLimitSpring":95000,
+            "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         {"beamSpring":0,"beamDamp":0},
         
-        //--Limiter--
-        //wheel intrusion limiter
-        {"beamPrecompression":0.75,"beamType":"|SUPPORT","beamLongBound":1},
-        {"beamSpring":2500000,"beamDamp":280,"beamDeform":165000,"beamStrength":900000},
-        
+        //--Limiters--
+        //wheel limiter
+        {"deformLimitExpansion":""},
+        {"beamPrecompression":0.4, "beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamSpring":2501000,"beamDamp":500,"beamDeform":95000,"beamStrength":900000},
+        {"optional":true},
+        ["fw1rr", "a20"],
+        ["fw1rr", "a16"],
+        ["fw1rr", "a84"],
+        ["fw1rr", "a53"],
+        ["fw1rr", "a21"],
+        ["fw1rr", "a85"],
+        ["fw1r", "a20"],
+        ["fw1r", "a16"],
+        ["fw1r", "a53"],
+        //*
+        ["fw1ll", "a23"],
+        ["fw1ll", "a19"],
+        ["fw1ll", "a87"],
+        ["fw1ll", "a54"],
+        ["fw1ll", "a22"],
+        ["fw1ll", "a86"],
+        ["fw1l", "a23"],
+        ["fw1l", "a19"],
+        ["fw1l", "a54"],
+        {"optional":false},
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -744,15 +790,19 @@
         {"groundModel":"metal"},
         {"triangleType":"NONCOLLIDABLE"},
         //hub
-        ["fh1r", "fh3r", "fh2r"],
-        ["fh1r", "fh2r", "fh5r"],
+        ["fh1r", "fh5r", "fh3r"],
         ["fh2r", "fh3r", "fh5r"],
+        ["fh2r", "fh4r", "fh3r"],
+        ["fh2r", "fh5r", "fh4r"],
+        ["fh1r", "fh4r", "fh5r"],
+        ["fh1r", "fh3r", "fh4r"],
         //*
-        ["fh1l", "fh2l", "fh3l"],
-        ["fh1l", "fh5l", "fh2l"],
+        ["fh1l", "fh3l", "fh5l"],
         ["fh2l", "fh5l", "fh3l"],
-        {"triangleType":"NORMALTYPE"},
-        
+        ["fh2l", "fh3l", "fh4l"],
+        ["fh2l", "fh4l", "fh5l"],
+        ["fh1l", "fh5l", "fh4l"],
+        ["fh1l", "fh4l", "fh3l"],
         {"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
     ],
