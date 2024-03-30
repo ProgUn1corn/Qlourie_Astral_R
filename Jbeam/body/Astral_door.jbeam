@@ -34,10 +34,10 @@
         "attachSoundEvent": "event:>Vehicle>Latches>Door>modern_09_close",
         "detachSoundEvent": "event:>Vehicle>Latches>Door>modern_03_open",
         "breakSoundEvent":""
-        "openForceMagnitude": 150,
-        "openForceDuration": 0.6,
-        "closeForceMagnitude": 500,
-        "closeForceDuration": 1.5
+        "openForceMagnitude": 75,
+        "openForceDuration": 1,
+        "closeForceMagnitude": 750,
+        "closeForceDuration": 1
     },
 	"triggers":[
         ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
@@ -157,15 +157,16 @@
 		{"breakGroup":""}
 		//open
 		{"beamSpring":500,"beamDamp":250},
-		{"beamPrecompression":1.5},
+		{"beamPrecompression":1.75},
 		{"beamDeform":1500,"beamStrength":3500},
 		["dh1r", "a43"],
+		{"beamPrecompression":1},
 		//limiters
         {"beamType":"|SUPPORT", "beamPrecompression":1, "beamLongBound":8},
-        {"beamSpring":801000,"beamDamp":150},
-        {"beamDeform":5000,"beamStrength":100000},
+        {"beamSpring":1501000,"beamDamp":100},
+        {"beamDeform":25000,"beamStrength":100000},
 		["d8r", "a17"],
-		["d9r", "a12"],
+		["d9r", "a13"],
 		["d0r", "a16"],
 		["d6r", "a85"],
 		["d0r", "a53"],
@@ -230,10 +231,10 @@
         "attachSoundEvent": "event:>Vehicle>Latches>Door>modern_09_close",
         "detachSoundEvent": "event:>Vehicle>Latches>Door>modern_03_open",
         "breakSoundEvent":""
-        "openForceMagnitude": 150,
-        "openForceDuration": 0.6,
-        "closeForceMagnitude": 500,
-        "closeForceDuration": 1.5
+        "openForceMagnitude": 75,
+        "openForceDuration": 1,
+        "closeForceMagnitude": 750,
+        "closeForceDuration": 1
     },
 	"triggers":[
         ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
@@ -353,15 +354,16 @@
 		{"breakGroup":""}
 		//open
 		{"beamSpring":500,"beamDamp":250},
-		{"beamPrecompression":1.5},
+		{"beamPrecompression":1.75},
 		{"beamDeform":1500,"beamStrength":3500},
 		["dh1l", "a40"],
-		//limiters
+		{"beamPrecompression":1},
+        //limiters
         {"beamType":"|SUPPORT", "beamPrecompression":1, "beamLongBound":8},
-        {"beamSpring":801000,"beamDamp":150},
-        {"beamDeform":5000,"beamStrength":100000},
+        {"beamSpring":1501000,"beamDamp":100},
+        {"beamDeform":25000,"beamStrength":100000},
 		["d8l", "a18"],
-		["d9l", "a15"],
+		["d9l", "a14"],
 		["d0l", "a19"],
 		["d6l", "a86"],
 		["d0l", "a54"],
@@ -381,14 +383,14 @@
         //doors	
 		{"dragCoef":10},
 		{"liftCoef":0,"stallAngle":0}
-		["d9l", "d6l", "d5l"],
-		["d9l", "d0l", "d6l"],
-		["d0l", "dh2l", "d6l"],
-		["d0l", "d4l", "dh2l"],
-		["d5l", "d8l", "d7l"],
-		["d5l", "d6l", "d8l"],
-		["d8l", "d6l", "dh3l"],
-		["dh3l", "d6l", "dh2l"],
+		["d9l", "d5l", "d6l"],
+		["d9l", "d6l", "d0l"],
+		["d6l", "dh2l", "d0l"],
+		["d4l", "d0l", "dh2l"],
+		["d8l", "d5l", "d7l"],
+		["d5l", "d8l", "d6l"],
+		["d6l", "d8l", "dh3l"],
+		["dh2l", "d6l", "dh3l"],
 	]
 }
 }

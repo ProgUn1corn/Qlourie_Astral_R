@@ -52,7 +52,6 @@
         {"group":["Astral_sub_F"]},
         ["fx3r", -0.268, -0.609, 0.125],
         ["fx3l",  0.268, -0.609, 0.125],
-        {"nodeWeight":5},
         ["fx4r", -0.361, -1.086, 0.355],
         ["fx4l",  0.361, -1.086, 0.355],
         //steering box
@@ -62,7 +61,7 @@
         ["st1l",  0.108, -1.075, 0.1506],
         //rigidifier
         {"collision":false},
-        {"nodeWeight":5},
+        {"nodeWeight":4},
         {"group":[""]},
         ["fx1", 0, -0.99, 0.335, {"selfCollision":false}],
         {"collision":true},
@@ -90,7 +89,7 @@
         ["fx1l", "fx4l"],
         ["fx2l", "fx4l"],
         //crossing
-        {"beamSpring":6501500,"beamDamp":180},
+        {"beamSpring":8501500,"beamDamp":180},
         {"beamDeform":82500,"beamStrength":"FLT_MAX"},
         ["fx1r", "fx2l"],
         ["fx1l", "fx2r"],
@@ -113,7 +112,7 @@
         ["fx1r", "fx3r"],
         ["fx1l", "fx3l"],
         //rigidifier
-        {"beamSpring":3501000,"beamDamp":180},
+        {"beamSpring":2501000,"beamDamp":150},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
         ["fx1", "fx1l"],
         ["fx1", "fx2l"],
@@ -601,7 +600,7 @@
         {"optional":false},
 
         //--Control arm--
-        {"beamSpring":13001000,"beamDamp":1300},
+        {"beamSpring":14001000,"beamDamp":1400},
         {"beamDeform":220100,"beamStrength":350000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
@@ -609,7 +608,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":13001000,"beamDamp":1300},
+        {"beamSpring":14001000,"beamDamp":1400},
         ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.0005","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.0005","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
@@ -1023,7 +1022,7 @@
         {"optional":false},
 
         //--Control arm--
-        {"beamSpring":13001000,"beamDamp":1300},
+        {"beamSpring":14001000,"beamDamp":1400},
         {"beamDeform":220100,"beamStrength":350000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
@@ -1031,7 +1030,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":13001000,"beamDamp":1300},
+        {"beamSpring":14001000,"beamDamp":1400},
         ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0042","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0042","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
 
