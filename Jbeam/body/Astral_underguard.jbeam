@@ -37,14 +37,11 @@
         {"nodeWeight":0.05},
         {"group":["Astral_rarmg"]},
         ["rarmg1r", -0.587, 0.661,  0.085, {"selfCollision":false, "nodeWeight":0.8}],
-        ["rarmg3r", -0.601, 1.485, -0.100],
-        ["rarmg2r", -0.601, 0.978, -0.100],
+        ["rarmg3r", -0.601, 1.485, -0.069],
+        ["rarmg2r", -0.601, 1.074, -0.069],
         ["rarmg1l",  0.587, 0.661, 0.085, {"selfCollision":false, "nodeWeight":0.8}],
-        ["rarmg3l",  0.601, 1.485, -0.100],
-        ["rarmg2l",  0.601, 0.978, -0.100],
-		{"nodeWeight":0.1},
-		["rzr", -0.481, 1.17, 0.114514, {"selfCollision":false}],
-		["rzl",  0.481, 1.17, 0.114514, {"selfCollision":false}],
+        ["rarmg3l",  0.601, 1.485, -0.069],
+        ["rarmg2l",  0.601, 1.074, -0.069],
 		{"group":[""]},
         {"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
@@ -144,7 +141,7 @@
 		
 		//--Arm guard--
         //arm guard shape
-        {"beamSpring":800,"beamDamp":25},
+        {"beamSpring":800,"beamDamp":5},
         {"beamDeform":25000,"beamStrength":"FLT_MAX"},
         ["rarmg1r","rarmg2r"],
 		["rarmg2r","rarmg3r"],
@@ -166,21 +163,13 @@
         ["rarmg3l","rg1l"],
 		["rarmg2l","rg2l"],
         ["rarmg2l","rg1l"],
-		//rigidifier
-		{"beamSpring":1500,"beamDamp":10},
-		["rzr","rarmg1r"],
-		["rzr","rarmg2r"],
-		["rzr","rarmg3r"],
-		["rzr","rg1r"],
-		["rzr","rg2r"],
-		//*
-		["rzl","rarmg1l"],
-		["rzl","rarmg2l"],
-		["rzl","rarmg3l"],
-		["rzl","rg1l"],
-		["rzl","rg2l"],
+		//arm guard rigid
+		{"beamDeform":12000},
+		["rarmg1r","rarmg3r"],
+        //*
+        ["rarmg1l","rarmg3l"],
 		//attach to under guard
-		{"beamSpring":851000,"beamDamp":50},
+		{"beamSpring":851000,"beamDamp":20},
 		{"breakGroup":"rearguard_R"},
 		["ugr","rarmg1r"],
 		["rarmg1r","a41"],

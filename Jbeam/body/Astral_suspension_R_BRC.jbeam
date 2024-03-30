@@ -200,7 +200,8 @@
     "slots" : [
         ["type", "default", "description"],
         ["Astral_hubs_R","Astral_hubs_R","Hub", {"nodeOffset":{"x":0.345, "y":1.25, "z":0.155}}],
-        ["Astral_brake_R","Astral_brake_R_BRC_tarmac", "Brake", {"nodeOffset":{"x":0, "y":1.25, "z":0.155}}],
+        ["Astral_brake_R","Astral_brake_R_BRC_tarmac", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.155}}],
+        ["Astral_brake_duct_tarmac","Astral_brake_duct_no_tarmac", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.155}, "coreSlot":true}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_spring_R_BRC_tarmac","Astral_spring_R_BRC_tarmac_40", "Spring"]
     ],
@@ -356,7 +357,7 @@
         ["rh1l","rh3l"],
         ["rh2l","rh1l"],
         ["rh2l","rh3l"],
-        {"beamSpring":6501000,"beamDamp":150},
+        {"beamSpring":6001000,"beamDamp":125},
         ["rh1r","rh5r"],
         ["rh3r","rh5r"],
         ["rh2r","rh5r"],
@@ -376,23 +377,23 @@
         ["rh4l","rh1l"],
         ["rh4r","rh1r"],
         //hub to wheel axle nodes
-        {"beamSpring":9001000,"beamDamp":150},
+        {"beamSpring":8501000,"beamDamp":150},
         {"beamDeform":82500,"beamStrength":400000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
-        ["rh3r","rw1r", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5r","rw1r", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3r","rw1r", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5r","rw1r", {"beamSpring":6001000,"beamDamp":100}],
         ["rh1r","rw1rr"],
-        ["rh3r","rw1rr", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5r","rw1rr", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3r","rw1rr", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5r","rw1rr", {"beamSpring":6001000,"beamDamp":100}],
         {"breakGroup":"wheel_RL"},
         ["rh1l","rw1l", {"name":"axle_RL"}],
-        ["rh3l","rw1l", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5l","rw1l", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3l","rw1l", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5l","rw1l", {"beamSpring":6001000,"beamDamp":100}],
         ["rh1l","rw1ll"],
-        ["rh3l","rw1ll", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5l","rw1ll", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3l","rw1ll", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5l","rw1ll", {"beamSpring":6001000,"beamDamp":100}],
         //camber
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
@@ -405,14 +406,14 @@
         
         //--Control arm--
         //lower control arm
-        {"beamSpring":14001000,"beamDamp":1400},
+        {"beamSpring":13001000,"beamDamp":1300},
         {"beamDeform":250100,"beamStrength":375000},
         ["rh1r", "rx2r", {"dampCutoffHz":500}],
         ["rh1r", "rx1r", {"dampCutoffHz":500}],
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":1200},
+        {"beamSpring":13001000,"beamDamp":1300},
         ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
@@ -430,11 +431,13 @@
         ["rx5r","rx1r"],
         ["rx5l","rx1l"],
         //zip tie
-        {"beamSpring":51000,"beamDamp":20},
-        {"beamDeform":4500,"beamStrength":15000},
-        {"precompressionRange":0.05,"beamPrecompressionTime":0.3},
-        ["rzl","rarb3l"],
-        ["rzr","rarb3r"],
+        {"beamSpring":500,"beamDamp":5},
+        {"beamDeform":500,"beamStrength":1000},
+        {"precompressionRange":-0.05,"beamPrecompressionTime":0.1},
+        ["rarmg2l","rh4l"],
+        ["rarmg2r","rh4r"],
+        ["rarmg3l","rh4l"],
+        ["rarmg3r","rh4r"],
         {"precompressionRange":0,"beamPrecompressionTime":0},
         
         //--Damper--
@@ -550,12 +553,19 @@
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
-        ],
-        {"beamSpring":0,"beamDamp":0},
+        ], 
 
+        //arm guard limiter
+        {"precompressionRange":-0.05, "beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamSpring":51000,"beamDamp":50},
+        {"deformLimitExpansion":""},
+        ["rarmg2l","rh4l"],
+        ["rarmg2r","rh4r"],
+        ["rarmg3l","rh4l"],
+        ["rarmg3r","rh4r"],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+        {"precompressionRange":0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
     "triangles": [
         ["id3:", "id2:", "id1:"],
@@ -608,7 +618,8 @@
     "slots" : [
         ["type", "default", "description"],
         ["Astral_hubs_R","Astral_hubs_R","Hub", {"nodeOffset":{"x":0.309, "y":1.25, "z":0.02}}],
-        ["Astral_brake_R","Astral_brake_R_BRC_gravel", "Brake", {"nodeOffset":{"x":0, "y":1.25, "z":0.02}}],
+        ["Astral_brake_R","Astral_brake_R_BRC_gravel", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.02}}],
+        ["Astral_brake_duct_gravel","Astral_brake_duct_no_gravel", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.02}, "coreSlot":true}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_spring_R_BRC_gravel","Astral_spring_R_BRC_gravel_20", "Spring"]
     ],
@@ -767,7 +778,7 @@
         ["rh1l","rh3l"],
         ["rh2l","rh1l"],
         ["rh2l","rh3l"],
-        {"beamSpring":6501000,"beamDamp":150},
+        {"beamSpring":6001000,"beamDamp":125},
         ["rh1r","rh5r"],
         ["rh3r","rh5r"],
         ["rh2r","rh5r"],
@@ -787,23 +798,23 @@
         ["rh4l","rh1l"],
         ["rh4r","rh1r"],
         //hub to wheel axle nodes
-        {"beamSpring":9001000,"beamDamp":150},
+        {"beamSpring":8501000,"beamDamp":150},
         {"beamDeform":82500,"beamStrength":400000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
-        ["rh3r","rw1r", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5r","rw1r", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3r","rw1r", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5r","rw1r", {"beamSpring":6001000,"beamDamp":100}],
         ["rh1r","rw1rr"],
-        ["rh3r","rw1rr", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5r","rw1rr", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3r","rw1rr", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5r","rw1rr", {"beamSpring":6001000,"beamDamp":100}],
         {"breakGroup":"wheel_RL"},
         ["rh1l","rw1l", {"name":"axle_RL"}],
-        ["rh3l","rw1l", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5l","rw1l", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3l","rw1l", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5l","rw1l", {"beamSpring":6001000,"beamDamp":100}],
         ["rh1l","rw1ll"],
-        ["rh3l","rw1ll", {"beamSpring":10001000,"beamDamp":25}],
-        ["rh5l","rw1ll", {"beamSpring":6501000,"beamDamp":150}],
+        ["rh3l","rw1ll", {"beamSpring":10001000,"beamDamp":15}],
+        ["rh5l","rw1ll", {"beamSpring":6001000,"beamDamp":100}],
         //camber
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
@@ -816,14 +827,14 @@
         
         //--Control arm--
         //lower control arm
-        {"beamSpring":14001000,"beamDamp":1400},
+        {"beamSpring":13001000,"beamDamp":1300},
         {"beamDeform":250100,"beamStrength":375000},
         ["rh1r", "rx2r", {"dampCutoffHz":500}],
         ["rh1r", "rx1r", {"dampCutoffHz":500}],
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":14001000,"beamDamp":1400},
+        {"beamSpring":13001000,"beamDamp":1300},
         ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0014","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0014","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         //arb mount point
@@ -841,11 +852,13 @@
         ["rx5r","rx1r"],
         ["rx5l","rx1l"],
         //zip tie
-        {"beamSpring":51000,"beamDamp":20},
-        {"beamDeform":4500,"beamStrength":15000},
+        {"beamSpring":500,"beamDamp":5},
+        {"beamDeform":500,"beamStrength":1000},
         {"precompressionRange":0.0,"beamPrecompressionTime":0.3},
-        ["rzl","rarb3l"],
-        ["rzr","rarb3r"],
+        ["rarmg2l","rh4l"],
+        ["rarmg2r","rh4r"],
+        ["rarmg3l","rh4l"],
+        ["rarmg3r","rh4r"],
         {"precompressionRange":0,"beamPrecompressionTime":0},
 
         //--Damper--
@@ -964,6 +977,15 @@
         ],
         {"beamSpring":0,"beamDamp":0},
 
+        //arm guard limiter
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamSpring":51000,"beamDamp":50},
+        {"deformLimitExpansion":""},
+        ["rarmg2l","rh4l"],
+        ["rarmg2r","rh4r"],
+        ["rarmg3l","rh4l"],
+        ["rarmg3r","rh4r"],
+        {"precompressionRange":0,"beamPrecompressionTime":0},
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}

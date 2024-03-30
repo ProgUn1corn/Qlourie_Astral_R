@@ -47,7 +47,6 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brake_r9", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakeduct_r9", ["Astral_duct_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
         ["Astral_brakedisc_r9", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
     ],
     "variables": [
@@ -69,7 +68,7 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"carbon-ceramic"},
         {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.2},
+        {"brakeVentingCoef":1.0},
         //sound
         {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
     ]
@@ -122,7 +121,6 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brake_r8", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakeduct_r8", ["Astral_duct_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
         ["Astral_brakedisc_r8", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
     ],
     "variables": [
@@ -144,9 +142,73 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"carbon-ceramic"},
         {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.5},
+        {"brakeVentingCoef":1.0},
         //sound
         {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
     ]
-}
+},
+"Astral_brake_duct_gravel": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rear Brake Duct",
+        "value":500
+    },
+    "slotType" : "Astral_brake_duct_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_brakeduct_r8", ["Astral_duct_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
+    ],
+    "pressureWheels":[
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeVentingCoef":1.5},
+    ]
+},
+"Astral_brake_duct_tarmac": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rear Brake Duct",
+        "value":500
+    },
+    "slotType" : "Astral_brake_duct_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_brakeduct_r9", ["Astral_duct_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
+    ],
+    "pressureWheels":[
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeVentingCoef":1.5},
+    ]
+},
+"Astral_brake_duct_no_tarmac": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"No Brake Duct",
+        "value":500
+    },
+    "slotType" : "Astral_brake_duct_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_naca", ["Astral_carbody"], [], {"pos":{"x": 0, "y":0, "z":-0.155}, "rot":{"x":0, "y":0, "z":0}}],
+    ],
+    "pressureWheels":[
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeVentingCoef":1.0},
+    ]
+},
+"Astral_brake_duct_no_gravel": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"No Brake Duct",
+        "value":500
+    },
+    "slotType" : "Astral_brake_duct_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_naca", ["Astral_carbody"], [], {"pos":{"x": 0, "y":0, "z":-0.02}, "rot":{"x":0, "y":0, "z":0}}],
+    ],
+    "pressureWheels":[
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeVentingCoef":1.0},
+    ]
+},
 }
