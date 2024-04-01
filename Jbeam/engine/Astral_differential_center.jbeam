@@ -17,9 +17,11 @@
 	],
 	"controller": [ 
         ["fileName"],
-        ["eCenterDiff", {"name":"activeCenterDiff", "transfercaseName":"transferCase"}],
+        ["eCenterDiff", {"name":"activeCenterDiff"}],
     ],
 	"activeCenterDiff":{
+		"type":"LSD",
+		"transfercaseName":"transferCase",
 		"lockMap":[
 			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias"]
             ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.52]
@@ -27,7 +29,7 @@
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":35, "lsdLockCoef":1.0, "lsdRevLockCoef":0.25, "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.015, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":10, "lsdLockCoef":0.5, "lsdRevLockCoef":0.25, "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.015, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -38,7 +40,7 @@
 		{"nodeWeight":6},
 		//--Transfer Case--
 		{"group":[""]},
-		["tra", -0.1, -1.222, 0.255],
+		["tra", -0.1, -1.222, 0.155],
 	],
 	"beams": [
 		["id1:", "id2:"],
@@ -82,9 +84,11 @@
 	],
 	"controller": [ 
         ["fileName"],
-        ["eCenterDiff", {"name":"activeCenterDiff", "transfercaseName":"transferCase"}],
+        ["eCenterDiff", {"name":"activeCenterDiff"}],
     ],
 	"activeCenterDiff":{
+		"type":"LSD",
+		"transfercaseName":"transferCase",
 		"lockMap":[
 			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias"]
             ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.64]
@@ -92,7 +96,7 @@
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":35, "lsdLockCoef":1.0, "lsdRevLockCoef":0.25, "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.015, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":10, "lsdLockCoef":0.5, "lsdRevLockCoef":0.25, "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.015, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -193,7 +197,7 @@
     ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":3000, "friction":1.0, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
+		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":1, "lockTorque":1250, "friction":1.0, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
 	],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -229,5 +233,5 @@
 		{"beamLimitSpring":false,"beamLimitDamp":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
-}
+},
 }
