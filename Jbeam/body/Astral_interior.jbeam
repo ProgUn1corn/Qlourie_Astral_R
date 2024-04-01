@@ -44,7 +44,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1201000},
         {"beamDamp":250},
-		["neardash", 0.377, -0.65, 0.98, 68, "a53","a54","a83","a82","a17","a19"],
+		["neardash", 0.368, -0.65, 0.98, 68, "a53","a54","a83","a82","a17","a19"],
 		{"beamSpring":551000},
         {"beamDamp":150},
 		["onboard1", -0.465, -0.65, 0.98, 55, "a53","a54","a80","a81","a17","a84"]
@@ -61,8 +61,8 @@
 		//--Dashboard for Wheel--
 		{"group":["Astral_dash"]},
 		{"nodeWeight":1},
-		["dsh1", 0.377, -0.471224, 0.7936],
-		["dsh2", 0.377, -0.551224, 0.78055],
+		["dsh1", 0.368, -0.471224, 0.7936],
+		["dsh2", 0.368, -0.551224, 0.78055],
 		["dsh3", 0.459824, -0.471224, 0.7936],
 		{"collision":true},
 		{"selfCollision":true},
@@ -139,7 +139,7 @@
 		{"selfCollision":false}
         {"nodeWeight":74.5},
 		{"group":["Astral_seat"]},
-		["a50",  0.378, 0.075, 0.421],
+		["a50",  0.378, 0.2, 0.421],
 		{"selfCollision":true},
 		{"group":[""]} 
 	],
@@ -178,6 +178,7 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_copilotseat", ["Astral_copilot","Astral_chassis"]],
 		["Astral_copilot", ["Astral_copilot","Astral_chassis"]],
+		["Astral_foot", ["Astral_chassis"]],
 	],
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -188,7 +189,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1000},
         {"beamDamp":150},
-		["copilot", -0.377, 0.115, 1.045, 65, "a85","a84","a80","a81","a18","d3r"],
+		["copilot", -0.368, 0.235, 1.075, 65, "a85","a84","a80","a81","a18","d3r"],
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -200,7 +201,7 @@
 		{"selfCollision":false}
         {"nodeWeight":74.5},
 		{"group":["Astral_copilot"]},
-		["a49", -0.378, 0.075, 0.421],
+		["a49", -0.378, 0.2, 0.421],
 		{"selfCollision":true},
 		{"group":[""]} 
 	],
@@ -250,7 +251,7 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//hands
-        ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":180 "z":180}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":-0.69, "z":0}}]
+        ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":180 "z":180}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":-0.78, "z":0}}]
 	]
 },
 "Astral_pedal":{
@@ -267,9 +268,9 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//--Racing Pedals--
-        ["throttle", "Astral_gas", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.028, "y":0.121, "z":-0.01}}],
-		["brake", "Astral_brake", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":8, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.119, "y":0.121, "z":-0.01}}],
-		["clutch", "Astral_clutch", "pd1","pd2","pd4", {"x":-90, "y":180 "z":0}, {"x":8, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.027, "y":0.121, "z":0.01}}]
+        ["throttle", "Astral_gas", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.028, "y":0.161, "z":-0.015}}],
+		["brake", "Astral_brake", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":8, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.119, "y":0.161, "z":-0.015}}],
+		["clutch", "Astral_clutch", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":8, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.234, "y":0.161, "z":-0.015}}]
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -280,10 +281,10 @@
 		//--Pedal Box--
 		{"nodeWeight":0.45},
 		{"group":["Astral_pedal"]},
-		["pd1", 0.477, -0.835, 0.16],
-		["pd2", 0.216, -0.835, 0.16],
-		["pd3", 0.216, -0.664, 0.16],
-		["pd4", 0.477, -0.664, 0.16],
+		["pd1", 0.487, -0.835, 0.16],
+		["pd2", 0.226, -0.835, 0.16],
+		["pd3", 0.226, -0.664, 0.16],
+		["pd4", 0.487, -0.664, 0.16],
 		{"collision":true},
 		{"selfCollision":true},
 		{"group":[""]}
@@ -348,7 +349,7 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//steering wheel
-        ["steering", "Astral_steering_BRC", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":-0.03, "z":0}}]
+        ["steering", "Astral_steering_BRC", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":-0.096, "z":0}}]
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -359,7 +360,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1000},
         {"beamDamp":150},
-        ["driver", 0.377, 0.115, 1.045, 65, "a86","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
+        ["driver", 0.368, 0.235, 1.075, 65, "a86","a87","a83","a82","a17","a19", {"cockpitCamera":true}]
 	],
 },
 "Astral_strwheel_Rally2":{
@@ -376,7 +377,7 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//steering wheel
-        ["steering", "Astral_steering_Rally2", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":0, "z":0}}]
+        ["steering", "Astral_steering_Rally2", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":-0.058, "z":0}}]
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -387,7 +388,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1000},
         {"beamDamp":150},
-        ["driver", 0.377, 0.115, 1.045, 65, "a86","a87","a83","a82","a17","d3l", {"cockpitCamera":true}]
+        ["driver", 0.368, 0.235, 1.075, 65, "a86","a87","a83","a82","a17","a19", {"cockpitCamera":true}]
 	],
 },
 "Astral_dashcam":{
@@ -410,7 +411,7 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":1001000},
         {"beamDamp":600},
-        ["driver", 0.377, -0.15, 1.025, 65, "a53","a54","a83","a82","a17","d3l", {"cockpitCamera":true}]
+        ["driver", 0.368, -0.15, 1.025, 65, "a53","a54","a83","a82","a17","a19", {"cockpitCamera":true}]
     ]
 },
 "Astral_shifter_paddle":{
@@ -423,11 +424,25 @@
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_shift", ["Astral_dash"]],
+		["Astral_sequential", ["Astral_chassis"]],
 	],
+	"controller": [
+		["fileName"],
+		["propAnimation/sequentialLever", {"name":"sequentialLever"}]
+	],
+    "sequentialLever": {
+        "shiftSoundNode:":["dsh1"],
+        "shiftSoundEventSequentialGearUp": "file:>art>sound>shift>shift up.wav",
+        "shiftSoundEventSequentialGearDown": "file:>art>sound>shift>shift down.wav",
+        "shiftSoundVolumeSequentialGearUp": 1,
+        "shiftSoundVolumeSequentialGearDown": 1
+	}
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//paddle shifter
-		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":10}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.07, "y":-0.085, "z":0}}]
+		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":7}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.07, "y":-0.135, "z":0}}]
+		//aux shifter
+        ["sequentialLeverY", "Astral_sfstickaux", "a17","a18","a21", {"x":-100, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":0.138, "y":-0.042, "z":0.298}}]
 	]
 },
 "Astral_shifter_stick":{
@@ -439,12 +454,23 @@
 	"slotType" : "Astral_shifter",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_stickshifter", ["Astral_carbody"]]
+        ["Astral_stickshifter", ["Astral_carbody","Astral_dash"]]
 	],
+	"controller": [
+		["fileName"],
+		["propAnimation/sequentialLever", {"name":"sequentialLever"}]
+	],
+    "sequentialLever": {
+        "shiftSoundNode:":["dsh1"],
+        "shiftSoundEventSequentialGearUp": "file:>art>sound>shift>shift up.wav",
+        "shiftSoundEventSequentialGearDown": "file:>art>sound>shift>shift down.wav",
+        "shiftSoundVolumeSequentialGearUp": 1,
+        "shiftSoundVolumeSequentialGearDown": 1
+	}
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//paddle shifter
-		["sequentialLeverY", "Astral_sfstick", "dsh1","dsh3","dsh2", {"x":-90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0.4, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.251, "y":0.06, "z":-0.127}}]
+		["sequentialLeverY", "Astral_sfstick", "dsh1","dsh3","dsh2", {"x":-89, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0.4, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.244, "y":-0.06, "z":-0.123}}]
 	]
 },
 "Astral_handbrake":{
@@ -456,12 +482,12 @@
 	"slotType" : "Astral_handbrake",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_handbrake", ["Astral_carbody"]]
+        ["Astral_handbrake", ["Astral_chassis"]]
 	],
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//handbrake
-        ["parkingbrake", "Astral_hbstick", "a17","a18","a21", {"x":-88, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.14, "y":0.103, "z":0.358}}]
+        ["parkingbrake", "Astral_hbstick", "a17","a18","a21", {"x":-88, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.085, "y":-0.023, "z":0.375}}]
 	],
 	"soundscape": [
 		["name", "src"],
@@ -539,7 +565,7 @@
         {"nodeWeight":25},
 		{"group":["Astral_spare"]},
 		["spr1", 0, 1.27, 0.48],
-		["spr2", 0, 0.581, 0.643],
+		["spr2", 0, 0.701, 0.643],
 		{"group":[""]} 
 	],
 	"beams": [   
@@ -652,7 +678,7 @@
         {"nodeWeight":20},
 		{"group":["Astral_spare"]},
 		["spr1", 0, 1.27, 0.48],
-		["spr2", 0, 0.641, 0.630],
+		["spr2", 0, 0.761, 0.630],
 		{"group":[""]} 
 	],
 	"beams": [   
