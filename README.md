@@ -62,7 +62,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
 - H4DPA 1.6l inline 4, 83.3x73.3, DOHC, direct injection
-- H4DPB 2.0l inline 4, 87.7x82.7, DOHC, direct injection
+- H4DPB 2.0l inline 4, 87.8x82.5, DOHC, direct injection
 - Realistic engine curve referenced from telemetry of other games
 - Top speed limit 201 km/h within regulation
 - Turbo restrictor and ECU setting for different variant
