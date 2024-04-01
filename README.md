@@ -61,8 +61,9 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Rollcage installed for maximum safety
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
-- H1598P4 1.6l inline 4, 83.0x73.9, DOHC
-- Realistic engine curve referenced from telemetry of simluators
+- H4DPA 1.6l inline 4, 83.3x73.3, DOHC, direct injection
+- H4DPB 2.0l inline 4, 87.7x82.7, DOHC, direct injection
+- Realistic engine curve referenced from telemetry of other games
 - Top speed limit 201 km/h within regulation
 - Turbo restrictor and ECU setting for different variant
 ## Suspension
@@ -115,7 +116,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - 4105mm long, 1875mm track width, 2535mm wheelbase
 ![Astral_R](Docs/BRC/8.jpg)
 ## Engine and Transmission
-- 1.6L Inline4 H1598P4 with WRC ECU
+- H4DPA with WRC ECU
 - 2.5 bar anti-lag turbocharger, 36mm turbo restrictor
 - Over 380HP at 6000RPM, 450Nm at 5500RPM (within the 3.1kg/hp regulation)
 - 6 speed sequential transmission, paddle shifter
@@ -175,7 +176,7 @@ The most popular class around the world.
 - Safari kit including bullbar and snorkel allowed since 2021
 ![Astral_R](Docs/Rally2/24.png)
 ## Engine and Transmission
-- 1.6L Inline4 H1598P4 with Rally2 ECU
+- H4DPA with Rally2 ECU
 - 2.5 bar anti-lag turbocharger, 32mm turbo restrictor
 - 290HP at 5000RPM, 438Nm at 4500RPM (within the 4.2kg/hp regulation)
 - 5 speed sequential transmission, stick shifter
@@ -230,7 +231,7 @@ The rallycross beast converted from Rally2.
 - 4043mm long, 1850mm track width, 2535mm wheelbase
 ![Astral_R](Docs/RX1/11.jpg)
 ## Engine and Transmission
-- 2.0L Inline4 H2000P4 with WRX modification
+- H4DPB with WRX ECU
 - 3.4 bar anti-lag turbocharger, 45mm turbo restrictor
 - 600HP at 6000RPM, 820Nm at 4500RPM, without restrictor over 1000HP and 1500Nm
 - 5 speed sequential transmission, stick shifter
