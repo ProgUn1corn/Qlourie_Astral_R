@@ -61,6 +61,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Rollcage installed for maximum safety
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
+- H1598P4 1.6l inline 4, 83.0x73.9, DOHC
 - Realistic engine curve referenced from telemetry of simluators
 - Top speed limit 201 km/h within regulation
 - Turbo restrictor and ECU setting for different variant
