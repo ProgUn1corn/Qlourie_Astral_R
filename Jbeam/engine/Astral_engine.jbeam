@@ -11,7 +11,7 @@
 		["Astral_enginemanagement_1", "Astral_enginemanagement_BRC", "Engine Management", {"coreSlot": true}],
 		["Astral_enginemount", "Astral_enginemount", "Engine Mount", {"coreSlot": true}],
 		["Astral_intake", "Astral_intake", "Intake", {"coreSlot": true}],
-		["Astral_block", "Astral_block", "Engine Block", {"coreSlot": true}],
+		["Astral_block", "Astral_block_BRC", "Engine Block", {"coreSlot": true}],
 		["Astral_oilpan", "Astral_oilpan", "Oilpan", {"coreSlot": true}],
 		["Astral_exhaust", "Astral_exhaust", "Exhaust"],
 		["Astral_transmission", "Astral_transmission_sequential_BRC", "Transmission"]
@@ -20,6 +20,7 @@
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_aux", ["Astral_chassis_F"]],
+		["Astral_aux_pipe", ["Astral_chassis_F"]],
 	],
 	"mainEngine": {
 		"torque":[
@@ -126,14 +127,14 @@
 		{"frictionCoef":0.5},
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
-		{"selfCollision":false},
+		{"selfCollision":true},
 		//--Engine--
 		//engine block
 		{"chemEnergy":1000,"burnRate":0.39,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":650,"baseTemp":"thermals","conductionRadius":0.12}
 		{"nodeWeight":12},
 		{"group":["Astral_engine"]},
-		["eg0", -0.312, -1.330, 0.263, {"engineGroup":["engine_block"], "selfCollision":false}],
-		["eg1",  0.126, -1.330, 0.263, {"engineGroup":["engine_block"], "selfCollision":false}],
+		["eg0", -0.312, -1.330, 0.263, {"engineGroup":["engine_block"]}, {"selfCollision":false}],
+		["eg1",  0.126, -1.330, 0.263, {"engineGroup":["engine_block"]}, {"selfCollision":false}],
 		["eg2",  0.126, -1.179, 0.226, {"engineGroup":["engine_block"]}],
 		["eg3", -0.312, -1.179, 0.226, {"engineGroup":["engine_block"]}],
 		["eg4", -0.312, -1.318, 0.615, {"engineGroup":["engine_block", "engine_intake"]}],
@@ -142,7 +143,7 @@
 		["eg7", -0.312, -1.099, 0.587, {"engineGroup":["engine_block"]}],
 		{"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false}
 		//engine mount
-        {"nodeWeight":5},
+        {"nodeWeight":4.5},
 		{"group":""},
 		["em1r", -0.357, -1.225, 0.478, {"selfCollision":false}],
 	],
@@ -184,15 +185,15 @@
 		{"deformGroup":""},
 		//engine mount node
         {"beamSpring":4501000,"beamDamp":150},
-        {"beamDeform":90000,"beamStrength":"FLT_MAX"},
-		["em1l", "eg0"],
-		["em1l", "eg1"],
-		["em1l", "eg2"],
-		["em1l", "eg3"],
-		["em1l", "eg4"],
-		["em1l", "eg5"],
-		["em1l", "eg6"],
-		["em1l", "eg7"],
+        {"beamDeform":80000,"beamStrength":"FLT_MAX"},
+		["em1r", "eg0"],
+		["em1r", "eg1"],
+		["em1r", "eg2"],
+		["em1r", "eg3"],
+		["em1r", "eg4"],
+		["em1r", "eg5"],
+		["em1r", "eg6"],
+		["em1r", "eg7"],
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -407,7 +408,7 @@
 		["combustionEngine", "mainEngine", "dummy", 0]
 	],
 },
-"Astral_engine_1.6_block_BRC": {
+"Astral_block_BRC": {
     "information":{
         "authors":"Un1corn",
         "name":"BRC Engine Block",
@@ -436,7 +437,7 @@
         "$*maxOverTorqueDamage": 2,
     },
 },
-"Astral_engine_1.6_block_Rally2": {
+"Astral_block_Rally2": {
     "information":{
         "authors":"Un1corn",
         "name":"Rally2 Engine Block",
