@@ -31,6 +31,10 @@
 		["type", "name", "inputName", "inputIndex"],
 		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":10, "lsdLockCoef":0.5, "lsdRevLockCoef":0.25, "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.015, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shaft", ["Astral_engine"]],
+    ],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
@@ -40,7 +44,7 @@
 		{"nodeWeight":6},
 		//--Transfer Case--
 		{"group":[""]},
-		["tra", -0.1, -1.222, 0.155],
+		["tra", 0.084, -1.080, 0.196],
 	],
 	"beams": [
 		["id1:", "id2:"],
@@ -94,6 +98,10 @@
             ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.64]
 		]
 	},
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shaft", ["Astral_engine"]],
+    ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
 		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":10, "lsdLockCoef":0.5, "lsdRevLockCoef":0.25, "diffTorqueSplit":0.5, "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.015, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
@@ -107,7 +115,7 @@
 		{"nodeWeight":6},
 		//--Transfer Case--
 		{"group":[""]},
-		["tra", -0.1, -1.222, 0.255],
+		["tra", 0.084, -1.080, 0.196],
 	],
 	"beams": [
 		["id1:", "id2:"],
@@ -150,6 +158,10 @@
 		["type", "name", "inputName", "inputIndex"],
 		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=1-$torquesplit", "friction":0.5, "dynamicFriction":0.0005, "torqueLossCoef": 0.015, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shaft", ["Astral_engine"]],
+    ],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
@@ -199,6 +211,10 @@
 		["type", "name", "inputName", "inputIndex"],
 		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":1, "lockTorque":1250, "friction":1.0, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
 	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shaft", ["Astral_engine"]],
+    ],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
