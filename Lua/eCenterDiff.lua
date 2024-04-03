@@ -145,7 +145,6 @@ local function updateWheelsIntermediate()
     end
   elseif transferType == "Locked" then
     if input.parkingbrake > 0.5 then 
-      transfercase.diffTorqueSplitA
       transfercase.diffTorqueSplitA = 0.5
       transfercase.diffTorqueSplitB = 0
     else
@@ -153,7 +152,7 @@ local function updateWheelsIntermediate()
       transfercase.diffTorqueSplitB = 0.5
     end
   end
-  print(transfercase.diffTorqueSplitA)
+  --print(transfercase.diffTorqueSplitA)
 end
 
 local function init(jbeamData)
