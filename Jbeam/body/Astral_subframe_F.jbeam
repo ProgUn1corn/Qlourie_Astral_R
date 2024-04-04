@@ -40,7 +40,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Subframe--
         //cross member
-        {"nodeWeight":6},
+        {"nodeWeight":6.5},
         {"group":["Astral_arm_F","Astral_sub_F"]},
         ["fx1r", -0.202, -1.42, 0.115, {"selfCollision":false}],
         ["fx1l",  0.202, -1.42, 0.115, {"selfCollision":false}],
@@ -48,7 +48,7 @@
         ["fx2r", -0.202, -1.10, 0.115],
         ["fx2l",  0.202, -1.10, 0.115],
         //additional nodes
-        {"nodeWeight":4.5},
+        {"nodeWeight":5},
         {"group":["Astral_sub_F"]},
         ["fx3r", -0.268, -0.739, 0.125],
         ["fx3l",  0.268, -0.739, 0.125],
@@ -80,7 +80,7 @@
         ["fx2l", "fx1l"],
         ["fx1l", "fx1r"],
         //side subframe
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":150},
         ["fx2r", "fx3r"],
         ["fx3r", "fx3l"],
         ["fx3l", "fx2l"],
@@ -93,7 +93,7 @@
         {"beamDeform":82500,"beamStrength":"FLT_MAX"},
         ["fx1r", "fx2l"],
         ["fx1l", "fx2r"],
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":150},
         ["fx2r", "fx3l"],
         ["fx2l", "fx3r"],
         //mounting point
@@ -112,7 +112,7 @@
         ["fx1r", "fx3r"],
         ["fx1l", "fx3l"],
         //rigidifier
-        {"beamSpring":2501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":150},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
         ["fx1", "fx1l"],
         ["fx1", "fx2l"],
@@ -123,7 +123,7 @@
         ["fx1", "fx3r"],
         ["fx1", "fx4r"],
         //attach to chassis
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":80000,"beamStrength":260000},
         {"breakGroup":"subframeFR"},
         ["fx4r", "a25"],
@@ -137,6 +137,8 @@
         ["fx3r", "chs4r"],
         ["fx3r", "chs4l"],
         ["fx1r", "a16"],
+        ["fx1r", "a21"],
+        ["fx2r", "a20"],
         //*
         {"breakGroup":"subframeFL"},
         ["fx4l", "a26"],
@@ -150,15 +152,16 @@
         ["fx3l", "chs4l"],
         ["fx3l", "chs4r"],
         ["fx1l", "a19"],
+        ["fx1l", "a22"],
+        ["fx2l", "a23"],
         {"breakGroup":""},
 
         //--Steering Rack--
         //steering box
-        {"beamSpring":4501000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["st1r","st1l"],
         //mounting to subframe
-        {"beamSpring":5501000,"beamDamp":150},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
         ["st1r", "fx1r"],
         ["st1r", "fx2r"],
@@ -464,11 +467,11 @@
         {"hubcapGroup":"hubcap_FR"},
         {"axleBeams":["axle_FR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"fh1r", "torqueArm:":"fh2r", "torqueArm2:":"fw1r","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
+        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"fh1r", "torqueArm:":"fh2r", "torqueArm2:":"fw1rr","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
         {"hubcapBreakGroup":"hubcap_FL"},
         {"hubcapGroup":"hubcap_FL"},
         {"axleBeams":["axle_FL"]},
-        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"fh1l", "torqueArm:":"fh2l", "torqueArm2:":"fw1l","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
+        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"fh1l", "torqueArm:":"fh2l", "torqueArm2:":"fw1ll","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},

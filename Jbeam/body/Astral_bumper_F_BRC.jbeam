@@ -38,6 +38,7 @@
 		["fb2l",  0.236, -1.98, 0.358],
 		["fb3r", -0.451, -1.957, 0.265, {"group":["Astral_bumper_F","Astral_diveplane"]}],
 		["fb3l",  0.451, -1.957, 0.265, {"group":["Astral_bumper_F","Astral_diveplane"]}],
+		{"nodeWeight":0.7},
 		{"selfCollision":false},
 		["fb5r", -0.348, -1.98, 0.17],
 		["fb5",  0, -2.0, 0.17],
@@ -48,7 +49,6 @@
 		["fb7l",  0.728, -1.8, 0.17],
 		{"selfCollision":true},
 		//front bumper fender
-		{"nodeWeight":0.7},
 		{"group":["Astral_bumper_F","Astral_diveplane"]},
 		["fbe1r", -0.796, -1.58, 0.619],
 		["fbe1l",  0.796, -1.58, 0.619],
@@ -162,7 +162,7 @@
 		["fbe3r", "fb6r"],
 		["fbe3l", "fb6l"],
 		//rigidifier
-        {"beamSpring":251000,"beamDamp":150},
+        {"beamSpring":301000,"beamDamp":100},
 		{"beamDeform":1500,"beamStrength":"FLT_MAX"},
 		["fbr1r", "fbr1l"],
 		["fbr1r", "fb1"],
@@ -190,7 +190,7 @@
 		["fbr1l", "fbe2l"],
 		["fbr1l", "fbe3l"],
 		//bumper side attach
-		{"beamSpring":401000,"beamDamp":100},
+		{"beamSpring":351000,"beamDamp":100},
         {"beamDeform":3200,"beamStrength":16500},
 		{"breakGroup":"fbr"},
 		["fb4r", "br1r"],
@@ -237,7 +237,7 @@
 		["fb7l", "fe3l"],
 		["fbe3l", "fe6l"],
 		//bump middle attach
-		{"beamSpring":551000,"beamDamp":125},
+		{"beamSpring":451000,"beamDamp":125},
 		{"beamDeform":4500,"beamStrength":19500},
 		{"breakGroup":"fbm"},
 		["fb1r", "a93"],
@@ -421,15 +421,8 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 	"mainEngine":{
-        "radiatorArea":0.32,
-        "radiatorEffectiveness":14000,
-        "coolantVolume":12,
-        "radiatorFanType":"electric",
-        "radiatorFanTemperature":90,
-        "radiatorFanMaxAirSpeed":3.5,
-        "thermostatTemperature":85,
-        "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
-        "radiatorFanVolume": 0.65,
+        "$+radiatorArea":-0.06,
+        "$+radiatorEffectiveness":-3000,
 	}
 },
 "Astral_grille_BRC_vo2": {
@@ -445,15 +438,8 @@
 		["Astral_grille_BRC_vo2", ["Astral_bumper_F"]],
     ],
 	"mainEngine":{
-        "radiatorArea":0.28,
-        "radiatorEffectiveness":12000,
-        "coolantVolume":10,
-        "radiatorFanType":"electric",
-        "radiatorFanTemperature":90,
-        "radiatorFanMaxAirSpeed":3.5,
-        "thermostatTemperature":85,
-        "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
-        "radiatorFanVolume": 0.65,
+        "$+radiatorArea":-0.13,
+        "$+radiatorEffectiveness":-8000,
 	}
 }
 }

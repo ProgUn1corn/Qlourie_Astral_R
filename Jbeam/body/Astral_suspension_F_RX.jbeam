@@ -161,7 +161,7 @@
         ["fh1l","fh3l"],
         ["fh2l","fh1l"],
         ["fh2l","fh3l"],
-        {"beamSpring":6001000,"beamDamp":125},
+        {"beamSpring":5501000,"beamDamp":125},
         ["fh1r","fh5r"],
         ["fh3r","fh5r"],
         ["fh2r","fh5r"],
@@ -259,10 +259,10 @@
         ["fmassl", "fh2l", {"name":"LRS_FL"}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":0,"beamDamp":0},
+        {"beamSpring":500,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["fh2r","fs1r", {"pressurePSI":75,"surface":0.001662,"volumeCoef":1}], //piston diameter 46mm
-        ["fh2l","fs1l", {"pressurePSI":75,"surface":0.001662,"volumeCoef":1}],
+        ["fh2r","fs1r", {"pressurePSI":55,"surface":0.001662,"volumeCoef":1}], //piston diameter 46mm
+        ["fh2l","fs1l", {"pressurePSI":55,"surface":0.001662,"volumeCoef":1}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -277,7 +277,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         ["fh2l","fs1l", {
             "name":"damper_FL", 
@@ -289,7 +289,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         //hydraulic bump stop
         ["fh2r","fs1r", { //valve close
@@ -302,8 +302,8 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.015,
-            "beamLimitSpring":11451,
+            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.015,
+            "beamLimitSpring":8000,
             "beamLimitDamp":9000, 
             "beamLimitDampRebound":10000,
             "dampCutoffHz":250}
@@ -311,7 +311,7 @@
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":150000,
+            "beamLimitSpring":114514,
             "beamLimitDamp":4000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -326,8 +326,8 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.015,
-            "beamLimitSpring":11451,
+            "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.015,
+            "beamLimitSpring":8000,
             "beamLimitDamp":9000, 
             "beamLimitDampRebound":10000,
             "dampCutoffHz":250}
@@ -335,7 +335,7 @@
         ["fh2l","fs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":150000,
+            "beamLimitSpring":114514,
             "beamLimitDamp":4000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -485,7 +485,7 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":6},
+        {"beamSpring":3300,"beamDamp":6},
         ["fhe1r","fcl1r", {"precompressionRange":0.055,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.055,"beamPrecompressionTime":0.1}],
         //helper stopper
@@ -560,7 +560,7 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":6},
+        {"beamSpring":3300,"beamDamp":6},
         ["fhe1r","fcl1r", {"precompressionRange":0.04,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.04,"beamPrecompressionTime":0.1}],
         //helper stopper
@@ -635,7 +635,7 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":6},
+        {"beamSpring":3300,"beamDamp":6},
         ["fhe1r","fcl1r", {"precompressionRange":0.025,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.025,"beamPrecompressionTime":0.1}],
         //helper stopper

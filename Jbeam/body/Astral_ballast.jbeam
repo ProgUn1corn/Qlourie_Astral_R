@@ -1,14 +1,14 @@
 {
-"Astral_ballast_20": {
+"Astral_ballast_15": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"20kg Ballast",
+    	"name":"15kg Ballast/Tools",
     	"value":250,
     },
     "slotType" : "Astral_ballast",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$ballastPos", "range", "F<->R", "Body", 0, -0.3, 0.3, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":-50,"maxDis":50}]
+		["$ballastPos", "range", "Front", "Body", 0, 0, 0.4, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -17,36 +17,43 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":20},
+		{"nodeWeight":7.5},
 		{"group":[""]},
-        ["ballast", 0, "$=0.6+$ballastPos", 0.15],
+        ["ballast1", -0.35, "$=1.58-$ballastPos", 0.35],
+        ["ballast2",  0.35, "$=1.58-$ballastPos", 0.35],
     ],
     "beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":2501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":100},
 		//rear link
-        ["ballast", "a42"],
-        ["ballast", "a41"],
-        ["ballast", "rcm"],
-        ["ballast", "a9"],
-        ["ballast", "a10"], 
-        ["ballast", "a14"],
-        ["ballast", "a13"],    
+        ["ballast1", "a5"],
+        ["ballast1", "a6"],
+        ["ballast1", "a38"],
+        ["ballast1", "chs2r"],
+        ["ballast1", "chs2l"],
+        ["ballast1", "chs1r"],
+        //*
+        ["ballast2", "a6"],
+        ["ballast2", "a5"],
+        ["ballast2", "a37"],
+        ["ballast2", "chs2l"],
+        ["ballast2", "chs2r"],
+        ["ballast2", "chs1l"],
     ],
 },
-"Astral_ballast_10": {
+"Astral_ballast_5": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"10kg Ballast",
+    	"name":"5kg Ballast/Tools",
     	"value":250,
     },
     "slotType" : "Astral_ballast",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$ballastPos", "range", "F<->R", "Body", 0, -0.3, 0.3, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":-50,"maxDis":50}]
+		["$ballastPos", "range", "Front", "Body", 0, 0, 0.4, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -55,24 +62,31 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":10},
+		{"nodeWeight":2.5},
 		{"group":[""]},
-        ["ballast", 0, "$=0.6+$ballastPos", 0.15],
+        ["ballast1", -0.35, "$=1.58-$ballastPos", 0.35],
+        ["ballast2",  0.35, "$=1.58-$ballastPos", 0.35],
     ],
     "beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":2501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":100},
 		//rear link
-        ["ballast", "a42"],
-        ["ballast", "a41"],
-        ["ballast", "rcm"],
-        ["ballast", "a9"],
-        ["ballast", "a10"], 
-        ["ballast", "a14"],
-        ["ballast", "a13"],    
+        ["ballast1", "a5"],
+        ["ballast1", "a6"],
+        ["ballast1", "a38"],
+        ["ballast1", "chs2r"],
+        ["ballast1", "chs2l"],
+        ["ballast1", "chs1r"],
+        //*
+        ["ballast2", "a6"],
+        ["ballast2", "a5"],
+        ["ballast2", "a37"],
+        ["ballast2", "chs2l"],
+        ["ballast2", "chs2r"],
+        ["ballast2", "chs1l"],
     ],
 }
 }
