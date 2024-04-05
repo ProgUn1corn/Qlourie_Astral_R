@@ -20,7 +20,7 @@
         ["eCenterDiff", {"name":"activeCenterDiff"}],
     ],
 	"activeCenterDiff":{
-		"type":"LSD",
+		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
 			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias"]
@@ -41,7 +41,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":true},
-		{"nodeWeight":5},
+		{"nodeWeight":10},
 		//--Transfer Case--
 		{"group":["Astral_transfercase"]},
 		["tra", 0.034, -1.070, 0.197],
@@ -88,7 +88,7 @@
         ["eCenterDiff", {"name":"activeCenterDiff"}],
     ],
 	"activeCenterDiff":{
-		"type":"LSD",
+		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
 			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias"]
@@ -109,7 +109,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":true},
-		{"nodeWeight":5},
+		{"nodeWeight":10},
 		//--Transfer Case--
 		{"group":["Astral_transfercase"]},
 		["tra", 0.034, -1.070, 0.197],
@@ -162,7 +162,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":true},
-		{"nodeWeight":6},
+		{"nodeWeight":9},
 		//--Transfer Case--
 		{"group":["Astral_transfercase"]},
 		["tra", 0.034, -1.070, 0.197],
@@ -190,7 +190,7 @@
 },
 "Astral_differential_center_locked": {
 	"information":{
-		"name":"Locked Transfer Case",
+		"name":"50/50 AWD Transfer Case",
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
@@ -200,7 +200,7 @@
     ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":1, "lockTorque":1250, "friction":1.0, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"Locked Center Diff","defaultVirtualInertia":0.1}],
+		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":1, "defaultClutchRatio":1, "lockTorque":2500, "friction":0.55, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"AWD Transfer Case","defaultVirtualInertia":0.1}],
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -212,7 +212,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":true},
-		{"nodeWeight":5},
+		{"nodeWeight":8},
 		//--Transfer Case--
 		{"group":["Astral_transfercase"]},
 		["tra", 0.034, -1.070, 0.197],
