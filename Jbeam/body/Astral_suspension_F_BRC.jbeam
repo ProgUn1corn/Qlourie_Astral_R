@@ -53,8 +53,8 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.15", "$=clamp(0.24+($dampRate_bump_F_fast-4500)/64000-($dampRate_bump_F-2300)/64000,0.14,0.34)", 1]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.24+($dampRate_bump_F_fast-4500)/64000-($dampRate_bump_F-2300)/64000,0.14,0.34)", 99] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp(0.24+($dampRate_bump_F_fast-4500)/64000-($dampRate_bump_F-2300)/64000,0.14,0.34)", 1]  //normal damping
+            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.24+($dampRate_bump_F_fast-4500)/64000-($dampRate_bump_F-2300)/64000,0.14,0.34)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -221,7 +221,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":14001000,"beamDamp":700},
+        {"beamSpring":12001000,"beamDamp":800},
         ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.00015","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.00015","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
@@ -280,7 +280,7 @@
             "beamDampVelocitySplit":"$=clamp(0.24+($dampRate_bump_F_fast-4500)/64000-($dampRate_bump_F-2300)/64000,0.14,0.34)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
-            "beamDampReboundFast":"$=$dampRate_rebound_F*1.15",
+            "beamDampReboundFast":"$=$dampRate_rebound_F",
             "dampCutoffHz":400}
         ],
         ["fh2l","fs1l", {
@@ -292,7 +292,7 @@
             "beamDampVelocitySplit":"$=clamp(0.24+($dampRate_bump_F_fast-4500)/64000-($dampRate_bump_F-2300)/64000,0.14,0.34)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
-            "beamDampReboundFast":"$=$dampRate_rebound_F*1.15",
+            "beamDampReboundFast":"$=$dampRate_rebound_F",
             "dampCutoffHz":400}
         ],
         //hydraulic bump stop
@@ -309,7 +309,7 @@
             "longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.02,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*1.15",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
@@ -333,7 +333,7 @@
             "longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.02,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*1.15",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
@@ -348,15 +348,33 @@
         ["fh2r","fs1r", {
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             //rebound stop active
-            "beamLimitSpring":65000,
-            "beamLimitDampRebound":6500,
+            "beamLimitSpring":5000,
+            "beamLimitDamp":"$dampRate_bump_F",
+            "beamLimitDampRebound":8000,
+            "dampCutoffHz":250}
+        ],
+        ["fh2r","fs1r", { //hard rebound stop
+            //failsafe protection
+            "longBoundRange":0.025,"shortBoundRange":2,"boundZone":0.01,
+            "beamLimitSpring":114514,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", {
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             //rebound stop active
-            "beamLimitSpring":65000,
-            "beamLimitDampRebound":6500,
+            "beamLimitSpring":5000,
+            "beamLimitDamp":"$dampRate_bump_F",
+            "beamLimitDampRebound":8000,
+            "dampCutoffHz":250}
+        ],
+        ["fh2l","fs1l", { //hard rebound stop
+            //failsafe protection
+            "longBoundRange":0.025,"shortBoundRange":2,"boundZone":0.01,
+            "beamLimitSpring":114514,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         {"beamSpring":0,"beamDamp":0},
@@ -453,7 +471,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 2350, 1000, 4200, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 3500, 6700, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 3800, 7000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-32,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1400, 5880, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 12000, 8000, 12000, "Hydraulic Bump Stop", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
@@ -479,8 +497,8 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.15", "$=clamp(0.48+($dampRate_bump_F_fast-3500)/64000-($dampRate_bump_F-1000)/64000,0.38,0.58)", 1]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.48+($dampRate_bump_F_fast-3500)/64000-($dampRate_bump_F-1000)/64000,0.38,0.58)", 99] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp(0.45+($dampRate_bump_F_fast-3800)/64000-($dampRate_bump_F-1000)/64000,0.35,0.55)", 1]  //normal damping
+            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.45+($dampRate_bump_F_fast-3800)/64000-($dampRate_bump_F-1000)/64000,0.35,0.55)", 1] //LRS active
         ]
     },
     "nodes": [
@@ -647,7 +665,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.3,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":14001000,"beamDamp":700},
+        {"beamSpring":12001000,"beamDamp":800},
         ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
@@ -703,10 +721,10 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.48+($dampRate_bump_F_fast-3500)/64000-($dampRate_bump_F-1000)/64000,0.38,0.58)",
+            "beamDampVelocitySplit":"$=clamp(0.45+($dampRate_bump_F_fast-3800)/64000-($dampRate_bump_F-1000)/64000,0.35,0.55)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
-            "beamDampReboundFast":"$=$dampRate_rebound_F*1.15",
+            "beamDampReboundFast":"$=$dampRate_rebound_F",
             "dampCutoffHz":400}
         ],
         ["fh2l","fs1l", {
@@ -715,10 +733,10 @@
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.48+($dampRate_bump_F_fast-3500)/64000-($dampRate_bump_F-1000)/64000,0.38,0.58)",
+            "beamDampVelocitySplit":"$=clamp(0.45+($dampRate_bump_F_fast-3800)/64000-($dampRate_bump_F-1000)/64000,0.35,0.55)",
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
-            "beamDampReboundFast":"$=$dampRate_rebound_F*1.15",
+            "beamDampReboundFast":"$=$dampRate_rebound_F",
             "dampCutoffHz":400}
         ],
         //hydraulic bump stop
@@ -735,7 +753,7 @@
             "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.025,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*1.15",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
@@ -759,7 +777,7 @@
             "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.025,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*1.15",
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", { //hard bump stop
@@ -772,17 +790,35 @@
         ],
         //hydraulic rebound stop
         ["fh2r","fs1r", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.025,
             //rebound stop active
-            "beamLimitSpring":65000,
-            "beamLimitDampRebound":6500,
+            "beamLimitSpring":5000,
+            "beamLimitDamp":"$dampRate_bump_F",
+            "beamLimitDampRebound":8000,
+            "dampCutoffHz":250}
+        ],
+        ["fh2r","fs1r", { //hard rebound stop
+            //failsafe protection
+            "longBoundRange":0.025,"shortBoundRange":2,"boundZone":0.01,
+            "beamLimitSpring":114514,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.025,
             //rebound stop active
-            "beamLimitSpring":65000,
-            "beamLimitDampRebound":6500,
+            "beamLimitSpring":5000,
+            "beamLimitDamp":"$dampRate_bump_F",
+            "beamLimitDampRebound":8000,
+            "dampCutoffHz":250}
+        ],
+        ["fh2l","fs1l", { //hard rebound stop
+            //failsafe protection
+            "longBoundRange":0.025,"shortBoundRange":2,"boundZone":0.01,
+            "beamLimitSpring":114514,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         {"beamSpring":0,"beamDamp":0},

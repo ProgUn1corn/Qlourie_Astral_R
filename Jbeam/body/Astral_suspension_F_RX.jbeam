@@ -217,7 +217,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":14001000,"beamDamp":700},
+        {"beamSpring":12001000,"beamDamp":800},
         ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0055","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0055","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
@@ -304,8 +304,8 @@
             //bump stop active
             "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.02,
             "beamLimitSpring":8000,
-            "beamLimitDamp":10000, 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F",
+            "beamLimitDamp":12000, 
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*1.15",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
@@ -328,8 +328,8 @@
             //bump stop active
             "longBoundRange":1,"shortBoundRange":0.235,"boundZone":0.02,
             "beamLimitSpring":8000,
-            "beamLimitDamp":10000, 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F",
+            "beamLimitDamp":12000, 
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*1.15",
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", { //hard bump stop
@@ -342,16 +342,18 @@
         ],
         //hard rebound stop
         ["fh2r","fs1r", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.015,
             //rebound stop active
             "beamLimitSpring":114514,
+            "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.015,
             //rebound stop active
             "beamLimitSpring":114514,
+            "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
