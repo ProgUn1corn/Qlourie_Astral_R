@@ -148,8 +148,8 @@
         //arm mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
-        ["rx5r", "arb_RR2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"],
-        ["rx5l", "arb_RL2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"]
+        ["rx5r", "arb_RR2", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
+        ["rx5l", "arb_RL2", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:", "id2:"]
@@ -223,8 +223,13 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":600},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":800}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":800}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        {"beamSpring":10001000,"beamDamp":500},
+        ["rx5r","rx2r", {"dampCutoffHz":500}],
+        ["rx5l","rx2l", {"dampCutoffHz":500}],
+        ["rx5r","rx1r", {"dampCutoffHz":500}],
+        ["rx5l","rx1l", {"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -232,13 +237,6 @@
         ["rarb3l","rx2l", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
         ["rarb3r","rh1r", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         ["rarb3l","rh1l", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
-        //toe link mount point
-        {"beamSpring":3501000,"beamDamp":150},
-        {"beamDeform":95000,"beamStrength":"FLT_MAX"},
-        ["rx5r","rx2r"],
-        ["rx5l","rx2l"],
-        ["rx5r","rx1r"],
-        ["rx5l","rx1l"],
         //zip tie
         {"beamSpring":500,"beamDamp":5},
         {"beamDeform":500,"beamStrength":1000},
@@ -308,15 +306,15 @@
             "pitchFactor":2.5,
             "maxStress":500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.165,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.02,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_R", 
-            "beamLimitDampRebound":"$=$dampRate_stop_R*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_R",
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.205,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.20,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -332,15 +330,15 @@
             "pitchFactor":2.5,
             "maxStress":500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.165,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.02,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_R", 
-            "beamLimitDampRebound":"$=$dampRate_stop_R*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_R",
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.205,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.20,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -567,8 +565,8 @@
         //arm mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 6501000, "FLT_MAX", "FLT_MAX"],
-        ["rx5r", "arb_RR2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"],
-        ["rx5l", "arb_RL2", true, true, 0.0, 8501000, "FLT_MAX", "FLT_MAX"]
+        ["rx5r", "arb_RR2", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
+        ["rx5l", "arb_RL2", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:", "id2:"]
@@ -642,8 +640,13 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":600},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0014","beamPrecompressionTime":0.1,"dampCutoffHz":800}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0014","beamPrecompressionTime":0.1,"dampCutoffHz":800}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0014","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0014","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        {"beamSpring":10001000,"beamDamp":500},
+        ["rx5r","rx2r", {"dampCutoffHz":500}],
+        ["rx5l","rx2l", {"dampCutoffHz":500}],
+        ["rx5r","rx1r", {"dampCutoffHz":500}],
+        ["rx5l","rx1l", {"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -651,13 +654,6 @@
         ["rarb3l","rx2l", {"precompressionRange":"$=-$arb_point_R","beamPrecompressionTime":0.1}],
         ["rarb3r","rh1r", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         ["rarb3l","rh1l", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
-        //toe link mount point
-        {"beamSpring":3501000,"beamDamp":150},
-        {"beamDeform":95000,"beamStrength":"FLT_MAX"},
-        ["rx5r","rx2r"],
-        ["rx5l","rx2l"],
-        ["rx5r","rx1r"],
-        ["rx5l","rx1l"],
         //zip tie
         {"beamSpring":500,"beamDamp":5},
         {"beamDeform":500,"beamStrength":1000},
@@ -727,15 +723,15 @@
             "pitchFactor":2.5,
             "maxStress":50
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.025,
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.025,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_R", 
-            "beamLimitDampRebound":"$=$dampRate_stop_R*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_R",
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.32,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.31,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -751,15 +747,15 @@
             "pitchFactor":2.5,
             "maxStress":50
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.025,
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.025,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_R", 
-            "beamLimitDampRebound":"$=$dampRate_stop_R*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_R",
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.32,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.31,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,

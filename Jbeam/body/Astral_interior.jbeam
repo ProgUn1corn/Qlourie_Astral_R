@@ -10,6 +10,7 @@
 		["type", "default", "description"],
 		["Astral_seat", "Astral_seat", "Driver and Seat"],
 		["Astral_pedal", "Astral_pedal", "Pedal"],
+		["Astral_onboard", "Astral_onboard", "Onboard Camera"],
 		["Astral_handbrake", "Astral_handbrake", "Handbrake"],
 		["Astral_strwheel", "Astral_strwheel_BRC", "Steering Wheel", {"coreSlot":true}],
 		["Astral_shifter", "Astral_shifter_paddle", "Shifter"],
@@ -20,7 +21,7 @@
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_interior", ["Astral_carbody","Astral_dash"]],
+		["Astral_interior", ["Astral_carbody","Astral_chassis_F", "Astral_dash"]],
 		["Astral_ECU", ["Astral_chassis_F"]],
     ],
 	"soundscape": [
@@ -44,10 +45,18 @@
         {"nodeMaterial":"|NM_METAL"},
 		//--Dashboard for Wheel--
 		{"group":["Astral_dash"]},
-		{"nodeWeight":1},
+		{"nodeWeight":0.75},
 		["dsh1", 0.368, -0.471224, 0.7936],
 		["dsh2", 0.368, -0.551224, 0.78055],
 		["dsh3", 0.459824, -0.471224, 0.7936],
+		//cable
+		{"nodeWeight":0.05},
+		{"group":["Astral_cable"]},
+		["cab1", 0.443, -0.533, 0.749],
+		["cab2", 0.441, -0.412, 0.760],
+		["cab3", 0.406, -0.271, 0.807],
+		{"nodeWeight":0.1},
+		["cabr", 0.421, -0.401, 0.851],
 		{"collision":true},
 		{"selfCollision":true},
 		{"group":[""]}
@@ -59,12 +68,11 @@
 		//--Dash for Steering Wheel--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//dash nodes
-		{"beamSpring":851000,"beamDamp":80},
+		{"beamSpring":851000,"beamDamp":60},
 		["dsh1", "dsh2"],
 		["dsh2", "dsh3"],
 		["dsh3", "dsh1"],
 		//mount to rollcage
-		{"beamSpring":651000,"beamDamp":125},
 		["dsh1", "rc6l"],
 		["dsh2", "rc6l"],
 		["dsh3", "rc6l"],
@@ -91,15 +99,64 @@
 		["dsh3", "d3l"],
 		["dsh3", "a54"],
 		["dsh3", "a82"],
+		//cable
+		{"beamSpring":500,"beamDamp":5},
+		["cab1", "cab2"],
+		["cab2", "cab3"],
+		["cab1", "cab3"],
+		//cable flexbody
+		{"beamSpring":500,"beamDamp":5},
+		["cabr", "cab1"],
+		["cabr", "cab2"],
+		["cabr", "cab3"],
+		//cable mount
+		{"beamSpring":500,"beamDamp":5},
+		["cabr", "dsh1"],
+		["cabr", "dsh2"],
+		["cabr", "dsh3"],
+		["cab1", "a87"],
+		["cab1", "a86"],
+		["cab1", "a83"],
+		["cab1", "a82"],
+		["cab1", "a54"],
+		{"beamSpring":100,"beamDamp":1},
+		["cab2", "a23"],
+		["cab2", "a22"],
+		{"beamSpring":500,"beamDamp":5},
+		["cab3", "a87"],
+		["cab3", "a83"],
+		["cab3", "a82"],
+		["cab3", "a15"],
+		["cab3", "a14"],
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ]
 },
+"Astral_onboard":{
+	"information":{
+        "authors":"Un1corn",
+        "name":"Onboard Camera",
+        "value":320
+	},
+	"slotType" : "Astral_onboard",
+	"camerasInternal":[
+        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+		{"nodeWeight":0.4},
+        {"selfCollision":false},
+        {"collision":false},
+        {"beamDeform":5001000},
+        {"beamStrength":"FLT_MAX"},
+		{"beamSpring":551000},
+        {"beamDamp":70},
+		["onboard1", -0.465, -0.65, 0.98, 55, "a53","a54","a80","a81","a17","a84"]
+		["onboard2", -0.055, -0.458, 1.129, 50, "a53","a54","a80","a83","a85","a86"]
+    ],
+},
 "Astral_seat":{
 	"information":{
         "authors":"Un1corn",
-        "name":"Driver and Spare Parts",
+        "name":"Driver",
         "value":320
 	},
 	"slotType" : "Astral_seat",
@@ -115,7 +172,7 @@
 	],
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-		{"nodeWeight":1},
+		{"nodeWeight":2},
         {"selfCollision":false},
         {"collision":false},
         {"beamDeform":5001000},
@@ -123,12 +180,6 @@
 		{"beamSpring":1201000},
         {"beamDamp":250},
 		["neardash", 0.368, -0.65, 0.98, 68, "a53","a54","a83","a82","a17","a19"],
-		{"beamSpring":551000},
-        {"beamDamp":150},
-		["onboard1", -0.465, -0.65, 0.98, 55, "a53","a54","a80","a81","a17","a84"]
-		{"beamSpring":351000},
-        {"beamDamp":50},
-		["onboard2", -0.055, -0.458, 1.129, 50, "a53","a54","a80","a83","a12","a13"]
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -138,9 +189,15 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":75},
+        {"nodeWeight":60},
 		{"group":["Astral_seat"]},
-		["a50",  0.378, 0.2, 0.421],
+		["a50",  0.368, 0.2, 0.421],
+		{"nodeWeight":15},
+		["driverref",  0.368, 0.2, 0.555],
+		//weight added by copilot slot
+		{"nodeWeight":5},
+		["a49", -0.368, 0.2, 0.421],
+		["coref", -0.368, 0.2, 0.555],
 		{"group":[""]},
 		{"selfCollision":true},
 	],
@@ -162,11 +219,30 @@
 		["a50", "rc4l"],
 		["a50", "rc5l"],
 		["a50", "rc6l"],
-		//tools
-		["tools1", "a37"],
-		["tools1", "a38"],
-		["tools1", "a41"],
-		["tools1", "a42"],
+		//copilot seat
+		{"beamSpring":2501000,"beamDamp":350},
+		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
+		["a49", "a12"],
+		["a49", "a13"],
+		["a49", "a16"],
+		["a49", "a17"],
+		["a49", "a44"],
+		["a49", "rc3r"],
+		["a49", "rc4r"],
+		["a49", "rc5r"],
+		["a49", "rc6r"],
+		//refnode
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		["driverref", "a15"],
+		["driverref", "a14"],
+		["driverref", "a19"],
+		["driverref", "a18"],
+		["driverref", "a54"],
+		["coref", "a12"],
+		["coref", "a13"],
+		["coref", "a16"],
+		["coref", "a17"],
+		["coref", "a53"],
 	]
 },
 "Astral_copilot":{
@@ -180,6 +256,7 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_copilotseat", ["Astral_copilot","Astral_chassis"]],
 		["Astral_copilot", ["Astral_copilot","Astral_chassis"]],
+		["Astral_book", ["Astral_copilot","Astral_chassis"]],
 		["Astral_foot", ["Astral_chassis"]],
 	],
 	"camerasInternal":[
@@ -201,31 +278,14 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":75},
+        {"nodeWeight":60},
 		{"group":["Astral_copilot"]},
-		["a49", -0.378, 0.2, 0.421],
+		["a49", -0.368, 0.2, 0.421],
+		{"nodeWeight":15},
+		["coref", -0.368, 0.2, 0.555],
 		{"selfCollision":true},
 		{"group":[""]} 
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-		{"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Seat--
-		//connect to chassis
-		{"beamSpring":2501000,"beamDamp":350},
-		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
-		["a49", "a12"],
-		["a49", "a13"],
-		["a49", "a16"],
-		["a49", "a17"],
-		["a49", "a44"],
-		//rollcage
-		["a49", "rc3r"],
-		["a49", "rc4r"],
-		["a49", "rc5r"],
-		["a49", "rc6r"],
-	]
 },
 "Astral_driver":{
 	"information":{
@@ -253,7 +313,12 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//hands
-        ["steering", "Astral_hands", "dsh1","dsh3","dsh2", {"x":90, "y":180 "z":180}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -270, 270, 0, 1, {"baseTranslation":{"x":0, "y":-0.78, "z":0}}]
+		["steering", "Astral_arm_L_s", "a50","a49","driverref", {"x":195, "y":180 "z":-8.5}, {"x": 5, "y":-1, "z":0}, {"x":0, "y":-0.1, "z":-0.005}, -6, 1.5, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.073}}]
+        ["steering", "Astral_arm_L_u", "a50","a49","driverref", {"x":188, "y":180 "z":-12}, {"x": 8, "y":-2, "z":0}, {"x":0.007, "y":-0.1, "z":-0.02}, -6, 1, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.103}}]
+		["steering", "Astral_arm_L_b", "dsh1","dsh3","dsh2", {"x":114.514, "y":0 "z":190}, {"x":-5, "y":-10, "z":5}, {"x":0.04, "y":0.08, "z":-0.01}, -6, 1.5, 0, 0.1, {"baseTranslation":{"x":0.025, "y":-0.255, "z":-0.05}}]
+		["steering", "Astral_arm_R_s", "a50","a49","driverref", {"x":195, "y":180 "z":8.5}, {"x":-5, "y":-1, "z":0}, {"x":0, "y":0.1, "z":0.005}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.073}}]
+        ["steering", "Astral_arm_R_u", "a50","a49","driverref", {"x":188, "y":180 "z":12}, {"x":-8, "y":-2, "z":0}, {"x":0.007, "y":0.1, "z":0.02}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.103}}]
+		["steering", "Astral_arm_R_b", "dsh1","dsh3","dsh2", {"x":114.514, "y":0 "z":170}, {"x": 5, "y":-10, "z":5}, {"x":0.04, "y":-0.08, "z":0.01}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0.025, "y":-0.255, "z":-0.05}}]
 	]
 },
 "Astral_pedal":{
@@ -355,7 +420,7 @@
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"nodeWeight":1},
+        {"nodeWeight":2},
         {"selfCollision":false},
         {"collision":false},
         {"beamDeform":5001000},
@@ -383,7 +448,7 @@
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"nodeWeight":1},
+        {"nodeWeight":2},
         {"selfCollision":false},
         {"collision":false},
         {"beamDeform":5001000},
@@ -406,7 +471,7 @@
 	],
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"nodeWeight":1},
+        {"nodeWeight":2},
         {"selfCollision":false},
         {"collision":false},
         {"beamDeform":5001000},
@@ -736,7 +801,7 @@
         ["Astral_gauge_BRC", ["Astral_dash"]],
 		["Astral_shiftlight_BRC", ["Astral_dash"]],
 		["Astral_shiftlight", ["Astral_dash"]],
-		["Astral_cable", ["Astral_dash"]]
+		["Astral_cable", ["Astral_cable"]]
 	],
 	"controller": [
         ["fileName"],
@@ -910,7 +975,7 @@
         ["Astral_gauge_Rally2", ["Astral_dash"]],
 		["Astral_shiftlight_Rally2", ["Astral_dash"]],
 		["Astral_shiftlight", ["Astral_dash"]],
-		["Astral_cable", ["Astral_dash"]]
+		["Astral_cable", ["Astral_cable"]]
 	],
 	"controller": [
         ["fileName"],
@@ -1086,7 +1151,7 @@
 		["Astral_brakelight_RX", ["Astral_chassis"]],
 		["Astral_rearmirror", ["Astral_carbody"]],
 		["Astral_shiftlight", ["Astral_dash"]],
-		["Astral_cable", ["Astral_dash"]]
+		["Astral_cable", ["Astral_cable"]]
 	],
 	"controller": [
         ["fileName"],

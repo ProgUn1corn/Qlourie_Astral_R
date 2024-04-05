@@ -222,8 +222,8 @@
 
         //tie rods
         {"beamSpring":14001000,"beamDamp":700},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.00015","beamPrecompressionTime":0.3, "dampCutoffHz":800}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.00015","beamPrecompressionTime":0.3, "dampCutoffHz":800}],
+        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.00015","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
+        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.00015","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -306,21 +306,20 @@
             "pitchFactor":2.5,
             "maxStress":500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.165,"boundZone":0.02,
+            "longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.02,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_stop_F*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.205,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.20,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
-        //hydraulic bump stop
         ["fh2l","fs1l", { //valve close
             "name":"bumpstop_FL", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
@@ -331,15 +330,15 @@
             "pitchFactor":2.5,
             "maxStress":500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.165,"boundZone":0.02,
+            "longBoundRange":1,"shortBoundRange":0.16,"boundZone":0.02,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_stop_F*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.205,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.20,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -649,8 +648,8 @@
 
         //tie rods
         {"beamSpring":14001000,"beamDamp":700},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":800}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":800}],
+        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
+        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -733,15 +732,15 @@
             "pitchFactor":2.5,
             "maxStress":50
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.025,
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.025,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_stop_F*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.32,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.31,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -757,15 +756,15 @@
             "pitchFactor":2.5,
             "maxStress":50
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.025,
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.025,
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_stop_F*1.15",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F",
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.32,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.31,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
