@@ -44,7 +44,7 @@ function printTable(t, indent)
 end
 
 local function updateWheelsIntermediate()
-  if transferType == "LSD" then 
+  if transferType == "Active" then 
     --get input value
     throttle = electrics.values['throttle_input'] or 0
     brake = electrics.values['brake_input'] or 0
@@ -133,7 +133,7 @@ local function updateWheelsIntermediate()
     if input.parkingbrake > 0.5 then 
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
-      transfercase.diffTorqueSplitA = rearBias
+      transfercase.diffTorqueSplitA = 1 - rearBias
       transfercase.diffTorqueSplitB = 0
       transfercase.lsdPreload = 0
     else
@@ -141,7 +141,7 @@ local function updateWheelsIntermediate()
       transfercase.lsdRevLockCoef = transfercase.lsdLockCoef 
       transfercase.diffTorqueSplitA = 1- rearBias
       transfercase.diffTorqueSplitB = rearBias
-      transfercase.lsdPreload = 10
+      transfercase.lsdPreload = 0
     end
   elseif transferType == "Locked" then
     if input.parkingbrake > 0.5 then 
@@ -160,7 +160,7 @@ local function init(jbeamData)
   transferType = jbeamData.type or 0
   
   --get tuning data
-  if transfercase and transferType == "LSD" then 
+  if transfercase and transferType == "Active" then 
     lockMap = tableFromHeaderTable(jbeamData.lockMap or {})
     minLockCoef = lockMap[1].minLock
     steerRatio = lockMap[1].steerRatio
@@ -171,7 +171,7 @@ local function init(jbeamData)
     rearBias = lockMap[1].rearBias
   end
   
-  printTable(lockMap)
+  --printTable(lockMap)
   M.updateWheelsIntermediate = updateWheelsIntermediate
   M.updateGFX = updateGFX
 end
