@@ -31,6 +31,7 @@
         ["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6600, 3900, 6700, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3650, 4100, 8580, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
+        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.04, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -140,6 +141,8 @@
         //string collar
         ["rcl1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         //mass
         ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
@@ -221,8 +224,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":800},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.0002","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.0002","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         {"beamSpring":10001000,"beamDamp":500},
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
@@ -268,8 +271,8 @@
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":100,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["rh2r","rs1r", {"pressurePSI":105,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
-        ["rh2l","rs1l", {"pressurePSI":105,"surface":0.001662,"volumeCoef":0}],
+        ["rh2r","rs1r", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
+        ["rh2l","rs1l", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -434,6 +437,7 @@
         ["$dampRate_bump_R_fast", "range", "Click", "Suspension", 4800, 2700, 5500, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 2350, 1400, 5320, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
+        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.05, 0.0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -543,6 +547,8 @@
         //string collar
         ["rcl1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         //mass
         ["rmassr", "strut_RR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
@@ -671,8 +677,8 @@
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":100,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["rh2r","rs1r", {"pressurePSI":105,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
-        ["rh2l","rs1l", {"pressurePSI":105,"surface":0.001662,"volumeCoef":0}],
+        ["rh2r","rs1r", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
+        ["rh2l","rs1l", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -826,10 +832,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_tarmac",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.03, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -845,12 +847,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -901,10 +897,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_tarmac",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.035, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -920,12 +912,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -976,10 +962,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_tarmac",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.04, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -995,12 +977,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1051,10 +1027,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_tarmac",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.045, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1070,12 +1042,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1126,10 +1092,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_tarmac",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.05, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1145,12 +1107,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1201,10 +1157,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_gravel",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1220,12 +1172,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1276,10 +1222,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_gravel",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.015, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1295,12 +1237,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1351,10 +1287,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_gravel",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.035, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1370,12 +1302,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1426,10 +1352,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_gravel",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.05, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1445,12 +1367,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1501,10 +1417,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_gravel",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.06, 0.0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1520,12 +1432,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -1576,10 +1482,6 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_Rally2_gravel",
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.065, 0.0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
-    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -1595,12 +1497,6 @@
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
-    ],
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        //helper spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
