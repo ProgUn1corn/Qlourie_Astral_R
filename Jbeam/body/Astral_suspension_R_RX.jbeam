@@ -248,10 +248,6 @@
         //--Damper--
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamDeform":155000,"beamStrength":205000},
-        //strut platform height (preload)
-        {"beamSpring":1501000,"beamDamp":50},
-        ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.1}],
-        ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.1}],
         //detection mass
         {"beamSpring":0,"beamDamp":5},
         ["rmassr", "rh1r"],
@@ -259,12 +255,21 @@
         {"beamSpring":75,"beamDamp":5},
         ["rmassr", "rh2r", {"name":"LRS_RR"}],
         ["rmassl", "rh2l", {"name":"LRS_RL"}],
+        //strut platform height (preload)
+        {"beamSpring":1201000,"beamDamp":50},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["rcl1r", "rh2r"],
+        ["rcl1l", "rh2l"],
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":50},
+        ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear*2","beamPrecompressionTime":0.3}],
+        ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear*2","beamPrecompressionTime":0.3}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":500,"beamDamp":0},
+        {"beamSpring":100,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["rh2r","rs1r", {"pressurePSI":55,"surface":0.001662,"volumeCoef":1}], //piston diameter 46mm
-        ["rh2l","rs1l", {"pressurePSI":55,"surface":0.001662,"volumeCoef":1}],
+        ["rh2r","rs1r", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
+        ["rh2l","rs1l", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},

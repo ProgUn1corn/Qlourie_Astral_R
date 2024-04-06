@@ -245,11 +245,6 @@
         ["fs1l", "rc1l"],
         {"breakGroup":""}
         {"optional":false}
-        //strut platform height (preload)
-        {"beamSpring":1501000,"beamDamp":50},
-        {"beamDeform":155000,"beamStrength":205000},
-        ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
-        ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.3}],
         //detection mass
         {"beamSpring":0,"beamDamp":5},
         ["fmassr", "fh1r"],
@@ -257,12 +252,21 @@
         {"beamSpring":75,"beamDamp":5},
         ["fmassr", "fh2r", {"name":"LRS_FR"}],
         ["fmassl", "fh2l", {"name":"LRS_FL"}],
+        //strut platform height (preload)
+        {"beamSpring":1201000,"beamDamp":50},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fcl1r", "fh2r"],
+        ["fcl1l", "fh2l"],
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":50},
+        ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront*2","beamPrecompressionTime":0.3}],
+        ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront*2","beamPrecompressionTime":0.3}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":500,"beamDamp":0},
+        {"beamSpring":100,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["fh2r","fs1r", {"pressurePSI":55,"surface":0.001662,"volumeCoef":1}], //piston diameter 46mm
-        ["fh2l","fs1l", {"pressurePSI":55,"surface":0.001662,"volumeCoef":1}],
+        ["fh2r","fs1r", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
+        ["fh2l","fs1l", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},

@@ -451,11 +451,11 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$bump", "range", "N/m/s", "Debug", 2350, 0, 3000, "LS Bump", "1", {"stepDis":50, "subCategory":"Damper"}],
-		["$bump_fast", "range", "N/m/s", "Debug", 5600, 0, 8000, "HS Bump", "2", {"stepDis":50, "subCategory":"Damper"}],
-        ["$rebound", "range", "N/m/s", "Debug", 2350, 0, 5000, "Rebound", "3", {"stepDis":50, "subCategory":"Damper"}],
-		["$spring", "range", "N/mm", "Debug", 22500, 0, 35000, "Spring", "1", {"stepDis":2500, "subCategory":"Spring"}],
-        ["$comp", "range", "m", "Debug", 0, -0.1, 0.1, "Preload", "1", {"stepDis":0.005, "subCategory":"Spring"}],
+		["$bump", "range", "N/m/s", "Debug", 2350, 0, 10000, "LS Bump", "1", {"stepDis":50, "subCategory":"Damper"}],
+		["$bump_fast", "range", "N/m/s", "Debug", 5600, 0, 10000, "HS Bump", "2", {"stepDis":50, "subCategory":"Damper"}],
+        ["$rebound", "range", "N/m/s", "Debug", 2350, 0, 10000, "Rebound", "3", {"stepDis":50, "subCategory":"Damper"}],
+		["$spring", "range", "N/mm", "Debug", 22500, 0, 35000, "Spring", "1", {"stepDis":100, "subCategory":"Spring"}],
+        ["$helper", "range", "N/mm", "Debug", 22500, 0, 10000, "Helper", "1", {"stepDis":100, "subCategory":"Helper"}],
     ],
 	"slotType" : "Astral_damper",
 	"nodes": [
@@ -482,11 +482,13 @@
         //--Strut--
         //damper
         {"group":[""]},
+        {"nodeWeight":6},
+        ["ds1", 0, 0, 0.915],
         {"nodeWeight":2},
-        ["ds1", 0, 0, 0.815],
-        {"nodeWeight":1.5},
-        ["db1", 0, 0, 0.15, {"selfCollision":false}],
-        ["dm1", 0, 0, "$=$comp+0.371"],
+        ["db1", 0, 0, 0.115, {"selfCollision":false}],
+        ["dc1", 0, 0, 0.315, {"selfCollision":false}],
+        ["dh1", 0, 0, 0.425],
+        ["dm1", 0, 0, 0.305],
         {"collision":true},
         {"selfCollision":true}
     ],
@@ -497,7 +499,9 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["dm1", "damper", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
+        ["dm1", "damper", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["dh1", "damper", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["dc1", "damper", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -533,7 +537,7 @@
         ["dbs2r","db2l"],
         ["dbs2l","db2r"],
         //damper mount to base
-        {"beamSpring":2501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":125},
         ["db1","db1r"],
         ["db1","db2r"],
         ["db1","db1l"],
@@ -542,27 +546,47 @@
         ["dm1","dbs2r"],
         ["dm1","dbs1l"],
         ["dm1","dbs2l"],
+        //alternative mount
+        //["ds1","db1r"],
+        //["ds1","db2r"],
+        //["ds1","db1l"],
+        //["ds1","db2l"],
+        //["ds1","dbs1r"],
+        //["ds1","dbs2r"],
+        //["ds1","dbs1l"],
+        //["ds1","dbs2l"],
         //strut platform body
         {"beamSpring":1501000,"beamDamp":150},
         ["db1","dm1"]
 
         //--Spring--
-        //main spring
+        //spring
         {"beamSpring":0,"beamDamp":0},
         {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
-        ["ds1","dm1", {
+        ["ds1","dh1", {
             "name":"mainspring",
             "beamSpring":"$spring","beamDamp":10,
-            "precompressionRange":"$comp",
             "beamPrecompressionTime":1}
         ],
+        ["dh1","dc1", {
+            "name":"helperspring",
+            "beamSpring":"$helper","beamDamp":10,
+            "precompressionRange":0.090
+            "beamPrecompressionTime":1}
+        ],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":50},
+        ["dh1","dc1", {"precompressionRange":-0.080,"beamPrecompressionTime":0.3}],
+        ["dc1","db1", {"precompressionRange":0.1,"beamPrecompressionTime":0.3}],
+        
 
         //--Damper Physics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":0,"beamDamp":0},
+        {"beamSpring":100,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["ds1","dm1", {"pressurePSI":75,"surface":0.001662,"volumeCoef":1}],
+        ["ds1","dm1", {"pressurePSI":125,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
         //travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -588,6 +612,7 @@
             "beamDampReboundFast":"$rebound"
             "dampCutoffHz":500}
         ],
+        
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
