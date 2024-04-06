@@ -34,7 +34,7 @@
 		{"nodeWeight":3.5},
 		["ugr",  0, 0, 0.45, {"selfCollision":false}]
 		//arm guard
-		{"frictionCoef":0.1},
+		{"frictionCoef":0.35},
         {"nodeWeight":0.05},
         {"group":["Astral_rarmg"]},
         ["rarmg1r", -0.587, 0.661,  0.085, {"selfCollision":false, "nodeWeight":0.8}],
@@ -142,36 +142,41 @@
 		
 		//--Arm guard--
         //arm guard shape
-        {"beamSpring":800,"beamDamp":5},
-        {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+        {"beamSpring":500,"beamDamp":1},
+        {"beamDeform":200,"beamStrength":250},
+		{"breakGroup":"rearguard_R"},
         ["rarmg1r","rarmg2r"],
 		["rarmg2r","rarmg3r"],
         ["rarmg1r","rg1r"],
         ["rarmg3r","rg2r"],
         //*
+		{"breakGroup":"rearguard_L"},
         ["rarmg1l","rarmg2l"],
 		["rarmg2l","rarmg3l"],
         ["rarmg1l","rg1l"],
         ["rarmg3l","rg2l"],
         //arm guard crossing
-		{"beamDeform":18000},
+		{"breakGroup":"rearguard_R"},
         ["rarmg1r","rg2r"],
         ["rarmg3r","rg1r"],
 		["rarmg2r","rg2r"],
         ["rarmg2r","rg1r"],
         //*
+		{"breakGroup":"rearguard_L"},
         ["rarmg1l","rg2l"],
         ["rarmg3l","rg1l"],
 		["rarmg2l","rg2l"],
         ["rarmg2l","rg1l"],
 		//arm guard rigid
-		{"beamDeform":12000},
+		{"breakGroup":"rearguard_R"},
 		["rarmg1r","rarmg3r"],
         //*
+		{"breakGroup":"rearguard_L"},
         ["rarmg1l","rarmg3l"],
+		{"breakGroup":""},
 		//attach to under guard
 		{"beamSpring":851000,"beamDamp":20},
-		{"breakGroup":"rearguard_R"},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		["ugr","rarmg1r"],
 		["rarmg1r","a41"],
 		["rarmg1r","a9"],
@@ -179,7 +184,6 @@
 		["rarmg1r","a12"],
 		["rarmg1r","a13"],
 		//*
-		{"breakGroup":"rearguard_L"},
 		["ugr","rarmg1l"],
 		["rarmg1l","a42"],
 		["rarmg1l","a10"],
@@ -195,7 +199,7 @@
 		["id1:", "id2:", "id3:"], 
 		{"groundModel":"metal"},
 		//--Center Undertray--
-		{"dragCoef":3},
+		{"dragCoef":5},
 		{"liftCoef":0, "stallAngle":0}
 		["rg2r", "rg2l", "rg1r"],
 		["rg2l", "rg1l", "rg1r"],
