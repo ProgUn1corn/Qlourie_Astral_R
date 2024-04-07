@@ -796,6 +796,11 @@
         "value":320
 	},
 	"slotType" : "Astral_gauge",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$shiftRPMoffset", "range", "RPM", "Engine", 1500, 0, 5000, "Shift Light RPM Offset", "The amount of RPM offset from max RPM.", {"stepDis":50, "subCategory":"ECU"}],
+		["$shiftRPMrange", "range", "RPM", "Engine", 1000, 0, 3000, "Shift Light RPM Range", "The amount of RPM across the shift light.", {"stepDis":50, "subCategory":"ECU"}],
+    ],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_gauge_BRC", ["Astral_dash"]],
@@ -948,8 +953,8 @@
     },
 	"shiftLights": {
         "engineName":"mainEngine",
-        "maxEngineRPMOffset": 1250,
-        "rpmRange": 1000,
+        "maxEngineRPMOffset": "$shiftRPMoffset",
+        "rpmRange": "$shiftRPMrange",
         "keepLEDsActive": true,
         "hasStallWarning": false,
         "outputElectrics": ["led0", "led1", "led2",],
@@ -970,6 +975,11 @@
         "value":320
 	},
 	"slotType" : "Astral_gauge",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$shiftRPMoffset", "range", "RPM", "Engine", 1500, 0, 5000, "Shift Light RPM Offset", "The amount of RPM offset from max RPM.", {"stepDis":50, "subCategory":"ECU"}],
+		["$shiftRPMrange", "range", "RPM", "Engine", 1000, 0, 3000, "Shift Light RPM Range", "The amount of RPM across the shift light.", {"stepDis":50, "subCategory":"ECU"}],
+    ],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_gauge_Rally2", ["Astral_dash"]],
@@ -1122,8 +1132,8 @@
     },
 	"shiftLights": {
         "engineName":"mainEngine",
-        "maxEngineRPMOffset": 1500,
-        "rpmRange": 1000,
+        "maxEngineRPMOffset": "$shiftRPMoffset",
+        "rpmRange": "$shiftRPMrange",
         "keepLEDsActive": true,
         "hasStallWarning": false,
         "outputElectrics": ["led0", "led1", "led2",],
@@ -1144,6 +1154,11 @@
         "value":320
 	},
 	"slotType" : "Astral_gauge",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$shiftRPMoffset", "range", "RPM", "Engine", 1500, 0, 5000, "Shift Light RPM Offset", "The amount of RPM offset from max RPM.", {"stepDis":50, "subCategory":"ECU"}],
+		["$shiftRPMrange", "range", "RPM", "Engine", 1000, 0, 3000, "Shift Light RPM Range", "The amount of RPM across the shift light.", {"stepDis":50, "subCategory":"ECU"}],
+    ],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_gauge_RX", ["Astral_dash"]],
@@ -1298,8 +1313,8 @@
     },
 	"shiftLights": {
         "engineName":"mainEngine",
-        "maxEngineRPMOffset": 1500,
-        "rpmRange": 1000,
+        "maxEngineRPMOffset": "$shiftRPMoffset",
+        "rpmRange": "$shiftRPMrange",
         "keepLEDsActive": true,
         "hasStallWarning": true,
         "outputElectrics": ["led0", "led1", "led2",],
