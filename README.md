@@ -62,7 +62,7 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
 - H4DPA 1.6l inline 4, 83.3x73.3, DOHC, direct injection
-- H4DPB 2.0l inline 4, 87.8x82.5, DOHC, direct injection
+- H4DPF 2.0l inline 4, 87.8x82.5, DOHC, direct injection
 - Realistic engine curve referenced from telemetry of other games
 - Top speed limit 201 km/h within regulation
 - Turbo restrictor and ECU setting for different variant
@@ -231,7 +231,7 @@ The rallycross beast converted from Rally2.
 - 4043mm long, 1850mm track width, 2535mm wheelbase
 ![Astral_R](Docs/RX1/11.jpg)
 ## Engine and Transmission
-- H4DPB with WRX ECU
+- H4DPF with WRX ECU
 - 3.4 bar anti-lag turbocharger, 45mm turbo restrictor
 - 600HP at 6000RPM, 820Nm at 4500RPM, without restrictor over 1000HP and 1500Nm
 - 5 speed sequential transmission, stick shifter
