@@ -17,7 +17,9 @@ local speed = 0
 
 local lockMap = {}
 local transfercase = nil
+local maxLockCoef = 0
 local minLockCoef = 0
+local preload = 0
 local lockRange = 0
 local lbLockCoef = 0
 local lbThreshold = 0
@@ -143,32 +145,47 @@ local function updateWheelsIntermediate()
       transfercase.diffTorqueSplitB = rearBias
       transfercase.lsdPreload = 0
     end
-  elseif transferType == "Locked" then
+  elseif transferType == "Passive" then
     if input.parkingbrake > 0.5 then 
-      transfercase.diffTorqueSplitA = 0.5
+      transfercase.lsdLockCoef = 0
+      transfercase.lsdRevLockCoef = 0
+      transfercase.diffTorqueSplitA = 1- rearBias
       transfercase.diffTorqueSplitB = 0
+      transfercase.lsdPreload = 0
     else
-      transfercase.diffTorqueSplitA = 0.5
-      transfercase.diffTorqueSplitB = 0.5
+      transfercase.lsdLockCoef = maxLockCoef
+      transfercase.lsdRevLockCoef = minLockCoef
+      transfercase.diffTorqueSplitA = 1- rearBias
+      transfercase.diffTorqueSplitB = rearBias
+      transfercase.lsdPreload = preload
     end
   end
-  --print(transfercase.diffTorqueSplitA)
+  --print(transfercase.lsdLockCoef)
 end
 
 local function init(jbeamData)
   transfercase = powertrain.getDevice(jbeamData.transfercaseName)
   transferType = jbeamData.type or 0
   
-  --get tuning data
+  --get tuning data for active
   if transfercase and transferType == "Active" then 
     lockMap = tableFromHeaderTable(jbeamData.lockMap or {})
-    minLockCoef = lockMap[1].minLock
-    steerRatio = lockMap[1].steerRatio
-    throttleRatio = lockMap[1].lockThrottle
-    brakeRatio = lockMap[1].lockBrake
-    lbLockCoef = lockMap[1].leftLock
-    lbThreshold = lockMap[1].leftThreshold
-    rearBias = lockMap[1].rearBias
+    minLockCoef = lockMap[1].minLock or 0
+    steerRatio = lockMap[1].steerRatio or 0
+    throttleRatio = lockMap[1].lockThrottle or 0 
+    brakeRatio = lockMap[1].lockBrake or 0
+    lbLockCoef = lockMap[1].leftLock or 0
+    lbThreshold = lockMap[1].leftThreshold or 0
+    rearBias = lockMap[1].rearBias or 0
+  end
+
+  --get tuning data for passive
+  if transfercase and transferType == "Passive" then 
+    lockMap = tableFromHeaderTable(jbeamData.lockMap or {})
+    maxLockCoef = lockMap[1].lock or 0
+    minLockCoef = lockMap[1].revLock or 0
+    preload = lockMap[1].preload or 0
+    rearBias = lockMap[1].rearBias or 0
   end
   
   --printTable(lockMap)
