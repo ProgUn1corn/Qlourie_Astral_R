@@ -88,5 +88,46 @@
         ["ballast2", "chs2r"],
         ["ballast2", "chs1l"],
     ],
-}
+},
+"Astral_ballast_RX": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"RX Ballast",
+    	"value":250,
+    },
+    "slotType" : "Astral_ballast",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$ballastPos", "range", "Front", "Body", 0, -0.3, 0.3, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":20},
+		{"group":[""]},
+        ["ballast1", -0.368, "$=0.2-$ballastPos", 0.3],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--RX Ballast--
+        //counter driver weight
+		{"beamSpring":2501000,"beamDamp":350},
+		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
+		["ballast1", "a12"],
+		["ballast1", "a13"],
+		["ballast1", "a16"],
+		["ballast1", "a17"],
+		["ballast1", "a44"],
+		["ballast1", "rc3r"],
+		["ballast1", "rc4r"],
+		["ballast1", "rc5r"],
+		["ballast1", "rc6r"],
+    ],
+},
 }
