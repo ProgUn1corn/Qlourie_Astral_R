@@ -211,7 +211,8 @@
 	},
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_rad_RX", ["Astral_chassis","Astral_rad"]],
+		["Astral_rad_RX", ["Astral_rad"]],
+		["Astral_rad_pipe_RX", ["Astral_chassis","Astral_engine","Astral_rad"]],
 		["Astral_rad_RX_mount", ["Astral_chassis"]],
 		["Astral_rad_RX_duct", ["Astral_chassis"]]
 	],
@@ -219,8 +220,8 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//--Radiator Fan--
-		["radiatorFanSpin", "Astral_fan1_RX", "eg0","eg1","eg3",  {"x":75, "y":0, "z":0}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
-		["radiatorFanSpin", "Astral_fan2_RX", "eg0","eg1","eg3",  {"x":75, "y":0, "z":0}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
+		["radiatorFanSpin", "Astral_fan1_RX", "rad1","rad2","rad3",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
+		["radiatorFanSpin", "Astral_fan2_RX", "rad2","rad1","rad4",  {"x":-0, "y":0, "z":180}, {"x":0, "y":1, "z":0}, {"x":0, "y":0, "z":0}, -360, 360, 0, 0.4],
 	],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -231,7 +232,7 @@
 		//--Engine--
 		//radiator
 		{"group":["Astral_rad"]},
-		{"nodeWeight":3},
+		{"nodeWeight":1.5},
 		{"chemEnergy":200,"burnRate":0.4,"flashPoint":250,"specHeat":0.8,"smokePoint":150,"selfIgnitionCoef":false},
 		["rad1",  0.405, 1.724, 0.718, {"engineGroup":["radiator"]}],
 		["rad2", -0.405, 1.724, 0.718, {"engineGroup":["radiator"]}],
@@ -239,8 +240,8 @@
 		["rad4", -0.405, 1.584, 0.386, {"engineGroup":["radiator"]}],
 		{"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false}
 		//mount
+		{"nodeWeight":2},
 		{"group":[""]},
-		{"nodeWeight":2.5},
 		["rm1r", -0.239, 0.897, 0.562, {"engineGroup":["radiator"]}],
 		["rm1l",  0.239, 0.897, 0.562, {"engineGroup":["radiator"]}],
 	],
@@ -250,7 +251,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Radiator--
 		//shape
-		{"beamSpring":1501000,"beamDamp":150},
+		{"beamSpring":1201000,"beamDamp":100},
 		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"radiator_damage", "deformationTriggerRatio":0.01},
 		["rad1", "rad2"],
@@ -271,7 +272,7 @@
 		["rm1l", "rad3"],
 		["rm1l", "rad4"],
 		//radiator mount
-		{"beamSpring":1501000,"beamDamp":80},
+		{"beamSpring":1201000,"beamDamp":60},
 		{"beamDeform":8500,"beamStrength":122500},
 		{"breakGroup":"rad"},
 		["rm1r", "a37"],
@@ -299,14 +300,14 @@
 	],
 	"mainEngine":{
         "radiatorArea":0.4,
-        "radiatorEffectiveness":12000,
+        "radiatorEffectiveness":20000,
         "coolantVolume":10,
         "radiatorFanType":"electric",
-        "radiatorFanTemperature":70,
-        "radiatorFanMaxAirSpeed":4,
-        "thermostatTemperature":65,
+        "radiatorFanTemperature":75,
+        "radiatorFanMaxAirSpeed":0.5,
+        "thermostatTemperature":70,
         "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
-        "radiatorFanVolume": 0.9,
+        "radiatorFanVolume": 0.65,
 		"deformGroups_radiator":["radiator_damage"],
 	}
 }

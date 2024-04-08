@@ -349,8 +349,11 @@
 				"order": 1,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}],
+					["controller", {"controllerName":"gauge", "modeName": "Soft", "modeColor": "00CCFF"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
 				]
 			},
 			"med": {
@@ -358,8 +361,11 @@
 				"order": 2,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}],
+					["controller", {"controllerName":"gauge", "modeName": "Mid", "modeColor": "FFF68F"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
 				]
 			},
 			"high": {
@@ -367,8 +373,11 @@
 				"order": 3,
 				"settings": [
 					["type"],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
 					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}],
+					["controller", {"controllerName":"gauge", "modeName": "Aggressive", "modeColor": "FF2701"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
 				]
 			},
 			"off": {
@@ -376,8 +385,11 @@
 				"order": 4,
 				"settings": [
 					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":false}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": -50}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -1, "gainOffset": -1}],
+					["controller", {"controllerName":"gauge", "modeName": "Wastegate Off", "modeColor": "DCDCDC"}]
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
-					["controller", {"controllerName":"launch", "isEnabled":false, "launchRPM":8500}],
 				]
 			}
 		}
@@ -388,7 +400,6 @@
 	},
 	"mainEngine": {
 		//RPM
-		"maxRPM":8500,
 		"hasRevLimiter": true,
 		"revLimiterType":"rpmDrop",
 		"revLimiterRPMDrop":200,
@@ -454,11 +465,11 @@
 		"lowShiftUpRPM":[0,0,4900,4800,4700,4700,4700],
 		"highShiftDownRPM":[0,0,0,6500,6500,6500,6500,6500],
 		"highShiftUpRPM":[0,0,7650,7650,7650,7650,7650],
-		"wheelSlipUpThreshold":40000,
-		"wheelSlipShiftUpSmoothingIn":10
+		"wheelSlipUpThreshold":35000,
+		"wheelSlipShiftUpSmoothingIn":20
 		"wheelSlipDownThreshold":45000,
 		"clutchLaunchStartRPM": 2000,
-		"clutchLaunchTargetRPM": 7500
+		"clutchLaunchTargetRPM": 3500
 	},
 }
 }
