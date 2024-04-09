@@ -157,7 +157,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Front lip and rear diffuser react to ground clearance change
 - Two layer WRC style rear wing with winglet attached, 50mm higher than frontal projection and 40mm longer than rear bumper side projection
 - Rear wing endplate aerodynamics for better control when sliding
-- Total about 390kg of downforce at 200km/h, balance at around 48:52
+- Total about 390kg of downforce at 200km/h, balance at around 46:54
 ![Astral_R](Docs/BRC/16.jpg)
 
 # Rally2 (Formerly R5)
@@ -215,7 +215,7 @@ The most popular class around the world.
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - One layer Rally2 style rear wing, within the frontal projection of the car
-- Total about 150kg of downforce at 200km/h, balance at around 45:55
+- Total about 150kg of downforce at 200km/h, balance at around 47:53
 ![Astral_R](Docs/Rally2/14.jpg)
 
 # RX1 (Formerly RX Supercar)
@@ -266,7 +266,7 @@ The rallycross beast converted from Rally2.
 - Front lip react to ground clearance change
 - Aero geared to anti-diving when jumping instead of high speed downforce
 - Two layer RX style rear wing, within the frontal projection and within the projection of the car seen from above, within the size regulations
-- Total about 200kg of downforce at 200km/h, balance at around 45:55
+- Total about 200kg of downforce at 200km/h, balance at around 52:48
 ![Astral_R](Docs/RX1/6.jpg)
 
 
