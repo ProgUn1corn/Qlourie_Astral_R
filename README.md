@@ -50,7 +50,7 @@ I have a main work and it's quite busy, so I can't take my time fully on this pr
 
 However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart also Rally4, Rally2 variant. I'm really looking forward to it.
 
-Also some fiction brands and sponsors! There is actually now in the mod by Automation modders but I'm planning to make my own original sponsors.
+Also some fictional lore friendly brands and sponsors! There is actually now in the mod by Automation modders but I'm planning to make my own original sponsors.
 ![Astral_R](Docs/BRC/9.jpg)
 ![Astral_R](Docs/BRC/17.jpg)
 ![Astral_R](Docs/Rally2/4.jpg)
@@ -64,20 +64,22 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - H4DPA 1.6l inline 4, 83.3x73.3, DOHC, direct injection
 - H4DPF 2.0l inline 4, 87.8x82.5, DOHC, direct injection
 - Realistic engine curve referenced from telemetry of other games
-- Top speed limit 201 km/h within regulation
+- Top speed around 200 km/h within regulation
 - Turbo restrictor and ECU setting for different variant
+- Active center differential for BRC variant which respond to throttle, brake, steering inputs and wheel speed
 ## Suspension
 - Front and rear MacPherson Strut suspension
 - Reinforced front and rear subframe for stronger rigidity
-- Extra long suspension arms for better FVSA length, optimized FVSA for less camber change
+- Extra long suspension arms for better FVSA length, optimized FVSA for less camber gain
 - Calculated suspension geometry for optimal bump steer and toe steer performance
 - Front caster adjustable
 - Anti-roll bar mounting point adjustable with 3 fixed stiffness ARBs
 - 540 degree steering wheel lock
-- 9:1 quick steering ratio on all models allowing maximum of around 30 degrees of wheel angle
+- 10:1, 9:1, 8:1 steering ratio selectable for different driving styles
 ## Damper and Spring
 - Dampers developed with **CTM Racing Suspension**
 - Around 800mm gravel damper length, 600mm tarmac damper length
+- Fixed damper length, damper length not adjustable for consistent droop travel
 - Inverted strut design, 46mm piston diameter, 18mm shaft diameter for better strength
 - Spring perch preload adjustment
 - Pressurized mono-tube dampers that naturally have a force to push the piston out when no load is applied
@@ -87,15 +89,15 @@ Also some fiction brands and sponsors! There is actually now in the mod by Autom
 - Biased to progressive damping with increased damping during HS bump events, enhancing performance and stability to significant impacts in rallying
 - LRS (Load Release System): Release rebound damping when wheel load below a set threshold is detected, allowing even higher rebound damping setting with faster wheel contact and all power to the ground. Rebound damping is lowered according to how much force the internal detection mass have. The damping curve is returned to normal is wheel load is above threshold
 - DSV (Direction Sensing Valve): Detect the direction of force to the damper, when the force is from the ground like road surface, the damper will remain unchanged for consistency; when the force is from above like landing a jump, the valve will close and add additional damping to brace impact
-- Hydraulic Bump Stop: Additional damping valve that will active at around from the last 60mm of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 24KN of damping force at 2m/s. Smoother ride quality when riding on bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection.
+- HBS (Hydraulic Bump Stop): Additional damping valve that will active at around from the last 60mm of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 24KN of damping force at 2m/s. Smoother ride quality when riding on bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection
+- HRS (Hydraulic Rebound Stop): A large amount of damping force would generate when the damper is near full droop to stop the damper from extending. Smoother ride quality and extension dynamics compare to rubber rebond stop. Rubber rebound stop is still installed on HRS model for protection
 -  Independently modelled suspension mesh instead of Automation one, with flexbody help node to enhances animations
 
 ## Misc
-- 10/20KG ballast for center of gravity adjustment (10KG needed to meet minimum weight regulations)
+- Ballast for center of gravity adjustment (needed to meet minimum running weight regulations)
 - Driver weight included in racing seat part
 - Rally light for better vision at night events (about 7kg, also act as ballast)
-- Spare wheel selection for weight accuracy
-
+- Up to 2 Spare wheel selection for weight accuracy
 ![Astral_R](Docs/BRC/28.jpg)
 ![Astral_R](Docs/BRC/22.jpg)
 ![Astral_R](Docs/BRC/24.jpg)
@@ -116,26 +118,25 @@ The pinnacle rallying class which now is anticipating BRC.
 - 4105mm long, 1875mm track width, 2535mm wheelbase
 ![Astral_R](Docs/BRC/8.jpg)
 ## Engine and Transmission
-- H4DPA with WRC ECU
+- H4DPA with WRC ECU and modification
 - 2.5 bar anti-lag turbocharger, 36mm turbo restrictor
 - Over 380HP at 6000RPM, 450Nm at 5500RPM (within the 3.1kg/hp regulation)
 - 6 speed sequential transmission, paddle shifter
 - Adjustable gear ratios
-- Top speed 201 km/h (ratio specific)
+- Top speed 200 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
-- 2 homologated active center differential in response to steering and throttle input. Power bias 48/52 for gravel and 36/64 for tarmac.
+- 2 homologated active center differential in response to steering and throttle input. Power bias 46/54 for gravel and 36/64 for tarmac.
 ![Astral_R](Docs/BRC/14.jpg)
 ## Suspension
 - 300mm gravel brake disc, 370mm tarmac brake disc
 - Adjustable brake bias
-- Front and rear ducted brake
+- Front and rear selectable ducted brake
 ![Astral_R](Docs/BRC/29.jpg)
 ## Damper and Spring
-- CTM Racing mono-tube MSR85 3+1Way dampers for gravel, MSR65 3+1Way dampers for tarmac
+- CTM Racing mono-tube MSR85 and MSR65 3+1Way dampers
 - Over 300mm of travel on gravel damper, around 220mm of travel on tarmac damper
-- Hydraulic bump stop and hydraulic rebound stop equipped on both MSR85 and MSR65
-- LRS implemented for faster wheel extension when no load is applied to the wheel, additionally open factor adjustable
-- DSV implemented for better stability when landing huge impacts
+- MSR85: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
+- MSR65: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
 - 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels of hydraulic bump stop adjustment
 - Spring rates:
@@ -144,7 +145,7 @@ The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/BRC/25.jpg)
   Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
 ![Astral_R](Docs/BRC/12.jpg)
-  Helper: 2.8N/mm
+  Helper: 2.5N/mm
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
@@ -156,7 +157,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Front lip and rear diffuser react to ground clearance change
 - Two layer WRC style rear wing with winglet attached, 50mm higher than frontal projection and 40mm longer than rear bumper side projection
 - Rear wing endplate aerodynamics for better control when sliding
-- Total about 400kg of downforce at 200km/h
+- Total about 390kg of downforce at 200km/h, balance at around 47:53
 ![Astral_R](Docs/BRC/16.jpg)
 
 # Rally2 (Formerly R5)
@@ -171,24 +172,24 @@ The most popular class around the world.
 - 1230KG minimum measured with only one spare
 - 1390KG minimum with driver and co-driver and one spare wheel 
 - ~1420KG tarmac running weight, ~1445kg gravel running weight (Running weight includes fuel and tools like in real life)
-- ~50/50 weight distribution for optimal chassis dynamics
+- ~52/48 weight distribution for optimal chassis dynamics
 - 3985mm long, 1820mm track width, 2535mm wheelbase
 - Safari kit including bullbar and snorkel allowed since 2021
 ![Astral_R](Docs/Rally2/24.png)
 ## Engine and Transmission
-- H4DPA with Rally2 ECU
+- H4DPA with Rally2 ECU and modification
 - 2.5 bar anti-lag turbocharger, 32mm turbo restrictor
 - 290HP at 5000RPM, 438Nm at 4500RPM (within the 4.2kg/hp regulation)
 - 5 speed sequential transmission, stick shifter
 - Adjustable gear ratios
-- Top speed 193 km/h (ratio specific)
+- Top speed 187 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
-- Locked transfer case with 50/50 power bias
+- Splitshaft transfer case with hydraulic handbrake mechanism
 ![Astral_R](Docs/Rally2/2.jpg)
 ## Suspension
 - 300mm gravel brake disc, 355mm tarmac brake disc
 - Adjustable brake bias
-- Front ducted brake, rear not ducted
+- Front and rear selectable ducted brake
 ![Astral_R](Docs/Rally2/21.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
