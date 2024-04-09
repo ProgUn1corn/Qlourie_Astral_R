@@ -39,7 +39,7 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false}],
     ],
     "RearLRS": {
-        "LRSp":0.058 //LRS starting point
+        "LRSp":0.061 //LRS starting point
         "LRSc":20 //constant to calculate slope
         "rLoads": [
             ["name", "beamName"]
@@ -65,12 +65,11 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.5},
+        {"nodeWeight":6},
         {"group":["Astral_hub_R","Astral_arm_R"]},
         ["rh1r", -0.725, 1.32, -0.1],
         ["rh1l",  0.725, 1.32, -0.1],
         //strut attach
-        {"nodeWeight":5.5},
         {"group":["Astral_hub_R"]},
         ["rh2r", -0.691, 1.3168, 0.2],
         ["rh2l",  0.691, 1.3168, 0.2],
@@ -80,7 +79,7 @@
         ["rh3r", -0.725, 1.18, -0.1],
         ["rh3l",  0.725, 1.18, -0.1],
         //brake caliper
-        {"nodeWeight":3.25},
+        {"nodeWeight":3.5},
         {"group":["Astral_hub_R","Astral_duct_R"]},
         ["rh5r", -0.755, 1.08, 0.07],
         ["rh5l",  0.755, 1.08, 0.07],
@@ -286,7 +285,7 @@
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         ["rh2l","rs1l", {
             "name":"damper_RL", 
@@ -298,7 +297,7 @@
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         //hydraulic bump stop
         ["rh2r","rs1r", { //valve close
