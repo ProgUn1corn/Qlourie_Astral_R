@@ -249,7 +249,7 @@ The rallycross beast converted from Rally2.
 ## Damper and Spring
 - CTM Racing mono-tube MRX80 3Way damper
 - Around 300mm of travel
-- MRX80: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
+- MRX80: LRS, HBS, LRS open factor adjustable
 - HS (High Speed) and LS (Low Speed) bump, LS rebound, 3WAY adjustable
 - 40 levels of LS bump, 40 levels of LS rebound, 32 levels of HS bump adjustment
 - Spring rates:
