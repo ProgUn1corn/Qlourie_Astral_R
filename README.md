@@ -125,7 +125,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Adjustable gear ratios
 - Top speed 200 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
-- 2 homologated active center differential in response to steering and throttle input. Power bias 46/54 for gravel and 36/64 for tarmac.
+- 2 homologated active center differential in response to steering and throttle input. Power bias 46/54 for gravel and 36/64 for tarmac. Hydraulic handbrake disengage mechanism
 ![Astral_R](Docs/BRC/14.jpg)
 ## Suspension
 - 300mm gravel brake disc, 370mm tarmac brake disc
@@ -134,7 +134,7 @@ The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/BRC/29.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MSR85 and MSR65 3+1Way dampers
-- Over 300mm of travel on gravel damper, around 220mm of travel on tarmac damper
+- Over 300mm of travel on MSR85, around 220mm of travel on MSR65
 - MSR85: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
 - MSR65: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
 - HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
@@ -145,7 +145,7 @@ The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/BRC/25.jpg)
   Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
 ![Astral_R](Docs/BRC/12.jpg)
-  Helper: 2.5N/mm
+  Helper: 2.8N/mm
 ## Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
@@ -157,7 +157,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Front lip and rear diffuser react to ground clearance change
 - Two layer WRC style rear wing with winglet attached, 50mm higher than frontal projection and 40mm longer than rear bumper side projection
 - Rear wing endplate aerodynamics for better control when sliding
-- Total about 390kg of downforce at 200km/h, balance at around 47:53
+- Total about 390kg of downforce at 200km/h, balance at around 48:52
 ![Astral_R](Docs/BRC/16.jpg)
 
 # Rally2 (Formerly R5)
@@ -184,7 +184,7 @@ The most popular class around the world.
 - Adjustable gear ratios
 - Top speed 187 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
-- Splitshaft transfer case with hydraulic handbrake mechanism
+- Splitshaft transfer case with hydraulic handbrake disengage mechanism
 ![Astral_R](Docs/Rally2/2.jpg)
 ## Suspension
 - 300mm gravel brake disc, 355mm tarmac brake disc
@@ -192,10 +192,10 @@ The most popular class around the world.
 - Front and rear selectable ducted brake
 ![Astral_R](Docs/Rally2/21.jpg)
 ## Damper and Spring
-- CTM Racing mono-tube MSR80 3Way dampers for gravel, MSR60 3Way dampers for tarmac
-- Around 310mm of travel on gravel damper, around 210mm of travel on tarmac damper
-- Hydraulic bump stop equipped on MSR80, hard bump stop on MSR60, hard rebound stop on both MSR80 and MSR60
-- LRS implemented for faster wheel extension when no load is applied to the wheel, open factor non adjustable
+- CTM Racing mono-tube MSR80, MSR60 3Way dampers
+- Around 310mm of travel on MSR80, around 210mm of travel on MSR60
+- MSR80: LRS, HBS, HRS, LRS open factor adjustable,
+- MSR60: LRS, HRS, LRS open factor adjustable
 - HS (High Speed) and LS (Low Speed) bump, rebound, 3WAY adjustable
 - 56 levels of LS bump, 56 levels of rebound, 28 levels of HS bump adjustment
 - Spring rates:
@@ -204,18 +204,18 @@ The most popular class around the world.
 ![Astral_R](Docs/Rally2/16.jpg)
   Tarmac: 38.0 to 58.0N/mm front, 33.0 to 53.0N/mm rear, incremental difference of 5.0N/mm
 ![Astral_R](Docs/Rally2/5.jpg)
-  Safari: 16.5N/mm front, 13.5N/mm rear
+  Safari: 15.5N/mm front, 11.5N/mm rear
 ![Astral_R](Docs/Rally2/23.png)
   Helper: 2.8N/mm
 ## Tyres
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
-- Wheel beam properties are tested and modified, a little bit less performance than BRC wheels
+- Wheel beam properties are tested and modified, a little bit less performance than BRC wheels and lower strength
 ![Astral_R](Docs/Rally2/18.jpg)
 ## Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - One layer Rally2 style rear wing, within the frontal projection of the car
-- Total about 150kg of downforce at 200km/h
+- Total about 150kg of downforce at 200km/h, balance at around 45:55
 ![Astral_R](Docs/Rally2/14.jpg)
 
 # RX1 (Formerly RX Supercar)
@@ -232,32 +232,31 @@ The rallycross beast converted from Rally2.
 - 4043mm long, 1850mm track width, 2535mm wheelbase
 ![Astral_R](Docs/RX1/11.jpg)
 ## Engine and Transmission
-- H4DPF with WRX ECU
+- H4DPF with WRX ECU adn modification
 - 3.4 bar anti-lag turbocharger, 45mm turbo restrictor
 - 600HP at 6000RPM, 820Nm at 4500RPM, without restrictor over 1000HP and 1500Nm
 - 5 speed sequential transmission, stick shifter
 - Adjustable gear ratios
-- Top speed 210 km/h (ratio specific)
+- Top speed 203 km/h (ratio specific)
 - Front and rear adjustable mechanical LSD
-- Locked transfer case with 50/50 power bias
+- Mechanical center LSD with maximum power bias of 30/70, hydraulic handbrake disengage mechanism
 ![Astral_R](Docs/RX1/10.jpg)
 ## Suspension
 - 355mm brake disc
 - Adjustable brake bias
-- Front ducted brake, rear not ducted
+- Front and rear selectable ducted brake
 ![Astral_R](Docs/RX1/8.jpg)
 ## Damper and Spring
 - CTM Racing mono-tube MRX80 3Way damper
 - Around 300mm of travel
-- Hydraulic bump stop and hard rebound stop
-- LRS implemented for faster wheel extension when no load is applied to the wheel, open factor non adjustable
+- MRX80: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
 - HS (High Speed) and LS (Low Speed) bump, LS rebound, 3WAY adjustable
 - 40 levels of LS bump, 40 levels of LS rebound, 32 levels of HS bump adjustment
 - Spring rates:
 
   RX: 36.0N/mm, 40.0N/mm, 44.0N/mm front, 32.0N/mm, 36.0N/mm, 40.0N/mm rear
   ![Astral_R](Docs/RX1/4.jpg)
-  Helper: 3.3N/m
+  Helper: 2.0/m
 ## Tyres
 - 225/640 R17 RX wheels
 - Wheel beam properties are tested and modified, biased to sliding performance
@@ -267,7 +266,7 @@ The rallycross beast converted from Rally2.
 - Front lip react to ground clearance change
 - Aero geared to anti-diving when jumping instead of high speed downforce
 - Two layer RX style rear wing, within the frontal projection and within the projection of the car seen from above, within the size regulations
-- Total about 200kg of downforce at 200km/h
+- Total about 200kg of downforce at 200km/h, balance at around 45:55
 ![Astral_R](Docs/RX1/6.jpg)
 
 
@@ -280,7 +279,7 @@ The rallycross beast converted from Rally2.
 - Flexbody animations are not perfect, especially around engine and transmission, it just works but it's not accurate
 
  # Gallery 
- ![Astral_R](Docs/BRC/7.jpg)
+![Astral_R](Docs/BRC/7.jpg)
 ![Astral_R](Docs/Rally2/8.jpg)
 ![Astral_R](Docs/BRC/26.jpg)
 ![Astral_R](Docs/BRC/2.jpg)
