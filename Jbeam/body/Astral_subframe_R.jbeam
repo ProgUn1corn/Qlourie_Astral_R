@@ -40,14 +40,14 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Subframe--
         //running gear
-        {"nodeWeight":6.5},
+        {"nodeWeight":6.0},
         {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rod_R"]},
         ["rx1r", -0.202, 1.00, 0.115],
         ["rx1l",  0.202, 1.00, 0.115],
         ["rx2r", -0.202, 1.32, 0.115],
         ["rx2l",  0.202, 1.32, 0.115],
         //mounting points
-        {"nodeWeight":4.75},
+        {"nodeWeight":4.0},
         {"group":["Astral_sub_R"]},
         ["rx3r", -0.378, 0.964, 0.369],
         ["rx3l",  0.378, 0.964, 0.369],
@@ -55,7 +55,7 @@
         ["rx4l",  0.353, 1.356, 0.375],
         //rigidifier
         {"collision":false},
-        {"nodeWeight":3},
+        {"nodeWeight":4},
         {"group":[""]},
         ["rx1", 0, 1.15, 0.45],
         {"collision":true},
@@ -72,7 +72,7 @@
         ["rx2l", "rx1l"],
         ["rx1l", "rx1r"],
         //mounting points
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":150},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx3r", "rx3l"],
         ["rx4r", "rx4l"],
@@ -87,7 +87,7 @@
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2l"],
         ["rx1l", "rx2r"],
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":150},
         ["rx4l", "rx3r"],
         ["rx4r", "rx3l"],
         ["rx4l", "rx2r"],
@@ -105,7 +105,7 @@
         ["rx1l", "rx4r"],
         ["rx1r", "rx4l"],
         //rigidifier
-        {"beamSpring":2501000,"beamDamp":150},
+        {"beamSpring":2001000,"beamDamp":100},
         {"beamDeform":25000,"beamStrength":"FLT_MAX"},
         ["rx1", "rx1l"],
         ["rx1", "rx2l"],
@@ -116,7 +116,7 @@
         ["rx1", "rx4l"],
         ["rx1", "rx4r"],
         //attach to body
-        {"beamSpring":4501000,"beamDamp":180},
+        {"beamSpring":3501000,"beamDamp":150},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx3r", "a41"],
         ["rx3r", "a37"],
@@ -201,11 +201,11 @@
         {"hubcapGroup":"hubcap_RR"},
         {"axleBeams":["axle_RR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx3r", "torqueArm2:":"rx4l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
+        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
         {"hubcapBreakGroup":"hubcap_RL"},
         {"hubcapGroup":"hubcap_RL"},
         {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx3l", "torqueArm2:":"rx4r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
+        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx1r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},
