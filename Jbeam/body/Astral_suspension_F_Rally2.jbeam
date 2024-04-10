@@ -11,7 +11,7 @@
         ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":"$=0.32+$TrackFront", "y":-1.285, "z":0.17}}],
         ["Astral_brake_F","Astral_brake_F_Rally2_tarmac", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.17}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}],
-        ["Astral_spring_F_Rally2_tarmac","Astral_spring_F_Rally2_tarmac_48", "Spring"]
+        ["Astral_spring_F_Rally2_tarmac","Astral_spring_F_Rally2_tarmac_45", "Spring"]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -29,7 +29,7 @@
 		["$dampRate_bump_F", "range", "Click", "Suspension", 3650, 2500, 4740, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Suspension"}],
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 4750, 6850, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 4000, 7580, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
+        ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
         ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.04, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
@@ -267,10 +267,10 @@
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront*2","beamPrecompressionTime":0.3}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":0,"beamDamp":0},
+        {"beamSpring":250,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["fh2r","fs1r", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
-        ["fh2l","fs1l", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}],
+        ["fh2r","fs1r", {"pressurePSI":325,"surface":0.00025447,"volumeCoef":0.5}], //shaft rod diameter 18mm
+        ["fh2l","fs1l", {"pressurePSI":325,"surface":0.00025447,"volumeCoef":0.5}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -333,33 +333,45 @@
             "dampCutoffHz":250}
         ],
         //hydraulic rebound stop
-        ["fh2r","fs1r", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+        ["fh2r","fs1r", { //hydraulics
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
+            //leave rebound stop space
+            "precompressionRange":-0.03,
+            "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":5000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
         ],
-        ["fh2r","fs1r", { //hard rebound stop
-            //failsafe protection
-            "longBoundRange":0.01,"shortBoundRange":2,"boundZone":0,
+        ["fh2r","fs1r", { //hard stop
+            //leave rebound stop space
+            "precompressionRange":-0.04,
+            "beamPrecompressionTime":0.1,
+            //rubber stop
+            "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
-        ["fh2l","fs1l", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+        ["fh2l","fs1l", { //hydraulics
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
+            //leave rebound stop space
+            "precompressionRange":-0.03,
+            "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":5000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
         ],
-        ["fh2l","fs1l", { //hard rebound stop
-            //failsafe protection
-            "longBoundRange":0.01,"shortBoundRange":2,"boundZone":0,
+        ["fh2l","fs1l", { //hard stop
+            //leave rebound stop space
+            "precompressionRange":-0.04,
+            "beamPrecompressionTime":0.1,
+            //rubber stop
+            "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
@@ -443,7 +455,7 @@
         ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":"$=0.285+$TrackFront", "y":-1.285, "z":0.05}}],
         ["Astral_brake_F","Astral_brake_F_Rally2_gravel", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.05}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
-        ["Astral_spring_F_Rally2_gravel","Astral_spring_F_Rally2_gravel_24", "Spring"]
+        ["Astral_spring_F_Rally2_gravel","Astral_spring_F_Rally2_gravel_215", "Spring"]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -461,7 +473,7 @@
 		["$dampRate_bump_F", "range", "Click", "Suspension", 2350, 1000, 3280, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Suspension"}],
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 3750, 5850, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1450, 4685, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Suspension"}],
-        ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
+        ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
         ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.05, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
@@ -697,10 +709,10 @@
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront*2","beamPrecompressionTime":0.3}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":0,"beamDamp":0},
+        {"beamSpring":250,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["fh2r","fs1r", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
-        ["fh2l","fs1l", {"pressurePSI":85,"surface":0.001662,"volumeCoef":0}],
+        ["fh2r","fs1r", {"pressurePSI":350,"surface":0.00025447,"volumeCoef":0.5}], //shaft rod diameter 18mm
+        ["fh2l","fs1l", {"pressurePSI":350,"surface":0.00025447,"volumeCoef":0.5}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -779,33 +791,45 @@
             "dampCutoffHz":250}
         ],
         //hydraulic rebound stop
-        ["fh2r","fs1r", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+        ["fh2r","fs1r", { //hydraulics
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
+            //leave rebound stop space
+            "precompressionRange":-0.03,
+            "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":5000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
         ],
-        ["fh2r","fs1r", { //hard rebound stop
-            //failsafe protection
-            "longBoundRange":0.01,"shortBoundRange":2,"boundZone":0,
+        ["fh2r","fs1r", { //hard stop
+            //leave rebound stop space
+            "precompressionRange":-0.04,
+            "beamPrecompressionTime":0.1,
+            //rubber stop
+            "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
-        ["fh2l","fs1l", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+        ["fh2l","fs1l", { //hydraulics
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
+            //leave rebound stop space
+            "precompressionRange":-0.03,
+            "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":5000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
         ],
-        ["fh2l","fs1l", { //hard rebound stop
-            //failsafe protection
-            "longBoundRange":0.01,"shortBoundRange":2,"boundZone":0,
+        ["fh2l","fs1l", { //hard stop
+            //leave rebound stop space
+            "precompressionRange":-0.04,
+            "beamPrecompressionTime":0.1,
+            //rubber stop
+            "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
             "beamLimitSpring":114514,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
@@ -877,10 +901,10 @@
         {"brakeVentingCoef":false}
     ],
 },
-"Astral_spring_F_Rally2_tarmac_38": {
+"Astral_spring_F_Rally2_tarmac_35": {
     "information":{
         "authors":"Un1corn",
-        "name":"38.0N/mm",
+        "name":"35.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_F_Rally2_tarmac",
@@ -894,8 +918,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6507, -1.2361, 0.502],
-        ["fhe1l",  0.6507, -1.2361, 0.502],
+        ["fhe1r", -0.656184, -1.239682, 0.468],
+        ["fhe1l",  0.656184, -1.239682, 0.468],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -906,7 +930,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":38000,"beamDamp":10},
+        {"beamSpring":35000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -929,23 +953,23 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.116,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.116,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3200,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.107,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.107,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.094,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.094,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.073,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.073,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_F_Rally2_tarmac_43": {
+"Astral_spring_F_Rally2_tarmac_40": {
     "information":{
         "authors":"Un1corn",
-        "name":"43.0N/mm",
+        "name":"40.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_F_Rally2_tarmac",
@@ -959,8 +983,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6489, -1.2349, 0.513],
-        ["fhe1l",  0.6489, -1.2349, 0.513],
+        ["fhe1r", -0.654576, -1.238624, 0.478],
+        ["fhe1l",  0.654576, -1.238624, 0.478],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -971,7 +995,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":43000,"beamDamp":10},
+        {"beamSpring":40000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -994,9 +1018,139 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.105,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.105,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3200,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.096,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.096,"beamPrecompressionTime":0.1}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":50},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.084,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.084,"beamPrecompressionTime":0.3}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_tarmac_45": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"45.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_tarmac",
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":[""]},
+        {"nodeWeight":1},
+        {"selfCollision":false},
+        ["fhe1r", -0.65281, -1.237459, 0.489],
+        ["fhe1l",  0.65281, -1.237459, 0.489],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":45000,"beamDamp":10},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.8,
+            "decayFactor":30,
+            "pitchFactor":0.7,
+            "maxStress":2500}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.8,
+            "decayFactor":30,
+            "pitchFactor":0.7,
+            "maxStress":2500}
+        ],
+        //helper spring
+        {"beamSpring":3200,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.085,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.085,"beamPrecompressionTime":0.1}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":50},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.095,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.095,"beamPrecompressionTime":0.3}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_tarmac_50": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"50.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_tarmac",
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":[""]},
+        {"nodeWeight":1},
+        {"selfCollision":false},
+        ["fhe1r", -0.65136, -1.236506, 0.498],
+        ["fhe1l",  0.65136, -1.236506, 0.498],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":50000,"beamDamp":10},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.8,
+            "decayFactor":30,
+            "pitchFactor":0.7,
+            "maxStress":2500}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.8,
+            "decayFactor":30,
+            "pitchFactor":0.7,
+            "maxStress":2500}
+        ],
+        //helper spring
+        {"beamSpring":3200,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.075,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.075,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
@@ -1007,10 +1161,10 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_F_Rally2_tarmac_48": {
+"Astral_spring_F_Rally2_tarmac_55": {
     "information":{
         "authors":"Un1corn",
-        "name":"48.0N/mm",
+        "name":"55.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_F_Rally2_tarmac",
@@ -1024,8 +1178,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6473, -1.2338, 0.523],
-        ["fhe1l",  0.6473, -1.2338, 0.523],
+        ["fhe1r", -0.649753, -1.235447, 0.508],
+        ["fhe1l",  0.649753, -1.235447, 0.508],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1036,7 +1190,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":48000,"beamDamp":10},
+        {"beamSpring":55000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -1059,9 +1213,9 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.095,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.095,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3200,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.065,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.065,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
@@ -1072,10 +1226,10 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
 },
-"Astral_spring_F_Rally2_tarmac_53": {
+"Astral_spring_F_Rally2_tarmac_60": {
     "information":{
         "authors":"Un1corn",
-        "name":"53.0N/mm",
+        "name":"60.0N/mm",
         "value":3200,
     },
     "slotType" : "Astral_spring_F_Rally2_tarmac",
@@ -1089,8 +1243,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6459, -1.2329, 0.532],
-        ["fhe1l",  0.6459, -1.2329, 0.532],
+        ["fhe1r", -0.648627, -1.234706, 0.515],
+        ["fhe1l",  0.648627, -1.234706, 0.515],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1101,7 +1255,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Coilover--
         //main spring
-        {"beamSpring":53000,"beamDamp":10},
+        {"beamSpring":60000,"beamDamp":10},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -1124,79 +1278,14 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.085,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.085,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3200,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.058,"beamPrecompressionTime":0.1}]
+        ["fhe1l","fcl1l", {"precompressionRange":0.058,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.125,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.125,"beamPrecompressionTime":0.3}],
-        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":false,"beamLimitDamp":false},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-},
-"Astral_spring_F_Rally2_tarmac_58": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"58.0N/mm",
-        "value":3200,
-    },
-    "slotType" : "Astral_spring_F_Rally2_tarmac",
-    "nodes": [
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
-        //helper spring collar
-        {"group":[""]},
-        {"nodeWeight":1},
-        {"selfCollision":false},
-        ["fhe1r", -0.6448, -1.2322, 0.539],
-        ["fhe1l",  0.6448, -1.2322, 0.539],
-        {"group":[""]},
-        {"collision":true},
-        {"selfCollision":true}
-    ],
-    "beams": [
-        ["id1:", "id2:"],
-        {"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //--Coilover--
-        //main spring
-        {"beamSpring":58000,"beamDamp":10},
-        {"beamDeform":155000,"beamStrength":305000},
-        ["fhe1r","fs1r", {
-            "name":"spring_FR",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        ["fhe1l","fs1l", {
-            "name":"spring_FL",
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.8,
-            "decayFactor":30,
-            "pitchFactor":0.7,
-            "maxStress":2500}
-        ],
-        //helper spring
-        {"beamSpring":2800,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.078,"beamPrecompressionTime":0.1}]
-        ["fhe1l","fcl1l", {"precompressionRange":0.078,"beamPrecompressionTime":0.1}],
-        //helper stopper
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.132,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.132,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.122,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.122,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -1219,8 +1308,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6678, -1.247, 0.337],
-        ["fhe1l",  0.6678, -1.247, 0.337],
+        ["fhe1r", -0.674675, -1.251859, 0.288],
+        ["fhe1l",  0.674675, -1.251859, 0.288],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1254,14 +1343,14 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
+        {"beamSpring":3200,"beamDamp":10},
         ["fhe1r","fcl1r", {"precompressionRange":0.122,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.122,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.068,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.068,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.043,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.043,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -1284,8 +1373,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6648, -1.2454, 0.358],
-        ["fhe1l",  0.6648, -1.2454, 0.358],
+        ["fhe1r", -0.67214, -1.25019, 0.306],
+        ["fhe1l",  0.67214, -1.25019, 0.306],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1319,14 +1408,14 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
+        {"beamSpring":3200,"beamDamp":10},
         ["fhe1r","fcl1r", {"precompressionRange":0.119,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.119,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.091,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.091,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.061,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.061,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -1349,8 +1438,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6613, -1.243, 0.383],
-        ["fhe1l",  0.6613, -1.243, 0.383],
+        ["fhe1r", -0.66905, -1.24815, 0.328],
+        ["fhe1l",  0.66905, -1.24815, 0.328],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1384,14 +1473,14 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
+        {"beamSpring":3200,"beamDamp":10},
         ["fhe1r","fcl1r", {"precompressionRange":0.096,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.096,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.114,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.114,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.084,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.084,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -1414,8 +1503,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.659, -1.241, 0.406],
-        ["fhe1l",  0.659, -1.241, 0.406],
+        ["fhe1r", -0.6661, -1.2462, 0.349],
+        ["fhe1l",  0.6661, -1.2462, 0.349],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1449,14 +1538,14 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
+        {"beamSpring":3200,"beamDamp":10},
         ["fhe1r","fcl1r", {"precompressionRange":0.075,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.075,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.135,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.135,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.105,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.105,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -1479,8 +1568,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.6563, -1.2397, 0.419],
-        ["fhe1l",  0.6563, -1.2397, 0.419],
+        ["fhe1r", -0.66399, -1.24482, 0.364],
+        ["fhe1l",  0.66399, -1.24482, 0.364],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1514,14 +1603,14 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
+        {"beamSpring":3200,"beamDamp":10},
         ["fhe1r","fcl1r", {"precompressionRange":0.06,"beamPrecompressionTime":0.1}],
         ["fhe1l","fcl1l", {"precompressionRange":0.06,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.15,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.15,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.12,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.12,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -1544,8 +1633,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.655, -1.2389, 0.428],
-        ["fhe1l",  0.655, -1.2389, 0.428],
+        ["fhe1r", -0.662727, -1.243991, 0.373],
+        ["fhe1l",  0.662727, -1.243991, 0.373],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1579,14 +1668,14 @@
             "maxStress":2500}
         ],
         //helper spring
-        {"beamSpring":2800,"beamDamp":5},
-        ["rhe1r","rcl1r", {"precompressionRange":0.03,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.03,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3200,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.05,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.05,"beamPrecompressionTime":0.1}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
         {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.18,"beamPrecompressionTime":0.3}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.18,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.13,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.13,"beamPrecompressionTime":0.3}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}

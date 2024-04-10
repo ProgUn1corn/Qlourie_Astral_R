@@ -344,13 +344,41 @@
 		["Astral_grilleframe_BRC_vo1", ["Astral_bumper_F"]],
 		["Astral_grille_BRC_vo1", ["Astral_bumper_F"]],
     ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.8},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_PLASTIC"},
+		//--Safari Kit--
+		//bumper
+		{"nodeWeight":2},
+		{"group":["Astral_bumper_F"]},
+		["fb2r", -0.236, -1.98, 0.358],
+		["fb2l",  0.236, -1.98, 0.358],
+		{"selfCollision":false},
+		{"nodeWeight":1},
+		["fb5r", -0.348, -1.98, 0.17],
+		["fb5",  0, -2.0, 0.17],
+		["fb5l",  0.348, -1.98, 0.17],
+		{"selfCollision":true},
+		//rigidifier
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeWeight":2},
+		{"group":[""]},
+		["fbr1r", -0.416, -1.5, 0.486],
+		["fbr1l",  0.416, -1.5, 0.486],
+		{"collision":true},
+		{"selfCollision":true}
+    ],
 	"beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Bumper--
 		//bumper shape
-		{"beamSpring":121000,"beamDamp":50},
+		{"beamSpring":141000,"beamDamp":50},
         {"beamDeform":7500,"beamStrength":"FLT_MAX"},
 		{"breakGroup":""},
 		["fb1r", "fb1", {"beamDeform":4500, "deformationTriggerRatio":0.01, "deformGroup":["engine_intake"]}],

@@ -584,9 +584,9 @@
         //--Damper Physics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":100,"beamDamp":0},
+        {"beamSpring":250,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["ds1","dm1", {"pressurePSI":125,"surface":0.001662,"volumeCoef":0}], //piston diameter 46mm
+        ["ds1","dm1", {"pressurePSI":350,"surface":0.00025447,"volumeCoef":0.5}], //shaft diameter 46mm
         //travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -608,7 +608,7 @@
             "beamDampVelocitySplit":0.40
             "beamDampFast":"$bump_fast"
             //HS rebound
-            "beamDampVelocitySplitRebound":0.25
+            "beamDampVelocitySplitRebound":1
             "beamDampReboundFast":"$rebound"
             "dampCutoffHz":500}
         ],
@@ -747,7 +747,7 @@
         ["wjs2l","wjs1l"],
         ["wjs1l","wjs1r"],
         {"beamPrecompression":"$height"}, 
-        {"beamPrecompressionTime":4}
+        {"beamPrecompressionTime":1}
         ["wj1r","wjs1r"],
         ["wj2r","wjs2r"],
         ["wj2l","wjs2l"],
