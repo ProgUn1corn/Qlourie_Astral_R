@@ -8,7 +8,7 @@
 	"slotType" : "Astral_rollcage",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_rollcage", ["Astral_rollcage"]],
+        ["Astral_rollcage", ["Astral_rollcage","Astral_carbody","Astral_chassis_R","Astral_chassis"]],
 		["Astral_foam", ["Astral_rollcage"]],
 	],
 	"nodes": [       
@@ -49,7 +49,7 @@
 		//--Rollcage--
 		//cage
 		{"beamSpring":2501500,"beamDamp":150},
-		{"beamDeform":255000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":235000,"beamStrength":"FLT_MAX"},
 		["rc1l", "rc2l"],
 		["rc3l", "rc4l"],
 		["rc1l", "rc4l"],
@@ -83,8 +83,7 @@
 		["rc6r", "rc7l"],
 		["rcm", "rs1r"],
 		["rcm", "rc7r"],
-		//strut bar
-		{"beamSpring":1501000,"beamDamp":125},
+		{"beamSpring":2501000,"beamDamp":150},
 		["rs1l", "rs1r"],
 		//rigidifier
 		{"beamSpring":3501000,"beamDamp":100},
@@ -111,6 +110,7 @@
 		["rcr", "rc7r"],
 		//attach to body
 		{"beamSpring":1201000,"beamDamp":50},
+		{"beamDeform":255000,"beamStrength":"FLT_MAX"},
 		["rc1r", "d4r"],
 		["rc1r", "a84"],
 		["rc1r", "a85"],
