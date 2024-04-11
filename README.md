@@ -215,7 +215,7 @@ The most popular class around the world.
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - One layer Rally2 style rear wing, within the frontal projection of the car
-- Total about 150kg of downforce at 200km/h, balance at around 47:53
+- Total about 150kg of downforce at 200km/h, balance at around 50:50
 ![Astral_R](Docs/Rally2/14.jpg)
 
 # RX1 (Formerly RX Supercar)
