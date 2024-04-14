@@ -168,7 +168,7 @@ The most popular class around the world.
 ![Astral_R](Docs/Rally2/11.jpg)
 ![Astral_R](Docs/Rally2/7.jpg)
 ## Chassis
-- Lightweight chassis (10kg heavier than BRC)
+- Lightweight chassis (heavier than BRC)
 - 1230KG minimum measured with only one spare
 - 1390KG minimum with driver and co-driver and one spare wheel 
 - ~1420KG tarmac running weight, ~1445kg gravel running weight (Running weight includes fuel and tools like in real life)
@@ -215,7 +215,7 @@ The most popular class around the world.
 - Front and rear independent aerodynamics
 - Front lip react to ground clearance change
 - One layer Rally2 style rear wing, within the frontal projection of the car
-- Total about 150kg of downforce at 200km/h, balance at around 50:50
+- Total about 130kg of downforce at 200km/h, balance at around 48:52
 ![Astral_R](Docs/Rally2/14.jpg)
 
 # RX1 (Formerly RX Supercar)
