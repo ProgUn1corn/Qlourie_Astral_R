@@ -31,7 +31,7 @@
         ["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6600, 4250, 6350, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 3650, 4000, 7580, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Suspension"}],
-        ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.04, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
@@ -90,8 +90,8 @@
         //arb end link
         {"nodeWeight":1.5},
         {"group":["Astral_arb_R"]},
-        ["rarb3r", -0.511, 1.32, 0.0589],
-        ["rarb3l",  0.511, 1.32, 0.0589],
+        ["rarb3r", -0.521, 1.32, 0.057055],
+        ["rarb3l",  0.521, 1.32, 0.057055],
         //toe link
         {"nodeWeight":5.5},
         {"group":["Astral_rod_R","Astral_arm_R"]},
@@ -480,7 +480,7 @@
         ["$dampRate_bump_R_fast", "range", "Click", "Suspension", 4800, 3250, 5350, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$dampRate_rebound_R", "range", "Click", "Suspension", 2350, 1450, 4685, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Suspension"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Suspension"}],
-        ["$arb_point_R", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.05, 0.0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
     ],
     "controller": [ 
@@ -538,8 +538,8 @@
         //arb end link
         {"nodeWeight":1.5},
         {"group":["Astral_arb_R"]},
-        ["rarb3r", -0.511, 1.32, -0.012],
-        ["rarb3l",  0.511, 1.32, -0.012],
+        ["rarb3r", -0.521, 1.32, -0.01614],
+        ["rarb3l",  0.521, 1.32, -0.01614],
         //toe link
         {"nodeWeight":5.5},
         {"group":["Astral_rod_R","Astral_arm_R"]},
@@ -759,7 +759,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.23,"boundZone":0.02,
+            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.03,
             "beamLimitSpring":15000,
             "beamLimitDamp":12000, 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.95",
@@ -775,7 +775,7 @@
         ],
         ["rh2r","rs1r", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.310,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -791,7 +791,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.23,"boundZone":0.02,
+            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.03,
             "beamLimitSpring":15000,
             "beamLimitDamp":12000, 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.95",
@@ -807,7 +807,7 @@
         ],
         ["rh2l","rs1l", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.310,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -1320,8 +1320,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.681376, 1.3159978, 0.299],
-        ["rhe1l",  0.681376, 1.3159978, 0.299],
+        ["rhe1r", -0.679316, 1.31581, 0.299],
+        ["rhe1l",  0.679316, 1.31581, 0.299],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1385,8 +1385,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.67889, 1.31577, 0.32],
-        ["rhe1l",  0.67889, 1.31577, 0.32],
+        ["rhe1r", -0.6769, 1.315588, 0.32],
+        ["rhe1l",  0.6769, 1.315588, 0.32],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1450,8 +1450,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.67523, 1.31543, 0.351],
-        ["rhe1l",  0.67523, 1.31543, 0.351],
+        ["rhe1r", -0.67336, 1.31526, 0.351],
+        ["rhe1l",  0.67336, 1.31526, 0.351],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1515,8 +1515,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.67286, 1.31522, 0.371],
-        ["rhe1l",  0.67286, 1.31522, 0.371],
+        ["rhe1r", -0.67107, 1.31505, 0.371],
+        ["rhe1l",  0.67107, 1.31505, 0.371],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1580,8 +1580,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.671209, 1.315065, 0.385],
-        ["rhe1l",  0.671209, 1.315065, 0.385],
+        ["rhe1r", -0.66947, 1.3149, 0.385],
+        ["rhe1l",  0.66947, 1.3149, 0.385],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -1645,8 +1645,8 @@
         {"group":[""]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.67, 1.31496, 0.395],
-        ["rhe1l",  0.67, 1.31496, 0.395],
+        ["rhe1r", -0.6683, 1.3148, 0.395],
+        ["rhe1l",  0.6683, 1.3148, 0.395],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}

@@ -30,7 +30,7 @@
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 7400, 4750, 6850, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 3650, 4000, 7580, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
-        ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
+        ["$arb_point_F", "range", "P", "Suspension", 0, -0.03, 0.03, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.04, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Front Suspension"}],
     ],
     "controller": [ 
@@ -96,8 +96,8 @@
         {"selfCollision":false},
         {"nodeWeight":1.5},
         {"group":["Astral_arb_F"]},
-        ["farb3r", -0.511, -1.209, 0.071],
-        ["farb3l",  0.511, -1.209, 0.071],
+        ["farb3r", -0.521, -1.212839, 0.069254],
+        ["farb3l",  0.521, -1.212839, 0.069254],
         {"selfCollision":true},
 
         //--Strut--
@@ -490,7 +490,7 @@
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5600, 3750, 5850, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$dampRate_rebound_F", "range", "Click", "Suspension", 2350, 1450, 4685, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Suspension"}],
         ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Suspension"}],
-        ["$arb_point_F", "range", "P", "Suspension", 0, 0, 0.06, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
+        ["$arb_point_F", "range", "P", "Suspension", 0, -0.03, 0.03, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Suspension"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.05, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Front Suspension"}],
     ],
     "controller": [ 
@@ -556,8 +556,8 @@
         {"selfCollision":false},
         {"nodeWeight":1.5},
         {"group":["Astral_arb_F"]},
-        ["farb3r", -0.511, -1.209, 0.006],
-        ["farb3l",  0.511, -1.209, 0.006],
+        ["farb3r", -0.521, -1.2128, 0.00216],
+        ["farb3l",  0.521, -1.2128, 0.00216],
         {"selfCollision":true},
 
         //--Strut--
@@ -768,7 +768,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.23,"boundZone":0.02,
+            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.03,
             "beamLimitSpring":15000,
             "beamLimitDamp":12000, 
             "beamLimitDampRebound":"$=$dampRate_rebound_F*0.95",
@@ -784,7 +784,7 @@
         ],
         ["fh2r","fs1r", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.310,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -800,7 +800,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.23,"boundZone":0.02,
+            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.03,
             "beamLimitSpring":15000,
             "beamLimitDamp":12000, 
             "beamLimitDampRebound":"$=$dampRate_rebound_F*0.95",
@@ -816,7 +816,7 @@
         ],
         ["fh2l","fs1l", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.310,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
