@@ -58,8 +58,8 @@
         //steering box
         {"nodeWeight":5.5},
         {"group":["Astral_sub_F", "Astral_str_F"]},
-        ["st1r", -0.088, -1.097, 0.1506],
-        ["st1l",  0.088, -1.097, 0.1506],
+        ["st1r", -0.078, -1.097, 0.1506],
+        ["st1l",  0.078, -1.097, 0.1506],
         //rigidifier
         {"collision":false},
         {"nodeWeight":3.5},
@@ -81,7 +81,7 @@
         ["fx2l", "fx1l"],
         ["fx1l", "fx1r"],
         //side subframe
-        {"beamSpring":6501000,"beamDamp":150},
+        {"beamSpring":5501000,"beamDamp":150},
         ["fx2r", "fx3r"],
         ["fx3r", "fx3l"],
         ["fx3l", "fx2l"],
@@ -159,11 +159,11 @@
 
         //--Steering Rack--
         //steering box
-        {"beamSpring":6501000,"beamDamp":250},
-        {"beamDeform":105000,"beamStrength":"FLT_MAX"},
+        {"beamSpring":5501000,"beamDamp":200},
+        {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["st1r","st1l"],
         //mounting to subframe
-        {"beamDeform":35000,"beamStrength":"FLT_MAX"},
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
         ["st1r", "fx1r"],
         ["st1r", "fx2r"],
         ["st1r", "fx4r"],
@@ -225,7 +225,6 @@
         ["$toe_F", "range", "", "Suspension", 1, 0.995, 1.005, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
         ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 900, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":900,"stepDis":5}],
-        ["$steer_center_F", "range", "", "Suspension", 0, -0.002, 0.002, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
     ],
     //steering rack rail
     "rails": {
@@ -305,7 +304,6 @@
         ["$toe_F", "range", "", "Suspension", 1, 0.995, 1.005, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
         ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 900, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":900,"stepDis":5}],
-        ["$steer_center_F", "range", "", "Suspension", 0, -0.002, 0.002, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
     ],
     //steering rack rail
     "rails": {
@@ -385,7 +383,6 @@
         ["$toe_F", "range", "", "Suspension", 1, 0.995, 1.005, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
         ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 900, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":900,"stepDis":5}],
-        ["$steer_center_F", "range", "", "Suspension", 0, -0.002, 0.002, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
     ],
     //steering rack rail
     "rails": {
@@ -465,11 +462,11 @@
         {"hubcapGroup":"hubcap_FR"},
         {"axleBeams":["axle_FR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"ftrar", "torqueArm:":"eg3", "torqueArm2:":"eg7","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
+        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"ftrar", "torqueArm:":"eg1", "torqueArm2:":"eg5","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
         {"hubcapBreakGroup":"hubcap_FL"},
         {"hubcapGroup":"hubcap_FL"},
         {"axleBeams":["axle_FL"]},
-        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"ftral", "torqueArm:":"eg2", "torqueArm2:":"eg6","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
+        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"ftral", "torqueArm:":"eg0", "torqueArm2:":"eg4","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},

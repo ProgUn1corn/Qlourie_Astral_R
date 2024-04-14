@@ -23,7 +23,7 @@
         ["Astral_shockup_r9", ["Astral_shock_R"]],
         ["Astral_shockdown_r9", ["Astral_shock_R"]],
         ["Astral_shockreservoir_r9", ["Astral_shock_R"]],
-        ["Astral_trans_r9", ["Astral_arm_R"]],
+        ["Astral_trans_r9", ["Astral_arm_R","Astral_diff"]],
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -313,7 +313,7 @@
             //bump stop active
             "longBoundRange":1,"shortBoundRange":0.17,"boundZone":0.01,
             "beamLimitSpring":325000,
-            "beamLimitDamp":1500, 
+            "beamLimitDamp":5500, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
@@ -337,7 +337,7 @@
             //bump stop active
             "longBoundRange":1,"shortBoundRange":0.17,"boundZone":0.01,
             "beamLimitSpring":325000,
-            "beamLimitDamp":1500, 
+            "beamLimitDamp":5500, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
@@ -359,7 +359,7 @@
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard stop
             //leave rebound stop space
@@ -367,10 +367,10 @@
             "beamPrecompressionTime":0.1,
             //rubber stop
             "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
-            "beamLimitSpring":185000,
+            "beamLimitSpring":145000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hydraulics
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
@@ -381,7 +381,7 @@
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hard stop
             //leave rebound stop space
@@ -389,10 +389,10 @@
             "beamPrecompressionTime":0.1,
             //rubber stop
             "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
-            "beamLimitSpring":185000,
+            "beamLimitSpring":145000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         
         //arm guard limiter
@@ -472,7 +472,7 @@
         ["Astral_shockup_r8", ["Astral_shock_R"]],
         ["Astral_shockdown_r8", ["Astral_shock_R"]],
         ["Astral_shockreservoir_r8", ["Astral_shock_R"]],
-        ["Astral_trans_r8", ["Astral_arm_R"]],
+        ["Astral_trans_r8", ["Astral_arm_R","Astral_diff"]],
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -655,10 +655,10 @@
         //camber
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.065","beamPrecompressionTime":0.1}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.06","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.065","beamPrecompressionTime":0.1}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.06","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -672,8 +672,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":800},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0026","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0026","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
@@ -759,7 +759,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.03,
+            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.02,
             "beamLimitSpring":15000,
             "beamLimitDamp":12000, 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.95",
@@ -769,7 +769,7 @@
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
             "beamLimitSpring":251000,
-            "beamLimitDamp":1500, 
+            "beamLimitDamp":5500, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
@@ -791,7 +791,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.03,
+            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.02,
             "beamLimitSpring":15000,
             "beamLimitDamp":12000, 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.95",
@@ -801,7 +801,7 @@
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
             "beamLimitSpring":251000,
-            "beamLimitDamp":1500, 
+            "beamLimitDamp":5500, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
@@ -823,7 +823,7 @@
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard stop
             //leave rebound stop space
@@ -831,10 +831,10 @@
             "beamPrecompressionTime":0.1,
             //rubber stop
             "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
-            "beamLimitSpring":185000,
+            "beamLimitSpring":145000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hydraulics
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
@@ -845,7 +845,7 @@
             "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hard stop
             //leave rebound stop space
@@ -853,10 +853,10 @@
             "beamPrecompressionTime":0.1,
             //rubber stop
             "longBoundRange":0.03,"shortBoundRange":2,"boundZone":0.01,
-            "beamLimitSpring":185000,
+            "beamLimitSpring":145000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,
-            "dampCutofrhz":250}
+            "dampCutoffHz":250}
         ],
         {"beamSpring":0,"beamDamp":0},
         
