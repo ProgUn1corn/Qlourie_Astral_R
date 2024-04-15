@@ -486,8 +486,8 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":"$=0.309+$TrackFront", "y":-1.285, "z":0.05}}],
-        ["Astral_brake_F","Astral_brake_F_BRC_gravel", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.05}}],
+        ["Astral_hubs_F","Astral_hubs_F", "Hub", {"nodeOffset":{"x":"$=0.309+$TrackFront", "y":-1.285, "z":0.03}}],
+        ["Astral_brake_F","Astral_brake_F_BRC_gravel", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.03}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
         ["Astral_spring_F_BRC_gravel","Astral_spring_F_BRC_gravel_25", "Spring"]
     ],
@@ -685,10 +685,10 @@
         //camber
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.055","beamPrecompressionTime":0.1}],
+        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.05","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.055","beamPrecompressionTime":0.1}],
+        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.05","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -702,8 +702,8 @@
 
         //tie rods
         {"beamSpring":12001000,"beamDamp":800},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0045","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0045","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
+        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
+        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0047","beamPrecompressionTime":0.3, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -798,7 +798,7 @@
         ],
         ["fh2r","fs1r", { //PHASE 2 
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.26,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.265,"boundZone":0.01,
             "beamLimitSpring":25000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F*0.95",
@@ -806,7 +806,7 @@
         ],
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.285,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.295,"boundZone":0.01,
             "beamLimitSpring":251000,
             "beamLimitDamp":5500, 
             "beamLimitDampRebound":1000,
@@ -838,7 +838,7 @@
         ],
         ["fh2l","fs1l", { //PHASE 2 
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.26,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.265,"boundZone":0.01,
             "beamLimitSpring":25000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F*0.95",
@@ -846,7 +846,7 @@
         ],
         ["fh2l","fs1l", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.285,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.295,"boundZone":0.01,
             "beamLimitSpring":251000,
             "beamLimitDamp":5500, 
             "beamLimitDampRebound":1000,
