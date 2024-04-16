@@ -103,7 +103,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":6},
+        {"nodeWeight":9},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lower spring collar
@@ -283,7 +283,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":400}
+            "dampCutoffHz":500}
         ],
         ["fh2l","fs1l", {
             "name":"damper_FL",
@@ -295,7 +295,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":400}
+            "dampCutoffHz":500}
         ],
         //hydraulic bump stop
         ["fh2r","fs1r", { //1-phase valve close
@@ -317,8 +317,8 @@
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":251000,
-            "beamLimitDamp":5500, 
+            "beamLimitSpring":351000,
+            "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
@@ -349,8 +349,8 @@
         ["fh2l","fs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":251000,
-            "beamLimitDamp":5500, 
+            "beamLimitSpring":351000,
+            "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
@@ -369,9 +369,9 @@
             "precompressionRange":-0.025,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":145000,
+            "beamLimitSpring":165000,
             "beamLimitDamp":1000,
-            "beamLimitDampRebound":1000,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", {
@@ -380,9 +380,9 @@
             "precompressionRange":-0.025,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":145000,
+            "beamLimitSpring":165000,
             "beamLimitDamp":1000,
-            "beamLimitDampRebound":1000,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"beamSpring":0,"beamDamp":0},
