@@ -1167,6 +1167,10 @@
 		["Astral_shiftlight", ["Astral_dash"]],
 		["Astral_cable", ["Astral_cable"]]
 	],
+	"mirrors": [
+        ["mesh", "idRef:", "id1:", "id2:"],
+        ["Astral_rearmirror","rm1","rfr","rcm",{"refBaseTranslation":{"x":0,"y":0,"z":0},"baseRotationGlobal":{"x":0,"y":0,"z":0}}],
+    ],
 	"controller": [
         ["fileName"],
         ["shiftLights"],
@@ -1327,5 +1331,39 @@
         "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
 		"Astral_brakelight":      {"simpleFunction":{"brake":0.6}, "off":"Astral_brakelight_off", "on":"Astral_brakelight_on", "on_intense":"Astral_brakelight_onIntense"}
     },
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Dashboard for Wheel--
+		{"group":["Astral_carbody"]},
+		{"nodeWeight":0.5},
+		["rm1", 0, -0.379, 1.14],
+		{"collision":true},
+		{"selfCollision":true},
+		{"group":[""]}
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rear View--
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		//mount to roof
+		{"beamSpring":651000,"beamDamp":40},
+		["rm1", "a81"],
+		["rm1", "a82"],
+		["rm1", "a77"],
+		["rm1", "a78"],
+		["rm1", "a84"],
+		["rm1", "a87"],
+		["rm1", "a85"],
+		["rm1", "a86"],
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ]
 }
 }
