@@ -453,9 +453,9 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$bump", "range", "N/m/s", "Debug", 2350, 0, 10000, "LS Bump", "1", {"stepDis":50, "subCategory":"Damper"}],
 		["$bump_fast", "range", "N/m/s", "Debug", 5600, 0, 10000, "HS Bump", "2", {"stepDis":50, "subCategory":"Damper"}],
-        ["$rebound", "range", "N/m/s", "Debug", 2350, 0, 10000, "Rebound", "3", {"stepDis":50, "subCategory":"Damper"}],
-		["$spring", "range", "N/mm", "Debug", 22500, 0, 35000, "Spring", "1", {"stepDis":100, "subCategory":"Spring"}],
-        ["$helper", "range", "N/mm", "Debug", 22500, 0, 10000, "Helper", "1", {"stepDis":100, "subCategory":"Helper"}],
+        ["$rebound", "range", "N/m/s", "Debug", 3000, 0, 10000, "Rebound", "3", {"stepDis":50, "subCategory":"Damper"}],
+		["$spring", "range", "N/mm", "Debug", 0, 0, 35000, "Spring", "1", {"stepDis":100, "subCategory":"Spring"}],
+        ["$helper", "range", "N/mm", "Debug", 0, 0, 10000, "Helper", "1", {"stepDis":100, "subCategory":"Helper"}],
     ],
 	"slotType" : "Astral_damper",
 	"nodes": [
@@ -584,9 +584,9 @@
         //--Damper Physics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":250,"beamDamp":0},
+        {"beamSpring":650,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["ds1","dm1", {"pressurePSI":350,"surface":0.00025447,"volumeCoef":0.5}], //shaft diameter 46mm
+        ["ds1","dm1", {"pressurePSI":250,"surface":0.00025447,"volumeCoef":0}], //shaft diameter 46mm
         //travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
