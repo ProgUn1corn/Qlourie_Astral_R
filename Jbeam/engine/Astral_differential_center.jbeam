@@ -14,6 +14,7 @@
 		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Contribution", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 1, "L.foot Brake Threshold", "The thershold where left foor braking map applied", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
+		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -23,8 +24,8 @@
 		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.54]
+			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease"]
+            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.54, "$hbRelease"]
 		]
 	},
 	"powertrain" : [
@@ -51,7 +52,7 @@
 		{"deformLimitExpansion":1.2},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Transfer Case--
-		{"beamSpring":4501000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":140},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","ftra"],
@@ -82,6 +83,7 @@
 		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Contribution", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 1, "L.foot Brake Threshold", "The thershold where left foor braking map applied", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
+		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -91,8 +93,8 @@
 		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.66]
+			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease"]
+            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.66, "$hbRelease"]
 		]
 	},
 	"flexbodies": [
@@ -119,7 +121,7 @@
 		{"deformLimitExpansion":1.2},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Transfer Case--
-		{"beamSpring":4501000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":140},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","ftra"],
@@ -146,7 +148,8 @@
 		["$torquesplit", "range", "", "Differentials", 0.50, 0.3, 0.7, "Torque Split", "Power to Rear",{"subCategory": "Center", "stepDis": 3, "minDis":30,"maxDis":70}]
 		["$lsdpreload_C", "range", "N/m", "Differentials", 20, 0, 200, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center", "stepDis": 2.5}],
 		["$lsdlockcoef_C", "range", "", "Differentials", 0.5, 0, 0.5, "Throttle Lock", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.05, 0, 0.5, "Brake Lock", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}]
+		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.05, 0, 0.5, "Brake Lock", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -156,8 +159,8 @@
 		"type":"Passive",
 		"transfercaseName":"transferCase",
 		"lockMap":[
-			["lock", "revLock", "preload", "rearBias"]
-            ["$lsdlockcoef_C", "$lsdlockcoefrev_C", "$lsdpreload_C", "$torquesplit"]
+			["lock", "revLock", "preload", "rearBias", "hbRelease"]
+            ["$lsdlockcoef_C", "$lsdlockcoefrev_C", "$lsdpreload_C", "$torquesplit", "$hbRelease"]
 		]
 	},
 	"powertrain" : [
@@ -184,7 +187,7 @@
 		{"deformLimitExpansion":1.2},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Transfer Case--
-		{"beamSpring":4501000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":140},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","ftra"],
@@ -216,7 +219,7 @@
     ],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":1, "lockTorque":"$lockTorque", "friction":0.55, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"AWD Transfer Case","defaultVirtualInertia":0.1}],
+		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":"$lockTorque", "friction":0.55, "dynamicFriction":0.0005, "torqueLossCoef": 0.01, "uiName":"AWD Transfer Case","defaultVirtualInertia":0.1}],
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -238,7 +241,7 @@
 		{"deformLimitExpansion":1.2},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Transfer Case--
-		{"beamSpring":4501000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":140},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","ftra"],

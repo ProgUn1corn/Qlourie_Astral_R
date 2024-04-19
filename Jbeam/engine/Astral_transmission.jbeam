@@ -8,7 +8,8 @@
 	"slots": [
 		["type", "default", "description"],
 		["Astral_transfercase", "Astral_differential_center_e_tarmac", "Transfer Case"],
-		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"]
+		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"],
+		["Astral_flywheel","Astral_flywheel","Flywheel", {"coreSlot":true}],
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -39,8 +40,6 @@
 	"clutch": {
 		"clutchFreePlay":0.75,
 		"lockSpringCoef":0.35,
-		"clutchMass":3,
-		"additionalEngineInertia":0.01,
 	},
 	"vehicleController":{
 		"setGearboxMode": "realistic",
@@ -49,8 +48,6 @@
 		"aggressionHoldOffThrottleDelay":3,
 		"ignitionCutTime": 0.06,
 		"revMatchThrottle":0.25, 
-		"clutchInRate":40,
-		"clutchOutRate":40, 
 	},
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -136,7 +133,8 @@
 	"slots": [
 		["type", "default", "description"],
 		["Astral_transfercase", "Astral_differential_center_locked", "Transfercase"],
-		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"]
+		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"],
+		["Astral_flywheel","Astral_flywheel","Flywheel", {"coreSlot":true}],
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -164,10 +162,8 @@
 		"gearWhineOutputEvent": "event:>Vehicle>Transmission>straight_01>twine_out_truck",
 	},
 	"clutch": {
-		"clutchFreePlay":0.75,
+		"clutchFreePlay":0.55,
 		"lockSpringCoef":0.35,
-		"clutchMass":3,
-		"additionalEngineInertia":0.01,
 	},
 	"vehicleController":{
 		"setGearboxMode": "realistic",
@@ -176,8 +172,6 @@
 		"aggressionHoldOffThrottleDelay":3,
 		"ignitionCutTime": 0.06
 		"revMatchThrottle":0.37, 
-		"clutchInRate":30,
-		"clutchOutRate":30, 
 	},
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -252,5 +246,39 @@
 		["frictionClutch", "clutch", "mainEngine", 1, {"deformGroups":["gearbox"]}],
 		["sequentialGearbox", "gearbox", "clutch", 1, {"deformGroups":["gearbox"]}],
 	],
-}
+},
+"Astral_flywheel": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Race Flywheel",
+        "value":150,
+    },
+    "slotType" : "Astral_flywheel",
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1, {"deformGroups":["gearbox"]}],
+    ],
+    "clutch": {
+        "uiName":"Clutch",
+        "additionalEngineInertia":0.015,
+        "clutchMass":3,
+    },
+},
+"Astral_flywheel_light": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Light Flywheel",
+        "value":150,
+    },
+    "slotType" : "Astral_flywheel",
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1, {"deformGroups":["gearbox"]}],
+    ],
+    "clutch": {
+        "uiName":"Clutch",
+        "additionalEngineInertia":0.035,
+        "clutchMass":4,
+    },
+},
 }
