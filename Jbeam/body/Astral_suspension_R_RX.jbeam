@@ -2,7 +2,7 @@
 "Astral_group_R_RX": {
     "information":{
         "authors":"Un1corn",
-        "name":"CTM MRX80 3WAY Rallycross Damper",
+        "name":"CTM MRX80 3+1WAY Rallycross Damper",
         "value":3200,
     },
     "slotType" : "Astral_group_R",
@@ -28,9 +28,12 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Rear Suspension"}],
-        ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Suspension"}],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Suspension"}],
+        ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
+        ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.29, 0.27, 0.30, "Hard Bump Stop Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":270,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.24, 0.20, 0.27, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":200,"maxDis":270,"subCategory":"Rear Damper Auxiliary"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "Rear ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
+        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -285,18 +288,18 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.024,
             "beamLimitSpring":10000,
-            "beamLimitDamp":10000, 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R*0.95",
+            "beamLimitDamp":"$dampRate_stop_R", 
+            "beamLimitDampRebound":"$=$dampRate_rebound_R*0.85",
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.300,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
             "beamLimitSpring":351000,
             "beamLimitDamp":8000, 
-            "beamLimitDampRebound":500,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //bottom out
@@ -317,18 +320,18 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.24,"boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.024,
             "beamLimitSpring":10000,
-            "beamLimitDamp":10000, 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R*0.95",
+            "beamLimitDamp":"$dampRate_stop_R", 
+            "beamLimitDampRebound":"$=$dampRate_rebound_R*0.85",
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hard bump stop
             //failsafe protection
-            "longBoundRange":1,"shortBoundRange":0.300,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
             "beamLimitSpring":351000,
             "beamLimitDamp":8000, 
-            "beamLimitDampRebound":500,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //bottom out
@@ -426,9 +429,9 @@
     "slotType" : "Astral_shim_R_RX",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Suspension", 2750, 1500, 4000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Suspension"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3000, 2000, 4000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Suspension"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 4050, 2200, 5900, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Suspension"}],
+		["$dampRate_bump_R", "range", "Click", "Suspension", 2750, 1500, 4000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3000, 2000, 4000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 4050, 2200, 5900, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -464,9 +467,9 @@
     "slotType" : "Astral_shim_R_RX",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Suspension", 3550, 2300, 4800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Suspension"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 2000, 1000, 3000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Suspension"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5140, 3333, 6950, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Suspension"}],
+		["$dampRate_bump_R", "range", "Click", "Suspension", 3550, 2300, 4800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 2000, 1000, 3000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5140, 3333, 6950, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
