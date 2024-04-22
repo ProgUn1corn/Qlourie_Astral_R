@@ -200,13 +200,16 @@
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":800},
+        {"beamSpring":12001000,"beamDamp":600},
         ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.0001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.0001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        {"beamSpring":10001000,"beamDamp":250},
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
         ["rx5l","rx1l", {"dampCutoffHz":500}],
+        ["rx5r","rh1r", {"dampCutoffHz":500}],
+        ["rx5l","rh1l", {"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -227,12 +230,20 @@
         //--Damper--
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},,
         //detection mass
-        {"beamSpring":0,"beamDamp":5},
-        ["rmassr", "rh1r"],
-        ["rmassl", "rh1l"],
-        {"beamSpring":75,"beamDamp":5},
-        ["rmassr", "rh2r", {"name":"LRS_RR"}],
-        ["rmassl", "rh2l", {"name":"LRS_RL"}],
+        {"beamSpring":0,"beamDamp":2},
+        ["rmassr", "rh2r"],
+        ["rmassl", "rh2l"],
+        {"beamSpring":25,"beamDamp":2},
+        ["rmassr", "rh1r", {"name":"LRS_RR"}],
+        ["rmassl", "rh1l", {"name":"LRS_RL"}],
+        //mass limiter
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":501000,"beamDamp":10},
+        {"precompressionRange":0},
+        ["rmassr", "rh2r"],
+        ["rmassl", "rh2l"],
+        {"precompressionRange":""},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //strut platform height (preload)
         {"beamSpring":1201000,"beamDamp":50},
         {"beamDeform":155000,"beamStrength":305000},
@@ -296,7 +307,7 @@
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":321000,
+            "beamLimitSpring":451000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -328,7 +339,7 @@
         ["rh2l","rs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":321000,
+            "beamLimitSpring":451000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -640,13 +651,16 @@
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":800},
+        {"beamSpring":12001000,"beamDamp":600},
         ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0025","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0025","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        {"beamSpring":10001000,"beamDamp":250},
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
         ["rx5l","rx1l", {"dampCutoffHz":500}],
+        ["rx5r","rh1r", {"dampCutoffHz":500}],
+        ["rx5l","rh1l", {"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -667,12 +681,20 @@
         //--Damper--
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //detection mass
-        {"beamSpring":0,"beamDamp":5},
-        ["rmassr", "rh1r"],
-        ["rmassl", "rh1l"],
-        {"beamSpring":75,"beamDamp":5},
-        ["rmassr", "rh2r", {"name":"LRS_RR"}],
-        ["rmassl", "rh2l", {"name":"LRS_RL"}],
+        {"beamSpring":0,"beamDamp":2},
+        ["rmassr", "rh2r"],
+        ["rmassl", "rh2l"],
+        {"beamSpring":25,"beamDamp":2},
+        ["rmassr", "rh1r", {"name":"LRS_RR"}],
+        ["rmassl", "rh1l", {"name":"LRS_RL"}],
+        //mass limiter
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":501000,"beamDamp":10},
+        {"precompressionRange":0},
+        ["rmassr", "rh2r"],
+        ["rmassl", "rh2l"],
+        {"precompressionRange":""},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //strut platform height (preload)
         {"beamSpring":1201000,"beamDamp":50},
         {"beamDeform":155000,"beamStrength":305000},
@@ -735,7 +757,7 @@
         ],
         ["rh2r","rs1r", { //PHASE 2 
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.01,
             "beamLimitSpring":25000,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.85",
@@ -744,7 +766,7 @@
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":351000,
+            "beamLimitSpring":451000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -775,7 +797,7 @@
         ],
         ["rh2l","rs1l", { //PHASE 2 
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.01,
             "beamLimitSpring":25000,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.85",
@@ -784,7 +806,7 @@
         ["rh2l","rs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":351000,
+            "beamLimitSpring":451000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -914,9 +936,9 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.071 //LRS starting point
+        "LRSp":0.234 //LRS starting point
         "LRSc":29 //constant to calculate slope
-        "DSVp":0.077 //DSV starting point
+        "DSVp":0.201 //DSV starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]
@@ -952,7 +974,7 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.071 //LRS starting point
+        "LRSp":0.001 //LRS starting point
         "LRSc":29 //constant to calculate slope
         "DSVp":0.077 //DSV starting point
         "rLoads": [
@@ -990,9 +1012,9 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.071 //LRS starting point
+        "LRSp":0.234 //LRS starting point
         "LRSc":29 //constant to calculate slope
-        "DSVp":0.077 //DSV starting point
+        "DSVp":0.201 //DSV starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]
@@ -1028,9 +1050,9 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.061 //LRS starting point
+        "LRSp":0.235 //LRS starting point
         "LRSc":20 //constant to calculate slope
-        "DSVp":0.072 //DSV starting point
+        "DSVp":0.185 //DSV starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]
@@ -1066,9 +1088,9 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.061 //LRS starting point
+        "LRSp":0.235 //LRS starting point
         "LRSc":20 //constant to calculate slope
-        "DSVp":0.072 //DSV starting point
+        "DSVp":0.185 //DSV starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]
@@ -1104,9 +1126,9 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.061 //LRS starting point
+        "LRSp":0.235 //LRS starting point
         "LRSc":20 //constant to calculate slope
-        "DSVp":0.072 //DSV starting point
+        "DSVp":0.185 //DSV starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]
