@@ -226,20 +226,12 @@
         {"breakGroup":""}
         {"optional":false}
         //detection mass
-        {"beamSpring":0,"beamDamp":2},
-        ["fmassr", "fh2r"],
-        ["fmassl", "fh2l"],
-        {"beamSpring":25,"beamDamp":2},
-        ["fmassr", "fh1r", {"name":"LRS_FR"}],
-        ["fmassl", "fh1l", {"name":"LRS_FL"}],
-        //mass limiter
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":501000,"beamDamp":10},
-        {"precompressionRange":0},
-        ["fmassr", "fh2r"],
-        ["fmassl", "fh2l"],
-        {"precompressionRange":""},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":0,"beamDamp":5},
+        ["fmassr", "fh1r"],
+        ["fmassl", "fh1l"],
+        {"beamSpring":75,"beamDamp":5},
+        ["fmassr", "fh2r", {"name":"LRS_FR"}],
+        ["fmassl", "fh2l", {"name":"LRS_FL"}],
         //strut platform height (preload)
         {"beamSpring":1201000,"beamDamp":50},
         {"beamDeform":155000,"beamStrength":305000},
@@ -294,7 +286,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.032,
             "beamLimitSpring":10000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F*0.85",
@@ -303,7 +295,7 @@
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_F","boundZone":0.01,
-            "beamLimitSpring":451000,
+            "beamLimitSpring":351000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -326,7 +318,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.032,
             "beamLimitSpring":10000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F*0.85",
@@ -335,7 +327,7 @@
         ["fh2l","fs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_F","boundZone":0.01,
-            "beamLimitSpring":451000,
+            "beamLimitSpring":351000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -455,9 +447,9 @@
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false}],
     ],
     "FrontLRS": {
-        "LRSp":0.202 //LRS starting point
+        "LRSp":0.061 //LRS starting point
         "LRSc":20 //constant to calculate slope
-        
+        "DSVp":0.072 //DSV starting point
         "fLoads": [
             ["name", "beamName"]
             ["FR", "LRS_FR"]
@@ -493,9 +485,9 @@
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false}],
     ],
     "FrontLRS": {
-        "LRSp":0.202 //LRS starting point
+        "LRSp":0.061 //LRS starting point
         "LRSc":20 //constant to calculate slope
-        
+        "DSVp":0.072 //DSV starting point
         "fLoads": [
             ["name", "beamName"]
             ["FR", "LRS_FR"]
