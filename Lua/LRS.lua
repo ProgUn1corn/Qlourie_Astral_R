@@ -42,12 +42,12 @@ local function updateWheelsIntermediate()
   for i, spring in ipairs(fLoads) do
     local springLoad = obj:getBeamLength(spring.bCid) or 0 --get suspension load
     
-    if springLoad <= LRSp then 
+    if springLoad >= LRSp then 
       spring.activeFlagLRS = true
     else
       spring.activeFlagLRS = false
     end
-    if springLoad >= DSVp then 
+    if springLoad <= DSVp then 
       spring.activeFlagDSV = true
     else
       spring.activeFlagDSV = false
@@ -59,7 +59,7 @@ local function updateWheelsIntermediate()
     for i, damper in ipairs(fDampers) do
       if LRS == true then --active LRS
         if fLoads[i].activeFlagLRS == true then 
-          damper.newLSRebound = clamp(fDamping[2].beamDampRebound-(fDamping[1].beamDampRebound-fDamping[2].beamDampRebound)*(-springLoad*333.33+LRSc), fDamping[2].beamDampRebound, fDamping[1].beamDampRebound)
+          damper.newLSRebound = clamp(fDamping[2].beamDampRebound, fDamping[2].beamDampRebound, fDamping[1].beamDampRebound)
           damper.newHSRebound = damper.newLSRebound
         else
           damper.newLSRebound = damper.orgLSRebound
@@ -95,12 +95,12 @@ local function updateWheelsIntermediate()
   for i, spring in ipairs(rLoads) do
     local springLoad = obj:getBeamLength(spring.bCid) or 0 --get suspension load
     
-    if springLoad <= LRSp then 
+    if springLoad >= LRSp then 
       spring.activeFlagLRS = true
     else
       spring.activeFlagLRS = false
     end
-    if springLoad >= DSVp then 
+    if springLoad <= DSVp then 
       spring.activeFlagDSV = true
     else
       spring.activeFlagDSV = false
@@ -112,7 +112,7 @@ local function updateWheelsIntermediate()
     for i, damper in ipairs(rDampers) do
       if LRS == true then --active LRS
         if rLoads[i].activeFlagLRS == true then 
-          damper.newLSRebound = clamp(rDamping[1].beamDampRebound-(rDamping[1].beamDampRebound-rDamping[2].beamDampRebound)*(-springLoad*333+LRSc), rDamping[2].beamDampRebound, rDamping[1].beamDampRebound)
+          damper.newLSRebound = clamp(rDamping[2].beamDampRebound, rDamping[2].beamDampRebound, rDamping[1].beamDampRebound)
           damper.newHSRebound = damper.newLSRebound
         else
           damper.newLSRebound = damper.orgLSRebound
@@ -241,7 +241,7 @@ local function init(jbeamData)
   LRSc = jbeamData.LRSc or 0
   DSVp = jbeamData.DSVp or 0
   
-
+  --print(LRSp)
   --printTable(fDampers)
   --printTable(fLoads)
   --printTable(fDamping)

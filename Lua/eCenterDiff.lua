@@ -14,6 +14,8 @@ local throttle = 0
 local brake = 0
 local steer = 0
 local speed = 0
+local handbrake = 0
+local clutch = 0
 
 local lockMap = {}
 local transfercase = nil
@@ -26,8 +28,7 @@ local lbThreshold = 0
 local throttleRatio = 0
 local brakeRatio = 0
 local steerRatio = 0
-local yLockCoef = 0
-local xLockCoef = 0
+local hbrelease = 0
 
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
@@ -51,9 +52,14 @@ local function updateWheelsIntermediate()
     throttle = electrics.values['throttle_input'] or 0
     brake = electrics.values['brake_input'] or 0
     steer = electrics.values['steering_input'] or 0
+    handbrake = electrics.values['parkingbrake_input'] or 0 
+    clutch = electrics.values['clutch'] or 0 
     speed = electrics.values.wheelspeed*3.6 or 0 --m/s to km/h
     local normalSteer = abs(steer) --make value 0 to 1
     local clampSpeed = clamp(speed, 0, 120) --make speed-steer factor only affect 0-120 km/h
+
+    local yLockCoef = 0
+    local xLockCoef = 0
     
     --steering contribution with countersteer control
     local yaw = obj:getYawAngularVelocity() --left is positive
@@ -132,34 +138,35 @@ local function updateWheelsIntermediate()
     --sum up X and Y lock factors
     local newLockCoef = clamp(yLockCoef - xLockCoef*speedFactor, 0, 1)
     
-    if input.parkingbrake > 0.5 then 
+    if handbrake >= hbrelease or clutch >= 0.75 then 
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
-      transfercase.diffTorqueSplitA = 1 - rearBias
-      transfercase.diffTorqueSplitB = 0
+      transfercase.diffTorqueSplitA = 0
+      transfercase.diffTorqueSplitB = 1 - rearBias
       transfercase.lsdPreload = 0
     else
-      transfercase.lsdLockCoef = newLockCoef * 0.5
+      transfercase.lsdLockCoef = newLockCoef * 0.48
       transfercase.lsdRevLockCoef = transfercase.lsdLockCoef 
-      transfercase.diffTorqueSplitA = 1- rearBias
-      transfercase.diffTorqueSplitB = rearBias
-      transfercase.lsdPreload = 0
+      transfercase.diffTorqueSplitA = rearBias
+      transfercase.diffTorqueSplitB = 1 - rearBias
+      transfercase.lsdPreload = 5
     end
   elseif transferType == "Passive" then
-    if input.parkingbrake > 0.5 then 
+    if handbrake >= hbrelease or clutch >= 0.75 then 
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
-      transfercase.diffTorqueSplitA = 1- rearBias
-      transfercase.diffTorqueSplitB = 0
+      transfercase.diffTorqueSplitA = 0
+      transfercase.diffTorqueSplitB = 1 - rearBias
       transfercase.lsdPreload = 0
     else
       transfercase.lsdLockCoef = maxLockCoef
       transfercase.lsdRevLockCoef = minLockCoef
-      transfercase.diffTorqueSplitA = 1- rearBias
-      transfercase.diffTorqueSplitB = rearBias
+      transfercase.diffTorqueSplitA = rearBias
+      transfercase.diffTorqueSplitB = 1 - rearBias
       transfercase.lsdPreload = preload
     end
   end
+  --print(clutch)
   --print(transfercase.lsdLockCoef)
 end
 
@@ -177,6 +184,7 @@ local function init(jbeamData)
     lbLockCoef = lockMap[1].leftLock or 0
     lbThreshold = lockMap[1].leftThreshold or 0
     rearBias = lockMap[1].rearBias or 0
+    hbrelease = lockMap[1].hbRelease or 0
   end
 
   --get tuning data for passive
@@ -186,6 +194,7 @@ local function init(jbeamData)
     minLockCoef = lockMap[1].revLock or 0
     preload = lockMap[1].preload or 0
     rearBias = lockMap[1].rearBias or 0
+    hbrelease = lockMap[1].hbRelease or 0
   end
   
   --printTable(lockMap)
