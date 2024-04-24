@@ -76,7 +76,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_R","Astral_chassis_R"]},
-        {"nodeWeight":8.5},
+        {"nodeWeight":9.5},
         ["rs1r", -0.616, 1.31, 0.852],
         ["rs1l",  0.616, 1.31, 0.852],
         //lower spring collar
@@ -331,7 +331,7 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
@@ -353,7 +353,7 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
@@ -454,7 +454,7 @@
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.29, 0.27, 0.305, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":270,"maxDis":305,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.29, 0.27, 0.300, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":270,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.23, 0.20, 0.27, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":200,"maxDis":270,"subCategory":"Rear Damper Auxiliary"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "Rear ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.05, 0.0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Damper"}],
@@ -502,7 +502,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_R","Astral_chassis_R"]},
-        {"nodeWeight":8.5},
+        {"nodeWeight":9.5},
         ["rs1r", -0.616, 1.31, 0.852],
         ["rs1l",  0.616, 1.31, 0.852],
         //lower spring collar
@@ -713,7 +713,7 @@
             "maxStress":1500
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":4000,
+            "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.85",
             "dampCutoffHz":250}
@@ -728,7 +728,7 @@
         ],
         ["rh2r","rs1r", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.31,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -745,7 +745,7 @@
             "maxStress":1500
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":4000,
+            "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.85",
             "dampCutoffHz":250}
@@ -760,7 +760,7 @@
         ],
         ["rh2l","rs1l", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.305,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.31,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -773,7 +773,7 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
@@ -795,7 +795,7 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":8000,
             "beamLimitDamp":"$dampRate_bump_F",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
