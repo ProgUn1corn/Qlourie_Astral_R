@@ -8,8 +8,8 @@
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_R","Hub", {"nodeOffset":{"x":"$=0.345+$TrackRear", "y":1.25, "z":0.155}}],
-        ["Astral_brake_R","Astral_brake_R_BRC_tarmac", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.155}}],
+        ["Astral_hubs_R","Astral_hubs_R","Hub", {"nodeOffset":{"x":"$=0.345+$TrackRear", "y":1.25, "z":0.135}}],
+        ["Astral_brake_R","Astral_brake_R_BRC_tarmac", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.135}}],
         ["Astral_brake_duct_tarmac","Astral_brake_duct_no_tarmac", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.155}, "coreSlot":true}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_spring_R_BRC_tarmac","Astral_spring_R_BRC_tarmac_43", "Spring"],
@@ -29,7 +29,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.195, 0.18, 0.205, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":180,"maxDis":205,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.195, 0.18, 0.20, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":180,"maxDis":200,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.14, 0.12, 0.18, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":120,"maxDis":180,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
@@ -303,7 +303,7 @@
         ],
         ["rh2r","rs1r", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.205,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.21,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -335,7 +335,7 @@
         ],
         ["rh2l","rs1l", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.205,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.21,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -470,7 +470,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.31, 0.28, 0.32, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":280,"maxDis":320,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.31, 0.28, 0.315, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":280,"maxDis":315,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.23, 0.20, 0.28, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":200,"maxDis":280,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "Rear ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
@@ -751,7 +751,7 @@
         ],
         ["rh2r","rs1r", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.32,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.325,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -791,7 +791,7 @@
         ],
         ["rh2l","rs1l", { //bottom out
             //become solid
-            "longBoundRange":1,"shortBoundRange":0.32,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.325,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
