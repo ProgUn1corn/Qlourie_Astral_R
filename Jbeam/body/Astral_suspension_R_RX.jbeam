@@ -184,10 +184,10 @@
         //camber
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.075","beamPrecompressionTime":0.1}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.07","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.075","beamPrecompressionTime":0.1}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.07","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -201,8 +201,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":800},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.003","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0025","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0025","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
@@ -342,26 +342,42 @@
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
-        //hard rebound stop
-        ["fh2r","fs1r", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.025,
+        //hydraulic rebound stop
+        ["rh2r","rs1r", { //hydraulics
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
             //leave rebound stop space
-            "precompressionRange":-0.025,
+            "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":165000,
-            "beamLimitDamp":500,
+            "beamLimitSpring":4000,
+            "beamLimitDamp":"$dampRate_bump_R",
+            "beamLimitDampRebound":8000,
+            "dampCutoffHz":250}
+        ],
+        ["rh2r","rs1r", { //hard stop
+            //rubber stop
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            "beamLimitSpring":365000,
+            "beamLimitDamp":1000,
             "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
-        ["fh2l","fs1l", {
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.025,
+        ["rh2l","rs1l", { //hydraulics
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
             //leave rebound stop space
-            "precompressionRange":-0.025,
+            "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":165000,
-            "beamLimitDamp":500,
+            "beamLimitSpring":4000,
+            "beamLimitDamp":"$dampRate_bump_R",
+            "beamLimitDampRebound":8000,
+            "dampCutoffHz":250}
+        ],
+        ["rh2l","rs1l", { //hard stop
+            //rubber stop
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            "beamLimitSpring":365000,
+            "beamLimitDamp":1000,
             "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
@@ -431,7 +447,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 2750, 1500, 4000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3000, 2000, 4000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 4050, 2200, 5900, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 4950, 2700, 7200, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -469,7 +485,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3550, 2300, 4800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 2000, 1000, 3000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5140, 3333, 6950, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 6390, 4140, 8640, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
