@@ -32,6 +32,7 @@
         ["$CamberFront", "range", "", "Suspension", 1, 0.975, 1.025, "Front Camber", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$CasterFront", "range", "", "Suspension", 1, 0.985, 1.015, "Front Caster", "Adjust caster offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$TrackFront", "range", "+m", "Suspension", 0.0, -0.04, 0.04, "Front Track Width", "Adjust track width", {"stepDis":0.001,"subCategory":"Alignment"}],
+        ["$arb_point_F", "range", "P", "Suspension", 0, -0.03, 0.03, "Front ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -484,6 +485,10 @@
         ["shaft", "spindleFR", "halfshaftFR", 1, {"connectedWheel":"FR","breakTriggerBeam":"axle_FR","uiName":"Front Right Axle", "friction":1.25, "dynamicFriction":0.003}]
     ]
 },
+//Let's say track width is about AVG 1820 and 1875mm = 1850mm
+//Lever motion ratio 0.638, arb tuning has 0.9 1.0 1.1x effect
+//Half bar length 0.524
+//Lever length 0.241
 "Astral_swaybar_F_l": {
     "information":{
         "authors":"Un1corn",
@@ -493,7 +498,8 @@
     "slotType" : "Astral_swaybar_F",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":2000, "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        //magic equation
+        {"spring":"$=689*(1+($arb_point_F/0.3))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["farb1r", "farb2r", "farb2l", "farb1l", {"name": "ARBFront"}]
     ],
     "flexbodies": [
@@ -510,10 +516,10 @@
         //arb
         {"group":["Astral_arb_F","arm_F"]},
         {"nodeWeight":2},
-        ["farb1r", -0.521, -1.158, 0.208],
-        ["farb1l",  0.521, -1.158, 0.208],
-        ["farb2r", -0.521, -0.969, 0.317],
-        ["farb2l",  0.521, -0.969, 0.317],
+        ["farb1r", -0.524, -1.171, 0.208],
+        ["farb1l",  0.524, -1.171, 0.208],
+        ["farb2r", -0.524, -0.962, 0.327],
+        ["farb2l",  0.524, -0.962, 0.327],
         {"group":[""]}
     ],
     "beams": [
@@ -521,23 +527,26 @@
         //--Anti-Roll Bar--
         //bar lever
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":2501000,"beamDamp":125},
-        {"beamDeform":15000,"beamStrength":312000},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":18000,"beamStrength":312000},
         ["farb1r", "farb2l"],
         ["farb1r", "farb2r"],
         ["farb1r", "farb3r"],
         ["farb2r", "br1r"],
-        ["farb2r", "a53"],
+        ["farb2r", "chs3r"],
         ["farb2r", "chs4r"],
         ["farb2r", "a54"], 
         //*
-        ["farb1l", "farb3l"],
         ["farb1l", "farb2r"],
         ["farb1l", "farb2l"],
+        ["farb1l", "farb3l"],
         ["farb2l", "br1l"],
-        ["farb2l", "a54"],
+        ["farb2l", "chs3l"],
         ["farb2l", "chs4l"],
         ["farb2l", "a53"],
+        //bar stiffness
+        {"beamSpring":2001000,"beamDamp":150},
+        ["farb1r", "farb1l"],
     ]
 },
 "Astral_swaybar_F_m": {
@@ -549,7 +558,8 @@
     "slotType" : "Astral_swaybar_F",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":"$=17160*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        //magic equation
+        {"spring":"$=1136*(1+($arb_point_F/0.3))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["farb1r", "farb2r", "farb2l", "farb1l", {"name": "ARBFront"}]
     ],
     "flexbodies": [
@@ -566,10 +576,10 @@
         //arb
         {"group":["Astral_arb_F","arm_F"]},
         {"nodeWeight":2},
-        ["farb1r", -0.521, -1.145, 0.208],
-        ["farb1l",  0.521, -1.145, 0.208],
-        ["farb2r", -0.521, -0.956, 0.317],
-        ["farb2l",  0.521, -0.956, 0.317],
+        ["farb1r", -0.524, -1.171, 0.208],
+        ["farb1l",  0.524, -1.171, 0.208],
+        ["farb2r", -0.524, -0.962, 0.327],
+        ["farb2l",  0.524, -0.962, 0.327],
         {"group":[""]}
     ],
     "beams": [
@@ -577,23 +587,26 @@
         //--Anti-Roll Bar--
         //bar lever
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":2501000,"beamDamp":125},
-        {"beamDeform":15000,"beamStrength":312000},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":18000,"beamStrength":312000},
         ["farb1r", "farb2l"],
         ["farb1r", "farb2r"],
         ["farb1r", "farb3r"],
         ["farb2r", "br1r"],
-        ["farb2r", "a53"],
+        ["farb2r", "chs3r"],
         ["farb2r", "chs4r"],
         ["farb2r", "a54"], 
         //*
-        ["farb1l", "farb3l"],
         ["farb1l", "farb2r"],
         ["farb1l", "farb2l"],
+        ["farb1l", "farb3l"],
         ["farb2l", "br1l"],
-        ["farb2l", "a54"],
+        ["farb2l", "chs3l"],
         ["farb2l", "chs4l"],
         ["farb2l", "a53"],
+        //bar stiffness
+        {"beamSpring":2001000,"beamDamp":150},
+        ["farb1r", "farb1l"],
     ]
 },
 "Astral_swaybar_F_h": {
@@ -605,7 +618,8 @@
     "slotType" : "Astral_swaybar_F",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":"$=27450*0.22*0.22", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        //magic equation
+        {"spring":"$=1874*(1+($arb_point_F/0.3))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["farb1r", "farb2r", "farb2l", "farb1l", {"name": "ARBFront"}]
     ],
     "flexbodies": [
@@ -622,10 +636,10 @@
         //arb
         {"group":["Astral_arb_F","arm_F"]},
         {"nodeWeight":2},
-        ["farb1r", -0.521, -1.145, 0.208],
-        ["farb1l",  0.521, -1.145, 0.208],
-        ["farb2r", -0.521, -0.956, 0.317],
-        ["farb2l",  0.521, -0.956, 0.317],
+        ["farb1r", -0.524, -1.171, 0.208],
+        ["farb1l",  0.524, -1.171, 0.208],
+        ["farb2r", -0.524, -0.962, 0.327],
+        ["farb2l",  0.524, -0.962, 0.327],
         {"group":[""]}
     ],
     "beams": [
@@ -633,23 +647,26 @@
         //--Anti-Roll Bar--
         //bar lever
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":2501000,"beamDamp":125},
-        {"beamDeform":15000,"beamStrength":312000},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":18000,"beamStrength":312000},
         ["farb1r", "farb2l"],
         ["farb1r", "farb2r"],
         ["farb1r", "farb3r"],
         ["farb2r", "br1r"],
-        ["farb2r", "a53"],
+        ["farb2r", "chs3r"],
         ["farb2r", "chs4r"],
         ["farb2r", "a54"], 
         //*
-        ["farb1l", "farb3l"],
         ["farb1l", "farb2r"],
         ["farb1l", "farb2l"],
+        ["farb1l", "farb3l"],
         ["farb2l", "br1l"],
-        ["farb2l", "a54"],
+        ["farb2l", "chs3l"],
         ["farb2l", "chs4l"],
         ["farb2l", "a53"],
+        //bar stiffness
+        {"beamSpring":2001000,"beamDamp":150},
+        ["farb1r", "farb1l"],
     ]
 }
 }
