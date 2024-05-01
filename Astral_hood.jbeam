@@ -1,0 +1,746 @@
+{
+"Astral_hood_BRC": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"BRC Hood Panel",
+        "value":640
+    },
+	"slotType" : "Astral_hood",
+	"slots":[
+		["type", "default", "description"],
+		["Astral_rallylight", "", "Rally Light"]
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_hood_BRC", ["Astral_hood"]],
+		["Astral_hoodhinge", ["Astral_hood"]]
+    ],
+	"controller": [
+        ["fileName"],
+        ["advancedCouplerControl", {"name":"hoodCoupler"}],
+    ]
+	"camerasInternal":[
+        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:", "options"],
+		{"nodeWeight":0.4},
+        {"selfCollision":false},
+        {"collision":false},
+        {"beamDeform":5001000},
+        {"beamStrength":"FLT_MAX"},
+		{"beamSpring":251000},
+        {"beamDamp":60},
+		["hoodOnboard", 0.751, -1.05, 0.935, 68, "hd1l","hd2l","hd3l","hd4l","hd2r","hd4r"]
+    ],
+    "hoodCoupler":{
+        "groupType": "autoCoupling",
+        "couplerNodes":[
+            ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
+            ["a93",      "hd5r",        10500,                     0.1,                   0.1,                      0.2,                 0.1,                   "hood"]
+			["a95",      "hd5l",        10500,                     0.1,                   0.1,                      0.2,                 0.1,                   "hood"]
+        ]
+        "attachSoundVolume":1,
+        "detachSoundVolume":1,
+        "soundNode:":["a94"]
+        "attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
+        "detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
+        "breakSoundEvent":""
+        "openForceMagnitude": 0,
+        "openForceDuration": 0.5,
+        "closeForceMagnitude": 65,
+        "closeForceDuration": 1,
+    },
+	"triggers":[
+        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+        ["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
+		["hood_L", "", "hd5l","hd5r","hd4l", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":0.03}]
+		["hood_int", "", "hd5r","hd5l","hd4r", "box", {"x":0.15, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.22, "y":0, "z":0}],
+    ],
+    "triggerEventLinks":[
+        ["triggerId:triggers", "action", "targetEventId:events"],
+        ["hood_R", "action0", "hoodLatch"],
+		["hood_L", "action0", "hoodLatch"],
+		["hood_int", "action0", "hoodLatch"],
+    ],
+	"events":[
+        ["id", "title", "desc"],
+        ["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Hood--
+		//hood
+		{"nodeWeight":0.4},
+		{"group":["Astral_hood"]},
+		["hd1r", -0.721, -1.04, 0.855],
+		["hd1l",  0.721, -1.04, 0.855],
+		["hd2r", -0.287, -1.205, 0.875],
+		["hd2l",  0.287, -1.205, 0.875],
+		["hd3r", -0.721, -1.55, 0.787],
+		["hd3l",  0.721, -1.55, 0.787],
+		["hd4r", -0.287, -1.5922, 0.814],
+		["hd4l",  0.287, -1.5922, 0.814],
+		["hd5r", -0.287, -1.9445, 0.669, {"selfCollision":false}],
+		["hd5l",  0.287, -1.9445, 0.669, {"selfCollision":false}],
+		//rigidifier
+		{"nodeWeight":1.2},
+		{"group":[""]},
+		["hd1", 0, -1.4, 0.4520,{"selfCollision":false}]
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Hood--
+		//main shape
+		{"beamSpring":351000,"beamDamp":50},
+		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
+		["hd1r", "hd2r"],
+		["hd2r", "hd2l"],
+		["hd2l", "hd1l"],
+		["hd3r", "hd4r"],
+		["hd4r", "hd4l"],
+		["hd4l", "hd3l"],
+		["hd5r", "hd5l"],
+		["hd1r", "hd3r"],
+		["hd1l", "hd3l"],
+		["hd2r", "hd4r"],
+		["hd2l", "hd4l"],
+		["hd3r", "hd5r"],
+		["hd3l", "hd5l"],
+		["hd4r", "hd5r"],
+		["hd4l", "hd5l"],
+		//crossing
+		{"beamDeform":4500},
+		["hd1r", "hd4r"],
+		["hd3r", "hd2r"],
+		["hd2r", "hd4l"],
+		["hd4r", "hd2l"],
+		["hd2l", "hd3l"],
+		["hd4l", "hd1l"],
+		["hd5r", "hd4l"],
+		["hd5l", "hd4r"],
+		//rigids
+		{"beamDeform":3500},
+		["hd1r", "hd5r"],
+		["hd1l", "hd5l"],
+		["hd2r", "hd5r"],
+		["hd2l", "hd5l"],
+		//rigidifier
+		{"beamSpring":35100,"beamDamp":15},
+		{"beamDeform":3500,"beamStrength":"FLT_MAX"},
+		["hd1","hd1r"],
+		["hd1","hd1l"],
+		["hd1","hd2r"],
+		["hd1","hd2l"],
+		["hd1","hd3r"],
+		["hd1","hd3l"],
+		{"beamDeform":21500,"beamStrength":"FLT_MAX"},
+		["hd1","hd4r"],
+		["hd1","hd4l"],
+		["hd1","hd5r"],
+		["hd1","hd5l"],
+		//hinge
+		{"beamSpring":45100,"beamDamp":10},
+		{"beamDeform":3500,"beamStrength":7500},
+		{"breakGroup":"hooddetach"},
+		["hd1r", "a84"],
+		["hd1r", "a53"],
+		["hd1r", "a88"],
+		//*
+		["hd1l", "a87"],
+		["hd1l", "a54"],
+		["hd1l", "a91"],
+		//hood strut
+		{"beamSpring":50,"beamDamp":100},
+		["hd3r", "a83"],
+		["hd3l", "a80"],
+		{"beamSpring":150,"beamDamp":200},
+        {"beamPrecompression":2.3,"beamPrecompressionTime":0.1},
+		["hd4r", "a53"],
+		["hd4l", "a54"],
+		{"beamPrecompression":1,"beamPrecompressionTime":0.1},
+		{"breakGroup":""},
+		//limiters
+        {"beamPrecompression":0.99, "beamType":"|SUPPORT", "beamLongBound":6},
+        {"beamSpring":901000,"beamDamp":100},
+        {"beamDeform":10000,"beamStrength":115000},
+		["hd5r", "a25"],
+		["hd5l", "a26"],
+		["hd3r", "br1r"],
+		["hd3l", "br1l"],
+		["hd3r", "a25"],
+		["hd3l", "a26"],
+		["hd1r", "a53"],
+		["hd1l", "a54"],
+		{"beamPrecompression":0.97},
+		["hd4r", "br1r"],
+		["hd4l", "br1l"],
+		["hd2r", "a53"],
+		["hd2l", "a54"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Hood--
+		//hood
+		{"dragCoef":8},
+		{"liftCoef":1,"stallAngle":1.5}
+		["hd1r", "hd4r", "hd2r"],
+		["hd1r", "hd3r", "hd4r"],
+		["hd2r", "hd4r", "hd2l"],
+		["hd3r", "hd5r", "hd4r"],
+		["hd4r", "hd5r", "hd4l"],
+		//*
+		["hd1l", "hd2l", "hd4l"],
+		["hd1l", "hd4l", "hd3l"],
+		["hd2l", "hd4r", "hd4l"],
+		["hd3l", "hd4l", "hd5l"],
+		["hd4l", "hd5r", "hd5l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+}, 
+"Astral_hood_Rally2": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally2 Hood Panel",
+        "value":640
+    },
+	"slotType" : "Astral_hood",
+	"slots":[
+		["type", "default", "description"],
+		["Astral_rallylight", "", "Rally Light"]
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_hood_Rally2", ["Astral_hood"]],
+		["Astral_hoodhinge", ["Astral_hood"]]
+    ],
+	"controller": [
+        ["fileName"],
+        ["advancedCouplerControl", {"name":"hoodCoupler"}],
+    ]
+	"camerasInternal":[
+        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:", "options"],
+		{"nodeWeight":0.4},
+        {"selfCollision":false},
+        {"collision":false},
+        {"beamDeform":5001000},
+        {"beamStrength":"FLT_MAX"},
+		{"beamSpring":251000},
+        {"beamDamp":60},
+		["hoodOnboard", 0.751, -1.05, 0.935, 68, "hd1l","hd2l","hd3l","hd4l","hd2r","hd4r"]
+    ],
+    "hoodCoupler":{
+        "groupType": "autoCoupling",
+        "couplerNodes":[
+            ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
+            ["a93",      "hd5r",        10500,                     0.1,                   0.1,                      0.2,                 0.1,                   "hood"]
+			["a95",      "hd5l",        10500,                     0.1,                   0.1,                      0.2,                 0.1,                   "hood"]
+        ]
+        "attachSoundVolume":1,
+        "detachSoundVolume":1,
+        "soundNode:":["a94"]
+        "attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
+        "detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
+        "breakSoundEvent":""
+        "openForceMagnitude": 0,
+        "openForceDuration": 0.5,
+        "closeForceMagnitude": 65,
+        "closeForceDuration": 1,
+    },
+	"triggers":[
+        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+        ["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
+		["hood_L", "", "hd5l","hd5r","hd4l", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":0.03}]
+		["hood_int", "", "hd5r","hd5l","hd4r", "box", {"x":0.15, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.22, "y":0, "z":0}],
+    ],
+    "triggerEventLinks":[
+        ["triggerId:triggers", "action", "targetEventId:events"],
+        ["hood_R", "action0", "hoodLatch"],
+		["hood_L", "action0", "hoodLatch"],
+		["hood_int", "action0", "hoodLatch"],
+    ],
+    "events":[
+        ["id", "title", "desc"],
+        ["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Hood--
+		//hood
+		{"nodeWeight":0.4},
+		{"group":["Astral_hood"]},
+		["hd1r", -0.721, -1.04, 0.855],
+		["hd1l",  0.721, -1.04, 0.855],
+		["hd2r", -0.287, -1.205, 0.875],
+		["hd2l",  0.287, -1.205, 0.875],
+		["hd3r", -0.721, -1.55, 0.787],
+		["hd3l",  0.721, -1.55, 0.787],
+		["hd4r", -0.287, -1.5922, 0.814],
+		["hd4l",  0.287, -1.5922, 0.814],
+		["hd5r", -0.287, -1.9445, 0.669, {"selfCollision":false}],
+		["hd5l",  0.287, -1.9445, 0.669, {"selfCollision":false}],
+		//rigidifier
+		{"nodeWeight":1.2},
+		{"group":[""]},
+		["hd1", 0, -1.4, 0.4520,{"selfCollision":false}]
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Hood--
+		//main shape
+		{"beamSpring":351000,"beamDamp":50},
+		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
+		["hd1r", "hd2r"],
+		["hd2r", "hd2l"],
+		["hd2l", "hd1l"],
+		["hd3r", "hd4r"],
+		["hd4r", "hd4l"],
+		["hd4l", "hd3l"],
+		["hd5r", "hd5l"],
+		["hd1r", "hd3r"],
+		["hd1l", "hd3l"],
+		["hd2r", "hd4r"],
+		["hd2l", "hd4l"],
+		["hd3r", "hd5r"],
+		["hd3l", "hd5l"],
+		["hd4r", "hd5r"],
+		["hd4l", "hd5l"],
+		//crossing
+		{"beamDeform":4500},
+		["hd1r", "hd4r"],
+		["hd3r", "hd2r"],
+		["hd2r", "hd4l"],
+		["hd4r", "hd2l"],
+		["hd2l", "hd3l"],
+		["hd4l", "hd1l"],
+		["hd5r", "hd4l"],
+		["hd5l", "hd4r"],
+		//rigids
+		{"beamDeform":3500},
+		["hd1r", "hd5r"],
+		["hd1l", "hd5l"],
+		["hd2r", "hd5r"],
+		["hd2l", "hd5l"],
+		//rigidifier
+		{"beamSpring":35100,"beamDamp":15},
+		{"beamDeform":3500,"beamStrength":"FLT_MAX"},
+		["hd1","hd1r"],
+		["hd1","hd1l"],
+		["hd1","hd2r"],
+		["hd1","hd2l"],
+		["hd1","hd3r"],
+		["hd1","hd3l"],
+		{"beamDeform":21500,"beamStrength":"FLT_MAX"},
+		["hd1","hd4r"],
+		["hd1","hd4l"],
+		["hd1","hd5r"],
+		["hd1","hd5l"],
+		//hinge
+		{"beamSpring":45100,"beamDamp":10},
+		{"beamDeform":3500,"beamStrength":7500},
+		{"breakGroup":"hooddetach"},
+		["hd1r", "a84"],
+		["hd1r", "a53"],
+		["hd1r", "a88"],
+		//*
+		["hd1l", "a87"],
+		["hd1l", "a54"],
+		["hd1l", "a91"],
+		//hood strut
+		{"beamSpring":50,"beamDamp":100},
+		["hd3r", "a83"],
+		["hd3l", "a80"],
+		{"beamSpring":150,"beamDamp":200},
+        {"beamPrecompression":2.3,"beamPrecompressionTime":0.1},
+		["hd4r", "a53"],
+		["hd4l", "a54"],
+		{"beamPrecompression":1,"beamPrecompressionTime":0.1},
+		{"breakGroup":""},
+		//limiters
+        {"beamPrecompression":0.99, "beamType":"|SUPPORT", "beamLongBound":6},
+        {"beamSpring":901000,"beamDamp":100},
+        {"beamDeform":10000,"beamStrength":115000},
+		["hd5r", "a25"],
+		["hd5l", "a26"],
+		["hd3r", "br1r"],
+		["hd3l", "br1l"],
+		["hd3r", "a25"],
+		["hd3l", "a26"],
+		["hd1r", "a53"],
+		["hd1l", "a54"],
+		{"beamPrecompression":0.97},
+		["hd4r", "br1r"],
+		["hd4l", "br1l"],
+		["hd2r", "a53"],
+		["hd2l", "a54"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Hood--
+		//hood
+		{"dragCoef":8},
+		{"liftCoef":1,"stallAngle":1.5}
+		["hd1r", "hd4r", "hd2r"],
+		["hd1r", "hd3r", "hd4r"],
+		["hd2r", "hd4r", "hd2l"],
+		["hd3r", "hd5r", "hd4r"],
+		["hd4r", "hd5r", "hd4l"],
+		//*
+		["hd1l", "hd2l", "hd4l"],
+		["hd1l", "hd4l", "hd3l"],
+		["hd2l", "hd4r", "hd4l"],
+		["hd3l", "hd4l", "hd5l"],
+		["hd4l", "hd5r", "hd5l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+},
+"Astral_hood_RX1": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"RX1 Hood Panel",
+        "value":640
+    },
+	"slotType" : "Astral_hood",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_hood_RX", ["Astral_hood"]],
+		["Astral_hoodhinge", ["Astral_hood"]]
+    ],
+	"controller": [
+        ["fileName"],
+        ["advancedCouplerControl", {"name":"hoodCoupler"}],
+    ]
+	"camerasInternal":[
+        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:", "options"],
+		{"nodeWeight":0.4},
+        {"selfCollision":false},
+        {"collision":false},
+        {"beamDeform":5001000},
+        {"beamStrength":"FLT_MAX"},
+		{"beamSpring":251000},
+        {"beamDamp":60},
+		["hoodOnboard", 0.751, -1.05, 0.935, 68, "hd1l","hd2l","hd3l","hd4l","hd2r","hd4r"]
+    ],
+    "hoodCoupler":{
+        "groupType": "autoCoupling",
+        "couplerNodes":[
+            ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
+            ["a93",      "hd5r",        10500,                     0.1,                   0.1,                      0.2,                 0.1,                   "hood"]
+			["a95",      "hd5l",        10500,                     0.1,                   0.1,                      0.2,                 0.1,                   "hood"]
+        ]
+        "attachSoundVolume":1,
+        "detachSoundVolume":1,
+        "soundNode:":["a94"]
+        "attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
+        "detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
+        "breakSoundEvent":""
+        "openForceMagnitude": 0,
+        "openForceDuration": 0.5,
+        "closeForceMagnitude": 65,
+        "closeForceDuration": 1,
+    },
+	"triggers":[
+        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+        ["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
+		["hood_L", "", "hd5l","hd5r","hd4l", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":0.03}]
+		["hood_int", "", "hd5r","hd5l","hd4r", "box", {"x":0.15, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.22, "y":0, "z":0}],
+    ],
+    "triggerEventLinks":[
+        ["triggerId:triggers", "action", "targetEventId:events"],
+        ["hood_R", "action0", "hoodLatch"],
+		["hood_L", "action0", "hoodLatch"],
+		["hood_int", "action0", "hoodLatch"],
+    ],
+	"events":[
+        ["id", "title", "desc"],
+        ["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Hood--
+		//hood
+		{"nodeWeight":0.4},
+		{"group":["Astral_hood"]},
+		["hd1r", -0.721, -1.04, 0.855],
+		["hd1l",  0.721, -1.04, 0.855],
+		["hd2r", -0.287, -1.205, 0.875],
+		["hd2l",  0.287, -1.205, 0.875],
+		["hd3r", -0.721, -1.55, 0.787],
+		["hd3l",  0.721, -1.55, 0.787],
+		["hd4r", -0.287, -1.5922, 0.814],
+		["hd4l",  0.287, -1.5922, 0.814],
+		["hd5r", -0.287, -1.9445, 0.669, {"selfCollision":false}],
+		["hd5l",  0.287, -1.9445, 0.669, {"selfCollision":false}],
+		//rigidifier
+		{"nodeWeight":1.2},
+		{"group":[""]},
+		["hd1", 0, -1.4, 0.4520,{"selfCollision":false}]
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Hood--
+		//main shape
+		{"beamSpring":351000,"beamDamp":50},
+		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
+		["hd1r", "hd2r"],
+		["hd2r", "hd2l"],
+		["hd2l", "hd1l"],
+		["hd3r", "hd4r"],
+		["hd4r", "hd4l"],
+		["hd4l", "hd3l"],
+		["hd5r", "hd5l"],
+		["hd1r", "hd3r"],
+		["hd1l", "hd3l"],
+		["hd2r", "hd4r"],
+		["hd2l", "hd4l"],
+		["hd3r", "hd5r"],
+		["hd3l", "hd5l"],
+		["hd4r", "hd5r"],
+		["hd4l", "hd5l"],
+		//crossing
+		{"beamDeform":4500},
+		["hd1r", "hd4r"],
+		["hd3r", "hd2r"],
+		["hd2r", "hd4l"],
+		["hd4r", "hd2l"],
+		["hd2l", "hd3l"],
+		["hd4l", "hd1l"],
+		["hd5r", "hd4l"],
+		["hd5l", "hd4r"],
+		//rigids
+		{"beamDeform":3500},
+		["hd1r", "hd5r"],
+		["hd1l", "hd5l"],
+		["hd2r", "hd5r"],
+		["hd2l", "hd5l"],
+		//rigidifier
+		{"beamSpring":35100,"beamDamp":15},
+		{"beamDeform":3500,"beamStrength":"FLT_MAX"},
+		["hd1","hd1r"],
+		["hd1","hd1l"],
+		["hd1","hd2r"],
+		["hd1","hd2l"],
+		["hd1","hd3r"],
+		["hd1","hd3l"],
+		{"beamDeform":21500,"beamStrength":"FLT_MAX"},
+		["hd1","hd4r"],
+		["hd1","hd4l"],
+		["hd1","hd5r"],
+		["hd1","hd5l"],
+		//hinge
+		{"beamSpring":45100,"beamDamp":10},
+		{"beamDeform":3500,"beamStrength":7500},
+		{"breakGroup":"hooddetach"},
+		["hd1r", "a84"],
+		["hd1r", "a53"],
+		["hd1r", "a88"],
+		//*
+		["hd1l", "a87"],
+		["hd1l", "a54"],
+		["hd1l", "a91"],
+		//hood strut
+		{"beamSpring":50,"beamDamp":100},
+		["hd3r", "a83"],
+		["hd3l", "a80"],
+		{"beamSpring":150,"beamDamp":200},
+        {"beamPrecompression":2.3,"beamPrecompressionTime":0.1},
+		["hd4r", "a53"],
+		["hd4l", "a54"],
+		{"beamPrecompression":1,"beamPrecompressionTime":0.1},
+		{"breakGroup":""},
+		//limiters
+        {"beamPrecompression":0.99, "beamType":"|SUPPORT", "beamLongBound":6},
+        {"beamSpring":901000,"beamDamp":100},
+        {"beamDeform":10000,"beamStrength":115000},
+		["hd5r", "a25"],
+		["hd5l", "a26"],
+		["hd3r", "br1r"],
+		["hd3l", "br1l"],
+		["hd3r", "a25"],
+		["hd3l", "a26"],
+		["hd1r", "a53"],
+		["hd1l", "a54"],
+		{"beamPrecompression":0.97},
+		["hd4r", "br1r"],
+		["hd4l", "br1l"],
+		["hd2r", "a53"],
+		["hd2l", "a54"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Hood--
+		//hood
+		{"dragCoef":8},
+		{"liftCoef":1,"stallAngle":1.5}
+		["hd1r", "hd4r", "hd2r"],
+		["hd1r", "hd3r", "hd4r"],
+		["hd2r", "hd4r", "hd2l"],
+		["hd3r", "hd5r", "hd4r"],
+		["hd4r", "hd5r", "hd4l"],
+		//*
+		["hd1l", "hd2l", "hd4l"],
+		["hd1l", "hd4l", "hd3l"],
+		["hd2l", "hd4r", "hd4l"],
+		["hd3l", "hd4l", "hd5l"],
+		["hd4l", "hd5r", "hd5l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+},
+"Astral_rallylight": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally Light",
+        "value":1000
+    },
+	"slotType" : "Astral_rallylight",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_rallylight", ["Astral_rlight"]]
+    ],
+	"props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
+		//rally light
+		{
+            "lightInnerAngle":40,
+            "lightOuterAngle":80,
+            "lightColor":{"r":235, "g":235, "b":255, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+		//highbeam
+		["highbeam", "SPOTLIGHT", "rly1l", "rly2l", "rly2r", { "x":25, "y":55, "z":180 }, { "x":0, "y":0, "z":0 }, { "x":0, "y":0, "z":0 }, 0, 0, 0, 1, {"baseTranslation":{"x":0.42, "y":0.2, "z":0.01}, "lightRange":150,"lightBrightness":1.5,"flareScale":0.02,"deformGroup":"rlr"}],
+		//highbeam
+		["highbeam", "SPOTLIGHT", "rly1r", "rly2r", "rly2l", { "x":25, "y":55, "z":0 },   { "x":0, "y":0, "z":0 }, { "x":0, "y":0, "z":0 }, 0, 0, 0, 1, {"baseTranslation":{"x":0.42, "y":0.2, "z":-0.01}, "lightRange":150,"lightBrightness":1.5,"flareScale":0.02,"deformGroup":"rll"}]
+	],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_PLASTIC"},
+		//--Rally Light--
+		//light
+		{"nodeWeight":1},
+		{"group":["Astral_rlight"]},
+		["rly1r", -0.27, -2.07, 0.625],
+		["rly1l",  0.27, -2.07, 0.625],
+		["rly2r", -0.27, -2.07, 0.765],
+		["rly2l",  0.27, -2.07, 0.765],
+		//rigidifier
+		{"collision":false},
+        {"selfCollision":false},
+		{"nodeWeight":2},
+		["rly1", 0, -1.95, 0.705],
+		{"group":[""]},
+		{"collision":true},
+        {"selfCollision":true},
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rally Light--
+		//light shape
+		{"beamSpring":351000,"beamDamp":50},
+		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
+		["rly1r", "rly2r"],
+		["rly2r", "rly2l"],
+		["rly2l", "rly1l"],
+		["rly1l", "rly1r"],
+		//crossing
+		{"beamDeform":5500},
+		["rly1r", "rly2l"],
+		["rly1l", "rly2r"],
+		//rigidifier
+		{"beamDeform":3800},
+		["rly1", "rly1r"],
+		["rly1", "rly2r"],
+		["rly1", "rly1l"],
+		["rly1", "rly2l"],
+		//connect to hood
+		{"beamSpring":151000,"beamDamp":50},
+		{"beamDeform":4500,"beamStrength":12500},
+		{"breakGroup":"rlr"},
+		["rly2r", "a87"],
+		["rly2r", "a84"],
+		["rly2r", "hd5r"],
+		["rly2r", "hd4r"],
+		["rly2r", "fb4r"],
+		["rly2r", "fb4l"],
+		["rly1r", "a25"],
+		["rly1r", "a26"],
+		["rly1r", "fb3r"],
+		["rly1r", "hd2l"],
+		["rly1r", "hd2r"],
+		//*
+		{"breakGroup":"rll"},
+		["rly2l", "a84"],
+		["rly2l", "a87"],
+		["rly2l", "hd5l"],
+		["rly2l", "hd4l"],
+		["rly2l", "fb4l"],
+		["rly2l", "fb4r"],
+		["rly1l", "a26"],
+		["rly1l", "a25"],
+		["rly1l", "fb3l"],
+		["rly1l", "hd2r"],
+		["rly1l", "hd2l"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Rallylight--
+		{"dragCoef":5},
+		{"liftCoef":0,"stallAngle":0}
+		["rly1r", "rly2l", "rly2r"],
+		["rly1r", "rly1l", "rly2l"],
+		["rly1r", "rly2r", "hd4r"],
+		["rly1l", "hd4l", "rly2l"],
+		["rly2r", "hd4l", "hd4r"],
+		["rly2r", "rly2l", "hd4l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+}
+}

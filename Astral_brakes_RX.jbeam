@@ -1,0 +1,76 @@
+{
+"Astral_brake_F_RX": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"355mm Rallycross Brakes",
+        "value":500
+    },
+    "slotType" : "Astral_brake_F",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_brake_f4", ["Astral_hub_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
+        ["Astral_brakeduct_f4", ["Astral_duct_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
+        ["Astral_brakedisc_f9", ["Astral_hub_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
+    ],
+    "variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$BrakeBias", "range", "", "Suspension", 0.69, 0.4, 0.8, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":40,"maxDis":80}],
+        ["$BrakeStrength", "range", "", "Suspension", 1, 0.5, 1.5, "Brake Power", "Set Brake Torque", {"stepDis":1,"subCategory":"Brakes","minDis":50,"maxDis":150}]
+	],
+    "pressureWheels":[
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeTorque":"$=3050*$BrakeBias*$BrakeStrength"}, 
+        {"brakeInputSplit":1}, 
+        {"brakeSplitCoef":1},
+        {"parkingTorque":0},
+        {"brakeSpring":65},
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.355},
+        {"brakeMass":12},
+        {"brakeType":"vented-disc"},
+        {"rotorMaterial":"carbon-ceramic"},
+        {"padMaterial":"semi-race"},
+        {"brakeVentingCoef":1.5},
+        //sound
+        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
+    ]
+},
+"Astral_brake_R_RX": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"355mm Rallycross Brakes",
+        "value":500
+    },
+    "slotType" : "Astral_brake_R",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_brake_r9", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
+        ["Astral_brakedisc_r8", ["Astral_hub_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
+    ],
+    "variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$HBStrength", "range", "", "Suspension", 0.85, 0.3, 1, "Handbrake Power", "Set Handbrake Torque", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":100}]
+	],
+    "pressureWheels":[
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeTorque":"$=3050*(1-$BrakeBias)*$BrakeStrength"},
+        {"brakeInputSplit":1},
+        {"brakeSplitCoef":1},
+        {"parkingTorque":"$=3050*$HBStrength"},
+        {"brakeSpring":65},
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.355},
+        {"brakeMass":12},
+        {"brakeType":"vented-disc"},
+        {"rotorMaterial":"carbon-ceramic"},
+        {"padMaterial":"semi-race"},
+        {"brakeVentingCoef":1.0},
+        //sound
+        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
+    ]
+}
+}

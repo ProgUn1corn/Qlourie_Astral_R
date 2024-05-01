@@ -1,0 +1,121 @@
+{
+"Astral_frame": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Front Frame",
+        "value":640
+    },
+	"slotType" : "Astral_frame",
+	"slots"	: [
+		["type", "default", "description"],
+		["Astral_bumper_F","Astral_bumper_F_BRC","Front Bumper"],
+		["Astral_hood","Astral_hood_BRC","Hood"],
+		["Astral_fender_FL", "Astral_fender_FL_BRC", "Front Left Fender"],
+		["Astral_fender_FR", "Astral_fender_FR_BRC", "Front Right Fender"],
+		["Astral_headlight_L", "Astral_headlight_L", "Left Headlight"],
+		["Astral_headlight_R", "Astral_headlight_R", "Right Headlight"],
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_frame", ["Astral_frame"]]
+    ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
+		//--Front frame--
+		//frame
+		{"nodeWeight":4},
+		{"group":["Astral_frame"]},
+		["a88", -0.703, -1.5, 0.765],
+		["a91",  0.703, -1.5, 0.765],
+		["a93", -0.287, -1.9445, 0.669, {"selfCollision":false}],
+		["a94",  0, -1.89, 0.65],
+		["a95",  0.287, -1.9445, 0.669, {"selfCollision":false}],
+		{"collision":true},
+        {"selfCollision":true},
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Front frame--
+		//front frame shape
+		{"optional":true},
+		{"beamSpring":3501000,"beamDamp":150},
+		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
+		["a84", "a88"],
+		["a87", "a91"],
+		//front frame crossing
+		{"beamDeform":25500},
+		["a85", "a88"],
+		["a86", "a91"],
+		//front frame mount to body
+		{"beamSpring":3501000,"beamDamp":150},
+		{"beamDeform":22500},
+		["a88", "chs4r"],
+		["a88", "chs3r"],
+		["a88", "chsf"],
+		["a88", "a25"],
+		["a88", "a20"],
+		["a88", "a53"],
+		["a88", "a16"],
+		//*
+		["a91", "chs4l"],
+		["a91", "chs3l"],
+		["a91", "chsf"],
+		["a91", "a26"],
+		["a91", "a23"],
+		["a91", "a54"],
+		["a91", "a19"],
+		
+		//--Bumper frame--
+		//front frame
+		{"beamSpring":2501000,"beamDamp":150},
+		{"beamDeform":20500,"beamStrength":"FLT_MAX"},
+		["a88", "a93"],
+		["a93", "a94"],
+		["a94", "a95"],
+		["a95", "a91"],
+		//crossing
+		{"beamDeform":18500},
+		["a93", "a91"],
+		["a95", "a88"],
+		["a94", "a88"],
+		["a94", "a91"],
+		//rigids
+		{"beamDeform":13500},
+ 		["a93", "a95"],
+		["a93", "a84"],
+		["a95", "a87"],
+		//mount to chassis
+		{"beamSpring":2501000,"beamDamp":180},
+		{"beamDeform":20000},
+		["a93", "br1r"],
+		["a93", "br1l"],
+		["a93", "a25"],
+		["a93", "a26"],
+		["a93", "chsf"],
+		["a93", "chs4r"],
+		["a94", "chs3r"],
+		["a94", "chs4r"],
+		["a94", "a25"],
+		//*
+		["a95", "br1l"],
+		["a95", "br1r"],
+		["a95", "a26"],
+		["a95", "a25"],
+		["a95", "chsf"],
+		["a95", "chs4l"],
+		["a94", "chs3l"],
+		["a94", "chs4l"],
+		["a94", "a26"],
+		{"optional":false},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+}
+}
