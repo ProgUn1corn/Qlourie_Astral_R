@@ -59,7 +59,7 @@ local function updateWheelsIntermediate()
     for i, damper in ipairs(fDampers) do
       if LRS == true then --active LRS
         if fLoads[i].activeFlagLRS == true then 
-          damper.newLSRebound = clamp(fDamping[2].beamDampRebound, fDamping[2].beamDampRebound, fDamping[1].beamDampRebound)
+          damper.newLSRebound = fDamping[2].beamDampRebound
           damper.newHSRebound = damper.newLSRebound
         else
           damper.newLSRebound = damper.orgLSRebound
@@ -87,7 +87,7 @@ local function updateWheelsIntermediate()
       obj:setBoundedBeamDamp(damper.bCid, damper.newLSBump, damper.newLSRebound, damper.newHSBump, damper.newHSRebound, fDamping[1].beamDampVelocitySplit, fDamping[1].beamDampVelocitySplit) 
       --print(fDampers[1].newLSBump)
       --print(fDampers[1].newHSBump)
-      --print(fDampers[1].newLSRebound)
+      --print((LRSp - springLoad))
       --print(fDampers[1].newHSRebound)
     end     
   end  
@@ -100,7 +100,7 @@ local function updateWheelsIntermediate()
     else
       spring.activeFlagLRS = false
     end
-    if springLoad <= DSVp then 
+    if springLoad <= DSVp  then 
       spring.activeFlagDSV = true
     else
       spring.activeFlagDSV = false
@@ -112,7 +112,9 @@ local function updateWheelsIntermediate()
     for i, damper in ipairs(rDampers) do
       if LRS == true then --active LRS
         if rLoads[i].activeFlagLRS == true then 
-          damper.newLSRebound = clamp(rDamping[2].beamDampRebound, rDamping[2].beamDampRebound, rDamping[1].beamDampRebound)
+          --damper.newLSRebound = rDamping[2].beamDampRebound
+          damper.newLSRebound = rDamping[2].beamDampRebound
+    
           damper.newHSRebound = damper.newLSRebound
         else
           damper.newLSRebound = damper.orgLSRebound
@@ -140,8 +142,8 @@ local function updateWheelsIntermediate()
       obj:setBoundedBeamDamp(damper.bCid, damper.newLSBump, damper.newLSRebound, damper.newHSBump, damper.newHSRebound, rDamping[1].beamDampVelocitySplit, rDamping[1].beamDampVelocitySplit) 
       --print(rDampers[1].newLSBump)
       --print(rDampers[1].newHSBump)
+      --print((LRSp - springLoad))
       --print(rDampers[1].newLSRebound)
-      --print(rDampers[1].newHSRebound)
     end
   end  
 end
@@ -238,10 +240,9 @@ local function init(jbeamData)
 
   --get active point
   LRSp = jbeamData.LRSp or 0
-  LRSc = jbeamData.LRSc or 0
   DSVp = jbeamData.DSVp or 0
   
-  --print(LRSp)
+
   --printTable(fDampers)
   --printTable(fLoads)
   --printTable(fDamping)
