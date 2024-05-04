@@ -28,7 +28,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
-        ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.1,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
+        ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.29, 0.26, 0.29, "Hard Bump Stop Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":260,"maxDis":290,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.24, 0.18, 0.26, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":180,"maxDis":260,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Front Damper"}],
@@ -63,7 +63,7 @@
 
         //--Steering Rack--
         //steering rack ends
-        {"nodeWeight":5.5},
+        {"nodeWeight":5},
         {"group":["Astral_str_F","Astral_rod_F"]},
         ["st2r", -0.197, -1.097, 0.1506],
         ["st2l",  0.197, -1.097, 0.1506]
@@ -80,7 +80,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":8.5},
+        {"nodeWeight":8},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lower spring collar
@@ -89,12 +89,15 @@
         {"selfCollision":false},
         ["fcl1r", -0.6842, -1.2581, 0.22],
         ["fcl1l",  0.6842, -1.2581, 0.22],
+        //piston outer shell to mount LRS
+        ["fps1r", -0.656, -1.2395, 0.421],
+        ["fps1l",  0.656, -1.2395, 0.421],
         //mass
-        {"nodeWeight":0.6},
-        ["fmassr", -0.694, -1.265, 0.15],
-        ["fmassl",  0.694, -1.265, 0.15], 
-        //damper flexbody help
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.5},
+        ["fmassr", -0.6235, -1.2182, 0.652],
+        ["fmassl",  0.6235, -1.2182, 0.652], 
+        //damper flexbody and weight help
+        {"nodeWeight":1},
         {"group":["Astral_shock_F"]},
         ["fh4r", -0.576, -1.40, 0.021],
         ["fh4l",  0.576, -1.40, 0.021],
@@ -118,6 +121,9 @@
         ["fcl1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["fhe1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         ["fhe1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        //piston
+        ["fps1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["fps1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         //mass
         ["fmassr", "strut_FR", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 501000, "FLT_MAX", "FLT_MAX"],
@@ -149,7 +155,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper flexbody help
-        {"beamSpring":251000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":120},
         {"beamDeform":"FLT_MAX"},
         ["fh4l","fh3l"],
         ["fh4r","fh3r"],
@@ -224,19 +230,25 @@
         ["fs1l", "a91"],
         {"breakGroup":""}
         {"optional":false}
+        //piston outer shell
+        {"beamSpring":1501000,"beamDamp":150},
+        ["fps1r", "fs1r"],
+        ["fps1l", "fs1l"],
         //detection mass
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":0,"beamDamp":25},
-        ["fmassr", "fh2r"],
-        ["fmassl", "fh2l"],
-        {"beamSpring":50,"beamDamp":25},
-        ["fmassr", "fh1r", {"name":"LRS_FR"}],
-        ["fmassl", "fh1l", {"name":"LRS_FL"}],
-        //detection mass rebound damping
+        {"beamSpring":0,"beamDamp":50},
+        ["fmassr", "fs1r"],
+        ["fmassl", "fs1l"],
+        {"beamSpring":250,"beamDamp":25},
+        ["fmassr", "fps1r", {"name":"LRS_FR"}],
+        ["fmassl", "fps1l", {"name":"LRS_FL"}],
+        //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        ["fmassr", "fh1r", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":6400,"beamLimitDamp":1600,"beamLimitDampRebound":1000}],
-        ["fmassl", "fh1l", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":6400,"beamLimitDamp":1600,"beamLimitDampRebound":1000}],
+        ["fmassr", "fs1r", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":501000,"beamLimitDamp":100,"beamLimitDampRebound":1000}],
+        ["fmassl", "fs1l", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":501000,"beamLimitDamp":100,"beamLimitDampRebound":1000}],
+        ["fmassr", "fps1r", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":101000,"beamLimitDamp":100,"beamLimitDampRebound":1000}],
+        ["fmassl", "fps1l", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":101000,"beamLimitDamp":100,"beamLimitDampRebound":1000}],
         //strut platform height (preload)
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":1201000,"beamDamp":50},
@@ -249,7 +261,7 @@
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront*2","beamPrecompressionTime":0.3}],
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":850,"beamDamp":0},
+        {"beamSpring":100,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", {"pressurePSI":250,"surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["fh2l","fs1l", {"pressurePSI":250,"surface":0.00025447,"volumeCoef":0}],
@@ -469,7 +481,7 @@
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false}],
     ],
     "FrontLRS": {
-        "LRSp":0.206 //LRS starting point
+        "LRSp":0.220 //LRS starting point
         "fLoads": [
             ["name", "beamName"]
             ["FR", "LRS_FR"]
@@ -505,7 +517,7 @@
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false}],
     ],
     "FrontLRS": {
-        "LRSp":0.206 //LRS starting point
+        "LRSp":0.220 //LRS starting point
         "fLoads": [
             ["name", "beamName"]
             ["FR", "LRS_FR"]
