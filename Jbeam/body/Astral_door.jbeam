@@ -25,7 +25,7 @@
     "doorFRCoupler":{
         "couplerNodes":[
             ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
-            ["a44",     "dh1r",     35000,                     0.01,                   0.005,                      0.2,                 0.1,                   "door_R"]
+            ["a44",     "dh1r",     65000,                     0.01,                   0.005,                      0.2,                 0.1,                   "door_R"]
         ]
         "groupType": "autoCoupling",
         "attachSoundVolume":1,
@@ -69,7 +69,7 @@
 		["d8r", -0.601, -0.351, 1.204],
 		["d9r", -0.815, 0.363, 0.175],
 		["d0r", -0.805, -0.288, 0.165],
-		["dh2r", -0.801, -0.801, 0.684],
+		["dh2r", -0.801, -0.801, 0.684, {"selfCollision":false}],
 		["dh3r", -0.717, -0.764, 0.884],
 		//rigidifier (panel)
 		{"nodeWeight":2.25},
@@ -135,7 +135,7 @@
 		["drr", "dh1r"],
 		//hinge attach
 		{"beamSpring":551000,"beamDamp":50},
-        {"beamDeform":20000,"beamStrength":82500},
+        {"beamDeform":20000,"beamStrength":52500},
 		["dh2r", "a18"],
 		["dh2r", "a84"],
 		["dh2r", "a85"],
@@ -158,7 +158,7 @@
 		//open
 		{"beamSpring":500,"beamDamp":250},
 		{"beamPrecompression":1.75},
-		{"beamDeform":1500,"beamStrength":3500},
+		{"beamDeform":5000,"beamStrength":5500},
 		["dh1r", "a43"],
 		{"beamPrecompression":1},
 		//limiters
@@ -222,7 +222,7 @@
 	"doorFLCoupler":{
         "couplerNodes":[
             ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
-            ["a47",     "dh1l",     35000,                     0.01,                   0.005,                      0.2,                 0.1,                   "door_L"]
+            ["a47",     "dh1l",     65000,                     0.01,                   0.005,                      0.2,                 0.1,                   "door_L"]
         ]
         "groupType": "autoCoupling",
         "attachSoundVolume":1,
@@ -266,7 +266,7 @@
 		["d8l",  0.601, -0.351, 1.204],
 		["d9l",  0.815, 0.363, 0.175],
 		["d0l",  0.805, -0.288, 0.165],
-		["dh2l", 0.801, -0.801, 0.684],
+		["dh2l", 0.801, -0.801, 0.684, {"selfCollision":false}],
 		["dh3l", 0.717, -0.764, 0.884],
 		//rigidifier (panel)
 		{"nodeWeight":2.25},
@@ -332,7 +332,7 @@
 		["drl", "dh1l"],
 		//hinge attach
 		{"beamSpring":551000,"beamDamp":50},
-        {"beamDeform":20000,"beamStrength":82500},
+        {"beamDeform":20000,"beamStrength":52500},
 		["dh2l", "a17"],
 		["dh2l", "a87"],
 		["dh2l", "a86"],
@@ -355,7 +355,7 @@
 		//open
 		{"beamSpring":500,"beamDamp":250},
 		{"beamPrecompression":1.75},
-		{"beamDeform":1500,"beamStrength":3500},
+		{"beamDeform":5000,"beamStrength":5500},
 		["dh1l", "a40"],
 		{"beamPrecompression":1},
         //limiters
