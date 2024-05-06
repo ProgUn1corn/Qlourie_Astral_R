@@ -30,6 +30,31 @@
         "torqueReactionNodes:":["eg0","eg3","eg5"],
     }
 },
+"Astral_differential_F_l": {
+	"information":{
+		"name":"Debug Open LSD",
+		"value":1500
+	},
+	"slotType" : "Astral_differential_F",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_halfshafts_F","Astral_halfshafts_F","Front Halfshafts"],
+		["Astral_finaldrive_F","Astral_finaldrive_F_4.69","Front Final Drive", {"coreSlot":true}]
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["torsionReactor", "torsionReactorF", "transferCase", 2],
+		["differential", "frontDiff", "torsionReactorF", 1, {"diffType":"open", "uiName":"Front Differential", "defaultVirtualInertia":0.25}]
+	]
+	"frontDiff": {
+        "friction": 3.2,
+        "dynamicFriction": 0.0008,
+        "torqueLossCoef": 0.015,
+    },
+    "torsionReactorF": {
+        "torqueReactionNodes:":["eg0","eg3","eg5"],
+    }
+},
 "Astral_halfshafts_F": {
 	"information":{
 		"name":"Front Halfshafts",
