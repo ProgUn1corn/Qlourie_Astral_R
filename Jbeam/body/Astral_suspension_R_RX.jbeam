@@ -220,13 +220,14 @@
         ["rarb3r","rh1r", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         ["rarb3l","rh1l", {"precompressionRange":"$=$arb_point_R","beamPrecompressionTime":0.1}],
         //zip tie
-        {"beamSpring":500,"beamDamp":5},
-        {"beamDeform":500,"beamStrength":1000},
-        {"precompressionRange":0.0,"beamPrecompressionTime":0.3},
-        ["rarmg2l","rh4l"],
-        ["rarmg2r","rh4r"],
-        ["rarmg3l","rh4l"],
-        ["rarmg3r","rh4r"],
+        {"beamSpring":1000,"beamDamp":10},
+        {"beamDeform":300,"beamStrength":400},
+        {"beamPrecompression":1.1,"beamPrecompressionTime":0.1},
+        ["rarmg2l","rw1l"],
+        ["rarmg2r","rw1r"],
+        {"beamPrecompression":1.1,"beamPrecompressionTime":0.1},
+        ["rarmg3l","rw1l"],
+        ["rarmg3r","rw1r"],
         {"precompressionRange":0,"beamPrecompressionTime":0},
         
         //--Damper--
@@ -333,7 +334,7 @@
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
             "beamLimitSpring":351000,
             "beamLimitDamp":8000, 
-            "beamLimitDampRebound":1000,
+            "beamLimitDampRebound":500,
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //bottom out
@@ -365,7 +366,7 @@
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
             "beamLimitSpring":351000,
             "beamLimitDamp":8000, 
-            "beamLimitDampRebound":1000,
+            "beamLimitDampRebound":500,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //bottom out
@@ -392,7 +393,7 @@
             //rubber stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0,
             "beamLimitSpring":365000,
-            "beamLimitDamp":1000,
+            "beamLimitDamp":500,
             "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
@@ -411,7 +412,7 @@
             //rubber stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0,
             "beamLimitSpring":365000,
-            "beamLimitDamp":1000,
+            "beamLimitDamp":500,
             "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
@@ -422,10 +423,6 @@
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":5},
         {"beamSpring":51000,"beamDamp":50},
         {"deformLimitExpansion":""},
-        ["rarmg2l","rh4l"],
-        ["rarmg2r","rh4r"],
-        ["rarmg3l","rh4l"],
-        ["rarmg3r","rh4r"],
         //hub invert
         {"beamPrecompression":0.9},
         ["rh3r","rx1r"],
