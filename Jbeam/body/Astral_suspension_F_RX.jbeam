@@ -30,7 +30,7 @@
         ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.29, 0.26, 0.29, "Hard Bump Stop Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":260,"maxDis":290,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.24, 0.18, 0.26, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":180,"maxDis":260,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.24, 0.23, 0.26, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":230,"maxDis":260,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0, 0, 0.1, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":100,"subCategory":"Front Damper"}],
     ],
     "nodes": [
@@ -80,7 +80,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":8},
+        {"nodeWeight":8.4},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lower spring collar
@@ -97,7 +97,7 @@
         ["fmassr", -0.6235, -1.2182, 0.652],
         ["fmassl",  0.6235, -1.2182, 0.652], 
         //damper flexbody and weight help
-        {"nodeWeight":1},
+        {"nodeWeight":0.5},
         {"group":["Astral_shock_F"]},
         ["fh4r", -0.576, -1.40, 0.021],
         ["fh4l",  0.576, -1.40, 0.021],
@@ -155,7 +155,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper flexbody help
-        {"beamSpring":1201000,"beamDamp":120},
+        {"beamSpring":551000,"beamDamp":75},
         {"beamDeform":"FLT_MAX"},
         ["fh4l","fh3l"],
         ["fh4r","fh3r"],

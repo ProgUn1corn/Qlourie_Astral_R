@@ -403,5 +403,67 @@
         {"beamSpring":2001000,"beamDamp":150},
         ["rarb1r", "rarb1l"],
     ]
+},
+"Astral_swaybar_R_hh": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"27.0mm Diameter",
+        "value":2000
+    },
+    "slotType" : "Astral_swaybar_R",
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        //magic equation
+        {"spring":"$=4641*(1+($arb_point_R/0.3))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_ARB_R", ["Astral_arb_R"]]
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //--ARB--
+        //arb
+        {"group":["Astral_arb_R","Astral_arm_R"]},
+        {"nodeWeight":2},
+        ["rarb1r", -0.524, 1.343, 0.183],
+        ["rarb1l",  0.524, 1.343, 0.183],
+        ["rarb2r", -0.524, 1.581, 0.315],
+        ["rarb2l",  0.524, 1.581, 0.315],
+        {"group":[""]}
+    ], 
+    "beams": [
+        ["id1:", "id2:"],
+        //--Anti-Roll Bar--
+        //bar lever
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":18000,"beamStrength":312000},
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r"],
+        ["rarb1r", "rarb3r"],
+        ["rarb2r", "a37"],
+        ["rarb2r", "a5"],
+        ["rarb2r", "a41"],
+        ["rarb2r", "chs1r"],
+        ["rarb2r", "chs2r"],
+        //*
+        ["rarb1l", "rarb3l"],
+        ["rarb1l", "rarb2r"],
+        ["rarb1l", "rarb2l"],
+        ["rarb2l", "a38"],
+        ["rarb2l", "a6"],
+        ["rarb2l", "a42"],
+        ["rarb2l", "chs1l"],
+        ["rarb2l", "chs2l"],
+        //bar stiffness
+        {"beamSpring":2001000,"beamDamp":150},
+        ["rarb1r", "rarb1l"],
+    ]
 }
 }

@@ -53,7 +53,7 @@
 		{"group":[""]},
 		{"collision":false},
 		{"nodeWeight":2.8},
-		["cup", 0, 0, 0.185],
+		["cup", 0, 0, 0.255],
 		{"nodeWeight":1.5},
 		["cur",  0,   0, 0.0],
 		["clf",  0.1, 0, 0.0],
@@ -267,6 +267,17 @@
 		["a42", "a14"],
 		["a42", "a13"],
 		["chs2l", "a10"],
+		//chassis downforce
+		{"beamSpring":1001000,"beamDamp":120},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		["rdf", "a9"],
+		["rdf", "a10"],
+		["rdf", "a13"],
+		["rdf", "a14"],
+		["rdf", "a11"],
+		["rdf", "a8"],
+		["rdf", "a42"],
+		["rdf", "a41"],
 		
 		//--Front Chassis--
 		//main shape
@@ -480,6 +491,9 @@
 		{"nodeWeight":5.21},
 		{"group":[""]},
 		["chsr",  0, 1.283, 0.365, {"selfCollision":false, "collision":true}],
+		//downforce
+		{"nodeWeight":1},
+		["rdf",  0, 0.765, 0.28, {"selfCollision":false, "collision":false}],
 
 		//--Center Chassis--
 		//tunnel
@@ -561,6 +575,9 @@
 		{"nodeWeight":7},
 		{"group":[""]},
 		["chsr",  0, 1.283, 0.365, {"selfCollision":false, "collision":true}],
+		//downforce
+		{"nodeWeight":1},
+		["rdf",  0, 0.510, 0.28, {"selfCollision":false, "collision":false}],
 
 		//--Center Chassis--
 		//tunnel
@@ -752,7 +769,7 @@
 		["a78",  0.243, 0.43, 1.34, {"group":["Astral_carbody","Astral_antenna"]}],
 		["a79",  0.562, 0.43, 1.29],
 		//window
-		{"nodeWeight":1.9},
+		{"nodeWeight":2},
 		["a80", -0.567, -0.328, 1.25],
 		["a81",	-0.196, -0.402, 1.31],
 		["a82",  0.196, -0.402, 1.31],
@@ -1046,7 +1063,7 @@
 		["an1", "a42"],
 		{"breakGroup":""},
 		//front window
-		{"beamSpring":1401000,"beamDamp":125},
+		{"beamSpring":1201000,"beamDamp":100},
 		{"beamDeform":10500,"beamStrength":"FLT_MAX"},
 		["a80", "a84"],
 		["a80", "a85"],
@@ -1059,7 +1076,7 @@
 		["a83", "a86"],
 		["a83", "a87"],
 		//attach roof
-		{"beamSpring":1401000,"beamDamp":120},
+		{"beamSpring":1201000,"beamDamp":100},
 		{"beamDeform":7500},
 		["a73", "qp2r"],
 		["a77", "a44"],
