@@ -61,6 +61,10 @@
 		{"collision":true},
 		["br1r", -0.429, -1.559, 0.326, {"selfCollision":false}],
 		["br1l",  0.429, -1.559, 0.326, {"selfCollision":false}],
+		//downforce
+		{"nodeWeight":0.5},
+		["rdfr", -0.599, 0.735, 0.42, {"selfCollision":false, "collision":false}],
+		["rdfl",  0.599, 0.735, 0.42, {"selfCollision":false, "collision":false}],
 		//-Soundnode--
 		{"group":["Astral_frame"]},
 		{"nodeWeight":4},
@@ -268,16 +272,23 @@
 		["a42", "a13"],
 		["chs2l", "a10"],
 		//chassis downforce
-		{"beamSpring":1001000,"beamDamp":120},
+		{"beamSpring":200100,"beamDamp":80},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
-		["rdf", "a9"],
-		["rdf", "a10"],
-		["rdf", "a13"],
-		["rdf", "a14"],
-		["rdf", "a11"],
-		["rdf", "a8"],
-		["rdf", "a42"],
-		["rdf", "a41"],
+		["rdfr", "a9"],
+		["rdfr", "a8"],
+		["rdfr", "a41"],
+		["rdfr", "a42"],
+		["rdfr", "a40"],
+		["rdfr", "chs1r"],
+		["rdfr", "a13"],
+		//*
+		["rdfl", "a10"],
+		["rdfl", "a11"],
+		["rdfl", "a42"],
+		["rdfl", "a41"],
+		["rdfl", "a43"],
+		["rdfl", "chs1l"],
+		["rdfl", "a14"],
 		
 		//--Front Chassis--
 		//main shape
@@ -482,8 +493,8 @@
 		["chs1l",  0.501, 1.32, 0.663],
 		["chs2r", -0.467, 1.25, 0.373, {"selfCollision":false}],
 		["chs2l",  0.467, 1.25, 0.373, {"selfCollision":false}],
-		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"]}],
-		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"]}],
+		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false}],
+		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false}],
         //overriden by suspension 
 		["rs1r", -0.616, 1.31, 0.852],
         ["rs1l",  0.616, 1.31, 0.852],
@@ -491,9 +502,6 @@
 		{"nodeWeight":5.21},
 		{"group":[""]},
 		["chsr",  0, 1.283, 0.365, {"selfCollision":false, "collision":true}],
-		//downforce
-		{"nodeWeight":1},
-		["rdf",  0, 0.765, 0.28, {"selfCollision":false, "collision":false}],
 
 		//--Center Chassis--
 		//tunnel
@@ -566,8 +574,8 @@
 		["chs1l",  0.501, 1.32, 0.663],
 		["chs2r", -0.467, 1.25, 0.373, {"selfCollision":false}],
 		["chs2l",  0.467, 1.25, 0.373, {"selfCollision":false}],
-		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"]}],
-		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"]}],
+		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false}],
+		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false}],
         //overriden by suspension 
 		["rs1r", -0.616, 1.31, 0.852],
         ["rs1l",  0.616, 1.31, 0.852],
@@ -575,9 +583,6 @@
 		{"nodeWeight":7},
 		{"group":[""]},
 		["chsr",  0, 1.283, 0.365, {"selfCollision":false, "collision":true}],
-		//downforce
-		{"nodeWeight":1},
-		["rdf",  0, 0.510, 0.28, {"selfCollision":false, "collision":false}],
 
 		//--Center Chassis--
 		//tunnel

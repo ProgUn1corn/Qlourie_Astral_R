@@ -28,7 +28,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.195, 0.155, 0.175, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":155,"maxDis":175,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.14, 0.105, 0.155, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":105,"maxDis":155,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
@@ -294,7 +294,7 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.24+($dampRate_bump_R_fast-4300)/24000-($dampRate_bump_R-2500)/25600,0.14,0.34)",
+            "beamDampVelocitySplit":"$=clamp(0.26+($dampRate_bump_R_fast-4300)/24000-($dampRate_bump_R-2500)/25600,0.16,0.36)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
@@ -306,7 +306,7 @@
             "beamDamp":"$dampRate_bump_R",
             "beamDampRebound":"$=$dampRate_rebound_R",
             //HS bump
-            "beamDampVelocitySplit":"$=clamp(0.24+($dampRate_bump_R_fast-4300)/24000-($dampRate_bump_R-2500)/25600,0.14,0.34)",
+            "beamDampVelocitySplit":"$=clamp(0.26+($dampRate_bump_R_fast-4300)/24000-($dampRate_bump_R-2500)/25600,0.16,0.36)",
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
@@ -384,7 +384,7 @@
             "precompressionRange":-0.01,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":2500,
             "beamLimitDamp":"$dampRate_bump_R",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
@@ -403,7 +403,7 @@
             "precompressionRange":-0.01,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":2500,
             "beamLimitDamp":"$dampRate_bump_R",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
@@ -505,7 +505,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.31, 0.27, 0.310, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":270,"maxDis":310,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.23, 0.23, 0.27, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":230,"maxDis":270,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
@@ -666,10 +666,10 @@
         //camber
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.033","beamPrecompressionTime":0.1}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.03","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.033","beamPrecompressionTime":0.1}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.03","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -683,8 +683,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":12001000,"beamDamp":800},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0011","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0011","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0013","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0013","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
@@ -800,15 +800,15 @@
             "pitchFactor":2.5,
             "maxStress":50
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":4000,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.048,
+            "beamLimitSpring":6500,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.9",
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //PHASE 2 
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.01,
             "beamLimitSpring":25000,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.9",
@@ -817,7 +817,7 @@
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":351000,
+            "beamLimitSpring":301000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":500,
             "dampCutoffHz":250}
@@ -840,15 +840,15 @@
             "pitchFactor":2.5,
             "maxStress":50
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":4000,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.048,
+            "beamLimitSpring":6500,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.9",
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //PHASE 2 
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":0.28,"boundZone":0.01,
             "beamLimitSpring":25000,
             "beamLimitDamp":"$dampRate_stop_R", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R*0.9",
@@ -857,7 +857,7 @@
         ["rh2l","rs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":351000,
+            "beamLimitSpring":301000,
             "beamLimitDamp":8000, 
             "beamLimitDampRebound":500,
             "dampCutoffHz":250}
@@ -877,7 +877,7 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":2500,
             "beamLimitDamp":"$dampRate_bump_R",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
@@ -896,7 +896,7 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":4000,
+            "beamLimitSpring":2500,
             "beamLimitDamp":"$dampRate_bump_R",
             "beamLimitDampRebound":8000,
             "dampCutoffHz":250}
@@ -977,9 +977,9 @@
     "slotType" : "Astral_shim_R_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Suspension", 3600, 2000, 5200, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Suspension", 3900, 2300, 5500, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6800, 5200, 8400, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5760, 3200, 8320, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 6240, 4000, 8800, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1000,8 +1000,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.32+($dampRate_bump_R_fast-5200)/32000-($dampRate_bump_R-2000)/32000,0.22,0.42)", 0.3]  //normal damping
-            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.32+($dampRate_bump_R_fast-5200)/32000-($dampRate_bump_R-2000)/32000,0.22,0.42)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.26+($dampRate_bump_R_fast-5200)/32000-($dampRate_bump_R-2000)/32000,0.16,0.36)", 0.2]  //normal damping
+            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.26+($dampRate_bump_R_fast-5200)/32000-($dampRate_bump_R-2000)/32000,0.16,0.36)", 1] //LRS active
         ]
     },
 },
@@ -1014,9 +1014,9 @@
     "slotType" : "Astral_shim_R_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Suspension", 4100, 2500, 5700, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3800, 2200, 5400, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 6560, 4000, 9120, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Suspension", 4400, 2800, 6000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3900, 2300, 5500, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 7040, 4480, 9600, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1037,8 +1037,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.25+($dampRate_bump_R_fast-2200)/32000-($dampRate_bump_R-2500)/32000,0.15,0.35)", 0.28]  //normal damping
-            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.25+($dampRate_bump_R_fast-2200)/32000-($dampRate_bump_R-2500)/32000,0.15,0.35)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.21+($dampRate_bump_R_fast-2300)/32000-($dampRate_bump_R-2800)/32000,0.11,0.31)", 0.18]  //normal damping
+            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.21+($dampRate_bump_R_fast-2300)/32000-($dampRate_bump_R-2800)/32000,0.11,0.31)", 1] //LRS active
         ]
     },
 },
@@ -1051,9 +1051,9 @@
     "slotType" : "Astral_shim_R_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Suspension", 4500, 2900, 6100, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Suspension", 4800, 3200, 6400, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 2600, 1000, 4200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 7200, 4640, 9760, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 7680, 5120, 10240, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1074,8 +1074,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.18+($dampRate_bump_R_fast-1000)/32000-($dampRate_bump_R-2900)/32000,0.08,0.28)", 0.25]  //normal damping
-            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.18+($dampRate_bump_R_fast-1000)/32000-($dampRate_bump_R-2900)/32000,0.08,0.28)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.16+($dampRate_bump_R_fast-1000)/32000-($dampRate_bump_R-3200)/32000,0.06,0.26)", 0.15]  //normal damping
+            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.16+($dampRate_bump_R_fast-1000)/32000-($dampRate_bump_R-3200)/32000,0.06,0.26)", 1] //LRS active
         ]
     },
 },
@@ -1125,9 +1125,9 @@
     "slotType" : "Astral_shim_R_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Suspension", 2400, 800, 4000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3200, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 3360, 1120, 5600, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Suspension", 2600, 1000, 4200, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3500, 2300, 5500, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 3640, 1400, 5880, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1148,8 +1148,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.5+($dampRate_bump_R_fast-2000)/16000-($dampRate_bump_R-800)/16000,0.3,0.7)", 0.45]  //normal damping
-            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.5+($dampRate_bump_R_fast-2000)/16000-($dampRate_bump_R-800)/16000,0.3,0.7)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.5+($dampRate_bump_R_fast-2300)/16000-($dampRate_bump_R-1000)/16000,0.3,0.7)", 0.45]  //normal damping
+            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.5+($dampRate_bump_R_fast-2300)/16000-($dampRate_bump_R-1000)/16000,0.3,0.7)", 1] //LRS active
         ]
     },
 },
@@ -1185,8 +1185,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.35+($dampRate_bump_R_fast-1000)/16000-($dampRate_bump_R-1600)/16000,0.15,0.55)", 0.35]  //normal damping
-            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.35+($dampRate_bump_R_fast-1000)/16000-($dampRate_bump_R-1600)/16000,0.15,0.55)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.9", "$=clamp(0.55+($dampRate_bump_R_fast-1000)/16000-($dampRate_bump_R-1600)/16000,0.55,0.55)", 0.35]  //normal damping
+            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp(0.55+($dampRate_bump_R_fast-1000)/16000-($dampRate_bump_R-1600)/16000,0.55,0.55)", 1] //LRS active
         ]
     },
 }
