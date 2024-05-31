@@ -1,18 +1,18 @@
 {
-"Astral_group_F_RX": {
+"Astral_group_F_test": {
     "information":{
         "authors":"Un1corn",
-        "name":"CTM MRX80 3+1WAY Rallycross Damper",
+        "name":"TEST Damper",
         "value":3200,
     },
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F_RX", "Hub", {"nodeOffset":{"x":"$=0.295+$TrackFront", "y":-1.285, "z":0.08}}],
-        ["Astral_brake_F","Astral_brake_F_355", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.08}}],
+        ["Astral_hubs_F","Astral_hubs_F_Rally2", "Hub", {"nodeOffset":{"x":"$=0.285+$TrackFront", "y":-1.285, "z":0.02}}],
+        ["Astral_brake_F","Astral_brake_F_300", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.02}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
-        ["Astral_spring_F_RX","Astral_spring_F_RX_32", "Spring"],
-        ["Astral_shim_F_RX","Astral_shim_F_RX_d", "Shim Stacks", {"coreSlot":true}]
+        ["Astral_spring_F_test","Astral_spring_F_test_235", "Spring"],
+        ["Astral_shim_F_test","Astral_shim_F_test", "Shim Stacks", {"coreSlot":true}]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -28,10 +28,10 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
-        ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.29, 0.25, 0.28, "Hard Bump Stop Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":250,"maxDis":280,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.24, 0.21, 0.25, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":210,"maxDis":250,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0, 0, 0.1, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":100,"subCategory":"Front Damper"}],
+        ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.29, 0.26, 0.29, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":260,"maxDis":290,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.23, 0.22, 0.26, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":220,"maxDis":260,"subCategory":"Front Damper Auxiliary"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.05, 0, 0.12, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":120,"subCategory":"Front Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -80,7 +80,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":8},
+        {"nodeWeight":8.4},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lower spring collar
@@ -97,13 +97,11 @@
         ["fmassr", -0.5969, -1.2422, 0.652],
         ["fmassl",  0.5969, -1.2422, 0.652], 
         //damper flexbody and weight help
-        {"nodeWeight":3.5},
+        {"nodeWeight":3},
         {"group":["Astral_shock_F"]},
         ["fs2r", -0.576, -1.40, 0.021],
         ["fs2l",  0.576, -1.40, 0.021],
         {"group":[""]},
-        {"collision":true},
-        {"selfCollision":true}
     ],
     "rails": {
         //strut shaft raild
@@ -156,8 +154,8 @@
         ["fh1l","fh5l"],
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
-        //damper mount to hub
-        {"beamSpring":3501000,"beamDamp":350},
+        //damper flexbody and weight help
+        {"beamSpring":2501000,"beamDamp":250},
         {"beamDeform":125000,"beamStrength":285000},
         ["fs2l","fh1l"],
         ["fs2r","fh1r"],
@@ -173,30 +171,30 @@
         {"breakGroup":"wheel_FR"},
         {"optional":true},
         ["fh1r","fw1r", {"name":"axle_FR"}],
-        ["fh3r","fw1r", {"beamSpring":10001000,"beamDamp":25}],
-        ["fh5r","fw1r", {"beamSpring":5501000,"beamDamp":110}],
-        ["fs2r","fw1r", {"beamSpring":3501000,"beamDamp":70}],
+        ["fh3r","fw1r", {"beamSpring":10001000,"beamDamp":15}],
+        ["fh5r","fw1r", {"beamSpring":6001000,"beamDamp":100}],
+        ["fs2r","fw1r", {"beamSpring":3501000,"beamDamp":50}],
         ["fh1r","fw1rr"],
-        ["fh3r","fw1rr", {"beamSpring":10001000,"beamDamp":25}],
-        ["fh5r","fw1rr", {"beamSpring":5501000,"beamDamp":110}],
-        ["fs2r","fw1rr", {"beamSpring":3501000,"beamDamp":70}],
+        ["fh3r","fw1rr", {"beamSpring":10001000,"beamDamp":15}],
+        ["fh5r","fw1rr", {"beamSpring":6001000,"beamDamp":100}],
+        ["fs2r","fw1rr", {"beamSpring":3501000,"beamDamp":50}],
         {"breakGroup":"wheel_FL"},
         ["fh1l","fw1l", {"name":"axle_FL"}],
-        ["fh3l","fw1l", {"beamSpring":10001000,"beamDamp":25}],
-        ["fh5l","fw1l", {"beamSpring":5501000,"beamDamp":110}],
-        ["fs2l","fw1l", {"beamSpring":3501000,"beamDamp":70}],
+        ["fh3l","fw1l", {"beamSpring":10001000,"beamDamp":15}],
+        ["fh5l","fw1l", {"beamSpring":6001000,"beamDamp":100}],
+        ["fs2l","fw1l", {"beamSpring":3501000,"beamDamp":50}],
         ["fh1l","fw1ll"],
-        ["fh3l","fw1ll", {"beamSpring":10001000,"beamDamp":25}],
-        ["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":110}],
-        ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":70}],
+        ["fh3l","fw1ll", {"beamSpring":10001000,"beamDamp":15}],
+        ["fh5l","fw1ll", {"beamSpring":6001000,"beamDamp":100}],
+        ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":50}],
         //camber
         {"beamSpring":6001000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront","beamPrecompressionTime":0.1}],
+        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.008","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront","beamPrecompressionTime":0.1}],
+        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.008","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -367,9 +365,9 @@
         ],
         //hydraulic rebound stop
         ["fs2r","fs1r", { //hydraulics
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.02,
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
             //leave rebound stop space
-            "precompressionRange":-0.01,
+            "precompressionRange":-0.015,
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":2500,
@@ -389,9 +387,9 @@
             "dampCutoffHz":250}
         ],
         ["fs2l","fs1l", { //hydraulics
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.02,
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
             //leave rebound stop space
-            "precompressionRange":-0.01,
+            "precompressionRange":-0.015,
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":2500,
@@ -411,32 +409,6 @@
             "dampCutoffHz":250}
         ],
         {"beamSpring":0,"beamDamp":0},
-        
-        //--Limiters--
-        //wheel limiter
-        {"deformLimitExpansion":""},
-        {"beamPrecompression":0.5, "beamType":"|SUPPORT", "beamLongBound":5},
-        {"beamSpring":2501000,"beamDamp":500,"beamDeform":95000,"beamStrength":900000},
-        {"optional":true},
-        ["fw1rr", "a20"],
-        ["fw1rr", "a16"],
-        ["fw1rr", "a84"],
-        ["fw1rr", "a53"],
-        ["fw1rr", "a21"],
-        ["fw1rr", "a85"],
-        ["fw1r", "a20"],
-        ["fw1r", "a16"],
-        ["fw1r", "a53"],
-        //*
-        ["fw1ll", "a23"],
-        ["fw1ll", "a19"],
-        ["fw1ll", "a87"],
-        ["fw1ll", "a54"],
-        ["fw1ll", "a22"],
-        ["fw1ll", "a86"],
-        ["fw1l", "a23"],
-        ["fw1l", "a19"],
-        ["fw1l", "a54"],
         {"optional":false},
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
@@ -466,9 +438,9 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //mount damper
-        {"spring":8500, "damp":0, "deform":45000, "strength":125000},
-        ["fh2r", "fs2r", "fh3r", "fh1r"],
-        ["fh2l", "fs2l", "fh3l", "fh1l"],      
+        {"spring":6500, "damp":0, "deform":45000, "strength":125000},
+        ["fh2r", "fs2r", "fh1r", "fh3r"],
+        ["fh2l", "fs2l", "fh1l", "fh3l"],      
     ],
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -483,61 +455,25 @@
         {"brakeVentingCoef":false}
     ],
 },
-"Astral_shim_F_RX_l": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Shim Stacks #1",
-        "value":3200,
-    },
-    "slotType" : "Astral_shim_F_RX",
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 2750, 1500, 4000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 3300, 2300, 4300, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 4950, 2700, 7200, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Front Damper"}],
-    ],
-    "controller": [ 
-        ["fileName"],
-        ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false}],
-    ],
-    "FrontLRS": {
-        "LRSp":0.225 //LRS starting point
-        "fLoads": [
-            ["name", "beamName"]
-            ["FR", "LRS_FR"]
-            ["FL", "LRS_FL"]
-        ],
-        "fDampers": [
-            ["name", "beamName"]
-            ["FR", "damper_FR"]
-            ["FL", "damper_FL"]
-        ],
-        "fDamping":[
-            ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.26+($dampRate_bump_F_fast-2300)/20000-($dampRate_bump_F-1500)/25000,0.16,0.36)", 0.25]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.26+($dampRate_bump_F_fast-2300)/20000-($dampRate_bump_F-1500)/25000,0.16,0.36)", 1] //LRS active
-        ]
-    },
-},
-"Astral_shim_F_RX_d": {
+"Astral_shim_F_test": {
     "information":{
         "authors":"Un1corn",
         "name":"Shim Stacks #2",
         "value":3200,
     },
-    "slotType" : "Astral_shim_F_RX",
+    "slotType" : "Astral_shim_F_test",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 3550, 2300, 4800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 2300, 1300, 3300, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 6390, 4140, 8640, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-50,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 2400, 1000, 3800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 3200, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3360, 1400, 5320, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
         ["fileName"],
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false}],
     ],
     "FrontLRS": {
-        "LRSp":0.225 //LRS starting point
+        "LRSp":0.219 //LRS starting point
         "fLoads": [
             ["name", "beamName"]
             ["FR", "LRS_FR"]
@@ -550,9 +486,9 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.2+($dampRate_bump_F_fast-1300)/20000-($dampRate_bump_F-2300)/25000,0.1,0.3)", 0.25]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.2+($dampRate_bump_F_fast-1300)/20000-($dampRate_bump_F-2300)/25000,0.1,0.3)", 1] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp(0.5+($dampRate_bump_F_fast-2000)/16000-($dampRate_bump_F-1000)/14000,0.3,0.7)", 0.45]  //normal damping
+            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.5+($dampRate_bump_F_fast-2000)/16000-($dampRate_bump_F-1000)/14000,0.3,0.7)", 1] //LRS active
         ]
     },
-}
+},
 }

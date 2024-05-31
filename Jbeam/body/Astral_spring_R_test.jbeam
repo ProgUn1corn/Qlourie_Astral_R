@@ -1,0 +1,67 @@
+{
+"Astral_spring_R_test_205": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"20.5N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_R_test",
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":[""]},
+        {"nodeWeight":1},
+        {"selfCollision":false},
+        ["rhe1r", -0.6059, 1.2516, 0.390],
+        ["rhe1l",  0.6059, 1.2516, 0.390],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":20500,"beamDamp":10},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["rhe1r","rs1r", {
+            "name":"spring_RR",
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.8,
+            "decayFactor":30,
+            "pitchFactor":0.7,
+            "maxStress":2500}
+        ],
+        ["rhe1l","rs1l", {
+            "name":"spring_RL",
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>spring_compress_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.8,
+            "decayFactor":30,
+            "pitchFactor":0.7,
+            "maxStress":2500}
+        ],
+        //helper spring
+        {"beamSpring":2800,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.079,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.079,"beamPrecompressionTime":0.1}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.076,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.076,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+}
