@@ -10,15 +10,14 @@
 		["type", "default", "description"],
 		["Astral_lip_Rally2","Astral_lip_Rally2","Front Lip"],
 		["Astral_safari_Rally2","","Safari Kit"],
+		["Astral_grille_Rally2","Astral_grille_Rally2","Front Grille"],
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_bumper_F_Rally2", ["Astral_bumper_F"]],
 		["Astral_bumper_F_Rally2_indicator", ["Astral_bumper_F"]],
-		["Astral_logo", ["Astral_bumper_F"]],
-		["Astral_grilleframe_Rally2", ["Astral_bumper_F"]],
 		["Astral_towhitch_Rally2", ["Astral_bumper_F"]],
-		["Astral_grille_Rally2", ["Astral_bumper_F"]],
+		["Astral_logo", ["Astral_bumper_F"]],
 		["Astral_brakeduct_Rally2", ["Astral_bumper_F"]]
 		["Astral_lipattach_Rally2", ["Astral_bumper_F"]]
     ],
@@ -508,6 +507,42 @@
 		["bb1r", "bb1l", "bb2l"],
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
+    ]
+},
+"Astral_grille_Rally2": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally2 Grilie",
+        "value":5500
+    },
+	"slotType" : "Astral_grille_Rally2",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_grilleframe_Rally2", ["Astral_bumper_F"]],
+		["Astral_grille_Rally2", ["Astral_bumper_F"]],
+    ]
+}
+"Astral_grille_Rally2_vo1": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rally2 Grilie VO1",
+        "value":5500
+    },
+	"slotType" : "Astral_grille_Rally2",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_grilleframe_Rally2_vo1", ["Astral_bumper_F"]],
+		["Astral_grille_Rally2_vo1", ["Astral_bumper_F"]],
+    ],
+	"mainEngine":{
+        "$+radiatorArea":-0.13,
+        "$+radiatorEffectiveness":-8000,
+	},
+	"pressureWheels":[
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //close brake duct
+        {"enableBrakeThermals":true},
+        {"brakeVentingCoef":1.05},
     ]
 }
 }

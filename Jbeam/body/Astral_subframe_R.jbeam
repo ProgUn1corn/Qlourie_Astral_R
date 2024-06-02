@@ -143,7 +143,7 @@
         ["rx4l", "chs1l"],
         ["rx4l", "chs2l"],
         //subframe anti-rotation
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":350},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "a41"],
         ["rx1r", "a37"],
@@ -155,6 +155,7 @@
         ["rx2r", "a6"],
         ["rx2r", "a5"],
         ["rx2r", "a10"],
+        ["rx2r", "a12"],
         //*
         ["rx1l", "a42"],
         ["rx1l", "a38"],
@@ -166,6 +167,7 @@
         ["rx2l", "a5"],
         ["rx2l", "a6"],
         ["rx2l", "a9"],
+        ["rx2l", "a15"],
 
         //--Limiters--
         //subframe limiter
@@ -211,8 +213,10 @@
         ["id1:", "id2:", "id3:", "id4:"],
         {"spring":100000, "damp":0, "deform":25000, "strength":100000},
         //rigidify subframe
-        ["rx1r", "rx2r", "rx2l", "rx4l"],
-        ["rx1l", "rx2l", "rx2r", "rx4r"],
+        ["rx1r", "rx1l", "rx2l", "rx4l"],
+        ["rx2r", "rx2l", "rx1l", "rx3l"],
+        ["rx1l", "rx1r", "rx2r", "rx4r"],
+        ["rx2l", "rx2r", "rx1r", "rx3r"],
     ]
 },
 "Astral_wheeldata_R": {
