@@ -8,7 +8,7 @@
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$minLock_C", "range", "", "Differentials", 0.35, 0, 1, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
+		["$minLock_C", "range", "", "Differentials", 0.2, 0, 1, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$lockThrottle_C", "range", "", "Differentials", 0.8, 0, 1, "Throttle Lock Threshold", "Throttle input percentage where max lock is applied", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$lockBrake_C", "range", "", "Differentials", 0.65, 0, 1, "Brake Lock Threshold", "Brake input percentage where max lock is applied", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Contribution", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
@@ -24,8 +24,8 @@
 		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.56, "$hbRelease"]
+			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease", "preload"]
+            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.56, "$hbRelease", 400]
 		]
 	},
 	"powertrain" : [
@@ -71,13 +71,13 @@
 "Astral_differential_center_e_tarmac": {
 	"information":{
 		"authors":"Un1corn",
-		"name":"37/63 Active Center Differential",
+		"name":"35/65 Active Center Differential",
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$minLock_C", "range", "", "Differentials", 0.35, 0, 1, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
+		["$minLock_C", "range", "", "Differentials", 0.15, 0, 1, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$lockThrottle_C", "range", "", "Differentials", 0.8, 0, 1, "Throttle Lock Threshold", "Throttle input percentage where max lock is applied", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$lockBrake_C", "range", "", "Differentials", 0.65, 0, 1, "Brake Lock Threshold", "Brake input percentage where max lock is applied", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
 		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Contribution", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map"}],
@@ -93,8 +93,8 @@
 		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.63, "$hbRelease"]
+			["minLock", "lockThrottle", "lockBrake", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease", "preload"]
+            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.65, "$hbRelease", 200]
 		]
 	},
 	"flexbodies": [
@@ -139,7 +139,7 @@
 },
 "Astral_differential_center_m": {
 	"information":{
-		"name":"Mechanical Center Differential",
+		"name":"Rallycross Center LSD",
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
