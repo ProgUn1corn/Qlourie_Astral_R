@@ -1,0 +1,72 @@
+{
+"Astral_enginemount": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Reinforced Engine Mount",
+		"value":800,
+	},
+	"slotType" : "Astral_enginemount",
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_engine_mount", ["Astral_engine", "Astral_chasiss"]],
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Engine--
+		//engine and transmission mount
+		{"beamSpring":4501000,"beamDamp":450},
+        {"beamDeform":55000,"beamStrength":85000},
+        {"dampCutoffHz":500},
+		{"deformGroup":"mainEngine", "deformationTriggerRatio":0.001},
+		{"name":"engine"},
+		{"breakGroup":"enginemount_R"},
+        ["em1r", "chs3r"],
+		["em1r", "chs4r"],
+		["em1r", "chs3l"],
+		["em1r", "chs4l"],
+		["em1r", "br1r"],
+		["em1r", "a53"],
+		["em1r", "a54"],
+		//*
+		{"breakGroup":"enginemount_L"},
+        ["em1l", "chs3l"],
+		["em1l", "chs4l"],
+		["em1l", "chs3r"],
+		["em1l", "chs4r"],
+		["em1l", "br1l"],
+		["em1l", "a54"],
+		["em1l", "a53"],
+		//engine torque mount
+		{"optional":true},
+		{"beamSpring":3501000,"beamDamp":250},
+		{"beamDeform":45000,"beamStrength":80000},
+		{"breakGroup":"enginemount_S"},
+		["eg1", "fx3l"],
+		["eg2", "fx3l"],
+		["eg0", "fx3r"],
+		["eg3", "fx3r"],
+		["eg7", "fx3r"],
+		["eg6", "fx3l"],
+		{"breakGroup":""},
+		{"name":""},
+		{"optional":false},
+		{"deformGroup":"", "deformationTriggerRatio":0.001},
+		//damper
+		{"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+		{"beamDeform":15000,"beamStrength":60000},
+		{"beamSpring":25000,"beamDamp":4000},
+		["eg0", "a17", {"beamDampVelocitySplit":0.1, "beamDampFast":8000}],
+		["eg1", "a18", {"beamDampVelocitySplit":0.1, "beamDampFast":8000}],
+		["eg6", "a54", {"beamDampVelocitySplit":0.1, "beamDampFast":8000}],
+		["eg7", "a53", {"beamDampVelocitySplit":0.1, "beamDampFast":8000}],
+		["eg3", "br1r",{"beamDampVelocitySplit":0.1, "beamDampFast":8000}],
+		["eg2", "br1l",{"beamDampVelocitySplit":0.1, "beamDampFast":8000}],
+		{"dampCutoffHz":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+}
+}
