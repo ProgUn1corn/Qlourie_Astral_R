@@ -8,7 +8,7 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.345+$TrackFront", "y":-1.285, "z":0.17}}],
+        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.340+$TrackFront", "y":-1.285, "z":0.17}}],
         ["Astral_brake_F","Astral_brake_F_370", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.17}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
         ["Astral_spring_F_BRC_tarmac","Astral_spring_F_BRC_tarmac_48", "Spring"],
@@ -52,8 +52,8 @@
         //tie rod end
         {"nodeWeight":4.5},
         {"group":["Astral_hub_F","Astral_rod_F"]},
-        ["fh3r", -0.7132, -1.155, 0.0844],
-        ["fh3l",  0.7132, -1.155, 0.0844],
+        ["fh3r", -0.713, -1.155, 0.0808],
+        ["fh3l",  0.713, -1.155, 0.0808],
         //brake caliper
         {"nodeWeight":3.25},
         {"selfCollision":false},
@@ -65,8 +65,8 @@
         //steering rack ends
         {"nodeWeight":5.25},
         {"group":["Astral_str_F","Astral_rod_F"]},
-        ["st2r", -0.1965, -1.097, 0.1506],
-        ["st2l",  0.1965, -1.097, 0.1506]
+        ["st2r", -0.2023, -1.097, 0.1506],
+        ["st2l",  0.2023, -1.097, 0.1506]
         
         //--Arm--
         //arb end link
@@ -209,8 +209,8 @@
 
         //tie rods
         {"beamSpring":12001000,"beamDamp":600},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0003","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0003","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
+        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.0008","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
+        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.0008","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -495,7 +495,7 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.309+$TrackFront", "y":-1.285, "z":0.02}}],
+        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.305+$TrackFront", "y":-1.285, "z":0.02}}],
         ["Astral_brake_F","Astral_brake_F_300", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.02}}],
         ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
         ["Astral_spring_F_BRC_gravel","Astral_spring_F_BRC_gravel_25", "Spring"],
@@ -539,8 +539,8 @@
         //tie rod end
         {"nodeWeight":4.5},
         {"group":["Astral_hub_F","Astral_rod_F"]},
-        ["fh3r", -0.718, -1.155, -0.0199],
-        ["fh3l",  0.718, -1.155, -0.0199],
+        ["fh3r", -0.718, -1.155, -0.023],
+        ["fh3l",  0.718, -1.155, -0.023],
         //brake caliper
         {"nodeWeight":3.25},
         {"selfCollision":false},
@@ -552,8 +552,8 @@
         //steering rack ends
         {"nodeWeight":5.25},
         {"group":["Astral_str_F","Astral_rod_F"]},
-        ["st2r", -0.197, -1.097, 0.1506],
-        ["st2l",  0.197, -1.097, 0.1506]
+        ["st2r", -0.2032, -1.097, 0.1506],
+        ["st2l",  0.2032, -1.097, 0.1506],
         
         //--Arm--
         //arb end link
@@ -679,10 +679,10 @@
         //camber
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.0027","beamPrecompressionTime":0.1}],
+        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.003","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.0027","beamPrecompressionTime":0.1}],
+        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.003","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -696,8 +696,8 @@
 
         //tie rods
         {"beamSpring":12001000,"beamDamp":600},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0041","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0041","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
+        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0024","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
+        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0024","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -1110,7 +1110,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 2200, 600, 3800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 6000, 4400, 7600, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3080, 840, 5320, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2750, 750, 4750, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1147,7 +1147,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 2600, 1000, 4200, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 3500, 2300, 5500, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3640, 1400, 5880, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 3250, 1250, 5250, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1184,7 +1184,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Click", "Suspension", 3200, 1600, 4800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
 		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 2600, 1000, 4200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 4480, 2240, 6720, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 4000, 2000, 6000, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
         ["fileName"],
