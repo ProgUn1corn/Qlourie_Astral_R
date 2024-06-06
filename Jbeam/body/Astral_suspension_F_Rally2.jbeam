@@ -39,11 +39,12 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6},
+        {"nodeWeight":6.5},
         {"group":["Astral_hub_F","Astral_arm_F"]},
         ["fh1r", -0.725, -1.285, 0.04],
         ["fh1l",  0.725, -1.285, 0.04],
         //strut attach
+        {"nodeWeight":6},
         {"group":["Astral_hub_F"]},
         ["fh2r", -0.5983, -1.294, 0.43],
         ["fh2l",  0.5983, -1.294, 0.43],
@@ -78,7 +79,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":6.5},
+        {"nodeWeight":7.25},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lower spring collar
@@ -198,8 +199,8 @@
         {"optional":false},
 
         //--Control arm--
-        {"beamSpring":13001000,"beamDamp":1300},
-        {"beamDeform":250100,"beamStrength":375000},
+        {"beamSpring":14001000,"beamDamp":1400},
+        {"beamDeform":295100,"beamStrength":375000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
@@ -510,11 +511,12 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6},
+        {"nodeWeight":6.5},
         {"group":["Astral_hub_F","Astral_arm_F"]},
         ["fh1r", -0.725, -1.285, -0.07],
         ["fh1l",  0.725, -1.285, -0.07],
         //strut attach
+        {"nodeWeight":6},
         {"group":["Astral_hub_F"]},
         ["fh2r", -0.5829, -1.3477, 0.23],
         ["fh2l",  0.5829, -1.3477, 0.23], 
@@ -549,7 +551,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_shock_F","Astral_chassis_F"]},
-        {"nodeWeight":6.5},
+        {"nodeWeight":7.25},
         ["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
         //lower spring collar
@@ -669,8 +671,8 @@
         {"optional":false},
 
         //--Control arm--
-        {"beamSpring":13001000,"beamDamp":1300},
-        {"beamDeform":250100,"beamStrength":375000},
+        {"beamSpring":14001000,"beamDamp":1400},
+        {"beamDeform":295100,"beamStrength":375000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
@@ -767,9 +769,9 @@
             "maxStress":1500
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.048,
-            "beamLimitSpring":8000,
+            "beamLimitSpring":12000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F*0.9",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*0.8",
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
@@ -799,9 +801,9 @@
             "maxStress":1500
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.048,
-            "beamLimitSpring":8000,
+            "beamLimitSpring":12000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F*0.9",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F*0.8",
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", { //hard bump stop
@@ -986,7 +988,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp(0.26+($dampRate_bump_F_fast-5000)/32000-($dampRate_bump_F-2400)/28000,0.16,0.36)", 0.2]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.26+($dampRate_bump_F_fast-5000)/32000-($dampRate_bump_F-2400)/28000,0.16,0.36)", 0.2]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.26+($dampRate_bump_F_fast-5000)/32000-($dampRate_bump_F-2400)/28000,0.16,0.36)", 1] //LRS active
         ]
     },
@@ -1022,7 +1024,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp(0.21+($dampRate_bump_F_fast-2200)/32000-($dampRate_bump_F-2800)/28000,0.11,0.31)", 0.18]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.21+($dampRate_bump_F_fast-2200)/32000-($dampRate_bump_F-2800)/28000,0.11,0.31)", 0.18]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.21+($dampRate_bump_F_fast-2200)/32000-($dampRate_bump_F-2800)/28000,0.11,0.31)", 1] //LRS active
         ]
     },
@@ -1058,7 +1060,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp(0.16+($dampRate_bump_R_fast-1000)/32000-($dampRate_bump_R-3000)/28000,0.06,0.26)", 0.15]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.16+($dampRate_bump_R_fast-1000)/32000-($dampRate_bump_R-3000)/28000,0.06,0.26)", 0.15]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.16+($dampRate_bump_R_fast-1000)/32000-($dampRate_bump_R-3000)/28000,0.06,0.26)", 1] //LRS active
         ]
     },
@@ -1094,7 +1096,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp(0.65+($dampRate_bump_F_fast-4000)/16000-($dampRate_bump_F-800)/14000,0.45,0.85)", 0.55]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.65+($dampRate_bump_F_fast-4000)/16000-($dampRate_bump_F-800)/14000,0.45,0.85)", 0.55]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.65+($dampRate_bump_F_fast-4000)/16000-($dampRate_bump_F-800)/14000,0.45,0.85)", 1] //LRS active
         ]
     },
@@ -1130,7 +1132,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp(0.5+($dampRate_bump_F_fast-2000)/16000-($dampRate_bump_F-1000)/14000,0.3,0.7)", 0.45]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.5+($dampRate_bump_F_fast-2000)/16000-($dampRate_bump_F-1000)/14000,0.3,0.7)", 0.45]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.5+($dampRate_bump_F_fast-2000)/16000-($dampRate_bump_F-1000)/14000,0.3,0.7)", 1] //LRS active
         ]
     },
@@ -1166,7 +1168,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp(0.35+($dampRate_bump_F_fast-800)/16000-($dampRate_bump_F-1600)/14000,0.15,0.55)", 0.35]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.35+($dampRate_bump_F_fast-800)/16000-($dampRate_bump_F-1600)/14000,0.15,0.55)", 0.35]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.35+($dampRate_bump_F_fast-800)/16000-($dampRate_bump_F-1600)/14000,0.15,0.55)", 1] //LRS active
         ]
     },
