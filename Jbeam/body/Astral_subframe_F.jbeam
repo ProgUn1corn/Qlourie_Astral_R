@@ -38,22 +38,22 @@
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
         {"collision":true},
-        {"selfCollision":false},
+        {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //--Subframe--
         //cross member
         {"nodeWeight":6.5},
         {"group":["Astral_arm_F","Astral_sub_F"]},
-        ["fx1r", -0.202, -1.42, 0.115],
-        ["fx1l",  0.202, -1.42, 0.115],
+        ["fx1r", -0.202, -1.42, 0.115, {"selfCollision":false}],
+        ["fx1l",  0.202, -1.42, 0.115, {"selfCollision":false}],
         {"group":["Astral_arm_F","Astral_sub_F","Astral_str_F"]}
         ["fx2r", -0.202, -1.10, 0.115],
         ["fx2l",  0.202, -1.10, 0.115],
         //additional nodes
         {"nodeWeight":5},
         {"group":["Astral_sub_F"]},
-        ["fx3r", -0.268, -0.739, 0.125],
-        ["fx3l",  0.268, -0.739, 0.125],
+        ["fx3r", -0.268, -0.739, 0.125, {"selfCollision":false}],
+        ["fx3l",  0.268, -0.739, 0.125, {"selfCollision":false}],
         ["fx4r", -0.361, -1.086, 0.355],
         ["fx4l",  0.361, -1.086, 0.355],
         //steering box
@@ -551,7 +551,7 @@
         ["farb2l", "a53"], 
         ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2501000,"beamDamp":80},
+        {"beamSpring":1501000,"beamDamp":80},
         ["farb2r", "farb2l"],
     ]
 },
@@ -617,7 +617,7 @@
         ["farb2l", "a53"], 
         ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2501000,"beamDamp":80},
+        {"beamSpring":1501000,"beamDamp":80},
         ["farb2r", "farb2l"],
     ]
 },
@@ -683,7 +683,7 @@
         ["farb2l", "a53"], 
         ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2501000,"beamDamp":80},
+        {"beamSpring":1501000,"beamDamp":80},
         ["farb2r", "farb2l"],
     ]
 },
@@ -749,7 +749,7 @@
         ["farb2l", "a53"], 
         ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2501000,"beamDamp":80},
+        {"beamSpring":1501000,"beamDamp":80},
         ["farb2r", "farb2l"],
     ]
 }
