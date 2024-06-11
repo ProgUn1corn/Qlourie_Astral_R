@@ -586,7 +586,7 @@
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":650,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["ds1","dm1", {"pressurePSI":250,"surface":0.00025447,"volumeCoef":0}], //shaft diameter 46mm
+        ["ds1","dm1", {"pressurePSI":250,"surface":0.00025447,"volumeCoef":0}], //shaft diameter 18mm
         //travel hard limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -610,9 +610,13 @@
             //HS rebound
             "beamDampVelocitySplitRebound":1
             "beamDampReboundFast":"$rebound"
-            "dampCutoffHz":500}
+            //test
+            "longBoundRange":1,"shortBoundRange":0.15,"boundZone":0.01,
+            "beamLimitSpring":0,
+            "beamLimitDamp":0, 
+            "beamLimitDampRebound":1000,
+            "dampCutoffHz":250}
         ],
-        
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}

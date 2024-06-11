@@ -11,7 +11,7 @@
         ["Astral_tyre_f4", ["tire_FR", "wheel_FR"], [], {"pos":{"x":-0.465, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_wheel_f4", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.46, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_wheel_f4", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.46, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
-     ],
+    ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -162,12 +162,10 @@
         ["fw1rr", "fw1r"],
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0}
 	],
-    
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$frontPSI", "range", "PSI", "Tyres", 29, 5, 45, "Front Tyre Pressure", "Initial Tyre Pressure", {"stepDis":0.5}]
     ],
-	
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
         {"disableMeshBreaking":false,"disableHubMeshBreaking":false},
@@ -209,10 +207,10 @@
         {"wheelTreadReinfBeamSpring":80500,"wheelTreadReinfBeamDamp":80},
         {"wheelTreadReinfBeamDampCutoffHz":500,"wheelTreadReinfBeamPrecompression":0.989},
 
-        {"wheelPeripheryBeamSpring":181000,"wheelPeripheryBeamDamp":65},
+        {"wheelPeripheryBeamSpring":221000,"wheelPeripheryBeamDamp":65},
         {"wheelPeripheryBeamDampCutoffHz":500,"wheelPeripheryBeamPrecompression":0.987},
 
-        {"wheelPeripheryReinfBeamSpring":181000,"wheelPeripheryReinfBeamDamp":65},
+        {"wheelPeripheryReinfBeamSpring":221000,"wheelPeripheryReinfBeamDamp":65},
         {"wheelPeripheryReinfBeamDampCutoffHz":500,"wheelPeripheryReinfBeamPrecompression":0.987},
 
         //general tire values
@@ -223,14 +221,14 @@
         {"dragCoef":5},
 
         //groundmodel friction multipliers
-        {"frictionCoef":1.02},
-        {"slidingFrictionCoef":1.01},
-        {"stribeckExponent":1.6},
+        {"frictionCoef":1.05},
+        {"slidingFrictionCoef":1.02},
+        {"stribeckExponent":1.35},
         {"treadCoef":0.80},
 
         //advanced friction values
         {"noLoadCoef":1.66},
-        {"loadSensitivitySlope":0.000114},
+        {"loadSensitivitySlope":0.000104},
         {"fullLoadCoef":0.62},
         {"softnessCoef":0.98},
         
@@ -448,11 +446,11 @@
         {"hubFrictionCoef":0.5},
 
         //tire options
-        {"wheelSideBeamSpring":"$=$frontPSI*835","wheelSideBeamDamp":80},
+        {"wheelSideBeamSpring":"$=$frontPSI*845","wheelSideBeamDamp":80},
         {"wheelSideBeamSpringExpansion":441000,"wheelSideBeamDampExpansion":80},
         {"wheelSideTransitionZone":0.08,"wheelSideBeamPrecompression":0.99},
 
-        {"wheelReinfBeamSpring":22000,"wheelReinfBeamDamp":200},
+        {"wheelReinfBeamSpring":24000,"wheelReinfBeamDamp":200},
         {"wheelReinfBeamDampCutoffHz":500,"wheelReinfBeamPrecompression":0.99},
 
         {"wheelTreadBeamSpring":181000,"wheelTreadBeamDamp":80},
@@ -461,29 +459,29 @@
         {"wheelTreadReinfBeamSpring":80500,"wheelTreadReinfBeamDamp":80},
         {"wheelTreadReinfBeamDampCutoffHz":500,"wheelTreadReinfBeamPrecompression":0.989},
 
-        {"wheelPeripheryBeamSpring":181000,"wheelPeripheryBeamDamp":65},
+        {"wheelPeripheryBeamSpring":221000,"wheelPeripheryBeamDamp":65},
         {"wheelPeripheryBeamDampCutoffHz":500,"wheelPeripheryBeamPrecompression":0.987},
 
-        {"wheelPeripheryReinfBeamSpring":181000,"wheelPeripheryReinfBeamDamp":65},
+        {"wheelPeripheryReinfBeamSpring":221000,"wheelPeripheryReinfBeamDamp":65},
         {"wheelPeripheryReinfBeamDampCutoffHz":500,"wheelPeripheryReinfBeamPrecompression":0.987},
 
         //general tire values
         {"nodeWeight":0.24},
         {"nodeMaterial":"|NM_RUBBER"},
         {"triangleCollision":false},
-        {"pressurePSI":"$rearPSI"},
+        {"pressurePSI":"$frontPSI"},
         {"dragCoef":5},
 
         //groundmodel friction multipliers
-        {"frictionCoef":1.01},
-        {"slidingFrictionCoef":1.0},
-        {"stribeckExponent":1.6},
+        {"frictionCoef":1.02},
+        {"slidingFrictionCoef":1.01},
+        {"stribeckExponent":1.35},
         {"treadCoef":0.80},
 
         //advanced friction values
-        {"noLoadCoef":1.62},
-        {"loadSensitivitySlope":0.000121},
-        {"fullLoadCoef":0.60},
+        {"noLoadCoef":1.65},
+        {"loadSensitivitySlope":0.000114},
+        {"fullLoadCoef":0.62},
         {"softnessCoef":0.98},
 
         //deform values

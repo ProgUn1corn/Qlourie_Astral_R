@@ -56,7 +56,7 @@
         ["fh3r", -0.718, -1.155, -0.023],
         ["fh3l",  0.718, -1.155, -0.023],
         //brake caliper
-        {"nodeWeight":3.25},
+        {"nodeWeight":3.5},
         {"selfCollision":false},
         {"group":["Astral_hub_F","Astral_duct_F"]},
         ["fh5r", -0.765, -1.421, 0.05],
@@ -263,32 +263,26 @@
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["fh2r","fs1r", {
+        {"breakGroup":"damper_FR"},
+        {"beamDeform":165000,"beamStrength":205000},
+        ["fh2r","fs1r", { //FR damper
             "name":"damper_FR", 
             //LS Control
             "beamDamp":"$dampRate_bump_F",
             "beamDampRebound":"$=$dampRate_rebound_F",
             //HS bump
-            "beamDampVelocitySplit":1,
+            "beamDampVelocitySplit":1, //overwritten by LRS stack
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
+            //bottom out
+            "longBoundRange":1,"shortBoundRange":0.30,"boundZone":0.01,
+            "beamLimitSpring":1501000,
+            "beamLimitDamp":1000, 
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":400}
         ],
-        ["fh2l","fs1l", {
-            "name":"damper_FL",
-            //LS Control
-            "beamDamp":"$dampRate_bump_F",
-            "beamDampRebound":"$=$dampRate_rebound_F",
-            //HS bump
-            "beamDampVelocitySplit":1,
-            "beamDampFast":"$dampRate_bump_F_fast",
-            //HS rebound
-            "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":400}
-        ],
-        //hydraulic bump stop
-        ["fh2r","fs1r", { //1-phase valve close
+        ["fh2r","fs1r", { //1-phase valve close HBS
             "name":"bumpstop_FR", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -299,28 +293,61 @@
             "maxStress":1500
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.048,
-            "beamLimitSpring":15000,
+            "beamLimitSpring":12000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F*0.8",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_F","boundZone":0.01,
-            "beamLimitSpring":301000,
-            "beamLimitDamp":8000, 
+            "beamLimitSpring":451000,
+            "beamLimitDamp":1000, 
             "beamLimitDampRebound":500,
             "dampCutoffHz":250}
         ],
-        ["fh2r","fs1r", { //bottom out
-            //become solid
+        ["fh2r","fs1r", { //hydraulic rebound stop
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
+            //leave rebound stop space
+            "precompressionRange":-0.03,
+            "beamPrecompressionTime":0.1,
+            //rebound stop active
+            "beamLimitSpring":500,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":6500,
+            "dampCutoffHz":250}
+        ],
+        ["fh2r","fs1r", { //hard rebound stop
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            //leave rebound stop space
+            "precompressionRange":-0.01,
+            "beamPrecompressionTime":0.1,
+            //rebound stop active
+            "beamLimitSpring":151000,
+            "beamLimitDamp":500,
+            "beamLimitDampRebound":1000,
+            "dampCutoffHz":250}
+        ],
+        {"breakGroup":"damper_FL"},
+        {"beamDeform":165000,"beamStrength":205000},
+        ["fh2l","fs1l", { //Fl damper
+            "name":"damper_FL",
+            //LS Control
+            "beamDamp":"$dampRate_bump_F",
+            "beamDampRebound":"$=$dampRate_rebound_F",
+            //HS bump
+            "beamDampVelocitySplit":1, //overwritten by LRS stack
+            "beamDampFast":"$dampRate_bump_F_fast",
+            //HS rebound
+            "beamDampReboundFast":"$=$dampRate_rebound_F",
+            //bottom out
             "longBoundRange":1,"shortBoundRange":0.30,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
-            "dampCutoffHz":250}
+            "dampCutoffHz":400}
         ],
-        ["fh2l","fs1l", { //1-phase valve close
+        ["fh2l","fs1l", { //1-phase valve close HBS
             "name":"bumpstop_FL", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -331,72 +358,42 @@
             "maxStress":1500
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.048,
-            "beamLimitSpring":15000,
+            "beamLimitSpring":12000,
             "beamLimitDamp":"$dampRate_stop_F", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F*0.8",
+            "beamLimitDampRebound":"$=$dampRate_rebound_F/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_F","boundZone":0.01,
-            "beamLimitSpring":301000,
-            "beamLimitDamp":8000, 
+            "beamLimitSpring":451000,
+            "beamLimitDamp":1000, 
             "beamLimitDampRebound":500,
             "dampCutoffHz":250}
         ],
-        ["fh2l","fs1l", { //bottom out
-            //become solid
-            "longBoundRange":1,"shortBoundRange":0.30,"boundZone":0.01,
-            "beamLimitSpring":1501000,
-            "beamLimitDamp":1000, 
+        ["fh2l","fs1l", { //hydraulic rebound stop
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
+            //leave rebound stop space
+            "precompressionRange":-0.03,
+            "beamPrecompressionTime":0.1,
+            //rebound stop active
+            "beamLimitSpring":500,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":6500,
+            "dampCutoffHz":250}
+        ],
+        ["fh2l","fs1l", { //hard rebound stop
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
+            //leave rebound stop space
+            "precompressionRange":-0.01,
+            "beamPrecompressionTime":0.1,
+            //rebound stop active
+            "beamLimitSpring":151000,
+            "beamLimitDamp":500,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
-        //hydraulic rebound stop
-        ["fh2r","fs1r", { //hydraulics
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.02,
-            //leave rebound stop space
-            "precompressionRange":-0.01,
-            "beamPrecompressionTime":0.1,
-            //rebound stop active
-            "beamLimitSpring":2500,
-            "beamLimitDamp":"$dampRate_bump_F",
-            "beamLimitDampRebound":8000,
-            "dampCutoffHz":250}
-        ],
-        ["fh2r","fs1r", { //hard stop
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
-            //leave rebound stop space
-            "precompressionRange":-0.005,
-            "beamPrecompressionTime":0.1,
-            //rebound stop active
-            "beamLimitSpring":365000,
-            "beamLimitDamp":500,
-            "beamLimitDampRebound":6500,
-            "dampCutoffHz":250}
-        ],
-        ["fh2l","fs1l", { //hydraulics
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.02,
-            //leave rebound stop space
-            "precompressionRange":-0.01,
-            "beamPrecompressionTime":0.1,
-            //rebound stop active
-            "beamLimitSpring":2500,
-            "beamLimitDamp":"$dampRate_bump_F",
-            "beamLimitDampRebound":8000,
-            "dampCutoffHz":250}
-        ],
-        ["fh2l","fs1l", { //hard stop
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
-            //leave rebound stop space
-            "precompressionRange":-0.005,
-            "beamPrecompressionTime":0.1,
-            //rebound stop active
-            "beamLimitSpring":365000,
-            "beamLimitDamp":500,
-            "beamLimitDampRebound":6500,
-            "dampCutoffHz":250}
-        ],
+        {"breakGroup":""},
         //detection mass
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":50},

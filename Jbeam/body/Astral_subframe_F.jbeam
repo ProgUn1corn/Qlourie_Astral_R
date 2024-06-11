@@ -75,7 +75,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Subframe--
         //cross member
-        {"beamSpring":7751500,"beamDamp":180},
+        {"beamSpring":8001000,"beamDamp":180},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
         ["fx1r", "fx2r"],
         ["fx2r", "fx2l"],
@@ -91,11 +91,11 @@
         ["fx1l", "fx4l"],
         ["fx2l", "fx4l"],
         //crossing
-        {"beamSpring":7751500,"beamDamp":180},
+        {"beamSpring":8001000,"beamDamp":180},
         {"beamDeform":82500,"beamStrength":"FLT_MAX"},
         ["fx1r", "fx2l"],
         ["fx1l", "fx2r"],
-        {"beamSpring":6501000,"beamDamp":150},
+        {"beamSpring":5501000,"beamDamp":150},
         ["fx2r", "fx3l"],
         ["fx2l", "fx3r"],
         //mounting point
@@ -140,7 +140,7 @@
         ["fx3r", "chs4l"],
         ["fx1r", "a16"],
         ["fx1r", "a21"],
-        ["fx2r", "a20"],
+        ["fx2r", "a22"],
         //*
         {"breakGroup":"subframeFL"},
         ["fx4l", "a26"],
@@ -155,7 +155,7 @@
         ["fx3l", "chs4r"],
         ["fx1l", "a19"],
         ["fx1l", "a22"],
-        ["fx2l", "a23"],
+        ["fx2l", "a21"],
         {"breakGroup":""},
 
         //--Steering Rack--
@@ -241,13 +241,13 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":250,"beamDeform":95000,"beamStrength":325000},
-        ["st2r","st2l", {"dampCutoffHz":1000}],
+        {"beamSpring":12001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
+        ["st2r","st2l", {"dampCutoffHz":500}],
         
         //--Limiter and Damper--
         //steering limit
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4},
-        {"beamSpring":5001000,"beamDamp":250,"beamDeform":125000,"beamStrength":550000},
+        {"beamSpring":3501000,"beamDamp":250,"beamDeform":125000,"beamStrength":550000},
         {"beamPrecompression":0.86},
         ["fh3r","fx1r"],
         ["fh3l","fx1l"],
@@ -321,13 +321,13 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":250,"beamDeform":95000,"beamStrength":325000},
-        ["st2r","st2l", {"dampCutoffHz":1000}],
+        {"beamSpring":12001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
+        ["st2r","st2l", {"dampCutoffHz":500}],
         
         //--Limiter and Damper--
         //steering limit
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4},
-        {"beamSpring":5001000,"beamDamp":250,"beamDeform":125000,"beamStrength":550000},
+        {"beamSpring":3501000,"beamDamp":250,"beamDeform":125000,"beamStrength":550000},
         {"beamPrecompression":0.88},
         ["fh3r","fx1r"],
         ["fh3l","fx1l"],
@@ -401,13 +401,13 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":250,"beamDeform":95000,"beamStrength":325000},
-        ["st2r","st2l", {"dampCutoffHz":1000}],
+        {"beamSpring":12001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
+        ["st2r","st2l", {"dampCutoffHz":500}],
         
         //--Limiter and Damper--
         //steering limit
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":4},
-        {"beamSpring":5001000,"beamDamp":250,"beamDeform":125000,"beamStrength":550000},
+        {"beamSpring":3501000,"beamDamp":250,"beamDeform":125000,"beamStrength":550000},
         {"beamPrecompression":0.9},
         ["fh3r","fx1r"],
         ["fh3l","fx1l"],
@@ -532,21 +532,27 @@
         ["farb1r", "farb2l"],
         ["farb1r", "farb2r"],
         ["farb1r", "farb3r"],
-        ["farb2r", "br1r"],
+        ["farb2r", "fx1r"],
         ["farb2r", "chs3r"],
         ["farb2r", "chs4r"],
+        ["farb2r", "chsf"], 
+        ["farb2r", "a53"], 
         ["farb2r", "a54"], 
+        ["farb2r", "fx3r"], 
         //*
         ["farb1l", "farb2r"],
         ["farb1l", "farb2l"],
         ["farb1l", "farb3l"],
-        ["farb2l", "br1l"],
+        ["farb2l", "fx1l"],
         ["farb2l", "chs3l"],
         ["farb2l", "chs4l"],
-        ["farb2l", "a53"],
+        ["farb2l", "chsf"], 
+        ["farb2l", "a54"], 
+        ["farb2l", "a53"], 
+        ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2001000,"beamDamp":150},
-        ["farb1r", "farb1l"],
+        {"beamSpring":2501000,"beamDamp":80},
+        ["farb2r", "farb2l"],
     ]
 },
 "Astral_swaybar_F_m": {
@@ -592,21 +598,27 @@
         ["farb1r", "farb2l"],
         ["farb1r", "farb2r"],
         ["farb1r", "farb3r"],
-        ["farb2r", "br1r"],
+        ["farb2r", "fx1r"],
         ["farb2r", "chs3r"],
         ["farb2r", "chs4r"],
+        ["farb2r", "chsf"], 
+        ["farb2r", "a53"], 
         ["farb2r", "a54"], 
+        ["farb2r", "fx3r"], 
         //*
         ["farb1l", "farb2r"],
         ["farb1l", "farb2l"],
         ["farb1l", "farb3l"],
-        ["farb2l", "br1l"],
+        ["farb2l", "fx1l"],
         ["farb2l", "chs3l"],
         ["farb2l", "chs4l"],
-        ["farb2l", "a53"],
+        ["farb2l", "chsf"], 
+        ["farb2l", "a54"], 
+        ["farb2l", "a53"], 
+        ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2001000,"beamDamp":150},
-        ["farb1r", "farb1l"],
+        {"beamSpring":2501000,"beamDamp":80},
+        ["farb2r", "farb2l"],
     ]
 },
 "Astral_swaybar_F_h": {
@@ -652,21 +664,27 @@
         ["farb1r", "farb2l"],
         ["farb1r", "farb2r"],
         ["farb1r", "farb3r"],
-        ["farb2r", "br1r"],
+        ["farb2r", "fx1r"],
         ["farb2r", "chs3r"],
         ["farb2r", "chs4r"],
+        ["farb2r", "chsf"], 
+        ["farb2r", "a53"], 
         ["farb2r", "a54"], 
+        ["farb2r", "fx3r"], 
         //*
         ["farb1l", "farb2r"],
         ["farb1l", "farb2l"],
         ["farb1l", "farb3l"],
-        ["farb2l", "br1l"],
+        ["farb2l", "fx1l"],
         ["farb2l", "chs3l"],
         ["farb2l", "chs4l"],
-        ["farb2l", "a53"],
+        ["farb2l", "chsf"], 
+        ["farb2l", "a54"], 
+        ["farb2l", "a53"], 
+        ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2001000,"beamDamp":150},
-        ["farb1r", "farb1l"],
+        {"beamSpring":2501000,"beamDamp":80},
+        ["farb2r", "farb2l"],
     ]
 },
 "Astral_swaybar_F_hh": {
@@ -712,21 +730,27 @@
         ["farb1r", "farb2l"],
         ["farb1r", "farb2r"],
         ["farb1r", "farb3r"],
-        ["farb2r", "br1r"],
+        ["farb2r", "fx1r"],
         ["farb2r", "chs3r"],
         ["farb2r", "chs4r"],
+        ["farb2r", "chsf"], 
+        ["farb2r", "a53"], 
         ["farb2r", "a54"], 
+        ["farb2r", "fx3r"], 
         //*
         ["farb1l", "farb2r"],
         ["farb1l", "farb2l"],
         ["farb1l", "farb3l"],
-        ["farb2l", "br1l"],
+        ["farb2l", "fx1l"],
         ["farb2l", "chs3l"],
         ["farb2l", "chs4l"],
-        ["farb2l", "a53"],
+        ["farb2l", "chsf"], 
+        ["farb2l", "a54"], 
+        ["farb2l", "a53"], 
+        ["farb2l", "fx3l"], 
         //bar stiffness
-        {"beamSpring":2001000,"beamDamp":150},
-        ["farb1r", "farb1l"],
+        {"beamSpring":2501000,"beamDamp":80},
+        ["farb2r", "farb2l"],
     ]
 }
 }
