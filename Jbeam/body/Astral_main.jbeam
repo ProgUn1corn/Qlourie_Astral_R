@@ -197,7 +197,7 @@
 		//--Rear Chassis--
 		//main shape
 		{"beamSpring":4501000,"beamDamp":150},
-		{"beamDeform":35000, "beamStrength":"FLT_MAX"},
+		{"beamDeform":30000, "beamStrength":"FLT_MAX"},
 		["a5", "a6"],
 		["a37", "a38"],
 		["a41", "a42"],
@@ -211,7 +211,7 @@
 		["chs2l", "a42"],
 		["a42", "a11"],
 		//crossing
-		{"beamDeform":28000},
+		{"beamDeform":25000},
 		["a5", "a38"],
 		["a37", "chs2l"],
 		["chs2r", "a42"],
@@ -310,8 +310,8 @@
 		
 		//--Front Chassis--
 		//main shape
-		{"beamSpring":4501000,"beamDamp":150},
-		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
+		{"beamSpring":3501000,"beamDamp":150},
+		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
 		["a53", "a54"],
 		["a53", "a20"],
 		["a53", "chs4r"],
@@ -323,7 +323,7 @@
 		["chs4l", "br1l"],
 		["br1l", "a26"],
 		//crossing
-		{"beamDeform":28000},
+		{"beamDeform":20000},
 		["chs4r", "a54"],
 		["a53", "a23"],
 		["a53", "a21"],
@@ -332,7 +332,7 @@
 		["a54", "a20"],
 		["a54", "a22"],
 		//rigids
-		{"beamDeform":20000},
+		{"beamDeform":15000},
 		["a25", "chs4r"],
 		["a25", "a20"],
 		["a26", "chs4l"],
@@ -348,7 +348,7 @@
 		["br1l", "a54"],
 		["br1l", "a23"],
 		//wheel well
-		{"beamDeform":28000},
+		{"beamDeform":22000},
 		["chs3r", "chs4r"],
 		["chs3r", "a53"],
 		["chs3r", "br1r"],
@@ -359,7 +359,7 @@
 		["chs3l", "br1l"],
 		["chs4l", "a23"],
 		//wheel well crossing
-		{"beamDeform":20000},
+		{"beamDeform":18000},
 		["chs3r", "chs4l"],
 		["chs3l", "chs4r"],
 		//rigidifier
@@ -376,7 +376,7 @@
 		["chsf", "chs4l"],
 		//shock tower mount to chassis
         {"beamSpring":5501000,"beamDamp":150},
-        {"beamDeform":65000,"beamStrength":185000},
+        {"beamDeform":45000,"beamStrength":185000},
         {"breakGroup":"strut_FR"},
         ["fs1r", "chsf"],
         ["fs1r", "chs3r"],
@@ -558,8 +558,8 @@
 		{"group":["Astral_chassis_F","Astral_frame"]},
 		["br1r", -0.429, -1.559, 0.326],
 		["br1l",  0.429, -1.559, 0.326],
-		["a25", -0.429, -1.732, 0.29, {"group":["Astral_chassis_F","Astral_duct_F"]}],
-		["a26",  0.429, -1.732, 0.29, {"group":["Astral_chassis_F","Astral_duct_F"]}],
+		["a25", -0.429, -1.732, 0.29, {"selfCollision":false, "group":["Astral_chassis_F","Astral_duct_F"]}],
+		["a26",  0.429, -1.732, 0.29, {"selfCollision":false, "group":["Astral_chassis_F","Astral_duct_F"]}],
 		//overriden by suspension 
 		["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
@@ -639,8 +639,8 @@
 		{"group":["Astral_chassis_F","Astral_frame"]},
 		["br1r", -0.429, -1.559, 0.326],
 		["br1l",  0.429, -1.559, 0.326],
-		["a25", -0.429, -1.732, 0.29, {"group":["Astral_chassis_F","Astral_duct_F"]}],
-		["a26",  0.429, -1.732, 0.29, {"group":["Astral_chassis_F","Astral_duct_F"]}],
+		["a25", -0.429, -1.732, 0.29, {"selfCollision":false, "group":["Astral_chassis_F","Astral_duct_F"]}],
+		["a26",  0.429, -1.732, 0.29, {"selfCollision":false, "group":["Astral_chassis_F","Astral_duct_F"]}],
 		//overriden by suspension 
 		["fs1r", -0.602, -1.204, 0.805],
         ["fs1l",  0.602, -1.204, 0.805],
@@ -1024,7 +1024,7 @@
 		//--Roof--
 		//main shape
 		{"beamSpring":1201000,"beamDamp":80},
-		{"beamDeform":8500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["a72", "a73"],
 		["a73", "a74"],
 		["a74", "a75"],
@@ -1039,7 +1039,7 @@
 		["a77", "a81"],
 		["a78", "a82"],
 		//crossing
-		{"beamDeform":6500},
+		{"beamDeform":4500},
 		["a72", "a77"],
 		["a73", "a76"],
 		["a73", "a78"],
@@ -1053,7 +1053,7 @@
 		["a78", "a83"],
 		["a79", "a82"],
 		//rigids
-		{"beamDeform":4500},
+		{"beamDeform":3500},
 		["a72", "a80"],
 		["a72", "a83"],
 		["a75", "a83"],
@@ -1088,7 +1088,7 @@
 		{"breakGroup":""},
 		//front window
 		{"beamSpring":1201000,"beamDamp":100},
-		{"beamDeform":10500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":8500,"beamStrength":"FLT_MAX"},
 		["a80", "a84"],
 		["a80", "a85"],
 		["a81", "a84"],
@@ -1101,7 +1101,7 @@
 		["a83", "a87"],
 		//attach roof
 		{"beamSpring":1201000,"beamDamp":100},
-		{"beamDeform":7500},
+		{"beamDeform":6500},
 		["a73", "qp2r"],
 		["a77", "a44"],
 		["a77", "a47"],
@@ -1119,16 +1119,16 @@
 		//--Firewall--
 		//front firewall shape
 		{"beamSpring":3251000,"beamDamp":150},
-		{"beamDeform":38000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":22500,"beamStrength":"FLT_MAX"},
 		["a85", "a84"],
 		["a87", "a86"],
 		["a86", "a85"],
 		//rigids
-		{"beamDeform":30500},
+		{"beamDeform":17500},
 		["a84", "a86"],
 		["a87", "a85"],
 		//mount to body
-		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
 		["a84", "a16"],
 		["a84", "a20"],
 		["a84", "a21"],

@@ -29,8 +29,8 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "Hydraulic Bump Stop", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.195, 0.16, 0.18, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":160,"maxDis":180,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.14, 0.11, 0.16, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":110,"maxDis":160,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.18, 0.16, 0.18, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":160,"maxDis":180,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.15, 0.135, 0.16, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":135,"maxDis":160,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.035, 0, 0.09, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":90,"subCategory":"Front Damper"}],
     ],
     "nodes": [
@@ -170,7 +170,7 @@
         ["fs2r","fh5r"],
         //hub to wheel axle nodes
         {"beamSpring":9001000,"beamDamp":180},
-        {"beamDeform":97500,"beamStrength":350000},
+        {"beamDeform":97500,"beamStrength":165000},
         {"breakGroup":"wheel_FR"},
         {"optional":true},
         ["fh1r","fw1r", {"name":"axle_FR"}],
@@ -209,7 +209,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":12001000,"beamDamp":600},
+        {"beamSpring":12001000,"beamDamp":400},
         ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.0008","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.0008","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
 
@@ -264,7 +264,7 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"breakGroup":"damper_FR"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["fh2r","fs1r", { //FR damper
             "name":"damper_FR", 
             //LS Control
@@ -292,7 +292,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.018,
             "beamLimitSpring":15000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -329,7 +329,7 @@
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FL"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["fh2l","fs1l", { //Fl damper
             "name":"damper_FL",
             //LS Control
@@ -357,7 +357,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.018,
             "beamLimitSpring":15000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -514,7 +514,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 12000, 8000, 12000, "Hydraulic Bump Stop", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.31, 0.27, 0.31, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":270,"maxDis":310,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.23, 0.23, 0.27, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":230,"maxDis":270,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.255, 0.24, 0.27, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":240,"maxDis":270,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.04, 0, 0.12, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":120,"subCategory":"Front Damper"}],
     ],
@@ -655,7 +655,7 @@
         ["fs2r","fh5r"],
         //hub to wheel axle nodes
         {"beamSpring":9001000,"beamDamp":180},
-        {"beamDeform":97500,"beamStrength":350000},
+        {"beamDeform":97500,"beamStrength":165000},
         {"breakGroup":"wheel_FR"},
         {"optional":true},
         ["fh1r","fw1r", {"name":"axle_FR"}],
@@ -694,7 +694,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":12001000,"beamDamp":600},
+        {"beamSpring":12001000,"beamDamp":400},
         ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0024","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
         ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0024","beamPrecompressionTime":0.1, "dampCutoffHz":500}],
 
@@ -749,7 +749,7 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"breakGroup":"damper_FR"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["fh2r","fs1r", { //FR damper
             "name":"damper_FR", 
             //LS Control
@@ -777,7 +777,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.048,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.032,
             "beamLimitSpring":5000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -821,7 +821,7 @@
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FL"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["fh2l","fs1l", { //Fl damper
             "name":"damper_FL",
             //LS Control
@@ -849,7 +849,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.048,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.032,
             "beamLimitSpring":5000,
             "beamLimitDamp":"$dampRate_stop_F", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams

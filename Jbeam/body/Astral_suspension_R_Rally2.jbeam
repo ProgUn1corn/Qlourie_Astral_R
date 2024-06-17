@@ -169,7 +169,7 @@
         ["rs2r","rh1r"],
         //hub to wheel axle nodes
         {"beamSpring":9001000,"beamDamp":180},
-        {"beamDeform":97500,"beamStrength":350000},
+        {"beamDeform":97500,"beamStrength":165000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
@@ -208,7 +208,7 @@
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":600},
+        {"beamSpring":12001000,"beamDamp":400},
         ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.0017","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.0017","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rx5r","rx2r", {"dampCutoffHz":500}],
@@ -262,7 +262,7 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"breakGroup":"damper_RR"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["rh2r","rs1r", { //RR damper
             "name":"damper_RR", 
             //LS Control
@@ -289,7 +289,7 @@
             "volumeFactor":0.9,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":1500
+            "maxStress":0.5
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_F","boundZone":0.01,
             "beamLimitSpring":481000,
@@ -320,7 +320,7 @@
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["rh2l","rs1l", { //RL damper
             "name":"damper_RL",
             //LS Control
@@ -347,7 +347,7 @@
             "volumeFactor":0.9,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":1500
+            "maxStress":0.5
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_F","boundZone":0.01,
             "beamLimitSpring":481000,
@@ -490,7 +490,7 @@
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.29, 0.26, 0.29, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":260,"maxDis":290,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.23, 0.22, 0.26, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":220,"maxDis":260,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.24, 0.23, 0.26, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":230,"maxDis":260,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.05, 0.0, 0.12, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":120,"subCategory":"Rear Damper"}],
     ],
     "nodes": [
@@ -630,7 +630,7 @@
         ["rs2r","rh1r"],
         //hub to wheel axle nodes
         {"beamSpring":9001000,"beamDamp":180},
-        {"beamDeform":97500,"beamStrength":350000},
+        {"beamDeform":97500,"beamStrength":165000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
@@ -669,7 +669,7 @@
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":600},
+        {"beamSpring":12001000,"beamDamp":400},
         ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R-0.0001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R-0.0001","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
         ["rx5r","rx2r", {"dampCutoffHz":500}],
@@ -723,7 +723,7 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"breakGroup":"damper_RR"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["rh2r","rs1r", { //RR damper
             "name":"damper_RR", 
             //LS Control
@@ -743,18 +743,18 @@
         ],
         ["rh2r","rs1r", { //1-phase valve close HBS
             "name":"bumpstop_RR", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            //"soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":0.9,
+            "volumeFactor":0.5,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":1500
+            "maxStress":0.5
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.048,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.028,
             "beamLimitSpring":12000,
             "beamLimitDamp":"$dampRate_stop_R", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_R/3", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard bump stop
@@ -788,7 +788,7 @@
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
-        {"beamDeform":165000,"beamStrength":205000},
+        {"beamDeform":125000,"beamStrength":175000},
         ["rh2l","rs1l", { //RL damper
             "name":"damper_RL",
             //LS Control
@@ -808,18 +808,18 @@
         ],
         ["rh2l","rs1l", { //1-phase valve close HBS
             "name":"bumpstop_RL", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            //"soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":0.9,
+            "volumeFactor":0.5,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":1500
+            "maxStress":0.5
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.048,
+            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.028,
             "beamLimitSpring":12000,
             "beamLimitDamp":"$dampRate_stop_R", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_R/3", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hard bump stop
