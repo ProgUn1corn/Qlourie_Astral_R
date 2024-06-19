@@ -29,8 +29,8 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.28, 0.25, 0.28, "Hard Bump Stop Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":250,"maxDis":280,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.23, 0.22, 0.25, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":220,"maxDis":250,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.26, 0.23, 0.26, "Hard Bump Stop Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":230,"maxDis":260,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.23, 0.20, 0.23, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":200,"maxDis":230,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0, 0, 0.1, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":100,"subCategory":"Front Damper"}],
     ],
     "nodes": [
@@ -276,7 +276,7 @@
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
             //bottom out
-            "longBoundRange":1,"shortBoundRange":0.30,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.27,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -341,7 +341,7 @@
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
             //bottom out
-            "longBoundRange":1,"shortBoundRange":0.30,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.27,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
@@ -515,7 +515,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.26+($dampRate_bump_F_fast-2300)/20000-($dampRate_bump_F-1500)/25000,0.16,0.36)", 0.25]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.95", "$=clamp(0.26+($dampRate_bump_F_fast-2300)/20000-($dampRate_bump_F-1500)/25000,0.16,0.36)", 0.25]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.26+($dampRate_bump_F_fast-2300)/20000-($dampRate_bump_F-1500)/25000,0.16,0.36)", 1] //LRS active
         ]
     },
@@ -551,7 +551,7 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp(0.2+($dampRate_bump_F_fast-1300)/20000-($dampRate_bump_F-2300)/25000,0.1,0.3)", 0.25]  //normal damping
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.95", "$=clamp(0.2+($dampRate_bump_F_fast-1300)/20000-($dampRate_bump_F-2300)/25000,0.1,0.3)", 0.25]  //normal damping
             ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp(0.2+($dampRate_bump_F_fast-1300)/20000-($dampRate_bump_F-2300)/25000,0.1,0.3)", 1] //LRS active
         ]
     },

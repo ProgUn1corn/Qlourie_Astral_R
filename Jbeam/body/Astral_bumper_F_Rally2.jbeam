@@ -76,9 +76,9 @@
 		//--Front Bumper--
 		//bumper shape
 		{"beamSpring":101000,"beamDamp":50},
-        {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+        {"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		{"breakGroup":""},
-		["fb1r", "fb1", {"beamDeform":1500, "deformationTriggerRatio":0.01, "deformGroup":["engine_intake"]}],
+		["fb1r", "fb1", {"beamDeform":2500, "deformationTriggerRatio":0.01, "deformGroup":["engine_intake"]}],
 		["fb4r", "fb1r"],
 		["fb2r", "fb3r"],
 		["fb2r", "fb2l"],
@@ -90,7 +90,7 @@
 		["fb4r", "fbe1r"],
 		["fb2r", "fb5r"],
 		//*
-		["fb1l", "fb1", {"beamDeform":1500, "deformationTriggerRatio":0.01, "deformGroup":["engine_intake"]}],
+		["fb1l", "fb1", {"beamDeform":2500, "deformationTriggerRatio":0.01, "deformGroup":["engine_intake"]}],
 		["fb4l", "fb1l"],
 		["fb2l", "fb3l"],
 		["fb3l", "fbe1l"],
@@ -101,7 +101,7 @@
 		["fb4l", "fbe1l"],
 		["fb2l", "fb5l"],
 		//crossing
-		{"beamDeform":3500},
+		{"beamDeform":4500},
 		["fb1", "fb2r"],
 		["fb1r", "fb2l"],
 		["fb1r", "fb3r"],
@@ -161,12 +161,12 @@
 		["fbe1l", "fbe3l"],
 		["fbe2l", "fb7l"],
 		//rigids
-		{"beamDeform":3500},
+		{"beamDeform":4500},
 		["fbe3r", "fb6r"],
 		["fbe3l", "fb6l"],
 		//rigidifier
         {"beamSpring":301000,"beamDamp":100},
-		{"beamDeform":1500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":2500,"beamStrength":"FLT_MAX"},
 		["fbr1r", "fbr1l"],
 		["fbr1r", "fb1"],
 		["fbr1r", "fb1r"],
@@ -241,7 +241,7 @@
 		["fbe3l", "fe6l"],
 		//bump middle attach
 		{"beamSpring":451000,"beamDamp":125},
-		{"beamDeform":6500,"beamStrength":7500},
+		{"beamDeform":6500,"beamStrength":6500},
 		{"breakGroup":"fbm"},
 		["fb1r", "a93"],
 		["fb1r", "a94"],
@@ -359,6 +359,11 @@
 		["fe6l", "fe3l", "fbe1l"],
 		["fbe2l", "fb7l", "fbe3l"],
 		["fbe2l", "fbe1l", "fb7l"],
+		//bumper downforce
+		{"dragCoef":20},
+		{"liftCoef":20,"stallAngle":1.17}
+		{"breakGroup":["fbm"]},
+		["fbe1r", "fb5", "fbe1l"],
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
     ]
@@ -416,7 +421,7 @@
 		//--Safari Kit--
 		//snorkel
 		{"beamSpring":1501000,"beamDamp":200},
-        {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+        {"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		["snk1","snk2"],
 		["snk2","snk3"],
 		["snk3","snk4"],
