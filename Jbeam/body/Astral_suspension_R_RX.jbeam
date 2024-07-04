@@ -30,7 +30,7 @@
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.26, 0.23, 0.26, "Hard Bump Stop Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":230,"maxDis":260,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.26, 0.23, 0.26, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":230,"maxDis":260,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.20, 0.20, 0.23, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":200,"maxDis":230,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0, 0, 0.1, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":100,"subCategory":"Rear Damper"}],
     ],
@@ -159,8 +159,9 @@
         ["rh3l","rh5l"],
         ["rh2l","rh5l"],
         //damper mount to hub
-        {"beamSpring":4501000,"beamDamp":225},
+        {"beamSpring":4501000,"beamDamp":450},
         {"beamDeform":125000,"beamStrength":285000},
+        {"dampCutoffHz":500},
         ["rs2l","rh3l"],
         ["rs2r","rh3r"],
         ["rs2l","rh2l"],
@@ -169,6 +170,7 @@
         ["rs2r","rh5r"],
         ["rs2l","rh1l"],
         ["rs2r","rh1r"],
+        {"dampCutoffHz":""},
         //hub to wheel axle nodes
         {"beamSpring":9001000,"beamDamp":180},
         {"beamDeform":97500,"beamStrength":165000},
@@ -210,9 +212,10 @@
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":400},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.0002","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.0002","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        {"beamSpring":12001000,"beamDamp":1200},
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.0002","beamPrecompressionTime":0.1,"dampCutoffHz":250}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.0002","beamPrecompressionTime":0.1,"dampCutoffHz":250}],
+        {"beamSpring":12001000,"beamDamp":600}
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],

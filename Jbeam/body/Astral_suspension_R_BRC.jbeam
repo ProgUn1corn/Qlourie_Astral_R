@@ -29,10 +29,10 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.20, 0.17, 0.20, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":170,"maxDis":200,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.20, 0.17, 0.20, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":170,"maxDis":200,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.15, 0.14, 0.17, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":140,"maxDis":170,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.035, 0, 0.09, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":90,"subCategory":"Rear Damper"}],
+        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.035, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":60,"subCategory":"Rear Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -159,8 +159,9 @@
         ["rh3l","rh5l"],
         ["rh2l","rh5l"],
         //damper mount to hub
-        {"beamSpring":4501000,"beamDamp":225},
+        {"beamSpring":4501000,"beamDamp":450},
         {"beamDeform":125000,"beamStrength":285000},
+        {"dampCutoffHz":500},
         ["rs2l","rh3l"],
         ["rs2r","rh3r"],
         ["rs2l","rh2l"],
@@ -169,6 +170,7 @@
         ["rs2r","rh5r"],
         ["rs2l","rh1l"],
         ["rs2r","rh1r"],
+        {"dampCutoffHz":""},
         //hub to wheel axle nodes
         {"beamSpring":9001000,"beamDamp":180},
         {"beamDeform":97500,"beamStrength":165000},
@@ -211,9 +213,10 @@
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":400},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.00114514","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.00114514","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        {"beamSpring":12001000,"beamDamp":1200},
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.00114514","beamPrecompressionTime":0.1,"dampCutoffHz":250}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.00114514","beamPrecompressionTime":0.1,"dampCutoffHz":250}],
+        {"beamSpring":12001000,"beamDamp":600},
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
@@ -505,10 +508,10 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.31, 0.28, 0.31, "Hard Bump Stop Travel", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":280,"maxDis":310,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.31, 0.28, 0.31, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":280,"maxDis":310,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.265, 0.25, 0.28, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":250,"maxDis":280,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.04, 0.0, 0.12, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":120,"subCategory":"Rear Damper"}],
+        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.04, 0.0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":1,"minDis":0,"maxDis":80,"subCategory":"Rear Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -635,8 +638,9 @@
         ["rh3l","rh5l"],
         ["rh2l","rh5l"],
         //damper mount to hub
-        {"beamSpring":4501000,"beamDamp":225},
+        {"beamSpring":4501000,"beamDamp":450},
         {"beamDeform":125000,"beamStrength":285000},
+        {"dampCutoffHz":500},
         ["rs2l","rh3l"],
         ["rs2r","rh3r"],
         ["rs2l","rh2l"],
@@ -645,6 +649,7 @@
         ["rs2r","rh5r"],
         ["rs2l","rh1l"],
         ["rs2r","rh1r"],
+        {"dampCutoffHz":""},
         //hub to wheel axle nodes
         {"beamSpring":9001000,"beamDamp":180},
         {"beamDeform":97500,"beamStrength":165000},
@@ -670,10 +675,10 @@
         //camber
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.012","beamPrecompressionTime":0.1}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.014","beamPrecompressionTime":0.1}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.012","beamPrecompressionTime":0.1}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.014","beamPrecompressionTime":0.1}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -686,9 +691,10 @@
         ["rh1l", "rx2l", {"dampCutoffHz":500}],
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
-        {"beamSpring":12001000,"beamDamp":400},
-        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.0004","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.0004","beamPrecompressionTime":0.1,"dampCutoffHz":500}],
+        {"beamSpring":12001000,"beamDamp":1200},
+        ["rh3l", "rx5l", {"beamPrecompression":"$=$toe_R+0.00032","beamPrecompressionTime":0.1,"dampCutoffHz":250}],
+        ["rh3r", "rx5r", {"beamPrecompression":"$=$toe_R+0.00032","beamPrecompressionTime":0.1,"dampCutoffHz":250}],
+        {"beamSpring":12001000,"beamDamp":600},
         ["rx5r","rx2r", {"dampCutoffHz":500}],
         ["rx5l","rx2l", {"dampCutoffHz":500}],
         ["rx5r","rx1r", {"dampCutoffHz":500}],
@@ -1086,7 +1092,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 2200, 600, 3800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 6000, 4400, 7600, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 2750, 750, 4750, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 2420, 660, 4180, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1123,7 +1129,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 2600, 1000, 4200, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3500, 2300, 5500, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 3250, 1250, 5250, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 2860, 1100, 4620, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -1160,7 +1166,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3200, 1600, 4800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 2600, 1000, 4200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 4000, 2000, 6000, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 3520, 1760, 5280, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
         ["fileName"],
