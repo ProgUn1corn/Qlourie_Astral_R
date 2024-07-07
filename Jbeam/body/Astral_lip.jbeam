@@ -2,7 +2,7 @@
 "Astral_lip_BRC": {
     "information":{
         "authors":"Un1corn",
-        "name":"BRC Splitter",
+        "name":"BRC Lip",
         "value":12000
     },
 	"slotType" : "Astral_lip_BRC",
@@ -18,7 +18,7 @@
 		//--Front splitter--
 		//shape
 		{"nodeMaterial":"|NM_RUBBER"},
-		{"nodeWeight":0.3},
+		{"nodeWeight":0.4},
 		{"group":["Astral_lip"]},
 		["sp1m", 0, -2.052, 0.052, {"nodeWeight":0.5}],
 		["sp1r", -0.603, -2.052, 0.052],
@@ -42,7 +42,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front splitter--
 		//lip shape
-		{"beamSpring":18100,"beamDamp":180},
+		{"beamSpring":28100,"beamDamp":180},
 		{"beamDeform":1800,"beamStrength":"FLT_MAX"},
 		["sp1r", "sp4r"],
 		["sp2r", "sp5r"],
@@ -72,23 +72,6 @@
 		["sp2l", "sp4l"],
 		["sp2l", "sp6l"],
 		{"breakGroup":""},
-		//rigidifier
-		{"beamSpring":250100,"beamDamp":50},
-		{"beamDeform":3000,"beamStrength":"FLT_MAX"},
-		["sprr", "sp2m"],
-		["sprr", "sp4r"],
-		["sprr", "sp5r"],
-		["sprr", "sp6r"],
-		["sprr", "sp7r"],
-		["sprr", "sp3m"],
-		//*
-		["sprl", "sp2m"],
-		["sprl", "sp4l"],
-		["sprl", "sp5l"],
-		["sprl", "sp6l"],
-		["sprl", "sp7l"],
-		["sprl", "sp3m"],
-		["sprr", "sprl"],
 		//downforce node
 		{"beamSpring":100100,"beamDamp":50},
 		{"beamDeform":810810,"beamStrength":1145141919810},
@@ -106,8 +89,8 @@
 		["spl", "fb7l"],
 		["spl", "fbr1l"],
 		//attach to body
+		{"beamSpring":25100,"beamDamp":25},
 		{"beamDeform":3500,"beamStrength":5500},
-		{"beamSpring":15100,"beamDamp":165},
 		{"breakGroup":"splitter_R"},
 		["sp1r", "fb3r"],
 		["sp2r", "fb4r"],
@@ -121,7 +104,7 @@
 		["sp3l", "fbe2l"],
 		["sp3l", "fb1l"],
 		["sp3l", "fb3l"],
-		{"beamSpring":15100,"beamDamp":150},
+		{"beamSpring":28000,"beamDamp":25},
 		{"breakGroup":"splitter_M"},
 		["sp1m", "fb1"],
 		["sp1m", "fb5l"],
@@ -158,6 +141,7 @@
 		["sp4l", "sp2l", "sp5l"],
 		["sp4l", "sp1l", "sp2l"],
 		["sp5l", "sp3l", "sp6l"],
+		["sp5l", "sp2l", "sp3l"],
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0},
 
@@ -180,7 +164,7 @@
 "Astral_lip_BRC_vo": {
     "information":{
         "authors":"Un1corn",
-        "name":"BRC Splitter VO1",
+        "name":"BRC Lip VO1",
         "value":12000
     },
 	"slotType" : "Astral_lip_BRC",
@@ -220,7 +204,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front splitter--
 		//lip shape
-		{"beamSpring":18100,"beamDamp":180},
+		{"beamSpring":28100,"beamDamp":180},
 		{"beamDeform":1800,"beamStrength":"FLT_MAX"},
 		["sp1r", "sp4r"],
 		["sp2r", "sp5r"],
@@ -250,23 +234,6 @@
 		["sp2l", "sp4l"],
 		["sp2l", "sp6l"],
 		{"breakGroup":""},
-		//rigidifier
-		{"beamSpring":250100,"beamDamp":50},
-		{"beamDeform":3000,"beamStrength":"FLT_MAX"},
-		["sprr", "sp2m"],
-		["sprr", "sp4r"],
-		["sprr", "sp5r"],
-		["sprr", "sp6r"],
-		["sprr", "sp7r"],
-		["sprr", "sp3m"],
-		//*
-		["sprl", "sp2m"],
-		["sprl", "sp4l"],
-		["sprl", "sp5l"],
-		["sprl", "sp6l"],
-		["sprl", "sp7l"],
-		["sprl", "sp3m"],
-		["sprr", "sprl"],
 		//downforce node
 		{"beamSpring":100100,"beamDamp":50},
 		{"beamDeform":810810,"beamStrength":1145141919810},
@@ -284,8 +251,8 @@
 		["spl", "fb7l"],
 		["spl", "fbr1l"],
 		//attach to body
+		{"beamSpring":25100,"beamDamp":25},
 		{"beamDeform":3500,"beamStrength":5500},
-		{"beamSpring":15100,"beamDamp":165},
 		{"breakGroup":"splitter_R"},
 		["sp1r", "fb3r"],
 		["sp2r", "fb4r"],
@@ -299,7 +266,7 @@
 		["sp3l", "fbe2l"],
 		["sp3l", "fb1l"],
 		["sp3l", "fb3l"],
-		{"beamSpring":15100,"beamDamp":150},
+		{"beamSpring":28000,"beamDamp":25},
 		{"breakGroup":"splitter_M"},
 		["sp1m", "fb1"],
 		["sp1m", "fb5l"],
@@ -336,6 +303,7 @@
 		["sp4l", "sp2l", "sp5l"],
 		["sp4l", "sp1l", "sp2l"],
 		["sp5l", "sp3l", "sp6l"],
+		["sp5l", "sp2l", "sp3l"],
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0},
 
@@ -401,7 +369,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front splitter--
 		//lip shape
-		{"beamSpring":15100,"beamDamp":180},
+		{"beamSpring":25100,"beamDamp":180},
 		{"beamDeform":2500,"beamStrength":6500},
 		["sp1m", "sp1r"],
 		["sp1r", "sp2r"],
@@ -454,7 +422,7 @@
 		["spl", "fbr1l"],
 		{"breakGroup":""},
 		//attach to body
-		{"beamSpring":15100,"beamDamp":200},
+		{"beamSpring":25100,"beamDamp":20},
 		{"beamDeform":3500,"beamStrength":17500},
 		{"breakGroup":"fbr"},
 		["sp1r", "fb3r"],
@@ -475,7 +443,7 @@
 		["sp3l", "br1l"],
 		["sp4l", "fbe1l"],
 		["sp4l", "chs4l"],
-		{"beamSpring":15100,"beamDamp":230},
+		{"beamSpring":25100,"beamDamp":25},
 		{"breakGroup":"fbm"},
 		["sp1m", "fb1"],
 		["sp1m", "a25"],
@@ -568,7 +536,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front splitter--
 		//lip shape
-		{"beamSpring":15100,"beamDamp":180},
+		{"beamSpring":25100,"beamDamp":180},
 		{"beamDeform":2500,"beamStrength":6500},
 		["sp1m", "sp1r"],
 		["sp1r", "sp2r"],
@@ -621,7 +589,7 @@
 		["spl", "fbr1l"],
 		{"breakGroup":""},
 		//attach to body
-		{"beamSpring":15100,"beamDamp":200},
+		{"beamSpring":25100,"beamDamp":20},
 		{"beamDeform":3500,"beamStrength":17500},
 		{"breakGroup":"fbr"},
 		["sp1r", "fb3r"],
@@ -642,7 +610,7 @@
 		["sp3l", "br1l"],
 		["sp4l", "fbe1l"],
 		["sp4l", "chs4l"],
-		{"beamSpring":15100,"beamDamp":230},
+		{"beamSpring":25100,"beamDamp":25},
 		{"breakGroup":"fbm"},
 		["sp1m", "fb1"],
 		["sp1m", "a25"],
@@ -735,7 +703,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front splitter--
 		//lip shape
-		{"beamSpring":15100,"beamDamp":180},
+		{"beamSpring":25100,"beamDamp":180},
 		{"beamDeform":2500,"beamStrength":6500},
 		["sp1m", "sp1r"],
 		["sp1r", "sp2r"],
@@ -788,7 +756,7 @@
 		["spl", "fbr1l"],
 		{"breakGroup":""},
 		//attach to body
-		{"beamSpring":15100,"beamDamp":200},
+		{"beamSpring":25100,"beamDamp":20},
 		{"beamDeform":3500,"beamStrength":17500},
 		{"breakGroup":"fbr"},
 		["sp1r", "fb3r"],
@@ -809,7 +777,7 @@
 		["sp3l", "br1l"],
 		["sp4l", "fbe1l"],
 		["sp4l", "chs4l"],
-		{"beamSpring":15100,"beamDamp":230},
+		{"beamSpring":25100,"beamDamp":20},
 		{"breakGroup":"fbm"},
 		["sp1m", "fb1"],
 		["sp1m", "a25"],
