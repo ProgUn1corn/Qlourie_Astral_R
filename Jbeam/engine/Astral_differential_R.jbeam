@@ -36,7 +36,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":false},
 		{"selfCollision":false},
-		{"nodeWeight":10},
+		{"nodeWeight":6.5},
 		//--Rear Drivetrain--
 		{"group":["Astral_transfercase","Astral_diff"]},
 		["rtrar", -0.169, 1.222, 0.246],
@@ -48,26 +48,22 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear Drivetrain--
 		//diff
-		{"beamSpring":2501000,"beamDamp":150},
+		{"beamSpring":6501000,"beamDamp":150},
 		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
 		["rtral","rtrar"],
 		//mount to chassis
+		{"beamSpring":2501000,"beamDamp":250},
 		{"optional":true}
-		["rtrar","rx4r"],
 		["rtrar","rx2r"],
 		["rtrar","rx1r"],
-		["rtrar","rx4l"],
 		["rtrar","rx2l"],
 		["rtrar","rx1l"],
-		["rtrar","rx1"],
 		//*
-		["rtral","rx4l"],
 		["rtral","rx2l"],
 		["rtral","rx1l"],
-		["rtral","rx4r"],
 		["rtral","rx2r"],
 		["rtral","rx1r"],
-		["rtral","rx1"],
+		{"dampCutoffHz":""},
 		{"optional":false}
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false},
@@ -176,9 +172,9 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear Drivetrain--
 		//shaft
-		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":0.2},
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":0.1},
 		{"beamSpring":0,"beamDamp":0,"beamDeform":9500,"beamStrength":18550},
-		{"beamLimitSpring":3501000,"beamLimitDamp":300},
+		{"beamLimitSpring":6501000,"beamLimitDamp":250},
 		["rw1r","rtrar", {"name":"halfshaft_RR", "breakGroup":"wheel_RR", "breakGroupType":1, "deformGroup":"wheelaxleRR", "deformationTriggerRatio":0.001, "optional":true}],
 		["rw1l","rtral", {"name":"halfshaft_RL", "breakGroup":"wheel_RL", "breakGroupType":1, "deformGroup":"wheelaxleRL", "deformationTriggerRatio":0.001, "optional":true}],
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
