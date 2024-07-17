@@ -29,7 +29,7 @@
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$toe_R", "range", "", "Suspension", 1, 0.995, 1.005, "Toe Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
-        ["$CamberRear", "range", "", "Suspension", 1, 0.988, 1.012, "Rear Camber", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
+        ["$CamberRear", "range", "", "Suspension", 1, 0.97, 1.03, "Rear Camber", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$TrackRear", "range", "+m", "Suspension", 0.0, -0.04, 0.04, "Rear Track Width", "Adjust track width", {"stepDis":0.001,"subCategory":"Alignment"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "Rear ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
     ],
@@ -263,7 +263,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //magic equation
-        {"spring":"$=1034*(1+($arb_point_R/0.15))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1034", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -293,21 +293,23 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":2501000,"beamDamp":100},
         {"beamDeform":18000,"beamStrength":312000},
-        ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r"],
         ["rarb1r", "rarb3r"],
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2r", "a37"],
+        ["rarb2r", "a38"],
         ["rarb2r", "a5"],
-        ["rarb2r", "a41"],
+        ["rarb2r", "rx4r"],
         ["rarb2r", "chs1r"],
         ["rarb2r", "chs2r"],
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l"],
+        ["rarb1l", "rarb2l", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2l", "a38"],
+        ["rarb2l", "a37"],
         ["rarb2l", "a6"],
-        ["rarb2l", "a42"],
+        ["rarb2l", "rx4l"],
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
@@ -325,7 +327,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //magic equation
-        {"spring":"$=1705*(1+($arb_point_R/0.15))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1705", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -355,21 +357,23 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":2501000,"beamDamp":100},
         {"beamDeform":18000,"beamStrength":312000},
-        ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r"],
         ["rarb1r", "rarb3r"],
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2r", "a37"],
+        ["rarb2r", "a38"],
         ["rarb2r", "a5"],
-        ["rarb2r", "a41"],
+        ["rarb2r", "rx4r"],
         ["rarb2r", "chs1r"],
         ["rarb2r", "chs2r"],
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l"],
+        ["rarb1l", "rarb2l", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2l", "a38"],
+        ["rarb2l", "a37"],
         ["rarb2l", "a6"],
-        ["rarb2l", "a42"],
+        ["rarb2l", "rx4l"],
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
@@ -387,7 +391,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //magic equation
-        {"spring":"$=2813*(1+($arb_point_R/0.15))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=2813", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -417,9 +421,9 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":2501000,"beamDamp":100},
         {"beamDeform":18000,"beamStrength":312000},
-        ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r"],
         ["rarb1r", "rarb3r"],
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2r", "a37"],
         ["rarb2r", "a38"],
         ["rarb2r", "a5"],
@@ -429,7 +433,7 @@
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l"],
+        ["rarb1l", "rarb2l", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2l", "a38"],
         ["rarb2l", "a37"],
         ["rarb2l", "a6"],
@@ -451,7 +455,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //magic equation
-        {"spring":"$=4641*(1+($arb_point_R/0.15))", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=4641", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -481,21 +485,23 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":2501000,"beamDamp":100},
         {"beamDeform":18000,"beamStrength":312000},
-        ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r"],
         ["rarb1r", "rarb3r"],
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2r", "a37"],
+        ["rarb2r", "a38"],
         ["rarb2r", "a5"],
-        ["rarb2r", "a41"],
+        ["rarb2r", "rx4r"],
         ["rarb2r", "chs1r"],
         ["rarb2r", "chs2r"],
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l"],
+        ["rarb1l", "rarb2l", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
         ["rarb2l", "a38"],
+        ["rarb2l", "a37"],
         ["rarb2l", "a6"],
-        ["rarb2l", "a42"],
+        ["rarb2l", "rx4l"],
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
