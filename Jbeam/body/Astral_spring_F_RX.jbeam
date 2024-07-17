@@ -6,6 +6,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_F_RX",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -13,11 +18,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_F","Astral_helper_F"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.588, -1.3095, 0.383],
-        ["fhe1l",  0.588, -1.3095, 0.383],
+        ["fhe1r", -0.6105, -1.3166, 0.349],
+        ["fhe1l",  0.6105, -1.3166, 0.349],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -38,7 +43,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.051,"beamPrecompressionTime":0.1}
         ],
         ["fhe1l","fs1l", {
             "name":"spring_FL",
@@ -48,17 +54,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.051,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":5000,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.045,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.045,"beamPrecompressionTime":0.1}],
+        {"beamSpring":2800,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.050,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.050,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.110,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.110,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.054,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.054,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -71,6 +78,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_F_RX",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -78,11 +90,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_F","Astral_helper_F"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.5883, -1.307, 0.393],
-        ["fhe1l",  0.5883, -1.307, 0.393],
+        ["fhe1r", -0.6105, -1.3166, 0.349],
+        ["fhe1l",  0.6105, -1.3166, 0.349],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -103,7 +115,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.066,"beamPrecompressionTime":0.1}
         ],
         ["fhe1l","fs1l", {
             "name":"spring_FL",
@@ -113,17 +126,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.066,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":5000,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.035,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.035,"beamPrecompressionTime":0.1}],
+        {"beamSpring":2800,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.055,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.055,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.120,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.120,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.054,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.054,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -136,6 +150,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_F_RX",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -143,11 +162,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_F","Astral_helper_F"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["fhe1r", -0.5887, -1.3045, 0.403],
-        ["fhe1l",  0.5887, -1.3045, 0.403],
+        ["fhe1r", -0.6105, -1.3166, 0.349],
+        ["fhe1l",  0.6105, -1.3166, 0.349],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -168,7 +187,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.080,"beamPrecompressionTime":0.1}
         ],
         ["fhe1l","fs1l", {
             "name":"spring_FL",
@@ -178,17 +198,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.080,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":5000,"beamDamp":5},
-        ["fhe1r","fcl1r", {"precompressionRange":0.025,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":0.025,"beamPrecompressionTime":0.1}],
+        {"beamSpring":2800,"beamDamp":10},
+        ["fhe1r","fcl1r", {"precompressionRange":0.021,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.021,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.130,"beamPrecompressionTime":0.1}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.130,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.054,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.054,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}

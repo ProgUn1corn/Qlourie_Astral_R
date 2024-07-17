@@ -6,6 +6,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r9", ["Astral_spring_R"]],
+        ["Astral_helper_r9", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -13,11 +18,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.6019, 1.314, 0.577],
-        ["rhe1l",  0.6019, 1.314, 0.577],
+        ["rhe1r", -0.608, 1.3045, 0.515],
+        ["rhe1l",  0.608, 1.3045, 0.515],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -38,7 +43,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.023,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -48,17 +54,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.023,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.082,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.082,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.079,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.079,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.073,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.073,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -71,6 +78,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r9", ["Astral_spring_R"]],
+        ["Astral_helper_r9", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -78,11 +90,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.6022, 1.313, 0.592],
-        ["rhe1l",  0.6022, 1.313, 0.592],
+        ["rhe1r", -0.608, 1.3045, 0.515],
+        ["rhe1l",  0.608, 1.3045, 0.515],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -103,7 +115,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.011,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -113,17 +126,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.011,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.067,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.067,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.067,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.067,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.088,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.088,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -136,6 +150,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r9", ["Astral_spring_R"]],
+        ["Astral_helper_r9", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -143,11 +162,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.6024, 1.312, 0.603],
-        ["rhe1l",  0.6024, 1.312, 0.603],
+        ["rhe1r", -0.608, 1.3045, 0.515],
+        ["rhe1l",  0.608, 1.3045, 0.515],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -168,7 +187,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -178,15 +198,16 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.056,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.056,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.056,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.056,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
+        {"beamSpring":1001000,"beamDamp":50},
         ["rhe1r","rcl1r", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
         ["rhe1l","rcl1l", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -201,6 +222,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r9", ["Astral_spring_R"]],
+        ["Astral_helper_r9", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -208,11 +234,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.6026, 1.3116, 0.612],
-        ["rhe1l",  0.6026, 1.3116, 0.612],
+        ["rhe1r", -0.608, 1.3045, 0.515],
+        ["rhe1l",  0.608, 1.3045, 0.515],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -233,7 +259,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.01,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -243,17 +270,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.01,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.047,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.047,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.046,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.046,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.108,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.108,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -266,6 +294,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r9", ["Astral_spring_R"]],
+        ["Astral_helper_r9", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -273,11 +306,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.6028, 1.3109, 0.622],
-        ["rhe1l",  0.6028, 1.3109, 0.622],
+        ["rhe1r", -0.608, 1.3045, 0.515],
+        ["rhe1l",  0.608, 1.3045, 0.515],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -298,7 +331,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.019,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -308,17 +342,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.019,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.037,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.037,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.037,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.037,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.118,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.118,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -331,6 +366,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r9", ["Astral_spring_R"]],
+        ["Astral_helper_r9", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -338,11 +378,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.6029, 1.3103, 0.631],
-        ["rhe1l",  0.6029, 1.3103, 0.631],
+        ["rhe1r", -0.608, 1.3045, 0.515],
+        ["rhe1l",  0.608, 1.3045, 0.515],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -363,7 +403,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.029,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -373,17 +414,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.029,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.028,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.028,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.027,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.027,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.127,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.127,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.099,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -396,6 +438,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r8", ["Astral_spring_R"]],
+        ["Astral_helper_r8", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -403,11 +450,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.60195, 1.31897, 0.329],
-        ["rhe1l",  0.60195, 1.31897, 0.329],
+        ["rhe1r", -0.608, 1.3079, 0.319],
+        ["rhe1l",  0.608, 1.3079, 0.319],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -428,7 +475,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.038,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -438,17 +486,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.038,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.136,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.136,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.136,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.136,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.019,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.019,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -461,6 +510,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r8", ["Astral_spring_R"]],
+        ["Astral_helper_r8", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -468,11 +522,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.60215, 1.318, 0.35],
-        ["rhe1l",  0.60215, 1.318, 0.35],
+        ["rhe1r", -0.608, 1.3079, 0.319],
+        ["rhe1l",  0.608, 1.3079, 0.319],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -493,7 +547,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.015,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -503,17 +558,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":0.015,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.115,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.115,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.113,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.113,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.040,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.040,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -526,6 +582,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r8", ["Astral_spring_R"]],
+        ["Astral_helper_r8", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -533,11 +594,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.60246, 1.31654, 0.382],
-        ["rhe1l",  0.60246, 1.31654, 0.382],
+        ["rhe1r", -0.608, 1.3079, 0.319],
+        ["rhe1l",  0.608, 1.3079, 0.319],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -558,7 +619,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.017,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -568,17 +630,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.017,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.083,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.083,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.081,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.081,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.072,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.072,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -591,6 +654,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r8", ["Astral_spring_R"]],
+        ["Astral_helper_r8", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -598,11 +666,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.60625, 1.31567, 0.401],
-        ["rhe1l",  0.60265, 1.31567, 0.401],
+        ["rhe1r", -0.608, 1.3079, 0.319],
+        ["rhe1l",  0.608, 1.3079, 0.319],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -623,7 +691,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.036,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -633,17 +702,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.036,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.064,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.064,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.062,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.062,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.091,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.091,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -656,6 +726,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r8", ["Astral_spring_R"]],
+        ["Astral_helper_r8", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -663,11 +738,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.60279, 1.31499, 0.416],
-        ["rhe1l",  0.60279, 1.31499, 0.416],
+        ["rhe1r", -0.608, 1.3079, 0.319],
+        ["rhe1l",  0.608, 1.3079, 0.319],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -688,7 +763,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.051,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -698,17 +774,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.051,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.049,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.049,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.047,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.047,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.106,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.106,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -721,6 +798,11 @@
         "value":3200,
     },
     "slotType" : "Astral_spring_R_BRC_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_r8", ["Astral_spring_R"]],
+        ["Astral_helper_r8", ["Astral_helper_R"]],
+    ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -728,11 +810,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
         //helper spring collar
-        {"group":[""]},
+        {"group":["Astral_spring_R","Astral_helper_R"]},
         {"nodeWeight":1},
         {"selfCollision":false},
-        ["rhe1r", -0.60289, 1.3145, 0.426],
-        ["rhe1l",  0.60289, 1.3145, 0.426],
+        ["rhe1r", -0.608, 1.3079, 0.319],
+        ["rhe1l",  0.608, 1.3079, 0.319],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
@@ -753,7 +835,8 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.061,"beamPrecompressionTime":0.1}
         ],
         ["rhe1l","rs1l", {
             "name":"spring_RL",
@@ -763,17 +846,18 @@
             "volumeFactor":1.45,
             "decayFactor":10,
             "pitchFactor":0.7,
-            "maxStress":6000}
+            "maxStress":6000,
+            "precompressionRange":-0.061,"beamPrecompressionTime":0.1}
         ],
         //helper spring
-        {"beamSpring":3500,"beamDamp":2},
-        ["rhe1r","rcl1r", {"precompressionRange":0.039,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":0.039,"beamPrecompressionTime":0.1}],
+        {"beamSpring":3500,"beamDamp":10},
+        ["rhe1r","rcl1r", {"precompressionRange":0.037,"beamPrecompressionTime":0.3}],
+        ["rhe1l","rcl1l", {"precompressionRange":0.037,"beamPrecompressionTime":0.3}],
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
-        {"beamSpring":1201000,"beamDamp":50},
-        ["rhe1r","rcl1r", {"precompressionRange":-0.116,"beamPrecompressionTime":0.1}],
-        ["rhe1l","rcl1l", {"precompressionRange":-0.116,"beamPrecompressionTime":0.1}],
+        {"beamSpring":1001000,"beamDamp":50},
+        ["rhe1r","rcl1r", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
+        ["rhe1l","rcl1l", {"precompressionRange":-0.057,"beamPrecompressionTime":0.1}],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
