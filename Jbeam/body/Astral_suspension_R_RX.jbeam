@@ -27,7 +27,7 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.28, 0.25, 0.28, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":250,"maxDis":280,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.22, 0.22, 0.25, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":220,"maxDis":250,"subCategory":"Rear Damper Auxiliary"}],
@@ -280,6 +280,20 @@
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
+        ["rh2r","rs1r", { //bottom out
+            "longBoundRange":1,"shortBoundRange":0.295,"boundZone":0.01,
+            "beamLimitSpring":1501000,
+            "beamLimitDamp":1000, 
+            "beamLimitDampRebound":1000,
+            "dampCutoffHz":400}
+        ],
+         ["rh2l","rs1l", { //bottom out
+            "longBoundRange":1,"shortBoundRange":0.295,"boundZone":0.01,
+            "beamLimitSpring":1501000,
+            "beamLimitDamp":1000, 
+            "beamLimitDampRebound":1000,
+            "dampCutoffHz":400}
+        ],
         {"breakGroup":"damper_RR"},
         {"beamDeform":125000,"beamStrength":175000},
         ["rh2r","rs1r", { //RR damper
@@ -292,11 +306,6 @@
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
-            //bottom out
-            "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":1501000,
-            "beamLimitDamp":1000, 
-            "beamLimitDampRebound":1000,
             "dampCutoffHz":400}
         ],
         ["rh2r","rs1r", { //1-phase valve close HBS
@@ -318,7 +327,7 @@
         ["rh2r","rs1r", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":451000,
+            "beamLimitSpring":551000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -329,9 +338,9 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":0,
+            "beamLimitSpring":2500,
             "beamLimitDamp":500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":9500,
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard rebound stop
@@ -340,7 +349,7 @@
             "precompressionRange":-0.01,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":151000,
+            "beamLimitSpring":351000,
             "beamLimitDamp":500,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -357,11 +366,6 @@
             "beamDampFast":"$dampRate_bump_R_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_R",
-            //bottom out
-            "longBoundRange":1,"shortBoundRange":0.29,"boundZone":0.01,
-            "beamLimitSpring":1501000,
-            "beamLimitDamp":1000, 
-            "beamLimitDampRebound":1000,
             "dampCutoffHz":400}
         ],
         ["rh2l","rs1l", { //1-phase valve close HBS
@@ -383,7 +387,7 @@
         ["rh2l","rs1l", { //hard bump stop
             //failsafe protection
             "longBoundRange":1,"shortBoundRange":"$dampPos_stop_R","boundZone":0.01,
-            "beamLimitSpring":451000,
+            "beamLimitSpring":551000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -394,9 +398,9 @@
             "precompressionRange":-0.03,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":0,
+            "beamLimitSpring":2500,
             "beamLimitDamp":500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":9500,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hard rebound stop
@@ -405,7 +409,7 @@
             "precompressionRange":-0.01,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":151000,
+            "beamLimitSpring":351000,
             "beamLimitDamp":500,
             "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
@@ -436,7 +440,7 @@
         ["rh5r","rx1r"],
         ["rh5l","rx1l"],
         //y axis reinforce
-        {"beamSpring":8501000,"beamDamp":250},
+        {"beamSpring":8501000,"beamDamp":200},
         {"beamPrecompression":1},
         ["rh1r","a9"],
         ["rh1l","a10"],
