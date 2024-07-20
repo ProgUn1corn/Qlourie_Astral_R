@@ -130,4 +130,54 @@
 		["ballast1", "rc6r"],
     ],
 },
+"Astral_ballast_Hybrid": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"Dummy Hybrid Ballast",
+    	"value":250,
+    },
+    "slotType" : "Astral_ballast",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_hybridduct", ["Astral_carbody"]],
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":42.5},
+		{"group":[""]},
+        ["ballast1", -0.35, 0.75, 0.35],
+        ["ballast2",  0.35, 0.75, 0.35],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Ballast--
+        {"beamSpring":2501000,"beamDamp":250},
+		//rear link
+        ["ballast1", "a42"],
+        ["ballast1", "a41"],
+        ["ballast1", "a12"],
+        ["ballast1", "a13"],
+        ["ballast1", "chs1r"],
+        ["ballast1", "chs1l"],
+        ["ballast1", "rcm"],
+        ["ballast1", "rs1r"],
+        //*
+        ["ballast2", "a41"],
+        ["ballast2", "a42"],
+        ["ballast2", "a14"],
+        ["ballast2", "a15"],
+        ["ballast2", "chs1l"],
+        ["ballast2", "chs1r"],
+        ["ballast2", "rcm"],
+        ["ballast2", "rs1l"],
+    ],
+},
+},
 }

@@ -1,14 +1,14 @@
 {
-"Astral_skirt_R_RX": {
+"Astral_skirt_R_Rally2": {
     "information":{
         "authors":"Un1corn",
-        "name":"RX1 Right Skirt",
+        "name":"Rally2 Right Skirt",
         "value":1050
     },
 	"slotType" : "Astral_skirt_R",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_skirt_R_RX", ["Astral_skirt_R","Astral_carbody"]],
+		["Astral_skirt_R_Rally2", ["Astral_skirt_R","Astral_carbody"]],
 		["Astral_skirtattach_R", ["Astral_skirt_R","Astral_carbody"]]
     ],
     "nodes": [       
@@ -20,10 +20,10 @@
 		//--Side skirt--
 		{"group":["Astral_skirt_R"]},
 		{"nodeWeight":2.5},
-		["sk1r", -0.924, 0.861, 0.065],
-		["sk2r", -0.911, 0.363, 0.065],
-		["sk3r", -0.875, -0.288, 0.065],
-		["sk4r", -0.875, -0.886, 0.065],
+		["sk1r", -0.867, 0.861, 0.065],
+		["sk2r", -0.859, 0.363, 0.065],
+		["sk3r", -0.848, -0.288, 0.065],
+		["sk4r", -0.845, -0.886, 0.065],
 		//rigidifier
 		{"nodeWeight":4.5},
 		{"collision":false},
@@ -40,7 +40,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Side skirt right--
 		//under part
-		{"beamSpring":951000,"beamDamp":60},
+		{"beamSpring":851000,"beamDamp":60},
 		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
 		["sk1r", "sk2r"], 
 		["sk2r", "sk3r"], 
@@ -62,7 +62,7 @@
 		["sk1r", "sk3r"], 
 		["sk2r", "sk4r"], 
 		//rigidifier
-		{"beamSpring":1401000,"beamDamp":120},
+		{"beamSpring":1401000,"beamDamp":150},
 		{"beamDeform":10500,"beamStrength":"FLT_MAX"},
 		["skr1r", "skr2r"],
 		["skr1r", "sk1r"],
@@ -74,7 +74,7 @@
 		["skr2r", "d3r"],
 		["skr2r", "d4r"],
 		//attach to body
-		{"beamSpring":1501000,"beamDamp":150},
+		{"beamSpring":1401000,"beamDamp":60},
 		{"beamDeform":13500,"beamStrength":"FLT_MAX"},
 		["sk1r", "a8"], 
 		["sk1r", "a41"], 
@@ -91,26 +91,6 @@
 		["skr1r", "a12"],
 		["skr2r", "a16"], 
 		["skr2r", "a20"], 
-		//attach to front fender
-		{"beamSpring":901000,"beamDamp":50},
-		{"beamDeform":18700},
-		{"optional":true},
-		{"breakGroup":"ffender1r"},
-		["d4r", "fe8r"],
-		["d4r", "fe7r"],
-		["sk4r", "fe7r"],
-		["sk4r", "fe8r"],
-		["sk3r", "fe7r"],
-		["sk3r", "fe8r"],
-		//attach to rear fender
-		{"breakGroup":"rfender4r"},
-		["d1r", "re8r"],
-		["d1r", "re7r"],
-		["sk1r", "re7r"],
-		["sk1r", "re8r"],
-		["sk2r", "re7r"],
-		["sk2r", "re8r"],
-		{"optional":false},
 		{"breakGroup":""},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
@@ -128,21 +108,20 @@
 		["sk3r", "d3r", "d2r"],
 		["sk4r", "d3r", "sk3r"],
 		["sk4r", "d4r", "d3r"],
-		["sk1r", "sk2r", "re7r", {"breakGroup":"rfender4r"}],
 		{"dragCoef":0},
 		{"liftCoef":0, "stallAngle":0}
 	]
 },
-"Astral_skirt_L_RX": {
+"Astral_skirt_L_Rally2": {
     "information":{
         "authors":"Un1corn",
-        "name":"RX1 Left Skirt",
+        "name":"Rally2 Left Skirt",
         "value":1050
     },
 	"slotType" : "Astral_skirt_L",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_skirt_L_RX", ["Astral_skirt_L","Astral_carbody"]],
+		["Astral_skirt_L_Rally2", ["Astral_skirt_L","Astral_carbody"]]
 		["Astral_skirtattach_L", ["Astral_skirt_L","Astral_carbody"]]
     ],
     "nodes": [       
@@ -154,16 +133,16 @@
 		//--Side skirt--
 		{"group":["Astral_skirt_L"]},
 		{"nodeWeight":2.5},
-		["sk1l",  0.924, 0.861, 0.065],
-		["sk2l",  0.911, 0.363, 0.065],
-		["sk3l",  0.875, -0.288, 0.065],
-		["sk4l",  0.875, -0.886, 0.065],
+		["sk1l",  0.867, 0.861, 0.065],
+		["sk2l",  0.859, 0.363, 0.065],
+		["sk3l",  0.848, -0.288, 0.065],
+		["sk4l",  0.845, -0.886, 0.065],
 		//rigidifier
 		{"nodeWeight":4.5},
 		{"collision":false},
         {"selfCollision":false},
-		["skr1l", 0.889, 0.635, 0.195],
-		["skr2l", 0.889, -0.611, 0.175],
+		["skr1l",  0.889, 0.635, 0.195],
+		["skr2l",  0.889, -0.611, 0.175],
 		{"group":[""]},
 		{"collision":true}
         {"selfCollision":true}
@@ -174,7 +153,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Side skirt left--
 		//under part
-		{"beamSpring":951000,"beamDamp":60},
+		{"beamSpring":851000,"beamDamp":60},
 		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
 		["sk1l", "sk2l"], 
 		["sk2l", "sk3l"], 
@@ -196,7 +175,7 @@
 		["sk1l", "sk3l"], 
 		["sk2l", "sk4l"], 
 		//rigidifier
-		{"beamSpring":1401000,"beamDamp":120},
+		{"beamSpring":1401000,"beamDamp":150},
 		{"beamDeform":10500,"beamStrength":"FLT_MAX"},
 		["skr1l", "skr2l"],
 		["skr1l", "sk1l"],
@@ -208,7 +187,7 @@
 		["skr2l", "d3l"],
 		["skr2l", "d4l"],
 		//attach to body
-		{"beamSpring":1501000,"beamDamp":150},
+		{"beamSpring":1401000,"beamDamp":60},
 		{"beamDeform":13500,"beamStrength":"FLT_MAX"},
 		["sk1l", "a11"], 
 		["sk1l", "a42"], 
@@ -225,26 +204,6 @@
 		["skr1l", "a15"],
 		["skr2l", "a19"], 
 		["skr2l", "a23"], 
-		//attach to front fender
-		{"beamSpring":901000,"beamDamp":50},
-		{"beamDeform":18700},
-		{"optional":true},
-		{"breakGroup":"ffender1l"},
-		["d4l", "fe8l"],
-		["d4l", "fe7l"],
-		["sk4l", "fe7l"],
-		["sk4l", "fe8l"],
-		["sk3l", "fe7l"],
-		["sk3l", "fe8l"],
-		//attach to leal fendel
-		{"breakGroup":"rfender4l"},
-		["d1l", "re8l"],
-		["d1l", "re7l"],
-		["sk1l", "re7l"],
-		["sk1l", "re8l"],
-		["sk2l", "re7l"],
-		["sk2l", "re8l"],
-		{"optional":false},
 		{"breakGroup":""},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
@@ -262,7 +221,6 @@
 		["sk3l", "d2l", "d3l"],
 		["sk3l", "d3l", "sk4l"],
 		["sk4l", "d3l", "d4l"],
-		["sk2l", "sk1l", "re7l", {"breakGroup":"rfender4l"}],
 	]
 }
 }

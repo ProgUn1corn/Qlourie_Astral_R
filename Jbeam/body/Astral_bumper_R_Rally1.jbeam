@@ -1,14 +1,15 @@
 {
-"Astral_bumper_R_Rally2": {
+"Astral_bumper_R_Rally1": {
     "information":{
         "authors":"Un1corn",
-        "name":"Rally2 Rear Bumper",
+        "name":"Rally1 Rear Bumper",
         "value":640
     },
 	"slotType" : "Astral_bumper_R",
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_bumper_R_Rally2", ["Astral_bumper_R"]],
+		["Astral_bumper_R_Rally1", ["Astral_bumper_R"]],
+		["Astral_bumper_R_Rally1_louver", ["Astral_bumper_R"]],
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -20,36 +21,36 @@
 		//bumper
 		{"nodeWeight":0.8},
 		{"group":["Astral_bumper_R"]},
-		["rb1r", -0.368, 1.96, 0.477],
-		["rb1",  0, 2, 0.477],
-		["rb1l",  0.368, 1.96, 0.477],
-		["rb4r", -0.884, 1.53, 0.592],
-		["rb4l",  0.884, 1.53, 0.592],
+		["rb1r", -0.368, 2, 0.477],
+		["rb1",  0, 2.022, 0.477],
+		["rb1l",  0.368, 2, 0.477],
+		["rb4r", -0.611, 1.779, 0.618],
+		["rb4l",  0.611, 1.779, 0.618],
 		["rb2r", -0.246, 1.97, 0.337],
 		["rb2l",  0.246, 1.97, 0.337],
-		["rb3r", -0.77, 1.742, 0.376, {"group":["Astral_bumper_R","Astral_flap_R"]}],
-		["rb3l",  0.77, 1.742, 0.376, {"group":["Astral_bumper_R","Astral_flap_R"]}],
-		["rb5r", -0.275, 1.82, 0.151],
-		["rb5",  0, 1.82, 0.151],
-		["rb5l",  0.275, 1.82, 0.151],
-		["rb6r", -0.572, 1.89, 0.269],
-		["rb6l",  0.572, 1.89, 0.269],
-		["rb7r", -0.707, 1.81, 0.176],
-		["rb7l",  0.707, 1.81, 0.176],
+		["rb3r", -0.567, 1.986, 0.555],
+		["rb3l",  0.567, 1.986, 0.555],
+		["rb5r", -0.275, 1.82, 0.203],
+		["rb5",  0, 1.82, 0.203],
+		["rb5l",  0.275, 1.82, 0.203],
+		["rb6r", -0.572, 1.926, 0.269],
+		["rb6l",  0.572, 1.926, 0.269],
+		["rb7r", -0.721, 1.925, 0.224, {"group":["Astral_bumper_R","Astral_flap_R"]}],
+		["rb7l",  0.721, 1.925, 0.224, {"group":["Astral_bumper_R","Astral_flap_R"]}],
 		//fender
-		{"nodeWeight":0.8},
+		{"nodeWeight":0.7},
 		{"group":["Astral_bumper_R"]},
-		["rbe1r", -0.702, 1.68, 0.756],
-		["rbe1l",  0.702, 1.68, 0.756],
-		["rbe2r", -0.910, 1.699, 0.674],
-		["rbe2l",  0.910, 1.699, 0.674],
+		["rbe1r", -0.760, 1.915, 0.706],
+		["rbe1l",  0.760, 1.915, 0.706],
+		["rbe2r", -0.937, 1.883, 0.706],
+		["rbe2l",  0.937, 1.883, 0.706],
 		{"group":["Astral_bumper_R","Astral_flap_R"]},
-		["rbe3r", -0.910, 1.743, 0.376],
-		["rbe3l",  0.910, 1.743, 0.376],
+		["rbe3r", -0.871, 1.921, 0.223],
+		["rbe3l",  0.871, 1.921, 0.223],
 		//rigidifier
 		{"collision":false},
 		{"selfCollision":false},
-		{"nodeWeight":2.1},
+		{"nodeWeight":1},
 		{"group":[""]},
 		["rbr1r", -0.516, 1.54, 0.396],
 		["rbr1l",  0.516, 1.54, 0.396],
@@ -63,7 +64,7 @@
 		//--Rear Bumper--
 		//bumper shape
 		{"beamSpring":101000,"beamDamp":50},
-        {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+        {"beamDeform":5200,"beamStrength":"FLT_MAX"},
 		["rb1r", "rb1"],
 		["rb4r", "rb1r"],
 		["rb2r", "rb3r"],
@@ -89,7 +90,7 @@
 		["rb4l", "rbe1l"],
 		["rb2l", "rb5l"],
 		//crossing
-		{"beamDeform":3500},
+		{"beamDeform":4500},
 		["rb1", "rb2r"],
 		["rb1r", "rb2l"],
 		["rb1r", "rb3r"],
@@ -131,7 +132,7 @@
 		["rb5l", "rb7l"],
 		//fender shape
 		{"beamSpring":350100,"beamDamp":80},
-		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":5800,"beamStrength":"FLT_MAX"},
 		["rbe3r", "rbe2r"],
 		["rbe1r", "rbe2r"],
 		["rbe3r", "rb7r"],
@@ -266,7 +267,7 @@
 		["rb5", "a38"],
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":1.5},
+        {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":1.5},
         {"beamSpring":101000,"beamDamp":30},
         {"beamDeform":10000,"beamStrength":125000},
 		["rb5", "a33"],
@@ -301,9 +302,9 @@
 		["rb2r", "rb5r", "rb6r"],
 		["rb2r", "rb6r", "rb3r"],
 		["rb3r", "rb6r", "rb7r"],
-		["rbe3r", "rb4r", "rbe2r"],
+		["rb3r", "rbe1r", "rb4r"],
 		["rb5r", "rb7r", "rb6r"],
-		["rbe1r", "rb1r", "rb3r"],
+		["rbe1r", "rb3r", "rb7r"],
 		//*
 		["rb1l", "rb2l", "rb2r"],
 		["rb1l", "rb3l", "rb2l"],
@@ -311,26 +312,29 @@
 		["rb2l", "rb6l", "rb5l"],
 		["rb2l", "rb3l", "rb6l"],
 		["rb3l", "rb7l", "rb6l"],
-		["rbe2l", "rb4l", "rbe3l"],
+		["rb3l", "rb4l", "rbe1l"],
 		["rb5l", "rb6l", "rb7l"],
-		["rbe1l", "rb3l", "rb1l"],
+		["rbe1l", "rb7l", "rb3l"],
 		//fender
-		["rbe1r", "rb3r", "rbe2r"],
-		["rbe2r", "rb3r", "rbe3r"],
+		["rbe1r", "rb7r", "rbe2r"],
+		["rbe2r", "rb7r", "rbe3r"],
 		//*
-		["rbe1l", "rbe2l", "rb3l"],
-		["rbe2l", "rbe3l", "rb3l"],
-		{"dragCoef":30},
-		{"liftCoef":50,"stallAngle":0.68}
+		["rbe1l", "rbe2l", "rb7l"],
+		["rbe2l", "rbe3l", "rb7l"],
+		{"dragCoef":50},
+		{"liftCoef":65,"stallAngle":0.68}
 		["re4r", "rbe1r", "rbe2r"],
+		["re4r", "re1r", "rbe1r"],
 		//*
 		["re4l", "rbe2l", "rbe1l"],
-
+		["re4l", "rbe1l", "re1l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0},
 		//--Diffuser Downforce--
 		{"dragCoef":5},
 		//ground effect
 		{"optional":true},
-		{"liftCoef":20,"stallAngle":0.30}
+		{"liftCoef":25,"stallAngle":0.30}
 		{"breakGroup":"rbm"},
 		["rh2r", "rdfr", "rh2l"],
 		["rh2r", "rdfl", "rh2l"],
