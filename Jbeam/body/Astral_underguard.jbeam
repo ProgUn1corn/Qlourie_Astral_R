@@ -1,14 +1,15 @@
 {
 "Astral_guard": {
     "information":{
-        "authors":"Camshaft Software",
+        "authors":"Un1corn",
         "name":"Underbody Protection",
         "value":150,
     },
 	"slotType" : "Astral_guard",
 	"slots"	: [
 		["type", "default", "description"],
-		["Astral_ballast_R", "", "Rear Ballast"]
+		["Astral_ballast_R", "", "Rear Ballast"],
+		["Astral_cutout", "Astral_cutout", "Suspension Cutout"]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -37,17 +38,6 @@
 		{"group":[""]},
 		{"nodeWeight":3},
 		["ugr",  0, 0, 0.45, {"selfCollision":false}]
-		//arm guard
-        {"nodeMaterial":"|NM_CLOTH"},
-		{"frictionCoef":0.35},
-        {"nodeWeight":0.05},
-        {"group":["Astral_rarmg"]},
-        ["rarmg1r", -0.587, 0.661,  0.085, {"selfCollision":false, "nodeWeight":0.8}],
-        ["rarmg3r", -0.601, 1.414, -0.069],
-        ["rarmg2r", -0.601, 1.074, -0.069],
-        ["rarmg1l",  0.587, 0.661, 0.085, {"selfCollision":false, "nodeWeight":0.8}],
-        ["rarmg3l",  0.601, 1.414, -0.069],
-        ["rarmg2l",  0.601, 1.074, -0.069],
 		{"group":[""]},
         {"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
@@ -146,11 +136,69 @@
 		["rg3l", "a6"],
 		{"optional":false},
 		{"breakGroup":""},
-		
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+	"triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Center Undertray--
+		{"dragCoef":10},
+		{"liftCoef":0, "stallAngle":0}
+		["rg2r", "rg2l", "rg1r"],
+		["rg2l", "rg1l", "rg1r"],
+		["rg3r", "rg3l", "rg2r"],
+		["rg3l", "rg2l", "rg2r"],
+		{"dragCoef":0},
+		{"liftCoef":0, "stallAngle":0}
+	]
+}, 
+"Astral_cutout": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Suspension Cutout",
+        "value":150,
+    },
+	"slotType" : "Astral_cutout",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_armguard_r", ["Astral_rarmg"]]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_CLOTH"},
+		//--Center Underguard--
+		//arm guard
+		{"frictionCoef":0.15},
+        {"nodeWeight":0.05},
+        {"group":["Astral_rarmg"]},
+        ["rarmg1r", -0.587, 0.661,  0.085, {"selfCollision":false, "nodeWeight":0.8}],
+        ["rarmg3r", -0.601, 1.414, -0.069],
+        ["rarmg2r", -0.601, 1.074, -0.069],
+        ["rarmg1l",  0.587, 0.661,  0.085, {"selfCollision":false, "nodeWeight":0.8}],
+        ["rarmg3l",  0.601, 1.414, -0.069],
+        ["rarmg2l",  0.601, 1.074, -0.069],
+		//rigidifier
+		{"nodeWeight":0.1},
+		{"group":[""]},
+		["rarmgr", -0.451, 1.074, 0.15, {"selfCollision":false}],
+		["rarmgl",  0.451, 1.074, 0.15, {"selfCollision":false}],
+        {"nodeMaterial":"|NM_METAL"},
+		{"collision":true},
+        {"selfCollision":true},
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Arm guard--
         //arm guard shape
-        {"beamSpring":500,"beamDamp":1},
-        {"beamDeform":200,"beamStrength":250},
+        {"beamSpring":1500,"beamDamp":1},
+        {"beamDeform":500,"beamStrength":750},
         ["rarmg1r","rarmg2r"],
 		["rarmg2r","rarmg3r"],
         ["rarmg1r","rg1r"],
@@ -170,7 +218,23 @@
         ["rarmg3l","rg1l"],
 		["rarmg2l","rg2l"],
         ["rarmg2l","rg1l"],
-		{"breakGroup":""},
+		//arm guard rigid
+		["rarmg3r","rg1r"],
+		//*
+		["rarmg3l","rg1l"],
+		//rigidifier
+		{"beamSpring":3500,"beamDamp":10},
+		["rarmgr","rarmg1r"],
+		["rarmgr","rarmg2r"],
+		["rarmgr","rarmg3r"],
+		["rarmgr","rg1r"],
+		["rarmgr","rg2r"],
+		//*
+		["rarmgl","rarmg1l"],
+		["rarmgl","rarmg2l"],
+		["rarmgl","rarmg3l"],
+		["rarmgl","rg1l"],
+		["rarmgl","rg2l"],
 		//attach to under guard
 		{"beamSpring":851000,"beamDamp":20},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
@@ -197,11 +261,7 @@
 		{"groundModel":"metal"},
 		//--Center Undertray--
 		{"dragCoef":10},
-		{"liftCoef":0, "stallAngle":0}
-		["rg2r", "rg2l", "rg1r"],
-		["rg2l", "rg1l", "rg1r"],
-		["rg3r", "rg3l", "rg2r"],
-		["rg3l", "rg2l", "rg2r"],
+		{"liftCoef":5, "stallAngle":0}
 		//arm guard
 		{"groundModel":"cloth"},
 		["rarmg1l", "rg1l", "rarmg2l"],
@@ -248,11 +308,11 @@
 		["fg3r", -0.619, -0.508, 0.071, {"selfCollision":false}],
 		["fg3l",  0.619, -0.508, 0.071, {"selfCollision":false}],
 		//splitter guard 
-		{"nodeWeight":0.35},
+		{"nodeWeight":0.5},
 		{"group":["Astral_lipg"]},
-		["fg4r", -0.604, -1.875, 0.105, {"selfCollision":false}],
-		["fg4l",  0.604, -1.875, 0.105, {"selfCollision":false}],
-		{"nodeWeight":1.5},
+		["fg4r", -0.604, -1.945, 0.135, {"selfCollision":false}],
+		["fg4l",  0.604, -1.945, 0.135, {"selfCollision":false}],
+		{"nodeWeight":1.2},
 		["fgr", 0, -1.45, 0.45, {"selfCollision":false}],
 		{"group":[""]}
 		{"collision":true},
@@ -352,7 +412,7 @@
 		["fg3l", "a54"],
 		["fg3l", "a53"],
 		//splitter attach
-		{"beamSpring":251000,"beamDamp":25},
+		{"beamSpring":351000,"beamDamp":25},
 		{"beamDeform":65000, "beamStrength":85000},
 		{"breakGroup":["fbr","splitter_R"]},
 		["fg4r", "sp4r"],
@@ -382,9 +442,13 @@
         ["fg3r", "a53"],
 		["fg3l", "a23"],
         ["fg3l", "a54"],
-		{"beamSpring":601000,"beamDamp":30},
+		{"beamSpring":651000,"beamDamp":30},
 		["fg4r", "fb4r"],
         ["fg4l", "fb4l"],
+		["fg4r", "fb3r"],
+        ["fg4l", "fb3l"],
+		["fg4r", "fbe1r"],
+        ["fg4l", "fbe1l"],
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
