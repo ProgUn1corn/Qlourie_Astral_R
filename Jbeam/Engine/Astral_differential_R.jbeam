@@ -1,0 +1,235 @@
+{
+"Astral_differential_R_race": {
+	"information":{
+		"name":"Rear Mechanical LSD",
+		"value":1500
+	},
+	"slotType" : "Astral_differential_R",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
+		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
+		["Astral_finaldrive_R","Astral_finaldrive_R_4.69","Rear Final Drive", {"coreSlot":true}]
+	],
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_diff", ["Astral_diff","Astral_sub_R"]],
+	],
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$lsdpreload_R", "range", "N/m", "Differentials", 80, 0, 250, "Pre-load Torque", "Initial locking torque between left and right wheels", {"subCategory":"Rear"}]
+		["$lsdlockcoef_R", "range", "", "Differentials", 0.15, 0.1, 0.325, "Throttle Lock", "Additional locking torque proportional to engine torque", {"minDis":20, "maxDis":65, "subCategory":"Rear"}],
+		["$lsdlockcoefrev_R", "range", "", "Differentials", 0.025, 0.025, 0.1, "Brake Lock", "Additional locking torque proportional to engine braking", {"minDis":5, "maxDis":20, "subCategory":"Rear"}]
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["differential", "rearDiff", "driveShaft", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_R", "lsdLockCoef":"$lsdlockcoef_R", "lsdRevLockCoef":"$lsdlockcoefrev_R", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
+	],
+	"rearDiff": {
+        "friction": 3,
+        "dynamicFriction": 0.0008,
+        "torqueLossCoef": 0.015,
+    },
+	"nodes": [       
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeWeight":6.5},
+		//--Rear Drivetrain--
+		{"group":["Astral_transfercase","Astral_diff"]},
+		["rtrar", -0.169, 1.222, 0.246],
+		["rtral",  0.169, 1.222, 0.246],
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rear Drivetrain--
+		//diff
+		{"beamSpring":6501000,"beamDamp":150},
+		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
+		["rtral","rtrar"],
+		//mount to chassis
+		{"beamSpring":2501000,"beamDamp":250},
+		{"optional":true}
+		["rtrar","rx2r"],
+		["rtrar","rx1r"],
+		["rtrar","rx2l"],
+		["rtrar","rx1l"],
+		//*
+		["rtral","rx2l"],
+		["rtral","rx1l"],
+		["rtral","rx2r"],
+		["rtral","rx1r"],
+		{"dampCutoffHz":""},
+		{"optional":false}
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+},
+"Astral_differential_R_l": {
+	"information":{
+		"name":"Debug Open LSD",
+		"value":1500
+	},
+	"slotType" : "Astral_differential_R",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
+		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
+		["Astral_finaldrive_R","Astral_finaldrive_R_4.69","Rear Final Drive", {"coreSlot":true}]
+	],
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_diff", ["Astral_diff","Astral_sub_R"]],
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["differential", "rearDiff", "driveShaft", 1, {"diffType":"open", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
+	],
+	"rearDiff": {
+        "friction": 3,
+        "dynamicFriction": 0.0008,
+        "torqueLossCoef": 0.015,
+    },
+	"nodes": [       
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeWeight":10},
+		//--Rear Drivetrain--
+		{"group":["Astral_transfercase","Astral_diff"]},
+		["rtrar", -0.169, 1.222, 0.246],
+		["rtral",  0.169, 1.222, 0.246],
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rear Drivetrain--
+		//diff
+		{"beamSpring":1201000,"beamDamp":120},
+		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
+		["rtral","rtrar"],
+		//mount to chassis
+		{"optional":true}
+		["rtrar","rx4r"],
+		["rtrar","rx1r"],
+		["rtrar","rx2r"],
+		["rtrar","rx4l"],
+		["rtrar","rx1l"],
+		["rtrar","rx2l"],
+		["rtrar","rx1"],
+		//*
+		["rtral","rx4l"],
+		["rtral","rx1l"],
+		["rtral","rx2l"],
+		["rtral","rx4r"],
+		["rtral","rx1r"],
+		["rtral","rx2r"],
+		["rtral","rx1"],
+		{"optional":false}
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+},
+"Astral_driveshaft": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Rear Driveshaft",
+        "value":150,
+    },
+    "slotType" : "Astral_driveshaft",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["torsionReactor", "torsionReactorR", "transferCase", 1, {}],
+        ["shaft", "driveShaft", "torsionReactorR", 1, {"uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":0.3, "dynamicFriction":0.003}],
+    ],
+	"torsionReactorR": {
+        "torqueReactionNodes:":["eg1","eg2","eg4"],
+    }
+},
+"Astral_halfshafts_R": {
+	"information":{
+		"name":"Rear Halfshafts",
+		"value":500
+	},
+	"slotType" : "Astral_halfshafts_R",
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["shaft", "halfshaftRL", "rearDiff", 1, {"deformGroups":["wheelaxleRL"], "breakTriggerBeam":"halfshaft_RL", "uiName":"Rear Left Halfshaft", "friction":1.4, "dynamicFriction":0.003}],
+		["shaft", "halfshaftRR", "rearDiff", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.4, "dynamicFriction":0.003}]
+	],
+		"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rear Drivetrain--
+		//shaft
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":0.1},
+		{"beamSpring":0,"beamDamp":0,"beamDeform":9500,"beamStrength":18550},
+		{"beamLimitSpring":6501000,"beamLimitDamp":250},
+		["rw1r","rtrar", {"name":"halfshaft_RR", "breakGroup":"wheel_RR", "breakGroupType":1, "deformGroup":"wheelaxleRR", "deformationTriggerRatio":0.001, "optional":true}],
+		["rw1l","rtral", {"name":"halfshaft_RL", "breakGroup":"wheel_RL", "breakGroupType":1, "deformGroup":"wheelaxleRL", "deformationTriggerRatio":0.001, "optional":true}],
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+},
+"Astral_finaldrive_R_4.99": {
+	"information":{
+		"name":"Final Drive 4.99",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.99
+	}
+},
+"Astral_finaldrive_R_4.69": {
+	"information":{
+		"name":"Final Drive 4.69",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.69
+	}
+},
+"Astral_finaldrive_R_4.46": {
+	"information":{
+		"name":"Final Drive 4.46",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.46
+	}
+},
+"Astral_finaldrive_R_4.27": {
+	"information":{
+		"name":"Final Drive 4.27",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.27
+	}
+},
+"Astral_finaldrive_R_4.02": {
+	"information":{
+		"name":"Final Drive 4.02",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_R",
+	"rearDiff":{
+		"gearRatio": 4.02
+	}
+}
+}

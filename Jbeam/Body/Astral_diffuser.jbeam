@@ -1,0 +1,141 @@
+{
+"Astral_diffuser": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"BRC Diffuser",
+        "value":10000
+    },
+	"slotType" : "Astral_diffuser",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_diffuser", ["Astral_diffuser"]],
+		["Astral_diffend", ["Astral_diffuser"]]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Rear underplate and diffuser--
+        //diffuser
+		{"nodeWeight":0.35},
+		{"group":["Astral_diffuser"]},
+		["df1r", -0.559, 1.984, 0.134],
+		["df1l",  0.559, 1.984, 0.134],
+		["df2r", -0.254, 2.021, 0.134],
+		["df2l",  0.254, 2.021, 0.134],
+		["df3r", -0.259, 2.042, 0.285],
+		["df3l",  0.259, 2.042, 0.285],
+		//rigidifier
+		{"nodeWeight":0.5},
+		["dfr", 0, 1.635, 0.255, {"selfCollision":false}],
+		{"group":[""]}
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Diffuser--
+		//diffuser end
+		{"beamSpring":121000,"beamDamp":40},
+		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
+		["df1r", "df2r"],
+		["df2r", "df2l"],
+		["df2l", "df1l"],
+		["df1r", "df3r"],
+		["df3r", "df3l"],
+		["df3l", "df1l"],
+		["df2r", "df3r"],
+		["df2l", "df3l"],
+		["df2r", "df3l"],
+		["df2l", "df3r"],
+		//rigidifier
+		{"beamSpring":181000,"beamDamp":60},
+		{"beamDeform":4500,"beamStrength":"FLT_MAX"},
+		["dfr", "df1r"],
+		["dfr", "df2r"],
+		["dfr", "df3r"],
+		["dfr", "df1l"],
+		["dfr", "df2l"],
+		["dfr", "df3l"],
+		//bumper attach
+		{"beamSpring":101000,"beamDamp":40},
+		{"beamDeform":6500,"beamStrength":10500},
+		{"breakGroup":"diffuser_R"},
+		["df3r", "rb2r"],
+		["df3r", "rb2l"],
+		["df3r", "rb6r"],
+		["df3r", "rb1r"],
+		["df3r", "rb1l"],
+		["df3r", "rb1"],
+		["df2r", "rb2r"],
+		["df2r", "rb6r"],
+		["df2r", "rb6l"],
+		["df1r", "rb6r"],
+		["df1r", "rb7r"],
+		//*
+		{"breakGroup":"diffuser_L"},
+		["df3l", "rb2l"],
+		["df3l", "rb2r"],
+		["df3l", "rb6l"],
+		["df3l", "rb1l"],
+		["df3l", "rb1r"],
+		["df3l", "rb1"],
+		["df2l", "rb2l"],
+		["df2l", "rb6l"],
+		["df2l", "rb6r"],
+		["df1l", "rb6l"],
+		["df1l", "rb7l"],
+		//front attach
+		{"beamDeform":13500,"beamStrength":16500},
+		{"breakGroup":["diffuser_F", "rbm"]},
+		["dfr", "rb2r"],
+		["dfr", "rb2l"],
+		["dfr", "rb5r"],
+		["dfr", "rb5l"],
+		["dfr", "a33"],
+		["dfr", "a35"],
+		["dfr", "a5"],
+		["dfr", "a6"],
+		["dfr", "chs2l"],
+		["dfr", "chs2r"],
+		{"breakGroup":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Diffuser Collision--
+		//vertical
+	    {"dragCoef":0},
+		["df3r", "df2r", "df1r"],
+		["df2r", "df3r", "df3l"],
+		//*
+		["df1l", "df2l", "df3l"],
+		["df2l", "df2r", "df3l"],
+		//horizontal
+		["df1r", "rb5r", "rb7r"],
+		["df1r", "df2r", "rb5r"],
+		["df2r", "df2l", "rb5r"],
+		//*
+		["df1l", "rb7l", "rb5l"],
+		["df1l", "rb5l", "df2l"],
+		["df2l", "rb5l", "rb5r"],
+		//--Diffuser Downforce--
+		{"dragCoef":5},
+		//ground effect
+		{"optional":true},
+		{"liftCoef":45,"stallAngle":0.30}
+		{"breakGroup":"rbm"},
+		["rh2r", "rdfr", "rh2l"],
+		["rh2r", "rdfl", "rh2l"],
+		{"breakGroup":""},
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0},
+		{"optional":false},
+	]
+}
+}
