@@ -43,12 +43,12 @@
 		["w6r", -0.291, 1.943, 1.152, {"group":["Astral_swanneck"]}],
 		["w6l",  0.291, 1.943, 1.152, {"group":["Astral_swanneck"]}],
 		["w4m", 0, 1.620, 1.103],
-		{"nodeWeight":2.5},
+		{"nodeWeight":2.6},
 		["w7r", -0.660, 1.511, 0.968],
 		["w7l",  0.660, 1.511, 0.968],
 		["w8r", -0.301, 1.586, 1.085, {"group":["Astral_tailgate","Astral_wing_low"]}],
 		["w8l",  0.301, 1.586, 1.085, {"group":["Astral_tailgate","Astral_wing_low"]}],
-		{"nodeWeight":0.3},
+		{"nodeWeight":0.4},
 		//endplates
 		{"group":["Astral_endplate", "Astral_winglet_R"]},
 		["ep1r", -0.637, 1.618, 1.008],
@@ -57,7 +57,7 @@
 		["ep1l",  0.637, 1.618, 1.008],
 		["ep2l",  0.601, 1.965, 1.208],
 		//winglet
-		{"nodeWeight":0.25},
+		{"nodeWeight":0.3},
 		{"group":["Astral_winglet_R"]},
 		["wl1r", -0.732, 1.965, 1.208],
 		["wl2r", -0.737, 1.618, 1.008],
@@ -71,7 +71,7 @@
 		{"nodeWeight":0.5},
 		["wr1r", -0.298, 1.8531, 1.20, {"selfCollision":false}],
 		["wr1l",  0.298, 1.8531, 1.20, {"selfCollision":false}],
-		{"nodeWeight":0.75},
+		{"nodeWeight":0.8},
 		["wr2", 0, 1.8031, 1.01, {"selfCollision":false}]
     ],
 	"beams": [   
@@ -80,7 +80,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear Wing--
 		//lower main shape
-		{"beamSpring":281000,"beamDamp":50},
+		{"beamSpring":251000,"beamDamp":25},
 		{"beamDeform":6000,"beamStrength":"FLT_MAX"},
 		["w5r", "w6r"],
 		["w6r", "w3m"],
@@ -102,7 +102,7 @@
 		["w6r", "w7r"],
 		["w8r", "w5r"],
 		//lower rigids
-		{"beamSpring":201000,"beamDamp":50},
+		{"beamSpring":201000,"beamDamp":40},
 		{"beamDeform":2500},
 		["w3m", "w5l"],
 		["w3m", "w5r"],
@@ -110,7 +110,7 @@
 		["w3m", "w7r"],
 		["w6r", "w6l"],
 		//top main shape
-		{"beamSpring":221000,"beamDamp":50},
+		{"beamSpring":251000,"beamDamp":25},
 		{"beamDeform":6000,"beamStrength":"FLT_MAX"},
 		["w1r", "w2r"],
 		["w2r", "w1m"],
@@ -136,7 +136,7 @@
 		["w2r", "w3r"],
 		["w4r", "w1r"],
 		//top rigids
-		{"beamSpring":181000,"beamDamp":50},
+		{"beamSpring":201000,"beamDamp":20},
 		{"beamDeform":2500},
 		["w1m", "w1r"],
 		["w1m", "w1l"],
@@ -145,6 +145,7 @@
 		["w2r", "w2l"],
 		["w4r", "w4l"],
 		//endplate shape
+		{"beamSpring":151000,"beamDamp":25},
 		{"beamDeform":10500},
 		["w3r", "ep1r"],
 		["ep1r", "ep2r"],
@@ -162,17 +163,28 @@
 		["w3l", "ep2l"],
 		//endplate connect
 		{"beamDeform":10500},
+		{"breakGroup":"wing_R"},
 		["ep1r", "w4r"],
 		["ep1r", "w2r"],
-		["ep2r", "w4r"],
-		["ep2r", "w2r"],
+		["ep1r", "w8r"],
+		["ep1r", "w6r"],
+		["ep2r", "w6r"],
+		["ep2r", "w8r"],
+		["ep2r", "w5r"],
+		["ep2r", "w7r"],
 		//*
+		{"breakGroup":"wing_L"},
 		["ep1l", "w4l"],
 		["ep1l", "w2l"],
-		["ep2l", "w4l"],
-		["ep2l", "w2l"],
+		["ep1l", "w8l"],
+		["ep1l", "w6l"],
+		["ep2l", "w6l"],
+		["ep2l", "w8l"],
+		["ep2l", "w5l"],
+		["ep2l", "w7l"],
+		{"breakGroup":""},
 		//rigidifier
-		{"beamSpring":231000,"beamDamp":50},
+		{"beamSpring":201000,"beamDamp":50},
 		{"beamDeform":2500,"beamStrength":"FLT_MAX"},
 		["wr1l", "ep2l"],
 		["wr1l", "ep1l"],
@@ -201,7 +213,7 @@
 		["wr2", "w8r"],
 		["wr2", "w7r"],
 		//attach two wings
-		{"beamSpring":251000,"beamDamp":80},
+		{"beamSpring":251000,"beamDamp":50},
 		{"beamDeform":2100,"beamStrength":3000},
 		{"breakGroupType":0}
 		{"breakGroup":"wing_R"},
@@ -244,7 +256,7 @@
 		{"breakGroupType":0},
 		{"breakGroup":""},
 		//winglets
-		{"beamSpring":151000,"beamDamp":50},
+		{"beamSpring":151000,"beamDamp":25},
 		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		["wl1r", "wl2r"],
 		["wl2r", "wl3r"],
@@ -276,7 +288,7 @@
 		["wl3l", "w5l"],
 		{"breakGroup":""},
 		//attach to body
-		{"beamSpring":201000,"beamDamp":60},
+		{"beamSpring":201000,"beamDamp":50},
 		{"beamDeform":3200,"beamStrength":4500},
 		{"breakGroup":"wgr"},
 		["w6r", "t4r"],
