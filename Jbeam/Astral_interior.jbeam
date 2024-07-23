@@ -17,6 +17,8 @@
 		["Astral_shiftlight", "Astral_shiftlight_BRC", "Shift Light"],
 		["Astral_spare", "", "Spare Wheel"],
 		["Astral_gauge", "Astral_gauge_BRC", "Gauge"],
+		["Astral_tools", "Astral_tools_15", "Tools and Weight"],
+		["Astral_dummy", "", "Test Equipment"],
 		["soundscape_horn", "soundscape_horn_6", "Horn"]
 	],
 	"flexbodies": [
@@ -153,6 +155,216 @@
 		["onboard3", 0.795, -0.85, 0.945, 68, "a87","a54","a83","d4l","fs1l","chs3l"]
     ],
 },
+"Astral_tools_15": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"15kg Crew Tools",
+    	"value":250,
+    },
+    "slotType" : "Astral_tools",
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":7.5},
+		{"group":[""]},
+        ["tools1", -0.38, 1.32, 0.41],
+        ["tools2",  0.38, 1.32, 0.41],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Ballast--
+        {"beamSpring":1501000,"beamDamp":150},
+		//rear link
+        ["tools1", "a5"],
+        ["tools1", "a6"],
+        ["tools1", "a38"],
+        ["tools1", "chs2r"],
+        ["tools1", "chs2l"],
+        ["tools1", "chs1r"],
+        //*
+        ["tools2", "a6"],
+        ["tools2", "a5"],
+        ["tools2", "a37"],
+        ["tools2", "chs2l"],
+        ["tools2", "chs2r"],
+        ["tools2", "chs1l"],
+    ],
+},
+"Astral_tools_10": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"10kg Crew Tools",
+    	"value":250,
+    },
+    "slotType" : "Astral_tools",
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":5},
+		{"group":[""]},
+        ["tools1", -0.38, 1.32, 0.41],
+        ["tools2",  0.38, 1.32, 0.41],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Ballast--
+        {"beamSpring":1501000,"beamDamp":150},
+		//rear link
+        ["tools1", "a5"],
+        ["tools1", "a6"],
+        ["tools1", "a38"],
+        ["tools1", "chs2r"],
+        ["tools1", "chs2l"],
+        ["tools1", "chs1r"],
+        //*
+        ["tools2", "a6"],
+        ["tools2", "a5"],
+        ["tools2", "a37"],
+        ["tools2", "chs2l"],
+        ["tools2", "chs2r"],
+        ["tools2", "chs1l"],
+    ],
+},
+"Astral_tools_5": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"5kg Crew Tools",
+    	"value":250,
+    },
+    "slotType" : "Astral_tools",
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":2.5},
+		{"group":[""]},
+        ["tools1", -0.38, 1.32, 0.41],
+        ["tools2",  0.38, 1.32, 0.41],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Ballast--
+        {"beamSpring":1201000,"beamDamp":120},
+		//rear link
+        ["tools1", "a5"],
+        ["tools1", "a6"],
+        ["tools1", "a38"],
+        ["tools1", "chs2r"],
+        ["tools1", "chs2l"],
+        ["tools1", "chs1r"],
+        //*
+        ["tools2", "a6"],
+        ["tools2", "a5"],
+        ["tools2", "a37"],
+        ["tools2", "chs2l"],
+        ["tools2", "chs2r"],
+        ["tools2", "chs1l"],
+    ],
+},
+"Astral_ballast_R_RX": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"RX Ballast",
+    	"value":250,
+    },
+    "slotType" : "Astral_tools",
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":30},
+		{"group":[""]},
+        ["ballastRX", -0.488, 0.458, 0.3],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--RX Ballast--
+        //counter driver weight
+		{"beamSpring":2501000,"beamDamp":350},
+		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
+		["ballastRX", "a12"],
+		["ballastRX", "a13"],
+		["ballastRX", "a16"],
+		["ballastRX", "a17"],
+		["ballastRX", "a44"],
+		["ballastRX", "rc3r"],
+		["ballastRX", "rc4r"],
+		["ballastRX", "rc5r"],
+		["ballastRX", "rc6r"],
+    ],
+}
+"Astral_ballast_R_Hybrid": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"Dummy Hybrid Ballast",
+    	"value":250,
+    },
+    "slotType" : "Astral_dummy",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_hybridduct", ["Astral_carbody"]],
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":42.5},
+		{"group":[""]},
+        ["hybrid1", -0.35, 0.75, 0.65],
+        ["hybrid2",  0.35, 0.75, 0.65],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Hybrid--
+        {"beamSpring":2501000,"beamDamp":250},
+		["hybrid1", "hybrid2"],
+		//rear link
+        ["hybrid1", "a42"],
+        ["hybrid1", "a41"],
+        ["hybrid1", "a12"],
+        ["hybrid1", "a13"],
+        ["hybrid1", "chs1r"],
+        ["hybrid1", "chs1l"],
+        ["hybrid1", "rcm"],
+        ["hybrid1", "rs1r"],
+        //*
+        ["hybrid2", "a41"],
+        ["hybrid2", "a42"],
+        ["hybrid2", "a14"],
+        ["hybrid2", "a15"],
+        ["hybrid2", "chs1l"],
+        ["hybrid2", "chs1r"],
+        ["hybrid2", "rcm"],
+        ["hybrid2", "rs1l"],
+    ],
+},
 "Astral_seat":{
 	"information":{
         "authors":"Un1corn",
@@ -191,12 +403,12 @@
 		{"selfCollision":false}
         {"nodeWeight":60},
 		{"group":["Astral_seat"]},
-		["a50",  0.368, 0.2, 0.421],
+		["a50",  0.368, 0.15, 0.421],
 		{"nodeWeight":15},
-		["driverref",  0.368, 0.2, 0.555],
+		["driverref",  0.368, 0.15, 0.555],
 		{"nodeWeight":5},
-		["a49", -0.368, 0.2, 0.421],
-		["coref", -0.368, 0.2, 0.555],
+		["a49", -0.368, 0.15, 0.421],
+		["coref", -0.368, 0.15, 0.555],
 		{"group":[""]},
 		{"selfCollision":true},
 	],
@@ -287,14 +499,14 @@
 		{"selfCollision":false}
         {"nodeWeight":60},
 		{"group":["Astral_seat"]},
-		["a50",  0.368, 0.2, 0.421],
+		["a50",  0.368, 0.15, 0.421],
 		{"nodeWeight":15},
-		["driverref",  0.368, 0.2, 0.555],
+		["driverref",  0.368, 0.15, 0.555],
 		{"nodeWeight":60},
 		{"group":["Astral_copilot"]},
-		["a49", -0.368, 0.2, 0.421],
+		["a49", -0.368, 0.15, 0.421],
 		{"nodeWeight":15},
-		["coref", -0.368, 0.2, 0.555],
+		["coref", -0.368, 0.15, 0.555],
 		{"group":[""]},
 		{"selfCollision":true},
 	],

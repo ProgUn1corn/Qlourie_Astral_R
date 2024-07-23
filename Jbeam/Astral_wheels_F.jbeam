@@ -11,6 +11,7 @@
         ["Astral_tyre_f4", ["tire_FR", "wheel_FR"], [], {"pos":{"x":-0.465, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_wheel_f4", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.455, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_wheel_f4", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.455, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
+        
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -21,10 +22,10 @@
 	    //--Front Axle--
         {"nodeWeight":5.0},
         {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
-		["fw1r", -0.255, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
-		["fw1ll", 0.565, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1l",  0.255, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1rr",-0.565, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+		["fw1r", -0.255, 0, 0, {"staticCollision":false, "group":"axf_R"}], 
+		["fw1rr",-0.565, 0, 0, {"staticCollision":false, "group":"axf_R"}],
+        ["fw1l",  0.255, 0, 0, {"staticCollision":false, "group":"axf_L"}],
+        ["fw1ll", 0.565, 0, 0, {"staticCollision":false, "group":"axf_L"}],
 	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
     ],
 	"beams": [   
@@ -136,6 +137,8 @@
         ["Astral_tyre_f3", ["tire_FR", "wheel_FR"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_wheel_f3", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_wheel_f3", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
+        ["Astral_wheelcap_f3", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_wheelcap_f3", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
      ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -146,10 +149,10 @@
 	    //--Front Axle--
         {"nodeWeight":5.0},
         {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
-		["fw1r", -0.348, 0, 0, {"staticCollision":false}], {"group":"axr_R"},
-		["fw1ll", 0.553, 0, 0, {"staticCollision":false}], {"group":"axr_L"},
-		["fw1l",  0.348, 0, 0, {"staticCollision":false}], {"group":"axr_L"},
-		["fw1rr",-0.553, 0, 0, {"staticCollision":false}], {"group":"axr_R"},
+		["fw1r", -0.348, 0, 0, {"staticCollision":false, "group":"axf_R"}], 
+		["fw1rr",-0.553, 0, 0, {"staticCollision":false, "group":"axf_R"}],
+        ["fw1l",  0.348, 0, 0, {"staticCollision":false, "group":"axf_L"}],
+        ["fw1ll", 0.553, 0, 0, {"staticCollision":false, "group":"axf_L"}],
 	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
     ],
 	"beams": [   
@@ -271,10 +274,10 @@
 	    //--Front Axle--
         {"nodeWeight":5.0},
         {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
-		["fw1r", -0.255, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
-		["fw1ll", 0.565, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1l",  0.255, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1rr",-0.565, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+		["fw1r", -0.255, 0, 0, {"staticCollision":false, "group":"axf_R"}], 
+		["fw1rr",-0.565, 0, 0, {"staticCollision":false, "group":"axf_R"}],
+        ["fw1l",  0.255, 0, 0, {"staticCollision":false, "group":"axf_L"}],
+        ["fw1ll", 0.565, 0, 0, {"staticCollision":false, "group":"axf_L"}],
 	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
     ],
 	"beams": [   
@@ -385,7 +388,9 @@
         ["Astral_tyre_f3", ["tire_FL", "wheel_FL"], [], {"pos":{"x": 0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_tyre_f3", ["tire_FR", "wheel_FR"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
         ["Astral_wheel_f8", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
-        ["Astral_wheel_f8", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
+        ["Astral_wheel_f8", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_wheelcap_f3", ["wheel_FL", "axf_L"], [], {"pos":{"x": 0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+        ["Astral_wheelcap_f3", ["wheel_FR", "axf_R"], [], {"pos":{"x":-0.48, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}]
      ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -396,10 +401,10 @@
 	    //--Front Axle--
         {"nodeWeight":5.0},
         {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
-		["fw1r", -0.348, 0, 0, {"staticCollision":false}], {"group":"axr_R"},
-		["fw1ll", 0.553, 0, 0, {"staticCollision":false}], {"group":"axr_L"},
-		["fw1l",  0.348, 0, 0, {"staticCollision":false}], {"group":"axr_L"},
-		["fw1rr",-0.553, 0, 0, {"staticCollision":false}], {"group":"axr_R"},
+		["fw1r", -0.348, 0, 0, {"staticCollision":false, "group":"axf_R"}], 
+		["fw1rr",-0.553, 0, 0, {"staticCollision":false, "group":"axf_R"}],
+        ["fw1l",  0.348, 0, 0, {"staticCollision":false, "group":"axf_L"}],
+        ["fw1ll", 0.553, 0, 0, {"staticCollision":false, "group":"axf_L"}],
 	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
     ],
 	"beams": [   
@@ -523,10 +528,10 @@
 	    //--Front Axle--
         {"nodeWeight":5.0},
         {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
-		["fw1r", -0.305, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
-		["fw1ll", 0.575, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1l",  0.305, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1rr",-0.575, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+		["fw1r", -0.305, 0, 0, {"staticCollision":false, "group":"axf_R"}], 
+		["fw1rr",-0.575, 0, 0, {"staticCollision":false, "group":"axf_R"}],
+        ["fw1l",  0.305, 0, 0, {"staticCollision":false, "group":"axf_L"}],
+        ["fw1ll", 0.575, 0, 0, {"staticCollision":false, "group":"axf_L"}],
 	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
     ],
 	"beams": [   
@@ -649,10 +654,10 @@
 	    //--Front Axle--
         {"nodeWeight":5.0},
         {"chemEnergy":200,"burnRate":0.5,"flashPoint":300,"smokePoint":200,"selfIgnition":0,"specHeat":1},
-		["fw1r", -0.255, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
-		["fw1ll", 0.565, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1l",  0.255, 0, 0, {"staticCollision":false}], {"group":"axf_L"},
-		["fw1rr",-0.565, 0, 0, {"staticCollision":false}], {"group":"axf_R"},
+		["fw1r", -0.255, 0, 0, {"staticCollision":false, "group":"axf_R"}], 
+		["fw1rr",-0.565, 0, 0, {"staticCollision":false, "group":"axf_R"}],
+        ["fw1l",  0.255, 0, 0, {"staticCollision":false, "group":"axf_L"}],
+        ["fw1ll", 0.565, 0, 0, {"staticCollision":false, "group":"axf_L"}],
 	    {"chemEnergy":false,"burnRate":false,"flashPoint":false,"smokePoint":false,"selfIgnition":false,"specHeat":false}
     ],
 	"beams": [   

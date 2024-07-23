@@ -1,14 +1,14 @@
 {
-"Astral_ballast_15": {
+"Astral_ballast_R_30": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"15kg Ballast/Tools",
+    	"name":"30kg Ballast",
     	"value":250,
     },
-    "slotType" : "Astral_ballast",
+    "slotType" : "Astral_ballast_R",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$ballastPos", "range", "Front", "Body", 0, 0, 0.4, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+		["$ballastPos", "range", "Front", "Body", 0, 0, 0.5, "Rear Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -17,17 +17,18 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":7.5},
+		{"nodeWeight":15},
 		{"group":[""]},
-        ["ballast1", -0.35, "$=1.58-$ballastPos", 0.15],
-        ["ballast2",  0.35, "$=1.58-$ballastPos", 0.15],
+        ["ballast1", -0.15, "$=1.45-$ballastPos", 0.14],
+        ["ballast2",  0.15, "$=1.45-$ballastPos", 0.14],
     ],
     "beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":150},
+        ["ballast1", "ballast2"],
 		//rear link
         ["ballast1", "a5"],
         ["ballast1", "a6"],
@@ -44,16 +45,16 @@
         ["ballast2", "chs1l"],
     ],
 },
-"Astral_ballast_5": {
+"Astral_ballast_R_20": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"5kg Ballast/Tools",
+    	"name":"20kg Ballast",
     	"value":250,
     },
-    "slotType" : "Astral_ballast",
+    "slotType" : "Astral_ballast_R",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$ballastPos", "range", "Front", "Body", 0, 0, 0.4, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+		["$ballastPos", "range", "Front", "Body", 0, 0, 0.5, "Rear Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -62,17 +63,18 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":2.5},
+		{"nodeWeight":10},
 		{"group":[""]},
-        ["ballast1", -0.35, "$=1.58-$ballastPos", 0.15],
-        ["ballast2",  0.35, "$=1.58-$ballastPos", 0.15],
+        ["ballast1", -0.15, "$=1.45-$ballastPos", 0.14],
+        ["ballast2",  0.15, "$=1.45-$ballastPos", 0.14],
     ],
     "beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":150},
+        ["ballast1", "ballast2"],
 		//rear link
         ["ballast1", "a5"],
         ["ballast1", "a6"],
@@ -89,16 +91,16 @@
         ["ballast2", "chs1l"],
     ],
 },
-"Astral_ballast_RX": {
+"Astral_ballast_R_10": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"RX Ballast",
+    	"name":"10kg Ballast",
     	"value":250,
     },
-    "slotType" : "Astral_ballast",
+    "slotType" : "Astral_ballast_R",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$ballastPos", "range", "Front", "Body", 0, -0.3, 0.3, "Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+		["$ballastPos", "range", "Front", "Body", 0, 0, 0.5, "Rear Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -107,39 +109,44 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":20},
+		{"nodeWeight":5},
 		{"group":[""]},
-        ["ballast1", -0.408, "$=0.4-$ballastPos", 0.3],
+        ["ballast1", -0.15, "$=1.45-$ballastPos", 0.14],
+        ["ballast2",  0.15, "$=1.45-$ballastPos", 0.14],
     ],
     "beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--RX Ballast--
-        //counter driver weight
-		{"beamSpring":2501000,"beamDamp":350},
-		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
-		["ballast1", "a12"],
-		["ballast1", "a13"],
-		["ballast1", "a16"],
-		["ballast1", "a17"],
-		["ballast1", "a44"],
-		["ballast1", "rc3r"],
-		["ballast1", "rc4r"],
-		["ballast1", "rc5r"],
-		["ballast1", "rc6r"],
+		//--Ballast--
+        {"beamSpring":1501000,"beamDamp":150},
+        ["ballast1", "ballast2"],
+		//rear link
+        ["ballast1", "a5"],
+        ["ballast1", "a6"],
+        ["ballast1", "a38"],
+        ["ballast1", "chs2r"],
+        ["ballast1", "chs2l"],
+        ["ballast1", "chs1r"],
+        //*
+        ["ballast2", "a6"],
+        ["ballast2", "a5"],
+        ["ballast2", "a37"],
+        ["ballast2", "chs2l"],
+        ["ballast2", "chs2r"],
+        ["ballast2", "chs1l"],
     ],
 },
-"Astral_ballast_Hybrid": {
+"Astral_ballast_F_35": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"Dummy Hybrid Ballast",
+    	"name":"35kg Ballast",
     	"value":250,
     },
-    "slotType" : "Astral_ballast",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_hybridduct", ["Astral_carbody"]],
+    "slotType" : "Astral_ballast_F",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$ballastPosF", "range", "Rear", "Body", 0, 0, 0.6, "Front Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
     ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -148,36 +155,124 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":42.5},
+		{"nodeWeight":17.5},
 		{"group":[""]},
-        ["ballast1", -0.35, 0.75, 0.35],
-        ["ballast2",  0.35, 0.75, 0.35],
+        ["ballast3", -0.15, "$=-1.6+$ballastPosF", 0.14],
+        ["ballast4",  0.15, "$=-1.6+$ballastPosF", 0.14],
     ],
     "beams": [   
 		["id1:", "id2:"], 
 		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":2501000,"beamDamp":250},
+        {"beamSpring":1801000,"beamDamp":180},
+        ["ballast3", "ballast4"],
 		//rear link
-        ["ballast1", "a42"],
-        ["ballast1", "a41"],
-        ["ballast1", "a12"],
-        ["ballast1", "a13"],
-        ["ballast1", "chs1r"],
-        ["ballast1", "chs1l"],
-        ["ballast1", "rcm"],
-        ["ballast1", "rs1r"],
+        ["ballast3", "a25"],
+        ["ballast3", "br1r"],
+        ["ballast3", "br1l"],
+        ["ballast3", "chs4r"],
+        ["ballast3", "chs3r"],
+        ["ballast3", "chs3l"],
         //*
-        ["ballast2", "a41"],
-        ["ballast2", "a42"],
-        ["ballast2", "a14"],
-        ["ballast2", "a15"],
-        ["ballast2", "chs1l"],
-        ["ballast2", "chs1r"],
-        ["ballast2", "rcm"],
-        ["ballast2", "rs1l"],
+        ["ballast4", "a26"],
+        ["ballast4", "br1l"],
+        ["ballast4", "br1r"],
+        ["ballast4", "chs4l"],
+        ["ballast4", "chs3l"],
+        ["ballast4", "chs3r"],
     ],
 },
+"Astral_ballast_F_10": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"10kg Ballast",
+    	"value":250,
+    },
+    "slotType" : "Astral_ballast_F",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$ballastPosF", "range", "Rear", "Body", 0, 0, 0.6, "Front Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":5},
+		{"group":[""]},
+        ["ballast3", -0.15, "$=-1.6+$ballastPosF", 0.14],
+        ["ballast4",  0.15, "$=-1.6+$ballastPosF", 0.14],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Ballast--
+        {"beamSpring":1501000,"beamDamp":150},
+        ["ballast3", "ballast4"],
+		//rear link
+        ["ballast3", "a25"],
+        ["ballast3", "br1r"],
+        ["ballast3", "br1l"],
+        ["ballast3", "chs4r"],
+        ["ballast3", "chs3r"],
+        ["ballast3", "chs3l"],
+        //*
+        ["ballast4", "a26"],
+        ["ballast4", "br1l"],
+        ["ballast4", "br1r"],
+        ["ballast4", "chs4l"],
+        ["ballast4", "chs3l"],
+        ["ballast4", "chs3r"],
+    ],
 },
+"Astral_ballast_F_20": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"20kg Ballast",
+    	"value":250,
+    },
+    "slotType" : "Astral_ballast_F",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$ballastPosF", "range", "Rear", "Body", 0, 0, 0.6, "Front Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":10},
+		{"group":[""]},
+        ["ballast3", -0.15, "$=-1.6+$ballastPosF", 0.14],
+        ["ballast4",  0.15, "$=-1.6+$ballastPosF", 0.14],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Ballast--
+        {"beamSpring":1501000,"beamDamp":150},
+        ["ballast3", "ballast4"],
+		//rear link
+        ["ballast3", "a25"],
+        ["ballast3", "br1r"],
+        ["ballast3", "br1l"],
+        ["ballast3", "chs4r"],
+        ["ballast3", "chs3r"],
+        ["ballast3", "chs3l"],
+        //*
+        ["ballast4", "a26"],
+        ["ballast4", "br1l"],
+        ["ballast4", "br1r"],
+        ["ballast4", "chs4l"],
+        ["ballast4", "chs3l"],
+        ["ballast4", "chs3r"],
+    ],
+}
 }

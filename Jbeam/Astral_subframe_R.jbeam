@@ -58,7 +58,7 @@
         {"collision":false},
         {"nodeWeight":3.5},
         {"group":[""]},
-        ["rx1", 0, 1.15, 0.65],
+        ["rx1", 0, 1.15, 0.45],
         {"collision":true},
         {"selfCollision":true},
     ],  
@@ -66,7 +66,7 @@
         ["id1:", "id2:"],
         //--Subframe--
         //running gear
-        {"beamSpring":8001000,"beamDamp":180},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2r"],
         ["rx2r", "rx2l"],
@@ -84,7 +84,7 @@
         ["rx4l", "rx2l"],
         ["rx4r", "rx2r"],
         //crossing
-        {"beamSpring":8001000,"beamDamp":180},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2l"],
         ["rx1l", "rx2r"],
@@ -147,7 +147,7 @@
         ["rx4l", "chs1l"],
         ["rx4l", "chs2l"],
         //subframe anti-rotation
-        {"beamSpring":3501000,"beamDamp":350},
+        {"beamSpring":2501000,"beamDamp":150},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "a41"],
         ["rx1r", "a9"],
@@ -239,12 +239,23 @@
         {"axleBeams":["axle_RL"]},
         ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx1r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
-        {"selfCollision":false},
-        {"axleBeams":[]},
-        {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+        {"selfCollision":true},
+        {"axleBeams":[]},{"disableMeshBreaking":false,"disableTriangleBreaking":false},
         {"hubcapBreakGroup":""},
         {"hubcapGroup":""},
-        {"enableHubcaps":false}
+        {"enableHubcaps":false},
+        {"enableTireLbeams":false},
+        {"enableTireSideReinfBeams":false},
+        {"enableTireReinfBeams":false},
+        {"enableTreadReinfBeams":false},
+        {"enableTirePeripheryReinfBeams":false},
+        {"loadSensitivitySlope":""},
+        {"noLoadCoef":""},
+        {"fullLoadCoef":""},
+        {"frictionCoef":""},
+        {"slidingFrictionCoef":""},
+        {"softnessCoef":0.5},
+        {"treadCoef":1.0},
     ],
     "powertrain" : [
         ["type", "name", "inputName", "inputIndex"],
@@ -252,7 +263,6 @@
         ["shaft", "spindleRR", "halfshaftRR", 1, {"connectedWheel":"RR","breakTriggerBeam":"axle_RR","uiName":"Rear Right Axle", "friction":1.25, "dynamicFriction":0.003}]
     ]
 },
-//motion ratio 0.611 arb point 1.1x
 "Astral_swaybar_R_l": {
     "information":{
         "authors":"Un1corn",
