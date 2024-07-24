@@ -38,6 +38,7 @@ function printTable(t, indent)
 end
 
 local function updateWheelsIntermediate()
+  --print(obj:getBeamVelocity(2708))
   --front and rear separate process
   for i, spring in ipairs(fLoads) do
     local springLoad = obj:getBeamLength(spring.bCid) or 0 --get suspension load
