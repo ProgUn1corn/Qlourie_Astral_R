@@ -44,11 +44,11 @@
         //cross member
         {"nodeWeight":6.5},
         {"group":["Astral_arm_F","Astral_sub_F"]},
-        ["fx1r", -0.202, -1.42, 0.115, {"selfCollision":false}],
-        ["fx1l",  0.202, -1.42, 0.115, {"selfCollision":false}],
+        ["fx1r", -0.202, -1.42, 0.13, {"selfCollision":false}],
+        ["fx1l",  0.202, -1.42, 0.13, {"selfCollision":false}],
         {"group":["Astral_arm_F","Astral_sub_F","Astral_str_F"]}
-        ["fx2r", -0.202, -1.10, 0.115],
-        ["fx2l",  0.202, -1.10, 0.115],
+        ["fx2r", -0.202, -1.10, 0.13],
+        ["fx2l",  0.202, -1.10, 0.13],
         //additional nodes
         {"nodeWeight":4.5},
         {"group":["Astral_sub_F"]},
@@ -59,8 +59,8 @@
         //steering box
         {"nodeWeight":5.75},
         {"group":["Astral_sub_F", "Astral_str_F"]},
-        ["st1r", -0.135, -1.12, 0.1506],
-        ["st1l",  0.135, -1.12, 0.1506],
+        ["st1r", -0.135, -1.12, 0.166, {"selfCollision":false}],
+        ["st1l",  0.135, -1.12, 0.166, {"selfCollision":false}],
         //rigidifier
         {"collision":false},
         {"nodeWeight":3.5},
@@ -124,8 +124,8 @@
         ["fx1", "fx2r"],
         ["fx1", "fx3r"],
         ["fx1", "fx4r"],
-        ["fx1", "st1l"],
-        ["fx1", "st1r"],
+        //["fx1", "st1l"],
+        //["fx1", "st1r"],
         //attach to chassis
         {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":80000,"beamStrength":260000},
@@ -184,7 +184,7 @@
 
         //--Limiters--
         //subframe limiter
-        {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":2},
+        {"beamPrecompression":0.99, "beamType":"|SUPPORT", "beamLongBound":2},
         {"beamSpring":3501000,"beamDamp":150},
         {"beamDeform":15000,"beamStrength":80000},
         {"deformLimitExpansion":""},
@@ -237,15 +237,15 @@
     },
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"]
+        ["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
-        ["st2r","st2l", {"dampCutoffHz":1000}],
+        {"beamSpring":12001000,"beamDamp":150,"beamDeform":95000,"beamStrength":325000},
+        ["st2r","st2l"],
         
         //--Limiter and Damper--
         //steering limit
@@ -263,10 +263,10 @@
         {"beamDeform":25000,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamSpring":0,"beamDamp":80},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":200,"dampCutoffHz":1000}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":200,"dampCutoffHz":1000}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":200,"dampCutoffHz":1000}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":200,"dampCutoffHz":1000}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
@@ -324,7 +324,7 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
+        {"beamSpring":12001000,"beamDamp":400,"beamDeform":95000,"beamStrength":325000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
@@ -343,10 +343,10 @@
         {"beamDeform":25000,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamSpring":0,"beamDamp":80},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
@@ -404,7 +404,7 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":600,"beamDeform":95000,"beamStrength":325000},
+        {"beamSpring":12001000,"beamDamp":400,"beamDeform":95000,"beamStrength":325000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
@@ -423,10 +423,10 @@
         {"beamDeform":25000,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamSpring":0,"beamDamp":80},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":600,"dampCutoffHz":1000}],
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
@@ -469,11 +469,11 @@
         {"hubcapGroup":"hubcap_FR"},
         {"axleBeams":["axle_FR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"ftrar", "torqueArm:":"eg4", "torqueArm2:":"eg5","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
+        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"ftrar", "torqueArm:":"eg0", "torqueArm2:":"eg4","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
         {"hubcapBreakGroup":"hubcap_FL"},
         {"hubcapGroup":"hubcap_FL"},
         {"axleBeams":["axle_FL"]},
-        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"ftral", "torqueArm:":"eg5", "torqueArm2:":"eg4","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
+        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"ftral", "torqueArm:":"eg1", "torqueArm2:":"eg5","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},
