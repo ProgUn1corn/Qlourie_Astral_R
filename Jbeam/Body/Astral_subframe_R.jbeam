@@ -28,7 +28,7 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$toe_R", "range", "", "Suspension", 1, 0.995, 1.005, "Toe Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
+        ["$toe_R", "range", "mm", "Suspension", 0, -0.003, 0.003, "Toe Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Alignment","minDis":-3,"maxDis":3}],
         ["$CamberRear", "range", "", "Suspension", 1, 0.97, 1.03, "Rear Camber", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$TrackRear", "range", "+m", "Suspension", 0.0, -0.04, 0.04, "Rear Track Width", "Adjust track width", {"stepDis":0.001,"subCategory":"Alignment"}],
         ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "Rear ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
@@ -43,22 +43,22 @@
         //running gear
         {"nodeWeight":6.5},
         {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rod_R"]},
-        ["rx1r", -0.202, 1.045, 0.13],
-        ["rx1l",  0.202, 1.045, 0.13],
-        ["rx2r", -0.202, 1.365, 0.13],
-        ["rx2l",  0.202, 1.365, 0.13],
+        ["rx1r", -0.202, 1.08, 0.13],
+        ["rx1l",  0.202, 1.08, 0.13],
+        ["rx2r", -0.202, 1.4, 0.13],
+        ["rx2l",  0.202, 1.4, 0.13],
         //mounting points
         {"nodeWeight":4.5},
         {"group":["Astral_sub_R"]},
-        ["rx3r", -0.378, 1.009, 0.369],
-        ["rx3l",  0.378, 1.009, 0.369],
-        ["rx4r", -0.459, 1.401, 0.375],
-        ["rx4l",  0.459, 1.401, 0.375],
+        ["rx3r", -0.378, 1.044, 0.369],
+        ["rx3l",  0.378, 1.044, 0.369],
+        ["rx4r", -0.459, 1.436, 0.375],
+        ["rx4l",  0.459, 1.436, 0.375],
         //rigidifier
         {"collision":false},
         {"nodeWeight":3.5},
         {"group":[""]},
-        ["rx1", 0, 1.15, 0.45],
+        ["rx1", 0, 1.185, 0.45],
         {"collision":true},
         {"selfCollision":true},
     ],  
@@ -233,11 +233,11 @@
         {"hubcapGroup":"hubcap_RR"},
         {"axleBeams":["axle_RR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
+        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx3r", "torqueArm2:":"rx3l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
         {"hubcapBreakGroup":"hubcap_RL"},
         {"hubcapGroup":"hubcap_RL"},
         {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx1r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
+        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx3l", "torqueArm2:":"rx3r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},{"disableMeshBreaking":false,"disableTriangleBreaking":false},
@@ -290,10 +290,10 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":2},
-        ["rarb1r", -0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb1l",  0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb2r", -0.524, 1.546, 0.315],
-        ["rarb2l",  0.524, 1.546, 0.315],
+        ["rarb1r", -0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb1l",  0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb2r", -0.524, 1.518, 0.315],
+        ["rarb2l",  0.524, 1.518, 0.315],
         {"group":[""]}
     ], 
     "beams": [
@@ -354,10 +354,10 @@
         //arb
         {"group":["Astral_arb_R","Astral_arm_R"]},
         {"nodeWeight":2},
-        ["rarb1r", -0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb1l",  0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb2r", -0.524, 1.546, 0.315],
-        ["rarb2l",  0.524, 1.546, 0.315],
+        ["rarb1r", -0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb1l",  0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb2r", -0.524, 1.518, 0.315],
+        ["rarb2l",  0.524, 1.518, 0.315],
         {"group":[""]}
     ], 
     "beams": [
@@ -418,10 +418,10 @@
         //arb
         {"group":["Astral_arb_R","Astral_arm_R"]},
         {"nodeWeight":2},
-        ["rarb1r", -0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb1l",  0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb2r", -0.524, 1.546, 0.315],
-        ["rarb2l",  0.524, 1.546, 0.315],
+        ["rarb1r", -0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb1l",  0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb2r", -0.524, 1.518, 0.315],
+        ["rarb2l",  0.524, 1.518, 0.315],
         {"group":[""]}
     ], 
     "beams": [
@@ -482,10 +482,10 @@
         //arb
         {"group":["Astral_arb_R","Astral_arm_R"]},
         {"nodeWeight":2},
-        ["rarb1r", -0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb1l",  0.524, 1.333, 0.204, {"selfCollision":false}],
-        ["rarb2r", -0.524, 1.546, 0.315],
-        ["rarb2l",  0.524, 1.546, 0.315],
+        ["rarb1r", -0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb1l",  0.524, 1.305, 0.204, {"selfCollision":false}],
+        ["rarb2r", -0.524, 1.518, 0.315],
+        ["rarb2l",  0.524, 1.518, 0.315],
         {"group":[""]}
     ], 
     "beams": [

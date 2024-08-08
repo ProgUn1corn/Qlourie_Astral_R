@@ -58,8 +58,8 @@
         {"nodeWeight":3.5},
         {"selfCollision":false},
         {"group":["Astral_hub_F","Astral_duct_F"]},
-        ["fh5r", -0.765, -1.461, 0.235],
-        ["fh5l",  0.765, -1.461, 0.235],
+        ["fh5r", -0.775, -1.42, 0.23],
+        ["fh5l",  0.775, -1.42, 0.23],
         
         //--Steering Rack--
         //steering rack ends
@@ -73,8 +73,8 @@
         {"selfCollision":false},
         {"nodeWeight":1.5},
         {"group":["Astral_arb_F"]},
-        ["farb3r", -0.521, -1.2073, 0.07511],
-        ["farb3l",  0.521, -1.2073, 0.07511],
+        ["farb3r", -0.521, -1.2073, 0.0599],
+        ["farb3l",  0.521, -1.2073, 0.0599],
         {"selfCollision":true},
 
         //--Strut--
@@ -188,20 +188,20 @@
         ["fh1r","fw1r", {"name":"axle_FR"}],
         ["fh3r","fw1r", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5r","fw1r", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2r","fw1r", {"beamSpring":3501000,"beamDamp":30}],
+        //["fs2r","fw1r", {"beamSpring":3501000,"beamDamp":30}],
         ["fh1r","fw1rr"],
         ["fh3r","fw1rr", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5r","fw1rr", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2r","fw1rr", {"beamSpring":3501000,"beamDamp":30}],
+        //["fs2r","fw1rr", {"beamSpring":3501000,"beamDamp":30}],
         {"breakGroup":"wheel_FL"},
         ["fh1l","fw1l", {"name":"axle_FL"}],
         ["fh3l","fw1l", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5l","fw1l", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2l","fw1l", {"beamSpring":3501000,"beamDamp":30}],
+        //["fs2l","fw1l", {"beamSpring":3501000,"beamDamp":30}],
         ["fh1l","fw1ll"],
         ["fh3l","fw1ll", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":30}],
+        //["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":30}],
         //camber
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
@@ -222,8 +222,8 @@
 
         //tie rods
         {"beamSpring":18001000,"beamDamp":300},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F-0.0002","beamPrecompressionTime":0.5}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F-0.0002","beamPrecompressionTime":0.5}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.0002","beamPrecompressionTime":0.5}],
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.0002","beamPrecompressionTime":0.5}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -231,8 +231,8 @@
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
         ["farb3r","fx2r"],
         ["farb3l","fx2l"],
-        ["farb3r","fh1r"],
-        ["farb3l","fh1l"],
+        ["farb3r","fx1r"],
+        ["farb3l","fx1l"],
         
         //--Strut Aux--
         //top mount reinforcement
@@ -562,8 +562,8 @@
         {"nodeWeight":3.25},
         {"selfCollision":false},
         {"group":["Astral_hub_F","Astral_duct_F"]},
-        ["fh5r", -0.765, -1.471, 0.09],
-        ["fh5l",  0.765, -1.471, 0.09],
+        ["fh5r", -0.765, -1.4, 0.07],
+        ["fh5l",  0.765, -1.4, 0.07],
 
         //--Steering Rack--
         //steering rack ends
@@ -727,8 +727,8 @@
 
         //tie rods
         {"beamSpring":18001000,"beamDamp":300},
-        ["fh3r","st2r", {"beamPrecompression":"$=$toe_F-$steer_center_F+0.0028","beamPrecompressionTime":0.5}],
-        ["fh3l","st2l", {"beamPrecompression":"$=$toe_F+$steer_center_F+0.0028","beamPrecompressionTime":0.5}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0028","beamPrecompressionTime":0.5}],
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0028","beamPrecompressionTime":0.5}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -1151,7 +1151,7 @@
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":true}],
     ],
     "FrontLRS": {
-        "LRSp":0.225 //LRS starting point
+        "LRSp":0.223 //LRS starting point
         "DSVp":0.233 //DSV starting point
         "fLoads": [
             ["name", "beamName"]
@@ -1188,7 +1188,7 @@
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":true}],
     ],
     "FrontLRS": {
-        "LRSp":0.225 //LRS starting point
+        "LRSp":0.223 //LRS starting point
         "DSVp":0.233 //DSV starting point
         "fLoads": [
             ["name", "beamName"]
@@ -1225,7 +1225,7 @@
         ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":true}],
     ],
     "FrontLRS": {
-        "LRSp":0.225 //LRS starting point
+        "LRSp":0.223 //LRS starting point
         "DSVp":0.233 //DSV starting point
         "fLoads": [
             ["name", "beamName"]
