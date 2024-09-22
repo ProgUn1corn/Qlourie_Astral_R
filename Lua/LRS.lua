@@ -38,7 +38,7 @@ function printTable(t, indent)
 end
 
 local function updateWheelsIntermediate()
-  --print(obj:getBeamVelocity(2708))
+  --print(obj:getBeamVelocity(2807))
   --front and rear separate process
   for i, spring in ipairs(fLoads) do
     local springLoad = obj:getBeamLength(spring.bCid) or 0 --get suspension load
@@ -246,11 +246,11 @@ local function init(jbeamData)
 
   --printTable(fDampers)
   --printTable(fLoads)
-  --printTable(fDamping)
+  printTable(fDamping)
   
   --printTable(rDampers)
   --printTable(rLoads)
-  --printTable(rDamping)
+  printTable(rDamping)
 
   M.updateWheelsIntermediate = updateWheelsIntermediate
   M.updateGFX = updateGFX
