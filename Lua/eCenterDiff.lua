@@ -112,7 +112,7 @@ local function updateWheelsIntermediate(dt)
       lockRange = 1 - minLockCoef
       local contributionThrottle = clamp(lockRange*throttle*(1/throttleRatio) + minLockCoef, minLockCoef, 1)
       yLockCoef = clamp(contributionThrottle, 0, 1)
-      preloadCoef = (preload/2) * yLockCoef
+      preloadCoef = 20 * yLockCoef
     end
     
     --calculate brake lock map using preload
@@ -161,7 +161,7 @@ local function updateWheelsIntermediate(dt)
       transfercase.diffTorqueSplitB = 1
       transfercase.lsdPreload = 0
     else
-      transfercase.lsdLockCoef = newLockCoef * 0.48
+      transfercase.lsdLockCoef = newLockCoef * 0.49
       transfercase.lsdRevLockCoef = transfercase.lsdLockCoef 
       transfercase.diffTorqueSplitA = rearBias
       transfercase.diffTorqueSplitB = 1 - rearBias
