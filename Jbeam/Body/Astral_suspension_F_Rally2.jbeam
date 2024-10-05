@@ -78,7 +78,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":8},
+        {"nodeWeight":8.5},
         ["fs1r", -0.602, -1.22, 0.805],
         ["fs1l",  0.602, -1.22, 0.805],
         //lower spring collar
@@ -220,8 +220,8 @@
 
         //tie rods
         {"beamSpring":18001000,"beamDamp":900},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0001","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0001","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -492,8 +492,8 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 9000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.295, 0.265, 0.295, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":265,"maxDis":295,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.245, 0.235, 0.265, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":235,"maxDis":265,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.275, 0.245, 0.275, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":245,"maxDis":275,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.225, 0.215, 0.245, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":215,"maxDis":245,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.05, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":80,"subCategory":"Front Damper"}],
     ],
     "nodes": [
@@ -544,7 +544,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":8},
+        {"nodeWeight":9},
         ["fs1r", -0.602, -1.22, 0.805],
         ["fs1l",  0.602, -1.22, 0.805],
         //lower spring collar
@@ -739,14 +739,14 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.285,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
          ["fh2l","fs1l", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.285,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
