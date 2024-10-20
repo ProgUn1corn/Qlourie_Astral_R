@@ -50,7 +50,6 @@
         ["fh3r", -0.721, -1.158, 0.05848],
         ["fh3l",  0.721, -1.158, 0.05848],
         //strut attach
-        {"nodeWeight":5},
         {"group":["Astral_hub_F","Astral_damper_F"]},
         ["fh2r", -0.606, -1.328, 0.41],
         ["fh2l",  0.606, -1.328, 0.41],
@@ -221,7 +220,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":18001000,"beamDamp":650},
+        {"beamSpring":18001000,"beamDamp":600},
         ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.0002","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
         ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.0002","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
 
@@ -250,7 +249,7 @@
         {"breakGroup":""}
         {"optional":false}
         //piston outer shell
-        {"beamSpring":1201000,"beamDamp":150},
+        {"beamSpring":1201000,"beamDamp":100},
         {"beamDeform":155000,"beamStrength":305000},
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
@@ -531,7 +530,6 @@
         ["fh3r", -0.721, -1.158, -0.0215],
         ["fh3l",  0.721, -1.158, -0.0215],
         //strut attach
-        {"nodeWeight":5},
         {"group":["Astral_hub_F","Astral_damper_F"]},
         ["fh2r", -0.6122, -1.34, 0.255],
         ["fh2l",  0.6122, -1.34, 0.255], 
@@ -561,7 +559,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":8},
+        {"nodeWeight":7.5},
         ["fs1r", -0.602, -1.22, 0.805],
         ["fs1l",  0.602, -1.22, 0.805],
         //lower spring collar
@@ -702,7 +700,7 @@
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":18001000,"beamDamp":650},
+        {"beamSpring":18001000,"beamDamp":600},
         ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0016","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
         ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0016","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
 
@@ -736,7 +734,7 @@
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
         //strut platform
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":100},
         ["fh2r", "fs2r"],
         ["fh2l", "fs2l"],
         //strut platform height (preload)
@@ -755,14 +753,14 @@
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["fs2r","fs1r", { //bottom out
+        ["fh2r","fs1r", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.270,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":1000,
             "dampCutoffHz":500}
         ],
-         ["fs2l","fs1l", { //bottom out
+         ["fh2l","fs1l", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.270,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
