@@ -1,6 +1,8 @@
 # Qlourie Astral R
 My personal BeamNG mod project with some simple Lua codes.
 
+NOTE: THIS README IS OUTDATED AND NEEDS A REWORK. ITS OUTDATED BY AT LEAST 8 MONTH.
+
 It comes from Automation, I made the car in Automation and rewrote almost everything's Jbeam by myself so the physics are completely new. The project started at about 2022/7, and this Github repo is created at 2024/1/16.
 
 [2022/07/24](https://www.bilibili.com/video/BV17S4y1E7BH/)
