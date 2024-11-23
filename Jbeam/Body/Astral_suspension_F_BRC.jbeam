@@ -26,7 +26,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_F", "range", "Click", "Suspension", 9000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampRate_stop_F", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.205, 0.200, 0.240, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":200,"maxDis":240,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.170, 0.170, 0.200, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":170,"maxDis":200,"subCategory":"Front Damper Auxiliary"}],
@@ -215,16 +215,16 @@
 
         //--Control arm--
         {"beamSpring":14001000,"beamDamp":1400},
-        {"beamDeform":275100,"beamStrength":325000},
+        {"beamDeform":275100,"beamStrength":425000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":18001000,"beamDamp":600},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
+        {"beamSpring":18001000,"beamDamp":900},
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":500}],
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":500}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -508,7 +508,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_F", "range", "Click", "Suspension", 9000, 8000, 10000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampRate_stop_F", "range", "Click", "Suspension", 14000, 12000, 16000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.315, 0.285, 0.325, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":285,"maxDis":325,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.270, 0.255, 0.285, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":255,"maxDis":285,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
@@ -697,14 +697,14 @@
 
         //--Control arm--
         {"beamSpring":14001000,"beamDamp":1400},
-        {"beamDeform":275100,"beamStrength":325000},
+        {"beamDeform":275100,"beamStrength":425000},
         ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
         //tie rods
-        {"beamSpring":18001000,"beamDamp":1200},
+        {"beamSpring":18001000,"beamDamp":900},
         ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0019","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0019","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
 
