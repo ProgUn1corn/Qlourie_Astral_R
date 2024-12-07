@@ -93,7 +93,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 
 # Configurations&Specifications
 ## BRC (Formerly WRC+ and now Rally1)
-The pinnacle rallying class which now is anticipating BRC.
+*The pinnacle rallying class which now anticipating BRC.*
 ![Astral_R](Docs/BRC/1.jpg)
 ![Astral_R](Docs/BRC/7.jpg)
 ![Astral_R](Docs/BRC/16.jpg)
@@ -102,7 +102,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Wheelbase: 2547mm/Adjustable
 - Weight: 1190kg with one spare/1360kg with crew and one spare/1390kg running weight/~50:50 weight distribution
 ### Engine and Transmission
-- Engine: H4DPA 1.6L inline 4/WRC ECU and modification
+- Engine: H4DPA 1.6L inline 4/BRC ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
 - Power: 380hp@6000RPM/450Nm@5500RPM
 - Transmission: 6-speed sequential transmission/Paddle shifter
@@ -117,7 +117,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Damper Travel: 325mm on MSR85/240mm on MSR65
 - MSR85: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
 - MSR65: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
-- Shim Stacks: #1 Progressive/#2 Linear biased to progressive/#3 Digressive
+- Shim Stacks: #1 Progressive/#2 #2 Linear biased to progressive(gravel), digressive(tarmac)/#3 Digressive
 - Adjustment Way: HS (High Speed) and LS (Low Speed) bump, rebound
 - Adjustment Range: 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels of HBS
 - Brake: 300mm gravel(selectable ducted brake)/370mm tarmac(selectable ducted brake)
@@ -129,7 +129,7 @@ The pinnacle rallying class which now is anticipating BRC.
 - Downforce level: Tarmac 390kg@200km/h, 51:49 balance/Gravel 360kg@200km/h, 47:53 balance
 
 ## Rally2 (Formerly R5)
-The most popular class around the world. 
+*The most popular class around the world.*
 ![Astral_R](Docs/Rally2/9.jpg)
 ![Astral_R](Docs/Rally2/12.jpg)
 ![Astral_R](Docs/Rally2/13.jpg)
@@ -140,7 +140,7 @@ The most popular class around the world.
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/Rally2 ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/32mm turbo restrictor
-- Power: 290hp@6000RPM/438Nm@5500RPM
+- Power: 290hp@5000RPM/438Nm@4500RPM
 - Transmission: 5-speed sequential transmission/Stick shifter
 - Top Speed: 187 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
@@ -153,9 +153,9 @@ The most popular class around the world.
   Helper: 3.5N/mm
 - Damper Model: CTM Racing MSR80/MSR60 3+1Way
 - Damper Travel: 295mm on MSR80/210mm on MSR60
-- MSR85: LRS, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
-- MSR65: LRS, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
-- Shim Stacks: #1 Progressive/#2 Linear biased to progressive/#3 Digressive
+- MSR80: LRS, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
+- MSR60: LRS, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
+- Shim Stacks: #1 Progressive/#2 Linear biased to progressive(gravel), digressive(tarmac)/#3 Digressive
 - Adjustment Way: HS (High Speed) and LS (Low Speed) bump, rebound
 - Adjustment Range: 56 levels of LS bump, 56 levels of rebound, 28 levels of HS bump and 16 levels of HBS
 - Brake: 300mm gravel(selectable ducted brake)/355mm tarmac(selectable ducted brake)
@@ -166,7 +166,7 @@ The most popular class around the world.
 - Downforce level: Tarmac 120kg@180km/h, 51:49 balance/Gravel 120kg@180km/h, 47:53 balance
 
 ## Pre-17 WRC (Formerly WRC)
-A tribute to 11-16 WRC spec based on Rally2.
+*A tribute to 11-16 WRC spec based on Rally2.*
 ![Astral_R](Docs/1316/3.jpg)
 ![Astral_R](Docs/1316/5.jpg)
 ![Astral_R](Docs/1316/8.jpg)
@@ -195,47 +195,71 @@ A tribute to 11-16 WRC spec based on Rally2.
 - Downforce level: Tarmac 200kg@200m/h, 51:49 balance/Gravel 200kg@200km/h, 47:53 balance
 
 ## RX1 (Formerly RX Supercar)
-The rallycross beast based on Rally2.
+*The rallycross beast based on Rally2.*
 ![Astral_R](Docs/RX/7.jpg)
 ![Astral_R](Docs/RX/3.jpg)
 ![Astral_R](Docs/RX/8.jpg)
 ### Dimensions and Weight
-- Size: 3996mm/1850mm/Height Adjustble
+- Size: 4034mm/1850mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
 - Weight: 1300kg minimum running weight/~52:48 weight distribution
 ### Engine and Transmission
-- H4DPF with WRX ECU adn modification
-- 3.4 bar anti-lag turbocharger, 45mm turbo restrictor
-- 600HP at 6000RPM, 820Nm at 4500RPM, without restrictor over 1000HP and 1500Nm
-- 5 speed sequential transmission, stick shifter
-- Adjustable gear ratios
-- Top speed 203 km/h (ratio specific)
-- Front and rear adjustable mechanical LSD
-- Mechanical center LSD with maximum power bias of 30/70, hydraulic handbrake disengage mechanism
+- Engine: H4DPF 2.0L inline 4/WRX ECU and modification
+- Intake: 3.4 bar anti-lag turbocharger/45mm turbo restrictor
+- Power: 600hp@6000RPM/820Nm@4500RPM/Over 1000hp without restrictor
+- Transmission: 6-speed sequential transmission/Stick shifter
+- Top Speed: 223 km/h (ratio specific)
+- Differential: Front and rear LSD/Center LSD, with hydraulic handbrake disengage mechanism
 ### Suspension
-- 355mm brake disc
-- Adjustable brake bias
-- Front and rear selectable ducted brake
-### Damper and Spring
-- CTM Racing mono-tube MRX80 3Way damper
-- Around 300mm of travel
-- MRX80: LRS, HBS, LRS open factor adjustable
-- HS (High Speed) and LS (Low Speed) bump, LS rebound, 3WAY adjustable
-- 40 levels of LS bump, 40 levels of LS rebound, 32 levels of HS bump adjustment
 - Spring rates:
+  Gravel: 28.0 to 36.0N/mm front, 24.0 to 32.0N/mm rear, incremental difference of 4.0N/mm
+  Helper: 4.5N/mm
+- Damper Model: CTM Racing MRX80 3+1Way
+- Damper Travel: 290mm on MRX80
+- MRX80: LRS, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
+- Shim Stacks: #1 Linear biased to progressive/#2 Digressive
+- Adjustment Way: HS (High Speed) and LS (Low Speed) bump, rebound
+- Adjustment Range: 50 levels of LS bump, 50 levels of rebound, 40 levels of HS bump and 16 levels of HBS
+- Brake: 355mm(selectable ducted brake)
+### Config Specific Aerodynamics
+- Front Aero: Front lip/Front fender
+- Rear Aero: Rear wing/Rear diffuser
+- Wing Dimension: Within the frontal and top projection of the car
+- Downforce level: 200kg@220m/h, 47:53 balance
 
-  RX: 36.0N/mm, 40.0N/mm, 44.0N/mm front, 32.0N/mm, 36.0N/mm, 40.0N/mm rear
-  Helper: 2.0/m
-### Tyres
-- 225/640 R17 RX wheels
-- Wheel beam properties are tested and modified, biased to sliding performance
-### Aerodynamics
-- Front and rear independent aerodynamics
-- Front lip react to ground clearance change
-- Aero geared to anti-diving when jumping instead of high speed downforce
-- Two layer RX style rear wing, within the frontal projection and within the projection of the car seen from above, within the size regulations
-- Total about 200kg of downforce at 200km/h, balance at around 52:48
-
+## Rally1 Prototype
+*Developing in progress, tesing in progess, unlimited potential.*
+![Astral_R](Docs/Rally1/2.jpg)
+![Astral_R](Docs/Rally1/5.jpg)
+![Astral_R](Docs/Rally1/6.jpg)
+### Dimensions and Weight
+- Size: 4134mm/1875mm/Height Adjustble
+- Wheelbase: 2601mm/Adjustable
+- Weight: 1260kg with one spare/1410kg with crew and one spare/1440kg running weight/~50:50 weight distribution
+### Engine and Transmission
+- Engine: H4DPA 1.6L inline 4/BRC ECU and modification **Without Hybrid**
+- Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
+- Power: 380hp@6000RPM/450Nm@5500RPM
+- Transmission: 5-speed sequential transmission/Stick shifter
+- Top Speed: 199 km/h (ratio specific)
+- Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
+### Suspension
+- Spring rates:
+  Same as BRC
+- Damper Model: CTM Racing MSR89/MSR69 3+1Way
+- Damper Travel: 270mm on MSR89/240mm on MSR69
+- Damper Details: Same as found on other configs
+- MSR89: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
+- MSR69: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
+- Shim Stacks: #1 Progressive/#2 #2 Linear biased to progressive(gravel), digressive(tarmac)/#3 Digressive
+- Adjustment Way: HS (High Speed) and LS (Low Speed) bump, rebound
+- Adjustment Range: 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels of HBS
+- Brake: 300mm gravel(selectable ducted brake)/370mm tarmac(selectable ducted brake)
+### Config Specific Aerodynamics
+- Front Aero: Front splitter/Diveplane/Front fender
+- Rear Aero: Rear wing/Rear bumper
+- Wing Dimension: 50mm higher than frontal projection/40mm longer than rear bumper
+- Downforce level: Tarmac 270kg@200m/h, 51:49 balance/Gravel 270kg@200km/h, 47:53 balance
 
 # Existing Problems (that are mostly not going to be fixed)
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
