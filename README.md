@@ -15,7 +15,7 @@ Also, there are Rally2 variant and WorldRX RX1 variant, since they share some si
 
 # How to Use This Repo
 ## What's in this repo?
-This repo contains engine sound files, all Jbeam files, and Lua files. I will create engine sound with FMOD, update Jbeam files when something is refined, and start to write lua codes for active center differential, launch control and potentially new detection method for LRS.
+This repo contains engine sound files, all Jbeam files, and Lua files.
 
 At the time of 2024/3/21: 
 
@@ -25,10 +25,12 @@ Active Center Differential is done
 
 Launch control is BeamNG's vanilla but changed brake trigger to handbrake
 
-## How to make it your mod?
+## How to update?
 I'm not very familiar with Github, but I know Github can't store empty folders, so maybe it's not the best idea to upload everything because there are lot's of empty folders. The reason I'm using Github is tracking of Jbeam edits and Lua writing. 
 
-However you can update yourself if there's something you want to, manually download files and the folder structure should look like this:
+However you can download releases for pre-release test, and eventually I will upload to BeamNG's mod repo for free. 
+
+Alternatively, you can update yourself if there's something you want to, manually download files and the folder structure should look like this:
 
 **Configs: BeamNG Userdata\version\mods\unpacked\un1corn_qlourie_astral_r\vehicles\qlourie_astral_r\files**
 
@@ -38,57 +40,46 @@ However you can update yourself if there's something you want to, manually downl
 
 **Engine Sound: BeamNG Userdata\version\mods\unpacked\un1corn_qlourie_astral_r\art\sound\blends and engine and shift\files**
 
-Alternatively, you can download releases for pre-release test, and eventually I will upload to BeamNG's mod repo for free.
-
 # Things to Remind
-I have a main work and it's quite busy, so I can't take my time fully on this project. As experimenting and testing Jbeam properties are quite heavy work, there are some imperfections. Also, I've found it's not worth to dig deeper with Automation model as there are tons of hassle with opacity map and mesh overlap, this mod will be at where it is. I'm not planning to make the model more detailed or get whole Jbeam design revamped.
+I have a job and it's quite busy, so I can't take my time fully on this project. As experimenting and testing Jbeam properties are quite heavy work, there are some imperfections. Also, I've found it's not worth to dig deeper with Automation model as there are tons of hassle with opacity map and mesh overlap, this mod will be at where it is. I'm not planning to make the model more detailed or get whole Jbeam design revamped.
 
-However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart also Rally4, Rally2 variant. I'm really looking forward to it.
+However I'm really looking forward to build a new car from the ground up. I'm learning sketching and I plan to make a new car in Blender, at that time it will have it's road counterpart also Rally4, Rally2 variant.
 
 Also some fictional lore friendly brands and sponsors! There is actually now in the mod by Automation modders but I'm planning to make my own original sponsors.
 
 # Features
 ## Chassis
-- Modified chassis for better stability and rigidity, also slightly moved suspension mounting points
-- Rollcage installed for maximum safety
+- Modified chassis for better stability and rigidity, also moved suspension mounting points
 - Separated parts from Automation model for better deformation and animation
 ## Engine and Transmission
-- H4DPA 1.6l inline 4, 83.3x73.3, DOHC, direct injection
-- H4DPF 2.0l inline 4, 87.8x82.5, DOHC, direct injection
 - Realistic engine curve referenced from telemetry of other games
-- Top speed around 200 km/h within regulation
-- Turbo restrictor and ECU setting for different variant
+- Different Turbo restrictor and ECU setting for different variant
 - Active center differential for BRC variant which respond to throttle, brake, steering inputs and wheel speed
 ## Suspension
-- Front and rear MacPherson Strut suspension
-- Reinforced front and rear subframe for stronger rigidity
 - Extra long suspension arms for better FVSA length, optimized FVSA for less camber gain
 - Calculated suspension geometry for optimal bump steer and toe steer performance
-- Front caster adjustable
 - Anti-roll bar mounting point adjustable with 3 fixed stiffness ARBs
 - 540 degree steering wheel lock
-- 10:1, 9:1, 8:1 steering ratio selectable for different driving styles
-## Damper and Spring
+- Selectable steering ratio for different driving styles
+## Springs
+- Springs are selected as parts instead of tuning
+- Individually tested spring length for different stiffness
+- Spring perch preload adjustmen
+## Dampers
 - Dampers developed with **CTM Racing Suspension**
 - Around 800mm gravel damper length, 600mm tarmac damper length
 - Fixed damper length, damper length not adjustable for consistent droop travel
-- Inverted strut design, 46mm piston diameter, 18mm shaft diameter for better strength
-- Spring perch preload adjustment
+- Inverted strut design, 46mm piston diameter, 18mm shaft diameter
 - Pressurized mono-tube dampers that naturally have a force to push the piston out when no load is applied
-- Individually tested spring length when spawning for better spring simulation
-- Springs are selected as parts instead of tuning
 - Bump velocity threshold (knee point) is moved in response to changes in bump settings, providing a more accurate representation of real-world damper tuning
-- Biased to progressive damping with increased damping during HS bump events, enhancing performance and stability to significant impacts in rallying
 - LRS (Load Release System): Release rebound damping when wheel load below a set threshold is detected, allowing even higher rebound damping setting with faster wheel contact and all power to the ground. Rebound damping is lowered according to how much force the internal detection mass have. The damping curve is returned to normal is wheel load is above threshold
 - DSV (Direction Sensing Valve): Detect the direction of force to the damper, when the force is from the ground like road surface, the damper will remain unchanged for consistency; when the force is from above like landing a jump, the valve will close and add additional damping to brace impact
 - HBS (Hydraulic Bump Stop): Additional damping valve that will active at around from the last 60mm of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 24KN of damping force at 2m/s. Smoother ride quality when riding on bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection
 - HRS (Hydraulic Rebound Stop): A large amount of damping force would generate when the damper is near full droop to stop the damper from extending. Smoother ride quality and extension dynamics compare to rubber rebond stop. Rubber rebound stop is still installed on HRS model for protection
--  Independently modelled suspension mesh instead of Automation one, with flexbody help node to enhances animations
-
+- Independently modelled suspension mesh that is totally accurate of a real damper and spring movement, including piston, shell, spring, helper spring and spring perch
 ## Misc
 - Ballast for center of gravity adjustment (needed to meet minimum running weight regulations)
-- Driver weight included in racing seat part
-- Rally light for better vision at night events (about 7kg, also act as ballast)
+- Driver weight included in racing seat part for real world weight simulation
 - Up to 2 Spare wheel selection for weight accuracy
 
 # BRC (Formerly WRC and now Rally1)
