@@ -111,7 +111,9 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Suspension
 - Spring rates:
   Gravel: 17.5 to 30.0N/mm front, 15.0 to 27.5N/mm rear, incremental difference of 2.5N/mm
+  
   Tarmac: 38.0 to 63.0N/mm front, 33.0 to 58.0N/mm rear, incremental difference of 5.0N/mm
+  
   Helper: 3.5N/mm
 - Damper Model: CTM Racing MSR85/MSR65 3+1Way
 - Damper Travel: 325mm on MSR85/240mm on MSR65
