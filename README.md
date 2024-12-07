@@ -110,6 +110,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Differential: Front and rear LSD/Active center differential 43:57 and 36:64, with hydraulic handbrake disengage mechanism
 ### Suspension
 - Spring rates:
+
   Gravel: 17.5 to 30.0N/mm front, 15.0 to 27.5N/mm rear, incremental difference of 2.5N/mm
   
   Tarmac: 38.0 to 63.0N/mm front, 33.0 to 58.0N/mm rear, incremental difference of 5.0N/mm
@@ -149,9 +150,13 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Safari Kit: Snorkel and bullbar included following 2021 regulations
 ### Suspension
 - Spring rates:
+  
   Gravel: 18.5 to 28.5N/mm front, 15.5 to 25.5N/mm rear, incremental difference of 2.5N/mm
+  
   Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
+  
   Safari: 16.5N/mm front, 13.0N/mm rear
+  
   Helper: 3.5N/mm
 - Damper Model: CTM Racing MSR80/MSR60 3+1Way
 - Damper Travel: 295mm on MSR80/210mm on MSR60
@@ -214,7 +219,9 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Differential: Front and rear LSD/Center LSD, with hydraulic handbrake disengage mechanism
 ### Suspension
 - Spring rates:
-  Gravel: 28.0 to 36.0N/mm front, 24.0 to 32.0N/mm rear, incremental difference of 4.0N/mm
+  
+  RX: 28.0 to 36.0N/mm front, 24.0 to 32.0N/mm rear, incremental difference of 4.0N/mm
+  
   Helper: 4.5N/mm
 - Damper Model: CTM Racing MRX80 3+1Way
 - Damper Travel: 290mm on MRX80
