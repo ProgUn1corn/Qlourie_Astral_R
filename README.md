@@ -144,6 +144,7 @@ The most popular class around the world.
 - Transmission: 5-speed sequential transmission/Stick shifter
 - Top Speed: 187 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
+- Safari Kit: Snorkel and bullbar included following 2021 regulations
 ### Suspension
 - Spring rates:
   Gravel: 18.5 to 28.5N/mm front, 15.5 to 25.5N/mm rear, incremental difference of 2.5N/mm
@@ -164,13 +165,44 @@ The most popular class around the world.
 - Wing Dimension: Within the frontal and top projection of the car
 - Downforce level: Tarmac 120kg@180km/h, 51:49 balance/Gravel 120kg@180km/h, 47:53 balance
 
+## Pre-17 WRC (Formerly WRC)
+A tribute to 11-16 WRC spec based on Rally2.
+![Astral_R](Docs/1316/3.jpg)
+![Astral_R](Docs/1316/5.jpg)
+![Astral_R](Docs/1316/8.jpg)
+### Dimensions and Weight
+- Size: 3996mm/1820mm/Height Adjustble
+- Wheelbase: 2547mm/Adjustable
+- Weight: 1200kg with one spare/1360kg with crew and one spare/1390kg running weight/~50:50 weight distribution
+### Engine and Transmission
+- Engine: H4DPA 1.6L inline 4/Pre-17 ECU and modification
+- Intake: 2.5 bar anti-lag turbocharger/33mm turbo restrictor
+- Power: 300hp@6000RPM/438Nm@5500RPM
+- Transmission: 6-speed sequential transmission/Paddle shifter
+- Top Speed: 199 km/h (ratio specific)
+- Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
+### Suspension
+- Spring rates:
+  Same as Rally2
+- Damper Model: CTM Racing MSR80/MSR65 3+1Way
+- Damper Travel: 295mm on MSR80/240mm on MSR65(220mm set by default)
+- Damper Details: Same as found on other configs
+- Brake: 300mm gravel(selectable ducted brake)/355mm tarmac(selectable ducted brake)
+### Config Specific Aerodynamics
+- Front Aero: Front lip/Front fender
+- Rear Aero: Rear wing/Rear bumper
+- Wing Dimension: Within the frontal and top projection of the car
+- Downforce level: Tarmac 200kg@200m/h, 51:49 balance/Gravel 200kg@200km/h, 47:53 balance
+
 ## RX1 (Formerly RX Supercar)
-The rallycross beast converted from Rally2.
-### Chassis
-- Rally2 chassis with weight reduction
-- 1300KG minimum with driver and fuel, no matter running weight
-- ~52/48 weight distribution for optimal chassis dynamics
-- 4043mm long, 1850mm track width, 2535mm wheelbase
+The rallycross beast based on Rally2.
+![Astral_R](Docs/RX/7.jpg)
+![Astral_R](Docs/RX/3.jpg)
+![Astral_R](Docs/RX/8.jpg)
+### Dimensions and Weight
+- Size: 3996mm/1850mm/Height Adjustble
+- Wheelbase: 2547mm/Adjustable
+- Weight: 1300kg minimum running weight/~52:48 weight distribution
 ### Engine and Transmission
 - H4DPF with WRX ECU adn modification
 - 3.4 bar anti-lag turbocharger, 45mm turbo restrictor
