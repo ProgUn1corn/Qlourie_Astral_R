@@ -73,6 +73,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Anti-roll bar mounting point adjustable with 3 fixed stiffness ARBs
 - 540 degree steering wheel lock
 - Rack and pinion steering, 7.5:1/8.2:1/9.1:1 selectable steering ratio
+- ![Astral_R](Docs/BRC/13.jpg)
 ## Dampers
 - Dampers developed with **CTM Racing Suspension**
 - Around 800mm gravel damper length, 600mm tarmac damper length, full damper length not adjustable for consistent droop travel
@@ -84,6 +85,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - HBS (Hydraulic Bump Stop): Additional damping valve that will active at around from the last 15% of damper travel, the valve is closed to generate a siginificant amount of damping force. Rubber stop is still installed on HBS model for protection
 - HRS (Hydraulic Rebound Stop): A large amount of damping force would generate when the damper is near full droop to stop the damper from extending. Rubber stop is still installed on HRS model for protection
 - Independently modelled suspension mesh that is totally accurate of a real damper and spring movement, including piston, shell, spring, helper spring and spring perch
+![Astral_R](Docs/Rally1/3.jpg)
 ## Wheels
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
@@ -95,6 +97,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Aerodynamics react to ground clearance change both front and rear
 - Originally designed effective aero parts from bumper, lip, chassis, fender and more 
 - Significant grip loss when aero parts are broken
+![Astral_R](Docs/Rally2/3.jpg)
 ## Misc
 - Ballast for center of gravity adjustment (needed to meet minimum running weight regulations)
 - Driver weight included in racing seat part for real world weight simulation
@@ -288,3 +291,31 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Flexbody animations are not perfect, especially around engine and transmission, it just works but it's not accurate
 
  # Gallery 
+![Astral_R](Docs/BRC/2.jpg)
+![Astral_R](Docs/Rally2/6.jpg)
+![Astral_R](Docs/BRC/4.jpg)
+![Astral_R](Docs/RX/4.jpg)
+![Astral_R](Docs/Rally1/8.jpg)
+![Astral_R](Docs/Rally2/11.jpg)
+![Astral_R](Docs/BRC/8.jpg)
+![Astral_R](Docs/1316/6.jpg)
+![Astral_R](Docs/BRC/9.jpg)
+![Astral_R](Docs/Rally2/7.jpg)
+![Astral_R](Docs/1316/7.jpg)
+![Astral_R](Docs/Rally2/4.jpg)
+![Astral_R](Docs/RX/6.jpg)
+![Astral_R](Docs/BRC/11.jpg)
+![Astral_R](Docs/Rally2/16.jpg)
+![Astral_R](Docs/1316/1.jpg)
+![Astral_R](Docs/Rally2/10.jpg)
+![Astral_R](Docs/BRC/12.jpg)
+![Astral_R](Docs/Rally2/13.jpg)
+![Astral_R](Docs/BRC/14.jpg)
+![Astral_R](Docs/1316/4.jpg)
+![Astral_R](Docs/Rally2/8.jpg)
+![Astral_R](Docs/BRC/15.jpg)
+![Astral_R](Docs/1316/2.jpg)
+![Astral_R](Docs/Rally1/7.jpg)
+![Astral_R](Docs/Rally2/14.jpg)
+![Astral_R](Docs/RX/1.jpg)
+![Astral_R](Docs/Rally2/1.jpg)
