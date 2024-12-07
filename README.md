@@ -58,25 +58,34 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ## Suspension
 - Extra long suspension arms for better FVSA length, optimized FVSA for less camber gain
 - Calculated suspension geometry for optimal bump steer and toe steer performance
-- Anti-roll bar mounting point adjustable with 3 fixed stiffness ARBs
-- 540 degree steering wheel lock
-- Selectable steering ratio for different driving styles
-## Springs
 - Springs are selected as parts instead of tuning
 - Individually tested spring length for different stiffness
-- Spring perch preload adjustmen
+- Spring perch preload adjustment
+- Anti-roll bar mounting point adjustable with 3 fixed stiffness ARBs
+- 540 degree steering wheel lock
+- Rack and pinion steering, 7.5:1/8.2:1/9.1:1 selectable steering ratio
 ## Dampers
 - Dampers developed with **CTM Racing Suspension**
-- Around 800mm gravel damper length, 600mm tarmac damper length
-- Fixed damper length, damper length not adjustable for consistent droop travel
+- Around 800mm gravel damper length, 600mm tarmac damper length, full damper length not adjustable for consistent droop travel
 - Inverted strut design, 46mm piston diameter, 18mm shaft diameter
 - Pressurized mono-tube dampers that naturally have a force to push the piston out when no load is applied
 - Bump velocity threshold (knee point) is moved in response to changes in bump settings, providing a more accurate representation of real-world damper tuning
-- LRS (Load Release System): Release rebound damping when wheel load below a set threshold is detected, allowing even higher rebound damping setting with faster wheel contact and all power to the ground. Rebound damping is lowered according to how much force the internal detection mass have. The damping curve is returned to normal is wheel load is above threshold
-- DSV (Direction Sensing Valve): Detect the direction of force to the damper, when the force is from the ground like road surface, the damper will remain unchanged for consistency; when the force is from above like landing a jump, the valve will close and add additional damping to brace impact
-- HBS (Hydraulic Bump Stop): Additional damping valve that will active at around from the last 60mm of damper travel, the valve is closed to generate a siginificant amount of damping force, up to 24KN of damping force at 2m/s. Smoother ride quality when riding on bump stop and better impact absorption. Rubber bump stop is still installed on HBS model for protection
-- HRS (Hydraulic Rebound Stop): A large amount of damping force would generate when the damper is near full droop to stop the damper from extending. Smoother ride quality and extension dynamics compare to rubber rebond stop. Rubber rebound stop is still installed on HRS model for protection
+- LRS (Load Release System): Release rebound damping when wheel load below a set threshold is detected, allowing faster wheel contact and all power to the ground. The damping curve is returned to normal is wheel load is above threshold
+- DSV (Direction Sensing Valve): Detect the direction of force to the damper, when the force is from the ground, the damper will remain unchanged for consistency; when the force is from above, the valve will close and add additional damping to brace impact
+- HBS (Hydraulic Bump Stop): Additional damping valve that will active at around from the last 15% of damper travel, the valve is closed to generate a siginificant amount of damping force. Rubber stop is still installed on HBS model for protection
+- HRS (Hydraulic Rebound Stop): A large amount of damping force would generate when the damper is near full droop to stop the damper from extending. Rubber stop is still installed on HRS model for protection
 - Independently modelled suspension mesh that is totally accurate of a real damper and spring movement, including piston, shell, spring, helper spring and spring perch
+## Wheels
+- 20KG per tarmac wheel and 25kg per gravel wheel
+- Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
+- 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
+- Special wheels including RX, Winter and Arctic
+- Wheel beam properties are created and tested which are different to vanilla
+## Aerodynamics
+- Front and rear independent aerodynamics
+- Aerodynamics react to ground clearance change both front and rear
+- Originally designed effective aero parts from bumper, lip, chassis, fender and more 
+- Significant grip loss when aero parts are broken
 ## Misc
 - Ballast for center of gravity adjustment (needed to meet minimum running weight regulations)
 - Driver weight included in racing seat part for real world weight simulation
@@ -98,37 +107,32 @@ The pinnacle rallying class which now is anticipating BRC.
 - Power: 380hp@6000RPM/450Nm@5500RPM
 - Transmission: 6 speed sequential transmission/paddle shifter
 - Top Speed: 200 km/h (ratio specific)
-- Differential: Front and rear LSD/Active center differential 43/57 and 36/64, with hydraulic handbrake disengage mechanism
+- Differential: Front and rear LSD/Active center differential 43:57 and 36:64, with hydraulic handbrake disengage mechanism
 ### Suspension
-- 300mm gravel brake disc, 370mm tarmac brake disc
-- Adjustable brake bias
-- Front and rear selectable ducted brake
-### Damper and Spring
-- CTM Racing mono-tube MSR85 and MSR65 3+1Way dampers
-- Over 300mm of travel on MSR85, around 220mm of travel on MSR65
+- Spring rates:
+  Gravel: 17.5 to 30.0N/mm front, 15.0 to 27.5N/mm rear, incremental difference of 2.5N/mm
+  Tarmac: 38.0 to 63.0N/mm front, 33.0 to 58.0N/mm rear, incremental difference of 5.0N/mm
+  Helper: 3.5N/mm
+- Damper Model: CTM Racing MSR85/MSR65 3+1Way
+- Damper Travel: 325mm on MSR85/240mm on MSR65
 - MSR85: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
 - MSR65: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
-- HS (High Speed) and LS (Low Speed) bump, rebound, hydraulic bump stop, 3+1 WAY adjustable
-- 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels of hydraulic bump stop adjustment
-- Spring rates:
-  
-  Gravel: 17.5 to 30.0N/mm front, 15.0 to 27.5N/mm rear, incremental difference of 2.5N/mm
-  Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
-  Helper: 2.8N/mm
-### Tyres
-- 20KG per tarmac wheel and 25kg per gravel wheel
-- Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
-- 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
-- Wheel beam properties are tested and modified to get best performance
-### Aerodynamics
-- Front and rear independent aerodynamics
-- Front lip and rear diffuser react to ground clearance change
-- Two layer WRC style rear wing with winglet attached, 50mm higher than frontal projection and 40mm longer than rear bumper side projection
+- Shim Stacks: #1 Progressive/#2 Linear biased to progressive/#3 Digressive
+- Adjustment Way: HS (High Speed) and LS (Low Speed) bump, rebound
+- Adjustment Range: 64 levels of LS bump, 64 levels of rebound, 32 levels of HS bump and 16 levels of HBS
+- Brake: 300mm gravel(selectable ducted brake)/370mm tarmac(selectable ducted brake)
+### Config Specific Aerodynamics
+- Front Aero: Front splitter/Dive planes/Front fenders
+- Rear Aero: Rear wing/Diffuser
+- Wing Dimension: 50mm higher than frontal projection/40mm longer than rear bumper
 - Rear wing endplate aerodynamics for better control when sliding
-- Total about 390kg of downforce at 200km/h, balance at around 46:54
+- Downforce level: Tarmac 390kg@200km/h, 51:49 balance/Gravel 360kg@200km/h, 47:53 balance
 
 # Rally2 (Formerly R5)
 The most popular class around the world. 
+![Astral_R](Docs/Rally2/2.jpg)
+![Astral_R](Docs/Rally2/12.jpg)
+![Astral_R](Docs/Rally2/13.jpg)
 ## Chassis
 - Lightweight chassis (heavier than BRC)
 - 1230KG minimum measured with only one spare
