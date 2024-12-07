@@ -239,8 +239,8 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ## Rally1 Prototype
 *Developing in progress, tesing in progess, unlimited potential.*
 ![Astral_R](Docs/Rally1/2.jpg)
+![Astral_R](Docs/Rally1/4.jpg)
 ![Astral_R](Docs/Rally1/5.jpg)
-![Astral_R](Docs/Rally1/6.jpg)
 ### Dimensions and Weight
 - Size: 4134mm/1875mm/Height Adjustble
 - Wheelbase: 2601mm/Adjustable
