@@ -96,7 +96,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 *The pinnacle rallying class which now anticipating BRC.*
 ![Astral_R](Docs/BRC/1.jpg)
 ![Astral_R](Docs/BRC/7.jpg)
-![Astral_R](Docs/BRC/11.jpg)
+![Astral_R](Docs/BRC/9.jpg)
 ### Dimensions and Weight
 - Size: 4099mm/1875mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
