@@ -135,7 +135,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 *The most popular class around the world.*
 ![Astral_R](Docs/Rally2/9.jpg)
 ![Astral_R](Docs/Rally2/12.jpg)
-![Astral_R](Docs/Rally2/13.jpg)
+![Astral_R](Docs/Rally2/5.jpg)
 ### Dimensions and Weight
 - Size: 3996mm/1820mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
