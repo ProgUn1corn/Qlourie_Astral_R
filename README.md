@@ -98,7 +98,7 @@ The pinnacle rallying class which now is anticipating BRC.
 ![Astral_R](Docs/BRC/7.jpg)
 ![Astral_R](Docs/BRC/16.jpg)
 ### Dimensions and Weight
-- Size: 4109mm/1875mm/Height Adjustble
+- Size: 4099mm/1875mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
 - Weight: 1190kg with one spare/1360kg with crew and one spare/1390kg running weight/~50:50 weight distribution
 ### Engine and Transmission
