@@ -82,30 +82,28 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Driver weight included in racing seat part for real world weight simulation
 - Up to 2 Spare wheel selection for weight accuracy
 
-# BRC (Formerly WRC and now Rally1)
+# Configurations&Specifications
+## BRC (Formerly WRC+ and now Rally1)
 The pinnacle rallying class which now is anticipating BRC.
-
-## Chassis
-- Lightweight chassis
-- 1190KG minimum measured with only one spare
-- 1360KG minimum with driver and co-driver and one spare
-- ~1390KG tarmac running weight, ~1415kg gravel running weight (Running weight includes fuel and tools like in real life)
-- ~50/50 weight distribution for optimal chassis dynamics
-- 4105mm long, 1875mm track width, 2535mm wheelbase
-## Engine and Transmission
-- H4DPA with WRC ECU and modification
-- 2.5 bar anti-lag turbocharger, 36mm turbo restrictor
-- Over 380HP at 6000RPM, 450Nm at 5500RPM (within the 3.1kg/hp regulation)
-- 6 speed sequential transmission, paddle shifter
-- Adjustable gear ratios
-- Top speed 200 km/h (ratio specific)
-- Front and rear adjustable mechanical LSD
-- 2 homologated active center differential in response to steering and throttle input. Power bias 46/54 for gravel and 36/64 for tarmac. Hydraulic handbrake disengage mechanism
-## Suspension
+![Astral_R](Docs/BRC/1.jpg)
+![Astral_R](Docs/BRC/7.jpg)
+![Astral_R](Docs/BRC/16.jpg)
+### Dimensions and Weight
+- Size: 4100mm/1875mm/Height Adjustble
+- Wheelbase: 2547mm/Adjustable
+- Weight: 1190kg with one spare/1360kg with crew and one spare/1390kg running weight/~50/50 weight distribution
+### Engine and Transmission
+- Engine: H4DPA 1.6L inline 4/WRC ECU and modification
+- Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
+- Power: 380hp@6000RPM/450Nm@5500RPM
+- Transmission: 6 speed sequential transmission/paddle shifter
+- Top Speed: 200 km/h (ratio specific)
+- Differential: Front and rear LSD/Active center differential 43/57 and 36/64, with hydraulic handbrake disengage mechanism
+### Suspension
 - 300mm gravel brake disc, 370mm tarmac brake disc
 - Adjustable brake bias
 - Front and rear selectable ducted brake
-## Damper and Spring
+### Damper and Spring
 - CTM Racing mono-tube MSR85 and MSR65 3+1Way dampers
 - Over 300mm of travel on MSR85, around 220mm of travel on MSR65
 - MSR85: LRS, DSV, HBS, HRS, LRS open factor adjustable, HBS damping adjustable
@@ -117,12 +115,12 @@ The pinnacle rallying class which now is anticipating BRC.
   Gravel: 17.5 to 30.0N/mm front, 15.0 to 27.5N/mm rear, incremental difference of 2.5N/mm
   Tarmac: 35.0 to 60.0N/mm front, 30.0 to 55.0N/mm rear, incremental difference of 5.0N/mm
   Helper: 2.8N/mm
-## Tyres
+### Tyres
 - 20KG per tarmac wheel and 25kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
 - Wheel beam properties are tested and modified to get best performance
-## Aerodynamics
+### Aerodynamics
 - Front and rear independent aerodynamics
 - Front lip and rear diffuser react to ground clearance change
 - Two layer WRC style rear wing with winglet attached, 50mm higher than frontal projection and 40mm longer than rear bumper side projection
