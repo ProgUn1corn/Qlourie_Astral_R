@@ -1,7 +1,5 @@
 # Qlourie Astral R
 My personal BeamNG mod project with some simple Lua codes.
-
-NOTE: THIS README IS OUTDATED AND NEEDS A REWORK. ITS OUTDATED BY AT LEAST 8 MONTH.
 ![Astral_R](Docs/BRC/16.jpg)
 It comes from Automation, I made the car in Automation and rewrote almost everything's Jbeam by myself so the physics are completely new. The project started at about 2022/7, and this Github repo is created at 2024/1/16.
 
@@ -36,7 +34,7 @@ Launch control is BeamNG's vanilla but changed brake trigger to handbrake
 ## How to update?
 I'm not very familiar with Github, but I know Github can't store empty folders, so maybe it's not the best idea to upload everything because there are lot's of empty folders. The reason I'm using Github is tracking of Jbeam edits and Lua writing. 
 
-However you can download releases for pre-release test, and eventually I will upload to BeamNG's mod repo for free. 
+However you can download in **releases** page for pre-release test, and eventually I will upload to BeamNG's mod repo for free. 
 
 Alternatively, you can update yourself if there's something you want to, manually download files and the folder structure should look like this:
 
