@@ -141,7 +141,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Rear Aero: Rear wing/Diffuser
 - Wing Dimension: 50mm higher than frontal projection/40mm longer than rear bumper
 - Rear wing endplate aerodynamics for better control when sliding
-- Downforce level: Tarmac 390kg@200km/h, 51:49 balance/Gravel 360kg@200km/h, 47:53 balance
+- Downforce level: Tarmac 400kg@200km/h, 48:52 balance/Gravel 360kg@200km/h, 46:54 balance
 
 ## Rally2 (Formerly R5)
 *The most popular class around the world.*
@@ -155,7 +155,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/Rally2 ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/32mm turbo restrictor
-- Power: 290hp@5000RPM/438Nm@4500RPM
+- Power: 293hp@5500RPM/426Nm@4500RPM
 - Transmission: 5-speed sequential transmission/Stick shifter
 - Top Speed: 187 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
@@ -182,7 +182,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Front Aero: Front lip/Front fender
 - Rear Aero: Rear wing/Rear bumper
 - Wing Dimension: Within the frontal and top projection of the car
-- Downforce level: Tarmac 120kg@180km/h, 51:49 balance/Gravel 120kg@180km/h, 47:53 balance
+- Downforce level: Tarmac 120kg@180km/h, 43:57 balance/Gravel 97kg@180km/h, 38:62 balance
 
 ## Pre-17 WRC (Formerly WRC)
 *A tribute to 11-16 WRC spec based on Rally2.*
