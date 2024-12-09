@@ -196,9 +196,9 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/Pre-17 ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/33mm turbo restrictor
-- Power: 300hp@6000RPM/438Nm@5500RPM
+- Power: 313hp@6000RPM/430Nm@5000RPM
 - Transmission: 6-speed sequential transmission/Paddle shifter
-- Top Speed: 199 km/h (ratio specific)
+- Top Speed: 197 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
 ### Suspension
 - Spring rates:
@@ -211,7 +211,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Front Aero: Front lip/Front fender
 - Rear Aero: Rear wing/Rear bumper
 - Wing Dimension: Within the frontal and top projection of the car
-- Downforce level: Tarmac 200kg@200m/h, 51:49 balance/Gravel 200kg@200km/h, 47:53 balance
+- Downforce level: Tarmac 190kg@200m/h, 37:66 balance/Gravel 155kg@200km/h, 30:70 balance
 
 ## RX1 (Formerly RX Supercar)
 *The rallycross beast based on Rally2.*
@@ -225,9 +225,9 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPF 2.0L inline 4/WRX ECU and modification
 - Intake: 3.4 bar anti-lag turbocharger/45mm turbo restrictor
-- Power: 600hp@6000RPM/820Nm@4500RPM/Over 1000hp without restrictor
+- Power: 605hp@6000RPM/851Nm@4500RPM/Over 1000hp without restrictor
 - Transmission: 6-speed sequential transmission/Stick shifter
-- Top Speed: 223 km/h (ratio specific)
+- Top Speed: 226 km/h (ratio specific)
 - Differential: Front and rear LSD/Center LSD, with hydraulic handbrake disengage mechanism
 ### Suspension
 - Spring rates:
@@ -246,7 +246,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Front Aero: Front lip/Front fender
 - Rear Aero: Rear wing/Rear diffuser
 - Wing Dimension: Within the frontal and top projection of the car
-- Downforce level: 200kg@220m/h, 47:53 balance
+- Downforce level: 205kg@220m/h, 44:56 balance
 
 ## Rally1 Prototype
 *Developing in progress, tesing in progess, unlimited potential.*
@@ -262,7 +262,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
 - Power: 380hp@6000RPM/450Nm@5500RPM
 - Transmission: 5-speed sequential transmission/Stick shifter
-- Top Speed: 199 km/h (ratio specific)
+- Top Speed: 193 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
 ### Suspension
 - Spring rates:
@@ -280,7 +280,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Front Aero: Front splitter/Diveplane/Front fender
 - Rear Aero: Rear wing/Rear bumper
 - Wing Dimension: 50mm higher than frontal projection/40mm longer than rear bumper
-- Downforce level: Tarmac 270kg@200m/h, 51:49 balance/Gravel 270kg@200km/h, 47:53 balance
+- Downforce level: Tarmac 285kg@190m/h, 38:61 balance/Gravel 255kg@190km/h, 38:61 balance
 
 # Existing Problems (that are mostly not going to be fixed)
 - Due to insufficient chassis Jbeam noding, in rare cases you may encounter chassis vibration.
