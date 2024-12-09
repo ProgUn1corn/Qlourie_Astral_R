@@ -84,7 +84,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Independently modelled suspension mesh that is totally accurate of a real damper and spring movement, including piston, shell, spring, helper spring and spring perch
 ![Astral_R](Docs/Rally1/3.jpg)
 ## Wheels
-- 20KG per tarmac wheel and 25kg per gravel wheel
+- 20.0kg per tarmac wheel and 23.7kg per gravel wheel
 - Node weight calculated based on the rim weight limit (8.6kg and 8.9kg) as specified by WRC regulations
 - 205/65 R15 gravel wheels, 235/40 R18 tarmac wheels
 - Special wheels including RX, Winter and Arctic
