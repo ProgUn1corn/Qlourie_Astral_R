@@ -17,7 +17,6 @@ There are Rally2 variant and WorldRX RX1 variant, and some configs based on them
 ![Astral_R](Docs/Rally2/2.jpg)
 ![Astral_R](Docs/Rally2/15.jpg)
 ![Astral_R](Docs/RX/2.jpg)
-![Astral_R](Docs/RX/5.jpg)
 ![Astral_R](Docs/1316/4.jpg)
 Also, there's a prototype Rally1 that's in development, to be lore frendly, it will remain in this state as this mod is set at 2021.
 ![Astral_R](Docs/Rally1/5.jpg)
@@ -73,7 +72,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Anti-roll bar mounting point adjustable with 3 fixed stiffness ARBs
 - 540 degree steering wheel lock
 - Rack and pinion steering, 7.5:1/8.2:1/9.1:1 selectable steering ratio
-- ![Astral_R](Docs/BRC/13.jpg)
+![Astral_R](Docs/BRC/13.jpg)
 ## Dampers
 - Dampers developed with **CTM Racing Suspension**
 - Around 800mm gravel damper length, 600mm tarmac damper length, full damper length not adjustable for consistent droop travel
@@ -296,6 +295,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ![Astral_R](Docs/BRC/4.jpg)
 ![Astral_R](Docs/RX/4.jpg)
 ![Astral_R](Docs/Rally1/8.jpg)
+![Astral_R](Docs/RX/5.jpg)
 ![Astral_R](Docs/Rally2/11.jpg)
 ![Astral_R](Docs/BRC/8.jpg)
 ![Astral_R](Docs/1316/6.jpg)
