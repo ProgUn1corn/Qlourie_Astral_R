@@ -218,7 +218,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Dimensions and Weight
 - Size: 4034mm/1850mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
-- Weight: 1300kg minimum running weight/~52:48 weight distribution
+- Weight: 1300kg minimum running weight/~51:49 weight distribution
 ### Engine and Transmission
 - Engine: H4DPF 2.0L inline 4/WRX ECU and modification
 - Intake: 3.4 bar anti-lag turbocharger/45mm turbo restrictor
