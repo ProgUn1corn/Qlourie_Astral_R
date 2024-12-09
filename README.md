@@ -248,7 +248,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Downforce level: 205kg@220m/h, 44:56 balance
 
 ## Rally1 Prototype
-*Developing in progress, tesing in progess, unlimited potential.*
+*Developing in progress, testing in progess, unlimited potential.*
 ![Astral_R](Docs/Rally1/2.jpg)
 ![Astral_R](Docs/Rally1/4.jpg)
 ![Astral_R](Docs/Rally1/6.jpg)
