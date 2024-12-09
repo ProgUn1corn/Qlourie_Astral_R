@@ -146,7 +146,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //hub form
-        {"beamSpring":6501000,"beamDamp":180},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
         ["rh1r","rh3r"],
         ["rh2r","rh1r"],
@@ -164,7 +164,7 @@
         ["rh3l","rh5l"],
         ["rh2l","rh5l"],
         //damper mount to hub
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":125000,"beamStrength":285000},
         ["rs2l","rh1l"],
         ["rs2r","rh1r"],
@@ -203,7 +203,7 @@
         ["rh5l","rw1ll", {"beamSpring":5501000,"beamDamp":60}],
         ["rs2l","rw1ll", {"beamSpring":3501000,"beamDamp":20}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
         ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.002","beamPrecompressionTime":0.5}],
@@ -401,16 +401,24 @@
         {"beamSpring":0,"beamDamp":0},
         
         //--Limiters--
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":5},
         //hub invert
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":5},
         {"beamSpring":2501000,"beamDamp":250,"beamDeform":95000,"beamStrength":900000},
-        {"beamPrecompression":0.95},
+        {"beamPrecompression":0.9},
         ["rh5r","rx2r"],
         ["rh5l","rx2l"],
-        //["rh3r","rx2r"],
-        //["rh3l","rx2l"],
+        //wheel limiter
+        {"beamPrecompression":0.4},
+        {"optional":true},
+        ["rw1rr", "rs1r", {"precompressionRange":-0.35}],
+        ["rw1rr", "a12"],
+        ["rw1r", "a9"],
+        //*
+        ["rw1ll", "rs1l", {"precompressionRange":-0.35}],
+        ["rw1ll", "a15"],
+        ["rw1l", "a10"],
         //y axis reinforce
-        {"beamSpring":8501000,"beamDamp":200},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamPrecompression":1},
         //["rh1r","a9"],
         //["rh1l","a10"],
@@ -443,15 +451,13 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //rigidify toe link
-        {"spring":61000, "damp":0, "deform":45000, "strength":125000},
+        {"spring":120100, "damp":0, "deform":45000, "strength":125000},
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"],  
-        ["rw1r", "rw1rr", "rh1r", "rh3r"],
-        ["rw1l", "rw1ll", "rh1l", "rh3l"],  
         //mount damper
-        {"spring":6500, "damp":1, "deform":45000, "strength":125000},
-        ["rh2r", "rs2r", "rh1r", "rh3r"],
-        ["rh2l", "rs2l", "rh1l", "rh3l"],    
+        {"spring":6500, "damp":0, "deform":45000, "strength":125000},
+        ["rh2r", "rs2r", "rw1rr", "rw1r"],
+        ["rh2l", "rs2l", "rw1ll", "rw1l"],    
         //arm rigidifier
         {"spring":150000, "damp":1, "deform":15000, "strength":20000},
         ["rx5r", "rx2r", "rx1r", "rh1r"], 
@@ -617,7 +623,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //hub form
-        {"beamSpring":6501000,"beamDamp":180},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
         ["rh1r","rh3r"],
         ["rh2r","rh1r"],
@@ -635,7 +641,7 @@
         ["rh3l","rh5l"],
         ["rh2l","rh5l"],
         //damper mount to hub
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":125000,"beamStrength":285000},
         ["rs2l","rh1l"],
         ["rs2r","rh1r"],
@@ -674,7 +680,7 @@
         ["rh5l","rw1ll", {"beamSpring":5501000,"beamDamp":60}],
         ["rs2l","rw1ll", {"beamSpring":3501000,"beamDamp":20}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
         ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.03","beamPrecompressionTime":0.5}],
@@ -882,16 +888,24 @@
         {"beamSpring":0,"beamDamp":0},
         
         //--Limiters--
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":5},
         //hub invert
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":5},
         {"beamSpring":2501000,"beamDamp":250,"beamDeform":95000,"beamStrength":900000},
-        {"beamPrecompression":0.95},
+        {"beamPrecompression":0.9},
         ["rh5r","rx2r"],
         ["rh5l","rx2l"],
-        //["rh3r","rx2r"],
-        //["rh3l","rx2l"],
+        //wheel limiter
+        {"beamPrecompression":0.4},
+        {"optional":true},
+        ["rw1rr", "rs1r", {"precompressionRange":-0.35}],
+        ["rw1rr", "a12"],
+        ["rw1r", "a9"],
+        //*
+        ["rw1ll", "rs1l", {"precompressionRange":-0.35}],
+        ["rw1ll", "a15"],
+        ["rw1l", "a10"],
         //y axis reinforce
-        {"beamSpring":8501000,"beamDamp":200},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamPrecompression":1},
         //["rh1r","a9"],
         //["rh1l","a10"],
@@ -924,15 +938,13 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //rigidify toe link
-        {"spring":61000, "damp":0, "deform":45000, "strength":125000},
+        {"spring":120100, "damp":0, "deform":45000, "strength":125000},
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"],  
-        ["rw1r", "rw1rr", "rh1r", "rh3r"],
-        ["rw1l", "rw1ll", "rh1l", "rh3l"],  
         //mount damper
-        {"spring":6500, "damp":1, "deform":45000, "strength":125000},
-        ["rh2r", "rs2r", "rh1r", "rh3r"],
-        ["rh2l", "rs2l", "rh1l", "rh3l"],    
+        {"spring":6500, "damp":0, "deform":45000, "strength":125000},
+        ["rh2r", "rs2r", "rw1rr", "rw1r"],
+        ["rh2l", "rs2l", "rw1ll", "rw1l"],    
         //arm rigidifier
         {"spring":150000, "damp":1, "deform":15000, "strength":20000},
         ["rx5r", "rx2r", "rx1r", "rh1r"], 

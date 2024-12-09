@@ -146,7 +146,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //hub form
-        {"beamSpring":6501000,"beamDamp":180},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
         ["fh1r","fh3r"],
         ["fh2r","fh1r"],
@@ -164,7 +164,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper mount to hub
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":125000,"beamStrength":285000},
         ["fs2l","fh1l"],
         ["fs2r","fh1r"],
@@ -203,7 +203,7 @@
         ["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":60}],
         ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":20}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
         ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront-0.005","beamPrecompressionTime":0.5}],
@@ -223,8 +223,8 @@
 
         //tie rods
         {"beamSpring":18001000,"beamDamp":400},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.000","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.0001","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.0001","beamPrecompressionTime":0.5, "dampCutoffHz":1000}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -404,28 +404,16 @@
         //--Limiters--
         //wheel limiter
         {"deformLimitExpansion":""},
-        {"beamPrecompression":0.5, "beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamPrecompression":0.4, "beamType":"|SUPPORT", "beamLongBound":5},
         {"beamSpring":2501000,"beamDamp":500,"beamDeform":95000,"beamStrength":900000},
         {"optional":true},
-        ["fw1rr", "a20"],
+        ["fw1rr", "fs1r", {"precompressionRange":-0.35}],
         ["fw1rr", "a16"],
-        ["fw1rr", "a84"],
-        ["fw1rr", "a53"],
-        ["fw1rr", "a21"],
-        ["fw1rr", "a85"],
-        ["fw1r", "a20"],
         ["fw1r", "a16"],
-        ["fw1r", "a53"],
         //*
-        ["fw1ll", "a23"],
+        ["fw1ll", "fs1l", {"precompressionRange":-0.35}],
         ["fw1ll", "a19"],
-        ["fw1ll", "a87"],
-        ["fw1ll", "a54"],
-        ["fw1ll", "a22"],
-        ["fw1ll", "a86"],
-        ["fw1l", "a23"],
         ["fw1l", "a19"],
-        ["fw1l", "a54"],
         //y axis reinforce
         {"beamSpring":8501000,"beamDamp":200},
         {"beamPrecompression":1},
@@ -460,9 +448,9 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //mount damper
-        {"spring":6500, "damp":1, "deform":45000, "strength":125000},
-        ["fh2r", "fs2r", "fh1r", "fh3r"],
-        ["fh2l", "fs2l", "fh1l", "fh3l"],    
+        {"spring":6500, "damp":0, "deform":45000, "strength":125000},
+        ["fh2r", "fs2r", "fw1rr", "fw1r"],
+        ["fh2l", "fs2l", "fw1ll", "fw1l"], 
         //arm rigidifier
         {"spring":10000, "damp":1, "deform":20000, "strength":20000},
         ["farb3r", "fx2r", "fx1r", "fh1r"], 
@@ -628,7 +616,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //hub form
-        {"beamSpring":6501000,"beamDamp":180},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
         ["fh1r","fh3r"],
         ["fh2r","fh1r"],
@@ -646,7 +634,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper mount to hub
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":125000,"beamStrength":285000},
         ["fs2l","fh1l"],
         ["fs2r","fh1r"],
@@ -685,7 +673,7 @@
         ["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":60}],
         ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":20}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
         ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.02","beamPrecompressionTime":0.5}],
@@ -705,8 +693,8 @@
 
         //tie rods
         {"beamSpring":18001000,"beamDamp":400},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0019","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0019","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.002","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.002","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
 
         //--Anti-Roll Bar--
         //arb mount point
@@ -893,31 +881,19 @@
         ["fmassl", "fps1l", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":101000,"beamLimitDamp":100,"beamLimitDampRebound":1000}],
         {"beamSpring":0,"beamDamp":0},
         
-        //--Limiters--,
+        //--Limiters--
         //wheel limiter
         {"deformLimitExpansion":""},
-        {"beamPrecompression":0.5, "beamType":"|SUPPORT", "beamLongBound":5},
+        {"beamPrecompression":0.4, "beamType":"|SUPPORT", "beamLongBound":5},
         {"beamSpring":2501000,"beamDamp":500,"beamDeform":95000,"beamStrength":900000},
         {"optional":true},
-        ["fw1rr", "a20"],
+        ["fw1rr", "fs1r", {"precompressionRange":-0.35}],
         ["fw1rr", "a16"],
-        ["fw1rr", "a84"],
-        ["fw1rr", "a53"],
-        ["fw1rr", "a21"],
-        ["fw1rr", "a85"],
-        ["fw1r", "a20"],
         ["fw1r", "a16"],
-        ["fw1r", "a53"],
         //*
-        ["fw1ll", "a23"],
+        ["fw1ll", "fs1l", {"precompressionRange":-0.35}],
         ["fw1ll", "a19"],
-        ["fw1ll", "a87"],
-        ["fw1ll", "a54"],
-        ["fw1ll", "a22"],
-        ["fw1ll", "a86"],
-        ["fw1l", "a23"],
         ["fw1l", "a19"],
-        ["fw1l", "a54"],
         //y axis reinforce
         {"beamSpring":8501000,"beamDamp":200},
         {"beamPrecompression":1},
@@ -952,9 +928,9 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //mount damper
-        {"spring":6500, "damp":1, "deform":45000, "strength":125000},
-        ["fh2r", "fs2r", "fh1r", "fh3r"],
-        ["fh2l", "fs2l", "fh1l", "fh3l"], 
+        {"spring":6500, "damp":0, "deform":45000, "strength":125000},
+        ["fh2r", "fs2r", "fw1rr", "fw1r"],
+        ["fh2l", "fs2l", "fw1ll", "fw1l"], 
         //arm rigidifier
         {"spring":10000, "damp":1, "deform":20000, "strength":20000},
         ["farb3r", "fx2r", "fx1r", "fh1r"], 
