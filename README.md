@@ -109,7 +109,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Dimensions and Weight
 - Size: 4099mm/1875mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
-- Weight: 1190kg with one spare/1360kg with crew and one spare/1390kg running weight/~50:50 weight distribution
+- Weight: 1190kg minimum/1390kg running weight/~50:50 weight distribution
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/BRC ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
@@ -148,7 +148,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Dimensions and Weight
 - Size: 3996mm/1820mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
-- Weight: 1230kg with one spare/1390kg with crew and one spare/1420kg running weight/~52:48 weight distribution
+- Weight: 1230kg minimum/1420kg running weight/~52:48 weight distribution
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/Rally2 ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/32mm turbo restrictor
@@ -189,7 +189,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Dimensions and Weight
 - Size: 3996mm/1820mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
-- Weight: 1200kg with one spare/1360kg with crew and one spare/1390kg running weight/~50:50 weight distribution
+- Weight: 1200kg minimum/1390kg running weight/~50:50 weight distribution
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/Pre-17 ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/33mm turbo restrictor
@@ -253,7 +253,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Dimensions and Weight
 - Size: 4134mm/1875mm/Height Adjustble
 - Wheelbase: 2601mm/Adjustable
-- Weight: 1260kg with one spare/1410kg with crew and one spare/1440kg running weight/~50:50 weight distribution
+- Weight: 1260kg minimum/1440kg running weight/~50:50 weight distribution
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/BRC ECU and modification **Without Hybrid**
 - Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
