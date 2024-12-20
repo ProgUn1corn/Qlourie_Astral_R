@@ -113,7 +113,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/BRC ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
-- Power: 380hp@6000RPM/450Nm@5500RPM
+- Power: Over 380hp@6500RPM/Over 440Nm@5500RPM
 - Transmission: 6-speed sequential transmission/Paddle shifter
 - Top Speed: 200 km/h (ratio specific)
 - Differential: Front and rear LSD/Active center differential 43:57 and 36:64, with hydraulic handbrake disengage mechanism
@@ -153,7 +153,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/Rally2 ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/32mm turbo restrictor
-- Power: 293hp@5500RPM/426Nm@4500RPM
+- Power: 288hp@5500RPM/421Nm@4000RPM
 - Transmission: 5-speed sequential transmission/Stick shifter
 - Top Speed: 187 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
@@ -195,7 +195,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/Pre-17 ECU and modification
 - Intake: 2.5 bar anti-lag turbocharger/33mm turbo restrictor
-- Power: 313hp@6000RPM/430Nm@5000RPM
+- Power: 310hp@6250RPM/423Nm@4000RPM
 - Transmission: 6-speed sequential transmission/Paddle shifter
 - Top Speed: 197 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
@@ -225,7 +225,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPF 2.0L inline 4/WRX ECU and modification
 - Intake: 3.4 bar anti-lag turbocharger/45mm turbo restrictor
-- Power: 600hp@6000RPM/850Nm@4500RPM
+- Power: 600hp@6000RPM/850Nm@4000RPM
 - Transmission: 6-speed sequential transmission/Stick shifter
 - Top Speed: 226 km/h (ratio specific)
 - Differential: Front and rear LSD/Center LSD, with hydraulic handbrake disengage mechanism
@@ -261,7 +261,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 ### Engine and Transmission
 - Engine: H4DPA 1.6L inline 4/BRC ECU and modification **Without Hybrid**
 - Intake: 2.5 bar anti-lag turbocharger/36mm turbo restrictor
-- Power: 380hp@6000RPM/450Nm@5500RPM
+- Power: Same as BRC
 - Transmission: 5-speed sequential transmission/Stick shifter
 - Top Speed: 193 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
