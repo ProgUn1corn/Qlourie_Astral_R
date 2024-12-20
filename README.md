@@ -117,7 +117,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Transmission: 6-speed sequential transmission/Paddle shifter
 - Top Speed: 200 km/h (ratio specific)
 - Differential: Front and rear LSD/Active center differential 43:57 and 36:64, with hydraulic handbrake disengage mechanism
-![Astral_R](Docs/Dyno/BRC_Dyno.jpg)
+![Astral_R](Docs/Dyno/BRC_Dyno.png)
 ### Suspension
 - Spring rates:
 
@@ -158,7 +158,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Top Speed: 187 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
 - Safari Kit: Snorkel and bullbar included following 2021 regulations
-![Astral_R](Docs/Dyno/Rally2_Dyno.jpg)
+![Astral_R](Docs/Dyno/Rally2_Dyno.png)
 ### Suspension
 - Spring rates:
   
@@ -199,7 +199,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Transmission: 6-speed sequential transmission/Paddle shifter
 - Top Speed: 197 km/h (ratio specific)
 - Differential: Front and rear LSD/Locking center shaft, with hydraulic handbrake disengage mechanism
-![Astral_R](Docs/Dyno/1316_Dyno.jpg)
+![Astral_R](Docs/Dyno/1316_Dyno.png)
 ### Suspension
 - Spring rates:
   Same as Rally2
@@ -229,7 +229,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Transmission: 6-speed sequential transmission/Stick shifter
 - Top Speed: 226 km/h (ratio specific)
 - Differential: Front and rear LSD/Center LSD, with hydraulic handbrake disengage mechanism
-![Astral_R](Docs/Dyno/RX_Dyno.jpg)
+![Astral_R](Docs/Dyno/RX_Dyno.png)
 ### Suspension
 - Spring rates:
   
