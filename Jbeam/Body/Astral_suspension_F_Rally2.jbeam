@@ -249,7 +249,7 @@
         {"breakGroup":""}
         {"optional":false}
         //piston outer shell
-        {"beamSpring":1201000,"beamDamp":150},
+        {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":155000,"beamStrength":305000},
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
@@ -258,7 +258,7 @@
         ["fh2r", "fs2r"],
         ["fh2l", "fs2l"],
         //strut platform height (preload)
-        {"beamSpring":1201000,"beamDamp":150},
+        {"beamSpring":1501000,"beamDamp":150},
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.5}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.5}],
         
@@ -277,15 +277,15 @@
             "longBoundRange":0,"shortBoundRange":0.220,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
-            "beamLimitDampRebound":1000,
-            "dampCutoffHz":500}
+            "beamLimitDampRebound":500,
+            "dampCutoffHz":250}
         ],
          ["fh2l","fs1l", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.220,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
-            "beamLimitDampRebound":1000,
-            "dampCutoffHz":500}
+            "beamLimitDampRebound":500,
+            "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FR"},
         {"beamDeform":125000,"beamStrength":175000},
@@ -299,7 +299,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         //hard bump stop
         ["fh2r","fs1r", {
@@ -339,7 +339,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         ["fh2l","fs1l", {
             "name":"bumpstop_FL", 
@@ -704,7 +704,7 @@
         {"breakGroup":""}
         {"optional":false}
         //piston outer shell
-        {"beamSpring":1201000,"beamDamp":150},
+        {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":155000,"beamStrength":305000},
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
@@ -713,7 +713,7 @@
         ["fh2r", "fs2r"],
         ["fh2l", "fs2l"],
         //strut platform height (preload)
-        {"beamSpring":1201000,"beamDamp":150},
+        {"beamSpring":1501000,"beamDamp":150},
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.5}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.5}],
         
@@ -732,15 +732,15 @@
             "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
-            "beamLimitDampRebound":1000,
-            "dampCutoffHz":500}
+            "beamLimitDampRebound":500,
+            "dampCutoffHz":250}
         ],
          ["fh2l","fs1l", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
-            "beamLimitDampRebound":1000,
-            "dampCutoffHz":500}
+            "beamLimitDampRebound":500,
+            "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FR"},
         {"beamDeform":125000,"beamStrength":175000},
@@ -754,7 +754,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         ["fh2r","fs1r", { //1-phase valve close HBS
             "name":"bumpstop_FR", 
@@ -801,7 +801,7 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":500}
+            "dampCutoffHz":400}
         ],
         ["fh2l","fs1l", { //1-phase valve close HBS
             "name":"bumpstop_FL", 
