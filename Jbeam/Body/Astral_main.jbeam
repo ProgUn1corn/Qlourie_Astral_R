@@ -54,11 +54,12 @@
 		//--Refnodes--
 		{"group":[""]},
 		{"collision":false},
-		{"nodeWeight":2},
+		{"nodeWeight":1.5},
 		["cup", 0, 0, 0.5],
 		["cur",  0,   0, 0.0],
 		["clf",  0.5, 0, 0.0],
 		["cbk",  0, 0.5, 0.0],
+		{"nodeWeight":2},
 		{"collision":true},
 		["br1r", -0.429, -1.559, 0.326, {"selfCollision":false}],
 		["br1l",  0.429, -1.559, 0.326, {"selfCollision":false}],
@@ -84,7 +85,7 @@
 		{"optional":true},
 		//--Center Chassis--
 		//main shape
-		{"beamSpring":3501000,"beamDamp":150},
+		{"beamSpring":3201000,"beamDamp":150},
 		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		["a8", "a12"],
 		["a9", "a13"],
@@ -139,7 +140,7 @@
 		["a8", "a23"],	
 		["a11", "a20"],		
 		//tunnel rigidifier
-		{"beamSpring":1201000,"beamDamp":80},
+		{"beamSpring":1201000,"beamDamp":50},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
 		["cup", "a13"],
 		["cup", "a14"],
@@ -152,14 +153,14 @@
 		["cup", "a47"],
 		["cup", "a44"],
 		//refnodes
-		{"beamSpring":1501000,"beamDamp":150},
+		{"beamSpring":1201000,"beamDamp":100},
 		["cur", "cup"],
 		["cur", "cbk"],
 		["cur", "clf"],
 		["cup", "cbk"],
 		["cup", "clf"],
 		["cbk", "clf"],
-		{"beamSpring":1201000,"beamDamp":150},
+		{"beamSpring":1001000,"beamDamp":100},
 		["cur", "a12"],
 		["cur", "a15"],
 		["cur", "a17"],
@@ -172,7 +173,7 @@
 		["cur", "a54"],
 		["cur", "a41"],
 		["cur", "a42"],
-		{"beamSpring":1201000,"beamDamp":150},
+		{"beamSpring":801000,"beamDamp":100},
 		["clf", "a14"],
 		["clf", "a15"],
 		["clf", "a18"],
@@ -183,7 +184,7 @@
 		["clf", "a54"],
 		["clf", "a41"],
 		["clf", "a42"],
-		{"beamSpring":1201000,"beamDamp":150},
+		{"beamSpring":1001000,"beamDamp":100},
 		["cbk", "a12"],
 		["cbk", "a15"],
 		["cbk", "a9"],
@@ -197,7 +198,7 @@
 
 		//--Rear Chassis--
 		//main shape
-		{"beamSpring":4501000,"beamDamp":150},
+		{"beamSpring":5501000,"beamDamp":180},
 		{"beamDeform":30000, "beamStrength":"FLT_MAX"},
 		["a5", "a6"],
 		["a37", "a38"],
@@ -246,7 +247,7 @@
 		["chs1r", "chs2l"],
 		["chs1l", "chs2r"],
 		//rigidifier
-		{"beamSpring":3501000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":180},
 		{"beamDeform":16000},
 		["chsr", "a5"],
 		["chsr", "a6"],
@@ -259,7 +260,7 @@
 		["chsr", "chs2r"],
 		["chsr", "chs2l"],
 		//shock tower mount to chassis
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":125},
         {"beamDeform":65000,"beamStrength":185000},
         {"breakGroup":"strut_RR"},
         ["rs1r", "chsr"],
@@ -312,7 +313,7 @@
 		
 		//--Front Chassis--
 		//main shape
-		{"beamSpring":3501000,"beamDamp":150},
+		{"beamSpring":4201000,"beamDamp":180},
 		{"beamDeform":22000,"beamStrength":"FLT_MAX"},
 		["a53", "a54"],
 		["a53", "a20"],
@@ -365,7 +366,7 @@
 		["chs3r", "chs4l"],
 		["chs3l", "chs4r"],
 		//rigidifier
-		{"beamSpring":3501000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":180},
 		{"beamDeform":10000},
 		["chsf", "br1r"],
 		["chsf", "br1l"],
@@ -378,7 +379,7 @@
 		["chsf", "chs4r"],
 		["chsf", "chs4l"],
 		//shock tower mount to chassis
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":6501000,"beamDamp":150},
         {"beamDeform":45000,"beamStrength":185000},
         {"breakGroup":"strut_FR"},
         ["fs1r", "chs3r"],
@@ -512,19 +513,19 @@
 		["chs1l",  0.501, 1.32, 0.663],
 		["chs2r", -0.467, 1.25, 0.373, {"selfCollision":false}],
 		["chs2l",  0.467, 1.25, 0.373, {"selfCollision":false}],
-		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false}],
-		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false}],
+		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false, "nodeWeight":6.5}],
+		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare","Astral_duct_R"],"selfCollision":false, "nodeWeight":6.5}],
         //overriden by suspension 
 		["rs1r", -0.608, 1.299, 0.797],
         ["rs1l",  0.608, 1.299, 0.797],
 		//rigidifier
-		{"nodeWeight":5.01},
+		{"nodeWeight":5},
 		{"group":[""]},
 		["chsr",  0, 1.283, 0.365, {"selfCollision":false, "collision":true}],
 
 		//--Center Chassis--
 		//tunnel
-		{"nodeWeight":4.5}
+		{"nodeWeight":4.4}
 		{"group":["Astral_chassis"]},
 		["a9",  -0.202, 0.736, 0.13],
 		["a10",  0.202, 0.736, 0.13],
@@ -549,8 +550,8 @@
 		//--Front Chassis--
 		{"nodeWeight":6},
 		{"group":["Astral_chassis_F"]},
-		["a53", -0.47, -0.925, 0.513, {"group":["Astral_chassis_F","Astral_copilot"]}],
-		["a54",  0.47, -0.925, 0.513],
+		["a53", -0.47, -0.925, 0.513, {"group":["Astral_chassis_F","Astral_copilot"], "nodeWeight":6.5}],
+		["a54",  0.47, -0.925, 0.513, {"nodeWeight":6.5}],
 		{"nodeWeight":5},
 		["chs3l",  0.492, -1.235, 0.727],
 		["chs3r", -0.492, -1.235, 0.727],
@@ -1222,13 +1223,13 @@
 	"torsionbars":[
         ["id1:", "id2:", "id3:", "id4:"],
         //rigidify firewall
-        {"spring":550000, "damp":50, "deform":6000, "strength":100000},
+        {"spring":450000, "damp":10, "deform":6000, "strength":100000},
         ["br1r", "a53", "a54", "a19"],
         ["br1l", "a54", "a53", "a16"],
 		["a85", "a21", "a22", "a15"],
         ["a86", "a22", "a21", "a12"],
         //rigidify axle well
-        {"spring":500000, "damp":50, "deform":6000, "strength":100000},
+        {"spring":300000, "damp":10, "deform":6000, "strength":100000},
         ["a15", "a42", "a41", "a37"],
         ["a12", "a41", "a42", "a38"],
         ["a11", "a38", "a37", "a5"],
