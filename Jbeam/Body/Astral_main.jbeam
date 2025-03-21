@@ -28,12 +28,12 @@
     ],
 	"refNodes": [
         ["ref:", "back:", "left:", "up:", "leftCorner:", "rightCorner:"],
-        ["cur", "cbk", "clf", "cup", "br1l", "br1r"]
+        ["a17", "a13", "a18", "cup", "br1l", "br1r"]
     ],
     "cameraExternal":{
         "distance":5
 		"distanceMin":1.5
-        "offset":{"x":0, "y":0.05, "z":0.65},
+        "offset":{"x":0.112, "y":0.05, "z":0.65},
         "fov":65
     }, 
 	"nodes": [       
@@ -54,11 +54,8 @@
 		//--Refnodes--
 		{"group":[""]},
 		{"collision":false},
-		{"nodeWeight":1.5},
-		["cup", 0, 0, 0.5],
-		["cur",  0,   0, 0.0],
-		["clf",  0.25, 0, 0.0],
-		["cbk",  0, 0.5, 0.0],
+		{"nodeWeight":2},
+		["cup", -0.112, -0.214, 0.25],
 		{"nodeWeight":2},
 		{"collision":true},
 		["br1r", -0.429, -1.559, 0.326, {"selfCollision":false}],
@@ -140,62 +137,20 @@
 		["a8", "a23"],	
 		["a11", "a20"],		
 		//tunnel rigidifier
-		{"beamSpring":1201000,"beamDamp":50},
+		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
+		["cup", "a9"],
+		["cup", "a10"],
 		["cup", "a13"],
 		["cup", "a14"],
+		["cup", "a16"],
 		["cup", "a17"],
 		["cup", "a18"],
-		["cup", "a41"],
-		["cup", "a42"],
+		["cup", "a19"],
 		["cup", "a53"],
 		["cup", "a54"],
-		["cup", "a47"],
-		["cup", "a44"],
-		//refnodes
-		{"beamSpring":1201000,"beamDamp":100},
-		["cur", "cup"],
-		["cur", "cbk"],
-		["cur", "clf"],
-		["cup", "cbk"],
-		["cup", "clf"],
-		["cbk", "clf"],
-		{"beamSpring":1001000,"beamDamp":100},
-		["cur", "a12"],
-		["cur", "a15"],
-		["cur", "a17"],
-		["cur", "a18"],
-		["cur", "a16"],
-		["cur", "a19"],
-		["cur", "a13"],
-		["cur", "a14"],
-		["cur", "a53"],
-		["cur", "a54"],
-		["cur", "a41"],
-		["cur", "a42"],
-		{"beamSpring":801000,"beamDamp":100},
-		["clf", "a14"],
-		["clf", "a15"],
-		["clf", "a18"],
-		["clf", "a19"],
-		["clf", "a13"],
-		["clf", "a14"],
-		["clf", "a53"],
-		["clf", "a54"],
-		["clf", "a41"],
-		["clf", "a42"],
-		{"beamSpring":1001000,"beamDamp":100},
-		["cbk", "a12"],
-		["cbk", "a15"],
-		["cbk", "a9"],
-		["cbk", "a10"],
-		["cbk", "a8"],
-		["cbk", "a11"],
-		["cbk", "a13"],
-		["cbk", "a14"],
-		["cbk", "a41"],
-		["cbk", "a42"],
-
+		["cup", "a21"],
+		
 		//--Rear Chassis--
 		//main shape
 		{"beamSpring":5501000,"beamDamp":180},
@@ -531,8 +486,8 @@
 		["a10",  0.202, 0.736, 0.13],
 		["a13", -0.112, 0.262, 0.069],
 		["a14",  0.112, 0.262, 0.069],
-		["a17", -0.112, -0.314, 0.069],
-		["a18",  0.112, -0.314, 0.069],
+		["a17", -0.112, -0.214, 0.069],
+		["a18",  0.112, -0.214, 0.069],
 		["a21", -0.202, -0.855, 0.13, {"selfCollision":false}],
 		["a22",  0.202, -0.855, 0.13, {"selfCollision":false}],
 		//panel
@@ -814,7 +769,7 @@
 		//--Rear Trunk--
 		//trunk shape
 		{"beamSpring":801000,"beamDamp":150},
-		{"beamDeform":4500,"beamStrength":1145141919},
+		{"beamDeform":4200,"beamStrength":1145141919},
 		["a70", "a72"],
 		["a65", "a70"],
 		["a65", "a33"],
@@ -887,7 +842,7 @@
 		//--Quarter Panel and Rear Pillar--
 		//quarter panel shape
 		{"beamSpring":2501000,"beamDamp":150},
-		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":5800,"beamStrength":"FLT_MAX"},
 		["qp1r", "qp2r"],
 		["qp1r", "a65"],
 		["qp1r", "a40"],
@@ -902,7 +857,7 @@
 		["qp2l", "a71"],
 		["qp2l", "a75"],
 		//quarter panel crossing
-		{"beamDeform":10500},
+		{"beamDeform":4500},
 		["qp1r", "a71"],
 		["qp1r", "a75"],
 		["qp2r", "a68"],
@@ -913,12 +868,12 @@
 		["qp2l", "a65"],
 		["qp2l", "a40"],
 		//rigids
-		{"beamDeform":8500},
+		{"beamDeform":2500},
 		["qp1r", "a44"],
 		["qp1l", "a47"],
 		//rear door shape
 		{"beamSpring":1401000,"beamDamp":150},
-		{"beamDeform":15500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
 		["d1r", "d2r"],
 		["a40", "d1r"],
 		["a40", "a72"],
@@ -933,7 +888,7 @@
 		["a47", "d2l"],
 		["a47", "a79"],
 		//rear door crossing
-		{"beamDeform":13000},
+		{"beamDeform":10000},
 		["d1r", "a44"],
 		["d2r", "a40"],
 		["a40", "a76"],
@@ -945,7 +900,7 @@
 		["a47", "a75"],
 		//rear door rigids
 		{"beamSpring":2001000,"beamDamp":100},
-		{"beamDeform":12500},
+		{"beamDeform":8500},
 		["d1r", "a72"],
 		["d1l", "a75"],
 		["d2r", "a76"],
@@ -988,7 +943,7 @@
 		//--Door Frame--
 		//shape
 		{"beamSpring":1201000,"beamDamp":180},
-		{"beamDeform":16500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
 		["d2r", "d3r"],
 		["d3r", "d4r"],
 		["d4r", "a84"],
@@ -1002,7 +957,7 @@
 		["d2l", "d4l"],
 		//attach door frame
 		{"beamSpring":1501000,"beamDamp":150},
-		{"beamDeform":16000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":10000,"beamStrength":"FLT_MAX"},
 		["d2r", "a12"],
 		["d2r", "a80"],
 		["d3r", "a16"],
