@@ -17,6 +17,10 @@
 		["Astral_turbo", ["Astral_engine","Astral_turbo"]],
 		["Astral_turbo_piping", ["Astral_engine","Astral_turbo"]],
 	],
+	"controller": [
+        ["fileName"],
+        ["powertrainControl/antiLag", {"name":"antiLag"}],
+    ],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
@@ -86,6 +90,13 @@
 		"inertia":0.5,
 		"damageThresholdTemperature": 850,
 	},
+	"antiLag": {
+        "turboTargetRPM":125100,
+        "minActiveEngineRPM": 3000,
+        "minActiveWheelSpeed": 1,
+        "maxActiveThrottleInput": 0.2,
+        "minActiveBrakeInput": 0.2,
+    },
 	"mainEngine": {
 		"turbocharger":"turbocharger",
 		"deformGroups_turbo":["mainEngine_turbo","mainEngine_intercooler"]
@@ -109,6 +120,10 @@
 		["Astral_turbo", ["Astral_engine","Astral_turbo"]],
 		["Astral_turbo_piping", ["Astral_engine","Astral_turbo"]],
 	],
+	"controller": [
+        ["fileName"],
+        ["powertrainControl/antiLag", {"name":"antiLag"}],
+    ],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
@@ -177,6 +192,13 @@
 		"inertia":0.8,
 		"damageThresholdTemperature": 850,
 	},
+	"antiLag": {
+        "turboTargetRPM":135100,
+        "minActiveEngineRPM": 3000,
+        "minActiveWheelSpeed": 1,
+        "maxActiveThrottleInput": 0.2,
+        "minActiveBrakeInput": 0.2,
+    },
 	"mainEngine": {
 		"turbocharger":"turbocharger"
 		"deformGroups_turbo":["mainEngine_turbo","mainEngine_intercooler"]
@@ -195,13 +217,19 @@
 		["Astral_intake_interpipe_BRC", ["Astral_intercooler","Astral_airbox"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
+	"components": {
+        "exhaustPowerAdd": {
+        },
+    },
 	"turbocharger": {
 		"$*bovSoundVolumeCoef": 1.44,
 		"$*turboSizeCoef": 0.95,
-		"wastegateStart":[35.8, 36]
-		"maxExhaustPower": 32000,
-		"backPressureCoef": 0.00003,
-		"pressureRatePSI": 80,
+		"wastegateStart":35,
+		"wastegateLimit":36,
+		"maxExhaustPower": 1080,
+		"maxAntilagPower":200,
+		"backPressureCoef": 0.0000013,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.8,
 		"$*inertia":0.9,
 		"pressurePSI":[
@@ -367,10 +395,12 @@
 	"turbocharger": {
 	    "$*bovSoundVolumeCoef": 0.95,
 		"$*turboSizeCoef": 0.95,
-		"wastegateStart":[35.8, 36]
-		"maxExhaustPower": 32000,
-		"backPressureCoef": 0.00003,
-		"pressureRatePSI": 75,
+		"wastegateStart":35,
+		"wastegateLimit":36,
+		"maxExhaustPower": 1080,
+		"maxAntilagPower":165,
+		"backPressureCoef": 0.0000013,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.95,
 		"$*inertia":0.95,
 		"pressurePSI":[
@@ -534,10 +564,12 @@
 	"turbocharger": {
 	    "$*bovSoundVolumeCoef": 0.95,
 		"$*turboSizeCoef": 0.75,
-		"wastegateStart":[35.8, 36]
-		"maxExhaustPower": 32000,
-		"backPressureCoef": 0.00003,
-		"pressureRatePSI": 80,
+		"wastegateStart":35,
+		"wastegateLimit":36,
+		"maxExhaustPower": 1080,
+		"maxAntilagPower":188,
+		"backPressureCoef": 0.0000013,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.95,
 		"$*inertia":0.9,
 		"pressurePSI":[
@@ -702,10 +734,12 @@
 	"turbocharger": {
 		"$*bovSoundVolumeCoef": 0.95,
 		"$*turboSizeCoef": 0.75,
-		"wastegateStart":[35.8, 36]
-		"maxExhaustPower": 32000,
-		"backPressureCoef": 0.00003,
-		"pressureRatePSI": 85,
+		"wastegateStart":35,
+		"wastegateLimit":36,
+		"maxExhaustPower": 1080,
+		"maxAntilagPower":200,
+		"backPressureCoef": 0.0000013,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.95,
 		"$*inertia":0.8,
 		"pressurePSI":[
@@ -871,10 +905,12 @@
 	"turbocharger": {
 		"$*bovSoundVolumeCoef": 1.15,
 		"$*turboSizeCoef": 1,
-		"wastegateStart":[49, 50]
-		"maxExhaustPower": 30000,
-		"backPressureCoef": 0.00003,
-		"pressureRatePSI": 80,
+		"wastegateStart":49,
+		"wastegateLimit":50,
+		"maxExhaustPower": 1080,
+		"maxAntilagPower":350,
+		"backPressureCoef": 0.0000013,
+		"pressureRatePSI": 60,
 		"$*frictionCoef":0.8,
 		"$*inertia":0.9,
 		"pressurePSI":[
@@ -1028,10 +1064,12 @@
 	"turbocharger": {
 		"$*bovSoundVolumeCoef": 1.15,
 		"$*turboSizeCoef": 1,
-		"wastegateStart":[49, 50]
-		"maxExhaustPower": 32000,
-		"backPressureCoef": 0.00003,
-		"pressureRatePSI": 85,
+		"wastegateStart":49,
+		"wastegateLimit":50,
+		"maxExhaustPower": 1080,
+		"maxAntilagPower":350,
+		"backPressureCoef": 0.0000013,
+		"pressureRatePSI": 60,
 		"$*frictionCoef":0.8,
 		"$*inertia":0.8,
 		"pressurePSI":[
