@@ -29,7 +29,7 @@
         ["$dampRate_stop_F", "range", "Click", "Suspension", 9000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.1, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.1,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.29, 0.27, 0.29, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":270,"maxDis":290,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.245, 0.235, 0.255, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":235,"maxDis":255,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.27, 0.25, 0.27, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":250,"maxDis":270,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":60,"subCategory":"Front Damper"}],
     ],
     "nodes": [
@@ -205,10 +205,10 @@
         {"beamSpring":5501000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.028","beamPrecompressionTime":0.5}],
+        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.03","beamPrecompressionTime":0.5}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.028","beamPrecompressionTime":0.5}],
+        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.03","beamPrecompressionTime":0.5}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -222,8 +222,8 @@
         //tie rods
         {"beamSpring":18001000,"beamDamp":600},
         {"beamDeform":285100,"beamStrength":375000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0016","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0016","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0018","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0018","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
         //hub reinforcement
         {"beamSpring":0,"beamDamp":500},
         ["fh1r","a17", {"dampCutoffHz":500}],

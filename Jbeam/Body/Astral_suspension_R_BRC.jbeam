@@ -8,8 +8,8 @@
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_R_BRC","Hub", {"nodeOffset":{"x":"$=0.340+$TrackRear", "y":1.26, "z":0.15}}],
-        ["Astral_brake_R","Astral_brake_R_370", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.15}}],
+        ["Astral_hubs_R","Astral_hubs_R_BRC","Hub", {"nodeOffset":{"x":"$=0.340+$TrackRear", "y":1.26, "z":0.17}}],
+        ["Astral_brake_R","Astral_brake_R_370", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.17}}],
         ["Astral_brake_duct_tarmac","Astral_brake_duct_no_tarmac", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.15}, "coreSlot":true}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_spring_R_BRC_tarmac","Astral_spring_R_BRC_tarmac_43", "Spring"],
@@ -28,8 +28,8 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 10000, 8000, 12000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.225, 0.205, 0.225, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":205,"maxDis":225,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.200, 0.180, 0.200 "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":180,"maxDis":200,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.210, 0.190, 0.210, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":190,"maxDis":210,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.175, 0.165, 0.185 "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":165,"maxDis":185,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension", 325, 250, 450, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":250,"maxDis":450,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.035, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":60,"subCategory":"Rear Damper"}],
@@ -282,14 +282,14 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.235,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.220,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":500,
             "dampCutoffHz":250}
         ],
          ["rh2l","rs1l", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.235,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.220,"boundZone":0.01,
             "beamLimitSpring":1501000,
             "beamLimitDamp":1000, 
             "beamLimitDampRebound":500,
@@ -499,8 +499,8 @@
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_R_BRC","Hub", {"nodeOffset":{"x":"$=0.305+$TrackRear", "y":1.26, "z":0.020}}],
-        ["Astral_brake_R","Astral_brake_R_300", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.020}}],
+        ["Astral_hubs_R","Astral_hubs_R_BRC","Hub", {"nodeOffset":{"x":"$=0.305+$TrackRear", "y":1.26, "z":0.010}}],
+        ["Astral_brake_R","Astral_brake_R_300", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.010}}],
         ["Astral_brake_duct_gravel","Astral_brake_duct_no_gravel", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.015}, "coreSlot":true}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_spring_R_BRC_gravel","Astral_spring_R_BRC_gravel_225", "Spring"],
@@ -715,8 +715,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":18001000,"beamDamp":1500},
-        ["rh3l", "rx5l", {"precompressionRange":"$=$toe_R-0.0014","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
-        ["rh3r", "rx5r", {"precompressionRange":"$=$toe_R-0.0014","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["rh3l", "rx5l", {"precompressionRange":"$=$toe_R-0.0012","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
+        ["rh3r", "rx5r", {"precompressionRange":"$=$toe_R-0.0012","beamPrecompressionTime":0.5,"dampCutoffHz":500}],
         {"beamSpring":6501000,"beamDamp":150},
         ["rx5r","rx2r"],
         ["rx5l","rx2l"],
