@@ -31,7 +31,7 @@
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.24, 0.22, 0.24, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":220,"maxDis":240,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.200, 0.195, 0.215, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":195,"maxDis":215,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Suspension", 325, 250, 450, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":250,"maxDis":450,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampGas_R", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.035, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":60,"subCategory":"Rear Damper"}],
     ],
     "nodes": [
@@ -182,7 +182,7 @@
         ["rs3l","rh5l"],
         ["rs3l","rh3l"],
         //hub to wheel axle nodes
-        {"beamSpring":8501000,"beamDamp":150},
+        {"beamSpring":9501000,"beamDamp":150},
         {"beamDeform":100500,"beamStrength":265000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
@@ -275,8 +275,8 @@
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.25}], //shaft rod diameter 18mm
-        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.25}],
+        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.05}], //shaft rod diameter 18mm
+        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.05}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -523,7 +523,7 @@
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.270, 0.250, 0.270, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":250,"maxDis":270,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.230, 0.220, 0.240, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":220,"maxDis":240,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.2, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Suspension", 400, 250, 450, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":250,"maxDis":450,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampGas_R", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.04, 0.0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":80,"subCategory":"Rear Damper"}],
     ],
     "nodes": [
@@ -674,7 +674,7 @@
         ["rs3l","rh5l"],
         ["rs3l","rh3l"],
         //hub to wheel axle nodes
-        {"beamSpring":8501000,"beamDamp":150},
+        {"beamSpring":9501000,"beamDamp":150},
         {"beamDeform":100500,"beamStrength":265000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
@@ -767,8 +767,8 @@
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.25}], //shaft rod diameter 18mm
-        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.25}],
+        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.05}], //shaft rod diameter 18mm
+        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.05}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
