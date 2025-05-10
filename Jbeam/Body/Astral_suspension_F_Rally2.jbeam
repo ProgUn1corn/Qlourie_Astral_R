@@ -29,7 +29,7 @@
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.2, 1, "Front LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"minDis":0.2,"maxDis":1,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.190, 0.180, 0.210, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":180,"maxDis":210,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.04, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":60,"subCategory":"Front Damper"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.035, 0.02, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":20,"maxDis":60,"subCategory":"Front Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -44,7 +44,7 @@
         ["fh1r", -0.725, -1.318, 0.015],
         ["fh1l",  0.725, -1.318, 0.015],
         //strut attach
-        {"nodeWeight":4.75},
+        {"nodeWeight":5},
         {"group":["Astral_hub_F","Astral_damper_F"]},
         ["fh2r", -0.592, -1.313, 0.41],
         ["fh2l",  0.592, -1.313, 0.41],
@@ -78,7 +78,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":8.5},
+        {"nodeWeight":9.5},
         ["fs1r", -0.562, -1.25, 0.805],
         ["fs1l",  0.562, -1.25, 0.805],
         //lower spring collar
@@ -201,7 +201,7 @@
         ["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":60}],
         ["fs2l","fw1ll", {"beamSpring":4501000,"beamDamp":40}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":7501000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
         ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront","beamPrecompressionTime":0.5}],
@@ -492,7 +492,7 @@
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.295, 0.275, 0.295, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":275,"maxDis":295,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.250, 0.240, 0.260, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":240,"maxDis":260,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.05, 0, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":80,"subCategory":"Front Damper"}],
+        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.04, 0.02, 0.08, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":20,"maxDis":80,"subCategory":"Front Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -507,7 +507,7 @@
         ["fh1r", -0.725, -1.318, -0.07],
         ["fh1l",  0.725, -1.318, -0.07],
         //strut attach
-        {"nodeWeight":4.75},
+        {"nodeWeight":5},
         {"group":["Astral_hub_F","Astral_damper_F"]},
         ["fh2r", -0.601, -1.321, 0.255],
         ["fh2l",  0.601, -1.321, 0.255], 
@@ -664,7 +664,7 @@
         ["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":60}],
         ["fs2l","fw1ll", {"beamSpring":4501000,"beamDamp":40}],
         //camber
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":7501000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
         ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.04","beamPrecompressionTime":0.5}],
@@ -684,8 +684,8 @@
         //tie rods
         {"beamSpring":18001000,"beamDamp":600},
         {"beamDeform":285100,"beamStrength":375000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.002","beamPrecompressionTime":0.5,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.002","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0021","beamPrecompressionTime":0.5,"dampCutoffHz":1000}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0021","beamPrecompressionTime":0.5,"dampCutoffHz":1000}],
         //hub reinforcement
         {"beamSpring":0,"beamDamp":500},
         ["fh1r","a17", {"dampCutoffHz":500}],
