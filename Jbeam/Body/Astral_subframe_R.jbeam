@@ -300,8 +300,8 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false}],
-        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false}],
+        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
         ["rarb2r", -0.524, 1.473, 0.326],
         ["rarb2l",  0.524, 1.473, 0.326],
         {"group":[""]}
@@ -315,7 +315,7 @@
         {"beamDeform":18000,"beamStrength":312000},
         ["rarb1r", "rarb3r"],
         ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
+        ["rarb1r", "rarb2r"],
         ["rarb2r", "a37"],
         ["rarb2r", "a38"],
         ["rarb2r", "a5"],
@@ -325,7 +325,7 @@
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
+        ["rarb1l", "rarb2l"],
         ["rarb2l", "a38"],
         ["rarb2l", "a37"],
         ["rarb2l", "a6"],
@@ -334,7 +334,13 @@
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
-        ["rarb2r", "rarb2l"],
+        //arb mount point
+        {"beamSpring":1501000,"beamDamp":150},
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+        ["rarb3r","rx2r"],
+        ["rarb3l","rx2l"],
+        ["rarb3r","rx1r"],
+        ["rarb3l","rx1l"],
     ]
 },
 "Astral_swaybar_R_m": {
@@ -347,7 +353,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //magic equation
-        {"spring":"$=1705", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1371", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -364,8 +370,8 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false}],
-        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false}],
+        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
         ["rarb2r", -0.524, 1.473, 0.326],
         ["rarb2l",  0.524, 1.473, 0.326],
         {"group":[""]}
@@ -379,7 +385,7 @@
         {"beamDeform":18000,"beamStrength":312000},
         ["rarb1r", "rarb3r"],
         ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
+        ["rarb1r", "rarb2r"],
         ["rarb2r", "a37"],
         ["rarb2r", "a38"],
         ["rarb2r", "a5"],
@@ -389,7 +395,7 @@
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
+        ["rarb1l", "rarb2l"],
         ["rarb2l", "a38"],
         ["rarb2l", "a37"],
         ["rarb2l", "a6"],
@@ -398,7 +404,13 @@
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
-        ["rarb2r", "rarb2l"],
+        //arb mount point
+        {"beamSpring":1501000,"beamDamp":150},
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+        ["rarb3r","rx2r"],
+        ["rarb3l","rx2l"],
+        ["rarb3r","rx1r"],
+        ["rarb3l","rx1l"],
     ]
 },
 "Astral_swaybar_R_h": {
@@ -411,7 +423,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //magic equation
-        {"spring":"$=2513", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=2355", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -428,8 +440,8 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false}],
-        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false}],
+        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
         ["rarb2r", -0.524, 1.473, 0.326],
         ["rarb2l",  0.524, 1.473, 0.326],
         {"group":[""]}
@@ -443,7 +455,7 @@
         {"beamDeform":18000,"beamStrength":312000},
         ["rarb1r", "rarb3r"],
         ["rarb1r", "rarb2l"],
-        ["rarb1r", "rarb2r", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
+        ["rarb1r", "rarb2r"],
         ["rarb2r", "a37"],
         ["rarb2r", "a38"],
         ["rarb2r", "a5"],
@@ -453,7 +465,7 @@
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
-        ["rarb1l", "rarb2l", {"precompressionRange":"$=-($arb_point_R)/2","beamPrecompressionTime":0.2}],
+        ["rarb1l", "rarb2l"],
         ["rarb2l", "a38"],
         ["rarb2l", "a37"],
         ["rarb2l", "a6"],
@@ -462,7 +474,13 @@
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
-        ["rarb2r", "rarb2l"],
+        //arb mount point
+        {"beamSpring":1501000,"beamDamp":150},
+        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+        ["rarb3r","rx2r"],
+        ["rarb3l","rx2l"],
+        ["rarb3r","rx1r"],
+        ["rarb3l","rx1l"],
     ]
 }
 }

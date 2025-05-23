@@ -19,7 +19,7 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_r9", ["Astral_arm_R"]],
         ["Astral_rod_r9", ["Astral_rod_R","Astral_arm_R"]],
-        ["Astral_arb_r9", ["Astral_arb_R"]],
+        ["Astral_arb_r9", ["Astral_arb2_R"]],
         ["Astral_hub_r9", ["Astral_hub_R"]],
         ["Astral_damper_platform_r9", ["Astral_damper_R"]],
         ["Astral_damper_piston_r9", ["Astral_piston_R"]],
@@ -64,7 +64,7 @@
         //--Arm--
         //arb end link
         {"nodeWeight":1.5},
-        {"group":["Astral_arb_R"]},
+        {"group":["Astral_arb2_R"]},
         ["rarb3r", -0.521, 1.314, 0.0527],
         ["rarb3l",  0.521, 1.314, 0.0527],
         //toe link
@@ -181,7 +181,7 @@
         ["rs3l","rh3l"],
         //hub to wheel axle nodes
         {"beamSpring":9501000,"beamDamp":150},
-        {"beamDeform":80500,"beamStrength":285000},
+        {"beamDeform":80500,"beamStrength":325000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
@@ -242,15 +242,6 @@
         ["rarmg2l","rs2l"],
         ["rarmg2r","rs2r"],
         {"precompressionRange":0,"beamPrecompressionTime":0},
-
-        //--Anti-Roll Bar--
-        //arb mount point
-        {"beamSpring":1501000,"beamDamp":150},
-        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
 
         //--Strut Aux--
         //piston outer shell
@@ -493,7 +484,7 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_r8", ["Astral_arm_R"]],
         ["Astral_rod_r8", ["Astral_rod_R","Astral_arm_R"]],
-        ["Astral_arb_r8", ["Astral_arb_R"]],
+        ["Astral_arb_r8", ["Astral_arb2_R"]],
         ["Astral_hub_r8", ["Astral_hub_R"]],
         ["Astral_damper_platform_r8", ["Astral_damper_R"]],
         ["Astral_damper_piston_r8", ["Astral_piston_R"]],
@@ -540,7 +531,7 @@
         //--Arm--
         //arb end link
         {"nodeWeight":1.5},
-        {"group":["Astral_arb_R"]},
+        {"group":["Astral_arb2_R"]},
         ["rarb3r", -0.521, 1.314, -0.008],
         ["rarb3l",  0.521, 1.314, -0.008],
         //toe link
@@ -657,7 +648,7 @@
         ["rs3l","rh3l"],
         //hub to wheel axle nodes
         {"beamSpring":9501000,"beamDamp":150},
-        {"beamDeform":80500,"beamStrength":285000},
+        {"beamDeform":80500,"beamStrength":325000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
@@ -718,16 +709,7 @@
         ["rarmg2l","rs2l"],
         ["rarmg2r","rs2r"],
         {"precompressionRange":0,"beamPrecompressionTime":0},
-        
-        //--Anti-Roll Bar--
-        //arb mount point
-        {"beamSpring":1501000,"beamDamp":150},
-        {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
-
+       
         //--Strut Aux--
         //piston outer shell
         {"beamSpring":1001000,"beamDamp":100},
@@ -974,7 +956,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3200, 1800, 4600, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 5600, 4000, 7200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5320, 2520, 6440, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5320, 2700, 6900, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
         ["$dampVelocity_R", "range", "m/s", "Suspension", 0.45, 0.3, 0.6, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
@@ -1011,7 +993,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 3800, 2400, 5200, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 3800, 1600, 4800, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5880, 3360, 7280, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 5880, 3600, 7800, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
         ["$dampVelocity_R", "range", "m/s", "Suspension", 0.34, 0.19, 0.49, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
@@ -1048,7 +1030,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Suspension", 4400, 3000, 5800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
 		["$dampRate_bump_R_fast", "range", "Click", "Suspension", 2600, 1000, 4200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Suspension", 6160, 4200, 8120, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
+        ["$dampRate_rebound_R", "range", "Click", "Suspension", 6160, 4500, 8700, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-56,"maxDis":0,"subCategory":"Rear Damper"}],
         ["$dampVelocity_R", "range", "m/s", "Suspension", 0.26, 0.11, 0.41, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper"}],
     ],
     "controller": [ 
