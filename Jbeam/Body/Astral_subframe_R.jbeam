@@ -32,7 +32,7 @@
         ["$toe_R", "range", "mm", "Suspension", 0, -0.003, 0.003, "Track Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Alignment","minDis":-3,"maxDis":3}],
         ["$CamberRear", "range", "", "Suspension", 1, 0.97, 1.03, "Rear Camber", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
         ["$TrackRear", "range", "+m", "Suspension", 0.0, -0.04, 0.04, "Rear Track Width", "Adjust track width", {"stepDis":0.001,"subCategory":"Alignment"}],
-        ["$arb_point_R", "range", "P", "Suspension", 0, -0.03, 0.03, "Rear ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, -0.08, -0.02, "Rear ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -282,7 +282,7 @@
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        //magic equation
+        //lever length ~0.135m
         {"spring":"$=648", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
@@ -300,10 +300,10 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb2r", -0.524, 1.473, 0.326],
-        ["rarb2l",  0.524, 1.473, 0.326],
+        ["rarb1r", -0.508, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.508, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb2r", -0.508, 1.473, 0.326],
+        ["rarb2l",  0.508, 1.473, 0.326],
         {"group":[""]}
     ], 
     "beams": [
@@ -335,12 +335,13 @@
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
         //arb mount point
+        //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
+        ["rarb3r","rx2r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
     ]
 },
 "Astral_swaybar_R_m": {
@@ -352,7 +353,7 @@
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        //magic equation
+        //lever length ~0.135m
         {"spring":"$=1371", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
@@ -370,10 +371,10 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb2r", -0.524, 1.473, 0.326],
-        ["rarb2l",  0.524, 1.473, 0.326],
+        ["rarb1r", -0.508, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.508, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb2r", -0.508, 1.473, 0.326],
+        ["rarb2l",  0.508, 1.473, 0.326],
         {"group":[""]}
     ], 
     "beams": [
@@ -404,13 +405,13 @@
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
-        //arb mount point
+        //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
+        ["rarb3r","rx2r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
     ]
 },
 "Astral_swaybar_R_h": {
@@ -422,7 +423,7 @@
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        //magic equation
+        //lever length ~0.135m
         {"spring":"$=2355", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
@@ -440,10 +441,10 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb1l",  0.524, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb2r", -0.524, 1.473, 0.326],
-        ["rarb2l",  0.524, 1.473, 0.326],
+        ["rarb1r", -0.508, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.508, 1.355, 0.258, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb2r", -0.508, 1.473, 0.326],
+        ["rarb2l",  0.508, 1.473, 0.326],
         {"group":[""]}
     ], 
     "beams": [
@@ -474,13 +475,13 @@
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
-        //arb mount point
+        //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r"],
-        ["rarb3l","rx2l"],
-        ["rarb3r","rx1r"],
-        ["rarb3l","rx1l"],
+        ["rarb3r","rx2r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
     ]
 }
 }
