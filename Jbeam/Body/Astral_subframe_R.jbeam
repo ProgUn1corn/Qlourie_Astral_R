@@ -49,12 +49,13 @@
         ["rx2r", -0.202, 1.373, 0.134],
         ["rx2l",  0.202, 1.373, 0.134],
         //mounting points
-        {"nodeWeight":4.5},
+        {"nodeWeight":5},
         {"group":["Astral_sub_R"]},
-        ["rx3r", -0.441, 1.084, 0.369, {"selfCollision":false}],
-        ["rx3l",  0.441, 1.084, 0.369, {"selfCollision":false}],
-        ["rx4r", -0.459, 1.376, 0.375, {"selfCollision":false}],
-        ["rx4l",  0.459, 1.376, 0.375, {"selfCollision":false}],
+        ["rx3r", -0.441, 1.048, 0.369, {"selfCollision":false}],
+        ["rx3l",  0.441, 1.048, 0.369, {"selfCollision":false}],
+        {"nodeWeight":4.5},
+        ["rx4r", -0.459, 1.396, 0.375, {"selfCollision":false}],
+        ["rx4l",  0.459, 1.396, 0.375, {"selfCollision":false}],
         //rigidifier
         {"collision":false},
         {"nodeWeight":3},
@@ -67,7 +68,7 @@
         ["id1:", "id2:"],
         //--Subframe--
         //running gear
-        {"beamSpring":8001000,"beamDamp":180},
+        {"beamSpring":9501000,"beamDamp":180},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2r"],
         ["rx2r", "rx2l"],
@@ -85,7 +86,7 @@
         ["rx4l", "rx2l"],
         ["rx4r", "rx2r"],
         //crossing
-        {"beamSpring":8001000,"beamDamp":180},
+        {"beamSpring":9501000,"beamDamp":180},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2l"],
         ["rx1l", "rx2r"],
@@ -243,11 +244,11 @@
         {"hubcapGroup":"hubcap_RR"},
         {"axleBeams":["axle_RR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"","torqueArm:":"", "torqueArm2:":"","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
+        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"fx3r", "torqueArm2:":"fx3l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
         {"hubcapBreakGroup":"hubcap_RL"},
         {"hubcapGroup":"hubcap_RL"},
         {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"","torqueArm:":"", "torqueArm2:":"","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
+        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"fx3l", "torqueArm2:":"fx3r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},{"disableMeshBreaking":false,"disableTriangleBreaking":false},
