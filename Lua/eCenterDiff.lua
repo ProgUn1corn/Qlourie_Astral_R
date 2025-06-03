@@ -24,7 +24,9 @@ local rearBias = 0
 --active values
 local steerRatio = 0
 local throttleRatio = 0
+local throttleStart = 0
 local brakeRatio = 0
+local brakeStart = 0
 local lbLockCoef = 0  --l.foot
 local lbThreshold = 0 --l.foot
 
@@ -35,19 +37,8 @@ function clamp(value, min, max)
   return math.min(math.max(value, min), max)
 end
 
-function printTable(t, indent)
-  indent = indent or ""
-  for k, v in pairs(t) do
-    if type(v) == "table" then
-      print(indent .. "[" .. k .. "] => LockMap:")
-      printTable(v, indent .. "  ")
-    else
-      print(indent .. "[" .. k .. "] => " .. tostring(v))
-    end
-  end
-end
-
 local function updateWheelsIntermediate(dt)
+  --print("THICC")
   --common detecion variables
   local handbrake = 0
   local clutch = 0
@@ -69,8 +60,10 @@ local function updateWheelsIntermediate(dt)
 
     local yLockCoef = 0
     local xLockCoef = 0
-    local preloadCoef = 0
+    local preloadAdj = 0
     local lockRange = 0
+    local throttleNormalized = 0
+    local brakeNormalized = 0
 
     --set different condition flags
     local throttleFlag = 0
@@ -79,7 +72,7 @@ local function updateWheelsIntermediate(dt)
     local coastFlag = 0
     
     --select different map flags
-    if throttle > 0 and brake == 0 then --throttle
+    if throttle > 0 and brake <= lbThreshold then --throttle
       throttleFlag = true
       brakeFlag = false
       lbFlag = false
@@ -109,50 +102,71 @@ local function updateWheelsIntermediate(dt)
 
     --calculate throttle lock map using torsen
     if throttleFlag == true then
-      lockRange = 1 - minLockCoef
-      local contributionThrottle = clamp(lockRange*throttle*(1/throttleRatio) + minLockCoef, minLockCoef, 1)
-      yLockCoef = clamp(contributionThrottle, 0, 1)
-      preloadCoef = 20 * yLockCoef
+      if throttleRatio - throttleStart <= 0 then
+        yLockCoef = 1
+        preloadAdj = preload * minLockCoef * yLockCoef
+      else
+        lockRange = 1 - minLockCoef
+        throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
+        local contributionThrottle = lockRange * throttleNormalized + minLockCoef
+        yLockCoef = clamp(contributionThrottle, minLockCoef, 1)
+        preloadAdj = preload * minLockCoef * yLockCoef
+      end
     end
     
     --calculate brake lock map using preload
     if brakeFlag == true then
-      lockRange = 1 - minLockCoef
-      local contributionBrake = clamp(lockRange*brake*(1/brakeRatio) + minLockCoef, minLockCoef, 1)
-      yLockCoef = clamp(contributionBrake, 0, 1)
-      preloadCoef = preload * yLockCoef
+      if brakeRatio - brakeStart <= 0 then
+        yLockCoef = 1
+        preloadAdj = preload * yLockCoef
+      else
+        lockRange = 1 - minLockCoef
+        brakeNormalized = (brake - brakeStart) / (brakeRatio - brakeStart)
+        local contributionBrake = lockRange * brakeNormalized + minLockCoef
+        yLockCoef = clamp(contributionBrake, minLockCoef, 1)
+        preloadAdj = preload * yLockCoef
+      end
     end
 
     --calculate left foot brake map
     if lbFlag == true then
       lockRange = lbLockCoef - minLockCoef
-      local contributionLfBrake = clamp(lockRange*abs(throttle-brake) + minLockCoef, minLockCoef, 1)
+      local contributionLfBrake = clamp(lockRange * abs(throttle-brake) + minLockCoef, minLockCoef, 1)
       yLockCoef = clamp(contributionLfBrake, 0, 1)
-      preloadCoef = 20
+      preloadAdj = preload * minLockCoef / (yLockCoef / lbLockCoef)
     end
 
     --calculate coast map
     if coastFlag == true then
       lockRange = 1 - minLockCoef
       yLockCoef = minLockCoef
-      preloadCoef = preload * yLockCoef
+      preloadAdj = preload * minLockCoef * minLockCoef
     end
+    --print(yLockCoef)
+    --print(preloadAdj)
     
     --steering contribution with countersteer control
     local yaw = obj:getYawAngularVelocity() --left is positive
-    if steer*yaw < 0 then
-      xLockCoef = 0
+    if yaw > 0.15 then 
+      if steer * yaw < 0 then
+        xLockCoef = 0
+      else
+        xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1) --calculate steering contribution
+      end
     else
-      xLockCoef = clamp(lockRange*normalSteer*steerRatio, 0, 1) --calculate steering contribution
+      xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1)
     end
+    --print(xLockCoef)
 
     --speed map that only affects steering contribution
-    local speedFactor = clamp(clampSpeed*(-9/1200) + 1, 0.1, 1)
+    local speedFactor = clamp(clampSpeed * (-9 / 1200) + 1, 0.1, 1)
     --print(speedFactor)
 
     --sum up X and Y lock factors
-    local newLockCoef = clamp(yLockCoef - xLockCoef*speedFactor, 0, 1)
-    local newPreload = clamp(preloadCoef - xLockCoef*speedFactor*preload , 0, preload)
+    local newLockCoef = clamp(yLockCoef - xLockCoef * speedFactor, 0, 1)
+    local newPreload = clamp(preloadAdj - xLockCoef * speedFactor * preload , 0, preload)
+    --print(newLockCoef)
+    --print(newPreload)
     
     if handbrake >= hbrelease or clutch >= 0.75 then 
       transfercase.lsdLockCoef = 0
@@ -185,7 +199,7 @@ local function updateWheelsIntermediate(dt)
     end
   end
   --print(transfercase.lsdPreload)
-  --print(transfercase.lsdLockCoef)
+  print(transfercase.lsdLockCoef)
 end
 
 local function init(jbeamData)
@@ -198,13 +212,22 @@ local function init(jbeamData)
     minLockCoef = lockMap[1].minLock or 0
     steerRatio = lockMap[1].steerRatio or 0
     throttleRatio = lockMap[1].lockThrottle or 0 
+    throttleStart = lockMap[1].lockThrottleStart or 0 
     brakeRatio = lockMap[1].lockBrake or 0
+    brakeStart = lockMap[1].lockBrakeStart or 0
     lbLockCoef = lockMap[1].leftLock or 0
     lbThreshold = lockMap[1].leftThreshold or 0
     rearBias = lockMap[1].rearBias or 0
     hbrelease = lockMap[1].hbRelease or 0
     preload = lockMap[1].preload or 0
+    if throttleRatio ~= 0 and throttleRatio - throttleStart <= 0 then
+      print("Throttle start point is higher than throttle threshold! Locking center diff...")
+    end
+    if brakeRatio ~= 0 and brakeRatio - brakeStart <= 0 then
+      print("Brake start point is higher than brake threshold! Locking center diff...")
+    end
   end
+  
 
   --get tuning data for passive
   if transfercase and transferType == "Passive" then 
