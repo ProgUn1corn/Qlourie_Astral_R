@@ -51,7 +51,7 @@ local function updateGFX(dt)
   if twoStepState == "idle" then
     local usesKeyboard = input.state.throttle.filter == FILTER_KBD or input.state.throttle.filter == FILTER_KBD2
     local isSpeedLowEnough = usesKeyboard and (electrics.values.wheelspeed <= 2) or (electrics.values.wheelspeed <= 0.5)
-    local isThrottleHighEnough = usesKeyboard and (electrics.values.throttle >= 0.2) or (electrics.values.throttle >= 1)
+    local isThrottleHighEnough = usesKeyboard and (electrics.values.throttle >= 0.2) or (electrics.values.throttle >= 0.5)
     local isParkingBrakeActive = usesKeyboard and (electrics.values.parkingbrake >= 0.5) or (electrics.values.parkingbrake >= 1)
 
     if isSpeedLowEnough and isThrottleHighEnough and isParkingBrakeActive then
