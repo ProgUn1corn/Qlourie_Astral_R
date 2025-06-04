@@ -199,7 +199,7 @@ local function updateWheelsIntermediate(dt)
     end
   end
   --print(transfercase.lsdPreload)
-  print(transfercase.lsdLockCoef)
+  --print(transfercase.lsdLockCoef)
 end
 
 local function init(jbeamData)
