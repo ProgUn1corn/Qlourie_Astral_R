@@ -42,18 +42,17 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Subframe--
         //running gear
-        {"nodeWeight":6.5},
+        {"nodeWeight":8},
         {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rod_R","Astral_rarmg"]},
         ["rx1r", -0.192, 1.081, 0.132],
         ["rx1l",  0.192, 1.081, 0.132],
-        ["rx2r", -0.202, 1.373, 0.134, {"nodeWeight":9}],
-        ["rx2l",  0.202, 1.373, 0.134, {"nodeWeight":9}],
+        ["rx2r", -0.202, 1.373, 0.134, {"nodeWeight":10}],
+        ["rx2l",  0.202, 1.373, 0.134, {"nodeWeight":10}],
         //mounting points
-        {"nodeWeight":5},
+        {"nodeWeight":4.5},
         {"group":["Astral_sub_R"]},
         ["rx3r", -0.441, 1.048, 0.369, {"selfCollision":false}],
         ["rx3l",  0.441, 1.048, 0.369, {"selfCollision":false}],
-        {"nodeWeight":4.5},
         ["rx4r", -0.459, 1.396, 0.375, {"selfCollision":false}],
         ["rx4l",  0.459, 1.396, 0.375, {"selfCollision":false}],
         //rigidifier
@@ -244,11 +243,11 @@
         {"hubcapGroup":"hubcap_RR"},
         {"axleBeams":["axle_RR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"fx3r", "torqueArm2:":"fx3l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
+        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx3r", "torqueArm2:":"rx3l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}],
         {"hubcapBreakGroup":"hubcap_RL"},
         {"hubcapGroup":"hubcap_RL"},
         {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"fx3l", "torqueArm2:":"fx3r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
+        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx3l", "torqueArm2:":"rx3r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},{"disableMeshBreaking":false,"disableTriangleBreaking":false},
@@ -312,35 +311,35 @@
         //--Anti-Roll Bar--
         //bar lever
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":18000,"beamStrength":312000},
         ["rarb1r", "rarb3r"],
         ["rarb1r", "rarb2l"],
         ["rarb1r", "rarb2r"],
-        ["rarb2r", "a37"],
-        ["rarb2r", "a38"],
-        ["rarb2r", "a5"],
-        ["rarb2r", "rx4r"],
+        ["rarb2r", "a41"],
+        ["rarb2r", "a42"],
+        ["rarb2r", "a9"],
+        ["rarb2r", "rx3r"],
         ["rarb2r", "chs1r"],
         ["rarb2r", "chs2r"],
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
         ["rarb1l", "rarb2l"],
-        ["rarb2l", "a38"],
-        ["rarb2l", "a37"],
-        ["rarb2l", "a6"],
-        ["rarb2l", "rx4l"],
+        ["rarb2l", "a42"],
+        ["rarb2l", "a41"],
+        ["rarb2l", "a10"],
+        ["rarb2l", "rx3l"],
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
-        //arb mount point
+        ["rarb2l", "rarb2r"],
         //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
         ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
         ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
     ]
@@ -383,7 +382,7 @@
         //--Anti-Roll Bar--
         //bar lever
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":18000,"beamStrength":312000},
         ["rarb1r", "rarb3r"],
         ["rarb1r", "rarb2l"],
@@ -406,6 +405,7 @@
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
+        ["rarb2l", "rarb2r"],
         //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -453,34 +453,35 @@
         //--Anti-Roll Bar--
         //bar lever
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":18000,"beamStrength":312000},
         ["rarb1r", "rarb3r"],
         ["rarb1r", "rarb2l"],
         ["rarb1r", "rarb2r"],
-        ["rarb2r", "a37"],
-        ["rarb2r", "a38"],
-        ["rarb2r", "a5"],
-        ["rarb2r", "rx4r"],
+        ["rarb2r", "a41"],
+        ["rarb2r", "a42"],
+        ["rarb2r", "a9"],
+        ["rarb2r", "rx3r"],
         ["rarb2r", "chs1r"],
         ["rarb2r", "chs2r"],
         //*
         ["rarb1l", "rarb3l"],
         ["rarb1l", "rarb2r"],
         ["rarb1l", "rarb2l"],
-        ["rarb2l", "a38"],
-        ["rarb2l", "a37"],
-        ["rarb2l", "a6"],
-        ["rarb2l", "rx4l"],
+        ["rarb2l", "a42"],
+        ["rarb2l", "a41"],
+        ["rarb2l", "a10"],
+        ["rarb2l", "rx3l"],
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
         {"beamSpring":2001000,"beamDamp":50},
+        ["rarb2l", "rarb2r"],
         //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
         ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
         ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
     ]
