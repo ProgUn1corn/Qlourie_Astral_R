@@ -116,7 +116,7 @@
         ["fx1r", "fx3r"],
         ["fx1l", "fx3l"],
         //rigidifier
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":180},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
         ["fx1", "fx1l"],
         ["fx1", "fx2l"],
@@ -129,10 +129,9 @@
         //["fx1", "st1l"],
         //["fx1", "st1r"],
         //attach to chassis
-        {"beamSpring":4051000,"beamDamp":150},
+        {"beamSpring":4051000,"beamDamp":180},
         {"beamDeform":80000,"beamStrength":260000},
         {"breakGroup":"subframeFR"},
-        ["fx4r", "a25"],
         ["fx4r", "a85"],
         ["fx4r", "a53"],
         ["fx4r", "chs4r"],
@@ -142,12 +141,12 @@
         ["fx3r", "a21"],
         ["fx3r", "chs4r"],
         ["fx3r", "chs4l"],
+        ["fx1r", "chs4r"],
         ["fx1r", "a16"],
         ["fx1r", "a21"],
         ["fx2r", "a22"],
         //*
         {"breakGroup":"subframeFL"},
-        ["fx4l", "a26"],
         ["fx4l", "a86"],
         ["fx4l", "a54"],
         ["fx4l", "chs4l"],
@@ -157,6 +156,7 @@
         ["fx3l", "a22"],
         ["fx3l", "chs4l"],
         ["fx3l", "chs4r"],
+        ["fx1l", "chs4l"],
         ["fx1l", "a19"],
         ["fx1l", "a22"],
         ["fx2l", "a21"],
@@ -164,7 +164,7 @@
 
         //--Steering Rack--
         //steering box
-        {"beamSpring":6501000,"beamDamp":200},
+        {"beamSpring":6501000,"beamDamp":250},
         {"beamDeform":65000,"beamStrength":"FLT_MAX"},
         ["st1r","st1l"],
         //mounting to subframe
@@ -172,18 +172,18 @@
         ["st1r", "fx1r"],
         ["st1r", "fx2r"],
         ["st1r", "fx3r"],
-        ["st1r", "fx4r"],
+        ["st1r", "fx4r", {"beamSpring":6501000,"beamDamp":500,"dampCutoffHz":1000}],
         ["st1r", "fx3l"],
-        ["st1r", "fx4l"],
+        ["st1r", "fx4l", {"beamSpring":6501000,"beamDamp":500,"dampCutoffHz":1000}],
         ["st1r", "fx1l"],
         ["st1r", "fx2l"],
         //*
         ["st1l", "fx1l"],
         ["st1l", "fx2l"],
-        ["st1l", "fx4l"],
+        ["st1l", "fx4l", {"beamSpring":6501000,"beamDamp":500,"dampCutoffHz":1000}],
         ["st1l", "fx3l"],
         ["st1l", "fx3r"],
-        ["st1l", "fx4r"],
+        ["st1l", "fx4r", {"beamSpring":6501000,"beamDamp":500,"dampCutoffHz":1000}],
         ["st1l", "fx1r"],
         ["st1l", "fx2r"],
 
@@ -249,7 +249,7 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":400,"beamDeform":125000,"beamStrength":625000},
+        {"beamSpring":12001000,"beamDamp":500,"beamDeform":125000,"beamStrength":625000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
@@ -259,7 +259,7 @@
         {"beamPrecompression":0.84},
         ["fh3r","fx1r"],
         ["fh3l","fx1l"],
-        {"beamPrecompression":0.95},
+        {"beamPrecompression":0.945},
         ["fh5r","fx2r"],
         ["fh5l","fx2l"],
         {"beamPrecompression":1},
@@ -267,18 +267,18 @@
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":250},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":1000}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":1000}],
+        {"beamSpring":0,"beamDamp":120},
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":195000, "damp":0.5, "deform":45000, "strength":100000},
+        {"spring":165000, "damp":0, "deform":45000, "strength":100000},
         //rigidify steering arm
         ["fw1rr", "fw1r", "fh1r", "fh3r"],
         ["fw1ll", "fw1l", "fh1l", "fh3l"],
@@ -286,7 +286,7 @@
     "hydros": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":60,"beamDeform":"FLT_MAX","beamStrength":85000},
+        {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
         ["st2l","st1r", {"factor": 0.185,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l", {"factor":-0.185,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -320,8 +320,8 @@
     },
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"]
+        ["st1r", "steeringrack", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:","id2:"],
@@ -345,18 +345,18 @@
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":250},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":1000}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":1000}],
+        {"beamSpring":0,"beamDamp":120},
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":195000, "damp":0.5, "deform":45000, "strength":100000},
+        {"spring":165000, "damp":0, "deform":45000, "strength":100000},
         //rigidify steering arm
         ["fw1rr", "fw1r", "fh1r", "fh3r"],
         ["fw1ll", "fw1l", "fh1l", "fh3l"],
@@ -364,7 +364,7 @@
     "hydros": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":60,"beamDeform":"FLT_MAX","beamStrength":85000},
+        {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
         ["st2l","st1r", {"factor": 0.168,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l", {"factor":-0.168,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
@@ -405,7 +405,7 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":400,"beamDeform":125000,"beamStrength":625000},
+        {"beamSpring":12001000,"beamDamp":500,"beamDeform":125000,"beamStrength":625000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
@@ -423,18 +423,18 @@
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":250},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":1000}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":1000}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":1000}],
+        {"beamSpring":0,"beamDamp":120},
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":195000, "damp":0.5, "deform":45000, "strength":100000},
+        {"spring":165000, "damp":0, "deform":45000, "strength":100000},
         //rigidify steering arm
         ["fw1rr", "fw1r", "fh1r", "fh3r"],
         ["fw1ll", "fw1l", "fh1l", "fh3l"],
@@ -442,7 +442,7 @@
     "hydros": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":60,"beamDeform":"FLT_MAX","beamStrength":85000},
+        {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
         ["st2l","st1r", {"factor": 0.152,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l", {"factor":-0.152,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
