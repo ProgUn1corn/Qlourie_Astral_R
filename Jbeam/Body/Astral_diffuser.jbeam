@@ -19,16 +19,17 @@
         {"nodeMaterial":"|NM_METAL"},
 		//--Rear underplate and diffuser--
         //diffuser
-		{"nodeWeight":0.35},
+		{"nodeWeight":0.15},
 		{"group":["Astral_diffuser"]},
 		["df1r", -0.559, 1.984, 0.134],
 		["df1l",  0.559, 1.984, 0.134],
 		["df2r", -0.254, 2.021, 0.134],
 		["df2l",  0.254, 2.021, 0.134],
-		["df3r", -0.259, 2.042, 0.285],
-		["df3l",  0.259, 2.042, 0.285],
+		{"nodeWeight":0.2},
+		["df3r", -0.389, 2.042, 0.285],
+		["df3l",  0.389, 2.042, 0.285],
 		//rigidifier
-		{"nodeWeight":0.5},
+		{"nodeWeight":0.3},
 		["dfr", 0, 1.635, 0.255, {"selfCollision":false}],
 		{"group":[""]}
     ],
@@ -38,7 +39,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Diffuser--
 		//diffuser end
-		{"beamSpring":121000,"beamDamp":40},
+		{"beamSpring":85000,"beamDamp":10},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["df1r", "df2r"],
 		["df2r", "df2l"],
@@ -50,8 +51,15 @@
 		["df2l", "df3l"],
 		["df2r", "df3l"],
 		["df2l", "df3r"],
+		//ridig
+		["df1r", "df2l"],
+		["df1r", "df3l"],
+		["df2r", "df1l"],
+		["df1l", "df2r"],
+		["df1l", "df3r"],
+		["df2l", "df1r"],
 		//rigidifier
-		{"beamSpring":181000,"beamDamp":60},
+		{"beamSpring":101000,"beamDamp":10},
 		{"beamDeform":4500,"beamStrength":"FLT_MAX"},
 		["dfr", "df1r"],
 		["dfr", "df2r"],
@@ -60,7 +68,7 @@
 		["dfr", "df2l"],
 		["dfr", "df3l"],
 		//bumper attach
-		{"beamSpring":101000,"beamDamp":40},
+		{"beamSpring":105000,"beamDamp":15},
 		{"beamDeform":5500,"beamStrength":6500},
 		{"breakGroup":"diffuser_R"},
 		["df3r", "rb2r"],
@@ -97,13 +105,22 @@
 		{"breakGroup":["rbr","diffuser_R"]},
 		["dfr", "a5"],
 		["dfr", "a33"],
-		["dfr", "chs2r"],
 		{"breakGroup":["rbl","diffuser_L"]},
 		["dfr", "a6"],
 		["dfr", "a34"],
-		["dfr", "chs2l"],
 		{"breakGroupType":0},
 		{"breakGroup":""},
+		//limiters
+        {"beamPrecompression":0.95, "beamType":"|SUPPORT", "beamLongBound":1.5},
+        {"beamSpring":101000,"beamDamp":30},
+        {"beamDeform":10000,"beamStrength":125000},
+		["df1r", "rb6r"],
+		["df1r", "rb3r"],
+		["df2r", "rb1r"],
+		//*
+		["df1l", "rb6l"],
+		["df1l", "rb3l"],
+		["df2l", "rb1l"],
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
