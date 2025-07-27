@@ -509,7 +509,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension", 14000, 12000, 16000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.325, 0.300, 0.325, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":300,"maxDis":325,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.325, 0.295, 0.315, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":295,"maxDis":315,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.275, 0.265, 0.285, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":265,"maxDis":285,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
@@ -683,10 +683,10 @@
         {"beamSpring":4501000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.042","beamPrecompressionTime":0.2}],
+        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.036","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.042","beamPrecompressionTime":0.2}],
+        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.036","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -748,13 +748,13 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.330,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.320,"boundZone":0.01,
             "beamLimitSpring":2501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.330,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.320,"boundZone":0.01,
             "beamLimitSpring":2501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}

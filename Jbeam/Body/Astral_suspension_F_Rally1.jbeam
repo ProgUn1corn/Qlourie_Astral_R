@@ -512,22 +512,22 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":7},
+        {"nodeWeight":6.5},
         {"group":["Astral_hub_F","Astral_arm_F"]},
         ["fh1r", -0.725, -1.318, -0.07],
         ["fh1l",  0.725, -1.318, -0.07],
         //strut attach
-        {"nodeWeight":4.75},
+        {"nodeWeight":4.5},
         {"group":["Astral_hub_F","Astral_damper_F"]},
         ["fh2r", -0.5757, -1.321, 0.255],
         ["fh2l",  0.5757, -1.321, 0.255], 
         //tie rod end
-        {"nodeWeight":5.25},
+        {"nodeWeight":5.5},
         {"group":["Astral_hub_F","Astral_rod_F"]},
         ["fh3r", -0.717, -1.178, -0.02258],
         ["fh3l",  0.717, -1.178, -0.02258],
         //brake caliper
-        {"nodeWeight":3.5},
+        {"nodeWeight":3},
         {"selfCollision":false},
         {"group":["Astral_hub_F","Astral_duct_F"]},
         ["fh5r", -0.765, -1.425, 0.072],
@@ -535,7 +535,7 @@
 
         //--Steering Rack--
         //steering rack ends
-        {"nodeWeight":5.5},
+        {"nodeWeight":5.9},
         {"group":["Astral_rod_F"]},
         ["st2r", -0.2765, -1.135, 0.183],
         ["st2l",  0.2765, -1.135, 0.183],
@@ -551,44 +551,44 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":7.7},
+        {"nodeWeight":7.5},
         ["fs1r", -0.562, -1.25, 0.805],
         ["fs1l",  0.562, -1.25, 0.805],
         //lower spring collar
         {"group":["Astral_helper_F"]},
-        {"nodeWeight":0.75},
+        {"nodeWeight":0.65},
         {"selfCollision":false},
         ["fcl1r", -0.5755, -1.32, 0.262],
         ["fcl1l",  0.5755, -1.32, 0.262],
         //piston outer shell to mount LRS
         {"group":["Astral_piston_F"]},
-        {"nodeWeight":0.5},
+        {"nodeWeight":0.25},
         ["fps1r", -0.5704, -1.293, 0.469],
         ["fps1l",  0.5704, -1.293, 0.469],
         //mass
         {"group":[""]},
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.05},
         ["fmassr", -0.5646, -1.264, 0.699],
         ["fmassl",  0.5646, -1.264, 0.699], 
         //damper end
-        {"nodeWeight":3},
+        {"nodeWeight":1.65},
         {"group":["Astral_damper_F"]},
         ["fs2r", -0.581, -1.348, 0.042],
         ["fs2l",  0.581, -1.348, 0.042],
         //damper flexbodu stuff
         {"collision":false},
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.1},
         {"group":["Astral_damper_F"]},
-        ["fs3r", -0.486, -1.321, 0.255, {"selfCollision":false}],
-        ["fs3l",  0.486, -1.321, 0.255, {"selfCollision":false}],
+        ["fs3r", -0.486, -1.371, 0.154, {"selfCollision":false}],
+        ["fs3l",  0.486, -1.371, 0.154, {"selfCollision":false}],
         {"group":[""]},
         {"collision":true},
         {"selfCollision":true}
     ],
     "rails": {
         //strut shaft rail
-        "strut_FR":{"links:":["fs2r", "fs1r"], "broken:":[], "looped":false, "capped":true},
-        "strut_FL":{"links:":["fs2l", "fs1l"], "broken:":[], "looped":false, "capped":true},
+        "strut_FR":{"links:":["fs1r", "fs2r"], "broken:":[], "looped":false, "capped":true},
+        "strut_FL":{"links:":["fs1l", "fs2l"], "broken:":[], "looped":false, "capped":true},
         //arb mounting rail
         "arb_FR":{"links:":["fh1r", "fx2r"], "broken:":[], "looped":false, "capped":true},
         "arb_FL":{"links:":["fh1l", "fx2l"], "broken:":[], "looped":false, "capped":true}
@@ -596,19 +596,19 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["fh2r", "strut_FR", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"],
-        ["fh2l", "strut_FL", true, true, 0.0, 14001000, "FLT_MAX", "FLT_MAX"],
+        ["fh2r", "strut_FR", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["fh2l", "strut_FL", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["fcl1r", "strut_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fcl1l", "strut_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //spring collar
-        ["fcl1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["fcl1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["fhe1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["fhe1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //piston
-        ["fps1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["fps1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fps1r", "strut_FR", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
+        ["fps1l", "strut_FL", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
         //mass
-        ["fmassr", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["fmassl", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fmassr", "strut_FR", true, true, 0.0, 251000, "FLT_MAX", "FLT_MAX"],
+        ["fmassl", "strut_FL", true, true, 0.0, 251000, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["farb3r", "arb_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["farb3l", "arb_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"]
@@ -628,7 +628,7 @@
         ["fh1l","fh3l"],
         ["fh2l","fh1l"],
         ["fh2l","fh3l"],
-        {"beamSpring":5501000,"beamDamp":150},
+        {"beamSpring":5001000,"beamDamp":150},
         ["fh1r","fh5r"],
         ["fh3r","fh5r"],
         ["fh2r","fh5r"],
@@ -637,7 +637,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper mount to hub
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":125000,"beamStrength":285000},
         ["fs2l","fh1l"],
         ["fs2r","fh1r"],
@@ -646,7 +646,7 @@
         ["fs2l","fh5l"],
         ["fs2r","fh5r"],
         //damper flexbody help
-        {"beamSpring":351000,"beamDamp":100},
+        {"beamSpring":151000,"beamDamp":50},
         ["fs3r","fh2r"],
         ["fs3r","fh5r"],
         ["fs3r","fh3r"],
@@ -654,35 +654,35 @@
         ["fs3l","fh5l"],
         ["fs3l","fh3l"],
         //hub to wheel axle nodes
-        {"beamSpring":8501000,"beamDamp":150},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":80500,"beamStrength":325000},
         {"breakGroup":"wheel_FR"},
         {"optional":true},
         ["fh1r","fw1r", {"name":"axle_FR"}],
         ["fh3r","fw1r", {"beamSpring":12001000,"beamDamp":15}],
-        ["fh5r","fw1r", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2r","fw1r", {"beamSpring":3501000,"beamDamp":125}],
+        ["fh5r","fw1r", {"beamSpring":5001000,"beamDamp":60}],
+        ["fs2r","fw1r", {"beamSpring":1501000,"beamDamp":25}],
         ["fh1r","fw1rr"],
         ["fh3r","fw1rr", {"beamSpring":12001000,"beamDamp":15}],
-        ["fh5r","fw1rr", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2r","fw1rr", {"beamSpring":3501000,"beamDamp":125}],
+        ["fh5r","fw1rr", {"beamSpring":5001000,"beamDamp":60}],
+        ["fs2r","fw1rr", {"beamSpring":1501000,"beamDamp":25}],
         {"breakGroup":"wheel_FL"},
         ["fh1l","fw1l", {"name":"axle_FL"}],
         ["fh3l","fw1l", {"beamSpring":12001000,"beamDamp":15}],
-        ["fh5l","fw1l", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2l","fw1l", {"beamSpring":3501000,"beamDamp":125}],
+        ["fh5l","fw1l", {"beamSpring":5001000,"beamDamp":60}],
+        ["fs2l","fw1l", {"beamSpring":1501000,"beamDamp":25}],
         ["fh1l","fw1ll"],
         ["fh3l","fw1ll", {"beamSpring":12001000,"beamDamp":15}],
-        ["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":60}],
-        ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":125}],
+        ["fh5l","fw1ll", {"beamSpring":5001000,"beamDamp":60}],
+        ["fs2l","fw1ll", {"beamSpring":1501000,"beamDamp":25}],
         //camber
-        {"beamSpring":7501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":180},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.038","beamPrecompressionTime":0.2}],
+        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront+0.032","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.038","beamPrecompressionTime":0.2}],
+        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront+0.032","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -694,14 +694,47 @@
         ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
         ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
         //tie rods
-        {"beamSpring":18001000,"beamDamp":800},
+        {"beamSpring":20001000,"beamDamp":1600},
         {"beamDeform":235100,"beamStrength":325000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0004","beamPrecompressionTime":0.2,"dampCutoffHz":500}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0004","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0006","beamPrecompressionTime":0.2,"dampCutoffHz":500}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0006","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
         //hub reinforcement
+        {"beamSpring":0,"beamDamp":450},
+        ["fh1r","a16", {"dampCutoffHz":500}],
+        ["fh1l","a19", {"dampCutoffHz":500}],
         {"beamSpring":0,"beamDamp":250},
-        ["fh1r","a16", {"dampCutoffHz":250}],
-        ["fh1l","a19", {"dampCutoffHz":250}],
+        ["fs2r","fx1r", {"dampCutoffHz":500}],
+        ["fs2l","fx1l", {"dampCutoffHz":500}],
+        ["fs2r","fx2r", {"dampCutoffHz":500}],
+        ["fs2l","fx2l", {"dampCutoffHz":500}],
+
+        //--Strut Aux--
+        //top mount reinforcement
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":3001000,"beamDamp":150},
+        {"beamDeform":45000,"beamStrength":225000},
+        {"optional":true}
+        {"breakGroup":"strut_FR"},
+        ["fs1r", "a84"],
+        ["fs1r", "a88"],
+        //*
+        {"breakGroup":"strut_FL"},
+        ["fs1l", "a87"],
+        ["fs1l", "a91"],
+        {"breakGroup":""}
+        {"optional":false}
+        //piston outer shell
+        {"beamSpring":1001000,"beamDamp":50},
+        {"beamDeform":105000,"beamStrength":"FLT_MAX"},
+        ["fps1r", "fs1r"],
+        ["fps1l", "fs1l"],
+        //strut platform height (preload)
+        ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.2}],
+        ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.2}],
+        //strut platform
+        {"beamSpring":1501000,"beamDamp":150},
+        ["fh2r", "fs2r"],
+        ["fh2l", "fs2l"],
 
         //--Strut Aux--
         //top mount reinforcement
@@ -862,19 +895,19 @@
         {"breakGroup":""},
         //detection mass
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":0,"beamDamp":25},
+        {"beamSpring":0,"beamDamp":5},
         ["fmassr", "fs1r"],
         ["fmassl", "fs1l"],
-        {"beamSpring":125,"beamDamp":12},
+        {"beamSpring":25,"beamDamp":2.5},
         ["fmassr", "fps1r", {"name":"LRS_FR"}],
         ["fmassl", "fps1l", {"name":"LRS_FL"}],
         //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        ["fmassr", "fs1r", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":51000,"beamLimitDamp":100,"beamLimitDampRebound":200}],
-        ["fmassl", "fs1l", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":51000,"beamLimitDamp":100,"beamLimitDampRebound":200}],
-        ["fmassr", "fps1r", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":51000,"beamLimitDamp":100,"beamLimitDampRebound":200}],
-        ["fmassl", "fps1l", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":51000,"beamLimitDamp":100,"beamLimitDampRebound":200}],
+        ["fmassr", "fs1r", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":20,"beamLimitDampRebound":40}],
+        ["fmassl", "fs1l", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":20,"beamLimitDampRebound":40}],
+        ["fmassr", "fps1r", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":20,"beamLimitDampRebound":40}],
+        ["fmassl", "fps1l", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":20,"beamLimitDampRebound":40}],
         {"beamSpring":0,"beamDamp":0},
         
         //--Limiters--
@@ -883,11 +916,9 @@
         {"beamPrecompression":0.4, "beamType":"|SUPPORT", "beamLongBound":5},
         {"beamSpring":2501000,"beamDamp":500,"beamDeform":95000,"beamStrength":900000},
         {"optional":true},
-        ["fw1rr", "fs1r", {"precompressionRange":-0.35}],
         ["fw1rr", "a16"],
         ["fw1r", "a16"],
         //*
-        ["fw1ll", "fs1l", {"precompressionRange":-0.35}],
         ["fw1ll", "a19"],
         ["fw1l", "a19"],
         {"optional":false},
@@ -925,11 +956,11 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //mount damper
-        {"spring":32511, "damp":1, "deform":45000, "strength":125000},
+        {"spring":8000, "damp":1, "deform":45000, "strength":125000},
         ["fh2r", "fs2r", "fh1r", "fh3r"],
         ["fh2l", "fs2l", "fh1l", "fh3l"], 
         //arm rigidifier
-        {"spring":15000, "damp":1, "deform":20000, "strength":20000},
+        {"spring":15000, "damp":0, "deform":20000, "strength":20000},
         ["farb3r", "fx2r", "fx1r", "fh1r"], 
         ["farb3l", "fx2l", "fx1l", "fh1l"], 
     ],
@@ -945,5 +976,5 @@
         {"rotorMaterial":false},
         {"brakeVentingCoef":false}
     ],
-}
+},
 }
