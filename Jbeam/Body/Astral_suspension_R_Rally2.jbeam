@@ -523,7 +523,7 @@
         ["rh3r", -0.725, 1.3485, -0.1],
         ["rh3l",  0.725, 1.3485, -0.1],
         //brake caliper
-        {"nodeWeight":3.25},
+        {"nodeWeight":3},
         {"group":["Astral_hub_R","Astral_duct_R"]},
         ["rh5r", -0.765, 1.111, 0.074],
         ["rh5l",  0.765, 1.111, 0.074],
@@ -565,10 +565,10 @@
         ["rs2l",  0.569, 1.325, 0.0137],
         //damper flexbodu stuff
         {"collision":false},
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.1},
         {"group":["Astral_damper_R"]},
-        ["rs3r", -0.486, 1.31, 0.2, {"selfCollision":false}],
-        ["rs3l",  0.486, 1.31, 0.2, {"selfCollision":false}],
+        ["rs3r", -0.486, 1.33, 0.13, {"selfCollision":false}],
+        ["rs3l",  0.486, 1.33, 0.13, {"selfCollision":false}],
         {"group":[""]},
         {"group":[""]},
         {"collision":true},
@@ -635,7 +635,7 @@
         ["rs2l","rh5l"],
         ["rs2r","rh5r"],
         //damper flexbody help
-        {"beamSpring":351000,"beamDamp":100},
+        {"beamSpring":151000,"beamDamp":50},
         ["rs3r","rh2r"],
         ["rs3r","rh5r"],
         ["rs3r","rh3r"],
@@ -665,7 +665,7 @@
         ["rh5l","rw1ll", {"beamSpring":5501000,"beamDamp":60}],
         ["rs2l","rw1ll", {"beamSpring":1501000,"beamDamp":25}],
         //camber
-        {"beamSpring":6501000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
         ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.042","beamPrecompressionTime":0.2}],
@@ -707,7 +707,7 @@
 
         //--Strut Aux--
         //piston outer shell
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1001000,"beamDamp":50},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["rps1r", "rs1r"],
         ["rps1l", "rs1l"],
@@ -905,11 +905,11 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //rigidify toe link
-        {"spring":160100, "damp":0, "deform":45000, "strength":125000},
+        {"spring":140100, "damp":0, "deform":45000, "strength":125000},
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"],  
         //mount damper
-        {"spring":10000, "damp":1, "deform":45000, "strength":125000},
+        {"spring":8000, "damp":1, "deform":45000, "strength":125000},
         ["rh2r", "rs2r", "rh5r", "rh1r"],
         ["rh2l", "rs2l", "rh5l", "rh1l"],    
         //arm rigidifier

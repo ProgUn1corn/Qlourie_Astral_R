@@ -54,7 +54,7 @@
 		//--Refnodes--
 		{"group":[""]},
 		{"collision":false},
-		{"nodeWeight":2},
+		{"nodeWeight":2.8},
 		["cup", -0.112, -0.214, 0.25],
 		{"nodeWeight":2},
 		{"collision":true},
@@ -82,7 +82,7 @@
 		{"optional":true},
 		//--Center Chassis--
 		//main shape
-		{"beamSpring":3001000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":150},
 		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
 		["a8", "a12"],
 		["a9", "a13"],
@@ -137,8 +137,9 @@
 		["a8", "a23"],	
 		["a11", "a20"],		
 		//tunnel rigidifier
-		{"beamSpring":1501000,"beamDamp":150},
+		{"beamSpring":2501000,"beamDamp":200},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
+		{"dampCutoffHz":1000},
 		["cup", "a9"],
 		["cup", "a10"],
 		["cup", "a13"],
@@ -150,6 +151,7 @@
 		["cup", "a53"],
 		["cup", "a54"],
 		["cup", "a21"],
+		{"dampCutoffHz":""},
 		
 		//--Rear Chassis--
 		//main shape
@@ -268,7 +270,7 @@
 		
 		//--Front Chassis--
 		//main shape
-		{"beamSpring":4201000,"beamDamp":180},
+		{"beamSpring":5501000,"beamDamp":180},
 		{"beamDeform":15000,"beamStrength":"FLT_MAX"},
 		["a53", "a54"],
 		["a53", "a20"],
@@ -477,7 +479,7 @@
 
 		//--Center Chassis--
 		//tunnel
-		{"nodeWeight":4.4}
+		{"nodeWeight":4.9}
 		{"group":["Astral_chassis"]},
 		["a9",  -0.112, 0.696, 0.123],
 		["a10",  0.112, 0.696, 0.123],
@@ -557,7 +559,7 @@
 
 		//--Center Chassis--
 		//tunnel
-		{"nodeWeight":5.5}
+		{"nodeWeight":6}
 		{"group":["Astral_chassis"]},
 		["a9",  -0.112, 0.696, 0.123],
 		["a10",  0.112, 0.696, 0.123],
@@ -673,7 +675,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		//--Rear Trunk--
 		//trunk
-		{"nodeWeight":1.8},
+		{"nodeWeight":1.5},
 		{"group":["Astral_carbody","Astral_chassis_R"]},
 		{"selfCollision":true},
 		["a32", -0.693, 1.69, 0.451],
@@ -730,7 +732,7 @@
         //roof
 		{"group":["Astral_carbody"]},
 		{"selfCollision":false},
-		{"nodeWeight":1.6},
+		{"nodeWeight":1.4},
 		["a72", -0.517, 1.254, 1.209],
 		["a73", -0.286, 1.358, 1.227, {"group":["Astral_carbody","Astral_antenna"]}],
 		["a74",  0.286, 1.358, 1.227, {"group":["Astral_carbody","Astral_antenna"]}],
@@ -761,7 +763,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear Trunk--
 		//trunk shape
-		{"beamSpring":801000,"beamDamp":150},
+		{"beamSpring":651000,"beamDamp":125},
 		{"beamDeform":4200,"beamStrength":1145141919},
 		["a70", "a72"],
 		["a65", "a70"],
@@ -772,13 +774,13 @@
 		["a68", "a71"],
 		["a68", "a35"],
 		["a68", "a34"],
-		{"beamSpring":1001000,"beamDamp":150},
+		{"beamSpring":801000,"beamDamp":150},
 		["a33", "a34"],
 		["a33", "a32"],
 		["a34", "a35"],
 		["a33", "a5"],
 		["a34", "a6"],
-		{"beamSpring":801000,"beamDamp":150},
+		{"beamSpring":801000,"beamDamp":100},
 		["a33", "a37"],
 		["a34", "a38"],
 		//crossing
@@ -797,7 +799,7 @@
 		["a35", "a6"],
 		["a34", "a37"],
 		//rigids
-		{"beamSpring":751000,"beamDamp":125},
+		{"beamSpring":651000,"beamDamp":125},
 		{"beamDeform":2000},
 		["a33", "a70"],
 		["a65", "a72"],
@@ -816,7 +818,7 @@
 		["l1", "a70"],
 		["l1", "chsr"],
 		//connect to chassis
-		{"beamSpring":1001000,"beamDamp":150},
+		{"beamSpring":801000,"beamDamp":150},
 		{"beamDeform":4500,"beamStrength":"FLT_MAX"},
 		["a70", "chs1r"],
 		["a70", "chs1l"],
@@ -971,7 +973,7 @@
 
 		//--Roof--
 		//main shape
-		{"beamSpring":1201000,"beamDamp":80},
+		{"beamSpring":1001000,"beamDamp":60},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["a72", "a73"],
 		["a73", "a74"],
@@ -1007,7 +1009,7 @@
 		["a75", "a83"],
 		["a75", "a80"],
 		//rigidifier
-		{"beamSpring":1201000,"beamDamp":100},
+		{"beamSpring":1001000,"beamDamp":100},
 		{"beamDeform":2500},
 		["rfr", "a72"],
 		["rfr", "a73"],
@@ -1034,7 +1036,7 @@
 		["rfr", "an1"],
 		{"breakGroup":""},
 		//front window
-		{"beamSpring":1201000,"beamDamp":100},
+		{"beamSpring":1201000,"beamDamp":50},
 		{"beamDeform":8500,"beamStrength":"FLT_MAX"},
 		["a80", "a84"],
 		["a80", "a85"],
@@ -1047,7 +1049,7 @@
 		["a83", "a86"],
 		["a83", "a87"],
 		//attach roof
-		{"beamSpring":1201000,"beamDamp":100},
+		{"beamSpring":1001000,"beamDamp":100},
 		{"beamDeform":6500},
 		["a73", "qp2r"],
 		["a77", "a44"],

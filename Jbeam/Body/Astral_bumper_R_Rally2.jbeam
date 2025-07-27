@@ -18,16 +18,15 @@
         {"nodeMaterial":"|NM_PLASTIC"},
 		//--Rear Bumper--
 		//bumper
-		{"nodeWeight":0.6},
+		{"nodeWeight":0.2},
 		{"group":["Astral_bumper_R"]},
 		["rb1r", -0.368, 1.955, 0.477],
 		["rb1",  0, 1.98, 0.477],
 		["rb1l",  0.368, 1.955, 0.477],
-		{"nodeWeight":0.5},
 		["rb4r", -0.884, 1.53, 0.592],
 		["rb4l",  0.884, 1.53, 0.592],
-		["rb2r", -0.246, 1.96, 0.337],
-		["rb2l",  0.246, 1.96, 0.337],
+		["rb2r", -0.246, 1.96, 0.337, {"nodeWeight":0.25}],
+		["rb2l",  0.246, 1.96, 0.337, {"nodeWeight":0.25}],
 		["rb3r", -0.77, 1.742, 0.376, {"group":["Astral_bumper_R","Astral_flap_R"]}],
 		["rb3l",  0.77, 1.742, 0.376, {"group":["Astral_bumper_R","Astral_flap_R"]}],
 		["rb5r", -0.275, 1.88, 0.171],
@@ -38,7 +37,6 @@
 		["rb7r", -0.707, 1.81, 0.186],
 		["rb7l",  0.707, 1.81, 0.186],
 		//fender
-		{"nodeWeight":0.5},
 		{"group":["Astral_bumper_R"]},
 		["rbe1r", -0.702, 1.68, 0.756],
 		["rbe1l",  0.702, 1.68, 0.756],
@@ -50,7 +48,7 @@
 		//rigidifier
 		{"collision":false},
 		{"selfCollision":false},
-		{"nodeWeight":1.25},
+		{"nodeWeight":0.5},
 		{"group":["Astral_bumper_R"]},
 		["rbr1r", -0.516, 1.54, 0.396],
 		["rbr1l",  0.516, 1.54, 0.396],
@@ -63,8 +61,8 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear Bumper--
 		//bumper shape
-		{"beamSpring":101000,"beamDamp":50},
-        {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+		{"beamSpring":65000,"beamDamp":20},
+        {"beamDeform":5000,"beamStrength":"FLT_MAX"},
 		["rb1r", "rb1"],
 		["rb4r", "rb1r"],
 		["rb2r", "rb3r"],
@@ -90,7 +88,7 @@
 		["rb4l", "rbe1l"],
 		["rb2l", "rb5l"],
 		//crossing
-		{"beamDeform":6500},
+		{"beamDeform":4500},
 		["rb1", "rb2r"],
 		["rb1r", "rb2l"],
 		["rb1r", "rb3r"],
@@ -115,7 +113,7 @@
 		["rb3l", "rb6l"],
 		["rb3l", "rb7l"],
 		//rigids
-		{"beamDeform":6000},
+		{"beamDeform":3000},
 		["rb1", "rb5"],
 		["rb1r", "rb5r"],
 		["rb1r", "rb6r"],
@@ -131,8 +129,8 @@
 		["rb4l", "rb5"],
 		["rb5l", "rb7l"],
 		//fender shape
-		{"beamSpring":250100,"beamDamp":80},
-		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
+		{"beamSpring":80100,"beamDamp":50},
+		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		["rbe3r", "rbe2r"],
 		["rbe1r", "rbe2r"],
 		["rbe3r", "rb7r"],
@@ -141,14 +139,14 @@
 		["rbe1l", "rbe2l"],
 		["rbe3l", "rb7l"],
 		//fender crossing
-		{"beamDeform":5500},
+		{"beamDeform":4500},
 		["rbe1r", "rbe3r"],
 		["rbe2r", "rb7r"],
 		//*
 		["rbe1l", "rbe3l"],
 		["rbe2l", "rb7l"],
 		//rigids
-		{"beamDeform":4500},
+		{"beamDeform":3500},
 		["rbe3r", "rb6r"],
 		["rbe3l", "rb6l"],
 		//attach to patch
@@ -175,7 +173,7 @@
 		{"breakGroup":""},
 		{"breakGroupType":0},
 		//rigidifier
-        {"beamSpring":250100,"beamDamp":100},
+        {"beamSpring":80100,"beamDamp":50},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["rbr1r", "rbr1l"],
 		["rbr1r", "rb1"],
@@ -203,8 +201,8 @@
 		["rbr1l", "rbe2l"],
 		["rbr1l", "rbe3l"],
 		//bumper side attach
-		{"beamSpring":151000,"beamDamp":50},
-        {"beamDeform":4500,"beamStrength":5900},
+		{"beamSpring":75000,"beamDamp":25},
+        {"beamDeform":3500,"beamStrength":4500},
 		{"breakGroup":"rbr"},
 		["rb4r", "a37"],
 		["rb4r", "a32"],
@@ -233,7 +231,7 @@
 		["rb7r", "re1r"],
 		["rbe3r", "re4r"],
 		//*
-		{"beamDeform":4500,"beamStrength":5900},
+		{"beamDeform":3500,"beamStrength":4500},
 		{"breakGroup":"rbl"},
 		["rb4l", "a38"],
 		["rb4l", "a35"],
