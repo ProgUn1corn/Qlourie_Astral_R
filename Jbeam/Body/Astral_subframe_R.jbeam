@@ -68,7 +68,7 @@
         ["id1:", "id2:"],
         //--Subframe--
         //running gear
-        {"beamSpring":8501000,"beamDamp":180},
+        {"beamSpring":8001000,"beamDamp":180},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2r"],
         ["rx2r", "rx2l"],
@@ -86,7 +86,7 @@
         ["rx4l", "rx2l"],
         ["rx4r", "rx2r"],
         //crossing
-        {"beamSpring":8501000,"beamDamp":180},
+        {"beamSpring":8001000,"beamDamp":180},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2l"],
         ["rx1l", "rx2r"],
@@ -108,7 +108,7 @@
         ["rx1l", "rx4r"],
         ["rx1r", "rx4l"],
         //rigidifier
-        {"beamSpring":3501000,"beamDamp":180},
+        {"beamSpring":3501000,"beamDamp":150},
         {"beamDeform":25000,"beamStrength":"FLT_MAX"},
         ["rx1", "rx1l"],
         ["rx1", "rx2l"],
@@ -119,7 +119,7 @@
         ["rx1", "rx3r"],
         ["rx1", "rx4r"],
         //attach to body
-        {"beamSpring":4001000,"beamDamp":180},
+        {"beamSpring":3501000,"beamDamp":180},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx3r", "a41"],
         ["rx3r", "a42"],
@@ -149,7 +149,7 @@
         ["rx4l", "chs1l"],
         ["rx4l", "chs2l"],
         //subframe anti-rotation
-        {"beamSpring":2501000,"beamDamp":150},
+        {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "a41"],
         ["rx1r", "a9"],
@@ -168,16 +168,16 @@
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":45000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":100},
-        ["rh3r","rx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":850,"dampCutoffHz":500}],
-        ["rh3l","rx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":850,"dampCutoffHz":500}],
-        ["rh5r","rx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":850,"dampCutoffHz":500}],
-        ["rh5l","rx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":850,"dampCutoffHz":500}],
+        {"beamSpring":0,"beamDamp":80},
+        ["rh3r","rx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
+        ["rh3l","rx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
+        ["rh5r","rx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
+        ["rh5l","rx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
 
         //--Limiters--
         //subframe limiter
-        {"beamPrecompression":0.995, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":4001000,"beamDamp":150},
+        {"beamPrecompression":0.99, "beamType":"|SUPPORT", "beamLongBound":2},
+        {"beamSpring":2501000,"beamDamp":150},
         {"beamDeform":15000,"beamStrength":80000},
         {"deformLimitExpansion":""},
         ["rx3r", "a9"],
@@ -220,7 +220,7 @@
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":85000, "damp":0, "deform":25000, "strength":100000},
+        {"spring":65000, "damp":0, "deform":25000, "strength":100000},
         //rigidify subframe
         ["rx1r", "rx1l", "rx2l", "rx4l"],
         ["rx2r", "rx2l", "rx1l", "rx3l"],
@@ -284,7 +284,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.135m
-        {"spring":"$=959", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1159", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -339,10 +339,10 @@
         //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
     ]
 },
 "Astral_swaybar_R_m": {
@@ -355,7 +355,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.135m
-        {"spring":"$=1187", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1587", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -410,10 +410,10 @@
         //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
     ]
 },
 "Astral_swaybar_R_h": {
@@ -481,10 +481,10 @@
         //0.42-0.51-0.55
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.95", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rx1r", {"precompressionRange":"$=$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx1l", {"precompressionRange":"$=$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.14514", "beamPrecompressionTime":0.2}],
     ]
 }
 }
