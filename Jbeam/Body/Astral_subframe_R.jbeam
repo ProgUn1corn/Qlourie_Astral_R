@@ -75,12 +75,12 @@
         ["rx2l", "rx1l"],
         ["rx1l", "rx1r"],
         //mounting points
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":180},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
-        ["rx3r", "rx3l"],
-        ["rx4r", "rx4l"],
-        ["rx3r", "rx4r"],
-        ["rx3l", "rx4l"],
+        //["rx3r", "rx3l"],
+        //["rx4r", "rx4l"],
+        //["rx3r", "rx4r"],
+        //["rx3l", "rx4l"],
         ["rx3l", "rx1l"],
         ["rx3r", "rx1r"],
         ["rx4l", "rx2l"],
@@ -90,9 +90,9 @@
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "rx2l"],
         ["rx1l", "rx2r"],
-        {"beamSpring":3501000,"beamDamp":150},
-        ["rx4l", "rx3r"],
-        ["rx4r", "rx3l"],
+        {"beamSpring":4501000,"beamDamp":180},
+        //["rx4l", "rx3r"],
+        //["rx4r", "rx3l"],
         ["rx4l", "rx2r"],
         ["rx2l", "rx4r"],
         ["rx3l", "rx1r"],
@@ -108,7 +108,7 @@
         ["rx1l", "rx4r"],
         ["rx1r", "rx4l"],
         //rigidifier
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":180},
         {"beamDeform":25000,"beamStrength":"FLT_MAX"},
         ["rx1", "rx1l"],
         ["rx1", "rx2l"],
@@ -119,7 +119,7 @@
         ["rx1", "rx3r"],
         ["rx1", "rx4r"],
         //attach to body
-        {"beamSpring":3501000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":180},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx3r", "a41"],
         ["rx3r", "a42"],
@@ -153,21 +153,17 @@
         ["rx4l", "rs1r"],
         ["rx4l", "rs1l"],
         //subframe anti-rotation
-        {"beamSpring":1501000,"beamDamp":150},
+        {"beamSpring":2501000,"beamDamp":150},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "a41"],
-        ["rx1r", "a9"],
-        ["rx1r", "a10"],
+        ["rx1r", "a13"],
+        ["rx1r", "a14"],
         ["rx2r", "a37"],
-        ["rx2r", "a6"],
-        ["rx2r", "a5"],
         //*
         ["rx1l", "a42"],
-        ["rx1l", "a10"],
-        ["rx1l", "a9"],
+        ["rx1l", "a14"],
+        ["rx1l", "a13"],
         ["rx2l", "a38"],
-        ["rx2l", "a5"],
-        ["rx2l", "a6"],
         //hub damper
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":45000},
@@ -180,8 +176,8 @@
 
         //--Limiters--
         //subframe limiter
-        {"beamPrecompression":0.99, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":2501000,"beamDamp":150},
+        {"beamPrecompression":0.998, "beamType":"|SUPPORT", "beamLongBound":2},
+        {"beamSpring":2501000,"beamDamp":180},
         {"beamDeform":15000,"beamStrength":80000},
         {"deformLimitExpansion":""},
         ["rx3r", "a9"],
@@ -352,7 +348,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.135m
-        {"spring":"$=1627", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1397", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -416,7 +412,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.135m
-        {"spring":"$=2150", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1710", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
