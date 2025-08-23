@@ -292,5 +292,53 @@
         ["ballast4", "chs3l"],
         ["ballast4", "chs3r"],
     ],
+},
+"Astral_ballast_F_20": {
+	"information":{
+    	"authors":"Un1corn",
+    	"name":"20kg Ballast",
+    	"value":250,
+    },
+    "slotType" : "Astral_ballast_F",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$ballastPosF", "range", "Rear", "Body", 0, 0, 0.6, "Front Ballast Offset", "Adjust ballast's position", {"subCategory":"Center of Gravity", "stepDis":1, "minDis":0,"maxDis":100}]
+    ],
+    "nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Ballast--
+		{"nodeWeight":10},
+		{"group":[""]},
+        ["ballast3", -0.25, "$=-1.6+$ballastPosF", 0.10],
+        ["ballast4",  0.25, "$=-1.6+$ballastPosF", 0.10],
+    ],
+    "beams": [   
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Ballast--
+        {"beamSpring":3501000,"beamDamp":150},
+        ["ballast3", "ballast4"],
+		//rear link
+        ["ballast3", "a25"],
+        ["ballast3", "a53"],
+        ["ballast3", "br1r"],
+        ["ballast3", "br1l"],
+        ["ballast3", "chs4r"],
+        ["ballast3", "chs3r"],
+        ["ballast3", "chs3l"],
+        //*
+        ["ballast4", "a26"],
+        ["ballast4", "a54"],
+        ["ballast4", "br1l"],
+        ["ballast4", "br1r"],
+        ["ballast4", "chs4l"],
+        ["ballast4", "chs3l"],
+        ["ballast4", "chs3r"],
+    ],
 }
 }
