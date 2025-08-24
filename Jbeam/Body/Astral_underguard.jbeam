@@ -125,6 +125,20 @@
 		["rg1l", "a42"],
 		["rg1l", "a10"],
 		{"breakGroup":""},
+		//guard damping
+		{"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
+		{"beamSpring":7500,"beamDamp":750},
+		{"dampCutoffHz":500},
+		["rg1r", "rs1r"],
+		["rg1r", "a41"],	
+		["rg2r", "rs1r"],
+		["rg2r", "chs2r"],	
+		//*
+		["rg1l", "rs1l"],
+		["rg1l", "a42"],	
+		["rg2l", "rs1l"],
+		["rg2l", "chs2l"],	
 		//support beams
         {"beamType":"|SUPPORT", "beamLongBound":4},
         {"beamSpring":1550000,"beamDamp":95},
@@ -417,11 +431,31 @@
 		["fg4l", "sp7l"],
 		{"optional":false},
 		{"breakGroup":""},
+		//guard damping
+		{"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
+		{"beamSpring":7500,"beamDamp":750},
+		{"dampCutoffHz":500},
+		["fg1r", "br1r"],
+		["fg1r", "br1l"],	
+		["fg1r", "a25"],	
+		["fg2r", "chs4r"],
+		["fg2r", "fs1r"],	
+		["fg3r", "a84"],
+		["fg3r", "a80"],	
+		//*
+		["fg1l", "br1l"],
+		["fg1l", "br1r"],	
+		["fg1l", "a26"],	
+		["fg2l", "chs4l"],
+		["fg2l", "fs1l"],	
+		["fg3l", "a87"],
+		["fg3l", "a83"],	
 
 		//--Limiters--
         //guard limiter
         {"beamPrecompression":0.99, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":1001000,"beamDamp":1050},
+        {"beamSpring":1001000,"beamDamp":50},
         {"beamDeform":25000,"beamStrength":80000},
         {"deformLimitExpansion":""},
         ["fg1r", "a25"],
@@ -564,11 +598,31 @@
 		["fg3l", "a53"],
 		{"optional":false},
 		{"breakGroup":""},
+		//guard damping
+		{"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
+		{"beamSpring":7500,"beamDamp":750},
+		{"dampCutoffHz":500},
+		["fg1r", "br1r"],
+		["fg1r", "br1l"],	
+		["fg1r", "a25"],	
+		["fg2r", "chs4r"],
+		["fg2r", "fs1r"],	
+		["fg3r", "a84"],
+		["fg3r", "a80"],	
+		//*
+		["fg1l", "br1l"],
+		["fg1l", "br1r"],	
+		["fg1l", "a26"],	
+		["fg2l", "chs4l"],
+		["fg2l", "fs1l"],	
+		["fg3l", "a87"],
+		["fg3l", "a83"],	
 
 		//--Limiters--
         //guard limiter
         {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":1001000,"beamDamp":95},
+        {"beamSpring":1001000,"beamDamp":50},
         {"beamDeform":15000,"beamStrength":80000},
         {"deformLimitExpansion":""},
         ["fg1r", "a25"],
