@@ -157,7 +157,7 @@
         ["rh3l","rh5l"],
         ["rh2l","rh5l"],
         //damper mount to hub
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":2501000,"beamDamp":100},
         {"beamDeform":125000,"beamStrength":285000},
         ["rs2l","rh1l"],
         ["rs2r","rh1r"],
@@ -259,7 +259,7 @@
         ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.2}],
         ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.2}],
         //strut platform
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":2501000,"beamDamp":100},
         ["rh2r", "rs2r"],
         ["rh2l", "rs2l"],
         
@@ -323,7 +323,7 @@
             "precompressionRange":-0.02,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitDampRebound":4500,
+            "beamLimitDampRebound":2500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -363,7 +363,7 @@
             "precompressionRange":-0.02,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitDampRebound":4500,
+            "beamLimitDampRebound":2500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
@@ -425,9 +425,9 @@
         //control arm
         {"triangleType":"COLLIDABLE"},
         ["rx1r", "rarb3r", "rx2r"],
-        ["rarb3l", "rx1l", "rx2l"],
-        ["rh1r", "rarb3r", "rx1r"],
-        ["rarb3l", "rh1l", "rx1l"],
+        ["rarb3r", "rh1r", "rx2r"],
+        ["rx2l", "rarb3l", "rx1l"],
+        ["rarb3l", "rx2l", "rh1l"],
         {"dragCoef":0},
         {"liftCoef":0,"stallAngle":0}
     ],
@@ -619,7 +619,7 @@
         ["rh3l","rh5l"],
         ["rh2l","rh5l"],
         //damper mount to hub
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":2501000,"beamDamp":100},
         {"beamDeform":125000,"beamStrength":285000},
         ["rs2l","rh1l"],
         ["rs2r","rh1r"],
@@ -721,7 +721,7 @@
         ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.2}],
         ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.2}],
         //strut platform
-        {"beamSpring":1501000,"beamDamp":100},
+        {"beamSpring":2501000,"beamDamp":100},
         ["rh2r", "rs2r"],
         ["rh2l", "rs2l"],
         
@@ -773,7 +773,7 @@
             "maxStress":0.5
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.036,
-            "beamLimitSpring":6500,
+            "beamLimitSpring":9000,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/6", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
@@ -820,7 +820,7 @@
             "maxStress":0.5
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_R","boundZone":0.036,
-            "beamLimitSpring":6500,
+            "beamLimitSpring":9000,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/6", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
@@ -901,9 +901,9 @@
         //control arm
         {"triangleType":"COLLIDABLE"},
         ["rx1r", "rarb3r", "rx2r"],
-        ["rarb3l", "rx1l", "rx2l"],
-        ["rh1r", "rarb3r", "rx1r"],
-        ["rarb3l", "rh1l", "rx1l"],
+        ["rarb3r", "rh1r", "rx2r"],
+        ["rx2l", "rarb3l", "rx1l"],
+        ["rarb3l", "rx2l", "rh1l"],
         {"dragCoef":0},
         {"liftCoef":0,"stallAngle":0}
     ],
