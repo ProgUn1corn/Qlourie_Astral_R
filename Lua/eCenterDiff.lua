@@ -168,7 +168,7 @@ local function updateWheelsIntermediate(dt)
     --print(newLockCoef)
     --print(newPreload)
     
-    if handbrake >= hbrelease or clutch >= 0.75 then 
+    if handbrake >= hbrelease or clutch >= 0.88 then 
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
       transfercase.diffTorqueSplitA = 0
@@ -182,20 +182,18 @@ local function updateWheelsIntermediate(dt)
       transfercase.lsdPreload = newPreload
     end
   elseif transferType == "Passive" then
-    if handbrake >= hbrelease or clutch >= 0.75 then 
+    if handbrake >= hbrelease or clutch >= 0.88 then 
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
       transfercase.diffTorqueSplitA = 0
       transfercase.diffTorqueSplitB = 1
       transfercase.lsdPreload = 0
-      electrics.values.clutch = 1
     else
       transfercase.lsdLockCoef = maxLockCoef
       transfercase.lsdRevLockCoef = minLockCoef
       transfercase.diffTorqueSplitA = rearBias
       transfercase.diffTorqueSplitB = 1 - rearBias
       transfercase.lsdPreload = preload
-      electrics.values.clutch = clutch
     end
   end
   --print(transfercase.lsdPreload)
