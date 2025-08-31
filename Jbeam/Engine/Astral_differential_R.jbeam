@@ -39,10 +39,10 @@
 		{"nodeWeight":10},
 		//--Rear Drivetrain--
 		{"group":["Astral_transfercase","Astral_diff"]},
-		["rtrar", -0.169, 1.222, 0.246],
-		["rtral",  0.169, 1.222, 0.246],
+		["rtrar", -0.169, 1.222, 0.255],
+		["rtral",  0.169, 1.222, 0.255],
 		{"nodeWeight":12},
-		["rtra",  0, 0.992 0.241],
+		["rtra",  0, 0.992 0.251],
 	],
 	"beams": [
 		["id1:", "id2:"],
@@ -81,76 +81,6 @@
 		["rtra","rx1l"],
 		["rtra","rx3l"],
 		{"dampCutoffHz":""},
-		{"optional":false}
-		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-		{"beamLimitSpring":false,"beamLimitDamp":false},
-		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-	],
-},
-"Astral_differential_R_l": {
-	"information":{
-		"name":"Debug Open LSD",
-		"value":1500,
-		"isAuxiliary":true
-	},
-	"slotType" : "Astral_differential_R",
-	"slots": [
-		["type", "default", "description"],
-		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
-		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
-		["Astral_finaldrive_R","Astral_finaldrive_R_4.69","Rear Final Drive", {"coreSlot":true}]
-	],
-	"flexbodies": [
-		["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_diff", ["Astral_diff","Astral_sub_R"]],
-	],
-	"powertrain" : [
-		["type", "name", "inputName", "inputIndex"],
-		["differential", "rearDiff", "driveShaft", 1, {"diffType":"open", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
-	],
-	"rearDiff": {
-        "friction": 3.01,
-        "dynamicFriction": 0.00114,
-        "torqueLossCoef": 0.0296,
-    },
-	"nodes": [       
-		["id", "posX", "posY", "posZ"],
-		{"frictionCoef":0.5},
-		{"nodeMaterial":"|NM_METAL"},
-		{"collision":false},
-		{"selfCollision":false},
-		{"nodeWeight":10},
-		//--Rear Drivetrain--
-		{"group":["Astral_transfercase","Astral_diff"]},
-		["rtrar", -0.169, 1.222, 0.246],
-		["rtral",  0.169, 1.222, 0.246],
-	],
-	"beams": [
-		["id1:", "id2:"],
-		{"deformLimitExpansion":1.2},
-		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Rear Drivetrain--
-		//diff
-		{"beamSpring":1201000,"beamDamp":120},
-		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
-		["rtral","rtrar"],
-		//mount to chassis
-		{"optional":true}
-		["rtrar","rx4r"],
-		["rtrar","rx1r"],
-		["rtrar","rx2r"],
-		["rtrar","rx4l"],
-		["rtrar","rx1l"],
-		["rtrar","rx2l"],
-		["rtrar","rx1"],
-		//*
-		["rtral","rx4l"],
-		["rtral","rx1l"],
-		["rtral","rx2l"],
-		["rtral","rx4r"],
-		["rtral","rx1r"],
-		["rtral","rx2r"],
-		["rtral","rx1"],
 		{"optional":false}
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false},
