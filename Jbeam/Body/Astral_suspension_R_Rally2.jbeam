@@ -28,7 +28,7 @@
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.185, 0.165, 0.195, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":165,"maxDis":195,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_stop_R", "range", "mm", "Suspension", 0.170, 0.155, 0.185, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":155,"maxDis":185,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.035, 0.00, 0.04, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":40,"subCategory":"Rear Damper"}],
     ],
@@ -65,8 +65,8 @@
         //arb end link
         {"nodeWeight":1.5},
         {"group":["Astral_arb2_R"]},
-        ["rarb3r", -0.488, 1.3568, 0.0684],
-        ["rarb3l",  0.488, 1.3568, 0.0684],
+        ["rarb3r", -0.489, 1.35678, 0.0682],
+        ["rarb3l",  0.489, 1.35678, 0.0682],
 
         //--Strut--
         //damper top point
@@ -275,13 +275,13 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
         ["rh2r","rs1r", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.210,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.195,"boundZone":0.01,
             "beamLimitSpring":1001000,
             "beamLimitDamp":1000, 
             "dampCutoffHz":250}
         ],
          ["rh2l","rs1l", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.210,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.195,"boundZone":0.01,
             "beamLimitSpring":1001000,
             "beamLimitDamp":1000, 
             "dampCutoffHz":250}
@@ -954,7 +954,7 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.136 //LRS starting point
+        "LRSp":0.1328 //LRS starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]
@@ -991,7 +991,7 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.136 //LRS starting point
+        "LRSp":0.1328 //LRS starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]
@@ -1028,7 +1028,7 @@
         ["LRS", {"name":"RearLRS", "LRS":true, "DSV":true}],
     ],
     "RearLRS": {
-        "LRSp":0.136 //LRS starting point
+        "LRSp":0.1328 //LRS starting point
         "rLoads": [
             ["name", "beamName"]
             ["RR", "LRS_RR"]

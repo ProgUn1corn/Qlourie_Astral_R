@@ -28,8 +28,8 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Suspension", 12000, 10000, 14000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.240, 0.200, 0.220, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":200,"maxDis":220,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.200, 0.175, 0.195, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":175,"maxDis":195,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_stop_F", "range", "mm", "Suspension", 0.20, 0.18, 0.20, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":180,"maxDis":200,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension",  0.165, 0.155, 0.175, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":155,"maxDis":175,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.035, 0.02, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":20,"maxDis":60,"subCategory":"Front Damper"}],
     ],
@@ -291,13 +291,13 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.230,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.210,"boundZone":0.01,
             "beamLimitSpring":1001000,
             "beamLimitDamp":1000, 
             "dampCutoffHz":250}
         ],
          ["fh2l","fs1l", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.230,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.210,"boundZone":0.01,
             "beamLimitSpring":1001000,
             "beamLimitDamp":1000, 
             "dampCutoffHz":250}
