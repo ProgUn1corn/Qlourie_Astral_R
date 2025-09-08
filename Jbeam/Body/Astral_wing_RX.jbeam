@@ -21,7 +21,7 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_PLASTIC"},
 		//--Rear Wing--
-		{"nodeWeight":0.4},
+		{"nodeWeight":0.27},
 		//wings
 		{"group":["Astral_wing_high"]},
 		["w1m", 0, 1.955, 1.293],
@@ -41,13 +41,13 @@
 		["w6r", -0.289, 1.920, 1.069],
 		["w6l",  0.289, 1.920, 1.069],
 		["w4m", 0, 1.614, 1.021],
-		{"nodeWeight":2.5},
+		{"nodeWeight":1.9},
 		["w7r", -0.588, 1.547, 0.967, {"group":["Astral_tailgate","Astral_wing_low","Astral_tailstrut"]}],
 		["w7l",  0.588, 1.547, 0.967, {"group":["Astral_tailgate","Astral_wing_low","Astral_tailstrut"]}],
 		["w8r", -0.289, 1.599, 1.006, {"group":["Astral_tailgate","Astral_wing_low"]}],
 		["w8l",  0.289, 1.599, 1.006, {"group":["Astral_tailgate","Astral_wing_low"]}],
 		//endplates
-		{"nodeWeight":0.5},
+		{"nodeWeight":0.3},
 		{"group":["Astral_endplate"]},
 		["ep1r", -0.619, 1.631, 0.955],
 		["ep2r", -0.619, 1.866, 0.888],
@@ -55,10 +55,9 @@
 		["ep2l",  0.619, 1.866, 0.888],
 		//rigids
 		{"group":[""]},
-		{"nodeWeight":0.8},
+		{"nodeWeight":0.4},
 		["wr1r", -0.405, 1.8531, 1.069, {"selfCollision":false}],
 		["wr1l",  0.405, 1.8531, 1.069, {"selfCollision":false}],
-		{"nodeWeight":0.75},
 		["wr2", 0, 1.8031, 0.886, {"selfCollision":false}]
     ],
 	"beams": [   
@@ -67,7 +66,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear Wing--
 		//lower main shape
-		{"beamSpring":251000,"beamDamp":15},
+		{"beamSpring":151000,"beamDamp":25},
 		{"beamDeform":6000,"beamStrength":"FLT_MAX"},
 		["w5r", "w6r"],
 		["w6r", "w3m"],
@@ -89,7 +88,7 @@
 		["w6r", "w7r"],
 		["w8r", "w5r"],
 		//lower rigids
-		{"beamSpring":201000,"beamDamp":20},
+		{"beamSpring":151000,"beamDamp":20},
 		{"beamDeform":2500},
 		["w3m", "w5l"],
 		["w3m", "w5r"],
@@ -97,7 +96,7 @@
 		["w3m", "w7r"],
 		["w6r", "w6l"],
 		//top main shape
-		{"beamSpring":251000,"beamDamp":15},
+		{"beamSpring":151000,"beamDamp":25},
 		{"beamDeform":6000,"beamStrength":"FLT_MAX"},
 		["w1r", "w2r"],
 		["w2r", "w1m"],
@@ -123,7 +122,7 @@
 		["w2r", "w3r"],
 		["w4r", "w1r"],
 		//top rigids
-		{"beamSpring":201000,"beamDamp":40},
+		{"beamSpring":151000,"beamDamp":20},
 		{"beamDeform":2500},
 		["w1m", "w1r"],
 		["w1m", "w1l"],
@@ -159,7 +158,7 @@
 		["ep2l", "w4l"],
 		["ep2l", "w2l"],
 		//rigidifier
-		{"beamSpring":201000,"beamDamp":40},
+		{"beamSpring":251000,"beamDamp":50},
 		{"beamDeform":2500,"beamStrength":"FLT_MAX"},
 		["wr1l", "ep2l"],
 		["wr1l", "ep1l"],
@@ -188,7 +187,7 @@
 		["wr2", "w8r"],
 		["wr2", "w7r"],
 		//attach two wings
-		{"beamSpring":201000,"beamDamp":25},
+		{"beamSpring":151000,"beamDamp":25},
 		{"beamDeform":1900,"beamStrength":2700},
 		{"breakGroupType":0}
 		{"breakGroup":"wing_R"},
@@ -222,7 +221,6 @@
 		["w4l", "w4m"],
 		["w3l", "w5l"],
 		["w4l", "w6l"],
-		{"beamSpring":151000,"beamDamp":50},
 		{"breakGroupType":1},
 		{"breakGroup":["wing_L","wing_R"]},
 		["w1m", "w3m"],
@@ -231,7 +229,7 @@
 		{"breakGroupType":0},
 		{"breakGroup":""},
 		//attach to body
-		{"beamSpring":251000,"beamDamp":25},
+		{"beamSpring":151000,"beamDamp":25},
 		{"beamDeform":3200,"beamStrength":4000},
 		{"breakGroup":"wgr"},
 		["w6r", "t4r"],
