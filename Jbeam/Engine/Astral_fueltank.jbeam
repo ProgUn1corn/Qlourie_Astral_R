@@ -11,7 +11,7 @@
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_fueltank", ["Astral_chassis"]],
+		["Astral_fueltank", ["Astral_chassis","Astral_fueltank"]],
 	],
 	"energyStorage": [
 		["type", "name"],
@@ -32,13 +32,14 @@
 		{"nodeMaterial":"|NM_METAL"},
 		//--Fuel Tank--
 		{"nodeWeight":1},
-		{"group":[""]},
+		{"group":["Astral_fueltank"]},
 		{"engineGroup":["fuel"]},
 		{"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":97,"specHeat":0.03,"selfIgnitionCoef":0.03,"smokePoint":220,"containerBeam":"fuelTank"},
-		["a45", -0.358, 0.62, 0.199],
-		["a46",  0.358, 0.62, 0.199],
+		["a45", -0.358, 0.663, 0.159],
+		["a46",  0.358, 0.663, 0.159],
 		{"chemEnergy":false,"burnRate":false,"flashPoint":false,"vaporPoint":false,"specHeat":false,"selfIgnitionCoef":false,"smokePoint":false,"containerBeam":false},
         {"engineGroup":""},
+		{"group":[""]},
 	],
 	"beams": [
 		["id1:", "id2:"], 
@@ -47,9 +48,10 @@
 		//--Fuel tank--
 		{"breakGroup":""}
 		{"beamSpring":1001000,"beamDamp":100},
-		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		{"beamDeform":25000,"beamStrength":95820},
 		["a45", "a46", {"name":"fuelTank","containerBeam": "fuelTank"}]
 		{"beamSpring":1001000,"beamDamp":100},
+		{"beamDeform":25000,"beamStrength":"FLT_MAX"},
 		["a45", "a12"],
 		["a45", "a13"],
 		["a45", "a8"],
