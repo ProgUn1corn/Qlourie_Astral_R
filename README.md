@@ -1,5 +1,6 @@
 # Qlourie Astral R
 My personal BeamNG mod project with some simple Lua codes.
+**NEEDS UPDATE**
 ![Astral_R](Docs/BRC/16.jpg)
 It comes from Automation, I made the car in Automation and rewrote almost everything's Jbeam by myself so the physics are completely new. The project started at about 2022/7, and this Github repo is created at 2024/1/16.
 
@@ -101,13 +102,13 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Up to 2 Spare wheel selection for weight accuracy
 
 # Configurations&Specifications
-## BRC (Formerly WRC+ and now Rally1)
+## WRC+ (old generation now classed as Rally1)
 *The pinnacle rallying class which now anticipating BRC.*
 ![Astral_R](Docs/BRC/1.jpg)
 ![Astral_R](Docs/BRC/7.jpg)
 ![Astral_R](Docs/BRC/5.jpg)
 ### Dimensions and Weight
-- Size: 4099mm/1875mm/Height Adjustble
+- Size: 4092mm/1875mm/Height Adjustble
 - Wheelbase: 2547mm/Adjustable
 - Weight: 1190kg minimum/1390kg running weight/~50:50 weight distribution
 ### Engine and Transmission
@@ -141,7 +142,7 @@ Also some fictional lore friendly brands and sponsors! There is actually now in 
 - Rear wing endplate aerodynamics for better control when sliding
 - Downforce level: Tarmac 400kg@200km/h, 48:52 balance/Gravel 360kg@200km/h, 46:54 balance
 
-## Rally2 (Formerly R5)
+## Rally2 EVO (Formerly R5)
 *The most popular class around the world.*
 ![Astral_R](Docs/Rally2/9.jpg)
 ![Astral_R](Docs/Rally2/12.jpg)
