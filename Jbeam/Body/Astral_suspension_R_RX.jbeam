@@ -227,19 +227,24 @@
         ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*1.04514", "beamPrecompressionTime":0.2}],
         ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.04514", "beamPrecompressionTime":0.2}],
         ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.04514", "beamPrecompressionTime":0.2}],
-        //hub reinforcement
+        //arm joint damping
         {"beamSpring":0,"beamDamp":450},
         ["rh1r","a12", {"dampCutoffHz":250}],
         ["rh1l","a15", {"dampCutoffHz":250}],
         ["rh1r","a9", {"dampCutoffHz":250}],
         ["rh1l","a10", {"dampCutoffHz":250}],
+        //hub steering damping
+        {"beamSpring":0,"beamDamp":500},
         ["rh5r","rx4l", {"dampCutoffHz":250}],
         ["rh5l","rx4r", {"dampCutoffHz":250}],
-        {"beamSpring":0,"beamDamp":1000},
+        //damper mounting damping
+        {"beamSpring":0,"beamDamp":1250},
         ["rs2r","rx3l", {"dampCutoffHz":250}],
         ["rs2l","rx3r", {"dampCutoffHz":250}],
         ["rs2r","rx4l", {"dampCutoffHz":250}],
         ["rs2l","rx4r", {"dampCutoffHz":250}],
+        ["rs2r","a16", {"dampCutoffHz":250}],
+        ["rs2l","a19", {"dampCutoffHz":250}],
         //zip tie
         {"beamSpring":6500,"beamDamp":25},
         {"beamDeform":1250,"beamStrength":1550},
