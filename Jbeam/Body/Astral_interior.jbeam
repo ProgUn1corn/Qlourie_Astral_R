@@ -70,7 +70,7 @@
 		//--Dash for Steering Wheel--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//dash nodes
-		{"beamSpring":651000,"beamDamp":50},
+		{"beamSpring":601000,"beamDamp":50},
 		["dsh1", "dsh2"],
 		["dsh2", "dsh3"],
 		["dsh3", "dsh1"],
@@ -373,7 +373,7 @@
 	"slotType" : "Astral_seat",
 	"slots"	: [
 		["type", "default", "description"],
-		["Astral_driver", "Astral_driver", "Driver Model"]
+		["Astral_driver", "", "Driver Model"]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -404,10 +404,10 @@
 		{"group":["Astral_seat"]},
 		["a50",  0.368, 0.177 0.421],
 		{"nodeWeight":15},
-		["driverref",  0.368, 0.177 0.555],
+		["driverref",  0.368, 0.177 0.855],
 		{"nodeWeight":5},
 		["a49", -0.368, 0.177 0.421],
-		["coref", -0.368, 0.177 0.555],
+		["coref", -0.368, 0.177 0.855],
 		{"group":[""]},
 		{"selfCollision":true},
 	],
@@ -417,7 +417,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Seat--
 		//connect to chassis
-		{"beamSpring":2501000,"beamDamp":350},
+		{"beamSpring":601000,"beamDamp":2050,"dampCutoffHz":500},
 		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
 		["a50", "a15"],
 		["a50", "a14"],
@@ -430,8 +430,7 @@
 		["a50", "rc5l"],
 		["a50", "rc6l"],
 		//copilot seat
-		{"beamSpring":2501000,"beamDamp":350},
-		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
+		{"beamSpring":2501000,"beamDamp":150},
 		["a49", "a12"],
 		["a49", "a13"],
 		["a49", "a16"],
@@ -442,17 +441,20 @@
 		["a49", "rc5r"],
 		["a49", "rc6r"],
 		//refnode
+		{"beamSpring":1551000,"beamDamp":650},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		["driverref", "a15"],
 		["driverref", "a14"],
 		["driverref", "a19"],
 		["driverref", "a18"],
 		["driverref", "a54"],
+		{"beamSpring":2501000,"beamDamp":150},
 		["coref", "a12"],
 		["coref", "a13"],
 		["coref", "a16"],
 		["coref", "a17"],
 		["coref", "a53"],
+		{"dampCutoffHz":""},
 	]
 },
 "Astral_seat2":{
@@ -464,8 +466,8 @@
 	"slotType" : "Astral_seat",
 	"slots"	: [
 		["type", "default", "description"],
-		["Astral_driver", "Astral_driver", "Driver Model"]
-		["Astral_copilot", "Astral_copilot", "Co-Driver Model"]
+		["Astral_driver", "", "Driver Model"]
+		["Astral_copilot", "", "Co-Driver Model"]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -500,12 +502,12 @@
 		{"group":["Astral_seat"]},
 		["a50",  0.368, 0.177 0.421],
 		{"nodeWeight":15},
-		["driverref",  0.368, 0.177 0.555],
+		["driverref",  0.368, 0.177 0.855],
 		{"nodeWeight":60},
 		{"group":["Astral_copilot"]},
 		["a49", -0.368, 0.177 0.421],
 		{"nodeWeight":15},
-		["coref", -0.368, 0.177 0.555],
+		["coref", -0.368, 0.177 0.855],
 		{"group":[""]},
 		{"selfCollision":true},
 	],
@@ -515,7 +517,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Seat--
 		//connect to chassis
-		{"beamSpring":2501000,"beamDamp":350},
+		{"beamSpring":601000,"beamDamp":2050,"dampCutoffHz":500},
 		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
 		["a50", "a15"],
 		["a50", "a14"],
@@ -528,8 +530,6 @@
 		["a50", "rc5l"],
 		["a50", "rc6l"],
 		//copilot seat
-		{"beamSpring":2501000,"beamDamp":350},
-		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
 		["a49", "a12"],
 		["a49", "a13"],
 		["a49", "a16"],
@@ -540,6 +540,7 @@
 		["a49", "rc5r"],
 		["a49", "rc6r"],
 		//refnode
+		{"beamSpring":1551000,"beamDamp":650},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		["driverref", "a15"],
 		["driverref", "a14"],
@@ -551,6 +552,7 @@
 		["coref", "a16"],
 		["coref", "a17"],
 		["coref", "a53"],
+		{"dampCutoffHz":""},
 	]
 },
 "Astral_copilot":{
@@ -1745,7 +1747,7 @@
 		//--Rear View--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//mount to roof
-		{"beamSpring":651000,"beamDamp":40},
+		{"beamSpring":601000,"beamDamp":40},
 		["rm1", "a81"],
 		["rm1", "a82"],
 		["rm1", "a77"],
