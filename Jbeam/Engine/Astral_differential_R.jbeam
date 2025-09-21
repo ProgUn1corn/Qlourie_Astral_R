@@ -36,12 +36,12 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":false},
 		{"selfCollision":false},
-		{"nodeWeight":10},
 		//--Rear Drivetrain--
+		{"nodeWeight":9},
 		{"group":["Astral_transfercase","Astral_diff"]},
 		["rtrar", -0.169, 1.222, 0.225],
 		["rtral",  0.169, 1.222, 0.225],
-		{"nodeWeight":12},
+		{"nodeWeight":10},
 		["rtra",  0, 0.992 0.231],
 	],
 	"beams": [
@@ -106,15 +106,16 @@
     }
 	"beams": [
 		["id1:", "id2:"],
-		{"deformLimitExpansion":1.2},
-		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamPrecompression":1, "beamType":"|BOUNDED"}	,
 		//--Driveshaft--
-		//diff
-		{"beamSpring":8501000,"beamDamp":250},
+		{"beamLongBound":0.005,"beamShortBound":0.005},
+        {"beamSpring":150100,"beamDamp":150},
+        {"beamLimitSpring":10501000,"beamLimitDamp":250},
 		{"beamDeform":3500,"beamStrength":5500},
 		["tra","rtra", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
-		{"beamSpring":4501000,"beamDamp":150},
-		{"beamDeform":2500,"beamStrength":3500},
+		{"beamLongBound":0.01, "beamShortBound":0.01},
+		{"beamSpring":0,"beamDamp":0},
+        {"beamLimitSpring":8501000,"beamLimitDamp":250},
 		["tra","rtrar", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
 		["tra","rtral", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
 		{"dampCutoffHz":""},
