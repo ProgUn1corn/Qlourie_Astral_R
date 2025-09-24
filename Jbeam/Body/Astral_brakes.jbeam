@@ -32,7 +32,7 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.5},
+        {"brakeVentingCoef":1.0},
         //sound
         {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
     ]
@@ -106,7 +106,7 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.3},
+        {"brakeVentingCoef":1.0},
         //sound
         {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
     ]
@@ -156,10 +156,17 @@
     "slotType" : "Astral_brake_F",
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_brake_f4", ["Astral_duct_F","axf_L","axf_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakeduct_f4", ["Astral_duct_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
-        ["Astral_brakedisc_f9", ["wheel_FL","wheel_FR","axf_L","axf_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
+        ["Astral_brake_f4", ["Astral_hub_FR", "axf_R"], [], {"pos":{"x":-0.80, "y":0, "z":0}, "scale":{"x": 1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
+        ["Astral_brake_f4", ["Astral_hub_FL", "axf_L"], [], {"pos":{"x": 0.80, "y":0, "z":0}, "scale":{"x":-1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
+        ["brake_hub_5l",                   ["wheel_FR",     "axf_R"], [], {"pos":{"x":-0.78, "y":0, "z":0}, "scale":{"x":1.25,  "y":1.0,  "z":1.0},  "rot":{"x":36,  "y":0,  "z":0}}],
+        ["brake_hub_5l",                   ["wheel_FL",     "axf_L"], [], {"pos":{"x": 0.78, "y":0, "z":0}, "scale":{"x":1.25,  "y":1.0,  "z":1.0},  "rot":{"x":36,  "y":0,  "z":180}}],
+        ["brake_disc_slotted",             ["wheel_FR",     "axf_R"], [], {"pos":{"x":-0.80, "y":0, "z":0}, "scale":{"x":1.45, "y":1.08, "z":1.08}, "rot":{"x":0,  "y":0,  "z":0}, "materialOverride":[["disc_brake", "disc_brake_FR"]]}],
+        ["brake_disc_slotted",             ["wheel_FL",     "axf_L"], [], {"pos":{"x": 0.80, "y":0, "z":0}, "scale":{"x":1.45, "y":1.08, "z":1.08}, "rot":{"x":180,"y":0,  "z":0}, "materialOverride":[["disc_brake", "disc_brake_FL"]]}],
     ],
+    "glowMap":{
+        "disc_brake_FR": {"simpleFunction":{"brakeGlow_FR":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
+        "disc_brake_FL": {"simpleFunction":{"brakeGlow_FL":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
+    },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$BrakeBias", "range", "", "Suspension", 0.76, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
@@ -176,13 +183,13 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.355},
-        {"brakeMass":10},
+        {"brakeMass":6.6},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.5},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
+        {"brakeVentingCoef":1.0},
         //sound
-        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
+        {"squealCoefNatural": 0.6, "squealCoefLowSpeed": 0.5}
     ]
 },
 "Astral_brake_R_355": {
@@ -194,9 +201,17 @@
     "slotType" : "Astral_brake_R",
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_brake_r9", ["Astral_duct_R","axr_L","axr_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakedisc_r4", ["wheel_RL","wheel_RR","axr_L","axr_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
+        ["Astral_brake_r9", ["Astral_hub_RR", "axr_R"], [], {"pos":{"x":-0.80, "y":0, "z":0}, "scale":{"x": 1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
+        ["Astral_brake_r9", ["Astral_hub_RL", "axr_L"], [], {"pos":{"x": 0.80, "y":0, "z":0}, "scale":{"x":-1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
+        ["brake_hub_5l",                   ["wheel_RR",     "axr_R"], [], {"pos":{"x":-0.78, "y":0, "z":0}, "scale":{"x":1.25,  "y":1.0,  "z":1.0},  "rot":{"x":36,  "y":0,  "z":0}}],
+        ["brake_hub_5l",                   ["wheel_RL",     "axr_L"], [], {"pos":{"x": 0.78, "y":0, "z":0}, "scale":{"x":1.25,  "y":1.0,  "z":1.0},  "rot":{"x":36,  "y":0,  "z":180}}],
+        ["brake_disc_slotted",             ["wheel_RR",     "axr_R"], [], {"pos":{"x":-0.80, "y":0, "z":0}, "scale":{"x":1.45, "y":1.08, "z":1.08}, "rot":{"x":0,  "y":0,  "z":0}, "materialOverride":[["disc_brake", "disc_brake_RR"]]}],
+        ["brake_disc_slotted",             ["wheel_RL",     "axr_L"], [], {"pos":{"x": 0.80, "y":0, "z":0}, "scale":{"x":1.45, "y":1.08, "z":1.08}, "rot":{"x":180,"y":0,  "z":0}, "materialOverride":[["disc_brake", "disc_brake_RL"]]}],
     ],
+    "glowMap":{
+        "disc_brake_RR": {"simpleFunction":{"brakeGlow_RR":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
+        "disc_brake_RL": {"simpleFunction":{"brakeGlow_RL":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
+    },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$HBStrength", "range", "Nm", "Suspension", 1980, 1009, 2951, "Handbrake Force", "Set Handbrake Torque", {"stepDis":80,"subCategory":"Brakes"}]
@@ -212,13 +227,13 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.355},
-        {"brakeMass":10},
+        {"brakeMass":6.6},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.0},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
+        {"brakeVentingCoef":0.5},
         //sound
-        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
+        {"squealCoefNatural": 0.6, "squealCoefLowSpeed": 0.5}
     ]
 },
 "Astral_brake_duct_gravel": {

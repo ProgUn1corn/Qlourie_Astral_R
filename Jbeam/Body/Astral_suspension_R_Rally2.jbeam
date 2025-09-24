@@ -9,7 +9,7 @@
     "slots" : [
         ["type", "default", "description"],
         ["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.315+$TrackRear", "y":1.26, "z":0.16}}],
-        ["Astral_brake_R","Astral_brake_R_355", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.16}}],
+        ["Astral_brake_R","Astral_brake_R_355", "Brake", {"nodeOffset":{"x":0, "y":1.26, "z":0.16}}],
         ["Astral_brake_duct_tarmac","Astral_brake_duct_no_tarmac", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.15}, "coreSlot":true}],
         ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_spring_R_Rally2_tarmac","Astral_spring_R_Rally2_tarmac_40", "Spring"],
@@ -18,9 +18,9 @@
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_r9", ["Astral_arm_R"]],
-        ["Astral_rod_r9", ["Astral_rod_R","Astral_arm_R"]],
+        ["Astral_rod_r9", ["Astral_arm_R"]],
         ["Astral_arb_r9", ["Astral_arb2_R"]],
-        ["Astral_hub_r9", ["Astral_hub_R"]],
+        ["Astral_hub_r9", ["Astral_hub_RR","Astral_hub_RL"]],
         ["Astral_damper_platform_r9", ["Astral_damper_R"]],
         ["Astral_damper_piston_r9", ["Astral_piston_R"]],
         ["Astral_trans_r9", ["axr_L","axr_R","Astral_diff","Astral_arm_R"]],
@@ -41,24 +41,20 @@
         //--Hub--
         //hub mounting points for control arm
         {"nodeWeight":7},
-        {"group":["Astral_hub_R","Astral_arm_R",]},
-        ["rh1r", -0.749, 1.341, 0.01],
-        ["rh1l",  0.749, 1.341, 0.01],
+        ["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
         {"nodeWeight":4.75},
-        {"group":["Astral_hub_R","Astral_damper_R"]},
-        ["rh2r", -0.5766, 1.3465, 0.37],
-        ["rh2l",  0.5766, 1.3465, 0.37], 
+        ["rh2r", -0.5766, 1.3465, 0.37, {"group":["Astral_hub_RR","Astral_damper_R"]}],
+        ["rh2l",  0.5766, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
         {"nodeWeight":5},
-        {"group":["Astral_hub_R","Astral_rod_R","Astral_arm_R"]},
-        ["rh3r", -0.744, 1.1795, 0.012],
-        ["rh3l",  0.744, 1.1795, 0.012],
+        ["rh3r", -0.744, 1.1795, 0.012, {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3l",  0.744, 1.1795, 0.012, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake caliper
         {"nodeWeight":3},
-        {"group":["Astral_hub_R","Astral_duct_R"]},
-        ["rh5r", -0.765, 1.11, 0.22],
-        ["rh5l",  0.765, 1.11, 0.22],
+        ["rh5r", -0.765, 1.11, 0.22, {"group":["Astral_hub_RR","Astral_duct_R"]}],
+        ["rh5l",  0.765, 1.11, 0.22, {"group":["Astral_hub_RL","Astral_duct_R"]}],
         {"selfCollision":true},
         
         //--Arm--
@@ -460,7 +456,7 @@
         {"brakeMass":false},
         {"brakeType":false},
         {"rotorMaterial":false},
-        {"brakeVentingCoef":false}
+        {"brakeVentingCoef":false},
     ]
 },
 "Astral_group_R_Rally2_gravel": {
