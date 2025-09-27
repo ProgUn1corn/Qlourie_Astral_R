@@ -11,7 +11,6 @@
 		["Astral_lip_Rally2","Astral_lip_Rally2","Front Lip"],
 		["Astral_safari_Rally2","","Safari Kit"],
 		["Astral_grille_Rally2","Astral_grille_Rally2","Front Grille"],
-		["Astral_brake_duct_Rally2","Astral_brake_duct_Rally2","Brake Duct"],
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -535,16 +534,16 @@
 			[2000, 0],
 			[2500, -1],
 			[3000, -2],
-			[3500, -4],
-			[4000, -6],
-			[4500, -7],
-			[5000, -7],
-			[5500, -8],
-			[6000, -8],
-			[6500, -8],
-			[7000, -10],
-			[7500, -10],
-			[8000, -10],
+			[3500, -2],
+			[4000, -4],
+			[4500, -4],
+			[5000, -5],
+			[5500, -6],
+			[6000, -6],
+			[6500, -6],
+			[7000, -7],
+			[7500, -8],
+			[8000, -8],
 		],
 		//rad
 		"$+radiatorArea":-0.1,
@@ -573,8 +572,14 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_grilleframe_Rally2", ["Astral_bumper_F"]],
 		["Astral_grille_Rally2", ["Astral_bumper_F"]],
-    ]
-}
+		["Astral_duct_F", ["Astral_chassis_F"]],
+    ],
+	"components": {
+    	"brakes":{
+        	"brakeVentingCoef_F":1.5
+    	},
+	}
+},
 "Astral_grille_Rally2_vo1": {
     "information":{
         "authors":"Un1corn",
@@ -591,44 +596,9 @@
         "$+radiatorArea":-0.1,
         "$+radiatorEffectiveness":-6000,
 	},
-	"pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        //close brake duct
-        {"enableBrakeThermals":true},
-        {"brakeVentingCoef":1.0},
-    ]
-}
-"Astral_brake_duct_Rally2_closed": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Closed Brake Duct",
-        "value":5500
-    },
-	"slotType" : "Astral_brake_duct_Rally2",
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_duct_F_Rally2_closed", ["Astral_bumper_F"]]
-    ],
 	"components": {
     	"brakes":{
         	"brakeVentingCoef_F":1.0
-    	},
-	}
-},
-"Astral_brake_duct_Rally2": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Brake Duct",
-        "value":5500
-    },
-	"slotType" : "Astral_brake_duct_Rally2",
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_duct_F", ["Astral_chassis_F"]]
-    ],
-	"components": {
-    	"brakes":{
-        	"brakeVentingCoef_F":1.35
     	},
 	}
 }

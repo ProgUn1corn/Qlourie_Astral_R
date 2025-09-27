@@ -187,7 +187,7 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
-        {"brakeVentingCoef":"$=$components.brakes.brakebrakeVentingCoef_F"},
+        {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_F"},
         //sound
         {"squealCoefNatural": 0.6, "squealCoefLowSpeed": 0.5}
     ]
@@ -231,7 +231,7 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
-        {"brakeVentingCoef":0.5},
+        {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_R"},
         //sound
         {"squealCoefNatural": 0.6, "squealCoefLowSpeed": 0.5}
     ]
@@ -247,10 +247,11 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brakeduct_r8", ["Astral_duct_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
     ],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeVentingCoef":1.5},
-    ]
+    "components": {
+    	"brakes":{
+        	"brakeVentingCoef_R":1.35
+    	},
+	}
 },
 "Astral_brake_duct_tarmac": {
     "information":{
@@ -263,10 +264,11 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brakeduct_r9", ["Astral_duct_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
     ],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeVentingCoef":1.5},
-    ]
+    "components": {
+    	"brakes":{
+        	"brakeVentingCoef_R":1.35
+    	},
+	}
 },
 "Astral_brake_duct_no_tarmac": {
     "information":{
@@ -279,10 +281,11 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_naca", ["Astral_carbody"], [], {"pos":{"x": 0, "y":0, "z":-0.155}, "rot":{"x":0, "y":0, "z":0}}],
     ],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeVentingCoef":1.0},
-    ]
+    "components": {
+    	"brakes":{
+        	"brakeVentingCoef_R":1.0
+    	},
+	}
 },
 "Astral_brake_duct_no_gravel": {
     "information":{
@@ -295,9 +298,10 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_naca", ["Astral_carbody"], [], {"pos":{"x": 0, "y":0, "z":-0.02}, "rot":{"x":0, "y":0, "z":0}}],
     ],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeVentingCoef":1.0},
-    ]
+    "components": {
+    	"brakes":{
+        	"brakeVentingCoef_R":1.0
+    	},
+	}
 },
 }
