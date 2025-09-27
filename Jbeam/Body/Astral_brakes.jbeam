@@ -1,159 +1,80 @@
 {
-"Astral_brake_F_370": {
+"Astral_brake_cylinder_19": {
     "information":{
         "authors":"Un1corn",
-        "name":"370mm Brakes",
+        "name":"19mm Master Cylinder",
         "value":500
     },
-    "slotType" : "Astral_brake_F",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_brake_f4", ["Astral_duct_F","axf_L","axf_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakeduct_f4", ["Astral_duct_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
-        ["Astral_brakedisc_f4", ["wheel_FL","wheel_FR","axf_L","axf_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
-    ],
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$BrakeBias", "range", "", "Suspension", 0.63, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
-        ["$BrakeStrength", "range", "Nm", "Suspension", 3168, 1509, 4827, "Brake Force", "Set Brake Torque", {"stepDis":80,"subCategory":"Brakes"}]
-	],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=$BrakeBias*$BrakeStrength"}, 
-        {"brakeInputSplit":1}, 
-        {"brakeSplitCoef":1},
-        {"parkingTorque":0},
-        {"brakeSpring":85},
-
-        //brake thermals
-        {"enableBrakeThermals":true},
-        {"brakeDiameter":0.370},
-        {"brakeMass":10.5},
-        {"brakeType":"vented-disc"},
-        {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.0},
-        //sound
-        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
-    ]
+    "slotType" : "Astral_brake_cylinder",
+    "components": {
+    	"brakes":{
+        	"multiplierMC":1
+    	},
+	}
 },
-"Astral_brake_R_370": {
+"Astral_brake_cylinder_21": {
     "information":{
         "authors":"Un1corn",
-        "name":"370mm Brakes",
+        "name":"21.38mm Master Cylinder",
         "value":500
     },
-    "slotType" : "Astral_brake_R",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_brake_r9", ["Astral_duct_R","axr_L","axr_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakedisc_r9", ["wheel_RL","wheel_RR","axr_L","axr_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
-    ],
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$HBStrength", "range", "Nm", "Suspension", 2180, 1309, 3251, "Handbrake Force", "Set Handbrake Torque", {"stepDis":80,"subCategory":"Brakes"}]
-	],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=(1-$BrakeBias)*$BrakeStrength"},
-        {"brakeInputSplit":1},
-        {"brakeSplitCoef":1},
-        {"parkingTorque":"$=$HBStrength"},
-        {"brakeSpring":85},
-
-        //brake thermals
-        {"enableBrakeThermals":true},
-        {"brakeDiameter":0.370},
-        {"brakeMass":10.5},
-        {"brakeType":"vented-disc"},
-        {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.0},
-        //sound
-        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
-    ]
+    "slotType" : "Astral_brake_cylinder",
+    "components": {
+    	"brakes":{
+        	"multiplierMC":0.775
+    	},
+	}
 },
-"Astral_brake_F_300": {
+"Astral_brake_cylinder_17": {
     "information":{
         "authors":"Un1corn",
-        "name":"300mm Brakes",
+        "name":"17.42mm Master Cylinder",
         "value":500
     },
-    "slotType" : "Astral_brake_F",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_brake_f3", ["Astral_duct_F","axf_L","axf_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakeduct_f3", ["Astral_duct_F"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],
-        ["Astral_brakedisc_f3", ["wheel_FL","wheel_FR","axf_L","axf_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
-    ],
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$BrakeBias", "range", "", "Suspension", 0.55, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
-        ["$BrakeStrength", "range", "Nm", "Suspension", 2650, 1325, 3975, "Brake Force", "Set Brake Torque", {"stepDis":80,"subCategory":"Brakes"}]
-	],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=$BrakeBias*$BrakeStrength"}, 
-        {"brakeInputSplit":1}, 
-        {"brakeSplitCoef":1},
-        {"parkingTorque":0},
-        {"brakeSpring":80},
-
-        //brake thermals
-        {"enableBrakeThermals":true},
-        {"brakeDiameter":0.300},
-        {"brakeMass":9},
-        {"brakeType":"vented-disc"},
-        {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.0},
-        //sound
-        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
-    ]
+    "slotType" : "Astral_brake_cylinder",
+    "components": {
+    	"brakes":{
+        	"multiplierMC":1.19
+    	},
+	}
 },
-"Astral_brake_R_300": {
+"Astral_brake_pad_tarmac": {
     "information":{
         "authors":"Un1corn",
-        "name":"300mm Brakes",
+        "name":"Brake Pad #1",
         "value":500
     },
-    "slotType" : "Astral_brake_R",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_brake_r8", ["Astral_duct_R","axr_L","axr_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}],  
-        ["Astral_brakedisc_r8", ["wheel_RL","wheel_RR","axr_L","axr_R"], [], {"pos":{"x": 0, "y":0, "z":0}, "rot":{"x":0, "y":0, "z":0}}]
-    ],
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$HBStrength", "range", "Nm", "Suspension", 1741, 1101, 2451, "Handbrake Force", "Set Handbrake Torque", {"stepDis":80,"subCategory":"Brakes"}]
-	],
-    "pressureWheels":[
-        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=(1-$BrakeBias)*$BrakeStrength"},
-        {"brakeInputSplit":1},
-        {"brakeSplitCoef":1},
-        {"parkingTorque":"$=$HBStrength"},
-        {"brakeSpring":80},
-
-        //brake thermals
-        {"enableBrakeThermals":true},
-        {"brakeDiameter":0.300},
-        {"brakeMass":9},
-        {"brakeType":"vented-disc"},
-        {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race"},
-        {"brakeVentingCoef":1.0},
-        //sound
-        {"squealCoefNatural": 0.9, "squealCoefLowSpeed": 0.8}
-    ]
+    "slotType" : "Astral_brake_pad",
+    "components": {
+    	"brakes":{
+        	"multiplierBP":1
+    	},
+	}
+},
+"Astral_brake_pad_gravel": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Brake Pad #2",
+        "value":500
+    },
+    "slotType" : "Astral_brake_pad",
+    "components": {
+    	"brakes":{
+        	"multiplierBP":0.83
+    	},
+	}
 },
 "Astral_brake_F_355": {
     "information":{
         "authors":"Un1corn",
-        "name":"355mm Brakes",
+        "name":"355mm Brake Disc",
         "value":500
     },
     "slotType" : "Astral_brake_F",
+    "slots" : [
+        ["type", "default", "description"],
+        ["Astral_brake_pad","Astral_brake_pad_tarmac", "Brake Pad", {"coreSlot":true}]
+    ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brake_f4", ["Astral_hub_FR", "axf_R"], [], {"pos":{"x":-0.80, "y":0, "z":0}, "scale":{"x": 1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
@@ -167,14 +88,9 @@
         "disc_brake_FR": {"simpleFunction":{"brakeGlow_FR":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
         "disc_brake_FL": {"simpleFunction":{"brakeGlow_FL":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
     },
-    "variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$BrakeBias", "range", "", "Suspension", 0.63, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
-        ["$BrakeStrength", "range", "Nm", "Suspension", 3068, 1409, 4727, "Brake Force", "Set Brake Torque", {"stepDis":80,"subCategory":"Brakes"}]
-	],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=$BrakeBias*$BrakeStrength"}, 
+        {"brakeTorque":"$=3738*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$BrakeBias"},  //3738 for constant 355mm
         {"brakeInputSplit":1}, 
         {"brakeSplitCoef":1},
         {"parkingTorque":0},
@@ -195,10 +111,14 @@
 "Astral_brake_R_355": {
     "information":{
         "authors":"Un1corn",
-        "name":"355mm Brakes",
+        "name":"355mm Brake Disc",
         "value":500
     },
     "slotType" : "Astral_brake_R",
+    "slots" : [
+        ["type", "default", "description"],
+        ["Astral_brake_pad","Astral_brake_pad_tarmac", "Brake Pad", {"coreSlot":true}]
+    ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_brake_r9", ["Astral_hub_RR", "axr_R"], [], {"pos":{"x":-0.80, "y":0, "z":0}, "scale":{"x": 1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
@@ -218,7 +138,7 @@
 	],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-        {"brakeTorque":"$=(1-$BrakeBias)*$BrakeStrength"},
+        {"brakeTorque":"$=3738*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*(1-$BrakeBias)"},  //3738 for constant 355mm
         {"brakeInputSplit":1},
         {"brakeSplitCoef":1},
         {"parkingTorque":"$=$HBStrength"},

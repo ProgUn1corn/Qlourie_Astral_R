@@ -9,10 +9,12 @@
     "slots": [
         ["type", "default", "description"],
         ["Astral_group_F","Astral_group_F_BRC_tarmac", "Front Damper Group"],
-        ["Astral_swaybar_F","Astral_swaybar_F_l", "Front ARB"],
+        ["Astral_swaybar_F","Astral_swaybar_F_l", "Anti-Roll Bar"],
+        ["Astral_brake_cylinder","Astral_brake_cylinder_19", "Brake Master Cylinder", {"coreSlot":true}],
         ["Astral_steering","Astral_steering_m", "Steering"],
-        ["Astral_subframe_F","Astral_subframe_F", "Front Subframe", {"coreSlot":true}],
-		["Astral_guard_F","Astral_guard_F_BRC", "Front Under Guard"]
+        ["Astral_subframe_F","Astral_subframe_F", "Subframe", {"coreSlot":true}],
+		["Astral_guard_F","Astral_guard_F_BRC", "Front Under Guard"],
+        ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}],
     ],
 },
 "Astral_subframe_F": {
@@ -26,12 +28,11 @@
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_subframe_F", ["Astral_sub_F"]],
         ["Astral_subframe_mount_F", ["Astral_sub_F"]],
-        ["Astral_steering_F", ["Astral_sub_F"]],
      ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$CamberFront", "range", "", "Suspension", 1, 0.975, 1.025, "Front Camber", "Adjust camber offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
-        ["$CasterFront", "range", "", "Suspension", 1, 0.98, 1.02, "Front Caster", "Adjust caster offset", {"stepDis":1,"subCategory":"Alignment","minDis":-100,"maxDis":100}],
+        ["$CamberFront", "range", "mm", "Suspension", 0, -0.002, 0.002, "Front Camber Shim", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Alignment","minDis":-2,"maxDis":2}],
+        ["$CasterFront", "range", "mm", "Suspension", 0, -0.007, 0.007, "Caster Arm", "Adjust caster offset", {"stepDis":0.7,"subCategory":"Alignment","minDis":-7,"maxDis":7}],
         ["$TrackFront", "range", "mm", "Suspension", 0.0, -0.02, 0.02, "Front Track Width", "Adjust track width", {"stepDis":1,"minDis":-20,"maxDis":20,"subCategory":"Alignment"}],
         ["$arb_point_F", "range", "P", "Suspension", 0, -0.06, -0.02, "Front ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
     ],
@@ -227,9 +228,13 @@
         ["type", "default", "description"],
         ["Astral_power_steering", "Astral_power_steering", "Power Steering"]
     ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_steering_F", ["Astral_sub_F"]],
+     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$toe_F", "range", "mm", "Suspension", 0, -0.001, 0.001, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Alignment","minDis":-1,"maxDis":1}],
+        ["$toe_F", "range", "mm", "Suspension", 0, -0.0024, 0.0024, "Steering Rod", "Adjusts the wheel toe-in angle", {"stepDis":0.3,"subCategory":"Alignment","minDis":-2.4,"maxDis":2.4}],
         ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
         ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 450, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":450,"stepDis":5}],
         ["$steer_center_F", "range", "", "Suspension", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
@@ -287,162 +292,6 @@
         {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
         ["st2l","st1r", {"factor": 0.16,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l", {"factor":-0.16,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-    "input": {
-        //modifier for force feedback to account for differences in vehicles
-        "FFBcoef":"$=8.5*$ffbTune"
-    }
-},
-"Astral_steering_m": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"8.2:1 Ratio Steering",
-        "value":1200
-    },
-    "slotType" : "Astral_steering",
-    "slots": [
-        ["type", "default", "description"],
-        ["Astral_power_steering", "Astral_power_steering", "Power Steering"]
-    ],
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$toe_F", "range", "mm", "Suspension", 0, -0.001, 0.001, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Alignment","minDis":-1,"maxDis":1}],
-        ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
-        ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 450, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":450,"stepDis":5}],
-        ["$steer_center_F", "range", "", "Suspension", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
-    ],
-    //steering rack rail
-    "rails": {
-        "steeringrack":{"links:":["st2r", "st2l"], "broken:":[], "looped":false, "capped":true}
-    },
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
-    ],
-    "beams": [
-        ["id1:","id2:"],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":600,"beamDeform":125000,"beamStrength":925000},
-        ["st2r","st2l", {"dampCutoffHz":1000}],
-        
-        //--Limiter and Damper--
-        //steering limit
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":2501000,"beamDamp":250,"beamDeform":225000,"beamStrength":"FLT_MAX"},
-        {"beamPrecompression":0.83},
-        ["fh3r","fx1r"],
-        ["fh3l","fx1l"],
-        {"beamPrecompression":0.92},
-        ["fh5r","fx2r"],
-        ["fh5l","fx2l"],
-        {"beamPrecompression":1},
-        //steering damper
-        {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
-        {"beamDeform":25000,"beamStrength":45000},
-        {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":80},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":655,"dampCutoffHz":500}],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":false,"beamDamp":false},
-		{"beamLimitSpring":false,"beamLimitDamp":false}
-    ],
-    "torsionbars": [
-        ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":135000, "damp":0, "deform":45000, "strength":100000},
-        //rigidify steering arm
-        ["fw1rr", "fw1r", "fh1r", "fh3r"],
-        ["fw1ll", "fw1l", "fh1l", "fh3l"],
-    ],
-    "hydros": [
-        ["id1:","id2:"],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
-        ["st2l","st1r", {"factor": 0.148,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
-        ["st2r","st1l", {"factor":-0.148,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-    "input": {
-        //modifier for force feedback to account for differences in vehicles
-        "FFBcoef":"$=8.5*$ffbTune"
-    }
-},
-"Astral_steering_l": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"9.1:1 Ratio Steering",
-        "value":1200
-    },
-    "slotType" : "Astral_steering",
-    "slots": [
-        ["type", "default", "description"],
-        ["Astral_power_steering", "Astral_power_steering", "Power Steering"]
-    ],
-    "variables": [
-        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$toe_F", "range", "mm", "Suspension", 0, -0.001, 0.001, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Alignment","minDis":-1,"maxDis":1}],
-        ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
-        ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 450, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":450,"stepDis":5}],
-        ["$steer_center_F", "range", "", "Suspension", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
-    ],
-    //steering rack rail
-    "rails": {
-        "steeringrack":{"links:":["st2r", "st2l"], "broken:":[], "looped":false, "capped":true}
-    },
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
-    ],
-    "beams": [
-        ["id1:","id2:"],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":600,"beamDeform":125000,"beamStrength":925000},
-        ["st2r","st2l", {"dampCutoffHz":1000}],
-        
-        //--Limiter and Damper--
-        //steering limit
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":2501000,"beamDamp":250,"beamDeform":225000,"beamStrength":"FLT_MAX"},
-        {"beamPrecompression":0.85},
-        ["fh3r","fx1r"],
-        ["fh3l","fx1l"],
-        {"beamPrecompression":0.93},
-        ["fh5r","fx2r"],
-        ["fh5l","fx2l"],
-        {"beamPrecompression":1},
-        //steering damper
-        {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
-        {"beamDeform":25000,"beamStrength":45000},
-        {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":80},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":655,"dampCutoffHz":500}],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":false,"beamDamp":false},
-		{"beamLimitSpring":false,"beamLimitDamp":false}
-    ],
-    "torsionbars": [
-        ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":135000, "damp":0, "deform":45000, "strength":100000},
-        //rigidify steering arm
-        ["fw1rr", "fw1r", "fh1r", "fh3r"],
-        ["fw1ll", "fw1l", "fh1l", "fh3l"],
-    ],
-    "hydros": [
-        ["id1:","id2:"],
-        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
-        ["st2l","st1r", {"factor": 0.137,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
-        ["st2r","st1l", {"factor":-0.137,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
     "input": {

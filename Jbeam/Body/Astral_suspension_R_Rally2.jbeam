@@ -9,9 +9,8 @@
     "slots" : [
         ["type", "default", "description"],
         ["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.315+$TrackRear", "y":1.26, "z":0.16}}],
-        ["Astral_brake_R","Astral_brake_R_355", "Brake", {"nodeOffset":{"x":0, "y":1.26, "z":0.16}}],
+        ["Astral_brake_R","Astral_brake_R_355", "Brake Disc", {"nodeOffset":{"x":0, "y":1.26, "z":0.16}}],
         ["Astral_brake_duct_tarmac","Astral_brake_duct_no_tarmac", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.15}, "coreSlot":true}],
-        ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
         ["Astral_spring_R_Rally2_tarmac","Astral_spring_R_Rally2_tarmac_42", "Spring"],
         ["Astral_shim_R_Rally2_tarmac","Astral_shim_R_Rally2_tarmac_l", "Shim Stacks", {"coreSlot":true}]
     ],
@@ -195,10 +194,10 @@
         {"beamSpring":7001000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear-0.005","beamPrecompressionTime":0.2}],
+        ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*3.11-0.0006","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear-0.005","beamPrecompressionTime":0.2}],
+        ["rh2l","rw1ll", {"precompressionRange":"$=$CamberRear*3.11-0.0006","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
         
