@@ -11,6 +11,7 @@
 		["Astral_lip_Rally2","Astral_lip_Rally2","Front Lip"],
 		["Astral_safari_Rally2","","Safari Kit"],
 		["Astral_grille_Rally2","Astral_grille_Rally2","Front Grille"],
+		["Astral_brake_duct_Rally2","Astral_brake_duct_Rally2","Brake Duct"],
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -596,5 +597,39 @@
         {"enableBrakeThermals":true},
         {"brakeVentingCoef":1.0},
     ]
+}
+"Astral_brake_duct_Rally2_closed": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Closed Brake Duct",
+        "value":5500
+    },
+	"slotType" : "Astral_brake_duct_Rally2",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_duct_F_Rally2_closed", ["Astral_bumper_F"]]
+    ],
+	"components": {
+    	"brakes":{
+        	"brakeVentingCoef_F":1.0
+    	},
+	}
+},
+"Astral_brake_duct_Rally2": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Brake Duct",
+        "value":5500
+    },
+	"slotType" : "Astral_brake_duct_Rally2",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_duct_F", ["Astral_chassis_F"]]
+    ],
+	"components": {
+    	"brakes":{
+        	"brakeVentingCoef_F":1.35
+    	},
+	}
 }
 }

@@ -14,7 +14,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$BrakeBias", "range", "", "Suspension", 0.76, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
+        ["$BrakeBias", "range", "", "Suspension", 0.63, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
         ["$BrakeStrength", "range", "Nm", "Suspension", 3168, 1509, 4827, "Brake Force", "Set Brake Torque", {"stepDis":80,"subCategory":"Brakes"}]
 	],
     "pressureWheels":[
@@ -51,7 +51,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$HBStrength", "range", "Nm", "Suspension", 1980, 1109, 3051, "Handbrake Force", "Set Handbrake Torque", {"stepDis":80,"subCategory":"Brakes"}]
+        ["$HBStrength", "range", "Nm", "Suspension", 2180, 1309, 3251, "Handbrake Force", "Set Handbrake Torque", {"stepDis":80,"subCategory":"Brakes"}]
 	],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -169,7 +169,7 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$BrakeBias", "range", "", "Suspension", 0.76, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
+        ["$BrakeBias", "range", "", "Suspension", 0.63, 0.3, 0.9, "Brake Bias", "Set Front Brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":30,"maxDis":90}],
         ["$BrakeStrength", "range", "Nm", "Suspension", 3068, 1409, 4727, "Brake Force", "Set Brake Torque", {"stepDis":80,"subCategory":"Brakes"}]
 	],
     "pressureWheels":[
@@ -187,7 +187,7 @@
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
-        {"brakeVentingCoef":1.0},
+        {"brakeVentingCoef":"$=$components.brakes.brakebrakeVentingCoef_F"},
         //sound
         {"squealCoefNatural": 0.6, "squealCoefLowSpeed": 0.5}
     ]
@@ -214,7 +214,7 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$HBStrength", "range", "Nm", "Suspension", 1980, 1009, 2951, "Handbrake Force", "Set Handbrake Torque", {"stepDis":80,"subCategory":"Brakes"}]
+        ["$HBStrength", "range", "Nm", "Suspension", 2180, 1309, 3251, "Handbrake Force", "Set Handbrake Torque", {"stepDis":80,"subCategory":"Brakes"}]
 	],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
