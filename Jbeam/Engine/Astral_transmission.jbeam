@@ -27,7 +27,6 @@
     ],
 	"gearbox": {
 		"uiName":"Gearbox",
-		"gearRatios":["$=-$gear_R", 0, "$gear_1", "$gear_2", "$gear_3", "$gear_4", "$gear_5", "$gear_6"],
 		"friction": 1.65, 
 		"dynamicFriction":0.00108,
 		"torqueLossCoef": 0.012,
@@ -137,6 +136,7 @@
 		["Astral_transfercase", "Astral_differential_center_locked", "Transfercase"],
 		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"],
 		["Astral_flywheel","Astral_flywheel","Flywheel", {"coreSlot":true}],
+		["Astral_gearratio_5","Astral_gearratio_5_A","Gear Ratios", {"coreSlot":true}],
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -251,6 +251,26 @@
 		["sequentialGearbox", "gearbox", "clutch", 1, {"deformGroups":["gearbox"]}],
 	],
 },
+"Astral_gearratio_5_A": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-A Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_5",,
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 3.52, 2.51, 1.83, 1.39, 1.11],
+	},
+},
+"Astral_gearratio_5_B": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-B Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_5",,
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 2.99, 2.15, 1.61, 1.29, 1.04],
+	},
+},
 "Astral_flywheel": {
     "information":{
         "authors":"Un1corn",
@@ -266,23 +286,6 @@
         "uiName":"Clutch",
         "additionalEngineInertia":0.01,
         "clutchMass":5,
-    },
-},
-"Astral_flywheel_light": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Light Flywheel",
-        "value":150,
-    },
-    "slotType" : "Astral_flywheel",
-    "powertrain": [
-        ["type", "name", "inputName", "inputIndex"],
-        ["frictionClutch", "clutch", "mainEngine", 1, {"deformGroups":["gearbox"]}],
-    ],
-    "clutch": {
-        "uiName":"Clutch",
-        "additionalEngineInertia":0.022,
-        "clutchMass":6,
     },
 },
 }

@@ -1,7 +1,7 @@
 {
 "Astral_differential_R_race": {
 	"information":{
-		"name":"Clutched Rear LSD",
+		"name":"Clutch Rear LSD",
 		"value":1500
 	},
 	"slotType" : "Astral_differential_R",
@@ -9,7 +9,7 @@
 		["type", "default", "description"],
 		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
 		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
-		["Astral_finaldrive_R","Astral_finaldrive_R_4.64","Rear Final Drive", {"coreSlot":true}]
+		["Astral_finaldrive_R","Astral_finaldrive_R_4.43","Rear Final Drive", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -17,9 +17,9 @@
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$lsdpreload_R", "range", "Nm", "Differentials", 50, 0, 100, "Preload Torque", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Rear"}]
-		["$lsdlockcoef_R", "range", "", "Differentials", 0.27, 0.105, 0.33, "Throttle Lock", "Additional locking torque proportional to engine torque", {"minDis":21, "maxDis":66, "stepDis":3, "subCategory":"Rear"}],
-		["$lsdlockcoefrev_R", "range", "", "Differentials", 0.025, 0.025, 0.1, "Brake Lock", "Additional locking torque proportional to engine braking", {"minDis":5, "maxDis":20, "stepDis":3, "subCategory":"Rear"}]
+		["$lsdpreload_R", "range", "Nm", "Differentials", 40, 0, 100, "Preload Torque", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Rear"}]
+		["$lsdlockcoef_R", "range", "", "Differentials", 0.14, 0.08, 0.305, "Throttle Lock", "Additional locking torque proportional to engine torque", {"minDis":16, "maxDis":61, "stepDis":3, "subCategory":"Rear"}],
+		["$lsdlockcoefrev_R", "range", "", "Differentials", 0.025, 0, 0.1, "Brake Lock", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":20, "stepDis":5, "subCategory":"Rear"}]
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
@@ -152,54 +152,14 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
 },
-"Astral_finaldrive_R_4.99": {
+"Astral_finaldrive_R_4.43": {
 	"information":{
-		"name":"Final Drive 4.99",
+		"name":"Final Drive 4.43",
 		"value":1000
 	},
 	"slotType" : "Astral_finaldrive_R",
 	"rearDiff":{
-		"gearRatio": 4.99
+		"gearRatio": 4.43
 	}
 },
-"Astral_finaldrive_R_4.64": {
-	"information":{
-		"name":"Final Drive 4.64",
-		"value":1000
-	},
-	"slotType" : "Astral_finaldrive_R",
-	"rearDiff":{
-		"gearRatio": 4.64
-	}
-},
-"Astral_finaldrive_R_4.46": {
-	"information":{
-		"name":"Final Drive 4.46",
-		"value":1000
-	},
-	"slotType" : "Astral_finaldrive_R",
-	"rearDiff":{
-		"gearRatio": 4.46
-	}
-},
-"Astral_finaldrive_R_4.27": {
-	"information":{
-		"name":"Final Drive 4.27",
-		"value":1000
-	},
-	"slotType" : "Astral_finaldrive_R",
-	"rearDiff":{
-		"gearRatio": 4.27
-	}
-},
-"Astral_finaldrive_R_4.02": {
-	"information":{
-		"name":"Final Drive 4.02",
-		"value":1000
-	},
-	"slotType" : "Astral_finaldrive_R",
-	"rearDiff":{
-		"gearRatio": 4.02
-	}
-}
 }
