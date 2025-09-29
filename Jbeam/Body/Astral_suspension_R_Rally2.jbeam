@@ -48,8 +48,8 @@
         ["rh2l",  0.5766, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
         {"nodeWeight":5},
-        ["rh3r", -0.744, 1.1795, 0.012, {"group":["Astral_hub_RR","Astral_arm_R"]}],
-        ["rh3l",  0.744, 1.1795, 0.012, {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3r", -0.744, 1.1795, "$=0.012+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3l",  0.744, 1.1795, "$=0.012+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake caliper
         {"nodeWeight":3},
         ["rh5r", -0.765, 1.11, 0.22, {"group":["Astral_hub_RR","Astral_duct_R"]}],
@@ -507,8 +507,8 @@
         ["rh2l",  0.591, 1.3507, 0.2, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
         {"nodeWeight":5},
-        ["rh3r", -0.747, 1.1795, -0.085, {"group":["Astral_hub_RR","Astral_arm_R"]}],
-        ["rh3l",  0.747, 1.1795, -0.085, {"group":["Astral_hub_RL","Astral_arm_R"]}],
+        ["rh3r", -0.747, 1.1795, "$=-0.084+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3l",  0.747, 1.1795, "$=-0.084+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
         {"nodeWeight":3},
         ["rh5r", -0.765, 1.111, 0.074, {"group":["Astral_hub_RR","Astral_duct_R"]}],
@@ -669,8 +669,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":20001000,"beamDamp":1600},
-        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0011","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0011","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         //arb link
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
