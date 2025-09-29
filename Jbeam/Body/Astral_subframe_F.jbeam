@@ -31,10 +31,10 @@
      ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$CamberFront", "range", "mm", "Suspension", 0, -0.002, 0.002, "Front Camber Shim", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Alignment","minDis":-2,"maxDis":2}],
-        ["$CasterFront", "range", "mm", "Suspension", 0, -0.007, 0.007, "Caster Arm", "Adjust caster offset", {"stepDis":0.7,"subCategory":"Alignment","minDis":-7,"maxDis":7}],
-        ["$TrackFront", "range", "mm", "Suspension", 0.0, -0.02, 0.02, "Front Track Width", "Adjust track width", {"stepDis":1,"minDis":-20,"maxDis":20,"subCategory":"Alignment"}],
-        ["$arb_point_F", "range", "P", "Suspension", 0, -0.06, -0.02, "Front ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Alignment"}],
+        ["$CamberFront", "range", "mm", "Suspension", 0, -0.002, 0.002, "Front Camber Shim", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Front Alignment","minDis":-2,"maxDis":2}],
+        ["$CasterFront", "range", "mm", "Suspension", 0, -0.007, 0.007, "Caster Arm", "Adjust caster offset", {"stepDis":0.7,"subCategory":"Front Alignment","minDis":-7,"maxDis":7}],
+        ["$TrackFront", "range", "mm", "Suspension", 0.0, -0.02, 0.02, "Front Track Width", "Adjust track width", {"stepDis":1,"minDis":-20,"maxDis":20,"subCategory":"Front Alignment"}],
+        ["$arb_point_F", "range", "P", "Suspension", 0, -0.06, -0.02, "Front ARB Mounting", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Alignment"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -62,8 +62,8 @@
         //steering box
         {"nodeWeight":6.5},
         {"group":["Astral_sub_F", "Astral_str_F"]},
-        ["st1r", -0.164, -1.114, 0.163],
-        ["st1l",  0.164, -1.114, 0.163],
+        ["st1r", -0.164, -1.124, 0.163],
+        ["st1l",  0.164, -1.124, 0.163],
         //rigidifier
         {"collision":false},
         {"nodeWeight":3.5},
@@ -234,7 +234,7 @@
      ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$toe_F", "range", "mm", "Suspension", 0, -0.0024, 0.0024, "Steering Rod", "Adjusts the wheel toe-in angle", {"stepDis":0.3,"subCategory":"Alignment","minDis":-2.4,"maxDis":2.4}],
+        ["$toe_F", "range", "mm", "Suspension", 0, -0.0024, 0.0024, "Steering Rod", "Adjusts the wheel toe-in angle", {"stepDis":0.3,"subCategory":"Front Alignment","minDis":-2.4,"maxDis":2.4}],
         ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
         ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 450, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":450,"stepDis":5}],
         ["$steer_center_F", "range", "", "Suspension", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
@@ -290,8 +290,8 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
-        ["st2l","st1r", {"factor": 0.16,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
-        ["st2r","st1l", {"factor":-0.16,"steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
+        ["st2l","st1r", {"factor":"$= $components.steering.limiter","steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
+        ["st2r","st1l", {"factor":"$=-$components.steering.limiter","steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
     "input": {
