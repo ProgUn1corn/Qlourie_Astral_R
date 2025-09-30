@@ -43,7 +43,7 @@ local function updateWheelsIntermediate(dt)
 
   --apply throttle map
   electrics.values.throttle = newThrottle 
-  print(newThrottle)
+  --print(newThrottle)
 end
 
 local function init(jbeamData)
