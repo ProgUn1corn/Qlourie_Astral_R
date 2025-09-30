@@ -4,12 +4,6 @@
 local M = {}
 M.type = "auxilliary"
 
---math
-local abs = math.abs
-local min = math.min
-local max = math.max
-local clamp = math.clamp
-
 local tMap = nil
 local throttle = nil
 local newThrottle = nil
