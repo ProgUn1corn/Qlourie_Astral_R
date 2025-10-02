@@ -8,10 +8,10 @@
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.317+$TrackRear", "y":1.26, "z":0.16}}],
+        ["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.323+$TrackRear", "y":1.26, "z":0.16}}], //Rally2 track width 1610mm
         ["Astral_brake_R","Astral_brake_R_355", "Brake Disc", {"nodeOffset":{"x":0, "y":1.26, "z":0.16}}],
         ["Astral_brake_duct_tarmac","Astral_brake_duct_no_tarmac", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.15}, "coreSlot":true}],
-        ["Astral_spring_R_Rally2_tarmac","Astral_spring_R_Rally2_tarmac_42", "Spring"],
+        ["Astral_spring_R_Rally2_tarmac","Astral_spring_R_Rally2_tarmac_39", "Spring"],
         ["Astral_shim_R_Rally2_tarmac","Astral_shim_R_Rally2_tarmac_l", "Shim Stacks", {"coreSlot":true}]
     ],
     "flexbodies": [
@@ -29,7 +29,7 @@
         ["$LRS_R", "range", "x", "Suspension", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.170, 0.155, 0.185, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":155,"maxDis":185,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.033, 0.017, 0.053, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Rear Damper"}],
+        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0.036, 0.020, 0.056, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Rear Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -507,8 +507,8 @@
         ["rh2l",  0.591, 1.3507, 0.2, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
         {"nodeWeight":5},
-        ["rh3r", -0.747, 1.1795, "$=-0.084+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
-        ["rh3l",  0.747, 1.1795, "$=-0.084+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
+        ["rh3r", -0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3l",  0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
         {"nodeWeight":3},
         ["rh5r", -0.765, 1.111, 0.074, {"group":["Astral_hub_RR","Astral_duct_R"]}],
@@ -669,8 +669,8 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":20001000,"beamDamp":1600},
-        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0014","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0014","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0006","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0006","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         //arb link
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},

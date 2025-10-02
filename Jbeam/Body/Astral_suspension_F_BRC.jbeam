@@ -8,18 +8,17 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.340+$TrackFront", "y":-1.287, "z":0.17}}],
-        ["Astral_brake_F","Astral_brake_F_370", "Brake Disc", {"nodeOffset":{"x":0, "y":0, "z":0.17}}],
-        ["Astral_wheeldata_F","Astral_wheeldata_F", "Spindle", {"coreSlot":true}]
-        ["Astral_spring_F_BRC_tarmac","Astral_spring_F_BRC_tarmac_48", "Spring"],
-        ["Astral_shim_F_BRC_tarmac","Astral_shim_F_BRC_tarmac_l", "Shim Stacks", {"coreSlot":true}]
+        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.352+$TrackFront", "y":-1.287, "z":0.17}}],  //WRC+ track width 1664mm
+        ["Astral_brake_F","Astral_brake_F_370", "Brake Disc", {"nodeOffset":{"x":0, "y":-1.287, "z":0.17}}],
+        ["Astral_spring_F_BRC_tarmac","Astral_spring_F_BRC_tarmac_46", "Spring"],
+        ["Astral_shim_F_BRC_tarmac","Astral_shim_F_BRC_tarmac_l", "Shim Stacks", {"coreSlot":true}],
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_f4", ["Astral_arm_F"]],
         ["Astral_rod_f4", ["Astral_rod_F"]],
         ["Astral_arb_f4", ["Astral_arb2_F"]],
-        ["Astral_hub_f4", ["Astral_hub_F"]],
+        ["Astral_hub_f4", ["Astral_hub_FR","Astral_hub_FL"]],
         ["Astral_damper_platform_f4", ["Astral_damper_F"]],
         ["Astral_damper_piston_f4", ["Astral_piston_F"]],
         ["Astral_trans_f4", ["axf_L","axf_R","Astral_transmission","Astral_arm_F"]],
@@ -31,7 +30,7 @@
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.190, 0.170, 0.190, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":170,"maxDis":190,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.155, 0.140, 0.170, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":140,"maxDis":170,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "+mm", "Suspension", 0.035, 0.02, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":20,"maxDis":60,"subCategory":"Front Damper"}],
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension", 0.036, 0.020, 0.056, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Front Damper"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -42,39 +41,35 @@
         //--Hub--
         //hub mounting points for control arm
         {"nodeWeight":7},
-        {"group":["Astral_hub_F","Astral_arm_F"]},
-        ["fh1r", -0.747, -1.283, 0.021],
-        ["fh1l",  0.747, -1.283, 0.021],
+        ["fh1r", -0.747, -1.295, 0.021, {"group":["Astral_hub_FR","Astral_arm_F"]}],
+        ["fh1l",  0.747, -1.295, 0.021, {"group":["Astral_hub_FL","Astral_arm_F"]}],
         //strut attach
         {"nodeWeight":4.75},
-        {"group":["Astral_hub_F","Astral_damper_F"]},
-        ["fh2r", -0.5941, -1.295, 0.41],
-        ["fh2l",  0.5941, -1.295, 0.41],
+        ["fh2r", -0.5941, -1.295, 0.41, {"group":["Astral_hub_FR","Astral_damper_F"]}],
+        ["fh2l",  0.5941, -1.295, 0.41, {"group":["Astral_hub_FL","Astral_damper_F"]}],
         //tie rod end
         {"nodeWeight":5.25},
-        {"group":["Astral_hub_F","Astral_rod_F"]},
-        ["fh3r", -0.737, -1.1692, 0.0732],
-        ["fh3l",  0.737, -1.1692, 0.0732],
+        ["fh3r", -0.737, -1.1692, "$=0.0722+$Bumpsteer_F", {"group":["Astral_hub_FR","Astral_rod_F"]}],
+        ["fh3l",  0.737, -1.1692, "$=0.0722+$Bumpsteer_F", {"group":["Astral_hub_FL","Astral_rod_F"]}],
         //brake caliper
         {"nodeWeight":3},
         {"selfCollision":false},
-        {"group":["Astral_hub_F","Astral_duct_F"]},
-        ["fh5r", -0.765, -1.45, 0.18],
-        ["fh5l",  0.765, -1.45, 0.18],
+        ["fh5r", -0.765, -1.45, 0.18, {"group":["Astral_hub_FR","Astral_duct_F"]}],
+        ["fh5l",  0.765, -1.45, 0.18, {"group":["Astral_hub_FL","Astral_duct_F"]}],
         
         //--Steering Rack--
         //steering rack ends
         {"nodeWeight":6},
         {"group":["Astral_rod_F"]},
-        ["st2r", -0.2595, -1.114, 0.163],
-        ["st2l",  0.2595, -1.114, 0.163],
+        ["st2r", -0.2595, -1.124, 0.163],
+        ["st2l",  0.2595, -1.124, 0.163],
         
         //--Arm--
         //arb end link
         {"nodeWeight":1.5},
         {"group":["Astral_arb2_F"]},
-        ["farb3r", -0.472, -1.1, 0.0795],
-        ["farb3l",  0.472, -1.1, 0.0795],
+        ["farb3r", -0.472, -1.1155, 0.0783],
+        ["farb3l",  0.472, -1.1155, 0.0783],
         {"selfCollision":true},
 
         //--Strut--
@@ -100,7 +95,7 @@
         ["fmassr", -0.5705, -1.2414, 0.699],
         ["fmassl",  0.5705, -1.2414, 0.699], 
         //damper end
-        {"nodeWeight":2.6},
+        {"nodeWeight":2.7},
         {"group":["Astral_damper_F"]},
         ["fs2r", -0.611, -1.333, 0.203],
         ["fs2l",  0.611, -1.333, 0.203],
@@ -144,7 +139,6 @@
     ],
     "beams": [
         ["id1:", "id2:"],
-        
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //hub form
@@ -208,10 +202,10 @@
         {"beamSpring":7001000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"beamPrecompression":"$=$CamberFront-0.008","beamPrecompressionTime":0.2}],
+        ["fh2r","fw1rr", {"precompressionRange":"$=$CamberFront*2.94+0.0006","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"beamPrecompression":"$=$CamberFront-0.008","beamPrecompressionTime":0.2}],
+        ["fh2l","fw1ll", {"precompressionRange":"$=$CamberFront*2.94+0.0006","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -219,22 +213,22 @@
         //control arm
         {"beamSpring":20001000,"beamDamp":2000},
         {"beamDeform":185100,"beamStrength":225000},
-        ["fx2r", "fh1r", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
-        ["fx1r", "fh1r", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
-        ["fx2l", "fh1l", {"beamPrecompression":"$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
-        ["fx1l", "fh1l", {"beamPrecompression":"$=2-$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
+        ["fx2r", "fh1r", {"precompressionRange":"$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
+        ["fx1r", "fh1r"],
+        ["fx2l", "fh1l", {"precompressionRange":"$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
+        ["fx1l", "fh1l"],
         //tie rods
         {"beamSpring":19001000,"beamDamp":800},
         {"beamDeform":235100,"beamStrength":325000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F-0.0001","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.0001","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0007","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0007","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["farb3r","fx2r", {"precompressionRange":"$=$arb_point_F*0.95", "beamPrecompressionTime":0.2}],
-        ["farb3l","fx2l", {"precompressionRange":"$=$arb_point_F*0.95", "beamPrecompressionTime":0.2}],
-        ["farb3r","fh1r", {"precompressionRange":"$=0-$arb_point_F*0.95", "beamPrecompressionTime":0.2}],
-        ["farb3l","fh1l", {"precompressionRange":"$=0-$arb_point_F*0.95", "beamPrecompressionTime":0.2}],
+        ["farb3r","fx2r", {"precompressionRange":"$=$arb_point_F*0.65", "beamPrecompressionTime":0.2}],
+        ["farb3l","fx2l", {"precompressionRange":"$=$arb_point_F*0.65", "beamPrecompressionTime":0.2}],
+        ["farb3r","fh1r", {"precompressionRange":"$=0-$arb_point_F*0.65", "beamPrecompressionTime":0.2}],
+        ["farb3l","fh1l", {"precompressionRange":"$=0-$arb_point_F*0.65", "beamPrecompressionTime":0.2}],
         //arm joint damping
         {"beamSpring":0,"beamDamp":650},
         ["fh1r","a16", {"dampCutoffHz":500}],
@@ -247,7 +241,7 @@
         ["fh3l","st2r", {"dampCutoffHz":500}],
         ["fh5r","fh5l", {"dampCutoffHz":500}],
         //damper mounting damping
-        {"beamSpring":0,"beamDamp":1250},
+        {"beamSpring":0,"beamDamp":1550},
         ["fs2r","fx1l", {"dampCutoffHz":250}],
         ["fs2l","fx1r", {"dampCutoffHz":250}],
         ["fs2r","fx3r", {"dampCutoffHz":250}],
@@ -295,15 +289,15 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.200,"boundZone":0.01,
-            "beamLimitSpring":1001000,
-            "beamLimitDamp":1000, 
+            "longBoundRange":0,"shortBoundRange":0.195,"boundZone":0.01,
+            "beamLimitSpring":2501000,
+            "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
          ["fh2l","fs1l", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.200,"boundZone":0.01,
-            "beamLimitSpring":1001000,
-            "beamLimitDamp":1000, 
+            "longBoundRange":0,"shortBoundRange":0.195,"boundZone":0.01,
+            "beamLimitSpring":2501000,
+            "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FR"},
@@ -439,6 +433,7 @@
         {"groundModel":"metal"},
         {"triangleType":"NONCOLLIDABLE"},
         {"dragCoef":0},
+        {"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
         //hub
         ["fh1r", "fh5r", "fh3r"],
@@ -483,8 +478,18 @@
         {"brakeMass":false},
         {"brakeType":false},
         {"rotorMaterial":false},
-        {"brakeVentingCoef":false}
+        {"brakeVentingCoef":false},
     ],
+    "components": {
+    	"brakes":{
+			"ductMesh":"Astral_brakeduct_f4",
+            "ductPosY":-1.287
+            "ductPosZ": 0.17
+    	},
+        "steering":{
+			"limiter":0.175,
+    	},
+	}
 },
 "Astral_group_F_BRC_gravel": {
     "information":{
@@ -992,9 +997,9 @@
     "slotType" : "Astral_shim_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 3600, 2000, 5200, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 6800, 5200, 8400, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 5400, 3000, 7800, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 3500, 2000, 5000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 6800, 5200, 8400, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 5750, 3000, 7500, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension", 0.4, 0.25, 0.55, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
@@ -1016,8 +1021,8 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-5200)/32000-($dampRate_bump_F-2000)/32000,0,99)", 0.72]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-5200)/32000-($dampRate_bump_F-2000)/32000,0,99)", 1] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-5200)/30000-($dampRate_bump_F-2000)/30000,0,99)", 0.72]  //normal damping
+            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-5200)/30000-($dampRate_bump_F-2000)/30000,0,99)", 1] //LRS active
         ]
     },
 },
@@ -1030,9 +1035,9 @@
     "slotType" : "Astral_shim_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 4300, 2750, 5950, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 4900, 3300, 6500, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 6900, 4125, 8925, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 4250, 2750, 5750, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5000, 3400, 6600, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 6375, 4125, 8625, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension", 0.35, 0.20, 0.50, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
@@ -1054,8 +1059,8 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3300)/32000-($dampRate_bump_F-2750)/32000,0,99)", 0.66]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3300)/32000-($dampRate_bump_F-2750)/32000,0,99)", 1] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3400)/30000-($dampRate_bump_F-2750)/30000,0,99)", 0.66]  //normal damping
+            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3400)/30000-($dampRate_bump_F-2750)/30000,0,99)", 1] //LRS active
         ]
     },
 },
@@ -1068,9 +1073,9 @@
     "slotType" : "Astral_shim_F_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 5200, 3800, 7000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 3600, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 8100, 5700, 10500, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 5300, 3800, 6800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 3600, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 7950, 5700, 10200, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension", 0.26, 0.11, 0.41, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
@@ -1092,8 +1097,8 @@
         ],
         "fDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3800)/32000,0,99)", 0.55]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3800)/32000,0,99)", 1] //LRS active
+            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-2000)/30000-($dampRate_bump_F-3800)/30000,0,99)", 0.55]  //normal damping
+            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast*1.1", "$=$dampRate_rebound_F*$LRS_F", "$=$dampRate_rebound_F*$LRS_F", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-2000)/30000-($dampRate_bump_F-3800)/30000,0,99)", 1] //LRS active
         ]
     },
 },
@@ -1106,9 +1111,9 @@
     "slotType" : "Astral_shim_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 2420, 660, 4180, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5400, 3800, 7000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2200, 600, 3800, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 2420, 660, 4180, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 5400, 3800, 7000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2200, 600, 3800, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension", 0.91, 0.52, 1.30, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.13,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
@@ -1144,9 +1149,9 @@
     "slotType" : "Astral_shim_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 2750, 990, 4510, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 4500, 2900, 6100, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2500, 900, 4100, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 2750, 990, 4510, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 4500, 2900, 6100, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2500, 900, 4100, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension", 0.62, 0.23, 1.01, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.13,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
@@ -1182,9 +1187,9 @@
     "slotType" : "Astral_shim_F_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_F", "range", "Click", "Suspension", 3080, 1320, 4840, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
-		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 3600, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Front Damper"}],
-        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2800, 1200, 4400, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-64,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F", "range", "Click", "Suspension", 3080, 1320, 4840, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
+		["$dampRate_bump_F_fast", "range", "Click", "Suspension", 3600, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper"}],
+        ["$dampRate_rebound_F", "range", "Click", "Suspension", 2800, 1200, 4400, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension", 0.42, 0.16, 0.81, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.13,"subCategory":"Front Damper"}],
     ],
     "controller": [ 
