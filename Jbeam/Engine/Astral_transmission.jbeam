@@ -10,16 +10,7 @@
 		["Astral_transfercase", "Astral_differential_center_e_tarmac", "Transfer Case"],
 		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"],
 		["Astral_flywheel","Astral_flywheel","Flywheel", {"coreSlot":true}],
-	],
-	"variables": [
-		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$gear_R", "range", ":1", "Gearing", 3.10, 0.1, 5, "Gear R", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
-		["$gear_1", "range", ":1", "Gearing", 3.10, 0.1, 5, "Gear 1", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
-		["$gear_2", "range", ":1", "Gearing", 2.30, 0.1, 5, "Gear 2", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
-		["$gear_3", "range", ":1", "Gearing", 1.90, 0.1, 5, "Gear 3", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
-		["$gear_4", "range", ":1", "Gearing", 1.60, 0.1, 5, "Gear 4", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
-		["$gear_5", "range", ":1", "Gearing", 1.32, 0.1, 5, "Gear 5", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}],
-		["$gear_6", "range", ":1", "Gearing", 1.10, 0.1, 5, "Gear 5", "Gear ratio", {"subCategory": "Transmission", "stepDis": 0.01}]
+		["Astral_gearratio_6","Astral_gearratio_6_A","Gear Ratios", {"coreSlot":true}],
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -38,7 +29,7 @@
 	},
 	"clutch": {
 		"clutchFreePlay":0.75,
-		"lockSpringCoef":0.45,
+		"lockSpringCoef":0.4,
 	},
 	"vehicleController":{
 		"setGearboxMode": "realistic",
@@ -246,7 +237,7 @@
 		"authors":"Un1corn",
 		"name":"Type-A Gear Ratios",
 	}
-	"slotType" : "Astral_gearratio_5",,
+	"slotType" : "Astral_gearratio_5",
 	"gearbox": {
 		"gearRatios":[-2.97, 0, 3.52, 2.51, 1.83, 1.39, 1.11],
 	},
@@ -256,9 +247,29 @@
 		"authors":"Un1corn",
 		"name":"Type-B Gear Ratios",
 	}
-	"slotType" : "Astral_gearratio_5",,
+	"slotType" : "Astral_gearratio_5",
 	"gearbox": {
-		"gearRatios":[-2.97, 0, 2.99, 2.15, 1.61, 1.29, 1.04],
+		"gearRatios":[-2.97, 0, 2.99, 2.15, 1.64, 1.29, 1.04],  //1.177 1.167 1.116 1.077 1.067
+	},
+},
+"Astral_gearratio_6_A": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-A Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_6",
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 3.10, 2.52, 2.11, 1.75, 1.47, 1.25],
+	},
+},
+"Astral_gearratio_6_B": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-B Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_6",
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 2.55, 2.12, 1.80, 1.53, 1.31, 1.14], //1.216 1.189 1.172 1.144 1.122 1.096
 	},
 },
 "Astral_flywheel": {
