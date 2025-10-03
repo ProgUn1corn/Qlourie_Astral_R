@@ -8,19 +8,17 @@
     "slotType" : "Astral_group_R",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_R","Astral_hubs_R_RX","Hub", {"nodeOffset":{"x":"$=0.285+$TrackRear", "y":1.26, "z":0.060}}],
-        ["Astral_brake_R","Astral_brake_R_355", "Brake", {"nodeOffset":{"x":0, "y":0, "z":0.060}}],
-        ["Astral_brake_duct_gravel","Astral_brake_duct_no_gravel", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.015}, "coreSlot":true}],
-        ["Astral_wheeldata_R","Astral_wheeldata_R", "Spindle", {"coreSlot":true}],
+        ["Astral_hubs_R","Astral_hubs_R_RX","Hub", {"nodeOffset":{"x":"$=0.2925+$TrackRear", "y":1.26, "z":0.060}}],  //RX1 track width 1640mm
+        ["Astral_brake_R","Astral_brake_R_355", "Brake Disc", {"nodeOffset":{"x":0, "y":1.26, "z":0.060}}],
         ["Astral_spring_R_RX","Astral_spring_R_RX_28", "Spring"],
         ["Astral_shim_R_RX","Astral_shim_R_RX_l", "Shim Stacks", {"coreSlot":true}]
     ],
     "flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
         ["Astral_arm_r8", ["Astral_arm_R"]],
-        ["Astral_rod_r8", ["Astral_rod_R","Astral_arm_R"]],
+        ["Astral_rod_r8", ["Astral_arm_R"]],
         ["Astral_arb_r8", ["Astral_arb2_R"]],
-        ["Astral_hub_r8", ["Astral_hub_R"]],
+        ["Astral_hub_r8", ["Astral_hub_RR","Astral_hub_RL"]],
         ["Astral_damper_platform_r8", ["Astral_damper_R"]],
         ["Astral_damper_piston_r8", ["Astral_piston_R"]],
         ["Astral_trans_r8", ["axr_L","axr_R","Astral_diff","Astral_arm_R"]],
@@ -32,7 +30,7 @@
         ["$dampPos_stop_R", "range", "mm", "Suspension", 0.29, 0.27, 0.29, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":270,"maxDis":290,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.25, 0.24, 0.26, "Hydraulic Bump Stop Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":240,"maxDis":260,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "+mm", "Suspension", 0, 0, 0.06, "Spring Collar Height", "The distance from lowest spring lock collar.", {"stepDis":5,"minDis":0,"maxDis":60,"subCategory":"Rear Damper"}],
+        ["$RideHeightOffsetRear", "range", "mm", "Suspension", 0.003, 0.000, 0.033, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-3,"maxDis":30,"subCategory":"Rear Damper"}],  //From last skirt node, ride height is about 105mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -43,37 +41,33 @@
         //--Hub--
         //hub mounting points for control arm
         {"nodeWeight":7},
-        {"group":["Astral_hub_R","Astral_arm_R"]},
-        ["rh1r", -0.749, 1.341, -0.09],
-        ["rh1l",  0.749, 1.341, -0.09],
+        ["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
         {"nodeWeight":4.75},
-        {"group":["Astral_hub_R","Astral_damper_R"]},
-        ["rh2r", -0.591, 1.3507, 0.2],
-        ["rh2l",  0.591, 1.3507, 0.2],
+        ["rh2r", -0.591, 1.3507, 0.2, {"group":["Astral_hub_RR","Astral_damper_R"]}],
+        ["rh2l",  0.591, 1.3507, 0.2, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
         {"nodeWeight":5},
-        {"group":["Astral_hub_R","Astral_rod_R","Astral_arm_R"]},
-        ["rh3r", -0.747, 1.1795, -0.085],
-        ["rh3l",  0.747, 1.1795, -0.085],
+        ["rh3r", -0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3l",  0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
         {"nodeWeight":3},
-        {"group":["Astral_hub_R","Astral_duct_R"]},
-        ["rh5r", -0.765, 1.111, 0.074],
-        ["rh5l",  0.765, 1.111, 0.074],
+        ["rh5r", -0.765, 1.111, 0.074, {"group":["Astral_hub_RR","Astral_duct_R"]}],
+        ["rh5l",  0.765, 1.111, 0.074, {"group":["Astral_hub_RL","Astral_duct_R"]}],
         {"selfCollision":true},
         
         //--Arm--
         //arb end link
         {"nodeWeight":1.5},
         {"group":["Astral_arb2_R"]},
-        ["rarb3r", -0.528, 1.3544, 0.0014],
-        ["rarb3l",  0.528, 1.3544, 0.0014],
+        ["rarb3r", -0.518, 1.355, 0.0055],
+        ["rarb3l",  0.518, 1.355, 0.0055],
 
         //--Strut--
         //damper top point
         {"group":["Astral_piston_R","Astral_spring_R","Astral_chassis_R"]},
-        {"nodeWeight":8.75},
+        {"nodeWeight":8},
         ["rs1r", -0.55, 1.337, 0.797],
         ["rs1l",  0.55, 1.337, 0.797],
         //lower spring collar
@@ -93,7 +87,7 @@
         ["rmassr", -0.5567, 1.339, 0.699],
         ["rmassl",  0.5567, 1.339, 0.699],
         //damper end
-        {"nodeWeight":2.7},
+        {"nodeWeight":2.9},
         {"group":["Astral_damper_R"]},
         ["rs2r", -0.6037, 1.355, 0.0155],
         ["rs2l",  0.6037, 1.355, 0.0155],
@@ -108,7 +102,7 @@
         {"selfCollision":true},
     ],
     "rails": {
-        //strut bottom
+        //strut shaft rail
         "strut_RR":{"links:":["rs2r", "rs1r"], "broken:":[], "looped":false, "capped":true},
         "strut_RL":{"links:":["rs2l", "rs1l"], "broken:":[], "looped":false, "capped":true},
         //arb mounting rail
@@ -123,8 +117,8 @@
         ["rcl1r", "strut_RR", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
         //spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 5501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 5501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1r", "strut_RR", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1l", "strut_RL", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"],
         //piston
         ["rps1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rps1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
@@ -137,7 +131,6 @@
     ],
     "beams": [
         ["id1:", "id2:"]
-        
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //hub form
@@ -201,10 +194,10 @@
         {"beamSpring":7001000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
-        ["rh2r","rw1rr", {"beamPrecompression":"$=$CamberRear+0.042","beamPrecompressionTime":0.2}],
+        ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*2.44+0.014","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
         ["rh2l","rw1l"],
-        ["rh2l","rw1ll", {"beamPrecompression":"$=$CamberRear+0.042","beamPrecompressionTime":0.2}],
+        ["rh2l","rw1ll", {"precompressionRange":"$=$CamberRear*2.44+0.014","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -218,15 +211,15 @@
         ["rh1l", "rx1l", {"dampCutoffHz":500}],
         //toe-link
         {"beamSpring":20001000,"beamDamp":1600},
-        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0016","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0016","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.001","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.001","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         //arb link
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
-        ["rarb3r","rx2r", {"precompressionRange":"$=$arb_point_R*1.04514", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*1.04514", "beamPrecompressionTime":0.2}],
-        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*1.04514", "beamPrecompressionTime":0.2}],
-        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*1.04514", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rx2r", {"precompressionRange":"$=$arb_point_R*0.67", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rx2l", {"precompressionRange":"$=$arb_point_R*0.67", "beamPrecompressionTime":0.2}],
+        ["rarb3r","rh1r", {"precompressionRange":"$=0-$arb_point_R*0.67", "beamPrecompressionTime":0.2}],
+        ["rarb3l","rh1l", {"precompressionRange":"$=0-$arb_point_R*0.67", "beamPrecompressionTime":0.2}],
         //arm joint damping
         {"beamSpring":0,"beamDamp":450},
         ["rh1r","a12", {"dampCutoffHz":250}],
@@ -238,7 +231,7 @@
         ["rh5r","rx4l", {"dampCutoffHz":250}],
         ["rh5l","rx4r", {"dampCutoffHz":250}],
         //damper mounting damping
-        {"beamSpring":0,"beamDamp":1250},
+        {"beamSpring":0,"beamDamp":1550},
         ["rs2r","rx3l", {"dampCutoffHz":250}],
         ["rs2l","rx3r", {"dampCutoffHz":250}],
         ["rs2r","rx4l", {"dampCutoffHz":250}],
@@ -280,13 +273,13 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.300,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":2501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.300,"boundZone":0.01,
+            "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
             "beamLimitSpring":2501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}
@@ -476,7 +469,7 @@
         {"brakeMass":false},
         {"brakeType":false},
         {"rotorMaterial":false},
-        {"brakeVentingCoef":false}
+        {"brakeVentingCoef":false},
     ]
 },
 "Astral_shim_R_RX_l": {
