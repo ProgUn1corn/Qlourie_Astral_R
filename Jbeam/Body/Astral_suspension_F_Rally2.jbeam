@@ -28,7 +28,7 @@
         ["$LRS_F", "range", "x", "Suspension", 0.4, 0.25, 1, "Front LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.170, 0.155, 0.185, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":155,"maxDis":185,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Suspension", 0.040, 0.024, 0.060, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Front Damper"}],
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension", 0.040, 0.024, 0.060, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Front Damper"}],   //From first skirt node, ride height is about 104mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -484,7 +484,7 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F_Rally2", "Hub", {"nodeOffset":{"x":"$=0.286+$TrackFront", "y":-1.287, "z":0.045}}], //Rally2 track width 1610mm
+        ["Astral_hubs_F","Astral_hubs_F_Rally2", "Hub", {"nodeOffset":{"x":"$=0.2855+$TrackFront", "y":-1.287, "z":0.045}}], //Rally2 track width 1610mm
         ["Astral_brake_F","Astral_brake_F_300", "Brake Disc", {"nodeOffset":{"x":0, "y":-1.287, "z":0.045}}],
         ["Astral_spring_F_Rally2_gravel","Astral_spring_F_Rally2_gravel_235", "Spring"],
         ["Astral_shim_F_Rally2_gravel","Astral_shim_F_Rally2_gravel_l", "Shim Stacks", {"coreSlot":true}],
@@ -506,7 +506,7 @@
         ["$dampPos_stop_F", "range", "mm", "Suspension", 0.295, 0.275, 0.295, "Hard Bump Position", "Hard bump stop startig point in total travel.", {"stepDis":1,"minDis":275,"maxDis":295,"subCategory":"Front Damper Auxiliary"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension", 0.250, 0.240, 0.260, "HBS Position", "Hydraulic bump stop startig point in total travel.", {"stepDis":1,"minDis":240,"maxDis":260,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension", 250, 150, 300, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":300,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Suspension", 0.018, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper"}],
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension", 0.018, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper"}],  //From first skirt node, ride height is about 182mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -908,7 +908,6 @@
         ["id1:", "id2:", "id3:"],
         {"groundModel":"metal"},
         {"triangleType":"NONCOLLIDABLE"},
-        {"dragCoef":0},
         {"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
         //hub
