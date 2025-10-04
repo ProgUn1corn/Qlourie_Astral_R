@@ -33,10 +33,10 @@
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$toe_R", "range", "mm", "Suspension", 0, -0.003, 0.003, "Track Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Rear Alignment","minDis":-3,"maxDis":3}],
-        ["$CamberRear", "range", "mm", "Suspension",  0, -0.002, 0.002, "Rear Camber Spacer", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Rear Alignment","minDis":-2,"maxDis":2}],
-        ["$TrackRear", "range", "mm", "Suspension", 0.0, -0.05, 0.05, "Rear Track Width", "Adjust track width", {"stepDis":1,"minDis":-50,"maxDis":50,"subCategory":"Rear Alignment"}],
+        ["$CamberRear", "range", "mm", "Suspension",  0, -0.002, 0.002, "Camber Spacer", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Rear Alignment","minDis":-2,"maxDis":2}],
+        ["$TrackRear", "range", "mm", "Suspension", 0.0, -0.05, 0.05, "Track Width", "Adjust track width", {"stepDis":1,"minDis":-50,"maxDis":50,"subCategory":"Rear Alignment"}],
         ["$Bumpsteer_R", "range", "mm", "Suspension", 0.0, -0.001, 0.001, "Bumpsteer Spacer", "Compensate for bumpsteer", {"stepDis":1,"minDis":-1,"maxDis":1,"subCategory":"Rear Alignment"}],
-        ["$arb_point_R", "range", "P", "Suspension", 0, -0.08, -0.02, "Rear ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Alignment"}],
+        ["$arb_point_R", "range", "P", "Suspension", 0, -0.1, 0, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Rear Alignment"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -282,13 +282,13 @@
 "Astral_swaybar_R_l": {
     "information":{
         "authors":"Un1corn",
-        "name":"ARB #1",
+        "name":"14.53mm Diameter",
         "value":2000
     },
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        //lever length ~0.146m
+        //lever length ~0.154m
         {"spring":"$=1231", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
@@ -306,10 +306,10 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.508, 1.327, 0.190, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb1l",  0.508, 1.327, 0.190, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb2r", -0.508, 1.455, 0.261],
-        ["rarb2l",  0.508, 1.455, 0.261],
+        ["rarb1r", -0.528, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.528, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb2r", -0.528, 1.455, 0.261],
+        ["rarb2l",  0.528, 1.455, 0.261],
         {"group":[""]}
     ], 
     "beams": [
@@ -346,13 +346,13 @@
 "Astral_swaybar_R_m": {
     "information":{
         "authors":"Un1corn",
-        "name":"ARB #2",
+        "name":"16.11mm Diameter",
         "value":2000
     },
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        //lever length ~0.146m
+        //lever length ~0.154m
         {"spring":"$=1867", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
@@ -370,10 +370,10 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.508, 1.327, 0.190, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb1l",  0.508, 1.327, 0.190, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb2r", -0.508, 1.455, 0.261],
-        ["rarb2l",  0.508, 1.455, 0.261],
+        ["rarb1r", -0.528, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.528, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb2r", -0.528, 1.455, 0.261],
+        ["rarb2l",  0.528, 1.455, 0.261],
         {"group":[""]}
     ], 
     "beams": [
@@ -410,13 +410,13 @@
 "Astral_swaybar_R_h": {
     "information":{
         "authors":"Un1corn",
-        "name":"ARB #3",
+        "name":"17.93mm Diameter",
         "value":2000
     },
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        //lever length ~0.146m
+        //lever length ~0.154m
         {"spring":"$=2957", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
@@ -434,10 +434,10 @@
         //arb
         {"group":["Astral_arb_R"]},
         {"nodeWeight":1.5},
-        ["rarb1r", -0.508, 1.327, 0.190, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb1l",  0.508, 1.327, 0.190, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
-        ["rarb2r", -0.508, 1.455, 0.261],
-        ["rarb2l",  0.508, 1.455, 0.261],
+        ["rarb1r", -0.528, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.528, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb2r", -0.528, 1.455, 0.261],
+        ["rarb2l",  0.528, 1.455, 0.261],
         {"group":[""]}
     ], 
     "beams": [
