@@ -19,8 +19,6 @@
 		["drivingDynamics/sensors/sensorHub" ],
 		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
 		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
-		["drivingDynamics/supervisors/components/motorTorqueControl" {"name":"motorTorqueControl"}],
-		["drivingDynamics/supervisors/components/brakeControl" {"name":"brakeControl"}],
 		["launch"],
 		["driveModes"]
 		["throttleMap" {"tMap":"$=$tMap"}]
@@ -32,7 +30,7 @@
 			["type"]
 			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
-			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
 			["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
         ],
@@ -88,17 +86,15 @@
 		}
 	},
 	"vehicleData": {
-		"skewStiffnessFront":135000,
-    	"skewStiffnessRear":125000
-	},
+		"skewStiffnessFront": 153600,
+		"skewStiffnessRear": 131600
+	}
 	"mainEngine": {
 		//RPM
-		"idleRPMRoughness":300,
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
         "revLimiterCutTime":0.02,
 		"revLimiterRPM":8500,
-		"revLimiterMaxRPMDrop":250,
 		"idleRPM":"$idleRPM",
 		//torque
 		"torqueModIntake":[
@@ -134,7 +130,7 @@
 	},
 	"soundConfigExhaust": {
 		"sampleName": "WRC",
-		"mainGain": 2,
+		"mainGain": -1,
 		"lowShelfFreq": 350,
 		"lowShelfGain": 5,
 		"highShelfFreq": 6550,
@@ -151,21 +147,17 @@
 		"eqHighWidth": 0.03,
 		"lowCutFreq": 50,
 		"fundamentalFrequencyCylinderCount": 4,
-		"eqFundamentalGain": 2
+		"eqFundamentalGain": 5
 	},
 	"vehicleController": {
-		//shift
-		"calculateOptimalLoadShiftPoints":false,
-		"lowShiftDownRPM":[0,0,0,2500,3200,3200,3200,3200],
-		"lowShiftUpRPM":[0,0,4900,4800,4700,4700,4700],
 		"highShiftDownRPM":[0,0,0,4500,6200,6200,6200,6200],
 		"highShiftUpRPM":[0,0,6900,7300,7350,7350,7350],
-		"wheelSlipUpThreshold":30000,
+		"wheelSlipUpThreshold":20000,
 		"wheelSlipShiftUpSmoothingIn":12,
 		"wheelSlipDownThreshold":100000,
 		"wheelSlipShiftDownSmoothingIn":20,
-		"clutchLaunchStartRPM": 4500,
-        "clutchLaunchTargetRPM": 3000,
+		"clutchLaunchStartRPM": 5500,
+        "clutchLaunchTargetRPM": 2500,
 	}
 },
 "Astral_enginemanagement_Rally2": {
@@ -188,8 +180,6 @@
 		["drivingDynamics/sensors/sensorHub" ],
 		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
 		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
-		["drivingDynamics/supervisors/components/motorTorqueControl" {"name":"motorTorqueControl"}],
-		["drivingDynamics/supervisors/components/brakeControl" {"name":"brakeControl"}],
 		["launch"],
 		["driveModes"]
 		["throttleMap" {"tMap":"$=$tMap"}]
@@ -201,7 +191,7 @@
 			["type"],
 			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
-			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
 			["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
         ],
@@ -262,12 +252,10 @@
 	},
 	"mainEngine": {
 		//RPM
-		"idleRPMRoughness":100,
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
         "revLimiterCutTime":0.03,
 		"revLimiterRPM":7500,
-		"revLimiterMaxRPMDrop":250,
 		"idleRPM":"$idleRPM",
 		//torque
 		"torqueModIntake":[
@@ -301,7 +289,7 @@
 	},
 	"soundConfigExhaust": {
 		"sampleName": "WRC",
-		"mainGain": -3,
+		"mainGain": -6,
 		"lowShelfFreq": 350,
 		"lowShelfGain": 4,
 		"highShelfFreq": 5550,
@@ -319,21 +307,17 @@
 		"lowCutFreq": 50,
 		"highCutFreq": 6500,
 		"fundamentalFrequencyCylinderCount": 4,
-		"eqFundamentalGain": 4
+		"eqFundamentalGain": 6
 	},
 	"vehicleController": {
-		//shift
-		"calculateOptimalLoadShiftPoints":false,
-		"lowShiftDownRPM":[0,0,0,2000,2200,2200,2200,2200],
-		"lowShiftUpRPM":[0,0,3900,3800,3700,3700,3700],
 		"highShiftDownRPM":[0,0,0,3000,5200,5200,5200,5200],
 		"highShiftUpRPM":[0,0,5500,6300,6300,6300,6500],
-		"wheelSlipUpThreshold":20000,
-		"wheelSlipShiftUpSmoothingIn":10,
-		"wheelSlipDownThreshold":50000,
+		"wheelSlipUpThreshold":15000,
+		"wheelSlipShiftUpSmoothingIn":12,
+		"wheelSlipDownThreshold":100000,
 		"wheelSlipShiftDownSmoothingIn":20,
 		"clutchLaunchStartRPM": 4500,
-        "clutchLaunchTargetRPM": 3000,
+        "clutchLaunchTargetRPM": 2500,
 	}
 },
 "Astral_enginemanagement_Tribute": {
@@ -356,8 +340,6 @@
 		["drivingDynamics/sensors/sensorHub" ],
 		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
 		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
-		["drivingDynamics/supervisors/components/motorTorqueControl" {"name":"motorTorqueControl"}],
-		["drivingDynamics/supervisors/components/brakeControl" {"name":"brakeControl"}],
 		["launch"],
 		["driveModes"]
 		["throttleMap" {"tMap":"$=$tMap"}]
@@ -369,7 +351,7 @@
 			["type"],
 			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
-			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
 			["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
         ],
@@ -430,12 +412,10 @@
 	},
 	"mainEngine": {
 		//RPM
-		"idleRPMRoughness":300,
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
-        "revLimiterCutTime":0.03,
+        "revLimiterCutTime":0.02,
 		"revLimiterRPM":7650,
-		"revLimiterMaxRPMDrop":250,
 		"idleRPM":"$idleRPM",
 		//torque
 		"torqueModIntake":[
@@ -471,7 +451,7 @@
 	},
 	"soundConfigExhaust": {
 		"sampleName": "WRC",
-		"mainGain": -3,
+		"mainGain": -5,
 		"lowShelfFreq": 350,
 		"lowShelfGain": 5,
 		"highShelfFreq": 6550,
@@ -488,21 +468,17 @@
 		"eqHighWidth": 0.03,
 		"lowCutFreq": 50,
 		"fundamentalFrequencyCylinderCount": 4,
-		"eqFundamentalGain": 2
+		"eqFundamentalGain": 4
 	},
 	"vehicleController": {
-		//shift
-		"calculateOptimalLoadShiftPoints":false,
-		"lowShiftDownRPM":[0,0,0,2500,3200,3200,3200,3200],
-		"lowShiftUpRPM":[0,0,4900,4800,4700,4700,4700],
 		"highShiftDownRPM":[0,0,0,5000,5200,5200,5200,5200],
 		"highShiftUpRPM":[0,0,6500,6600,6700,6700,6700],
-		"wheelSlipUpThreshold":20000,
-		"wheelSlipShiftUpSmoothingIn":10,
-		"wheelSlipDownThreshold":55000,
+		"wheelSlipUpThreshold":15000,
+		"wheelSlipShiftUpSmoothingIn":12,
+		"wheelSlipDownThreshold":100000,
 		"wheelSlipShiftDownSmoothingIn":20,
-		"clutchLaunchStartRPM": 4500,
-        "clutchLaunchTargetRPM": 3000,
+		"clutchLaunchStartRPM": 5250,
+        "clutchLaunchTargetRPM": 2750,
 	}
 },
 "Astral_enginemanagement_RX": {
@@ -525,8 +501,6 @@
 		["drivingDynamics/sensors/sensorHub" ],
 		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
 		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
-		["drivingDynamics/supervisors/components/motorTorqueControl" {"name":"motorTorqueControl"}],
-		["drivingDynamics/supervisors/components/brakeControl" {"name":"brakeControl"}],
 		["launch"],
 		["driveModes"]
 		["throttleMap" {"tMap":"$=$tMap"}]
@@ -538,7 +512,7 @@
 			["type"],
 			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
-			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
 			["controller", {"controllerName":"gauge", "modeName": "Mid", "modeColor": "FFF68F"}]
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
         ],
@@ -601,9 +575,8 @@
 		//RPM
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
-        "revLimiterCutTime":0.03,
+        "revLimiterCutTime":0.02,
 		"revLimiterRPM":8000,
-		"revLimiterMaxRPMDrop":250,
 		"idleRPM":"$idleRPM",
 		//torque
 		"torqueModIntake":[
@@ -639,7 +612,7 @@
 	},
 	"soundConfigExhaust": {
 		"sampleName": "WRC",
-		"mainGain": 2,
+		"mainGain": 0,
 		"lowShelfFreq": 550,
 		"lowShelfGain": 5,
 		"highShelfFreq": 6550,
@@ -656,21 +629,17 @@
 		"eqHighWidth": 0.1,
 		"lowCutFreq": 50,
 		"fundamentalFrequencyCylinderCount": 4,
-		"eqFundamentalGain": 5
+		"eqFundamentalGain": 8
 	},
 	"vehicleController": {
-		//shift
-		"calculateOptimalLoadShiftPoints":false,
-		"lowShiftDownRPM":[0,0,0,3000,3200,3200,3200,3200],
-		"lowShiftUpRPM":[0,0,4000,4500,4500,4500,4500],
 		"highShiftDownRPM":[0,0,0,5500,6000,6000,6000,6000],
 		"highShiftUpRPM":[0,0,7050,7050,7050,7050,7050],
 		"wheelSlipUpThreshold":35000,
-		"wheelSlipShiftUpSmoothingIn":15,
-		"wheelSlipDownThreshold":120000,
+		"wheelSlipShiftUpSmoothingIn":12,
+		"wheelSlipDownThreshold":100000,
 		"wheelSlipShiftDownSmoothingIn":20,
-		"clutchLaunchStartRPM": 4500,
-        "clutchLaunchTargetRPM": 3000,
+		"clutchLaunchStartRPM": 5500,
+        "clutchLaunchTargetRPM": 3500,
 	},
 }
 }
