@@ -70,11 +70,11 @@
     ],
 	"beams": [   
 		["id1:", "id2:"], 
-		
+		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Bumper--
 		//bumper shape
-		{"beamSpring":85000,"beamDamp":10},
+		{"beamSpring":65000,"beamDamp":10},
         {"beamDeform":6000,"beamStrength":"FLT_MAX"},
 		{"breakGroup":""},
 		["fb1r", "fb1"],
@@ -164,7 +164,7 @@
 		["fbe3r", "fb6r"],
 		["fbe3l", "fb6l"],
 		//rigidifier
-        {"beamSpring":100500,"beamDamp":25},
+        {"beamSpring":60500,"beamDamp":15},
 		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		["fbr1r", "fbr1l"],
 		["fbr1r", "fb1"],
@@ -192,7 +192,7 @@
 		["fbr1l", "fbe2l"],
 		["fbr1l", "fbe3l"],
 		//bumper side attach
-		{"beamSpring":81000,"beamDamp":15},
+		{"beamSpring":61000,"beamDamp":15},
         {"beamDeform":3000,"beamStrength":5500},
 		{"breakGroup":"fbr"},
 		["fb4r", "br1r"],
@@ -245,7 +245,7 @@
 		["fb7l", "fe3l"],
 		["fbe3l", "fe6l"],
 		//bump middle attach
-		{"beamSpring":81000,"beamDamp":15},
+		{"beamSpring":61000,"beamDamp":10},
 		{"beamDeform":3800,"beamStrength":4500},
 		{"breakGroup":"fbm"},
 		["fb1", "a93"],
@@ -258,7 +258,7 @@
 		{"breakGroup":""},
 		//limiters
         {"beamPrecompression":0.9, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":105000,"beamDamp":50},
+        {"beamSpring":105000,"beamDamp":150},
         {"beamDeform":65500,"beamStrength":65500},
 		["fb5", "a25"],
 		["fb2r", "a25"],

@@ -84,12 +84,12 @@
     ],
 	"beams": [   
 		["id1:", "id2:"], 
-		
+		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Bumper--
 		//Bumper
 		//bumper shape
-		{"beamSpring":85000,"beamDamp":10},
+		{"beamSpring":65000,"beamDamp":10},
         {"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		{"breakGroup":""},
 		["fb1r", "fb1"],
@@ -181,7 +181,7 @@
 		["fbe3l", "fb6l"],
 		//Splitter
 		//splitter shape
-		{"beamSpring":100100,"beamDamp":20},
+		{"beamSpring":80100,"beamDamp":10},
 		{"beamDeform":3500,"beamStrength":"FLT_MAX"},
 		["sp2m", "sp3m"]
 		["sp2m", "sp4r"]
@@ -220,7 +220,7 @@
 		["sp7l", "sp7r"]
 		["sp3m", "sp5l"]
 		//rigidifier
-        {"beamSpring":80100,"beamDamp":25},
+        {"beamSpring":60100,"beamDamp":15},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["fbr1r", "fbr1l"],
 		["fbr1r", "fb1"],
@@ -249,7 +249,7 @@
 		["fbr1l", "fbe3l"],
 		//Attach
 		//bumper side attach
-		{"beamSpring":81000,"beamDamp":15},
+		{"beamSpring":61000,"beamDamp":15},
         {"beamDeform":3500,"beamStrength":5500},
 		{"breakGroup":"fbr"},
 		["fb4r", "br1r"],
@@ -302,7 +302,7 @@
 		["fb7l", "fe3l"],
 		["fbe3l", "fe6l"],
 		//bump middle attach
-		{"beamSpring":81000,"beamDamp":25},
+		{"beamSpring":61000,"beamDamp":15},
 		{"beamDeform":2500,"beamStrength":2500},
 		{"breakGroup":"fbm"},
 		["fb1", "a93"],
@@ -313,7 +313,7 @@
 		["fb5", "br1r"],
 		["fb5", "br1l"],
 		//splitter attach
-		{"beamSpring":85000,"beamDamp":20},
+		{"beamSpring":65000,"beamDamp":10},
 		{"beamDeform":5500,"beamStrength":6500},
 		{"breakGroup":"splitter_R"},
 		["sp4r", "fb5r"],
@@ -336,7 +336,7 @@
 		["fbr1r", "sp6r"],
 		["fbr1r", "sp7r"],
 		//*
-		{"beamSpring":85000,"beamDamp":20},
+		{"beamSpring":65000,"beamDamp":10},
 		{"beamDeform":5500,"beamStrength":6500},
 		{"breakGroup":"splitter_L"},
 		["sp4l", "fb5l"],
@@ -358,7 +358,7 @@
 		["fbr1l", "sp5l"],
 		["fbr1l", "sp6l"],
 		["fbr1l", "sp7l"],
-		{"beamSpring":81000,"beamDamp":20},
+		{"beamSpring":61000,"beamDamp":10},
 		{"beamDeform":6500,"beamStrength":7500},
 		{"breakGroup":"splitter_M"},
 		["sp3m", "fb1"]
@@ -374,7 +374,7 @@
 		{"breakGroup":""},
 		//limiters
         {"beamPrecompression":0.9, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":151000,"beamDamp":50},
+        {"beamSpring":101000,"beamDamp":150},
         {"beamDeform":65500,"beamStrength":65500},
 		["fb5", "a25"],
 		["fb2r", "a25"],

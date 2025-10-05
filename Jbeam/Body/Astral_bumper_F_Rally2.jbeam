@@ -71,11 +71,11 @@
     ],
 	"beams": [   
 		["id1:", "id2:"], 
-		
+		{"deformLimitExpansion":1.2},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Bumper--
 		//bumper shape
-		{"beamSpring":85000,"beamDamp":10},
+		{"beamSpring":65000,"beamDamp":10},
         {"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		{"breakGroup":""},
 		["fb1r", "fb1"],
@@ -165,7 +165,7 @@
 		["fbe3r", "fb6r"],
 		["fbe3l", "fb6l"],
 		//rigidifier
-        {"beamSpring":100500,"beamDamp":25},
+        {"beamSpring":60500,"beamDamp":15},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["fbr1r", "fbr1l"],
 		["fbr1r", "fb1"],
@@ -193,7 +193,7 @@
 		["fbr1l", "fbe2l"],
 		["fbr1l", "fbe3l"],
 		//bumper side attach
-		{"beamSpring":81000,"beamDamp":15},
+		{"beamSpring":61000,"beamDamp":15},
         {"beamDeform":3500,"beamStrength":5500},
 		{"breakGroup":"fbr"},
 		["fb4r", "br1r"],
@@ -246,7 +246,7 @@
 		["fb7l", "fe3l"],
 		["fbe3l", "fe6l"],
 		//bump middle attach
-		{"beamSpring":81000,"beamDamp":15},
+		{"beamSpring":61000,"beamDamp":10},
 		{"beamDeform":2500,"beamStrength":3000},
 		{"breakGroup":"fbm"},
 		["fb1", "a93"],
@@ -259,7 +259,7 @@
 		{"breakGroup":""},
 		//limiters
         {"beamPrecompression":0.9, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":105000,"beamDamp":50},
+        {"beamSpring":105000,"beamDamp":150},
         {"beamDeform":45500,"beamStrength":64500},
 		["fb5", "a25"],
 		["fb2r", "a25"],
@@ -424,13 +424,13 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Safari Kit--
 		//snorkel
-		{"beamSpring":81000,"beamDamp":50},
+		{"beamSpring":81000,"beamDamp":150},
         {"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		["snk1","snk2"],
 		["snk2","snk3"],
 		["snk3","snk4"],
 		//snorkel mount
-		{"beamSpring":101000,"beamDamp":50},
+		{"beamSpring":101000,"beamDamp":150},
 		{"beamDeform":4500,"beamStrength":"FLT_MAX"},	
 		["snk1","eg4"],
 		["snk1","eg5"],
@@ -450,7 +450,7 @@
 		["snk4","a54"],
 		["snk4","a87"],
 		{"optional":true},
-		{"beamSpring":151000,"beamDamp":50},
+		{"beamSpring":151000,"beamDamp":150},
 		{"beamDeform":4500,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"mainEngine_turbo", "deformationTriggerRatio":0.001}
 		["snk1","airb1"],
@@ -482,7 +482,7 @@
 		["bb1r","bb3l"],
 		["bb1l","bb3r"],
 		//bullbar rigidifier
-		{"beamSpring":101000,"beamDamp":50},
+		{"beamSpring":101000,"beamDamp":150},
 		["bbr","bb1r"],
 		["bbr","bb2r"],
 		["bbr","bb3r"],
@@ -490,7 +490,7 @@
 		["bbr","bb2l"],
 		["bbr","bb3l"],
 		//mount
-		{"beamSpring":101000,"beamDamp":50},
+		{"beamSpring":101000,"beamDamp":150},
 		{"beamDeform":8500,"beamStrength":48500},
 		{"breakGroup":"bullbar_R"},
 		["bb1r","fb5r"],
