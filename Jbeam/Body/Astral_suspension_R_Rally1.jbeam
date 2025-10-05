@@ -124,8 +124,8 @@
         ["rps1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rps1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //mass
-        ["rmassr", "strut_RR", true, true, 0.0, 251000, "FLT_MAX", "FLT_MAX"],
-        ["rmassl", "strut_RL", true, true, 0.0, 251000, "FLT_MAX", "FLT_MAX"],
+        ["rmassr", "strut_RR", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
+        ["rmassl", "strut_RL", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 8001000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 8001000, "FLT_MAX", "FLT_MAX"]
@@ -272,16 +272,17 @@
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
+        {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["rh2r","rs1r", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.195,"boundZone":0.01,
-            "beamLimitSpring":2501000,
+            "beamLimitSpring":1501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.195,"boundZone":0.01,
-            "beamLimitSpring":2501000,
+            "beamLimitSpring":1501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
@@ -597,8 +598,8 @@
         ["rps1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rps1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //mass
-        ["rmassr", "strut_RR", true, true, 0.0, 251000, "FLT_MAX", "FLT_MAX"],
-        ["rmassl", "strut_RL", true, true, 0.0, 251000, "FLT_MAX", "FLT_MAX"],
+        ["rmassr", "strut_RR", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
+        ["rmassl", "strut_RL", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 8001000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 8001000, "FLT_MAX", "FLT_MAX"]
@@ -746,15 +747,16 @@
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
+        {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["rh2r","rs1r", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
-            "beamLimitSpring":2501000,
+            "beamLimitSpring":1501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //bottom out
             "longBoundRange":0,"shortBoundRange":0.305,"boundZone":0.01,
-            "beamLimitSpring":2501000,
+            "beamLimitSpring":1501000,
             "beamLimitDamp":500, 
             "dampCutoffHz":250}
         ],
