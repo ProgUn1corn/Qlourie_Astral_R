@@ -238,7 +238,6 @@
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$toe_F", "range", "mm", "Suspension", 0, -0.0024, 0.0024, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Front Alignment","minDis":-2.4,"maxDis":2.4}],
         ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
-        ["$steeringWheelLock", "range", "Deg", "Suspension", 270, 225, 450, "Steering Wheel Lock", "Adjusts the steering ratio",{"subCategory":"Steering","minDis":225,"maxDis":450,"stepDis":5}],
         ["$steer_center_F", "range", "", "Suspension", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
     ],
     //steering rack rail
@@ -292,8 +291,8 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
-        ["st2l","st1r", {"factor":"$= $components.steering.limiter","steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
-        ["st2r","st1l", {"factor":"$=-$components.steering.limiter","steeringWheelLock":"$steeringWheelLock", "inRate":1.5,"outRate":1.5}],
+        ["st2l","st1r", {"factor":"$= $components.steering.limiter","steeringWheelLock":270, "inRate":1.5,"outRate":1.5}],
+        ["st2r","st1l", {"factor":"$=-$components.steering.limiter","steeringWheelLock":270, "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
     "input": {
