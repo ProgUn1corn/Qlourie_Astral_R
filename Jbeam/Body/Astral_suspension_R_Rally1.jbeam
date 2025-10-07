@@ -10,7 +10,7 @@
         ["type", "default", "description"],
         ["Astral_hubs_R","Astral_hubs_R_BRC", "Hub", {"nodeOffset":{"x":"$=0.350+$TrackRear", "y":1.301, "z":0.12}}],  //Rally1 track width 1664mm
         ["Astral_brake_R","Astral_brake_R_370", "Brake Disc", {"nodeOffset":{"x":0, "y":1.301, "z":0.12}}],
-        ["Astral_brake_duct_tarmac","Astral_brake_duct_no_tarmac", "Brake Duct", {"nodeOffset":{"x":0, "y":0, "z":0.15}, "coreSlot":true}],
+        ["Astral_brake_duct_R_Rally2","Astral_brake_duct_R_Rally2", "Rear Duct", {"coreSlot":true}],
         ["Astral_spring_R_BRC_tarmac","Astral_spring_R_BRC_tarmac_41", "Spring"],
         ["Astral_shim_R_BRC_tarmac","Astral_shim_R_BRC_tarmac_l", "Shim Stacks", {"coreSlot":true}]
     ],
@@ -472,7 +472,13 @@
         {"brakeType":false},
         {"rotorMaterial":false},
         {"brakeVentingCoef":false},
-    ]
+    ],
+    "components": {
+    	"brakes":{
+			"ductMeshR":"Astral_duct_R"
+            "ductMeshRG":"Astral_chassis_R"
+    	},
+	}
 },
 "Astral_group_R_Rally1_gravel": {
     "information":{
@@ -485,6 +491,7 @@
         ["type", "default", "description"],
         ["Astral_hubs_R","Astral_hubs_R_BRC","Hub", {"nodeOffset":{"x":"$=0.308+$TrackRear", "y":1.301, "z":0.040}}],  //WRC+ track width 1664mm
         ["Astral_brake_R","Astral_brake_R_300", "Brake Disc", {"nodeOffset":{"x":0, "y":1.301, "z":0.040}}],
+        ["Astral_brake_duct_R_Rally2","Astral_brake_duct_R_Rally2", "Rear Duct", {"coreSlot":true}],
         ["Astral_spring_R_BRC_gravel","Astral_spring_R_BRC_gravel_20", "Spring"],
         ["Astral_shim_R_BRC_gravel","Astral_shim_R_BRC_gravel_l", "Shim Stacks", {"coreSlot":true}]
     ],
@@ -956,6 +963,12 @@
         {"brakeType":false},
         {"rotorMaterial":false},
         {"brakeVentingCoef":false},
-    ]
+    ],
+    "components": {
+    	"brakes":{
+			"ductMeshR":"Astral_duct_R"
+            "ductMeshRG":"Astral_chassis_R"
+    	},
+	}
 }
 }
