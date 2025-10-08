@@ -1,0 +1,466 @@
+{
+"Astral_headlight_R": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Astral Right Headlight",
+        "value":250
+    },
+	"slotType" : "Astral_headlight_R",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_frontlight_R", ["Astral_headlight_R"]],
+    ],
+    "props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"],
+		//--Head Light--
+		{
+            "lightInnerAngle":5,
+            "lightOuterAngle":115,
+            "lightColor":{"r":235, "g":235, "b":255, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+		//low beam
+        ["lowhighbeam", "SPOTLIGHT", "hl4r", "hl1r", "hl3r", {"x":-50, "y":-15, "z":180}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.35, "y":0.5, "z":0.1},"lightRange":50,"lightBrightness":0.6,"flareScale":0.04}],
+		//high beam
+        ["highbeam", "SPOTLIGHT", "hl4r", "hl1r", "hl3r", {"x":-40, "y":0, "z":185}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.15, "y":0.8, "z":0.1},"lightRange":80,"lightBrightness":0.8,"flareScale":0.06}],
+		
+		//--Signal--
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":100,
+            "lightRange":8,
+            "lightColor":{"r":255, "g":200, "b":20, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":false,
+            "flareName":"vehicleBrakeLightFlare",
+        },
+		//signal
+        ["signal_R", "SPOTLIGHT", "hl4r", "hl1r", "hl3r", {"x":-40, "y":0, "z":170}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.35, "y":0.5, "z":0.1},"lightRange":15,"lightBrightness":0.08,"flareScale":0.03}],
+	],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Front headlight--
+		//head light
+		{"nodeWeight":0.5},
+		{"group":["Astral_headlight_R"]},
+		["hl1r", -0.354, -1.952, 0.608],
+		["hl2r", -0.732, -1.578, 0.723],
+		["hl3r", -0.551, -1.824, 0.691],
+		["hl4r", -0.565, -1.882, 0.566, {"selfCollision":false}],
+		["hlrr", -0.551, -1.667, 0.627, {"collision":false,"selfCollision":false}],
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Headlight--
+		//shape
+		{"beamSpring":300100,"beamDamp":50},
+		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
+		["hl1r", "hl2r"],
+		["hl2r", "hl3r"],
+		["hl3r", "hl4r"],
+		//crossing
+		{"beamDeform":10500},
+		["hl1r", "hl3r"],
+		["hl2r", "hl4r"],
+		//rigidifier
+		{"beamDeform":6500},
+		["hlrr", "hl1r"],
+		["hlrr", "hl2r"],
+		["hlrr", "hl3r"],
+		["hlrr", "hl4r"],
+		//attach to body
+		{"beamSpring":250100,"beamDamp":50},
+		{"beamDeform":6500,"beamStrength":12500},
+		{"breakGroup":"hlr1"},
+		["hl1r", "a93"],
+		["hl1r", "a94"],
+		["hl1r", "br1r"],
+		["hl3r", "a93"],
+		["hl3r", "chs3r"],
+		["hl4r", "a93"],
+		["hl4r", "br1r"],
+		["hl2r", "a88"],
+		["hl2r", "a25"],
+		["hl2r", "chs4r"],
+		["hl3r", "a88"],
+		["hl4r", "a88"],
+		{"optional":true},
+        {"beamSpring":101000,"beamDamp":20},
+        {"beamDeform":2500,"beamStrength":8500},
+        {"breakGroup":"fbr"},
+        ["hl1r", "fb2r"],
+		["hl1r", "fb1r"],
+		["hl3r", "fb1r"],
+		["hl2r", "fb4r"],
+		["hl4r", "fb3r"],
+        {"breakGroup":""},
+		//support beams
+        {"beamType":"|SUPPORT", "beamLongBound":4},
+        {"beamSpring":201000,"beamDamp":90},
+        {"beamDeform":13000,"beamStrength":330000},
+        ["hl2r", "fe3r"],
+        ["hl2r", "fb3r"],
+        ["hl4r", "fb6r"],
+        ["hl1r", "fb5r"],
+        ["hl3r", "fb1r"],
+        {"optional":false},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Headlight--
+		//shape
+		{"dragCoef":5},
+		["hl1r", "hl3r", "hl4r"],
+		["hl2r", "hl4r", "hl3r"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+},
+"Astral_headlight_L": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Astral Left Headlight",
+        "value":250
+    },
+	"slotType" : "Astral_headlight_L",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_frontlight_L", ["Astral_headlight_L"]],
+    ],
+    "props": [
+		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"],
+		//--Head Light--
+		{
+            "lightInnerAngle":5,
+            "lightOuterAngle":115,
+            "lightColor":{"r":235, "g":235, "b":255, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+		//low beam
+        ["lowhighbeam", "SPOTLIGHT", "hl4l", "hl1l", "hl3l", {"x":-50, "y":-15, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.35, "y":0.5, "z":-0.1},"lightRange":50,"lightBrightness":0.6,"flareScale":0.04}],
+		//high beam
+        ["highbeam", "SPOTLIGHT", "hl4l", "hl1l", "hl3l", {"x":-40, "y":0, "z":-5}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.15, "y":0.8, "z":-0.1},"lightRange":80,"lightBrightness":0.8,"flareScale":0.06}],
+		
+		//--Signal--
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":100,
+            "lightRange":8,
+            "lightColor":{"r":255, "g":200, "b":20, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":false,
+            "flareName":"vehicleBrakeLightFlare",
+        },
+		//signal
+        ["signal_L", "SPOTLIGHT", "hl4l", "hl1l", "hl3l", {"x":-40, "y":0, "z":10}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.35, "y":0.5, "z":-0.1},"lightRange":15,"lightBrightness":0.08,"flareScale":0.02}],
+	],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Front headlight--
+		//head light
+		{"nodeWeight":0.5},
+		{"group":["Astral_headlight_L"]},
+		["hl1l",  0.354, -1.952, 0.608],
+		["hl2l",  0.732, -1.578, 0.723],
+		["hl3l",  0.551, -1.824, 0.691],
+		["hl4l",  0.565, -1.882, 0.566, {"selfCollision":false}],
+		["hlrl",  0.551, -1.667, 0.627, {"collision":false,"selfCollision":false}],
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Headlight--
+		//shape
+		{"beamSpring":300100,"beamDamp":50},
+		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
+		["hl1l", "hl2l"],
+		["hl2l", "hl3l"],
+		["hl3l", "hl4l"],
+		//crossing
+		{"beamDeform":10500},
+		["hl1l", "hl3l"],
+		["hl2l", "hl4l"],
+		//rigidifier
+		{"beamDeform":6500},
+		["hlrl", "hl1l"],
+		["hlrl", "hl2l"],
+		["hlrl", "hl3l"],
+		["hlrl", "hl4l"],
+		//attach to body
+		{"beamSpring":250100,"beamDamp":50},
+		{"beamDeform":6500,"beamStrength":12500},
+		{"breakGroup":"hll1"},
+		["hl1l", "a95"],
+		["hl1l", "a94"],
+		["hl1l", "br1l"],
+		["hl3l", "a95"],
+		["hl3l", "chs3l"],
+		["hl4l", "a95"],
+		["hl4l", "br1l"],
+		["hl2l", "a91"],
+		["hl2l", "a26"],
+		["hl2l", "chs4l"],
+		["hl3l", "a91"],
+		["hl4l", "a91"],
+		{"optional":true},
+        {"beamSpring":101000,"beamDamp":20},
+        {"beamDeform":2500,"beamStrength":8500},
+        {"breakGroup":"fbl"},
+        ["hl1l", "fb2l"],
+		["hl1l", "fb1l"],
+		["hl3l", "fb1l"],
+		["hl2l", "fb4l"],
+		["hl4l", "fb3l"],
+        {"breakGroup":""},
+		//support beams
+        {"beamType":"|SUPPORT", "beamLongBound":4},
+        {"beamSpring":201000,"beamDamp":90},
+        {"beamDeform":13000,"beamStrength":330000},
+        ["hl2l", "fe3l"],
+        ["hl2l", "fb3l"],
+        ["hl4l", "fb6l"],
+        ["hl1l", "fb5l"],
+        ["hl3l", "fb1l"],
+        {"optional":false},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Headlight--
+		//shape
+		{"dragCoef":5},
+		["hl1l", "hl4l", "hl3l"],
+		["hl2l", "hl3l", "hl4l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+},
+"Astral_headlight_R_RX": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"RX Right Headlight",
+        "value":250
+    },
+	"slotType" : "Astral_headlight_R",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_frontlight_R_RX", ["Astral_headlight_R"]],
+    ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Front headlight--
+		//head light
+		{"nodeWeight":0.25},
+		{"group":["Astral_headlight_R"]},
+		["hl1r", -0.354, -1.952, 0.608],
+		["hl2r", -0.732, -1.578, 0.723],
+		["hl3r", -0.551, -1.824, 0.691],
+		["hl4r", -0.565, -1.882, 0.566, {"selfCollision":false}],
+		["hlrr", -0.551, -1.667, 0.627, {"collision":false,"selfCollision":false}],
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Headlight--
+		//shape
+		{"beamSpring":150100,"beamDamp":50},
+		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
+		["hl1r", "hl2r"],
+		["hl2r", "hl3r"],
+		["hl3r", "hl4r"],
+		//crossing
+		{"beamDeform":10500},
+		["hl1r", "hl3r"],
+		["hl2r", "hl4r"],
+		//rigidifier
+		{"beamDeform":6500},
+		["hlrr", "hl1r"],
+		["hlrr", "hl2r"],
+		["hlrr", "hl3r"],
+		["hlrr", "hl4r"],
+		//attach to body
+		{"beamSpring":150100,"beamDamp":50},
+		{"beamDeform":6500,"beamStrength":12500},
+		{"breakGroup":"hlr1"},
+		["hl1r", "a93"],
+		["hl1r", "a94"],
+		["hl1r", "br1r"],
+		["hl3r", "a93"],
+		["hl3r", "chs3r"],
+		["hl4r", "a93"],
+		["hl4r", "br1r"],
+		["hl2r", "a88"],
+		["hl2r", "a25"],
+		["hl2r", "chs4r"],
+		["hl3r", "a88"],
+		["hl4r", "a88"],
+		{"optional":true},
+        {"beamSpring":101000,"beamDamp":20},
+        {"beamDeform":2500,"beamStrength":8500},
+        {"breakGroup":"fbr"},
+        ["hl1r", "fb2r"],
+		["hl1r", "fb1r"],
+		["hl3r", "fb1r"],
+		["hl2r", "fb4r"],
+		["hl4r", "fb3r"],
+        {"breakGroup":""},
+		//support beams
+        {"beamType":"|SUPPORT", "beamLongBound":4},
+        {"beamSpring":201000,"beamDamp":90},
+        {"beamDeform":13000,"beamStrength":330000},
+        ["hl2r", "fe3r"],
+        ["hl2r", "fb3r"],
+        ["hl4r", "fb6r"],
+        ["hl1r", "fb5r"],
+        ["hl3r", "fb1r"],
+        {"optional":false},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Headlight--
+		//shape
+		{"dragCoef":5},
+		["hl1r", "hl3r", "hl4r"],
+		["hl2r", "hl4r", "hl3r"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+},
+"Astral_headlight_L_RX": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"RX Left Headlight",
+        "value":250
+    },
+	"slotType" : "Astral_headlight_L",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_frontlight_L_RX", ["Astral_headlight_L"]],
+    ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Front headlight--
+		//head light
+		{"nodeWeight":0.25},
+		{"group":["Astral_headlight_L"]},
+		["hl1l",  0.354, -1.952, 0.608],
+		["hl2l",  0.732, -1.578, 0.723],
+		["hl3l",  0.551, -1.824, 0.691],
+		["hl4l",  0.565, -1.882, 0.566, {"selfCollision":false}],
+		["hlrl",  0.551, -1.667, 0.627, {"collision":false,"selfCollision":false}],
+    ],
+	"beams": [   
+		["id1:", "id2:"], 
+		
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Headlight--
+		//shape
+		{"beamSpring":150100,"beamDamp":50},
+		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
+		["hl1l", "hl2l"],
+		["hl2l", "hl3l"],
+		["hl3l", "hl4l"],
+		//crossing
+		{"beamDeform":10500},
+		["hl1l", "hl3l"],
+		["hl2l", "hl4l"],
+		//rigidifier
+		{"beamDeform":6500},
+		["hlrl", "hl1l"],
+		["hlrl", "hl2l"],
+		["hlrl", "hl3l"],
+		["hlrl", "hl4l"],
+		//attach to body
+		{"beamSpring":150100,"beamDamp":50},
+		{"beamDeform":6500,"beamStrength":12500},
+		{"breakGroup":"hll1"},
+		["hl1l", "a95"],
+		["hl1l", "a94"],
+		["hl1l", "br1l"],
+		["hl3l", "a95"],
+		["hl3l", "chs3l"],
+		["hl4l", "a95"],
+		["hl4l", "br1l"],
+		["hl2l", "a91"],
+		["hl2l", "a26"],
+		["hl2l", "chs4l"],
+		["hl3l", "a91"],
+		["hl4l", "a91"],
+		{"optional":true},
+        {"beamSpring":101000,"beamDamp":20},
+        {"beamDeform":2500,"beamStrength":8500},
+        {"breakGroup":"fbl"},
+        ["hl1l", "fb2l"],
+		["hl1l", "fb1l"],
+		["hl3l", "fb1l"],
+		["hl2l", "fb4l"],
+		["hl4l", "fb3l"],
+        {"breakGroup":""},
+		//support beams
+        {"beamType":"|SUPPORT", "beamLongBound":4},
+        {"beamSpring":201000,"beamDamp":90},
+        {"beamDeform":13000,"beamStrength":330000},
+        ["hl2l", "fe3l"],
+        ["hl2l", "fb3l"],
+        ["hl4l", "fb6l"],
+        ["hl1l", "fb5l"],
+        ["hl3l", "fb1l"],
+        {"optional":false},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+    "triangles": [   
+		["id1:", "id2:", "id3:"], 
+		{"groundModel":"metal"},
+		//--Headlight--
+		//shape
+		{"dragCoef":5},
+		["hl1l", "hl4l", "hl3l"],
+		["hl2l", "hl3l", "hl4l"],
+		{"dragCoef":0},
+		{"liftCoef":0,"stallAngle":0}
+    ]
+}
+}
