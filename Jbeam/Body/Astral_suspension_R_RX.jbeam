@@ -10,6 +10,7 @@
         ["type", "default", "description"],
         ["Astral_hubs_R","Astral_hubs_R_RX","Hub", {"nodeOffset":{"x":"$=0.2925+$TrackRear", "y":1.26, "z":0.060}}],  //RX1 track width 1640mm
         ["Astral_brake_R","Astral_brake_R_355", "Brake Disc", {"nodeOffset":{"x":0, "y":1.26, "z":0.060}}],
+        ["Astral_brake_duct_R_Rally2","Astral_brake_duct_R_Rally2", "Rear Duct", {"coreSlot":true}],
         ["Astral_spring_R_RX","Astral_spring_R_RX_28", "Spring"],
         ["Astral_shim_R_RX","Astral_shim_R_RX_l", "Shim Stacks", {"coreSlot":true}]
     ],
@@ -52,9 +53,9 @@
         ["rh3r", -0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
-        {"nodeWeight":3},
-        ["rh5r", -0.765, 1.111, 0.074, {"group":["Astral_hub_RR","Astral_duct_R"]}],
-        ["rh5l",  0.765, 1.111, 0.074, {"group":["Astral_hub_RL","Astral_duct_R"]}],
+        {"nodeWeight":"$=3.25*$brakeThickness"},
+        ["rh5r", -0.765, 1.111, 0.094, {"group":["Astral_hub_RR","Astral_duct_R"]}],
+        ["rh5l",  0.765, 1.111, 0.094, {"group":["Astral_hub_RL","Astral_duct_R"]}],
         {"selfCollision":true},
         
         //--Arm--
@@ -471,7 +472,13 @@
         {"brakeType":false},
         {"rotorMaterial":false},
         {"brakeVentingCoef":false},
-    ]
+    ],
+     "components": {
+    	"brakes":{
+			"ductMeshR":"Astral_duct_R"
+            "ductMeshRG":"Astral_chassis_R"
+    	},
+	}
 },
 "Astral_shim_R_RX_l": {
     "information":{
