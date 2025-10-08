@@ -52,7 +52,7 @@ local function updateGFX(dt)
     local usesKeyboard = input.state.throttle.filter == FILTER_KBD or input.state.throttle.filter == FILTER_KBD2
     local isSpeedLowEnough = usesKeyboard and (electrics.values.wheelspeed <= 2) or (electrics.values.wheelspeed <= 0.5)
     local isThrottleHighEnough = usesKeyboard and (electrics.values.throttle >= 0.2) or (electrics.values.throttle >= 0.2)
-    local isParkingBrakeActive = usesKeyboard and (electrics.values.parkingbrake >= 0.7) or (electrics.values.parkingbrake >= 1) 
+    local isParkingBrakeActive = usesKeyboard and (electrics.values.parkingbrake >= 0.7) or (electrics.values.parkingbrake >= 0.7) 
 
     if isSpeedLowEnough and isThrottleHighEnough and isParkingBrakeActive then
       twoStepState = "armed"
