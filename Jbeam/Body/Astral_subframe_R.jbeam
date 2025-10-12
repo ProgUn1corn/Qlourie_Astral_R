@@ -178,6 +178,106 @@
         ["rh5r","rx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1250,"dampCutoffHz":500}],
         ["rh5l","rx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1250,"dampCutoffHz":500}],
 
+        //--Hub and Wheel--
+        //hub form
+        {"beamSpring":8001000,"beamDamp":180},
+        {"beamDeform":95000,"beamStrength":"FLT_MAX"},
+        ["rh1r","rh3r"],
+        ["rh2r","rh1r"],
+        ["rh2r","rh3r"],
+        //*
+        ["rh1l","rh3l"],
+        ["rh2l","rh1l"],
+        ["rh2l","rh3l"],
+        {"beamSpring":4501000,"beamDamp":150},
+        ["rh1r","rh5r"],
+        ["rh3r","rh5r"],
+        ["rh2r","rh5r"],
+        //*
+        ["rh1l","rh5l"],
+        ["rh3l","rh5l"],
+        ["rh2l","rh5l"],
+        //damper mount to hub
+        {"beamSpring":2501000,"beamDamp":100},
+        {"beamDeform":125000,"beamStrength":285000},
+        ["rs2l","rh1l"],
+        ["rs2r","rh1r"],
+        ["rs2l","rh3l"],
+        ["rs2r","rh3r"],
+        ["rs2l","rh5l"],
+        ["rs2r","rh5r"],
+        //damper flexbody help
+        {"beamSpring":151000,"beamDamp":50},
+        ["rs3r","rh2r"],
+        ["rs3r","rh5r"],
+        ["rs3r","rh3r"],
+        ["rs3l","rh2l"],
+        ["rs3l","rh5l"],
+        ["rs3l","rh3l"],
+        //hub to wheel axle nodes
+        {"beamSpring":8501000,"beamDamp":180},
+        {"beamDeform":80500,"beamStrength":325000},
+        {"breakGroup":"wheel_RR"},
+        {"optional":true},
+        ["rh1r","rw1r", {"name":"axle_RR"}],
+        ["rh3r","rw1r", {"beamSpring":11501000,"beamDamp":10}],
+        ["rh5r","rw1r", {"beamSpring":5501000,"beamDamp":60}],
+        ["rs2r","rw1r", {"beamSpring":1001000,"beamDamp":25}],
+        ["rh1r","rw1rr"],
+        ["rh3r","rw1rr", {"beamSpring":11501000,"beamDamp":10}],
+        ["rh5r","rw1rr", {"beamSpring":5501000,"beamDamp":60}],
+        ["rs2r","rw1rr", {"beamSpring":1001000,"beamDamp":25}],
+        {"breakGroup":"wheel_RL"},
+        ["rh1l","rw1l", {"name":"axle_RL"}],
+        ["rh3l","rw1l", {"beamSpring":11501000,"beamDamp":10}],
+        ["rh5l","rw1l", {"beamSpring":5501000,"beamDamp":60}],
+        ["rs2l","rw1l", {"beamSpring":1001000,"beamDamp":25}],
+        ["rh1l","rw1ll"],
+        ["rh3l","rw1ll", {"beamSpring":11501000,"beamDamp":10}],
+        ["rh5l","rw1ll", {"beamSpring":5501000,"beamDamp":60}],
+        ["rs2l","rw1ll", {"beamSpring":1001000,"beamDamp":25}],
+        {"optional":false},
+        
+        //--Control arm--
+        //lower control arm
+        {"beamSpring":20001000,"beamDamp":2000},
+        {"beamDeform":185100,"beamStrength":225000},
+        ["rh1r", "rx2r", {"dampCutoffHz":500}],
+        ["rh1r", "rx1r", {"dampCutoffHz":500}],
+        ["rh1l", "rx2l", {"dampCutoffHz":500}],
+        ["rh1l", "rx1l", {"dampCutoffHz":500}],
+        //arm joint damping
+        {"beamSpring":0,"beamDamp":450},
+        ["rh1r","a12", {"dampCutoffHz":250}],
+        ["rh1l","a15", {"dampCutoffHz":250}],
+        ["rh1r","a9", {"dampCutoffHz":250}],
+        ["rh1l","a10", {"dampCutoffHz":250}],
+        //hub steering damping
+        {"beamSpring":0,"beamDamp":500},
+        ["rh5r","rx4l", {"dampCutoffHz":250}],
+        ["rh5l","rx4r", {"dampCutoffHz":250}],
+        //damper mounting damping
+        {"beamSpring":0,"beamDamp":1550},
+        ["rs2r","rx3l", {"dampCutoffHz":250}],
+        ["rs2l","rx3r", {"dampCutoffHz":250}],
+        ["rs2r","rx4l", {"dampCutoffHz":250}],
+        ["rs2l","rx4r", {"dampCutoffHz":250}],
+        ["rs2r","a16", {"dampCutoffHz":250}],
+        ["rs2l","a19", {"dampCutoffHz":250}],
+
+        //--Strut Aux--
+        //piston outer shell
+        {"beamSpring":1001000,"beamDamp":50},
+        {"beamDeform":105000,"beamStrength":"FLT_MAX"},
+        ["rps1r", "rs1r"],
+        ["rps1l", "rs1l"],
+        //strut platform height (preload)
+        ["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.2}],
+        ["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":0.2}],
+        //strut platform
+        ["rh2r", "rs2r"],
+        ["rh2l", "rs2l"],
+
         //--Limiters--
         //subframe limiter
         {"beamPrecompression":0.998, "beamType":"|SUPPORT", "beamLongBound":2},
@@ -207,6 +307,19 @@
         ["rx2l", "a6"],
         ["rx2l", "a5"],
         ["rx2l", "a15"],
+        //hub invert
+        {"beamSpring":2501000,"beamDamp":250,"beamDeform":95000,"beamStrength":900000},
+        {"beamPrecompression":0.9},
+        ["rh5r","rx2r"],
+        ["rh5l","rx2l"],
+        //wheel limiter
+        {"beamPrecompression":0.4},
+        {"optional":true},
+        ["rw1rr", "a12"],
+        ["rw1r", "a9"],
+        //*
+        ["rw1ll", "a15"],
+        ["rw1l", "a10"],
         {"beamPrecompression":1},
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
@@ -217,10 +330,33 @@
         ["id1:", "id2:", "id3:"],
         {"groundModel":"metal"},
         {"dragCoef":0},
+        {"liftCoef":0,"stallAngle":0}
         {"triangleType":"NORMALTYPE"},
         //cross member
         ["rx1r", "rx2r", "rx1l"],
-        ["rx1l", "rx2r", "rx2l"]
+        ["rx1l", "rx2r", "rx2l"],
+        //control arm
+        ["rx1r", "rarb3r", "rx2r"],
+        ["rarb3r", "rh1r", "rx2r"],
+        ["rx2l", "rarb3l", "rx1l"],
+        ["rarb3l", "rx2l", "rh1l"],
+        //hub
+        {"triangleType":"NONCOLLIDABLE"},
+        ["rh3r", "rh5r", "rh1r"],
+        ["rh2r", "rh1r", "rh5r"],
+        ["rh2r", "rs2r", "rh1r"],
+        ["rh2r", "rh5r", "rs2r"],
+        ["rh3r", "rs2r", "rh5r"],
+        ["rh3r", "rh1r", "rs2r"],
+        //*
+        ["rh3l", "rh1l", "rh5l"],
+        ["rh2l", "rh5l", "rh1l"],
+        ["rh2l", "rh1l", "rs2l"],
+        ["rh2l", "rs2l", "rh5l"],
+        ["rh3l", "rh5l", "rs2l"],
+        ["rh3l", "rs2l", "rh1l"],
+        {"dragCoef":0},
+        {"liftCoef":0,"stallAngle":0}
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
@@ -230,6 +366,14 @@
         ["rx2r", "rx2l", "rx1l", "rx3l"],
         ["rx1l", "rx1r", "rx2r", "rx4r"],
         ["rx2l", "rx2r", "rx1r", "rx3r"],
+        //rigidify toe link
+        {"spring":120100, "damp":0, "deform":45000, "strength":125000},
+        ["rw1rr", "rw1r", "rh1r", "rh3r"],
+        ["rw1ll", "rw1l", "rh1l", "rh3l"], 
+        //arm rigidifier
+        {"spring":15000, "damp":0, "deform":20000, "strength":20000},
+        ["rarb3r", "rx1r", "rx2r", "rh1r"], 
+        ["rarb3l", "rx1l", "rx2l", "rh1l"],   
     ]
 },
 "Astral_wheeldata_R": {
@@ -281,14 +425,14 @@
 "Astral_swaybar_R_l": {
     "information":{
         "authors":"Un1corn",
-        "name":"14.53mm Diameter",
+        "name":"14.44mm Diameter",
         "value":2000
     },
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.154m
-        {"spring":"$=1231", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1201", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -345,14 +489,14 @@
 "Astral_swaybar_R_m": {
     "information":{
         "authors":"Un1corn",
-        "name":"16.11mm Diameter",
+        "name":"15.73mm Diameter",
         "value":2000
     },
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.154m
-        {"spring":"$=1867", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1822", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -409,14 +553,14 @@
 "Astral_swaybar_R_h": {
     "information":{
         "authors":"Un1corn",
-        "name":"17.93mm Diameter",
+        "name":"17.56mm Diameter",
         "value":2000
     },
     "slotType" : "Astral_swaybar_R",
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.154m
-        {"spring":"$=2957", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=2855", "damp":10, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
