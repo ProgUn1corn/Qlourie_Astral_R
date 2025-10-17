@@ -166,7 +166,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":0,"beamDamp":10},
+        {"beamSpring":10,"beamDamp":10},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.02}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.02}],
@@ -345,7 +345,7 @@
         ["$dampRate_stop_R", "range", "Click", "Suspension", 11000, 9000, 13000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Suspension", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension", 0.045, 0.025, 0.05, "HBS Travel", "Adjust hydraulic bump stop's travel length.", {"stepDis":1,"minDis":25,"maxDis":50,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Suspension", 250, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampGas_R", "range", "PSI", "Suspension", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension", 0.012, 0.003, 0.036, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Rear Damper"}],  //From last skirt node, ride height is about 182mm
     ],
     "nodes": [
@@ -483,7 +483,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":0,"beamDamp":10},
+        {"beamSpring":10,"beamDamp":10},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.02}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.02}],
@@ -498,7 +498,7 @@
             "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
-         ["rh2l","rs1l", { //bottom out
+        ["rh2l","rs1l", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.285,"boundZone":0.02,
             "beamLimitSpring":1051000,
             "beamLimitDamp":500, 
@@ -508,7 +508,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.270,"boundZone":0.01, //15mm hard stop for protection, about 60% height ratio
             "beamLimitSpring":114000,
-            "beamLimitDamp":2250,
+            "beamLimitDamp":4250,
             "beamLimitDampRebound":500,
             "dampCutoffHz":250}
         ],
@@ -516,7 +516,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.270,"boundZone":0.01,
             "beamLimitSpring":114000,
-            "beamLimitDamp":2250,
+            "beamLimitDamp":4250,
             "beamLimitDampRebound":500,
             "dampCutoffHz":250}
         ],
@@ -545,7 +545,7 @@
             "maxStress":0.5
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.018,
-            "beamLimitSpring":15500,
+            "beamLimitSpring":19500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
@@ -556,7 +556,7 @@
             "precompressionRange":-0.02,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":7500,
+            "beamLimitSpring":6500,
             "beamLimitDampRebound":3500,
             "dampCutoffHz":250}
         ],
@@ -585,7 +585,7 @@
             "maxStress":0.5
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.018,
-            "beamLimitSpring":15500,
+            "beamLimitSpring":19500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
@@ -596,7 +596,7 @@
             "precompressionRange":-0.02,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":7500,
+            "beamLimitSpring":6500,
             "beamLimitDampRebound":3500,
             "dampCutoffHz":250}
         ],
