@@ -25,7 +25,9 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Suspension", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":2,"minDis":24,"maxDis":28,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":29,"maxDis":31,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
+        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for pressure and effort tuning", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -38,10 +40,10 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.300},
-        {"brakeMass":"$=7.4*$brakeThickness"},
+        {"brakeMass":"$=5.4*$brakeThickness"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
         {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_F"},
         //sound
         {"squealCoefNatural": 0.3, "squealCoefLowSpeed": 0.2}
@@ -82,10 +84,10 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.300},
-        {"brakeMass":"$=7.4*$brakeThickness"},
+        {"brakeMass":"$=5.4*$brakeThickness"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
         {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_R"},
         //sound
         {"squealCoefNatural": 0.3, "squealCoefLowSpeed": 0.2}
@@ -117,7 +119,9 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Suspension", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":30,"maxDis":32,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
+        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for pressure and effort tuning", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -130,10 +134,10 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.355},
-        {"brakeMass":"$=8.2*$brakeThickness"},
+        {"brakeMass":"$=7.2*$brakeThickness"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
         {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_F"},
         //sound
         {"squealCoefNatural": 0.3, "squealCoefLowSpeed": 0.2}
@@ -174,10 +178,10 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.355},
-        {"brakeMass":"$=8.2*$brakeThickness"},
+        {"brakeMass":"$=7.2*$brakeThickness"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
         {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_R"},
         //sound
         {"squealCoefNatural": 0.3, "squealCoefLowSpeed": 0.2}
@@ -209,7 +213,9 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Suspension", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":30,"maxDis":32,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
+        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for pressure and effort tuning", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -222,10 +228,10 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.370},
-        {"brakeMass":"$=8.6*$brakeThickness"},
+        {"brakeMass":"$=7.6*$brakeThickness"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
         {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_F"},
         //sound
         {"squealCoefNatural": 0.3, "squealCoefLowSpeed": 0.2}
@@ -266,10 +272,10 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.370},
-        {"brakeMass":"$=8.6*$brakeThickness"},
+        {"brakeMass":"$=7.6*$brakeThickness"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
-        {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
+        {"padMaterial":"full-race", "padGlazingSusceptibility":0.1},
         {"brakeVentingCoef":"$=$components.brakes.brakeVentingCoef_R"},
         //sound
         {"squealCoefNatural": 0.3, "squealCoefLowSpeed": 0.2}
