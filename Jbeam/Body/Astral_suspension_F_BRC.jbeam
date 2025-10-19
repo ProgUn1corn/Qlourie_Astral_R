@@ -229,9 +229,9 @@
             "maxStress":1500
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.012,
-            "beamLimitSpring":23500,
+            "beamLimitSpring":19500,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F/11.4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_F/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hydraulic rebound stop
@@ -268,9 +268,9 @@
             "pitchFactor":2.5,
             "maxStress":1500
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.012,
-            "beamLimitSpring":23500,
+            "beamLimitSpring":19500,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F/11.4", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_F/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", { //hydraulic rebound stop
@@ -361,7 +361,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Click", "Dampers and Springs", 11000, 9000, 13000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper Auxiliary"}],
         ["$LRS_F", "range", "x", "Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampPos_hystop_F", "range", "mm", "Dampers and Springs", 0.055, 0.035, 0.06, "HBS Travel", "Adjust hydraulic bump stop's travel length.", {"stepDis":1,"minDis":35,"maxDis":60,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Dampers and Springs", 0.050, 0.035, 0.06, "HBS Travel", "Adjust hydraulic bump stop's travel length.", {"stepDis":1,"minDis":35,"maxDis":60,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "mm", "Dampers and Springs", 0.018, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper"}],  //From first skirt node, ride height is about 182mm
     ],
@@ -488,8 +488,8 @@
         //tie rods
         {"beamSpring":19001000,"beamDamp":800},
         {"beamDeform":235100,"beamStrength":325000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.003","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.003","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0032","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0032","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -565,11 +565,11 @@
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F","boundZone":0.024,
             "beamLimitSpring":12500,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_F/7.2", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //phase 2
-            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F+0.035","boundZone":0.012,
+            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F+0.030","boundZone":0.012,
             "beamLimitSpring":4500,
             "dampCutoffHz":250}
         ],
@@ -610,11 +610,11 @@
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F","boundZone":0.024,
             "beamLimitSpring":12500,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_F/7.2", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", { //phase 2
-            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F+0.035","boundZone":0.012,
+            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F+0.030","boundZone":0.012,
             "beamLimitSpring":4500,
             "dampCutoffHz":250}
         ],
