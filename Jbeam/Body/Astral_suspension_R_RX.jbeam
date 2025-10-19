@@ -29,7 +29,7 @@
         ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 12000, 10000, 14000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
         ["$LRS_R", "range", "x", "Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampPos_hystop_R", "range", "mm", "Dampers and Springs", 0.035, 0.020, 0.050, "HBS Travel", "Adjust hydraulic bump stop's travel length.", {"stepDis":1,"minDis":20,"maxDis":50,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Dampers and Springs", 250, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampGas_R", "range", "PSI", "Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Dampers and Springs", 0.003, 0.000, 0.033, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-3,"maxDis":30,"subCategory":"Rear Damper"}],  //From last skirt node, ride height is about 113mm
     ],
     "nodes": [
@@ -228,7 +228,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.280-$dampPos_hystop_R","boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":"$=0.275-$dampPos_hystop_R","boundZone":0.015,
             "beamLimitSpring":12500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/7.2", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -268,7 +268,7 @@
             "pitchFactor":2.5,
             "maxStress":1500
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.280-$dampPos_hystop_R","boundZone":0.015,
+            "longBoundRange":1,"shortBoundRange":"$=0.275-$dampPos_hystop_R","boundZone":0.015,
             "beamLimitSpring":12500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/7.2", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
