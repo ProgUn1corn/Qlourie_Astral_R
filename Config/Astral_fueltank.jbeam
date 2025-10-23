@@ -1,0 +1,152 @@
+{
+"Astral_fueltank": {
+	"information":{
+		"name":"Rally Fuel Tank",
+		"value":250
+	},
+	"slotType" : "Astral_fueltank",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$fuel", "range", "L", "Engine", 40, 0, 80, "Fuel Volume", "Initial Fuel Volume", {"subCategory": "Fuel", "stepDis":0.5}]
+	],
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_fueltank", ["Astral_chassis","Astral_fueltank"]],
+	],
+	"energyStorage": [
+		["type", "name"],
+		["fuelTank", "mainTank"]
+	],
+	"mainTank": {
+		"energyType":"gasoline",
+		"fuelCapacity": 80,
+	    "startingFuelCapacity": "$fuel",
+		"fuel": {"[engineGroup]:":["fuel"]},
+		"breakTriggerBeam": "fuelTank",
+	},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+        {"frictionCoef":1},
+        {"collision":true},
+        {"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
+		//--Fuel Tank--
+		{"nodeWeight":2},
+		{"group":["Astral_fueltank"]},
+		{"engineGroup":["fuel"]},
+		{"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":97,"specHeat":0.03,"selfIgnitionCoef":0.03,"smokePoint":220,"containerBeam":"fuelTank"},
+		["a45", -0.358, 0.663, 0.159],
+		["a46",  0.358, 0.663, 0.159],
+		{"chemEnergy":false,"burnRate":false,"flashPoint":false,"vaporPoint":false,"specHeat":false,"selfIgnitionCoef":false,"smokePoint":false,"containerBeam":false},
+        {"engineGroup":""},
+		{"group":[""]},
+	],
+	"beams": [
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Fuel tank--
+		{"breakGroup":""}
+		{"beamSpring":1501000,"beamDamp":250},
+		{"beamDeform":25000,"beamStrength":95820},
+		["a45", "a46", {"name":"fuelTank","containerBeam": "fuelTank"}]
+		["a45", "chs2r"],
+		["a45", "rs1r"],
+		["a45", "rs1l"],
+		["a45", "a12"],
+		["a45", "a13"],
+		["a45", "a8"],
+		["a45", "a9"],
+		["a45", "a41"],
+		["a45", "a18"],
+		//*
+		["a46", "chs2l"],
+		["a46", "rs1l"],
+		["a46", "rs1r"],
+		["a46", "a15"],
+		["a46", "a14"],
+		["a46", "a11"],
+		["a46", "a10"],
+		["a46", "a42"],
+		["a46", "a17"],
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1} 
+	]
+}
+"Astral_fueltank_RX": {
+	"information":{
+		"name":"RX Fuel Tank",
+		"value":250
+	},
+	"slotType" : "Astral_fueltank",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$fuel", "range", "L", "Engine", 10, 0, 20, "Fuel Volume", "Initial Fuel Volume", {"subCategory": "Fuel", "stepDis":0.5}]
+	],
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_fueltank", ["Astral_chassis","Astral_fueltank"]],
+	],
+	"energyStorage": [
+		["type", "name"],
+		["fuelTank", "mainTank"]
+	],
+	"mainTank": {
+		"energyType":"gasoline",
+		"fuelCapacity": 20,
+	    "startingFuelCapacity": "$fuel",
+		"fuel": {"[engineGroup]:":["fuel"]},
+		"breakTriggerBeam": "fuelTank",
+	},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+        {"frictionCoef":1},
+        {"collision":true},
+        {"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
+		//--Fuel Tank--
+		{"nodeWeight":2},
+		{"group":["Astral_fueltank"]},
+		{"engineGroup":["fuel"]},
+		{"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":97,"specHeat":0.03,"selfIgnitionCoef":0.03,"smokePoint":220,"containerBeam":"fuelTank"},
+		["a45", -0.358, 0.663, 0.159],
+		["a46",  0.358, 0.663, 0.159],
+		{"chemEnergy":false,"burnRate":false,"flashPoint":false,"vaporPoint":false,"specHeat":false,"selfIgnitionCoef":false,"smokePoint":false,"containerBeam":false},
+        {"engineGroup":""},
+		{"group":[""]},
+	],
+	"beams": [
+		["id1:", "id2:"], 
+		{"deformLimitExpansion":1.2},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Fuel tank--
+		{"breakGroup":""}
+		{"beamSpring":1501000,"beamDamp":250},
+		{"beamDeform":25000,"beamStrength":95820},
+		["a45", "a46", {"name":"fuelTank","containerBeam": "fuelTank"}]
+		["a45", "chs2r"],
+		["a45", "rs1r"],
+		["a45", "rs1l"],
+		["a45", "a12"],
+		["a45", "a13"],
+		["a45", "a8"],
+		["a45", "a9"],
+		["a45", "a41"],
+		["a45", "a18"],
+		//*
+		["a46", "chs2l"],
+		["a46", "rs1l"],
+		["a46", "rs1r"],
+		["a46", "a15"],
+		["a46", "a14"],
+		["a46", "a11"],
+		["a46", "a10"],
+		["a46", "a42"],
+		["a46", "a17"],
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1} 
+	]
+}
+}
