@@ -26,9 +26,9 @@
 		["differential", "rearDiff", "driveShaft", 1, {"deformGroups":["differential_R"], "diffType":"lsd", "lsdPreload":"$lsdpreload_R", "lsdLockCoef":"$lsdlockcoef_R", "lsdRevLockCoef":"$lsdlockcoefrev_R", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
 	],
 	"rearDiff": {
-        "friction": 3.01,
-        "dynamicFriction": 0.00114,
-        "torqueLossCoef": 0.0296,
+        "friction": 2.81,
+        "dynamicFriction": 0.00104,
+        "torqueLossCoef": 0.0256,
     },
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -108,13 +108,12 @@
 		["id1:", "id2:"],
 		{"beamPrecompression":1, "beamType":"|BOUNDED"}	,
 		//--Driveshaft--
-		{"beamLongBound":0.005,"beamShortBound":0.005},
-        {"beamSpring":150100,"beamDamp":150},
+		{"beamLongBound":0.007,"beamShortBound":0.007},
+        {"beamSpring":0,"beamDamp":150},
         {"beamLimitSpring":10501000,"beamLimitDamp":250},
-		{"beamDeform":3500,"beamStrength":5500},
+		{"beamDeform":4500,"beamStrength":6500},
 		["tra","rtra", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
 		{"beamLongBound":0.01, "beamShortBound":0.01},
-		{"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":8501000,"beamLimitDamp":250},
 		["tra","rtrar", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
 		["tra","rtral", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
@@ -133,8 +132,8 @@
 	"slotType" : "Astral_halfshafts_R",
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["shaft", "halfshaftRL", "rearDiff", 1, {"deformGroups":["wheelaxleRL"], "breakTriggerBeam":"halfshaft_RL", "uiName":"Rear Left Halfshaft", "friction":1.4, "dynamicFriction":0.003}],
-		["shaft", "halfshaftRR", "rearDiff", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.4, "dynamicFriction":0.003}]
+		["shaft", "halfshaftRL", "rearDiff", 1, {"deformGroups":["wheelaxleRL"], "breakTriggerBeam":"halfshaft_RL", "uiName":"Rear Left Halfshaft", "friction":1.25, "dynamicFriction":0.003}],
+		["shaft", "halfshaftRR", "rearDiff", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.25, "dynamicFriction":0.003}]
 	],
 		"beams": [
 		["id1:", "id2:"],
