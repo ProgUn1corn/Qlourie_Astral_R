@@ -196,7 +196,7 @@ local function updateWheelsIntermediate(dt)
       transfercase.lsdPreload = preload
     end
   end
-  print(transfercase.lsdPreload)
+  --print(transfercase.lsdPreload)
   --print(transfercase.lsdLockCoef)
 end
 
