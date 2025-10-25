@@ -110,7 +110,7 @@ local function updateWheelsIntermediate(dt)
         throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
         local contributionThrottle = lockRange * throttleNormalized + minLockCoef
         yLockCoef = clamp(contributionThrottle, minLockCoef, 1)
-        preloadAdj = preload * minLockCoef * yLockCoef
+        preloadAdj = 0
       end
     end
     
@@ -140,7 +140,7 @@ local function updateWheelsIntermediate(dt)
     if coastFlag == true then
       lockRange = 1 - minLockCoef
       yLockCoef = minLockCoef
-      preloadAdj = preload * minLockCoef * minLockCoef
+      preloadAdj = 15
     end
     --print(yLockCoef)
     --print(preloadAdj)
@@ -196,7 +196,7 @@ local function updateWheelsIntermediate(dt)
       transfercase.lsdPreload = preload
     end
   end
-  --print(transfercase.lsdPreload)
+  print(transfercase.lsdPreload)
   --print(transfercase.lsdLockCoef)
 end
 
