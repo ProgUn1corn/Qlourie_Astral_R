@@ -25,9 +25,9 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":29,"maxDis":31,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
-        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
-        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for pressure and effort tuning", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
+        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Affects thermal inertia and unsprung mass.", {"stepDis":1,"minDis":29,"maxDis":31,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake bias based on selected cylinders.", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
+        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for max pressure and braking effort.", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -78,7 +78,7 @@
         {"brakeTorque":"$=2586*($pedalRatio/6)*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*(1-$brakeBias)"},  //2586 for constant 300mm
         {"brakeInputSplit":"$=$pedalRatio/12"},
         {"brakeSplitCoef":"$=$pedalRatio/6"},
-        {"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP"},
+        {"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP*$HBLimiter"},
         {"brakeSpring":75},
 
         //brake thermals
@@ -119,9 +119,9 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
-        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
-        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for pressure and effort tuning", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
+        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Affects thermal inertia and unsprung mass.", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake bias based on selected cylinders.", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
+        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for max pressure and braking effort.", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -172,7 +172,7 @@
         {"brakeTorque":"$=3060*($pedalRatio/6)*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*(1-$brakeBias)"},  //3060 for constant 355mm
         {"brakeInputSplit":"$=$pedalRatio/12"},
         {"brakeSplitCoef":"$=$pedalRatio/6"},
-        {"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP"},
+        {"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP*$HBLimiter"},
         {"brakeSpring":155},
 
         //brake thermals
@@ -213,9 +213,9 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Changes the platform height.", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
-        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake Bias", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
-        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for pressure and effort tuning", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
+        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Affects thermal inertia and unsprung mass.", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake bias based on selected cylinders.", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
+        ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for max pressure and braking effort.", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -266,7 +266,7 @@
         {"brakeTorque":"$=3189*($pedalRatio/6)*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*(1-$brakeBias)"},  //3189 for constant 370mm
         {"brakeInputSplit":"$=$pedalRatio/12"},
         {"brakeSplitCoef":"$=$pedalRatio/6"},
-        {"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP"},
+        {"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP*$HBLimiter"},
         {"brakeSpring":155},
 
         //brake thermals

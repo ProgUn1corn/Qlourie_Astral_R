@@ -2,7 +2,7 @@
 "Astral_group_R_BRC_tarmac": {
     "information":{
         "authors":"Un1corn",
-        "name":"CTM MSR65 3+1WAY Rally Damper",
+        "name":"CTM MSR65",
         "value":3200,
     },
     "slotType" : "Astral_group_R",
@@ -26,11 +26,11 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 12000, 10000, 14000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$LRS_R", "range", "x", "Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 12000, 10000, 14000, "HBS Damping", "HBS damping stiffness.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$LRS_R", "range", "x", "Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Dampers and Springs", 0.030, 0.020, 0.040, "HBS Travel", "Adjust hydraulic bump stop's travel length.", {"stepDis":1,"minDis":20,"maxDis":40,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Dampers and Springs", 225, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "mm", "Dampers and Springs", 0.036, 0.020, 0.056, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Rear Damper"}],  //From last skirt node, ride height is about 101mm
+        ["$RideHeightOffsetRear", "range", "mm", "Dampers and Springs", 0.036, 0.020, 0.056, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 101mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -337,7 +337,7 @@
 "Astral_group_R_BRC_gravel": {
     "information":{
         "authors":"Un1corn",
-        "name":"CTM MSR85 3+1WAY Rally Damper",
+        "name":"CTM MSR85",
         "value":3200,
     },
     "slotType" : "Astral_group_R",
@@ -361,11 +361,11 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 11000, 9000, 13000, "HBS Damping", "End travel damping to prevent bottom out.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper Auxiliary"}],
-        ["$LRS_R", "range", "x", "Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 11000, 9000, 13000, "HBS Damping", "HBS damping stiffness.", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$LRS_R", "range", "x", "Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all.", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Dampers and Springs", 0.050, 0.035, 0.06, "HBS Travel", "Adjust hydraulic bump stop's travel length.", {"stepDis":1,"minDis":35,"maxDis":60,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper.", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "mm", "Dampers and Springs", 0.010, 0.001, 0.034, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Rear Damper"}],  //From last skirt node, ride height is about 179mm
+        ["$RideHeightOffsetRear", "range", "mm", "Dampers and Springs", 0.010, 0.001, 0.034, "Spring Collar Offset", "Changes the platform height.", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 179mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -691,10 +691,10 @@
     "slotType" : "Astral_shim_R_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 3500, 2000, 5000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 6800, 5200, 8400, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 5750, 3000, 7500, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.4, 0.25, 0.55, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 3500, 2000, 5000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 6800, 5200, 8400, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 5750, 3000, 7500, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.4, 0.25, 0.55, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -729,10 +729,10 @@
     "slotType" : "Astral_shim_R_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 4250, 2750, 5750, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 5000, 3400, 6600, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 6375, 4125, 8625, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.35, 0.20, 0.50, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 4250, 2750, 5750, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 5000, 3400, 6600, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 6375, 4125, 8625, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.35, 0.20, 0.50, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -767,10 +767,10 @@
     "slotType" : "Astral_shim_R_BRC_tarmac",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 5300, 3800, 6800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 3600, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 7950, 5700, 10200, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.26, 0.11, 0.41, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 5300, 3800, 6800, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 3600, 2000, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 7950, 5700, 10200, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.26, 0.11, 0.41, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -805,10 +805,10 @@
     "slotType" : "Astral_shim_R_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 2310, 660, 3960, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 5400, 3800, 7000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 2541, 726, 4536, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.91, 0.52, 1.30, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.13,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 2310, 660, 3960, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 5400, 3800, 7000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 2541, 726, 4536, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.91, 0.52, 1.30, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.13,"subCategory":"Rear Damper Auxiliary"}],
     ],
     "controller": [ 
         ["fileName"],
@@ -843,10 +843,10 @@
     "slotType" : "Astral_shim_R_BRC_gravel",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 2650, 1000, 4300, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 4500, 2900, 6100, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 2915, 1100, 4730, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper"}],
-        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.62, 0.23, 1.01, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.13,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 2650, 1000, 4300, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 4500, 2900, 6100, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 2915, 1100, 4730, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.62, 0.23, 1.01, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.13,"subCategory":"Rear Damper Auxiliary"}],
     ],
     "controller": [ 
         ["fileName"],
