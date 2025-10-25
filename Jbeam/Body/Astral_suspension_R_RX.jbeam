@@ -338,7 +338,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Click", "Dampers and Springs", 3050, 1800, 4300, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption.", {"stepDis":1,"minDis":-25,"maxDis":0,"subCategory":"Rear Damper"}],
-		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 3500, 3000, 5000, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper"}],
+		["$dampRate_bump_R_fast", "range", "Click", "Dampers and Springs", 4200, 3200, 5200, "HS Bump", "High speed bump damping controls jump and big bump absorption.", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper"}],
         ["$dampRate_rebound_R", "range", "Click", "Dampers and Springs", 3812.5, 2250, 5375, "Rebound", "Rebound damping controls how fast the damper extends.", {"stepDis":1,"minDis":-25,"maxDis":0,"subCategory":"Rear Damper"}],
         ["$dampVelocity_R", "range", "m/s", "Dampers and Springs", 0.52, 0.25, 0.79, "Neutral Velocity Split", "Velocity split when clicks are at default.", {"stepDis":0.09,"subCategory":"Rear Damper"}],
     ],
@@ -360,8 +360,8 @@
         ],
         "rDamping":[
             ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.95", "$=clamp($dampVelocity_R+($dampRate_bump_R_fast-3000)/20000-($dampRate_bump_R-1800)/25000,0,99)", 0.58]  //normal damping
-            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp($dampVelocity_R+($dampRate_bump_R_fast-3000)/20000-($dampRate_bump_R-1800)/25000,0,99)", 1] //LRS active
+            ["$dampRate_bump_R", "$dampRate_bump_R_fast", "$dampRate_rebound_R", "$=$dampRate_rebound_R*0.95", "$=clamp($dampVelocity_R+($dampRate_bump_R_fast-3200)/20000-($dampRate_bump_R-1800)/25000,0,99)", 0.58]  //normal damping
+            ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast*1.1", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=clamp($dampVelocity_R+($dampRate_bump_R_fast-3200)/20000-($dampRate_bump_R-1800)/25000,0,99)", 1] //LRS active
         ]
     },
 },
