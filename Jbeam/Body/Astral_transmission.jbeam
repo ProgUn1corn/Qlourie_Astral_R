@@ -1,0 +1,301 @@
+{
+"Astral_transmission_sequential_BRC": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"6-Speed Sequential Transmission",
+	}
+	"slotType" : "Astral_transmission",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_transfercase", "Astral_differential_center_e_tarmac", "Transfer Case"],
+		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"],
+		["Astral_flywheel","Astral_flywheel","Flywheel", {"coreSlot":true}],
+		["Astral_gearratio_6","Astral_gearratio_6_A","Gear Ratios", {"coreSlot":true}],
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_engine_transmission", ["Astral_engine","Astral_transmission"]],
+    ],
+	"gearbox": {
+		"uiName":"Gearbox",
+		"friction": 1.55, 
+		"dynamicFriction":0.00098,
+		"torqueLossCoef": 0.010,
+		"gearboxNode:":["ftra"],
+		"gearWhineCoefsInput":  [1, 0.00, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45],
+		"gearWhineCoefsOutput": [0.00, 0.00, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45],
+		"gearWhineInputEvent": "event:>Vehicle>Transmission>straight_01>twine_in_race_sq",
+		"gearWhineOutputEvent": "event:>Vehicle>Transmission>straight_01>twine_out_race_sq",
+	},
+	"clutch": {
+		"clutchFreePlay":0.75,
+		"lockSpringCoef":0.4,
+	},
+	"vehicleController":{
+		"calculateOptimalLoadShiftPoints": false,
+		"shiftDownRPMOffsetCoef":1.20,
+		"aggressionHoldOffThrottleDelay":3,
+		"ignitionCutTime": 0.064,
+	},
+	"nodes": [       
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":true},
+		{"selfCollision":true},
+		//--Front Drivetrain--
+		{"group":["Astral_transmission"]},
+		{"nodeWeight":18},
+		["ftra", 0.286, -1.372, 0.267, {"selfCollision":false}],
+		{"nodeWeight":9},
+		["ftrar", -0.245, -1.29, 0.203, {"selfCollision":false}],
+		["ftral",  0.245, -1.29, 0.203, {"selfCollision":false}],
+		//engine mount
+		{"engineGroup":""},
+		{"nodeWeight":6},
+		["em1l", 0.365, -1.371, 0.352, {"selfCollision":false}],
+		{"group":""},
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Front Drivetrain--
+		//gearbox
+		{"deformGroup":["gearbox"], "deformationTriggerRatio":0.001},
+		{"beamSpring":8501500,"beamDamp":450},
+		{"beamDeform":42000,"beamStrength":"FLT_MAX"},
+		["ftra","eg0"],
+		["ftra","eg1"],
+		["ftra","eg2"],
+		["ftra","eg3"],
+		["ftra","eg4"],
+		["ftra","eg5"],
+		["ftra","eg6"],
+		["ftra","eg7"],
+		//diff
+		{"beamSpring":6501500,"beamDamp":450},
+		{"beamDeform":38000,"beamStrength":"FLT_MAX"},
+		["ftral","ftrar"],
+		["ftra","ftrar"],
+		["ftra","ftral"],
+		//mount to engine
+		["ftrar","eg0"],
+		["ftrar","eg3"],
+		["ftrar","eg4"],
+		["ftrar","eg7"],
+		//*
+		["ftral","eg1"],
+		["ftral","eg2"],
+		["ftral","eg5"],
+		["ftral","eg6"],
+		{"deformGroup":""},
+		//engine mount node
+        {"beamSpring":4501000,"beamDamp":180},
+        {"beamDeform":60000,"beamStrength":"FLT_MAX"},
+		["em1l", "ftra"],
+		["em1l", "ftral"],
+		["em1l", "eg0"],
+		["em1l", "eg1"],
+		["em1l", "eg2"],
+		["em1l", "eg3"],
+		["em1l", "eg4"],
+		["em1l", "eg5"],
+		["em1l", "eg6"],
+		["em1l", "eg7"],
+		{"deformGroup":[""], "deformationTriggerRatio":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["frictionClutch", "clutch", "mainEngine", 1, {"deformGroups":["gearbox"]}],
+		["sequentialGearbox", "gearbox", "clutch", 1, {"deformGroups":["gearbox"]}],
+	],
+},
+"Astral_transmission_sequential_Rally2": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"5-Speed Sequential Transmission",
+	}
+	"slotType" : "Astral_transmission",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_transfercase", "Astral_differential_center_locked", "Transfercase"],
+		["Astral_differential_F", "Astral_differential_F_race", "Front Differential"],
+		["Astral_flywheel","Astral_flywheel","Flywheel", {"coreSlot":true}],
+		["Astral_gearratio_5","Astral_gearratio_5_A","Gear Ratios", {"coreSlot":true}],
+	],
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_engine_transmission", ["Astral_engine","Astral_transmission"]],
+    ],
+	"gearbox": {
+		"uiName":"Gearbox",
+		"friction": 1.45, 
+		"dynamicFriction":0.00098,
+		"torqueLossCoef": 0.011,
+		"gearboxNode:":["ftra"],
+		"gearWhineCoefsInput":  [1, 0.00, 0.69, 0.69, 0.69, 0.69, 0.69],
+		"gearWhineCoefsOutput": [0.00, 0.00, 0.69, 0.69, 0.69, 0.69, 0.69],
+		"gearWhineInputEvent": "event:>Vehicle>Transmission>straight_01>twine_in_truck",
+		"gearWhineOutputEvent": "event:>Vehicle>Transmission>straight_01>twine_out_truck",
+	},
+	"clutch": {
+		"clutchFreePlay":0.75,
+		"lockSpringCoef":0.4,
+	},
+	"vehicleController":{
+		"calculateOptimalLoadShiftPoints": false,
+		"shiftDownRPMOffsetCoef":1.20,
+		"aggressionHoldOffThrottleDelay":3,
+		"ignitionCutTime": 0.068,
+	},
+	"nodes": [       
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":true},
+		{"selfCollision":true},
+		//--Front Drivetrain--
+		{"group":["Astral_transmission"]},
+		{"nodeWeight":9},
+		["ftra", 0.286, -1.372, 0.267, {"selfCollision":false}],
+		{"nodeWeight":9},
+		["ftrar", -0.245, -1.29, 0.203, {"selfCollision":false}],
+		["ftral",  0.245, -1.29, 0.203, {"selfCollision":false}],
+		//engine mount
+		{"engineGroup":""},
+		{"nodeWeight":6},
+		["em1l", 0.365, -1.371, 0.352, {"selfCollision":false}],
+		{"group":""},
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Front Drivetrain--
+		//gearbox
+		{"deformGroup":["gearbox"], "deformationTriggerRatio":0.001},
+		{"beamSpring":8501500,"beamDamp":450},
+		{"beamDeform":42000,"beamStrength":"FLT_MAX"},
+		["ftra","eg0"],
+		["ftra","eg1"],
+		["ftra","eg2"],
+		["ftra","eg3"],
+		["ftra","eg4"],
+		["ftra","eg5"],
+		["ftra","eg6"],
+		["ftra","eg7"],
+		//diff
+		{"beamSpring":6501500,"beamDamp":450},
+		{"beamDeform":38000,"beamStrength":"FLT_MAX"},
+		["ftral","ftrar"],
+		["ftra","ftrar"],
+		["ftra","ftral"],
+		//mount to engine
+		["ftrar","eg0"],
+		["ftrar","eg3"],
+		["ftrar","eg4"],
+		["ftrar","eg7"],
+		//*
+		["ftral","eg1"],
+		["ftral","eg2"],
+		["ftral","eg5"],
+		["ftral","eg6"],
+		{"deformGroup":""},
+		//engine mount node
+        {"beamSpring":4501000,"beamDamp":180},
+        {"beamDeform":60000,"beamStrength":"FLT_MAX"},
+		["em1l", "ftra"],
+		["em1l", "ftral"],
+		["em1r", "ftrar"],
+		["em1l", "eg0"],
+		["em1l", "eg1"],
+		["em1l", "eg2"],
+		["em1l", "eg3"],
+		["em1l", "eg4"],
+		["em1l", "eg5"],
+		["em1l", "eg6"],
+		["em1l", "eg7"],
+		{"deformGroup":[""], "deformationTriggerRatio":""},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["frictionClutch", "clutch", "mainEngine", 1, {"deformGroups":["gearbox"]}],
+		["sequentialGearbox", "gearbox", "clutch", 1, {"deformGroups":["gearbox"]}],
+	],
+},
+"Astral_gearratio_5_A": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-A Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_5",
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 3.52, 2.51, 1.83, 1.39, 1.11],
+	},
+},
+"Astral_gearratio_5_B": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-B Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_5",
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 3.14, 2.15, 1.64, 1.29, 1.04],  //1.177 1.167 1.116 1.077 1.067
+	},
+},
+"Astral_gearratio_6_A": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-A Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_6",
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 3.10, 2.52, 2.10, 1.74, 1.46, 1.24],
+	},
+},
+"Astral_gearratio_6_B": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-B Gear Ratios",
+	}
+	"slotType" : "Astral_gearratio_6",
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 2.69, 2.19, 1.80, 1.53, 1.31, 1.14], //1.216 1.189 1.172 1.144 1.122 1.096
+	},
+},
+"Astral_gearratio_6_C": {
+	"information":{
+		"authors":"Un1corn",
+		"name":"Type-C Gear Ratios",
+		"isAuxiliary":true
+	}
+	"slotType" : "Astral_gearratio_6",
+	"gearbox": {
+		"gearRatios":[-2.97, 0, 3.08, 2.59, 2.08, 1.69, 1.40, 1.18], 
+	},
+},
+"Astral_flywheel": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Race Flywheel",
+        "value":150,
+    },
+    "slotType" : "Astral_flywheel",
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["frictionClutch", "clutch", "mainEngine", 1, {"deformGroups":["gearbox"]}],
+    ],
+    "clutch": {
+        "uiName":"Clutch",
+        "additionalEngineInertia":0.01,
+        "clutchMass":3.55,
+    },
+},
+}

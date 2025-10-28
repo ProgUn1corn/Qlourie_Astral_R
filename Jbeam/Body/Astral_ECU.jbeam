@@ -1,0 +1,645 @@
+{
+"Astral_enginemanagement_BRC": {
+	"information":{
+		"name":"WRC+ ECU",
+		"value":3600
+	},
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
+		["$launchRPMLow", "range", "RPM", "Engine", 5500, 3500, 8500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMMed", "range", "RPM", "Engine", 6800, 3500, 8500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMHigh", "range", "RPM", "Engine", 7600, 3500, 8500, "Aggressive Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+	],
+	"slotType" : "Astral_enginemanagement_1",
+	"controller": [
+		["fileName"],
+		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
+		["drivingDynamics/sensors/sensorHub" ],
+		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
+		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
+		["launch"],
+		["driveModes"]
+		["throttleMap" {"tMap":"$=$tMap"}]
+	],
+	"driveModes": {
+		"enabledModes":["low", "med", "high", "off"],
+		"defaultMode": "med",
+		"defaultSettings": [
+			["type"]
+			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+			["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
+			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+        ],
+		"modes": {
+			"low": {
+				"name": "Stage:1",
+				"order": 1,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+				]
+			},
+			"med": {
+				"name": "Stage:2",
+				"order": 2,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+				]
+			},
+			"high": {
+				"name": "Stage:3",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:3", "modeColor": "FF2701"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+				]
+			},
+			"off": {
+				"name": "Road",
+				"order": 4,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":false}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -5}],
+					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+				]
+			}
+		}
+	},
+	"vehicleData": {
+		"skewStiffnessFront": 153600,
+		"skewStiffnessRear": 131600
+	}
+	"mainEngine": {
+		//RPM
+		"hasRevLimiter": true,
+		"revLimiterType":"timeBased",
+        "revLimiterCutTime":0.02,
+		"revLimiterRPM":8500,
+		"idleRPM":"$idleRPM",
+		//torque
+		"torqueModIntake":[
+			["rpm", "torque"],
+			[0, 0],
+			[500, 0],
+			[1000, 1],
+			[1500, 3],
+			[2000, 14],
+			[2500, 29],
+			[3000, 49],
+			[3500, 61],
+			[4000, 62],
+			[4500, 62],
+			[5000, 65],
+			[5500, 72],
+			[6000, 74],
+			[6500, 70],
+			[7000, 64],
+			[7500, 58],
+			[8000, 54],
+			[8500, 45],
+			[9000, 30],
+		],
+		//exhaust
+		"particulates":0.01,
+		"$*instantAfterFireCoef": 2,
+		"$*sustainedAfterFireCoef": 4,
+		"instantAfterFireVolumeCoef":0.6,
+		"sustainedAfterFireVolumeCoef":1.3,
+		"afterFireMufflingCoef":0.15,
+		"shiftAfterFireVolumeCoef":0.8,
+	},
+	"soundConfigExhaust": {
+		"sampleName": "WRC",
+		"mainGain": -1,
+		"lowShelfFreq": 350,
+		"lowShelfGain": 5,
+		"highShelfFreq": 6550,
+		"highShelfGain": -1,
+		"maxLoadMix": 1,
+		"minLoadMix": 0.1,
+		"onLoadGain": 0.6,
+		"offLoadGain": 0,
+		"eqLowGain": 2,
+		"eqLowFreq": 550,
+		"eqLowWidth": 0.46,
+		"eqHighGain": -15,
+		"eqHighFreq": 3850,
+		"eqHighWidth": 0.03,
+		"lowCutFreq": 50,
+		"fundamentalFrequencyCylinderCount": 4,
+		"eqFundamentalGain": 5
+	},
+	"vehicleController": {
+		"highShiftDownRPM":[0,0,0,4500,6200,6200,6200,6200],
+		"highShiftUpRPM":[0,0,6900,7300,7350,7350,7350],
+		"wheelSlipUpThreshold":20000,
+		"wheelSlipShiftUpSmoothingIn":12,
+		"wheelSlipDownThreshold":100000,
+		"wheelSlipShiftDownSmoothingIn":20,
+		"clutchLaunchStartRPM": 5500,
+        "clutchLaunchTargetRPM": 2500,
+	}
+},
+"Astral_enginemanagement_Rally2": {
+	"information":{
+		"name":"Rally2 EVO ECU",
+		"value":3600
+	},
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
+		["$launchRPMLow", "range", "RPM", "Engine", 4500, 3500, 7500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMMed", "range", "RPM", "Engine", 5500, 3500, 7500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMHigh", "range", "RPM", "Engine", 6800, 3500, 7500, "Aggressive Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+	],
+	"slotType" : "Astral_enginemanagement_1",
+	"controller": [
+		["fileName"],
+		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
+		["drivingDynamics/sensors/sensorHub" ],
+		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
+		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
+		["launch"],
+		["driveModes"]
+		["throttleMap" {"tMap":"$=$tMap"}]
+	],
+	"driveModes": {
+		"enabledModes":["low", "med", "high", "off"],
+		"defaultMode": "med",
+		"defaultSettings": [
+			["type"],
+			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+			["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
+			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+        ],
+		"modes": {
+			"low": {
+				"name": "Stage:1",
+				"order": 1,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+				]
+			},
+			"med": {
+				"name": "Stage:2",
+				"order": 2,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+				]
+			},
+			"high": {
+				"name": "Stage:3",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:3", "modeColor": "FF2701"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+				]
+			},
+			"off": {
+				"name": "Road",
+				"order": 4,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":false}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -5}],
+					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+				]
+			}
+		}
+	},
+	"vehicleData": {
+		"skewStiffnessFront":135000,
+    	"skewStiffnessRear":125000
+	},
+	"mainEngine": {
+		//RPM
+		"hasRevLimiter": true,
+		"revLimiterType":"timeBased",
+        "revLimiterCutTime":0.03,
+		"revLimiterRPM":7500,
+		"idleRPM":"$idleRPM",
+		//torque
+		"torqueModIntake":[
+			["rpm", "torque"],
+			[0, 0],
+			[500, 0],
+			[1000, 0],
+			[1500, 4],
+			[2000, 35],
+			[2500, 57],
+			[3000, 72],
+			[3500, 73],
+			[4000, 67],
+			[4500, 63],
+			[5000, 55],
+			[5500, 41],
+			[6000, 25],
+			[6500, 15],
+			[7000, 9],
+			[7500, 4],
+			[8000, 0],
+		],
+		//exhaust
+		"particulates":0.01,
+		"$*instantAfterFireCoef": 1,
+		"$*sustainedAfterFireCoef": 2,
+		"instantAfterFireVolumeCoef":0.5,
+		"sustainedAfterFireVolumeCoef":1,
+		"afterFireMufflingCoef":0.2,
+		"shiftAfterFireVolumeCoef":0.7,
+	},
+	"soundConfigExhaust": {
+		"sampleName": "WRC",
+		"mainGain": -6,
+		"lowShelfFreq": 350,
+		"lowShelfGain": 4,
+		"highShelfFreq": 5550,
+		"highShelfGain": -5,
+		"maxLoadMix": 1,
+		"minLoadMix": 0.1,
+		"onLoadGain": 0.8,
+		"offLoadGain": 0,
+		"eqLowGain": -5,
+		"eqLowFreq": 1250,
+		"eqLowWidth": 0.46,
+		"eqHighGain": -15,
+		"eqHighFreq": 3550,
+		"eqHighWidth": 0.03,
+		"lowCutFreq": 50,
+		"highCutFreq": 6500,
+		"fundamentalFrequencyCylinderCount": 4,
+		"eqFundamentalGain": 6
+	},
+	"vehicleController": {
+		"highShiftDownRPM":[0,0,0,3000,5200,5200,5200,5200],
+		"highShiftUpRPM":[0,0,5500,6300,6300,6300,6500],
+		"wheelSlipUpThreshold":15000,
+		"wheelSlipShiftUpSmoothingIn":12,
+		"wheelSlipDownThreshold":100000,
+		"wheelSlipShiftDownSmoothingIn":20,
+		"clutchLaunchStartRPM": 4500,
+        "clutchLaunchTargetRPM": 2500,
+	}
+},
+"Astral_enginemanagement_Tribute": {
+	"information":{
+		"name":"WRC ECU",
+		"value":3600
+	},
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
+		["$launchRPMLow", "range", "RPM", "Engine", 4500, 3500, 7500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMMed", "range", "RPM", "Engine", 5500, 3500, 7500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMHigh", "range", "RPM", "Engine", 6800, 3500, 7500, "Aggressive Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+	],
+	"slotType" : "Astral_enginemanagement_1",
+	"controller": [
+		["fileName"],
+		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
+		["drivingDynamics/sensors/sensorHub" ],
+		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
+		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
+		["launch"],
+		["driveModes"]
+		["throttleMap" {"tMap":"$=$tMap"}]
+	],
+	"driveModes": {
+		"enabledModes":["low", "med", "high", "off"],
+		"defaultMode": "med",
+		"defaultSettings": [
+			["type"],
+			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+			["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
+			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+        ],
+		"modes": {
+			"low": {
+				"name": "Stage:1",
+				"order": 1,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+				]
+			},
+			"med": {
+				"name": "Stage:2",
+				"order": 2,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+				]
+			},
+			"high": {
+				"name": "Stage:3",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:3", "modeColor": "FF2701"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+				]
+			},
+			"off": {
+				"name": "Road",
+				"order": 4,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":false}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -5}],
+					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+				]
+			}
+		}
+	},
+	"vehicleData": {
+		"skewStiffnessFront":135000,
+    	"skewStiffnessRear":125000
+	},
+	"mainEngine": {
+		//RPM
+		"hasRevLimiter": true,
+		"revLimiterType":"timeBased",
+        "revLimiterCutTime":0.02,
+		"revLimiterRPM":7650,
+		"idleRPM":"$idleRPM",
+		//torque
+		"torqueModIntake":[
+			["rpm", "torque"],
+			[0, 0],
+			[500, 0],
+			[1000, 0],
+			[1500, 1],
+			[2000, 15],
+			[2500, 35],
+			[3000, 54],
+			[3500, 56],
+			[4000, 53],
+			[4500, 52],
+			[5000, 52],
+			[5500, 51],
+			[6000, 40],
+			[6500, 31],
+			[7000, 22],
+			[7500, 15],
+			[8000, 10],
+			[8500, 4],
+			[9000, 1],
+		],
+		//exhaust
+		"particulates":0.01,
+		"$*instantAfterFireCoef": 2,
+		"$*sustainedAfterFireCoef": 4,
+		"instantAfterFireVolumeCoef":0.6,
+		"sustainedAfterFireVolumeCoef":1.3,
+		"afterFireMufflingCoef":0.15,
+		"shiftAfterFireVolumeCoef":0.8,
+	},
+	"soundConfigExhaust": {
+		"sampleName": "WRC",
+		"mainGain": -5,
+		"lowShelfFreq": 350,
+		"lowShelfGain": 5,
+		"highShelfFreq": 6550,
+		"highShelfGain": -1,
+		"maxLoadMix": 1,
+		"minLoadMix": 0.1,
+		"onLoadGain": 0.6,
+		"offLoadGain": 0,
+		"eqLowGain": 2,
+		"eqLowFreq": 550,
+		"eqLowWidth": 0.46,
+		"eqHighGain": -15,
+		"eqHighFreq": 3850,
+		"eqHighWidth": 0.03,
+		"lowCutFreq": 50,
+		"fundamentalFrequencyCylinderCount": 4,
+		"eqFundamentalGain": 4
+	},
+	"vehicleController": {
+		"highShiftDownRPM":[0,0,0,5000,5200,5200,5200,5200],
+		"highShiftUpRPM":[0,0,6500,6600,6700,6700,6700],
+		"wheelSlipUpThreshold":15000,
+		"wheelSlipShiftUpSmoothingIn":12,
+		"wheelSlipDownThreshold":100000,
+		"wheelSlipShiftDownSmoothingIn":20,
+		"clutchLaunchStartRPM": 5250,
+        "clutchLaunchTargetRPM": 2750,
+	}
+},
+"Astral_enginemanagement_RX": {
+	"information":{
+		"name":"RX1 ECU",
+		"value":3600
+	},
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$idleRPM", "range", "RPM", "Engine", 2250, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
+		["$launchRPMLow", "range", "RPM", "Engine", 5500, 3500, 8500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
+		["$launchRPMMed", "range", "RPM", "Engine", 6300, 3500, 8500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
+		["$launchRPMHigh", "range", "RPM", "Engine", 6900, 3500, 8500, "Aggressive Launch RPM", "Launch RPM of high level", {"subCategory": "ECU", "stepDis": 50}]
+	],
+	"slotType" : "Astral_enginemanagement_2",
+	"controller": [
+		["fileName"],
+		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
+		["drivingDynamics/sensors/sensorHub" ],
+		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
+		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
+		["launch"],
+		["driveModes"]
+		["throttleMap" {"tMap":"$=$tMap"}]
+	],
+	"driveModes": {
+		"enabledModes":["low", "med", "high", "off"],
+		"defaultMode": "med",
+		"defaultSettings": [
+			["type"],
+			["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+			["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+			["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+			["controller", {"controllerName":"gauge", "modeName": "Mid", "modeColor": "FFF68F"}]
+			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+        ],
+		"modes": {
+			"low": {
+				"name": "Soft",
+				"order": 1,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMLow"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Soft", "modeColor": "00CCFF"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+				]
+			},
+			"med": {
+				"name": "Medium",
+				"order": 2,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMMed"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Mid", "modeColor": "FFF68F"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+				]
+			},
+			"high": {
+				"name": "Aggressive",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":true, "launchRPM":"$launchRPMHigh"}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
+					["controller", {"controllerName":"gauge", "modeName": "Aggressive", "modeColor": "FF2701"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+				]
+			},
+			"off": {
+				"name": "Off",
+				"order": 4,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"launch", "isEnabled":false}],
+					["turbocharger", {"name": "mainEngine", "wastegateOffset": -49}]
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -1, "gainOffset": -1}],
+					["controller", {"controllerName":"gauge", "modeName": "Wastegate Off", "modeColor": "DCDCDC"}]
+					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+				]
+			}
+		}
+	},
+	"vehicleData": {
+		"skewStiffnessFront":135000,
+    	"skewStiffnessRear":125000
+	},
+	"mainEngine": {
+		//RPM
+		"hasRevLimiter": true,
+		"revLimiterType":"timeBased",
+        "revLimiterCutTime":0.02,
+		"revLimiterRPM":8000,
+		"idleRPM":"$idleRPM",
+		//torque
+		"torqueModIntake":[
+			["rpm", "torque"],
+			[0, 0],
+			[500, 0],
+			[1000, 0],
+			[1500, 3],
+			[2000, 18],
+			[2500, 35],
+			[3000, 66],
+			[3500, 74],
+			[4000, 80],
+			[4500, 81],
+			[5000, 83],
+			[5500, 82],
+			[6000, 77],
+			[6500, 75],
+			[7000, 69],
+			[7500, 64],
+			[8000, 59],
+			[8500, 55],
+			[9000, 40],
+		],
+		//exhaust
+		"particulates":0.01,
+		"$*instantAfterFireCoef": 2,
+		"$*sustainedAfterFireCoef": 4,
+		"instantAfterFireVolumeCoef":0.6,
+		"sustainedAfterFireVolumeCoef":1.3,
+		"afterFireMufflingCoef":0.15,
+		"shiftAfterFireVolumeCoef":0.8,
+	},
+	"soundConfigExhaust": {
+		"sampleName": "WRC",
+		"mainGain": 0,
+		"lowShelfFreq": 550,
+		"lowShelfGain": 5,
+		"highShelfFreq": 6550,
+		"highShelfGain": -1,
+		"maxLoadMix": 1,
+		"minLoadMix": 0.1,
+		"onLoadGain": 0.6,
+		"offLoadGain": 0,
+		"eqLowGain": -8,
+		"eqLowFreq": 1650,
+		"eqLowWidth": 0.46,
+		"eqHighGain": -15,
+		"eqHighFreq": 3850,
+		"eqHighWidth": 0.1,
+		"lowCutFreq": 50,
+		"fundamentalFrequencyCylinderCount": 4,
+		"eqFundamentalGain": 8
+	},
+	"vehicleController": {
+		"highShiftDownRPM":[0,0,0,5500,6000,6000,6000,6000],
+		"highShiftUpRPM":[0,0,7050,7050,7050,7050,7050],
+		"wheelSlipUpThreshold":35000,
+		"wheelSlipShiftUpSmoothingIn":12,
+		"wheelSlipDownThreshold":100000,
+		"wheelSlipShiftDownSmoothingIn":20,
+		"clutchLaunchStartRPM": 5500,
+        "clutchLaunchTargetRPM": 3500,
+	},
+}
+}
