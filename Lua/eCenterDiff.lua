@@ -56,7 +56,7 @@ local function updateWheelsIntermediate(dt)
     steer = electrics.values['steering_input'] or 0
     speed = electrics.values.wheelspeed*3.6 or 0 --m/s to km/h
     local normalSteer = abs(steer) --make value 0 to 1
-    local clampSpeed = clamp(speed, 0, 120) --make speed-steer factor only affect 0-120 km/h
+    local clampSpeed = clamp(speed, 0, 140) --make speed-steer factor only affect 0-140 km/h
 
     local yLockCoef = 0
     local xLockCoef = 0
@@ -64,6 +64,25 @@ local function updateWheelsIntermediate(dt)
     local lockRange = 0
     local throttleNormalized = 0
     local brakeNormalized = 0
+
+    --steering contribution with countersteer control
+    local yaw = obj:getYawAngularVelocity() --left is positive
+    if yaw > 0.15 then 
+      if steer * yaw < 0 then
+        xLockCoef = 0
+      else
+        lockRange = 1 - minLockCoef
+        xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1) --calculate steering contribution
+      end
+    else
+      lockRange = 1 - minLockCoef
+      xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1)
+    end
+    --print(xLockCoef)
+
+    --speed map that only affects steering contribution
+    local speedFactor = clamp(clampSpeed * (-9 / 2800) + 1, 0.1, 1)
+    --print(speedFactor)
 
     --set different condition flags
     local throttleFlag = 0
@@ -104,7 +123,7 @@ local function updateWheelsIntermediate(dt)
     if throttleFlag == true then
       if throttleRatio - throttleStart <= 0 then
         yLockCoef = 1
-        preloadAdj = preload * minLockCoef * yLockCoef
+        preloadAdj = 0
       else
         lockRange = 1 - minLockCoef
         throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
@@ -140,31 +159,14 @@ local function updateWheelsIntermediate(dt)
     if coastFlag == true then
       lockRange = 1 - minLockCoef
       yLockCoef = minLockCoef
-      preloadAdj = 15
+      preloadAdj = preload * minLockCoef * minLockCoef * (1 - xLockCoef * speedFactor) 
     end
     --print(yLockCoef)
     --print(preloadAdj)
-    
-    --steering contribution with countersteer control
-    local yaw = obj:getYawAngularVelocity() --left is positive
-    if yaw > 0.15 then 
-      if steer * yaw < 0 then
-        xLockCoef = 0
-      else
-        xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1) --calculate steering contribution
-      end
-    else
-      xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1)
-    end
-    --print(xLockCoef)
-
-    --speed map that only affects steering contribution
-    local speedFactor = clamp(clampSpeed * (-9 / 1200) + 1, 0.1, 1)
-    --print(speedFactor)
 
     --sum up X and Y lock factors
     local newLockCoef = clamp(yLockCoef - xLockCoef * speedFactor, minLockCoef, 1)
-    local newPreload = clamp(preloadAdj - xLockCoef * speedFactor * preload , 0, preload)
+    local newPreload = clamp(preloadAdj, 0, preload)
     --print(newLockCoef)
     --print(newPreload)
     
