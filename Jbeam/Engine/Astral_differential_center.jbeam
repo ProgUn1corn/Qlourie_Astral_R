@@ -8,16 +8,17 @@
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$minLock_C", "range", "", "Differentials", 0.2, 0, 0.5, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":50, "subCategory":"Active Map Aux"}],
-		["$lockThrottle_C", "range", "", "Differentials", 0.8, 0.4, 1, "Throttle Lock Threshold", "Throttle input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map Throttle"}],
-		["$lockBrake_C", "range", "", "Differentials", 0.65, 0.4, 1, "Brake Lock Threshold", "Brake input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map Brake"}],
-		["$lockThrottleStart_C", "range", "", "Differentials", 0.35, 0, 0.6, "Throttle Lock Start", "Throttle input percentage where where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map Throttle"}],
-		["$lockBrakeStart_C", "range", "", "Differentials", 0.20, 0, 0.6, "Brake Lock Start", "Brake input percentage where where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map Brake"}],
-		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Factor", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map Aux"}],
-		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map L.foot Brake"}],
-		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map L.foot Brake"}],
-		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map Aux"}],
-		["$preload_C", "range", "Nm", "Differentials", 300, 0, 600, "Preload", "The preload torque applied mainly for braking", {"minDis":0, "maxDis":600, "stepDis":6, "subCategory":"Active Map Aux"}],
+		["$minLock_C", "range", "", "Differentials", 0.15, 0, 0.5, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":50, "subCategory":"Active Map 1.Master"}],
+		["$lockThrottle_C", "range", "", "Differentials", 0.8, 0.4, 1, "Throttle Lock Threshold", "Throttle input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map 2.Throttle"}],
+		["$lockBrake_C", "range", "", "Differentials", 0.65, 0.4, 1, "Brake Lock Threshold", "Brake input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map 3.Brake"}],
+		["$lockThrottleStart_C", "range", "", "Differentials", 0.35, 0, 0.6, "Throttle Lock Start", "Throttle input percentage where where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 2.Throttle"}],
+		["$lockBrakeStart_C", "range", "", "Differentials", 0.20, 0, 0.6, "Brake Lock Start", "Brake input percentage where where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 3.Brake"}],
+		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Factor", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
+		["$speedMap_C", "range", "", "Differentials", 1800, 1400, 2800, "Speed Map Factor", "The multiplier of minimum lock that steering contribution can be made, after reduction from the speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
+		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
+		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
+		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
+		["$preload_C", "range", "Nm", "Differentials", 240, 0, 600, "Preload", "The max preload torque used by calculations except for throttle map", {"minDis":0, "maxDis":600, "stepDis":6, "subCategory":"Active Map 1.Master"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -27,8 +28,8 @@
 		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "lockThrottleStart", "lockBrakeStart", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease", "preload"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$lockThrottleStart_C", "$lockBrakeStart_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.54, "$hbRelease", "$preload_C"]
+			["minLock", "lockThrottle", "lockBrake", "lockThrottleStart", "lockBrakeStart", "steerRatio", "speedMap", "leftLock", "leftThreshold", "rearBias", "hbRelease", "preload"]
+            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$lockThrottleStart_C", "$lockBrakeStart_C", "$steerRatio_C", "$speedMap_C", "$leftLock_C", "$leftThreshold_C", 0.54, "$hbRelease", "$preload_C"]
 		]
 	},
 	"powertrain" : [
@@ -82,16 +83,17 @@
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$minLock_C", "range", "", "Differentials", 0.1, 0, 0.5, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":50, "subCategory":"Active Map Aux"}],
-		["$lockThrottle_C", "range", "", "Differentials", 0.9, 0.4, 1, "Throttle Lock Threshold", "Throttle input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map Throttle"}],
-		["$lockBrake_C", "range", "", "Differentials", 0.8, 0.4, 1, "Brake Lock Threshold", "Brake input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map Brake"}],
-		["$lockThrottleStart_C", "range", "", "Differentials", 0.4, 0, 0.6, "Throttle Lock Start", "Throttle input percentage where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map Throttle"}],
-		["$lockBrakeStart_C", "range", "", "Differentials", 0.35, 0, 0.6, "Brake Lock Start", "Brake input percentage where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map Brake"}],
-		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Factor", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map Aux"}],
-		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map L.foot Brake"}],
-		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map L.foot Brake"}],
-		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map Aux"}],
-		["$preload_C", "range", "Nm", "Differentials", 300, 0, 600, "Preload", "The preload torque applied mainly for braking", {"minDis":0, "maxDis":600, "stepDis":6, "subCategory":"Active Map Aux"}],
+		["$minLock_C", "range", "", "Differentials", 0.1, 0, 0.5, "Minimum Lock", "Minimum differential lock rate when coasting", {"minDis":0, "maxDis":50, "subCategory":"Active Map 1.Master"}],
+		["$lockThrottle_C", "range", "", "Differentials", 0.9, 0.4, 1, "Throttle Lock Threshold", "Throttle input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map 2.Throttle"}],
+		["$lockBrake_C", "range", "", "Differentials", 0.8, 0.4, 1, "Brake Lock Threshold", "Brake input percentage where max lock is applied", {"minDis":40, "maxDis":100, "subCategory":"Active Map 3.Brake"}],
+		["$lockThrottleStart_C", "range", "", "Differentials", 0.4, 0, 0.6, "Throttle Lock Start", "Throttle input percentage where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 2.Throttle"}],
+		["$lockBrakeStart_C", "range", "", "Differentials", 0.35, 0, 0.6, "Brake Lock Start", "Brake input percentage where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 3.Brake"}],
+		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Factor", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
+		["$speedMap_C", "range", "", "Differentials", 1800, 1400, 2800, "Speed Map Factor", "The multiplier of minimum lock that steering contribution can be made, after reduction from the speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
+		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
+		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
+		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
+		["$preload_C", "range", "Nm", "Differentials", 420, 0, 600, "Preload", "The max preload torque used by calculations except for throttle map", {"minDis":0, "maxDis":600, "stepDis":6, "subCategory":"Active Map 1.Master"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -101,8 +103,8 @@
 		"type":"Active",
 		"transfercaseName":"transferCase",
 		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "lockThrottleStart", "lockBrakeStart", "steerRatio", "leftLock", "leftThreshold", "rearBias", "hbRelease", "preload"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$lockThrottleStart_C", "$lockBrakeStart_C", "$steerRatio_C", "$leftLock_C", "$leftThreshold_C", 0.62, "$hbRelease", "$preload_C"]
+			["minLock", "lockThrottle", "lockBrake", "lockThrottleStart", "lockBrakeStart", "steerRatio", "speedMap", "leftLock", "leftThreshold", "rearBias", "hbRelease", "preload"]
+            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$lockThrottleStart_C", "$lockBrakeStart_C", "$steerRatio_C", "$speedMap_C", "$leftLock_C", "$leftThreshold_C", 0.62, "$hbRelease", "$preload_C"]
 		]
 	},
 	"flexbodies": [
