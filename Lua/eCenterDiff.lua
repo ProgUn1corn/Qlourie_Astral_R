@@ -23,6 +23,7 @@ local rearBias = 0
 
 --active values
 local steerRatio = 0
+local speedMap = 0
 local throttleRatio = 0
 local throttleStart = 0
 local brakeRatio = 0
@@ -81,7 +82,7 @@ local function updateWheelsIntermediate(dt)
     --print(xLockCoef)
 
     --speed map that only affects steering contribution
-    local speedFactor = clamp(clampSpeed * (-9 / 2800) + 1, 0.1, 1)
+    local speedFactor = clamp(clampSpeed * (-9 / speedMap) + 1, 0.1, 1)
     --print(speedFactor)
 
     --set different condition flags
@@ -211,6 +212,7 @@ local function init(jbeamData)
     lockMap = tableFromHeaderTable(jbeamData.lockMap or {})
     minLockCoef = lockMap[1].minLock or 0
     steerRatio = lockMap[1].steerRatio or 0
+    speedMap = lockMap[1].speedMap or 0
     throttleRatio = lockMap[1].lockThrottle or 0 
     throttleStart = lockMap[1].lockThrottleStart or 0 
     brakeRatio = lockMap[1].lockBrake or 0
