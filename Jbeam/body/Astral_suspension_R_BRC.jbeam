@@ -26,7 +26,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 14000, 12000, 16000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$LRS_R", "range", "x", "Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Dampers and Springs", 0.030, 0.020, 0.035, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":35,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Dampers and Springs", 225, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
@@ -228,9 +228,9 @@
             "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_R","boundZone":0.012,
-            "beamLimitSpring":4500,
+            "beamLimitSpring":9500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hydraulic rebound stop
@@ -240,7 +240,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":5500,
-            "beamLimitDampRebound":4500,
+            "beamLimitDampRebound":9500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -268,9 +268,9 @@
             "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_R","boundZone":0.012,
-            "beamLimitSpring":4500,
+            "beamLimitSpring":9500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8.1", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hydraulic rebound stop
@@ -280,7 +280,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":5500,
-            "beamLimitDampRebound":4500,
+            "beamLimitDampRebound":9500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
@@ -362,7 +362,7 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 14000, 12000, 16000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$LRS_R", "range", "x", "Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Dampers and Springs", 0.040, 0.025, 0.05, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":50,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
@@ -566,7 +566,7 @@
             "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":11500,
+            "beamLimitSpring":10500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
@@ -611,7 +611,7 @@
             "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":11500,
+            "beamLimitSpring":10500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
