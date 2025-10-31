@@ -416,13 +416,13 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":600,"beamDeform":125000,"beamStrength":925000},
+        {"beamSpring":12001000,"beamDamp":600,"beamDeform":125000,"beamStrength":1525000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
         //steering limit
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":2501000,"beamDamp":250,"beamDeform":225000,"beamStrength":"FLT_MAX"},
+        {"beamSpring":2501000,"beamDamp":250,"beamDeform":925000,"beamStrength":"FLT_MAX"},
         {"beamPrecompression":0.82},
         ["fh3r","fx1r"],
         ["fh3l","fx1l"],
@@ -432,7 +432,7 @@
         {"beamPrecompression":1},
         //steering damper
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
-        {"beamDeform":25000,"beamStrength":45000},
+        {"beamDeform":25000,"beamStrength":125000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamSpring":0,"beamDamp":80},
         ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":650,"dampCutoffHz":500}],
@@ -445,7 +445,7 @@
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":135000, "damp":0, "deform":45000, "strength":100000},
+        {"spring":125000, "damp":0, "deform":45000, "strength":1225000},
         //rigidify steering arm
         ["fw1rr", "fw1r", "fh1r", "fh3r"],
         ["fw1ll", "fw1l", "fh1l", "fh3l"],
@@ -453,7 +453,7 @@
     "hydros": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":85000},
+        {"beamSpring":12001000,"beamDamp":120,"beamDeform":"FLT_MAX","beamStrength":135000},
         ["st2l","st1r", {"factor":"$= $components.steering.limiter","steeringWheelLock":270, "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l", {"factor":"$=-$components.steering.limiter","steeringWheelLock":270, "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
