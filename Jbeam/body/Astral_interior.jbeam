@@ -47,7 +47,7 @@
         {"nodeMaterial":"|NM_METAL"},
 		//--Dashboard for Wheel--
 		{"group":["Astral_dash"]},
-		{"nodeWeight":1},
+		{"nodeWeight":0.9},
 		["dsh1", 0.368, -0.471224, 0.7636],
 		["dsh2", 0.368, -0.551224, 0.75055],
 		["dsh3", 0.459824, -0.471224, 0.7636],
@@ -392,6 +392,10 @@
         {"beamDamp":250},
 		["neardash", 0.368, -0.65, 0.98, 56, "a86","a87","a83","a82","a18","a19"],
     ],
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$driver", "range", "kg", "Body", 75, 75, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Interior"}],
+    ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -400,7 +404,7 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":60.5},
+        {"nodeWeight":"$=$driver-15"},
 		{"group":["Astral_seat"]},
 		["a50",  0.368, 0.029 0.351],
 		{"nodeWeight":15},
@@ -489,6 +493,10 @@
         {"beamDamp":250},
 		["copilot", -0.368, 0.093, 1.0337, 56, "a85","a84","a80","a81","a18","d3r"],
     ],
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$driver", "range", "kg", "Body", 75, 75, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Interior"}],
+    ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -497,12 +505,12 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":60.5},
+        {"nodeWeight":"$=$driver-15"},
 		{"group":["Astral_seat"]},
 		["a50",  0.368, 0.029 0.351],
 		{"nodeWeight":15},
 		["driverref",  0.368, 0.029 0.805],
-		{"nodeWeight":60.5},
+		{"nodeWeight":"$=$driver-15"},
 		{"group":["Astral_copilot"]},
 		["a49", -0.368, 0.029 0.351],
 		{"nodeWeight":15},
@@ -625,7 +633,7 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Pedal Box--
-		{"nodeWeight":0.45},
+		{"nodeWeight":1},
 		{"group":["Astral_pedal"]},
 		["pd1", 0.487, -0.835, 0.16],
 		["pd2", 0.226, -0.835, 0.16],
@@ -642,7 +650,7 @@
 		//--Pedal Box Position--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//pedal shape
-		{"beamSpring":101000,"beamDamp":50},
+		{"beamSpring":651000,"beamDamp":50},
 		["pd1", "pd2"],
 		["pd2", "pd3"],
 		["pd3", "pd4"],
@@ -651,7 +659,7 @@
 		["pd1", "pd3"],
 		["pd2", "pd4"],
 		//mount
-		{"beamSpring":151000,"beamDamp":80},
+		{"beamSpring":551000,"beamDamp":80},
 		["pd1", "a22"],
 		["pd1", "a23"],
 		["pd2", "a22"],
