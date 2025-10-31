@@ -26,7 +26,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 12000, 10000, 14000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 14000, 12000, 16000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$LRS_R", "range", "x", "Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Dampers and Springs", 0.030, 0.020, 0.035, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":35,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Dampers and Springs", 225, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
@@ -192,14 +192,14 @@
         ["rh2r","rs1r", { //hard bump and rebound stop
             "longBoundRange":0,"shortBoundRange":0.170,"boundZone":0.01, //20mm hard stop co-working with HBS
             "beamLimitSpring":125100,
-            "beamLimitDamp":4750,
+            "beamLimitDamp":7250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hard bump and rebound stop
              "longBoundRange":0,"shortBoundRange":0.170,"boundZone":0.01, //20mm hard stop co-working with HBS
             "beamLimitSpring":125100,
-            "beamLimitDamp":4750,
+            "beamLimitDamp":7250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],
@@ -362,7 +362,7 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 11000, 9000, 13000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
+        ["$dampRate_stop_R", "range", "Click", "Dampers and Springs", 14000, 12000, 16000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$LRS_R", "range", "x", "Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2 Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Dampers and Springs", 0.040, 0.025, 0.05, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":50,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
@@ -529,7 +529,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.295,"boundZone":0.01, //15mm hard stop for protection, about 60% height ratio
             "beamLimitSpring":114000,
-            "beamLimitDamp":5250,
+            "beamLimitDamp":7250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],
@@ -537,7 +537,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.295,"boundZone":0.01,
             "beamLimitSpring":114000,
-            "beamLimitDamp":5250,
+            "beamLimitDamp":7250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],
