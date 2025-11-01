@@ -89,6 +89,91 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
 },
+"Astral_differential_R_d": {
+	"information":{
+		"name":"Debug Open LSD",
+		"value":1500
+		"isAuxiliary":true
+	},
+	"slotType" : "Astral_differential_R",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
+		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
+		["Astral_finaldrive_R","Astral_finaldrive_R_4.43","Rear Final Drive", {"coreSlot":true}]
+	],
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_diff", ["Astral_diff","Astral_sub_R"]],
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["differential", "rearDiff", "driveShaft", 1, {"deformGroups":["differential_R"], "diffType":"open", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
+	],
+	"rearDiff": {
+        "friction": 2.81,
+        "dynamicFriction": 0.00104,
+        "torqueLossCoef": 0.0256,
+    },
+	"nodes": [       
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":false},
+		{"selfCollision":false},
+		//--Rear Drivetrain--
+		{"nodeWeight":9},
+		{"group":["Astral_transfercase","Astral_diff"]},
+		["rtrar", -0.169, 1.222, 0.225],
+		["rtral",  0.169, 1.222, 0.225],
+		{"nodeWeight":11},
+		["rtra",  0, 0.992 0.231],
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Rear Drivetrain--
+		//diff
+		{"beamSpring":6501000,"beamDamp":650},
+		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
+		["rtral","rtrar"],
+		["rtral","rtra"],
+		["rtrar","rtra"],
+		
+		//mount to chassis
+		{"beamSpring":2501000,"beamDamp":250},
+		{"optional":true}
+		{"deformGroup":"differential_R", "deformationTriggerRatio":0.001}
+		["rtra","rx1"],
+		//
+		["rtrar","rx4r"],
+		["rtrar","rx2r"],
+		["rtrar","rx1r"],
+		["rtrar","rx4l"],
+		["rtrar","rx2l"],
+		["rtrar","rx1l"],
+		["rtrar","rx1"],
+		["rtra","rx1r"],
+		["rtra","rx3r"],
+		//*
+		["rtral","rx4l"],
+		["rtral","rx2l"],
+		["rtral","rx1l"],
+		["rtral","rx4r"],
+		["rtral","rx2r"],
+		["rtral","rx1r"],
+		["rtral","rx1"],
+		["rtra","rx1l"],
+		["rtra","rx3l"],
+		{"deformGroup":"", "deformationTriggerRatio":""}
+		{"dampCutoffHz":""},
+		{"optional":false}
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+		{"beamLimitSpring":false,"beamLimitDamp":false},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+	],
+},
 "Astral_driveshaft": {
     "information":{
         "authors":"Un1corn",
