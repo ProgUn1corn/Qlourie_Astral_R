@@ -18,7 +18,7 @@
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
-		["$preload_C", "range", "Nm", "Differentials", 90, 0, 300, "Preload Torque", "The max additional preload torque can be provided by the active system", {"minDis":0, "maxDis":300, "stepDis":6, "subCategory":"Active Map 1.Master"}],
+		["$preload_C", "range", "Nm", "Differentials", 90, 0, 300, "Preload Torque", "The max preload torque can be provided by the active system， in addition to input torque", {"minDis":0, "maxDis":300, "stepDis":6, "subCategory":"Active Map 1.Master"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -93,7 +93,7 @@
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
-		["$preload_C", "range", "Nm", "Differentials", 120, 0, 300, "Preload Torque", "The max additional preload torque can be provided by the active system", {"minDis":0, "maxDis":300, "stepDis":6, "subCategory":"Active Map 1.Master"}],
+		["$preload_C", "range", "Nm", "Differentials", 120, 0, 300, "Preload Torque", "The max preload torque can be provided by the active system， in addition to input torque", {"minDis":0, "maxDis":300, "stepDis":6, "subCategory":"Active Map 1.Master"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -151,16 +151,16 @@
 },
 "Astral_differential_center_m": {
 	"information":{
-		"name":"Clutched Center Differential",
+		"name":"1.5-Way Clutch-Type LSD",
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$torquesplit", "range", "", "Differentials", 0.50, 0.3, 0.7, "Torque Split", "Rear power bias",{"subCategory": "Center", "stepDis": 3, "minDis":30,"maxDis":70}]
-		["$lsdpreload_C", "range", "Nm", "Differentials", 5, 0, 15, "Preload Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center", "stepDis": 5}],
-		["$lsdlockcoef_C", "range", "", "Differentials", 0.5, 0, 0.44, "Throttle Lock", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":88, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.05, 0, 0.44, "Brake Lock", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":88, "subCategory":"Center"}],
+		["$lsdpreload_C", "range", "Nm", "Differentials", 10, 0, 100, "Preload Torque", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Center"}],
+		["$lsdlockcoef_C", "range", "", "Differentials", 0.275, 0.075, 0.375, "Power Lock", "Additional locking torque proportional to engine torque", {"minDis":15, "maxDis":75, "stepDis":5, "subCategory":"Center"}],
+		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.325, 0, 0.375, "Coast Lock", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":75, "stepDis":5, "subCategory":"Center"}]
 		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [ 
