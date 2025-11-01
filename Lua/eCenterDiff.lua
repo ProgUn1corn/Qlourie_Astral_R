@@ -130,7 +130,7 @@ local function updateWheelsIntermediate(dt)
         lockRange = 1 - minLockCoef
         throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
         local contributionThrottle = lockRange * throttleNormalized + minLockCoef
-        yLockCoef = 0
+        yLockCoef = clamp(contributionThrottle, minLockCoef, 1)
         preloadAdj = 0
       end
     end
