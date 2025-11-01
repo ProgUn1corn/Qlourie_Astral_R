@@ -20,6 +20,7 @@ local minLockCoef = 0
 local hbrelease = 0
 local newPreload = 0
 local rearBias = 0
+local finalDrive = 0
 
 --active values
 local steerRatio = 0
@@ -129,7 +130,7 @@ local function updateWheelsIntermediate(dt)
         lockRange = 1 - minLockCoef
         throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
         local contributionThrottle = lockRange * throttleNormalized + minLockCoef
-        yLockCoef = clamp(contributionThrottle, minLockCoef, 1)
+        yLockCoef = 0
         preloadAdj = 0
       end
     end
@@ -144,7 +145,7 @@ local function updateWheelsIntermediate(dt)
         brakeNormalized = (brake - brakeStart) / (brakeRatio - brakeStart)
         local contributionBrake = lockRange * brakeNormalized + minLockCoef
         yLockCoef = clamp(contributionBrake, minLockCoef, 1)
-        preloadAdj = preload * yLockCoef
+        preloadAdj = preload * yLockCoef 
       end
     end
 
@@ -160,7 +161,7 @@ local function updateWheelsIntermediate(dt)
     if coastFlag == true then
       lockRange = 1 - minLockCoef
       yLockCoef = minLockCoef
-      preloadAdj = preload * minLockCoef * minLockCoef * (1 - xLockCoef * speedFactor) 
+      preloadAdj = preload * minLockCoef  * (1 - xLockCoef * speedFactor)  / finalDrive
     end
     --print(yLockCoef)
     --print(preloadAdj)
@@ -222,6 +223,7 @@ local function init(jbeamData)
     rearBias = lockMap[1].rearBias or 0
     hbrelease = lockMap[1].hbRelease or 0
     preload = lockMap[1].preload or 0
+    finalDrive = lockMap[1].finalDrive or 0
     if throttleRatio ~= 0 and throttleRatio - throttleStart <= 0 then
       print("Throttle start point is higher than throttle threshold! Locking center diff...")
     end
