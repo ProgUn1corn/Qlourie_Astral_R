@@ -120,7 +120,7 @@ local function updateWheelsIntermediate(dt)
       coastFlag = true
     end
 
-    --calculate throttle lock map using torsen
+    --calculate throttle lock map using torsen (clutch-type)
     if throttleFlag == true then
       if throttleRatio - throttleStart <= 0 then
         yLockCoef = 1
@@ -134,7 +134,7 @@ local function updateWheelsIntermediate(dt)
       end
     end
     
-    --calculate brake lock map using preload
+    --calculate brake lock map additionally added with preload
     if brakeFlag == true then
       if brakeRatio - brakeStart <= 0 then
         yLockCoef = 1
