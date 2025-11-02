@@ -130,7 +130,7 @@ local function updateWheelsIntermediate(dt)
         lockRange = 1 - minLockCoef
         throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
         local contributionThrottle = lockRange * throttleNormalized + minLockCoef
-        yLockCoef = clamp(contributionThrottle, minLockCoef, 1)
+        yLockCoef = clamp(contributionThrottle - xLockCoef * speedFactor, minLockCoef, 1)
         preloadAdj = 0
       end
     end
@@ -144,8 +144,8 @@ local function updateWheelsIntermediate(dt)
         lockRange = 1 - minLockCoef
         brakeNormalized = (brake - brakeStart) / (brakeRatio - brakeStart)
         local contributionBrake = lockRange * brakeNormalized + minLockCoef
-        yLockCoef = clamp(contributionBrake, minLockCoef, 1)
-        preloadAdj = preload * yLockCoef 
+        yLockCoef = clamp(contributionBrake - xLockCoef, minLockCoef, 1)
+        preloadAdj = preload * yLockCoef - xLockCoef * speedFactor
       end
     end
 
@@ -153,21 +153,21 @@ local function updateWheelsIntermediate(dt)
     if lbFlag == true then
       lockRange = lbLockCoef - minLockCoef
       local contributionLfBrake = clamp(lockRange * abs(throttle-brake) + minLockCoef, minLockCoef, 1)
-      yLockCoef = clamp(contributionLfBrake, 0, 1)
-      preloadAdj = preload * minLockCoef / (yLockCoef / lbLockCoef)
+      yLockCoef = clamp(contributionLfBrake - xLockCoef * speedFactor, 0, 1)
+      preloadAdj = preload * minLockCoef / (yLockCoef / lbLockCoef) - xLockCoef * speedFactor
     end
 
     --calculate coast map
     if coastFlag == true then
       lockRange = 1 - minLockCoef
       yLockCoef = minLockCoef
-      preloadAdj = preload * minLockCoef  * (1 - xLockCoef * speedFactor)  / finalDrive
+      preloadAdj = preload * minLockCoef  * (1 - xLockCoef)  / finalDrive
     end
     --print(yLockCoef)
     --print(preloadAdj)
 
     --sum up X and Y lock factors
-    local newLockCoef = clamp(yLockCoef - xLockCoef * speedFactor, minLockCoef, 1)
+    local newLockCoef = clamp(yLockCoef, minLockCoef, 1)
     local newPreload = clamp(preloadAdj, 0, preload)
     --print(newLockCoef)
     --print(newPreload)
