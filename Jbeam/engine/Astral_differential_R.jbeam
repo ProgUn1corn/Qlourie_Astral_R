@@ -10,6 +10,7 @@
 		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
 		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
 		["Astral_finaldrive_R","Astral_finaldrive_R_4.43","Rear Final Drive", {"coreSlot":true}]
+		["Astral_ramp_R","Astral_ramp_R_5585","Rear Ramp Set", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -18,12 +19,11 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$lsdpreload_R", "range", "Nm", "Differentials", 40, 0, 100, "Preload Torque", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Rear"}]
-		["$lsdlockcoef_R", "range", "", "Differentials", 0.14, 0.08, 0.305, "Power Lock", "Additional locking torque proportional to engine torque", {"minDis":16, "maxDis":61, "stepDis":3, "subCategory":"Rear"}],
-		["$lsdlockcoefrev_R", "range", "", "Differentials", 0.025, 0, 0.1, "Coast Lock", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":20, "stepDis":5, "subCategory":"Rear"}]
+		["$frictionFace_R", "range", "Faces", "Differentials", 6, 4, 8, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":4, "maxDis":8, "stepDis":1, "subCategory":"Rear"}]
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "rearDiff", "driveShaft", 1, {"deformGroups":["differential_R"], "diffType":"lsd", "lsdPreload":"$lsdpreload_R", "lsdLockCoef":"$lsdlockcoef_R", "lsdRevLockCoef":"$lsdlockcoefrev_R", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
+		["differential", "rearDiff", "driveShaft", 1, {"deformGroups":["differential_R"], "diffType":"lsd", "lsdPreload":"$lsdpreload_R", "lsdLockCoef":"$=$components.diff.rlock", "lsdRevLockCoef":"$=$components.diff.rrevlock", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
 	],
 	"rearDiff": {
         "friction": 2.81,
@@ -88,6 +88,45 @@
 		{"beamLimitSpring":false,"beamLimitDamp":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
+},
+"Astral_ramp_R_4085": {
+	"information":{
+		"name":"40/85",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_R",
+	"components": {
+    	"diff":{
+        	"rlock":"$=(1/tan(40*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 66% lock
+			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_R/8)" //85, 8+8 as 100% in relavent, about 8%  lock
+    	},
+	}
+},
+"Astral_ramp_R_5585": {
+	"information":{
+		"name":"55/85",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_R",
+	"components": {
+    	"diff":{
+        	"rlock":"$=(1/tan(55*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 66% lock
+			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_R/8)" //85, 8+8 as 100% in relavent, about 8%  lock
+    	},
+	}
+},
+"Astral_ramp_R_6585": {
+	"information":{
+		"name":"65/85",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_R",
+	"components": {
+    	"diff":{
+        	"rlock":"$=(1/tan(65*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 66% lock
+			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_R/8)" //85, 8+8 as 100% in relavent, about 8%  lock
+    	},
+	}
 },
 "Astral_differential_R_d": {
 	"information":{

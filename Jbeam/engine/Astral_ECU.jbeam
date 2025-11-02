@@ -6,7 +6,7 @@
 	},
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$idleRPM", "range", "RPM", "Engine", 2300, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
 		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
 		["$launchRPMLow", "range", "RPM", "Engine", 5500, 3500, 8500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
 		["$launchRPMMed", "range", "RPM", "Engine", 6800, 3500, 8500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
@@ -93,9 +93,12 @@
 		//RPM
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
-        "revLimiterCutTime":0.02,
+        "revLimiterCutTime":0.015,
 		"revLimiterRPM":8500,
+		"revLimiterMaxRPMDrop":50
+		//"revLimiterSmoothOvershootRPM":100
 		"idleRPM":"$idleRPM",
+		"idleRPMRoughness":800
 		//torque
 		"torqueModIntake":[
 			["rpm", "torque"],
@@ -114,10 +117,10 @@
 			[6000, 74],
 			[6500, 72],
 			[7000, 68],
-			[7500, 61],
-			[8000, 54],
-			[8500, 42],
-			[9000, 30],
+			[7500, 64],
+			[8000, 61],
+			[8500, 50],
+			[9000, 35],
 		],
 		//exhaust
 		"particulates":0.01,
@@ -167,7 +170,7 @@
 	},
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$idleRPM", "range", "RPM", "Engine", 2300, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
 		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
 		["$launchRPMLow", "range", "RPM", "Engine", 4500, 3500, 7500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
 		["$launchRPMMed", "range", "RPM", "Engine", 5500, 3500, 7500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
@@ -254,9 +257,12 @@
 		//RPM
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
-        "revLimiterCutTime":0.03,
-		"revLimiterRPM":7500,
+        "revLimiterCutTime":0.015,
+		"revLimiterRPM":8500,
+		"revLimiterMaxRPMDrop":50
+		//"revLimiterSmoothOvershootRPM":100
 		"idleRPM":"$idleRPM",
+		"idleRPMRoughness":800
 		//torque
 		"torqueModIntake":[
 			["rpm", "torque"],
@@ -327,7 +333,7 @@
 	},
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$idleRPM", "range", "RPM", "Engine", 2000, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$idleRPM", "range", "RPM", "Engine", 2300, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
 		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
 		["$launchRPMLow", "range", "RPM", "Engine", 4500, 3500, 7500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
 		["$launchRPMMed", "range", "RPM", "Engine", 5500, 3500, 7500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
@@ -414,9 +420,12 @@
 		//RPM
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
-        "revLimiterCutTime":0.02,
-		"revLimiterRPM":7650,
+        "revLimiterCutTime":0.015,
+		"revLimiterRPM":8500,
+		"revLimiterMaxRPMDrop":50
+		//"revLimiterSmoothOvershootRPM":100
 		"idleRPM":"$idleRPM",
+		"idleRPMRoughness":800
 		//torque
 		"torqueModIntake":[
 			["rpm", "torque"],
@@ -488,7 +497,7 @@
 	},
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$idleRPM", "range", "RPM", "Engine", 2250, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
+		["$idleRPM", "range", "RPM", "Engine", 2300, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
 		["$tMap", "range", "Map", "Engine", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
 		["$launchRPMLow", "range", "RPM", "Engine", 5500, 3500, 8500, "Soft Launch RPM", "Launch RPM of low level", {"subCategory": "ECU", "stepDis": 50}],
 		["$launchRPMMed", "range", "RPM", "Engine", 6300, 3500, 8500, "Medium Launch RPM", "Launch RPM of medium level", {"subCategory": "ECU", "stepDis": 50}]
@@ -575,9 +584,12 @@
 		//RPM
 		"hasRevLimiter": true,
 		"revLimiterType":"timeBased",
-        "revLimiterCutTime":0.02,
-		"revLimiterRPM":8000,
+        "revLimiterCutTime":0.015,
+		"revLimiterRPM":8500,
+		"revLimiterMaxRPMDrop":50
+		//"revLimiterSmoothOvershootRPM":100
 		"idleRPM":"$idleRPM",
+		"idleRPMRoughness":800
 		//torque
 		"torqueModIntake":[
 			["rpm", "torque"],
