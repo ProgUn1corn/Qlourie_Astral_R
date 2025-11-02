@@ -155,12 +155,15 @@
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_ramp_C","Astral_ramp_C_4065","Center Ramp Set", {"coreSlot":true}]
+	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$torquesplit", "range", "", "Differentials", 0.50, 0.3, 0.7, "Torque Split", "Rear power bias",{"subCategory": "Center", "stepDis": 3, "minDis":30,"maxDis":70}]
 		["$lsdpreload_C", "range", "Nm", "Differentials", 10, 0, 100, "Preload Torque", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Center"}],
-		["$lsdlockcoef_C", "range", "", "Differentials", 0.275, 0.075, 0.375, "Power Lock", "Additional locking torque proportional to engine torque", {"minDis":15, "maxDis":75, "stepDis":5, "subCategory":"Center"}],
-		["$lsdlockcoefrev_C", "range", "", "Differentials", 0.325, 0, 0.375, "Coast Lock", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":75, "stepDis":5, "subCategory":"Center"}]
+		["$frictionFace_C", "range", "Faces", "Differentials", 6, 4, 8, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":16, "stepDis":2, "subCategory":"Center"}]
 		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [ 
@@ -177,7 +180,7 @@
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$=$torquesplit", "friction":0.45, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_C/$components.diff.finaldrive", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.45, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -216,6 +219,23 @@
 		{"beamLimitSpring":false,"beamLimitDamp":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
 	],
+},
+"Astral_ramp_C_4065": {
+	"information":{
+		"name":"40/65 (Coupled with 40/50)",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_C",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$coastRamp_C", "range", "Degrees", "Differentials", 50, 50, 65, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":15, "subCategory":"Center"}]
+	],
+	"components": {
+    	"diff":{
+        	"clock":"$=(1/tan(40*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_C/8)",              //35, 8+8 as 100% in relavent, about 66% lock
+			"crevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_C/8)"  //85, 8+8 as 100% in relavent, about 8%  lock
+    	},
+	}
 },
 "Astral_differential_center_locked": {
 	"information":{
