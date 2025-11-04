@@ -10,7 +10,7 @@
 		["Astral_driveshaft","Astral_driveshaft", "Driveshaft"],
 		["Astral_halfshafts_R","Astral_halfshafts_R","Rear Halfshafts"],
 		["Astral_finaldrive_R","Astral_finaldrive_R_4.43","Rear Final Drive", {"coreSlot":true}]
-		["Astral_ramp_R","Astral_ramp_R_5585","Rear Ramp Set", {"coreSlot":true}]
+		["Astral_ramp_R","Astral_ramp_R_4085","Rear Ramp Set", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -97,7 +97,20 @@
 	"slotType" : "Astral_ramp_R",
 	"components": {
     	"diff":{
-        	"rlock":"$=(1/tan(40*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 66% lock
+        	"rlock":"$=(1/tan(40*pi/180))/(1/tan(35*pi/180))*0.325*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 65% lock
+			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_R/8)" //85, 8+8 as 100% in relavent, about 8%  lock
+    	},
+	}
+},
+"Astral_ramp_R_5085": {
+	"information":{
+		"name":"50/85",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_R",
+	"components": {
+    	"diff":{
+        	"rlock":"$=(1/tan(50*pi/180))/(1/tan(35*pi/180))*0.325*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 65% lock
 			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_R/8)" //85, 8+8 as 100% in relavent, about 8%  lock
     	},
 	}
@@ -110,20 +123,7 @@
 	"slotType" : "Astral_ramp_R",
 	"components": {
     	"diff":{
-        	"rlock":"$=(1/tan(55*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 66% lock
-			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_R/8)" //85, 8+8 as 100% in relavent, about 8%  lock
-    	},
-	}
-},
-"Astral_ramp_R_6585": {
-	"information":{
-		"name":"65/85",
-		"value":1000
-	},
-	"slotType" : "Astral_ramp_R",
-	"components": {
-    	"diff":{
-        	"rlock":"$=(1/tan(65*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 66% lock
+        	"rlock":"$=(1/tan(55*pi/180))/(1/tan(35*pi/180))*0.325*($frictionFace_R/8)",   //35, 8+8 as 100% in relavent, about 65% lock
 			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_R/8)" //85, 8+8 as 100% in relavent, about 8%  lock
     	},
 	}
