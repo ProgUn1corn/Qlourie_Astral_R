@@ -25,11 +25,11 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_F", "range", "Click", "Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$LRS_F", "range", "x", "Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$dampPos_hystop_F", "range", "mm", "Dampers and Springs", 0.030, 0.020, 0.040, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":40,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampGas_F", "range", "PSI", "Dampers and Springs", 225, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Dampers and Springs", 0.030, 0.014, 0.050, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 99mm
+        ["$dampRate_stop_F", "range", "Click", "Suspension - Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$LRS_F", "range", "x", "Suspension - Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.020, 0.040, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":40,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.033, 0.018, 0.056, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 99mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -47,8 +47,8 @@
         ["fh2r", -0.5941, -1.295, 0.41, {"group":["Astral_hub_FR","Astral_damper_F"]}],
         ["fh2l",  0.5941, -1.295, 0.41, {"group":["Astral_hub_FL","Astral_damper_F"]}],
         //tie rod end
-        ["fh3r", -0.737, -1.1692, "$=0.0702+$Bumpsteer_F", {"group":["Astral_hub_FR","Astral_rod_F"]}],
-        ["fh3l",  0.737, -1.1692, "$=0.0702+$Bumpsteer_F", {"group":["Astral_hub_FL","Astral_rod_F"]}],
+        ["fh3r", -0.737, -1.1692, "$=0.0582+$Bumpsteer_F", {"group":["Astral_hub_FR","Astral_rod_F"]}],
+        ["fh3l",  0.737, -1.1692, "$=0.0582+$Bumpsteer_F", {"group":["Astral_hub_FL","Astral_rod_F"]}],
         //brake caliper
         {"nodeWeight":"$=3.25*$brakeThickness"},
         {"selfCollision":false},
@@ -59,8 +59,8 @@
         //steering rack ends
         {"nodeWeight":6},
         {"group":["Astral_rod_F"]},
-        ["st2r", -0.2595, -1.124, 0.163],
-        ["st2l",  0.2595, -1.124, 0.163],
+        ["st2r", -0.2595, -1.124, 0.153],
+        ["st2l",  0.2595, -1.124, 0.153],
         
         //--Arm--
         //arb end link
@@ -73,7 +73,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":8.75},
+        {"nodeWeight":10},
         ["fs1r", -0.561, -1.22, 0.815],
         ["fs1l",  0.561, -1.22, 0.815],
         //lower spring collar
@@ -93,7 +93,7 @@
         ["fmassr", -0.5705, -1.2414, 0.699],
         ["fmassl",  0.5705, -1.2414, 0.699], 
         //damper end
-        {"nodeWeight":2.7},
+        {"nodeWeight":2.2},
         {"group":["Astral_damper_F"]},
         ["fs2r", -0.611, -1.333, 0.203],
         ["fs2l",  0.611, -1.333, 0.203],
@@ -154,8 +154,8 @@
         //tie rods
         {"beamSpring":19001000,"beamDamp":800},
         {"beamDeform":235100,"beamStrength":625000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0009","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0009","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0007","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0007","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -192,7 +192,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.190,"boundZone":0.01, //10mm hard stop for protection, about 60% height ratio
             "beamLimitSpring":185100,
-            "beamLimitDamp":7250,
+            "beamLimitDamp":6250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],
@@ -200,7 +200,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.190,"boundZone":0.01,
             "beamLimitSpring":185100,
-            "beamLimitDamp":7250,
+            "beamLimitDamp":6250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],
@@ -359,11 +359,11 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_F", "range", "Click", "Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$LRS_F", "range", "x", "Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$dampPos_hystop_F", "range", "mm", "Dampers and Springs", 0.032, 0.020, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":45,"subCategory":"Front Damper Auxiliary"}],
-        ["$dampGas_F", "range", "PSI", "Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Dampers and Springs", 0.055, 0.036, 0.069, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 166mm
+        ["$dampRate_stop_F", "range", "Click", "Suspension - Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$LRS_F", "range", "x", "Suspension - Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.032, 0.020, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":45,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.055, 0.036, 0.069, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 166mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -381,8 +381,8 @@
         ["fh2r", -0.6062, -1.322, 0.255, {"group":["Astral_hub_FR","Astral_damper_F"]}],
         ["fh2l",  0.6062, -1.322, 0.255, {"group":["Astral_hub_FL","Astral_damper_F"]}], 
         //tie rod end
-        ["fh3r", -0.742, -1.1817, "$=-0.01065+$Bumpsteer_F", {"group":["Astral_hub_FR","Astral_rod_F"]}],
-        ["fh3l",  0.742, -1.1817, "$=-0.01065+$Bumpsteer_F", {"group":["Astral_hub_FL","Astral_rod_F"]}],
+        ["fh3r", -0.742, -1.1817, "$=-0.02365+$Bumpsteer_F", {"group":["Astral_hub_FR","Astral_rod_F"]}],
+        ["fh3l",  0.742, -1.1817, "$=-0.02365+$Bumpsteer_F", {"group":["Astral_hub_FL","Astral_rod_F"]}],
         //brake caliper
         {"nodeWeight":"$=3*$brakeThickness"},
         {"selfCollision":false},
@@ -393,8 +393,8 @@
         //steering rack ends
         {"nodeWeight":6},
         {"group":["Astral_rod_F"]},
-        ["st2r", -0.2695, -1.124, 0.163],
-        ["st2l",  0.2695, -1.124, 0.163],
+        ["st2r", -0.2695, -1.124, 0.153],
+        ["st2l",  0.2695, -1.124, 0.153],
         
         //--Arm--
         //arb end link
@@ -407,7 +407,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":9.5},
+        {"nodeWeight":10},
         ["fs1r", -0.561, -1.22, 0.815],
         ["fs1l",  0.561, -1.22, 0.815],
         //lower spring collar
@@ -427,7 +427,7 @@
         ["fmassr", -0.5704, -1.2411, 0.699],
         ["fmassl",  0.5704, -1.2411, 0.699], 
         //damper end
-        {"nodeWeight":2.9},
+        {"nodeWeight":2.6},
         {"group":["Astral_damper_F"]},
         ["fs2r", -0.6227, -1.3589, 0.0507],
         ["fs2l",  0.6227, -1.3589, 0.0507],
@@ -477,10 +477,10 @@
         {"beamSpring":3501000,"beamDamp":150},
         {"breakGroup":"wheel_FR"},
         ["fh2r","fw1r"],
-        ["fh2r","fw1rr", {"precompressionRange":"$=$CamberFront*1.92+0.0105","beamPrecompressionTime":0.2}],
+        ["fh2r","fw1rr", {"precompressionRange":"$=$CamberFront*1.92+0.0098","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_FL"},
         ["fh2l","fw1l"],
-        ["fh2l","fw1ll", {"precompressionRange":"$=$CamberFront*1.92+0.0105","beamPrecompressionTime":0.2}],
+        ["fh2l","fw1ll", {"precompressionRange":"$=$CamberFront*1.92+0.0098","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -488,8 +488,8 @@
         //tie rods
         {"beamSpring":19001000,"beamDamp":800},
         {"beamDeform":235100,"beamStrength":625000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.003","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.003","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0023","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0023","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -526,7 +526,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.250,"boundZone":0.01, //10mm hard stop for protection, about 60% height ratio
             "beamLimitSpring":185100,
-            "beamLimitDamp":7250,
+            "beamLimitDamp":6250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],
@@ -534,7 +534,7 @@
             //failsafe protection
             "longBoundRange":0,"shortBoundRange":0.250,"boundZone":0.01,
             "beamLimitSpring":185100,
-            "beamLimitDamp":7250,
+            "beamLimitDamp":6250,
             "beamLimitDampRebound":1500,
             "dampCutoffHz":250}
         ],

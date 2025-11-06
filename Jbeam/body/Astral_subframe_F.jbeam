@@ -40,11 +40,11 @@
      ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$CamberFront", "range", "mm", "Subframes", 0, -0.002, 0.002, "Camber Spacer", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Front Alignment","minDis":-2,"maxDis":2}],
-        ["$CasterFront", "range", "mm", "Subframes", 0, -0.007, 0.007, "Caster Arm Length", "Adjust caster offset", {"stepDis":0.7,"subCategory":"Front Alignment","minDis":-7,"maxDis":7}],
-        ["$TrackFront", "range", "mm", "Subframes", 0.0, -0.05, 0.05, "Track Width", "Adjust track width", {"stepDis":1,"minDis":-50,"maxDis":50,"subCategory":"Front Alignment"}],
-        ["$Bumpsteer_F", "range", "mm", "Subframes", 0.0, -0.001, 0.001, "Bumpsteer Spacer", "Compensate for bumpsteer", {"stepDis":1,"minDis":-1,"maxDis":1,"subCategory":"Front Alignment"}],
-        ["$arb_point_F", "range", "P", "Subframes", 0, -0.1, 0, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Alignment"}],
+        ["$CamberFront", "range", "mm", "Suspension - Subframes", 0, -0.002, 0.002, "Camber Spacer", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Front Alignment","minDis":-2,"maxDis":2}],
+        ["$CasterFront", "range", "mm", "Suspension - Subframes", 0, -0.007, 0.007, "Caster Arm Length", "Adjust caster offset", {"stepDis":0.7,"subCategory":"Front Alignment","minDis":-7,"maxDis":7}],
+        ["$TrackFront", "range", "mm", "Suspension - Subframes", 0.0, -0.05, 0.05, "Track Width", "Adjust track width", {"stepDis":1,"minDis":-50,"maxDis":50,"subCategory":"Front Alignment"}],
+        ["$Bumpsteer_F", "range", "mm", "Suspension - Subframes", 0.0, -0.001, 0.001, "Bumpsteer Spacer", "Compensate for bumpsteer", {"stepDis":1,"minDis":-1,"maxDis":1,"subCategory":"Front Alignment"}],
+        ["$arb_point_F", "range", "P", "Suspension - Subframes", 0, -0.1, 0, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Alignment"}],
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -72,8 +72,8 @@
         //steering box
         {"nodeWeight":6.5},
         {"group":["Astral_sub_F", "Astral_str_F"]},
-        ["st1r", -0.164, -1.124, 0.163],
-        ["st1l",  0.164, -1.124, 0.163],
+        ["st1r", -0.164, -1.124, 0.153],
+        ["st1l",  0.164, -1.124, 0.153],
         //rigidifier
         {"collision":false},
         {"nodeWeight":3.5},
@@ -218,7 +218,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper mount to hub
-        {"beamSpring":2501000,"beamDamp":100},
+        {"beamSpring":1501000,"beamDamp":100},
         {"beamDeform":125000,"beamStrength":285000},
         ["fs2l","fh1l"],
         ["fs2r","fh1r"],
@@ -283,7 +283,7 @@
         ["fh5r","chs3l", {"dampCutoffHz":500}],
         ["fh5l","chs3r", {"dampCutoffHz":500}],
         //damper mounting damping
-        {"beamSpring":0,"beamDamp":1550},
+        {"beamSpring":0,"beamDamp":950},
         ["fs2r","fx1l", {"dampCutoffHz":250}],
         ["fs2l","fx1r", {"dampCutoffHz":250}],
         ["fs2r","fx3r", {"dampCutoffHz":250}],
@@ -403,9 +403,9 @@
      ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$toe_F", "range", "mm", "Subframes", 0, -0.0024, 0.0024, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Front Alignment","minDis":-2.4,"maxDis":2.4}],
-        ["$ffbTune", "range", "", "Force Feedback", 1, 0, 2, "Strength Multiplier", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200}],
-        ["$steer_center_F", "range", "", "Subframes", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
+        ["$toe_F", "range", "mm", "Suspension - Subframes", 0, -0.0024, 0.0024, "Steering Rod Length", "Adjusts the wheel toe-in angle", {"stepDis":0.1,"subCategory":"Front Alignment","minDis":-2.4,"maxDis":2.4}],
+        ["$ffbTune", "range", "", "Suspension - Subframes", 1, 0, 2, "Force Feedback Strength", "Fine tune the force feedback strength for this vehicle", {"minDis":0,"maxDis":200, "subCategory":"Steering"}],
+        ["$steer_center_F", "range", "", "Suspension - Subframes", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering"}]
     ],
     //steering rack rail
     "rails": {
