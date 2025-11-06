@@ -16,7 +16,7 @@ local function calculateThrottleMap(x, y, z)
   return (1 - y) * ((math.log(1 + z * x)) / (math.log(1 + z))) + (y * x)
 end
 
-local function updateWheelsIntermediate(dt) 
+local function updateFixedStep(dt)
   --get input value
   throttle = electrics.values['throttle_input'] or 0
 
@@ -46,15 +46,21 @@ local function updateWheelsIntermediate(dt)
   --print(newThrottle)
 end
 
+local function updateGFX(dt)
+end
+
+local function reset()
+end
+
 local function init(jbeamData)
   --get map number
   tMap = (jbeamData.tMap) or nil
   --print(tMap)
-  M.updateWheelsIntermediate = updateWheelsIntermediate
 end
 
 M.init = init
 M.reset = reset
-M.updateWheelsIntermediate = nil
+M.updateFixedStep = updateFixedStep
+M.updateGFX = updateGFX
 
 return M

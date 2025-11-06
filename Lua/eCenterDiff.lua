@@ -39,7 +39,7 @@ function clamp(value, min, max)
   return math.min(math.max(value, min), max)
 end
 
-local function updateWheelsIntermediate(dt)
+local function updateFixedStep(dt)
   --print("THICC")
   --common detecion variables
   local handbrake = 0
@@ -154,7 +154,11 @@ local function updateWheelsIntermediate(dt)
       lockRange = lbLockCoef - minLockCoef
       local contributionLfBrake = clamp(lockRange * abs(throttle-brake) + minLockCoef, minLockCoef, 1)
       yLockCoef = clamp(contributionLfBrake - xLockCoef * speedFactor, 0, 1)
-      preloadAdj = preload * minLockCoef / (yLockCoef / lbLockCoef) - xLockCoef * speedFactor
+      if brake >= 0.5 then
+        preloadAdj = preload * minLockCoef / (yLockCoef * 2 / lbLockCoef) - xLockCoef * speedFactor
+      else
+        preloadAdj = 0
+      end
     end
 
     --calculate coast map
@@ -179,7 +183,7 @@ local function updateWheelsIntermediate(dt)
       transfercase.diffTorqueSplitB = 1
       transfercase.lsdPreload = 0
     else
-      transfercase.lsdLockCoef = newLockCoef * 0.486
+      transfercase.lsdLockCoef = newLockCoef * 0.4986
       transfercase.lsdRevLockCoef = transfercase.lsdLockCoef 
       transfercase.diffTorqueSplitA = rearBias
       transfercase.diffTorqueSplitB = 1 - rearBias
@@ -202,6 +206,12 @@ local function updateWheelsIntermediate(dt)
   end
   --print(transfercase.lsdPreload)
   --print(transfercase.lsdLockCoef)
+end
+
+local function updateGFX(dt)
+end
+
+local function reset(jbeamData)
 end
 
 local function init(jbeamData)
@@ -244,11 +254,11 @@ local function init(jbeamData)
   end
   --print(rearBias)
   --printTable(lockMap)
-  M.updateWheelsIntermediate = updateWheelsIntermediate
 end
 
 M.init = init
 M.reset = reset
-M.updateWheelsIntermediate = nil
+M.updateFixedStep = updateFixedStep
+M.updateGFX = updateGFX
 
 return M

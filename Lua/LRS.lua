@@ -37,7 +37,7 @@ function printTable(t, indent)
   end
 end
 
-local function updateWheelsIntermediate()
+local function update(dt)
   --print(obj:getBeamVelocity(2807))
   --front and rear separate process
   for i, spring in ipairs(fLoads) do
@@ -149,6 +149,9 @@ local function updateWheelsIntermediate()
   end  
 end
 
+local function reset()
+end
+
 local function init(jbeamData)
   local beamNameTable = {}
   for _, b in pairs(v.data.beams) do -- store beam that has name into a table
@@ -251,9 +254,6 @@ local function init(jbeamData)
   --printTable(rDampers)
   --printTable(rLoads)
   printTable(rDamping)
-
-  M.updateWheelsIntermediate = updateWheelsIntermediate
-  M.updateGFX = updateGFX
 end
 
 local function initLastStage()
@@ -264,8 +264,6 @@ end
 
 M.init = init
 M.reset = reset
-M.initLastStage = initLastStage
-M.updateWheelsIntermediate = nil
-M.updateGFX = nil
+M.update = update
 
 return M
