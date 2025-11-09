@@ -259,7 +259,7 @@
         {"breakGroup":""},
         {"optional":false},
 
-        //--Control arm--
+        //--Control Arm and Structure Damping--
         //control arm
         {"beamSpring":20001000,"beamDamp":2000},
         {"beamDeform":185100,"beamStrength":600000},
@@ -267,29 +267,33 @@
         ["fx1r", "fh1r"],
         ["fx2l", "fh1l", {"precompressionRange":"$CasterFront","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
         ["fx1l", "fh1l"],
-        //arm joint damping
+        //arm joint horizontal damping
         {"beamSpring":0,"beamDamp":650},
         ["fh1r","a16", {"dampCutoffHz":500}],
         ["fh1l","a19", {"dampCutoffHz":500}],
         ["fh1r","fx3r", {"dampCutoffHz":500}],
         ["fh1l","fx3l", {"dampCutoffHz":500}],
+        ["fh3r","a16", {"dampCutoffHz":500}],
+        ["fh3l","a19", {"dampCutoffHz":500}],
         //hub steering damping
-        ["fh3r","fh3l", {"dampCutoffHz":500}],
-        ["fh5r","fh5l", {"dampCutoffHz":500}],
         ["fh3r","st2l", {"dampCutoffHz":500}],
         ["fh3l","st2r", {"dampCutoffHz":500}],
+        ["fh3r","fx3l", {"dampCutoffHz":500}],
+        ["fh3l","fx3r", {"dampCutoffHz":500}],
         ["fh5r","fx2l", {"dampCutoffHz":500}],
         ["fh5l","fx2r", {"dampCutoffHz":500}],
         ["fh5r","chs3l", {"dampCutoffHz":500}],
         ["fh5l","chs3r", {"dampCutoffHz":500}],
         //damper mounting damping
         {"beamSpring":0,"beamDamp":950},
-        ["fs2r","fx1l", {"dampCutoffHz":250}],
-        ["fs2l","fx1r", {"dampCutoffHz":250}],
+        ["fs2r","fx2l", {"dampCutoffHz":250}],
+        ["fs2l","fx2r", {"dampCutoffHz":250}],
         ["fs2r","fx3r", {"dampCutoffHz":250}],
         ["fs2l","fx3l", {"dampCutoffHz":250}],
         ["fs2r","chs4l", {"dampCutoffHz":250}],
         ["fs2l","chs4r", {"dampCutoffHz":250}],
+        ["fh2r","chs3l", {"dampCutoffHz":250}],
+        ["fh2l","chs3r", {"dampCutoffHz":250}],
 
         //--Strut Aux--
         //top mount reinforcement
