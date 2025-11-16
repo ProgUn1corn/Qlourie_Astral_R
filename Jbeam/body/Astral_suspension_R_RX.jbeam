@@ -182,40 +182,38 @@
             "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //bottom out
+        ["rh2l","rs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.270,"boundZone":0.02,
             "beamLimitSpring":1051000,
             "beamLimitDamp":500, 
             "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //hard bump and rebound stop
-            "name":"bumpstop_RR", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.5,
-            "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":150
-            "longBoundRange":0,"shortBoundRange":0.245,"boundZone":0.01, //25mm hard stop co-working with HBS
-            "beamLimitSpring":100514,
-            "beamLimitDamp":5250,
-            "beamLimitDampRebound":2000,
+        ["rh2r","rs1r", { //hard bump
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.01, //25mm hard stop co working with HBS
+            "beamLimitSpring":100114,
+            "beamLimitDamp":5750,
+            "beamLimitDampRebound":1200,
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", { //hard bump and rebound stop
-            "name":"bumpstop_RL", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.5,
-            "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":150
-            "longBoundRange":0,"shortBoundRange":0.245,"boundZone":0.01,
-            "beamLimitSpring":100514,
-            "beamLimitDamp":5250,
-            "beamLimitDampRebound":2000,
+        ["rh2l","rs1l", {
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.01,
+            "beamLimitSpring":100114,
+            "beamLimitDamp":5750,
+            "beamLimitDampRebound":1200,
+            "dampCutoffHz":250}
+        ],
+        ["rh2r","rs1r", { //hard rebound
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
+            "dampCutoffHz":250}
+        ],
+        ["rh2l","rs1l", {
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RR"},
@@ -233,6 +231,14 @@
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //1-phase valve close HBS co-working with hard stop
+            "name":"bumpstop_RR", 
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.5,
+            "decayFactor":10,
+            "pitchFactor":2.5,
+            "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.024,
             "beamLimitSpring":8500,
@@ -247,7 +253,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -265,6 +271,14 @@
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", { //1-phase valve close HBS co-working with hard stop
+            "name":"bumpstop_RL", 
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.5,
+            "decayFactor":10,
+            "pitchFactor":2.5,
+            "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.024,
             "beamLimitSpring":8500,
@@ -279,7 +293,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},

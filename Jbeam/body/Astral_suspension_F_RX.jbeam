@@ -181,40 +181,38 @@
             "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
-        ["fh2l","fs1l", { //bottom out
+        ["fh2l","fs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.270,"boundZone":0.02,
             "beamLimitSpring":1051000,
             "beamLimitDamp":500, 
             "dampCutoffHz":500}
         ],
-        ["fh2r","fs1r", { //hard bump and rebound stop
-            "name":"bumpstop_FR", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.9,
-            "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":150
-            "longBoundRange":0,"shortBoundRange":0.245,"boundZone":0.01, //25mm hard stop co-working with HBS
-            "beamLimitSpring":114000,
-            "beamLimitDamp":5250,
-            "beamLimitDampRebound":2000,
+        ["fh2r","fs1r", { //hard bump
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.01, //25mm hard stop co working with HBS
+            "beamLimitSpring":105114,
+            "beamLimitDamp":5750,
+            "beamLimitDampRebound":1200,
             "dampCutoffHz":250}
         ],
-        ["fh2l","fs1l", { //hard bump and rebound stop
-            "name":"bumpstop_FL", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.9,
-            "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":150
-            "longBoundRange":0,"shortBoundRange":0.245,"boundZone":0.01,
-            "beamLimitSpring":114000,
-            "beamLimitDamp":5250,
-            "beamLimitDampRebound":2000,
+        ["fh2l","fs1l", {
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.01,
+            "beamLimitSpring":105114,
+            "beamLimitDamp":5750,
+            "beamLimitDampRebound":1200,
+            "dampCutoffHz":250}
+        ],
+        ["fh2r","fs1r", { //hard rebound
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
+            "dampCutoffHz":250}
+        ],
+        ["fh2l","fs1l", {
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FR"},
@@ -232,10 +230,18 @@
             "dampCutoffHz":500}
         ],
         ["fh2r","fs1r", { //1-phase valve close HBS co-working with hard stop
+            "name":"bumpstop_FR", 
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.5,
+            "decayFactor":10,
+            "pitchFactor":2.5,
+            "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_F","boundZone":0.024,
             "beamLimitSpring":8500,
-            "beamLimitDamp":17500, 
+            "beamLimitDamp":18500, 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
@@ -246,7 +252,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FL"},
@@ -264,10 +270,18 @@
             "dampCutoffHz":500}
         ],
         ["fh2l","fs1l", { //1-phase valve close HBS co-working with hard stop
+            "name":"bumpstop_FL", 
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.5,
+            "decayFactor":10,
+            "pitchFactor":2.5,
+            "maxStress":150
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_F","boundZone":0.024,
             "beamLimitSpring":8500,
-            "beamLimitDamp":17500, 
+            "beamLimitDamp":18500, 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
         ],
@@ -278,7 +292,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},

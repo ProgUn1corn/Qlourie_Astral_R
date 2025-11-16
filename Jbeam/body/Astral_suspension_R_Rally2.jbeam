@@ -181,11 +181,57 @@
             "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //bottom out
+        ["rh2l","rs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.190,"boundZone":0.02,
             "beamLimitSpring":1051000,
             "beamLimitDamp":500, 
             "dampCutoffHz":500}
+        ],
+        ["rh2r","rs1r", { //hard bump
+            "name":"bumpstop_RR", 
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.5,
+            "decayFactor":10,
+            "pitchFactor":2.5,
+            "maxStress":150
+            //stop active
+            "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.028,
+            "beamLimitSpring":125000,
+            "beamLimitDamp":7500, 
+            "beamLimitDampRebound":1200,
+            "dampCutoffHz":250}
+        ],
+        ["rh2l","rs1l", {
+            "name":"bumpstop_RL", 
+            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
+            "colorFactor":1,
+            "attackFactor":50,
+            "volumeFactor":0.5,
+            "decayFactor":10,
+            "pitchFactor":2.5,
+            "maxStress":150
+            //stop active
+            "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.028,
+            "beamLimitSpring":125000,
+            "beamLimitDamp":7500, 
+            "beamLimitDampRebound":1200,
+            "dampCutoffHz":250}
+        ],
+        ["rh2r","rs1r", { //hard rebound
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
+            "dampCutoffHz":250}
+        ],
+        ["rh2l","rs1l", {
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
+            "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RR"},
         {"beamDeform":65000,"beamStrength":125000},
@@ -201,23 +247,6 @@
             "beamDampReboundFast":"$=$dampRate_rebound_R",
             "dampCutoffHz":500}
         ],
-        //hard bump and rebound stop
-        ["rh2r","rs1r", {
-            "name":"bumpstop_RR", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.9,
-            "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":150
-            //stop active
-            "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_R","boundZone":0.028,
-            "beamLimitSpring":135000,
-            "beamLimitDamp":7500, 
-            "beamLimitDampRebound":2500,
-            "dampCutoffHz":250}
-        ],
         ["rh2r","rs1r", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             //leave rebound stop space
@@ -225,7 +254,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDampRebound":9500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -242,23 +271,6 @@
             "beamDampReboundFast":"$=$dampRate_rebound_R",
             "dampCutoffHz":500}
         ],
-        //hard bump and rebound stop
-        ["rh2l","rs1l", {
-            "name":"bumpstop_RL", 
-            "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
-            "colorFactor":1,
-            "attackFactor":50,
-            "volumeFactor":0.9,
-            "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":150
-            //stop active
-            "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_R","boundZone":0.028,
-            "beamLimitSpring":135000,
-            "beamLimitDamp":7500, 
-            "beamLimitDampRebound":2500,
-            "dampCutoffHz":250}
-        ],
         ["rh2l","rs1l", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             //leave rebound stop space
@@ -266,7 +278,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,,
-            "beamLimitDampRebound":9500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
@@ -498,26 +510,38 @@
             "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //bottom out
+        ["rh2l","rs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.285,"boundZone":0.02,
             "beamLimitSpring":1051000,
             "beamLimitDamp":500, 
             "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //hard bump and rebound stop
-            //failsafe protection
-            "longBoundRange":0,"shortBoundRange":0.270,"boundZone":0.01, //15mm hard stop for protection, about 60% height ratio
-            "beamLimitSpring":104000,
+        ["rh2r","rs1r", { //hard bump
+            "longBoundRange":1,"shortBoundRange":0.275,"boundZone":0.01, //10mm hard stop for protection
+            "beamLimitSpring":105100,
             "beamLimitDamp":4250,
-            "beamLimitDampRebound":1500,
+            "beamLimitDampRebound":1000,
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", { //hard bump and rebound stop
-            //failsafe protection
-            "longBoundRange":0,"shortBoundRange":0.270,"boundZone":0.01,
-            "beamLimitSpring":104000,
+        ["rh2l","rs1l", {
+            "longBoundRange":1,"shortBoundRange":0.275,"boundZone":0.01,
+            "beamLimitSpring":105100,
             "beamLimitDamp":4250,
-            "beamLimitDampRebound":1500,
+            "beamLimitDampRebound":1000,
+            "dampCutoffHz":250}
+        ],
+        ["rh2r","rs1r", { //hard rebound
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
+            "dampCutoffHz":250}
+        ],
+        ["rh2l","rs1l", {
+            "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
+            "beamLimitSpring":85000,
+            "beamLimitDamp":350,
+            "beamLimitDampRebound":3500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RR"},
@@ -557,7 +581,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -597,7 +621,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDampRebound":8500,
+            "beamLimitDampRebound":6500,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
