@@ -25,9 +25,9 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_F", "range", "Click", "Suspension - Dampers and Springs", 16000, 14000, 18000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$dampRate_stop_F", "range", "Click", "Suspension - Dampers and Springs", 16000, 12500, 16500, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$LRS_F", "range", "x", "Suspension - Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.028, 0.038, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":28,"maxDis":38,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs",  0.028, 0.026, 0.036, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":26,"maxDis":36,,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.036, 0.021, 0.057, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 99mm
     ],
@@ -371,9 +371,9 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_F", "range", "Click", "Suspension - Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$dampRate_stop_F", "range", "Click", "Suspension - Dampers and Springs", 18000, 14500, 18500, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$LRS_F", "range", "x", "Suspension - Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.033, 0.030, 0.042, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":30,"maxDis":42,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.039, 0.036, 0.048, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":36,"maxDis":48,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.015, 0.006, 0.039, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 182mm
     ],
@@ -586,7 +586,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F","boundZone":0.028,
+            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F","boundZone":0.036,
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -631,7 +631,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F","boundZone":0.028,
+            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F","boundZone":0.036,
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams

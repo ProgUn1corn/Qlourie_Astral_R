@@ -26,9 +26,9 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Suspension - Dampers and Springs", 16000, 14000, 18000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
+        ["$dampRate_stop_R", "range", "Click", "Suspension - Dampers and Springs", 16000, 12500, 16500, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$LRS_R", "range", "x", "Suspension - Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.028, 0.038, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":28,"maxDis":38,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.028, 0.026, 0.036, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":26,"maxDis":36,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.036, 0.021, 0.057, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 101mm
     ],
@@ -48,7 +48,6 @@
         ["rh2r", -0.5766, 1.3465, 0.37, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5766, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
-        {"nodeWeight":5},
         ["rh3r", -0.744, 1.1795, "$=0.012+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.744, 1.1795, "$=0.012+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake caliper
@@ -376,9 +375,9 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Click", "Suspension - Dampers and Springs", 18000, 16000, 20000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
+        ["$dampRate_stop_R", "range", "Click", "Suspension - Dampers and Springs", 18000, 14500, 18500, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$LRS_R", "range", "x", "Suspension - Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of LRS rebound when there's no load at all", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.033, 0.030, 0.042, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":30,"maxDis":42,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.039, 0.036, 0.048, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":36,"maxDis":48,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.010, 0.001, 0.034, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 179mm
     ],
@@ -398,7 +397,6 @@
         ["rh2r", -0.5924, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5924, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
-        {"nodeWeight":5},
         ["rh3r", -0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
@@ -591,7 +589,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R","boundZone":0.028,
+            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R","boundZone":0.036,
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -636,7 +634,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R","boundZone":0.028,
+            "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R","boundZone":0.036,
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams

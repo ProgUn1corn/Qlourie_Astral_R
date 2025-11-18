@@ -25,7 +25,7 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":29,"maxDis":31,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeThickness_F", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Front Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":29,"maxDis":31,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
         ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
         ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for max pressure and braking effort", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
@@ -40,7 +40,7 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.170},
-        {"brakeMass":"$=7.2*$brakeThickness"},
+        {"brakeMass":"$=7.2*$brakeThickness_F"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
@@ -73,6 +73,10 @@
         "disc_brake_RR": {"simpleFunction":{"brakeGlow_RR":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
         "disc_brake_RL": {"simpleFunction":{"brakeGlow_RL":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
     },
+    "variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$brakeThickness_R", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Rear Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":29,"maxDis":31,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+    ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
         {"brakeTorque":"$=2533*($pedalRatio/6)*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*(1-$brakeBias)"},  //2533 for constant 300mm
@@ -84,7 +88,7 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.170},
-        {"brakeMass":"$=7.2*$brakeThickness"},
+        {"brakeMass":"$=7.2*$brakeThickness_R"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
@@ -119,7 +123,7 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeThickness_F", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Front Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
         ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
         ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for max pressure and braking effort", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
@@ -134,7 +138,7 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.205},
-        {"brakeMass":"$=8.8*$brakeThickness"},
+        {"brakeMass":"$=8.8*$brakeThickness_F"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
@@ -167,6 +171,10 @@
         "disc_brake_RR": {"simpleFunction":{"brakeGlow_RR":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
         "disc_brake_RL": {"simpleFunction":{"brakeGlow_RL":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
     },
+    "variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$brakeThickness_R", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Rear Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+    ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
         {"brakeTorque":"$=2998*($pedalRatio/6)*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*(1-$brakeBias)"},  //2998 for constant 355mm
@@ -178,7 +186,7 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.205},
-        {"brakeMass":"$=8.8*$brakeThickness"},
+        {"brakeMass":"$=8.8*$brakeThickness_R"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
@@ -213,7 +221,7 @@
     },
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$brakeThickness", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+        ["$brakeThickness_F", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Front Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
         ["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Brake Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,"subCategory":"Brakes","minDis":45,"maxDis":65}],
         ["$pedalRatio", "range", ":1", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Pedal Ratio", "Set brake pedal ratio for max pressure and braking effort", {"stepDis":0.1,"subCategory":"Brakes","minDis":5.5,"maxDis":6.5}],
     ],
@@ -228,7 +236,7 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.225},
-        {"brakeMass":"$=9.2*$brakeThickness"},
+        {"brakeMass":"$=9.2*$brakeThickness_F"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
@@ -261,6 +269,10 @@
         "disc_brake_RR": {"simpleFunction":{"brakeGlow_RR":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
         "disc_brake_RL": {"simpleFunction":{"brakeGlow_RL":1}, "off":"disc_brake", "on":"disc_brake_glow", "materialEmissiveScaling":{"on_max":1.00}},
     },
+    "variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$brakeThickness_R", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Rear Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
+    ],
     "pressureWheels":[
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
         {"brakeTorque":"$=3125*($pedalRatio/6)*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*(1-$brakeBias)"},  //3125 for constant 370mm
@@ -272,7 +284,7 @@
         //brake thermals
         {"enableBrakeThermals":true},
         {"brakeDiameter":0.225},
-        {"brakeMass":"$=9.2*$brakeThickness"},
+        {"brakeMass":"$=9.2*$brakeThickness_R"},
         {"brakeType":"vented-disc"},
         {"rotorMaterial":"steel"},
         {"padMaterial":"semi-race", "padGlazingSusceptibility":0.1},
