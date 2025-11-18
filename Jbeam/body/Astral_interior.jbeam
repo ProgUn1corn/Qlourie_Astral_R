@@ -17,7 +17,7 @@
 		["Astral_shiftlight", "Astral_shiftlight_BRC", "Shift Light"],
 		["Astral_spare", "", "Spare Wheel"],
 		["Astral_gauge", "Astral_gauge_BRC", "Gauge"],
-		["Astral_tools", "Astral_tools_15", "Tools and Weight"],
+		["Astral_tools", "Astral_tools_15", "Weight Ballast"],
 		["Astral_dummy", "", "Test Equipment"],
 		["soundscape_horn", "soundscape_horn_6", "Horn"]
 	],
@@ -65,7 +65,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Dash for Steering Wheel--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
@@ -159,7 +158,7 @@
 "Astral_tools_15": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"15kg Crew Tools",
+    	"name":"15kg Crew Weight",
     	"value":250,
     },
     "slotType" : "Astral_tools",
@@ -179,7 +178,7 @@
 		["id1:", "id2:"], 
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":1501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":250},
 		//rear link
         ["tools1", "a5"],
         ["tools1", "a6"],
@@ -199,7 +198,7 @@
 "Astral_tools_10": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"10kg Crew Tools",
+    	"name":"10kg Crew Weight",
     	"value":250,
     },
     "slotType" : "Astral_tools",
@@ -217,10 +216,9 @@
     ],
     "beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":1501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":250},
 		//rear link
         ["tools1", "a5"],
         ["tools1", "a6"],
@@ -237,10 +235,10 @@
         ["tools2", "chs1l"],
     ],
 },
-"Astral_tools_5": {
+"Astral_tools_20": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"5kg Crew Tools",
+    	"name":"20kg Crew Weight",
     	"value":250,
     },
     "slotType" : "Astral_tools",
@@ -251,17 +249,16 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":2.5},
+		{"nodeWeight":10},
 		{"group":[""]},
         ["tools1", -0.38, 1.514, 0.35],
         ["tools2",  0.38, 1.514, 0.35],
     ],
     "beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":1201000,"beamDamp":120},
+        {"beamSpring":3501000,"beamDamp":250},
 		//rear link
         ["tools1", "a5"],
         ["tools1", "a6"],
@@ -298,21 +295,19 @@
     ],
     "beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--RX Ballast--
         //counter driver weight
-		{"beamSpring":2501000,"beamDamp":350},
+		{"beamSpring":3501000,"beamDamp":250},
 		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
-		["ballastRX", "a12"],
-		["ballastRX", "a13"],
-		["ballastRX", "a16"],
-		["ballastRX", "a17"],
-		["ballastRX", "a44"],
-		["ballastRX", "rc3r"],
-		["ballastRX", "rc4r"],
-		["ballastRX", "rc5r"],
-		["ballastRX", "rc6r"],
+		["ballastRX", "a42"],
+        ["ballastRX", "a41"],
+        ["ballastRX", "a12"],
+        ["ballastRX", "a13"],
+        ["ballastRX", "chs1r"],
+        ["ballastRX", "chs1l"],
+        ["ballastRX", "rcm"],
+        ["ballastRX", "rs1r"],
     ],
 }
 "Astral_ballast_R_Hybrid": {
@@ -340,10 +335,9 @@
     ],
     "beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Hybrid--
-        {"beamSpring":2501000,"beamDamp":250},
+        {"beamSpring":3501000,"beamDamp":250},
 		["hybrid1", "hybrid2"],
 		//rear link
         ["hybrid1", "a42"],
@@ -394,7 +388,7 @@
     ],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$driver", "range", "kg", "Body", 75, 75, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Center of Gravity"}],
+        ["$driver", "range", "kg", "Body", 80, 80, 95, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Center of Gravity"}],
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -404,14 +398,14 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":"$=$driver-15"},
+        {"nodeWeight":"$=$driver-15-2"},
 		{"group":["Astral_seat"]},
-		["a50",  0.368, 0.029 0.321],
+		["a50",  0.368, 0.059, 0.321],
 		{"nodeWeight":15},
-		["driverref",  0.368, 0.029 0.655],
+		["driverref",  0.368, 0.119, 0.655],
 		{"nodeWeight":5},
-		["a49", -0.368, 0.029 0.321],
-		["coref", -0.368, 0.029 0.655],
+		["a49", -0.368, 0.059, 0.321],
+		["coref", -0.368, 0.119, 0.655],
 		{"group":[""]},
 		{"selfCollision":true},
 	],
@@ -495,7 +489,7 @@
     ],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$driver", "range", "kg", "Body", 75, 75, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Center of Gravity"}],
+        ["$driver", "range", "kg", "Body", 80, 80, 95, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Center of Gravity"}],
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -505,16 +499,16 @@
         {"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":"$=$driver-15"},
+        {"nodeWeight":"$=$driver-15-2"},
 		{"group":["Astral_seat"]},
-		["a50",  0.368, 0.029 0.321],
+		["a50",  0.368, 0.059, 0.321],
 		{"nodeWeight":15},
-		["driverref",  0.368, 0.029 0.655],
-		{"nodeWeight":"$=$driver-15"},
+		["driverref",  0.368, 0.119, 0.655],
+		{"nodeWeight":"$=$driver-15-2"},
 		{"group":["Astral_copilot"]},
-		["a49", -0.368, 0.029 0.321],
+		["a49", -0.368, 0.059, 0.321],
 		{"nodeWeight":15},
-		["coref", -0.368, 0.029 0.655],
+		["coref", -0.368, 0.119, 0.655],
 		{"group":[""]},
 		{"selfCollision":true},
 	],
@@ -645,7 +639,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Pedal Box Position--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
@@ -869,14 +862,13 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":25},
+        {"nodeWeight":23},
 		{"group":["Astral_spare"]},
 		["spr1", 0, 1.47, 0.48],
 		{"group":[""]} 
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
@@ -917,7 +909,7 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":25},
+        {"nodeWeight":23},
 		{"group":["Astral_spare"]},
 		["spr1", 0, 1.47, 0.48],
 		["spr2", 0, 0.701, 0.643],
@@ -925,7 +917,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
@@ -989,7 +980,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
@@ -1038,7 +1028,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
@@ -1102,7 +1091,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
@@ -1151,7 +1139,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
@@ -1749,7 +1736,6 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear View--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},

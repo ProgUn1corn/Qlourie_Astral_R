@@ -26,7 +26,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$LRS_F", "range", "x", "Suspension - Dampers and Springs", 0.6, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Front Damper - 3+1-Way"}],
-        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.020, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":45,"subCategory":"Front Damper Auxiliary"}],
+        ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.035, 0.032, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":32,"maxDis":45,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
         ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.003, 0.000, 0.033, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-3,"maxDis":30,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 112mm
     ],
@@ -42,7 +42,7 @@
         ["fh1r", -0.747, -1.300, -0.066, {"group":["Astral_hub_FR","Astral_arm_F"]}],
         ["fh1l",  0.747, -1.300, -0.066, {"group":["Astral_hub_FL","Astral_arm_F"]}],
         //strut attach
-        {"nodeWeight":5.25},
+        {"nodeWeight":5},
         ["fh2r", -0.6062, -1.322, 0.255, {"group":["Astral_hub_FR","Astral_damper_F"]}],
         ["fh2l",  0.6062, -1.322, 0.255, {"group":["Astral_hub_FL","Astral_damper_F"]}], 
         //tie rod end
@@ -77,7 +77,7 @@
         ["fs1l",  0.561, -1.22, 0.815],
         //lower spring collar
         {"group":["Astral_helper_F"]},
-        {"nodeWeight":0.65},
+        {"nodeWeight":1.25},
         {"selfCollision":false},
         ["fcl1r", -0.6056, -1.3205, 0.262],
         ["fcl1l",  0.6056, -1.3205, 0.262],
@@ -92,7 +92,7 @@
         ["fmassr", -0.5704, -1.2411, 0.699],
         ["fmassl",  0.5704, -1.2411, 0.699], 
         //damper end
-        {"nodeWeight":2.6},
+        {"nodeWeight":2.5},
         {"group":["Astral_damper_F"]},
         ["fs2r", -0.6227, -1.3589, 0.0507],
         ["fs2l",  0.6227, -1.3589, 0.0507],
@@ -151,7 +151,7 @@
 
         //--Control arm--
         //tie rods
-        {"beamSpring":19001000,"beamDamp":800},
+        {"beamSpring":18001000,"beamDamp":650},
         {"beamDeform":235100,"beamStrength":625000},
         ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0027","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
         ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0027","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
@@ -188,14 +188,14 @@
             "dampCutoffHz":500}
         ],
         ["fh2r","fs1r", { //hard bump
-            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.01, //25mm hard stop co working with HBS
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.018, //25mm hard stop co working with HBS
             "beamLimitSpring":105114,
             "beamLimitDamp":5750,
             "beamLimitDampRebound":1200,
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", {
-            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.018,
             "beamLimitSpring":105114,
             "beamLimitDamp":5750,
             "beamLimitDampRebound":1200,
@@ -239,7 +239,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_F","boundZone":0.029,
             "beamLimitSpring":8500,
             "beamLimitDamp":18500, 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -279,7 +279,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_F","boundZone":0.029,
             "beamLimitSpring":8500,
             "beamLimitDamp":18500, 
             "beamLimitDampRebound":"$=$dampRate_rebound_F/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams

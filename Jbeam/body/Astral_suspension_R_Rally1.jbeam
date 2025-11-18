@@ -28,7 +28,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Click", "Suspension - Dampers and Springs", 16000, 14000, 18000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$LRS_R", "range", "x", "Suspension - Dampers and Springs", 0.4, 0.25, 1, "LRS Open Factor", "The multiplier of rebound when LRS bypass valve is activated", {"stepDis":0.05,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.035, 0.025, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":45,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.033, 0.030, 0.040, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":30,"maxDis":40,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.015, 0.051, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 136mm
     ],
@@ -44,7 +44,7 @@
         ["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5.25},
+        {"nodeWeight":5},
         ["rh2r", -0.5766, 1.3465, 0.37, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5766, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
@@ -72,7 +72,7 @@
         ["rs1l",  0.55, 1.337, 0.797],
         //lower spring collar
         {"group":["Astral_helper_R"]},
-        {"nodeWeight":0.65},
+        {"nodeWeight":1.25},
         {"selfCollision":false},
         ["rcl1r", -0.5759, 1.3463, 0.381],
         ["rcl1l",  0.5759, 1.3463, 0.381],
@@ -241,7 +241,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.028,
             "beamLimitSpring":6500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -281,7 +281,7 @@
             "pitchFactor":2.5,
             "maxStress":150
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.028,
             "beamLimitSpring":6500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
@@ -388,7 +388,7 @@
         ["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5.25},
+        {"nodeWeight":5},
         ["rh2r", -0.5924, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5924, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
@@ -416,7 +416,7 @@
         ["rs1l",  0.55, 1.337, 0.797],
         //lower spring collar
         {"group":["Astral_helper_R"]},
-        {"nodeWeight":0.65},
+        {"nodeWeight":1.25},
         {"selfCollision":false},
         ["rcl1r", -0.58917, 1.35, 0.227],
         ["rcl1l",  0.58917, 1.35, 0.227],
@@ -431,7 +431,7 @@
         ["rmassr", -0.5567, 1.339, 0.699],
         ["rmassl",  0.5567, 1.339, 0.699],
         //damper end
-        {"nodeWeight":2.6},
+        {"nodeWeight":2.5},
         {"group":["Astral_damper_R"]},
         ["rs2r", -0.6037, 1.355, 0.0155],
         ["rs2l",  0.6037, 1.355, 0.0155],
