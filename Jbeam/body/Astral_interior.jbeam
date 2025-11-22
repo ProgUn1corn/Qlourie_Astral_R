@@ -70,7 +70,6 @@
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//dash nodes
 		{"beamSpring":1001000,"beamDamp":125},
-		{"dampCutoffHz":1000}
 		["dsh1", "dsh2"],
 		["dsh2", "dsh3"],
 		["dsh3", "dsh1"],
@@ -99,7 +98,6 @@
 		["dsh3", "d3l"],
 		["dsh3", "a54"],
 		["dsh3", "a82"],
-		{"dampCutoffHz":""}
 		//cable
 		{"beamSpring":200,"beamDamp":4},
 		["cab1", "cab2"],
@@ -140,6 +138,11 @@
         "value":320
 	},
 	"slotType" : "Astral_onboard",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_onboard1", ["Astral_carbody","Astral_rollcage"]],
+		["Astral_onboard2", ["Astral_carbody","Astral_rollcage"]],
+    ],
 	"camerasInternal":[
         ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:", "options"],
 		{"nodeWeight":0.13},
@@ -149,11 +152,49 @@
         {"beamStrength":"FLT_MAX"},
 		{"beamSpring":151000},
         {"beamDamp":10},
-		["onboard1", -0.541, -0.486, 1.014, 46, "a53","a21","a85","a87","a80","a84", {"idRef:":"a17","idBack:":"a45","idUp:":"cup"}]
+		["onboard1", -0.541, -0.548, 1.014, 45, "a53","a21","a85","a87","a80","a84", {"idRef:":"a17","idBack:":"onboardref1","idUp:":"cup"}]
 		{"beamSpring":51000},
 		["onboard2", -0.055, -0.408, 1.125, 44, "a81","a82","a80","a83","a85","a86"]
 		["onboard3", 0.825, -0.63, 0.925, 58, "a87","dh3l","d8l","d0l","d6l","d5l", {"idRef:":"d4l","idBack:":"d0l","idUp:":"dh2l"}]
     ],
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":false},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+		//--Refnode--
+		{"group":[""]},
+		{"nodeWeight":0.75},
+		["onboardref1", -0.268, 0.262, 0.079],
+		{"collision":true},
+		{"selfCollision":true},
+		{"group":[""]}
+	],
+	"beams": [   
+		["id1:", "id2:"], 
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		//--Onboard Ref--
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		//dash nodes
+		{"beamSpring":651000,"beamDamp":100},
+		["onboardref1", "cup"],
+		["onboardref1", "a8"],
+		["onboardref1", "a9"],
+		["onboardref1", "a12"],
+		["onboardref1", "a13"],
+		["onboardref1", "a16"],
+		["onboardref1", "a17"],
+		["onboardref1", "a40"],
+		["onboardref1", "a43"],
+		{"optional":true},
+		["onboardref1", "rc3r"],
+		["onboardref1", "rc7r"],
+		{"optional":false},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ]
 },
 "Astral_tools_15": {
 	"information":{
