@@ -78,16 +78,16 @@
 	],
 	"turbocharger": {
 		"flutterSoundFileName":"event:>Vehicle>Forced_Induction>Turbo_03>turbo_flt_race",
-        "flutterSoundVolumeCoef": 0.35
+        "flutterSoundVolumeCoef": 0.3
 		"bovEnabled":false,
 		"turboSizeCoef": 1,,
 		"hissLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_05>turbo_hiss_race",
 		"whineLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_05>turbo_spin_race",
 		"hissVolumePerPSI": 0.006,
-		"whineVolumePer10kRPM": 0.015,
+		"whineVolumePer10kRPM": 0.013,
 		"whinePitchPer10kRPM": 0.167
 		"frictionCoef":16,
-		"inertia":0.3,
+		"inertia":0.25,
 		"damageThresholdTemperature": 850,
 		"pressurePSI":[
 			[0, -2.5],
@@ -102,11 +102,9 @@
 	},
 	"antiLag": {
         "turboTargetRPM":125100,
-        "minActiveEngineRPM": 3500,
         "minActiveWheelSpeed": 1,
-        "maxActiveThrottleInput": 0.2,
-        "minActiveBrakeInput": 0.2,
-    },
+		"autoDisarmMaxThrottle": -1,
+	},
 	"mainEngine": {
 		"turbocharger":"turbocharger",
 		"deformGroups_turbo":["mainEngine_turbo","mainEngine_intercooler"]
@@ -191,7 +189,7 @@
 	],
 	"turbocharger": {
 		"flutterSoundFileName":"event:>Vehicle>Forced_Induction>Turbo_03>turbo_flt_race",
-        "flutterSoundVolumeCoef": 0.4
+        "flutterSoundVolumeCoef": 0.3
 		"bovEnabled":false,
 		"hissLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_05>turbo_hiss_race",
 		"whineLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_05>turbo_spin_race",
@@ -213,12 +211,10 @@
 		],
 	},
 	"antiLag": {
-        "turboTargetRPM":1355100,
-        "minActiveEngineRPM": 3500,
+        "turboTargetRPM":135100,
         "minActiveWheelSpeed": 1,
-        "maxActiveThrottleInput": 0.2,
-        "minActiveBrakeInput": 0.2,
-    },
+		"autoDisarmMaxThrottle": -1,
+	},
 	"mainEngine": {
 		"turbocharger":"turbocharger"
 		"deformGroups_turbo":["mainEngine_turbo","mainEngine_intercooler"]
@@ -237,13 +233,19 @@
 		["Astral_intake_interpipe_BRC", [,"Astral_engine","Astral_airbox"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
+	"antiLag": {
+        "minActiveEngineRPM": 5750,
+        "maxActiveThrottleInput": 0.15,
+        "minActiveBrakeInput": 0.85,
+		"autoDisarmMaxRPM": 2300,
+	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 1250,
-		"maxAntilagPower":300,
-		"backPressureCoef": 0.0000005,
-		"pressureRatePSI": 62,
+		"maxExhaustPower": 650,
+		"maxAntilagPower":280,
+		"backPressureCoef": 0.0000014,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.8,
 		"$*inertia":0.8,
 		"engineDef":[
@@ -388,13 +390,23 @@
 		["Astral_intake_interpipe_Rally2", ["Astral_airbox","Astral_engine"]],
 		["Astral_intake_manifold_Rally2", ["Astral_airbox","Astral_engine"]],	
 	],
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$antiLagRPM", "range", "RPM", "Engine", 2300, 800, 3500, "Idle RPM", "Idle RPM", {"hideInUI": true}],
+	],
+	"antiLag": {
+        "minActiveEngineRPM": 4750,
+        "maxActiveThrottleInput": 0.15,
+        "minActiveBrakeInput": 0.85,
+		"autoDisarmMaxRPM": 1700,
+	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 1250,
-		"maxAntilagPower":288,
-		"backPressureCoef": 0.0000005,
-		"pressureRatePSI": 60,
+		"maxExhaustPower": 650,
+		"maxAntilagPower":218,
+		"backPressureCoef": 0.0000011,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.85,
 		"$*inertia":0.8,
 		"engineDef":[
@@ -536,13 +548,19 @@
 		["Astral_intake_interpipe_Rally2", ["Astral_airbox","Astral_engine"]],
 		["Astral_intake_manifold_Rally2", ["Astral_airbox","Astral_engine"]],	
 	],
+	"antiLag": {
+        "minActiveEngineRPM": 4850,
+        "maxActiveThrottleInput": 0.15,
+        "minActiveBrakeInput": 0.85,
+		"autoDisarmMaxRPM": 2100,
+	},
 	"turbocharger": {
 	    "$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 1250,
-		"maxAntilagPower":288,
-		"backPressureCoef": 0.0000005,
-		"pressureRatePSI": 60,
+		"maxExhaustPower": 650,
+		"maxAntilagPower":218,
+		"backPressureCoef": 0.0000012,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.85,
 		"$*inertia":0.8,
 		"engineDef":[
@@ -686,13 +704,19 @@
 		["Astral_intake_interpipe_BRC", [,"Astral_engine","Astral_airbox"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
+	"antiLag": {
+        "minActiveEngineRPM": 5750,
+        "maxActiveThrottleInput": 0.15,
+        "minActiveBrakeInput": 0.85,
+		"autoDisarmMaxRPM": 2000,
+	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 1250,
-		"maxAntilagPower":300,
-		"backPressureCoef": 0.0000005,
-		"pressureRatePSI": 65,
+		"maxExhaustPower": 650,
+		"maxAntilagPower":280,
+		"backPressureCoef": 0.0000014,
+		"pressureRatePSI": 55,
 		"$*frictionCoef":0.8,
 		"$*inertia":0.8,
 		"engineDef":[
@@ -837,13 +861,19 @@
 		["Astral_intake_interpipe_BRC", ["Astral_airbox","Astral_engine"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
+	"antiLag": {
+        "minActiveEngineRPM": 5250,
+        "maxActiveThrottleInput": 0.15,
+        "minActiveBrakeInput": 0.75,
+		"autoDisarmMaxRPM": 2000,
+	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[49.5, 50.1],
-		"maxExhaustPower": 2250,
-		"maxAntilagPower":588,
-		"backPressureCoef": 0.0000005,
-		"pressureRatePSI": 65,
+		"maxExhaustPower": 1050,
+		"maxAntilagPower":388,
+		"backPressureCoef": 0.0000018,
+		"pressureRatePSI": 60,
 		"$*frictionCoef":0.85,
 		"$*inertia":0.8,
 		"engineDef":[
@@ -988,13 +1018,19 @@
 		["Astral_intake_interpipe_BRC", ["Astral_airbox","Astral_engine"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
+	"antiLag": {
+        "minActiveEngineRPM": 5250,
+        "maxActiveThrottleInput": 0.15,
+        "minActiveBrakeInput": 0.75,
+		"autoDisarmMaxRPM": 2000,
+	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[49.5, 50.1],
-		"maxExhaustPower": 2250,
-		"maxAntilagPower":588,
-		"backPressureCoef": 0.0000005,
-		"pressureRatePSI": 65,
+		"maxExhaustPower": 1050,
+		"maxAntilagPower":388,
+		"backPressureCoef": 0.0000018,
+		"pressureRatePSI": 60,
 		"$*frictionCoef":0.85,
 		"$*inertia":0.8,
 		"engineDef":[
