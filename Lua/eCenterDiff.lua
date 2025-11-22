@@ -31,6 +31,7 @@ local brakeRatio = 0
 local brakeStart = 0
 local lbLockCoef = 0  --l.foot
 local lbThreshold = 0 --l.foot
+local coastStart = 0
 
 --passive values
 local maxLockCoef = 0
@@ -93,28 +94,28 @@ local function updateFixedStep(dt)
     local coastFlag = 0
     
     --select different map flags
-    if throttle > 0 and brake <= lbThreshold then --throttle
+    if throttle >= coastStart and brake <= lbThreshold then --throttle
       throttleFlag = true
       brakeFlag = false
       lbFlag = false
       coastFlag = false
     end
     
-    if throttle == 0 and brake > 0 then --brake
+    if throttle <= coastStart and brake >= coastStart then --brake
       throttleFlag = false
       brakeFlag = true
       lbFlag = false
       coastFlag = false
     end
 
-    if brake >= lbThreshold and throttle > 0 then --l.foot brake
+    if brake >= lbThreshold and throttle >= coastStart then --l.foot brake
       throttleFlag = false
       brakeFlag = false
       lbFlag = true
       coastFlag = false
     end
 
-    if throttle == 0 and brake == 0 then --coast
+    if throttle <= coastStart and brake <= coastStart then --coast
       throttleFlag = false
       brakeFlag = false
       lbFlag = false
@@ -230,6 +231,7 @@ local function init(jbeamData)
     brakeStart = lockMap[1].lockBrakeStart or 0
     lbLockCoef = lockMap[1].leftLock or 0
     lbThreshold = lockMap[1].leftThreshold or 0
+    coastStart = lockMap[1].coastStart or 0
     rearBias = lockMap[1].rearBias or 0
     hbrelease = lockMap[1].hbRelease or 0
     preload = lockMap[1].preload or 0
