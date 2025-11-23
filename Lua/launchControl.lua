@@ -84,7 +84,6 @@ local function init(jbeamData)
   engine = powertrain.getDevice(engineName)
   M.updateGFX = engine and updateGFX or nop
   twoStepState = "deactivated"
-
   setTwoStepRPM(jbeamData.rpmLimit or 2000)
 
   if not hasBuiltPie then
@@ -162,6 +161,7 @@ local function setParameters(parameters)
     setTwoStep(parameters.isEnabled)
   end
   if parameters.launchRPM then
+    --print(parameters.launchRPM)
     setTwoStepRPM(parameters.launchRPM)
   end
 end
