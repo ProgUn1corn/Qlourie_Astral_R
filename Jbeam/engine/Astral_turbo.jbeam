@@ -19,7 +19,7 @@
 	],
 	"controller": [
         ["fileName"],
-        ["powertrainControl/antiLag", {"name":"antiLag"}],
+        ["dynamicAntiLag", {"name":"dynamicAntiLag"}],
     ],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -100,10 +100,10 @@
 			[175000, 58],
 		],
 	},
-	"antiLag": {
-        "turboTargetRPM":125100,
+	"dynamicAntiLag": {
+        "maxTurboTargetRPM":135100,
+		"minTurboTargetRPM":25000,
         "minActiveWheelSpeed": 1,
-		"autoDisarmMaxThrottle": -1,
 	},
 	"mainEngine": {
 		"turbocharger":"turbocharger",
@@ -130,7 +130,7 @@
 	],
 	"controller": [
         ["fileName"],
-        ["powertrainControl/antiLag", {"name":"antiLag"}],
+        ["dynamicAntiLag", {"name":"dynamicAntiLag"}],
     ],
 	"nodes": [       
 		["id", "posX", "posY", "posZ"],
@@ -210,10 +210,10 @@
 			[175000, 64],
 		],
 	},
-	"antiLag": {
-        "turboTargetRPM":135100,
+	"dynamicAntiLag": {
+        "maxTurboTargetRPM":135100,
+		"minTurboTargetRPM":25000,
         "minActiveWheelSpeed": 1,
-		"autoDisarmMaxThrottle": -1,
 	},
 	"mainEngine": {
 		"turbocharger":"turbocharger"
@@ -222,7 +222,7 @@
 },
 "Astral_restrictor_BRC": {
 	"information":{
-		"name":"36mm Restrictor BRC Turbo",
+		"name":"36mm Restrictor",
 		"value":150000,
 	},
 	"slotType": "Astral_restrictor",
@@ -233,16 +233,16 @@
 		["Astral_intake_interpipe_BRC", [,"Astral_engine","Astral_airbox"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
-	"antiLag": {
-        "minActiveEngineRPM": 5750,
-        "maxActiveThrottleInput": 0.15,
-        "minActiveBrakeInput": 0.85,
-		"autoDisarmMaxRPM": 2300,
+	"dynamicAntiLag": {
+		"maxActiveEngineRPM": 7500,
+        //"minActiveEngineRPM": 3350,
+       // "maxActiveThrottleInput": 0.15,
+        //"minActiveBrakeInput": 0.85,
 	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 650,
+		"maxExhaustPower": 600,
 		"maxAntilagPower":280,
 		"backPressureCoef": 0.0000014,
 		"pressureRatePSI": 55,
@@ -379,7 +379,7 @@
 },
 "Astral_restrictor_Rally2": {
 	"information":{
-		"name":"32mm Restrictor Rally2 Turbo",
+		"name":"32mm Restrictor",
 		"value":150000,
 	},
 	"slotType": "Astral_restrictor",
@@ -394,16 +394,16 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$antiLagRPM", "range", "RPM", "Engine", 2300, 800, 3500, "Idle RPM", "Idle RPM", {"hideInUI": true}],
 	],
-	"antiLag": {
-        "minActiveEngineRPM": 4750,
-        "maxActiveThrottleInput": 0.15,
-        "minActiveBrakeInput": 0.85,
-		"autoDisarmMaxRPM": 1700,
+	"dynamicAntiLag": {
+		"maxActiveEngineRPM": 6500,
+        //"minActiveEngineRPM": 3050,
+        //"maxActiveThrottleInput": 0.15,
+        //"minActiveBrakeInput": 0.85,
 	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 650,
+		"maxExhaustPower": 600,
 		"maxAntilagPower":218,
 		"backPressureCoef": 0.0000011,
 		"pressureRatePSI": 55,
@@ -537,7 +537,7 @@
 },
 "Astral_restrictor_Tribute": {
 	"information":{
-		"name":"33mm Restrictor Pre-17 WRC Turbo",
+		"name":"33mm Restrictor",
 		"value":150000,
 	},
 	"slotType": "Astral_restrictor",
@@ -548,16 +548,16 @@
 		["Astral_intake_interpipe_Rally2", ["Astral_airbox","Astral_engine"]],
 		["Astral_intake_manifold_Rally2", ["Astral_airbox","Astral_engine"]],	
 	],
-	"antiLag": {
-        "minActiveEngineRPM": 4850,
-        "maxActiveThrottleInput": 0.15,
-        "minActiveBrakeInput": 0.85,
-		"autoDisarmMaxRPM": 2100,
+	"dynamicAntiLag": {
+		"maxActiveEngineRPM": 6700,
+        //"minActiveEngineRPM": 3150,
+        //"maxActiveThrottleInput": 0.15,
+        //"minActiveBrakeInput": 0.85,
 	},
 	"turbocharger": {
 	    "$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 650,
+		"maxExhaustPower": 600,
 		"maxAntilagPower":218,
 		"backPressureCoef": 0.0000012,
 		"pressureRatePSI": 55,
@@ -704,16 +704,16 @@
 		["Astral_intake_interpipe_BRC", [,"Astral_engine","Astral_airbox"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
-	"antiLag": {
-        "minActiveEngineRPM": 5750,
-        "maxActiveThrottleInput": 0.15,
-        "minActiveBrakeInput": 0.85,
-		"autoDisarmMaxRPM": 2000,
+	"dynamicAntiLag": {
+		"maxActiveEngineRPM": 7500,
+        //"minActiveEngineRPM": 3250,
+        //"maxActiveThrottleInput": 0.15,
+        //"minActiveBrakeInput": 0.85,
 	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[35.8, 36.2],
-		"maxExhaustPower": 650,
+		"maxExhaustPower": 600,
 		"maxAntilagPower":280,
 		"backPressureCoef": 0.0000014,
 		"pressureRatePSI": 55,
@@ -850,7 +850,7 @@
 },
 "Astral_restrictor_RX": {
 	"information":{
-		"name":"45mm RX1 Restrictor",
+		"name":"45mm",
 		"value":150000,
 	},
 	"slotType": "Astral_restrictor_RX",
@@ -861,16 +861,16 @@
 		["Astral_intake_interpipe_BRC", ["Astral_airbox","Astral_engine"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
-	"antiLag": {
-        "minActiveEngineRPM": 5250,
-        "maxActiveThrottleInput": 0.15,
-        "minActiveBrakeInput": 0.75,
-		"autoDisarmMaxRPM": 2000,
+	"dynamicAntiLag": {
+		"maxActiveEngineRPM": 6800,
+        //"minActiveEngineRPM": 3150,
+        //"maxActiveThrottleInput": 0.15,
+        //"minActiveBrakeInput": 0.85,
 	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[49.5, 50.1],
-		"maxExhaustPower": 1050,
+		"maxExhaustPower": 1000,
 		"maxAntilagPower":388,
 		"backPressureCoef": 0.0000018,
 		"pressureRatePSI": 60,
@@ -1018,16 +1018,16 @@
 		["Astral_intake_interpipe_BRC", ["Astral_airbox","Astral_engine"]],
 		["Astral_intake_manifold_BRC", ["Astral_airbox","Astral_engine"]],	
 	],
-	"antiLag": {
-        "minActiveEngineRPM": 5250,
-        "maxActiveThrottleInput": 0.15,
-        "minActiveBrakeInput": 0.75,
-		"autoDisarmMaxRPM": 2000,
+	"dynamicAntiLag": {
+		"maxActiveEngineRPM": 6800,
+        //"minActiveEngineRPM": 3150,
+        //"maxActiveThrottleInput": 0.15,
+        //"minActiveBrakeInput": 0.85,
 	},
 	"turbocharger": {
 		"$*turboSizeCoef": 0.95,
 		"wastegateStart":[49.5, 50.1],
-		"maxExhaustPower": 1050,
+		"maxExhaustPower": 1000,
 		"maxAntilagPower":388,
 		"backPressureCoef": 0.0000018,
 		"pressureRatePSI": 60,
