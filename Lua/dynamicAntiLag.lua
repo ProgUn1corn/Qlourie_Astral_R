@@ -77,7 +77,8 @@ local function updateGFX(dt)
       --print(turboTargetDynamicAV*avToRPM)
     elseif not throttleLowEnough or brakeHighEnough or coast then
       antilagCoef = 0
-      controlledEngine.sustainedAfterFireCoef = 0
+      controlledEngine.sustainedAfterFireCoef = engineAftefireCoef
+      controlledEngine.sustainedAfterFireTime = engineAftefireTime*999
       controlledEngine.instantAfterFireCoef = engineAftefireInstant
     end
   elseif state == states.off then
