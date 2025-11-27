@@ -8,17 +8,17 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$idleRPM", "range", "RPM", "Engine and ECU", 2300, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
 		["$tMap", "range", "Map", "Engine and ECU", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
-		["$launchRPM1", "range", "RPM", "Engine and ECU", 5500, 3500, 8500, "Launch RPM", "Launch RPM of low level", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
-		["$launchRPM2", "range", "RPM", "Engine and ECU", 6800, 3500, 8500, "Launch RPM", "Launch RPM of medium level", {"subCategory": "Launch Control Stage:2", "stepDis": 50}]
-		["$launchRPM3", "range", "RPM", "Engine and ECU", 7600, 3500, 8500, "Launch RPM", "Launch RPM of high level", {"subCategory": "Launch Control Stage:3", "stepDis": 50}]
-		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 4250, 3000, 7500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
-		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$launchRPM1", "range", "RPM", "Engine and ECU", 5500, 4000, 8500, "Launch RPM", "Launch RPM of low level", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
+		["$launchRPM2", "range", "RPM", "Engine and ECU", 6800, 4000, 8500, "Launch RPM", "Launch RPM of medium level", {"subCategory": "Launch Control Stage:2", "stepDis": 50}]
+		["$launchRPM3", "range", "RPM", "Engine and ECU", 7600, 4000, 8500, "Launch RPM", "Launch RPM of high level", {"subCategory": "Launch Control Stage:3", "stepDis": 50}]
+		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 3750, 2500, 7500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
+		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0.15, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake1", "range", "", "Engine and ECU", 0.8, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3550, 3000, 7500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
-		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.15, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3050, 2500, 7500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
+		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.35, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake2", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 3000, 3000, 7500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
-		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 2500, 2500, 7500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
+		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 	],
 	"slotType" : "Astral_enginemanagement_1",
@@ -40,7 +40,7 @@
 			["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":1280}],
 			["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}],
-			["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -1}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 			["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}],
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
         ],
@@ -92,7 +92,7 @@
 					["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":1280}],
 					["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}],
-					["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -5}],
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}],
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
 				]
@@ -188,14 +188,14 @@
 		["$launchRPM1", "range", "RPM", "Engine and ECU", 4500, 3500, 7500, "Launch RPM", "Launch RPM of low level", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
 		["$launchRPM2", "range", "RPM", "Engine and ECU", 5500, 3500, 7500, "Launch RPM", "Launch RPM of medium level", {"subCategory": "Launch Control Stage:2", "stepDis": 50}]
 		["$launchRPM3", "range", "RPM", "Engine and ECU", 6800, 3500, 7500, "Launch RPM", "Launch RPM of high level", {"subCategory": "Launch Control Stage:3", "stepDis": 50}]
-		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 4250, 3000, 6500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
-		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 3750, 2500, 6500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
+		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0, 0.15, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake1", "range", "", "Engine and ECU", 0.8, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3550, 3000, 6500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
-		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.15, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3050, 2500, 6500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
+		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.35, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake2", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 3000, 3000, 6500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
-		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 2500, 2500, 6500, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
+		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 	],
 	"slotType" : "Astral_enginemanagement_1",
@@ -217,7 +217,7 @@
 			["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":1280}],
 			["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}],
-			["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -1}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 			["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}],
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
         ],
@@ -269,7 +269,7 @@
 					["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":1000}],
 					["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}]
-					["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -5}],
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}]
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
 				]
@@ -364,14 +364,14 @@
 		["$launchRPM1", "range", "RPM", "Engine and ECU", 4500, 3500, 7500, "Launch RPM", "Launch RPM of low level", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
 		["$launchRPM2", "range", "RPM", "Engine and ECU", 5500, 3500, 7500, "Launch RPM", "Launch RPM of medium level", {"subCategory": "Launch Control Stage:2", "stepDis": 50}]
 		["$launchRPM3", "range", "RPM", "Engine and ECU", 6800, 3500, 7500, "Launch RPM", "Launch RPM of high level", {"subCategory": "Launch Control Stage:3", "stepDis": 50}]
-		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 4250, 3000, 6800, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
-		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 3750, 2500, 6800, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
+		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0.15, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake1", "range", "", "Engine and ECU", 0.8, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3550, 3000, 6800, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
-		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.15, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3050, 2500, 6800, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
+		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.35, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake2", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 3000, 3000, 6800, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
-		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 2550, 2500, 6800, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
+		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 	],
 	"slotType" : "Astral_enginemanagement_1",
@@ -393,7 +393,7 @@
 			["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":1280}],
 			["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}],
-			["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -1}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 			["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}],
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
         ],
@@ -446,7 +446,7 @@
 					["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":1100}],
 					["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -35}]
-					["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -5}],
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}]
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
 				]
@@ -537,17 +537,17 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$idleRPM", "range", "RPM", "Engine and ECU", 2200, 800, 3500, "Idle RPM", "Idle RPM", {"subCategory": "ECU", "stepDis": 50}],
 		["$tMap", "range", "Map", "Engine and ECU", 2, 1, 3, "Throttle Map", "Controls how throttle reacts to input", {"subCategory": "ECU", "stepDis": 1}],
-		["$launchRPM1", "range", "RPM", "Engine and ECU", 5500, 3500, 8000, "Launch RPM", "Launch RPM of low level", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
-		["$launchRPM2", "range", "RPM", "Engine and ECU", 6800, 3500, 8000, "Launch RPM", "Launch RPM of medium level", {"subCategory": "Launch Control Stage:2", "stepDis": 50}]
-		["$launchRPM3", "range", "RPM", "Engine and ECU", 7600, 3500, 8000, "Launch RPM", "Launch RPM of high level", {"subCategory": "Launch Control Stage:3", "stepDis": 50}]
-		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 4250, 3000, 7000, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
-		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$launchRPM1", "range", "RPM", "Engine and ECU", 5500, 4000, 8500, "Launch RPM", "Launch RPM of low level", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
+		["$launchRPM2", "range", "RPM", "Engine and ECU", 6800, 4000, 8500, "Launch RPM", "Launch RPM of medium level", {"subCategory": "Launch Control Stage:2", "stepDis": 50}]
+		["$launchRPM3", "range", "RPM", "Engine and ECU", 7600, 4000, 8500, "Launch RPM", "Launch RPM of high level", {"subCategory": "Launch Control Stage:3", "stepDis": 50}]
+		["$minAntiLagRPM1", "range", "RPM", "Engine and ECU", 3750, 2500, 7000, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:1", "stepDis": 50}],
+		["$maxAntiLagThrottle1", "range", "", "Engine and ECU", 0.15, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake1", "range", "", "Engine and ECU", 0.8, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:1", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3550, 3000, 7000, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
-		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.15, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM2", "range", "RPM", "Engine and ECU", 3050, 2500, 7000, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:2", "stepDis": 50}],
+		["$maxAntiLagThrottle2", "range", "", "Engine and ECU", 0.35, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake2", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:2", "minDis":0, "maxDis":100, "stepDis": 1}],
-		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 3000, 3000, 7000, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
-		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
+		["$minAntiLagRPM3", "range", "RPM", "Engine and ECU", 2500, 2500, 7000, "Anti-Lag RPM Threshold", "Anti-lag works above this RPM", {"subCategory": "Launch Control Stage:3", "stepDis": 50}],
+		["$maxAntiLagThrottle3", "range", "", "Engine and ECU", 0.55, 0, 1, "Anti-Lag Maximum Throttle Input", "Anti-lag works below this throttle input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 		["$minAntiLagBrake3", "range", "", "Engine and ECU", 0.3, 0, 1, "Anti-Lag Minimum Brake Input", "Anti-lag works above this brake input", {"subCategory": "Launch Control Stage:3", "minDis":0, "maxDis":100, "stepDis": 1}],
 	],
 	"slotType" : "Astral_enginemanagement_2",
@@ -569,7 +569,7 @@
 			["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":1280}],
 			["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 			["turbocharger", {"name": "mainEngine", "wastegateOffset": -49}],
-			["exhaust", {"name": "mainEngine", "mufflingOffset": -5, "gainOffset": -1}],
+			["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 			["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}],
 			["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
         ],
@@ -621,7 +621,7 @@
 					["controller", {"controllerName":"launchControl", "isEnabled":false, "idleRPM":"1200"}],
 					["controller", {"controllerName":"dynamicAntiLag", "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -49}]
-					["exhaust", {"name": "mainEngine", "mufflingOffset": -1, "gainOffset": -1}],
+					["exhaust", {"name": "mainEngine", "mufflingOffset": -4, "gainOffset": -1}],
 					["controller", {"controllerName":"gauge", "modeName": "Wastegate Off", "modeColor": "DCDCDC"}]
 					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
 				]
