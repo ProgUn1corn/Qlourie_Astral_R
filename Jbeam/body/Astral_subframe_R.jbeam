@@ -171,7 +171,7 @@
 
         //--Hub and Wheel--
         //hub form
-        {"beamSpring":8001000,"beamDamp":180},
+        {"beamSpring":8501000,"beamDamp":180},
         {"beamDeform":95000,"beamStrength":"FLT_MAX"},
         ["rh1r","rh3r"],
         ["rh2r","rh1r"],
@@ -180,7 +180,7 @@
         ["rh1l","rh3l"],
         ["rh2l","rh1l"],
         ["rh2l","rh3l"],
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":6001000,"beamDamp":150},
         ["rh1r","rh5r"],
         ["rh3r","rh5r"],
         ["rh2r","rh5r"],
@@ -208,41 +208,45 @@
         ["rs3l","rh5l"],
         ["rs3l","rh3l"],
         //hub to wheel axle nodes
-        {"beamSpring":8501000,"beamDamp":180},
+        {"beamSpring":9501000,"beamDamp":180},
         {"beamDeform":80500,"beamStrength":325000},
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
-        ["rh3r","rw1r", {"beamSpring":11501000,"beamDamp":10}],
-        ["rh5r","rw1r", {"beamSpring":5501000,"beamDamp":60}],
+        ["rh3r","rw1r", {"beamSpring":11001000,"beamDamp":10}],
+        ["rh5r","rw1r", {"beamSpring":6001000,"beamDamp":60}],
         ["rs2r","rw1r", {"beamSpring":1501000,"beamDamp":25}],
         ["rh1r","rw1rr"],
-        ["rh3r","rw1rr", {"beamSpring":11501000,"beamDamp":10}],
-        ["rh5r","rw1rr", {"beamSpring":5501000,"beamDamp":60}],
+        ["rh3r","rw1rr", {"beamSpring":11001000,"beamDamp":10}],
+        ["rh5r","rw1rr", {"beamSpring":6001000,"beamDamp":60}],
         ["rs2r","rw1rr", {"beamSpring":1501000,"beamDamp":25}],
         {"breakGroup":"wheel_RL"},
         ["rh1l","rw1l", {"name":"axle_RL"}],
-        ["rh3l","rw1l", {"beamSpring":11501000,"beamDamp":10}],
-        ["rh5l","rw1l", {"beamSpring":5501000,"beamDamp":60}],
+        ["rh3l","rw1l", {"beamSpring":11001000,"beamDamp":10}],
+        ["rh5l","rw1l", {"beamSpring":6001000,"beamDamp":60}],
         ["rs2l","rw1l", {"beamSpring":1501000,"beamDamp":25}],
         ["rh1l","rw1ll"],
-        ["rh3l","rw1ll", {"beamSpring":11501000,"beamDamp":10}],
-        ["rh5l","rw1ll", {"beamSpring":5501000,"beamDamp":60}],
+        ["rh3l","rw1ll", {"beamSpring":11001000,"beamDamp":10}],
+        ["rh5l","rw1ll", {"beamSpring":6001000,"beamDamp":60}],
         ["rs2l","rw1ll", {"beamSpring":1501000,"beamDamp":25}],
         {"breakGroup":""},
         {"optional":false},
         
         //--Control Arm and Structure Damping--
         //control arm
-        {"beamSpring":18001000,"beamDamp":1800},
+        {"beamSpring":19001000,"beamDamp":1900},
         {"beamDeform":185100,"beamStrength":600000},
+        {"dampCutoffHz":500},
         ["rh1r", "rx2r"],
         ["rh1r", "rx1r"],
         ["rh1l", "rx2l"],
         ["rh1l", "rx1l"],
+        //arb mount point
+        {"beamSpring":0,"beamDamp":950},
+        ["rarb3r","rx1r"],
+        ["rarb3l","rx1l"],
         //arm joint horizontal damping
         {"beamSpring":0,"beamDamp":750},
-        {"dampCutoffHz":500},
         ["rh1r","a12"],
         ["rh1l","a15"],
         ["rh1r","a9"],
@@ -371,7 +375,7 @@
         ["rx1l", "rx1r", "rx2r", "rx4r"],
         ["rx2l", "rx2r", "rx1r", "rx3r"],
         //rigidify toe link
-        {"spring":120100, "damp":0.2, "deform":45000, "strength":125000},
+        {"spring":120100, "damp":0.1, "deform":45000, "strength":125000},
         ["rw1rr", "rw1r", "rh1r", "rh3r"],
         ["rw1ll", "rw1l", "rh1l", "rh3l"], 
         //arm rigidifier
@@ -436,7 +440,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.154m
-        {"spring":"$=1256", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=1256", "damp":11.4, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -486,6 +490,7 @@
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
+        {"beamSpring":1001000,"beamDamp":150},
         {"beamSpring":2001000,"beamDamp":50},
         ["rarb2l", "rarb2r"],
     ]
@@ -500,7 +505,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.154m
-        {"spring":"$=2127", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=2127", "damp":11.4, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -550,6 +555,7 @@
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
+        {"beamSpring":1001000,"beamDamp":150},
         {"beamSpring":2001000,"beamDamp":50},
         ["rarb2l", "rarb2r"],
     ]
@@ -564,7 +570,7 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //lever length ~0.154m
-        {"spring":"$=3210", "damp":10, "deform":12000, "strength":"FLT_MAX"},
+        {"spring":"$=3210", "damp":11.4, "deform":12000, "strength":"FLT_MAX"},
         ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
     ],
     "flexbodies": [
@@ -614,6 +620,7 @@
         ["rarb2l", "chs1l"],
         ["rarb2l", "chs2l"],
         //bar stiffness
+        {"beamSpring":1001000,"beamDamp":150},
         {"beamSpring":2001000,"beamDamp":50},
         ["rarb2l", "rarb2r"],
     ]
