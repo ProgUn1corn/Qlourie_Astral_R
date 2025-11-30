@@ -1,0 +1,783 @@
+{
+"Astral_spring_F_Rally2_tarmac_34": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"34.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f4", ["Astral_spring_F"]],
+        ["Astral_helper_f4", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.0},
+        {"selfCollision":false},
+        ["fhe1r", -0.5944, -1.2704, 0.542],
+        ["fhe1l",  0.5944, -1.2704, 0.542],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":34000,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.021,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.021,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.084,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.084,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_tarmac_39": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"39.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f4", ["Astral_spring_F"]],
+        ["Astral_helper_f4", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.0},
+        {"selfCollision":false},
+        ["fhe1r", -0.5944, -1.2704, 0.542],
+        ["fhe1l",  0.5944, -1.2704, 0.542],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":39000,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.010,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.010,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.073,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.073,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_tarmac_44": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"44.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f4", ["Astral_spring_F"]],
+        ["Astral_helper_f4", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.0},
+        {"selfCollision":false},
+        ["fhe1r", -0.5944, -1.2704, 0.542],
+        ["fhe1l",  0.5944, -1.2704, 0.542],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":44000,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.003,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.003,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.066,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.066,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_tarmac_49": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"49.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f4", ["Astral_spring_F"]],
+        ["Astral_helper_f4", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.0},
+        {"selfCollision":false},
+        ["fhe1r", -0.5944, -1.2704, 0.542],
+        ["fhe1l",  0.5944, -1.2704, 0.542],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":49000,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.003,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.003,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.060,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.060,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_tarmac_54": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"54.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_tarmac",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f4", ["Astral_spring_F"]],
+        ["Astral_helper_f4", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.0},
+        {"selfCollision":false},
+        ["fhe1r", -0.5944, -1.2704, 0.542],
+        ["fhe1l",  0.5944, -1.2704, 0.542],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":54000,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.008,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.008,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.055,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.055,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.089,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_gravel_172": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"17.2N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.4},
+        {"selfCollision":false},
+        ["fhe1r", -0.6064, -1.3047, 0.349],
+        ["fhe1l",  0.6064, -1.3047, 0.349],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":17200,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.047,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.047,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.148,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.148,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_gravel_185": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"18.5N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.4},
+        {"selfCollision":false},
+        ["fhe1r", -0.6064, -1.3047, 0.349],
+        ["fhe1l",  0.6064, -1.3047, 0.349],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":18500,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.036,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.036,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.137,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.137,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_gravel_21": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"21.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.4},
+        {"selfCollision":false},
+        ["fhe1r", -0.6064, -1.3047, 0.349],
+        ["fhe1l",  0.6064, -1.3047, 0.349],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":21000,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.019,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.019,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.120,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.120,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_gravel_235": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"23.5N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.4},
+        {"selfCollision":false},
+        ["fhe1r", -0.6064, -1.3047, 0.349],
+        ["fhe1l",  0.6064, -1.3047, 0.349],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":23500,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.005,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":0.005,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.106,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.106,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_gravel_26": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"26.0N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.4},
+        {"selfCollision":false},
+        ["fhe1r", -0.6064, -1.3047, 0.349],
+        ["fhe1l",  0.6064, -1.3047, 0.349],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":26000,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.005,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.005,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.096,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.096,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+},
+"Astral_spring_F_Rally2_gravel_285": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"28.5N/mm",
+        "value":3200,
+    },
+    "slotType" : "Astral_spring_F_Rally2_gravel",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_spring_f3", ["Astral_spring_F"]],
+        ["Astral_helper_f3", ["Astral_helper_F"]],
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":true},
+        {"nodeMaterial":"|NM_METAL"},
+        //helper spring collar
+        {"group":["Astral_spring_F","Astral_helper_F"]},
+        {"nodeWeight":1.4},
+        {"selfCollision":false},
+        ["fhe1r", -0.6064, -1.3047, 0.349],
+        ["fhe1l",  0.6064, -1.3047, 0.349],
+        {"group":[""]},
+        {"collision":true},
+        {"selfCollision":true}
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        //--Coilover--
+        //main spring
+        {"beamSpring":28500,"beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.015,"beamPrecompressionTime":0.1}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.65,
+            "attackFactor":30,
+            "volumeFactor":1.45,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":-0.015,"beamPrecompressionTime":0.1}
+        ],
+        //helper spring
+        {"beamSpring":2500,"beamDamp":2.5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.086,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.086,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10, "beamShortBound":10},
+        {"beamSpring":1201000,"beamDamp":150},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.052,"beamPrecompressionTime":0.1}],
+        {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":false,"beamLimitDamp":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
+    ],
+}
+}
