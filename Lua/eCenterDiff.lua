@@ -191,12 +191,14 @@ local function updateFixedStep(dt)
       transfercase.lsdPreload = newPreload
     end
   elseif transferType == "Passive" then
+    --print(electrics.values.clutchRatio)
     if handbrake >= hbrelease then 
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
       transfercase.diffTorqueSplitA = 0
       transfercase.diffTorqueSplitB = 1
       transfercase.lsdPreload = 0
+      electrics.values.clutchRatio = 0
     else
       transfercase.lsdLockCoef = maxLockCoef
       transfercase.lsdRevLockCoef = minLockCoef

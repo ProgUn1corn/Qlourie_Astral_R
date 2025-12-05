@@ -73,7 +73,6 @@ local function updateGFX(dt)
       antilagCoef = turboAVPIDController:get(currentTurboAV, turboTargetDynamicAV, dt)
       controlledEngine.sustainedAfterFireCoef = engineAftefireCoef * antilagCoef
       --controlledEngine.instantAfterFireCoef = engineAftefireInstant * antilagCoef
-      --print("antilagCoef: " .. antilagCoef)
       --print(turboTargetDynamicAV*avToRPM)
     elseif not throttleLowEnough or brakeHighEnough or coast then
       antilagCoef = 0
@@ -81,6 +80,7 @@ local function updateGFX(dt)
       controlledEngine.sustainedAfterFireTime = engineAftefireTime*999
       controlledEngine.instantAfterFireCoef = engineAftefireInstant
     end
+    --print("antilagCoef: " .. antilagCoef)
   elseif state == states.off then
       antilagCoef = 0
       controlledEngine.sustainedAfterFireCoef = 0
