@@ -48,8 +48,8 @@
         ["rh2l",  0.5708, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
         {"nodeWeight":5},
-        ["rh3r", -0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
-        ["rh3l",  0.747, 1.1795, "$=-0.087+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
+        ["rh3r", -0.747, 1.1795, "$=-0.0902+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3l",  0.747, 1.1795, "$=-0.0902+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
         {"nodeWeight":"$=3*$brakeThickness_R"},
         ["rh5r", -0.765, 1.111, 0.074, {"group":["Astral_hub_RR","Astral_duct_R"]}],
@@ -116,11 +116,11 @@
         ["rcl1r", "strut_RR", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"],
         //spring collar
-        ["rhe1r", "strut_RR", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"],
-        ["rhe1l", "strut_RL", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1r", "strut_RR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["rhe1l", "strut_RL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         //piston
-        ["rps1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["rps1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["rps1r", "strut_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rps1l", "strut_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //mass
         ["rmassr", "strut_RR", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
@@ -147,8 +147,8 @@
         //toe-link
         {"beamSpring":20001000,"beamDamp":1600},
         {"beamDeform":235100,"beamStrength":625000},
-        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0014","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0014","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         //arb link
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -192,14 +192,14 @@
             "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.018, //25mm hard stop co working with HBS
             "beamLimitSpring":100114,
             "beamLimitDamp":5750,
-            "beamLimitDampRebound":1200,
+            "beamLimitDampRebound":1500
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", {
             "longBoundRange":1,"shortBoundRange":0.245,"boundZone":0.018,
             "beamLimitSpring":100114,
             "beamLimitDamp":5750,
-            "beamLimitDampRebound":1200,
+            "beamLimitDampRebound":1500
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard rebound
