@@ -2,6 +2,7 @@
 My personal BeamNG mod project with some simple Lua codes.
 
 **BELOW README IS DEPRECATED, NEEDS UPDATE. MANUAL WIP**
+
 ![Astral_R](Docs/BRC/16.jpg)
 It comes from Automation, I made the car in Automation and rewrote almost everything's Jbeam by myself so the physics are completely new. The project started at about 2022/7, and this Github repo is created at 2024/1/16.
 
