@@ -14,6 +14,14 @@ local avToRPM = 9.5493
 local states = {off = "off", idle = "idle", armed = "armed"}
 local state
 
+local ALS
+local ALSDesc = {
+  [1] = "Soft",
+  [2] = "Medium",
+  [3] = "Aggressive",
+  [4] = "Boost OFF",
+}
+
 local controlledEngine
 local controlledTurbocharger
 local engineAftefireCoef
@@ -41,6 +49,10 @@ local function setAntilagLevel(rpm, t ,b)
   minActiveEngineAV = rpm * rpmToAV
   maxActiveThrottleInput = t
   minActiveBrakeInput = b
+end
+
+local function displayState()
+  guihooks.message(string.format("ALS: %s", ALSDesc[ALS]), 2, "vehicle.ALS.map")
 end
 
 local function updateGFX(dt)
@@ -149,6 +161,8 @@ local function setParameters(parameters)
   elseif parameters.isEnabled == false then
     state = states.off
   end
+  ALS = parameters.ALS
+  displayState()
 end
 
 M.init = init
@@ -159,5 +173,6 @@ M.setAntilagLevel = setAntilagLevel
 M.serialize = serialize
 M.deserialize = deserialize
 M.setParameters = setParameters
+M.displayState = displayState
 
 return M

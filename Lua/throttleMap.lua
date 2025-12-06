@@ -2,11 +2,18 @@
 -- If a copy of the bCDDL was not distributed with this
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 local M = {}
-M.type = "auxilliary"
 
-local tMap = nil
-local throttle = nil
-local newThrottle = nil
+local tMap
+local tMapDesc = {
+  [1] = "Aggressive",
+  [2] = "Linear Biased Digressive ",
+  [3] = "Progressive",
+}
+local throttle
+local newThrottle
+
+local reserved1
+local reserved2
 
 --throttle map slope
 local a = nil  --a is alpha to linear
@@ -16,37 +23,38 @@ local function calculateThrottleMap(x, y, z)
   return (1 - y) * ((math.log(1 + z * x)) / (math.log(1 + z))) + (y * x)
 end
 
-local function updateFixedStep(dt)
+local function displayState()
+  guihooks.message(string.format("Throttle Map: %s (%s)", tMap, tMapDesc[tMap]), 2, "vehicle.throttleMap.map")
+end
+
+local function updateGFX(dt)
   --get input value
   throttle = electrics.values['throttle_input'] or 0
 
-  --digressive map
-  if tMap == 1 then
-    a = 0.18
-    k = 6.6 
+  --aggressive map
+  if tMap == 3 then
+    a = 0.56
+    k = 9.8
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
 
-  --digressive + linear map
+  -- mostly linear/digressive map
   if tMap == 2 then
-    a = 0.35
-    k = 3.7
+    a = 0.86
+    k = 6.9
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
   
   --progressive map (used in really precise situations)
-  if tMap == 3 then
-    a =  0.4
-    k = -0.68
+  if tMap == 1 then
+    a =  0.15
+    k = -0.88
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
 
   --apply throttle map
   electrics.values.throttle = newThrottle 
-  --print(newThrottle)
-end
-
-local function updateGFX(dt)
+  --print(tMap)
 end
 
 local function reset()
@@ -54,13 +62,39 @@ end
 
 local function init(jbeamData)
   --get map number
-  tMap = (jbeamData.tMap) or nil
+  tMap = (jbeamData.tMap) or 2
   --print(tMap)
+end
+
+local function serialize()
+  return {
+    reserved1 = 0,
+    reserved2 = 0
+  }
+end
+
+local function deserialize(data)
+  if data and data.reserved1 and data.reserved2 then
+  reserved1 = 0
+  end
+end
+
+local function setParameters(parameters)
+  --print(parameters.tMap)
+  if parameters.tMap then
+    tMap = parameters.tMap
+    displayState()
+  else
+    tMap = 2
+  end
 end
 
 M.init = init
 M.reset = reset
-M.updateFixedStep = updateFixedStep
 M.updateGFX = updateGFX
+M.serialize = serialize
+M.deserialize = deserialize
+M.setParameters = setParameters
+M.displayState = displayState
 
 return M
