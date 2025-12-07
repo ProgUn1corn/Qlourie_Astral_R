@@ -33,7 +33,7 @@ local function updateGFX(dt)
 
   --aggressive map
   if tMap == 3 then
-    a = 0.56
+    a = 0.45
     k = 9.8
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
@@ -47,8 +47,8 @@ local function updateGFX(dt)
   
   --progressive map (used in really precise situations)
   if tMap == 1 then
-    a =  0.15
-    k = -0.88
+    a = -0.13
+    k = -0.92
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
 
