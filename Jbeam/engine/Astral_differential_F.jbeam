@@ -9,17 +9,17 @@
 		["type", "default", "description"],
 		["Astral_halfshafts_F","Astral_halfshafts_F","Front Halfshafts"],
 		["Astral_finaldrive_F","Astral_finaldrive_F_4.43","Front Final Drive", {"coreSlot":true}]
-		["Astral_ramp_F","Astral_ramp_F_5585","Front Ramp Set", {"coreSlot":true}]
+		["Astral_ramp_F","Astral_ramp_F_5272","Front Ramp Set", {"coreSlot":true}]
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$lsdpreload_F", "range", "Nm", "Differentials", 40, 0, 100, "Preload Torque", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Front"}],
-		["$frictionFace_F", "range", "Faces", "Differentials", 6, 4, 8, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":16, "stepDis":2, "subCategory":"Front"}]
+		["$lsdpreload_F", "range", "Nm", "Differentials", 40, 0, 100, "Preload Adjuster", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Front"}],
+		["$frictionFace_F", "range", "Faces", "Differentials", 6, 4, 6, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":12, "stepDis":2, "subCategory":"Front"}]
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
 		["torsionReactor", "torsionReactorF", "transferCase", 2],
-		["differential", "frontDiff", "torsionReactorF", 1, {"deformGroups":["gearbox"], "diffType":"lsd", "lsdPreload":"$lsdpreload_F", "lsdLockCoef":"$=$components.diff.flock", "lsdRevLockCoef":"$=$components.diff.frevlock", "uiName":"Front Differential", "defaultVirtualInertia":0.25}]
+		["differential", "frontDiff", "torsionReactorF", 1, {"deformGroups":["gearbox"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_F*(1+($frictionFace_F-6)*0.074)", "lsdLockCoef":"$=$components.diff.flock", "lsdRevLockCoef":"$=$components.diff.frevlock", "uiName":"Front Differential", "defaultVirtualInertia":0.25}]
 	]
 	"frontDiff": {
         "friction": 2.74,
@@ -30,37 +30,37 @@
         "torqueReactionNodes:":["eg1","eg0","eg4"],
     }
 },
-"Astral_ramp_F_4585": {
+"Astral_ramp_F_4872": {
 	"information":{
-		"name":"45/85 (Coupled with 45/72)",
+		"name":"48/72 (Coupled with 48/85)",
 		"value":1000
 	},
 	"slotType" : "Astral_ramp_F",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$coastRamp_F", "range", "Degrees", "Differentials", 85, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
+		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
 	],
 	"components": {
-    	"diff":{
-        	"flock":"$=(1/tan(45*pi/180))/(1/tan(35*pi/180))*0.325*($frictionFace_F/8)",              //35, 8+8 as 100% in relavent, about 65% lock
-			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_F/8)"  //85, 8+8 as 100% in relavent, about 8%  lock
+    	"diff":{//35, 8+8 as 100% in relavent, about 63% lock
+        	"flock":"$=(1/tan(48*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_F-8)*0.0947)",              
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_F-8)*0.0947)"
     	},
 	}
 },
-"Astral_ramp_F_5585": {
+"Astral_ramp_F_5272": {
 	"information":{
-		"name":"55/85 (Coupled with 55/72)",
+		"name":"52/72 (Coupled with 52/85)",
 		"value":1000
 	},
 	"slotType" : "Astral_ramp_F",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$coastRamp_F", "range", "Degrees", "Differentials", 85, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
+		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
 	],
 	"components": {
-    	"diff":{
-        	"flock":"$=(1/tan(55*pi/180))/(1/tan(35*pi/180))*0.325*($frictionFace_F/8)",              //35, 8+8 as 100% in relavent, about 65% lock
-			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_F/8)"  //85, 8+8 as 100% in relavent, about 8%  lock
+    	"diff":{//35, 8+8 as 100% in relavent, about 63% lock
+        	"flock":"$=(1/tan(52*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_F-8)*0.0947)",              
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_F-8)*0.0947)", 
     	},
 	}
 },
@@ -71,9 +71,9 @@
 	},
 	"slotType" : "Astral_ramp_F",
 	"components": {
-    	"diff":{
-        	"flock":"$=(1/tan(60*pi/180))/(1/tan(35*pi/180))*0.325*($frictionFace_F/8)",   //35, 8+8 as 100% in relavent, about 65% lock
-			"frevlock":"$=(1/tan(85*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_F/8)" //85, 8+8 as 100% in relavent, about 8%  lock
+    	"diff":{//35, 8+8 as 100% in relavent, about 63% lock
+        	"flock":"$=(1/tan(60*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_F-8)*0.0947)",  
+			"frevlock":"$=(1/tan(85*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_F-8)*0.0947)"
     	},
 	}
 },

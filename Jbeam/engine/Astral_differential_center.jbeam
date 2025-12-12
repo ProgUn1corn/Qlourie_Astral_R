@@ -164,8 +164,8 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$torquesplit", "range", "", "Differentials", 0.50, 0.3, 0.7, "Torque Split", "Rear power bias",{"subCategory": "Center", "stepDis": 3, "minDis":30,"maxDis":70}]
-		["$lsdpreload_C", "range", "Nm", "Differentials", 25, 0, 100, "Preload Torque", "Initial locking torque between axles", {"stepDis":5, "subCategory":"Center"}],
-		["$frictionFace_C", "range", "Faces", "Differentials", 6, 4, 8, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":16, "stepDis":2, "subCategory":"Center"}]
+		["$lsdpreload_C", "range", "Nm", "Differentials", 25, 0, 100, "Preload Adjuster", "Initial locking torque between axles", {"stepDis":5, "subCategory":"Center"}],
+		["$frictionFace_C", "range", "Faces", "Differentials", 6, 4, 6, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":12, "stepDis":2, "subCategory":"Center"}]
 		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [ 
@@ -177,12 +177,12 @@
 		"transfercaseName":"transferCase",
 		"lockMap":[
 			["lock", "revLock", "preload", "rearBias", "hbRelease"]
-            ["$=$components.diff.clock", "$=$components.diff.crevlock", "$=$lsdpreload_C/$components.diff.finaldrive", "$torquesplit", "$hbRelease"]
+            ["$=$components.diff.clock", "$=$components.diff.crevlock", "$=($lsdpreload_C*(1+($frictionFace_C-6)*0.074))/$components.diff.finaldrive", "$torquesplit", "$hbRelease"]
 		]
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_C/$components.diff.finaldrive", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.35, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.074))/$components.diff.finaldrive", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.35, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -233,9 +233,9 @@
 		["$coastRamp_C", "range", "Degrees", "Differentials", 50, 25, 40, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":15, "subCategory":"Center"}]
 	],
 	"components": {
-    	"diff":{
-        	"clock":"$=(1/tan(54*pi/180))/(1/tan(35*pi/180))*0.33*($frictionFace_C/8)",              //35, 8+8 as 100% in relavent, about 66% lock
-			"crevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(85*pi/180))*0.04*($frictionFace_C/8)"  //85, 8+8 as 100% in relavent, about 8%  lock
+    	"diff":{//35, 8+8 as 100% in relavent, about 67% lock
+        	"clock":"$=(1/tan(54*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_C-8)*0.0947)", 
+			"crevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_C-8)*0.0947)" 
     	},
 	}
 },
