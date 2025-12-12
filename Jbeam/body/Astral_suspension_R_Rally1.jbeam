@@ -169,24 +169,24 @@
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":100,"beamDamp":50},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["rh2r","rs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.210,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
             "beamLimitSpring":1051000,                                      //total piston travel equals to longBound + shortBound
-            "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
+            "beamLimitDamp":1500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.210,"boundZone":0.02,
             "beamLimitSpring":1051000,
-            "beamLimitDamp":500, 
+            "beamLimitDamp":1500, 
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //hard bump
@@ -527,38 +527,38 @@
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":100,"beamDamp":50},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["rh2r","rs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.260,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
             "beamLimitSpring":1051000,                                      //total piston travel equals to longBound + shortBound
-            "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
+            "beamLimitDamp":1500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.260,"boundZone":0.02,
             "beamLimitSpring":1051000,
-            "beamLimitDamp":500, 
+            "beamLimitDamp":1500, 
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":105110,
-            "beamLimitDamp":4250,
-            "beamLimitDampRebound":1500
+            "beamLimitDamp":11451,
+            "beamLimitDampRebound":5500,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", {
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01,
             "beamLimitSpring":105110,
-            "beamLimitDamp":4250,
-            "beamLimitDampRebound":1500
+            "beamLimitDamp":11451,
+            "beamLimitDampRebound":5500,
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hard (elastic) rebound

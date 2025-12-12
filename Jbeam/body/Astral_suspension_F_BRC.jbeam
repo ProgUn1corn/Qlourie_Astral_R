@@ -169,38 +169,38 @@
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":100,"beamDamp":50},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0.01}], //shaft rod diameter 18mm
         ["fh2l","fs1l", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0.01}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["fh2r","fs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.190,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
             "beamLimitSpring":1051000,                                      //total piston travel equals to longBound + shortBound
-            "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
+            "beamLimitDamp":1500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["fh2l","fs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.190,"boundZone":0.02,
             "beamLimitSpring":1051000,
-            "beamLimitDamp":500, 
+            "beamLimitDamp":1500, 
             "dampCutoffHz":500}
         ],
         ["fh2r","fs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.170,"boundZone":0.015, //20mm hard stop co working with HBS
             "beamLimitSpring":114514,
-            "beamLimitDamp":5250,
-            "beamLimitDampRebound":1500,
+            "beamLimitDamp":11451,
+            "beamLimitDampRebound":5500,
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", {
             "longBoundRange":1,"shortBoundRange":0.170,"boundZone":0.015,
             "beamLimitSpring":114514,
-            "beamLimitDamp":5250,
-            "beamLimitDampRebound":1500,
+            "beamLimitDamp":11451,
+            "beamLimitDampRebound":5500,
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard (elastic) rebound
@@ -530,38 +530,38 @@
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
         {"beamSpring":100,"beamDamp":50},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0.01}], //shaft rod diameter 18mm
         ["fh2l","fs1l", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0.01}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        {"beamLimitSpring":0,"beamLimitDamp":0,"beamLimitDampRebound":0},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["fh2r","fs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.310,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
             "beamLimitSpring":1051000,                                      //total piston travel equals to longBound + shortBound
-            "beamLimitDamp":500,                                            //effective damping travel is less than piston travel since hard stops are there
+            "beamLimitDamp":1500,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["fh2l","fs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.310,"boundZone":0.02,
             "beamLimitSpring":1051000,
-            "beamLimitDamp":500, 
+            "beamLimitDamp":1500, 
             "dampCutoffHz":500}
         ],
         ["fh2r","fs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.300,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":114514,
-            "beamLimitDamp":4250,
-            "beamLimitDampRebound":1500
+            "beamLimitDamp":11451,
+            "beamLimitDampRebound":5500
             "dampCutoffHz":250}
         ],
         ["fh2l","fs1l", {
             "longBoundRange":1,"shortBoundRange":0.300,"boundZone":0.01,
             "beamLimitSpring":114514,
-            "beamLimitDamp":4250,
-            "beamLimitDampRebound":1500
+            "beamLimitDamp":11451,
+            "beamLimitDampRebound":5500
             "dampCutoffHz":250}
         ],
         ["fh2r","fs1r", { //hard (elastic) rebound
