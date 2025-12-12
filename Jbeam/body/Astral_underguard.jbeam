@@ -24,7 +24,7 @@
         {"nodeMaterial":"|NM_PLASTIC"},
 		//--Center Underguard--
 		//rear
-		{"nodeWeight":1},
+		{"nodeWeight":1.25},
 		{"group":["Astral_guard_R","Astral_rarmg"]},
 		["rg1r", -0.218, 0.744, 0.075],
 		["rg1l",  0.218, 0.744, 0.075],
@@ -35,6 +35,7 @@
 		["rg3l",  0.614, 1.665, 0.134],
 		["rgr",  0, 1.115, 0.35, {"selfCollision":false}],
 		//center
+		{"nodeWeight":1},
 		{"group":["Astral_guard_C"]},
 		["cg2r", -0.718, 0, 0.075],
 		["cg2",       0, 0, 0.075],
@@ -195,7 +196,7 @@
 
 		//--Rear Underguard--
 		//rear guard shape
-		{"beamSpring":651000,"beamDamp":80},
+		{"beamSpring":851000,"beamDamp":80},
 		{"beamDeform":24000,"beamStrength":"FLT_MAX"},
 		["rg1r", "rg1l"],
 		["rg1l", "rg2l"],
@@ -225,7 +226,7 @@
 		["rgr", "rg1r"],
 		["rgr", "rg3r"],
 		//attach to running gear
-		{"beamSpring":551000,"beamDamp":100},
+		{"beamSpring":851000,"beamDamp":100},
 		{"beamDeform":22500, "beamStrength":45000},
 		{"breakGroup":"rearguard_R"},
 		{"optional":true},
@@ -271,7 +272,7 @@
 		{"dampCutoffHz":""},
 		//support beams
         {"beamType":"|SUPPORT", "beamLongBound":4},
-        {"beamSpring":850000,"beamDamp":85},
+        {"beamSpring":550000,"beamDamp":65},
         {"beamDeform":42500,"beamStrength":145000},
         {"optional":true},
 		{"beamPrecompression":0.96},
@@ -454,7 +455,7 @@
         {"nodeMaterial":"|NM_METAL"},
 		//--Front undertray--
 		//front under guard
-		{"nodeWeight":1.15},
+		{"nodeWeight":2},
 		{"group":["Astral_guard_F"]},
 		["fg1r", -0.527, -1.681, 0.117, {"group":["Astral_guard_F","Astral_lipg"]}],
 		["fg1l",  0.527, -1.681, 0.117, {"group":["Astral_guard_F","Astral_lipg"]}],
@@ -467,7 +468,7 @@
 		{"group":["Astral_lipg"]},
 		["fg4r", -0.604, -1.945, 0.135, {"selfCollision":false}],
 		["fg4l",  0.604, -1.945, 0.135, {"selfCollision":false}],
-		{"nodeWeight":1.25},
+		{"nodeWeight":3},
 		["fgr", 0, -1.45, 0.45, {"selfCollision":false}],
 		{"group":[""]}
 		{"collision":true},
@@ -475,11 +476,10 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Undertray--
 		//main shape
-		{"beamSpring":451000,"beamDamp":55},
+		{"beamSpring":851000,"beamDamp":85},
 		{"beamDeform":75000,"beamStrength":"FLT_MAX"},
 		["fg1r", "fg1l"],
 		["fg1l", "fg2l"],
@@ -503,7 +503,7 @@
 		["fg4l", "fg1l", {"breakGroup":["fbl","splitter_L"]}],
 		["fg4l", "fg1r", {"breakGroup":["fbl","splitter_L"]}],
 		//rigids
-		{"beamSpring":451000,"beamDamp":55},
+		{"beamSpring":651000,"beamDamp":55},
 		{"beamDeform":45500},
 		["fg1r", "fg3r"],
 		["fg1l", "fg3l"],
@@ -522,7 +522,7 @@
 		["fgr", "fg4r"],
 		["fgr", "fg4l"],
 		//attach to running gear
-		{"beamSpring":401000,"beamDamp":85},
+		{"beamSpring":801000,"beamDamp":85},
 		{"beamDeform":25000, "beamStrength":45000},
 		{"breakGroup":"fguard_R"},
 		{"optional":true},
@@ -641,7 +641,7 @@
 "Astral_guard_F": {
     "information":{
         "authors":"Camshaft Software",
-        "name":"Rally Skidplate",
+        "name":"Rally Sumpguard",
         "value":50,
     },
 	"slotType" : "Astral_guard_F",
@@ -661,7 +661,7 @@
         {"nodeMaterial":"|NM_METAL"},
 		//--Front undertray--
 		//front under guard
-		{"nodeWeight":1.15},
+		{"nodeWeight":2},
 		{"group":["Astral_guard_F"]},
 		["fg1r", -0.527, -1.681, 0.117],
 		["fg1l",  0.527, -1.681, 0.117],
@@ -669,7 +669,7 @@
 		["fg2l",  0.442, -1.351, 0.072],
 		["fg3r", -0.485, -0.718, 0.076, {"selfCollision":false}],
 		["fg3l",  0.485, -0.718, 0.076, {"selfCollision":false}],
-		{"nodeWeight":1.25},
+		{"nodeWeight":3},
 		["fgr", 0, -1.15, 0.45, {"selfCollision":false}],
 		{"group":[""]}
 		{"collision":true},
@@ -677,11 +677,10 @@
 	],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Undertray--
 		//main shape
-		{"beamSpring":451000,"beamDamp":55},
+		{"beamSpring":851000,"beamDamp":85},
 		{"beamDeform":75000,"beamStrength":"FLT_MAX"},
 		["fg1r", "fg1l"],
 		["fg1l", "fg2l"],
@@ -711,7 +710,7 @@
 		["fgr", "fg1r"],
 		["fgr", "fg3r"],
 		//attach
-		{"beamSpring":401000,"beamDamp":80},
+		{"beamSpring":801000,"beamDamp":80},
 		{"beamDeform":65000, "beamStrength":85000},
 		{"breakGroup":"fguard_R"},
 		{"optional":true},
