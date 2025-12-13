@@ -11,7 +11,6 @@ local min = math.min
 local max = math.max
 local clamp = math.clamp
 
-local lockMap = {}
 local transfercase = nil
 local preload = 0
 
@@ -84,7 +83,7 @@ local function updateFixedStep(dt)
     --print(xLockCoef)
 
     --speed map that only affects steering contribution
-    local speedFactor = clamp(clampSpeed * (-9 / speedMap) + 1, 0.1, 1)
+    local speedFactor = clamp(1 - 0.9 * (clampSpeed / 140) * (speedMap / 2000), 0.1, 1)
     --print(speedFactor)
 
     --set different condition flags
@@ -168,7 +167,7 @@ local function updateFixedStep(dt)
       yLockCoef = minLockCoef
       preloadAdj = preload * minLockCoef  * (1 - xLockCoef)  / finalDrive
     end
-    --print(yLockCoef)
+    print(yLockCoef)
     --print(preloadAdj)
 
     --sum up X and Y lock factors
@@ -223,21 +222,20 @@ local function init(jbeamData)
   
   --get tuning data for active
   if transfercase and transferType == "Active" then 
-    lockMap = tableFromHeaderTable(jbeamData.lockMap or {})
-    minLockCoef = lockMap[1].minLock or 0
-    steerRatio = lockMap[1].steerRatio or 0
-    speedMap = lockMap[1].speedMap or 0
-    throttleRatio = lockMap[1].lockThrottle or 0 
-    throttleStart = lockMap[1].lockThrottleStart or 0 
-    brakeRatio = lockMap[1].lockBrake or 0
-    brakeStart = lockMap[1].lockBrakeStart or 0
-    lbLockCoef = lockMap[1].leftLock or 0
-    lbThreshold = lockMap[1].leftThreshold or 0
-    coastStart = lockMap[1].coastStart or 0
-    rearBias = lockMap[1].rearBias or 0
-    hbrelease = lockMap[1].hbRelease or 0
-    preload = lockMap[1].preload or 0
-    finalDrive = lockMap[1].finalDrive or 0
+    minLockCoef = jbeamData.lockMap.minLock or 0
+    steerRatio = jbeamData.lockMap.steerRatio or 0
+    speedMap = jbeamData.lockMap.speedMap or 0
+    throttleRatio = jbeamData.lockMap.lockThrottle or 0 
+    throttleStart = jbeamData.lockMap.lockThrottleStart or 0 
+    brakeRatio = jbeamData.lockMap.lockBrake or 0
+    brakeStart = jbeamData.lockMap.lockBrakeStart or 0
+    lbLockCoef = jbeamData.lockMap.leftLock or 0
+    lbThreshold = jbeamData.lockMap.leftThreshold or 0
+    coastStart = jbeamData.lockMap.coastStart or 0
+    rearBias = jbeamData.lockMap.rearBias or 0
+    hbrelease = jbeamData.lockMap.hbRelease or 0
+    preload = jbeamData.lockMap.preload or 0
+    finalDrive = jbeamData.lockMap.finalDrive or 0
     if throttleRatio ~= 0 and throttleRatio - throttleStart <= 0 then
       print("Throttle start point is higher than throttle threshold! Locking center diff...")
     end
@@ -249,15 +247,12 @@ local function init(jbeamData)
 
   --get tuning data for passive
   if transfercase and transferType == "Passive" then 
-    lockMap = tableFromHeaderTable(jbeamData.lockMap or {})
-    maxLockCoef = lockMap[1].lock or 0
-    minLockCoef = lockMap[1].revLock or 0
-    preload = lockMap[1].preload or 0
-    rearBias = lockMap[1].rearBias or 0
-    hbrelease = lockMap[1].hbRelease or 0
+    maxLockCoef = jbeamData.lock or 0
+    minLockCoef = jbeamData.revLock or 0
+    preload = jbeamData.preload or 0
+    rearBias = jbeamData.rearBias or 0
+    hbrelease = jbeamData.hbRelease or 0
   end
-  --print(rearBias)
-  --printTable(lockMap)
 end
 
 M.init = init
