@@ -14,7 +14,7 @@
 		["$lockThrottleStart_C", "range", "", "Differentials", 0.35, 0, 0.6, "Throttle Lock Start", "Throttle input percentage where where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 2.Throttle"}],
 		["$lockBrakeStart_C", "range", "", "Differentials", 0.20, 0, 0.6, "Brake Lock Start", "Brake input percentage where where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 3.Brake"}],
 		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Factor", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
-		["$speedMap_C", "range", "", "Differentials", 1800, 1400, 2800, "Speed Map Factor", "The multiplier of minimum lock that steering contribution can be made, after reduction from the speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
+		["$speedMap_C", "range", "", "Differentials", 550, 0, 2000, "Speed Map Factor", "The effect of reduction in steering contribution by speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
@@ -28,10 +28,22 @@
 	"activeCenterDiff":{
 		"type":"Active",
 		"transfercaseName":"transferCase",
-		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "lockThrottleStart", "lockBrakeStart", "steerRatio", "speedMap", "leftLock", "leftThreshold", "coastStart", "rearBias", "hbRelease", "preload", "finalDrive"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$lockThrottleStart_C", "$lockBrakeStart_C", "$steerRatio_C", "$speedMap_C", "$leftLock_C", "$leftThreshold_C", "$coastStart", 0.56, "$hbRelease", "$preload_C", "$=$components.diff.finaldrive"]
-		]
+		"lockMap":{
+			"minLock":"$minLock_C"
+			"lockThrottle":"$lockThrottle_C"
+			"lockBrake":"$lockBrake_C"
+			"lockThrottleStart":"$lockThrottleStart_C"
+			"lockBrakeStart":"$lockBrakeStart_C"
+			"steerRatio":"$steerRatio_C"
+			"speedMap":"$speedMap_C"
+			"leftLock":"$leftLock_C"
+			"leftThreshold":"$leftThreshold_C"
+			"coastStart":"$coastStart"
+			"rearBias":0.56
+			"hbRelease":"$hbRelease"
+			"preload":"$preload_C"
+			"finalDrive":"$=$components.diff.finaldrive"
+		}
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
@@ -90,7 +102,7 @@
 		["$lockThrottleStart_C", "range", "", "Differentials", 0.4, 0, 0.6, "Throttle Lock Start", "Throttle input percentage where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 2.Throttle"}],
 		["$lockBrakeStart_C", "range", "", "Differentials", 0.35, 0, 0.6, "Brake Lock Start", "Brake input percentage where active map starts to calculate", {"minDis":0, "maxDis":60, "subCategory":"Active Map 3.Brake"}],
 		["$steerRatio_C", "range", "", "Differentials", 1, 0, 1, "Steering Factor", "The amount of steering input affects lock and bias", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
-		["$speedMap_C", "range", "", "Differentials", 1800, 1400, 2800, "Speed Map Factor", "The multiplier of minimum lock that steering contribution can be made, after reduction from the speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
+		["$speedMap_C", "range", "", "Differentials", 550, 1400, 2800, "Speed Map Factor", "The effect of reduction in steering contribution by speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
@@ -104,10 +116,22 @@
 	"activeCenterDiff":{
 		"type":"Active",
 		"transfercaseName":"transferCase",
-		"lockMap":[
-			["minLock", "lockThrottle", "lockBrake", "lockThrottleStart", "lockBrakeStart", "steerRatio", "speedMap", "leftLock", "leftThreshold", "coastStart", "rearBias", "hbRelease", "preload", "finalDrive"]
-            ["$minLock_C", "$lockThrottle_C", "$lockBrake_C", "$lockThrottleStart_C", "$lockBrakeStart_C", "$steerRatio_C", "$speedMap_C", "$leftLock_C", "$leftThreshold_C", "$coastStart", 0.63, "$hbRelease", "$preload_C", "$=$components.diff.finaldrive"]
-		]
+		"lockMap":{
+			"minLock":"$minLock_C"
+			"lockThrottle":"$lockThrottle_C"
+			"lockBrake":"$lockBrake_C"
+			"lockThrottleStart":"$lockThrottleStart_C"
+			"lockBrakeStart":"$lockBrakeStart_C"
+			"steerRatio":"$steerRatio_C"
+			"speedMap":"$speedMap_C"
+			"leftLock":"$leftLock_C"
+			"leftThreshold":"$leftThreshold_C"
+			"coastStart":"$coastStart"
+			"rearBias":0.63
+			"hbRelease":"$hbRelease"
+			"preload":"$preload_C"
+			"finalDrive":"$=$components.diff.finaldrive"
+		}
 	},
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
@@ -182,7 +206,7 @@
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.074))/$components.diff.finaldrive", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.35, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.048))/$components.diff.finaldrive", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.35, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
