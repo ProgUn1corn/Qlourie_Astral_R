@@ -167,7 +167,7 @@ local function updateFixedStep(dt)
       yLockCoef = minLockCoef
       preloadAdj = preload * minLockCoef  * (1 - xLockCoef)  / finalDrive
     end
-    print(yLockCoef)
+    --print(yLockCoef)
     --print(preloadAdj)
 
     --sum up X and Y lock factors
@@ -210,12 +210,6 @@ local function updateFixedStep(dt)
   --print(transfercase.lsdLockCoef)
 end
 
-local function updateGFX(dt)
-end
-
-local function reset(jbeamData)
-end
-
 local function init(jbeamData)
   transfercase = powertrain.getDevice(jbeamData.transfercaseName)
   transferType = jbeamData.type or 0
@@ -247,17 +241,15 @@ local function init(jbeamData)
 
   --get tuning data for passive
   if transfercase and transferType == "Passive" then 
-    maxLockCoef = jbeamData.lock or 0
-    minLockCoef = jbeamData.revLock or 0
-    preload = jbeamData.preload or 0
-    rearBias = jbeamData.rearBias or 0
-    hbrelease = jbeamData.hbRelease or 0
+    maxLockCoef = jbeamData.lockMap.lock or 0
+    minLockCoef = jbeamData.lockMap.revLock or 0
+    preload = jbeamData.lockMap.preload or 0
+    rearBias = jbeamData.lockMap.rearBias or 0
+    hbrelease = jbeamData.lockMap.hbRelease or 0
   end
 end
 
 M.init = init
-M.reset = reset
 M.updateFixedStep = updateFixedStep
-M.updateGFX = updateGFX
 
 return M
