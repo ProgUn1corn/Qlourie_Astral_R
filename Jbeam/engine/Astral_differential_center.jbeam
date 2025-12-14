@@ -2,7 +2,7 @@
 "Astral_differential_center_e_gravel": {
 	"information":{
 		"authors":"Un1corn",
-		"name":"Active Center Differential 44/56",
+		"name":"Active Center Differential 43/57",
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
@@ -39,7 +39,7 @@
 			"leftLock":"$leftLock_C"
 			"leftThreshold":"$leftThreshold_C"
 			"coastStart":"$coastStart"
-			"rearBias":0.56
+			"rearBias":0.57
 			"hbRelease":"$hbRelease"
 			"preload":"$preload_C"
 			"finalDrive":"$=$components.diff.finaldrive"
@@ -199,10 +199,13 @@
 	"activeCenterDiff":{
 		"type":"Passive",
 		"transfercaseName":"transferCase",
-		"lockMap":[
-			["lock", "revLock", "preload", "rearBias", "hbRelease"]
-            ["$=$components.diff.clock", "$=$components.diff.crevlock", "$=($lsdpreload_C*(1+($frictionFace_C-6)*0.074))/$components.diff.finaldrive", "$torquesplit", "$hbRelease"]
-		]
+		"lockMap":{
+			"lock":"$=$components.diff.clock"
+			"revLock":"$=$components.diff.crevlock"
+			"preload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.074))/$components.diff.finaldrive"
+			"rearBias":"$torquesplit"
+			"hbRelease":"$hbRelease"
+		}
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
@@ -257,9 +260,9 @@
 		["$coastRamp_C", "range", "Degrees", "Differentials", 50, 25, 40, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":15, "subCategory":"Center"}]
 	],
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 67% lock
-        	"clock":"$=(1/tan(54*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_C-8)*0.0947)", 
-			"crevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.315*(1+($frictionFace_C-8)*0.0947)" 
+    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+        	"clock":"$=(1/tan(54*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_C-8)*0.0947)", 
+			"crevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_C-8)*0.0947)" 
     	},
 	}
 },
