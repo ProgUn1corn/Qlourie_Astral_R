@@ -17,8 +17,8 @@
 		["$speedMap_C", "range", "", "Differentials", 550, 0, 2000, "Speed Map Factor", "The effect of reduction in steering contribution by speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
-		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
-		["$preload_C", "range", "Nm", "Differentials", 60, 0, 210, "Active Preload Torque", "The max preload torque can be provided by the active system additional to input torque readout", {"minDis":0, "maxDis":210, "stepDis":6, "subCategory":"Active Map 1.Master"}],
+		["$hbRelease", "range", "", "Differentials", 0.65, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
+		["$preload_C", "range", "Nm", "Differentials", 120, 0, 240, "Active Preload Torque", "The max preload torque can be provided by the active system additional to input torque readout", {"minDis":0, "maxDis":240, "stepDis":6, "subCategory":"Active Map 1.Master"}],
 		["$coastStart", "range", "", "Differentials", 0.05, 0, 0.15, "Coast Map Threshold", "Max throttle or brake input percentage where coast map is still applied", {"minDis":0, "maxDis":15, "stepDis":1, "subCategory":"Active Map 1.Master"}],
 	],
 	"controller": [ 
@@ -105,8 +105,8 @@
 		["$speedMap_C", "range", "", "Differentials", 550, 0, 2000, "Speed Map Factor", "The effect of reduction in steering contribution by speed map", {"minDis":0, "maxDis":100, "subCategory":"Active Map 5.Steering"}],
 		["$leftLock_C", "range", "", "Differentials", 0.8, 0, 1, "L.foot Brake Max Lock", "Maximum differential lock rate when left foot braking", {"minDis":0, "maxDis":100, "subCategory":"Active Map 4.L.foot Brake"}],
 		["$leftThreshold_C", "range", "", "Differentials", 0.2, 0, 0.8, "L.foot Brake Start", "The thershold where left foor braking map is applied", {"minDis":0, "maxDis":80, "subCategory":"Active Map 4.L.foot Brake"}],
-		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
-		["$preload_C", "range", "Nm", "Differentials", 90, 0, 210, "Active Preload Torque", "The max preload torque can be provided by the active system additional to input torque readout", {"minDis":0, "maxDis":210, "stepDis":6, "subCategory":"Active Map 1.Master"}],
+		["$hbRelease", "range", "", "Differentials", 0.65, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Active Map 1.Master"}],
+		["$preload_C", "range", "Nm", "Differentials", 120, 0, 240, "Active Preload Torque", "The max preload torque can be provided by the active system additional to input torque readout", {"minDis":0, "maxDis":240, "stepDis":6, "subCategory":"Active Map 1.Master"}],
 		["$coastStart", "range", "", "Differentials", 0.05, 0, 0.15, "Coast Map Threshold", "Max throttle or brake input percentage where coast map is still applied", {"minDis":0, "maxDis":15, "stepDis":1, "subCategory":"Active Map 1.Master"}],
 	],
 	"controller": [ 
@@ -190,7 +190,7 @@
 		["$torquesplit", "range", "", "Differentials", 0.50, 0.3, 0.7, "Torque Split", "Rear power bias",{"subCategory": "Center", "stepDis": 3, "minDis":30,"maxDis":70}]
 		["$lsdpreload_C", "range", "Nm", "Differentials", 25, 0, 100, "Preload Adjuster", "Initial locking torque between axles", {"stepDis":5, "subCategory":"Center"}],
 		["$frictionFace_C", "range", "Faces", "Differentials", 6, 4, 6, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":12, "stepDis":2, "subCategory":"Center"}]
-		["$hbRelease", "range", "", "Differentials", 0.5, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+		["$hbRelease", "range", "", "Differentials", 0.65, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [ 
         ["fileName"],
@@ -272,13 +272,22 @@
 		"value":2500
 	},
 	"slotType" : "Astral_transfercase",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$hbRelease", "range", "", "Differentials", 0.65, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+	],
 	"controller": [
         ["fileName"],
-        ["drivingDynamics/actuators/electronicSplitShaftLock" {"name": "electronicSplitShaftLock", "splitShaftName":"transferCase", "minimumLock":1, "applyMinimumLockOnlyWithThrottle": false}]
+        ["eCenterDiff", {"name":"activeCenterDiff"}],
     ],
+	"activeCenterDiff":{
+		"type":"PEAL",
+		"transfercaseName":"transferCase",
+		"hbRelease":"$hbRelease"
+	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":2590, "friction":0.25, "dynamicFriction":0.0003, "torqueLossCoef": 0.01, "uiName":"AWD Transfer Case","defaultVirtualInertia":0.1}],
+		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":2590, "lockDampRatio":0.25, "friction":0.25, "dynamicFriction":0.0003, "torqueLossCoef": 0.01, "uiName":"Transfer Case","defaultVirtualInertia":0.1}],
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
