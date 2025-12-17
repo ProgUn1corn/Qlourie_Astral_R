@@ -48,6 +48,8 @@ local function updateFixedStep(dt)
   clutch = electrics.values['clutch'] or 0 
 
   if transferType == "Active" then 
+    transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
+
     local throttle = 0
     local brake = 0
     local steer = 0
@@ -177,6 +179,7 @@ local function updateFixedStep(dt)
     --print(newPreload)
     
     if handbrake >= hbrelease then 
+      transfercase.speedLimitCoef = 0
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
       transfercase.diffTorqueSplitA = 0
@@ -189,15 +192,18 @@ local function updateFixedStep(dt)
       transfercase.diffTorqueSplitB = 1 - rearBias
       transfercase.lsdPreload = newPreload
     end
+    
   elseif transferType == "Passive" then
-    --print(electrics.values.clutchRatio)
+    transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
+
     if handbrake >= hbrelease then 
+      transfercase.speedLimitCoef = 0
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
-      transfercase.diffTorqueSplitA = 0
-      transfercase.diffTorqueSplitB = 1
+      transfercase.diffTorqueSplitA = rearBias
+      transfercase.diffTorqueSplitB = 1 - rearBias
       transfercase.lsdPreload = 0
-      electrics.values.clutchRatio = 0
+      --electrics.values.clutchRatio = 0
     else
       transfercase.lsdLockCoef = maxLockCoef
       transfercase.lsdRevLockCoef = minLockCoef
@@ -205,8 +211,15 @@ local function updateFixedStep(dt)
       transfercase.diffTorqueSplitB = 1 - rearBias
       transfercase.lsdPreload = preload
     end
+
+  elseif transferType == "PEAL" then
+    if handbrake >= hbrelease then 
+      transfercase.clutchRatio = 0
+    else
+      transfercase.clutchRatio = 1
+    end
   end
-  --print(transfercase.lsdPreload)
+  --print(transfercase.speedLimitCoef)
   --print(transfercase.lsdLockCoef)
 end
 
@@ -216,20 +229,20 @@ local function init(jbeamData)
   
   --get tuning data for active
   if transfercase and transferType == "Active" then 
-    minLockCoef = jbeamData.lockMap.minLock or 0
-    steerRatio = jbeamData.lockMap.steerRatio or 0
+    minLockCoef = jbeamData.lockMap.minLock or 0.1
+    steerRatio = jbeamData.lockMap.steerRatio or 1
     speedMap = jbeamData.lockMap.speedMap or 0
-    throttleRatio = jbeamData.lockMap.lockThrottle or 0 
-    throttleStart = jbeamData.lockMap.lockThrottleStart or 0 
-    brakeRatio = jbeamData.lockMap.lockBrake or 0
-    brakeStart = jbeamData.lockMap.lockBrakeStart or 0
-    lbLockCoef = jbeamData.lockMap.leftLock or 0
-    lbThreshold = jbeamData.lockMap.leftThreshold or 0
-    coastStart = jbeamData.lockMap.coastStart or 0
-    rearBias = jbeamData.lockMap.rearBias or 0
-    hbrelease = jbeamData.lockMap.hbRelease or 0
+    throttleRatio = jbeamData.lockMap.lockThrottle or 0.8 
+    throttleStart = jbeamData.lockMap.lockThrottleStart or 0.25 
+    brakeRatio = jbeamData.lockMap.lockBrake or 0.8
+    brakeStart = jbeamData.lockMap.lockBrakeStart or 0.25
+    lbLockCoef = jbeamData.lockMap.leftLock or 0.8
+    lbThreshold = jbeamData.lockMap.leftThreshold or 0.25
+    coastStart = jbeamData.lockMap.coastStart or 0.05
+    rearBias = jbeamData.lockMap.rearBias or 0.5
+    hbrelease = jbeamData.lockMap.hbRelease or 0.65
     preload = jbeamData.lockMap.preload or 0
-    finalDrive = jbeamData.lockMap.finalDrive or 0
+    finalDrive = jbeamData.lockMap.finalDrive or 4
     if throttleRatio ~= 0 and throttleRatio - throttleStart <= 0 then
       print("Throttle start point is higher than throttle threshold! Locking center diff...")
     end
@@ -237,15 +250,19 @@ local function init(jbeamData)
       print("Brake start point is higher than brake threshold! Locking center diff...")
     end
   end
-  
 
   --get tuning data for passive
   if transfercase and transferType == "Passive" then 
-    maxLockCoef = jbeamData.lockMap.lock or 0
-    minLockCoef = jbeamData.lockMap.revLock or 0
+    maxLockCoef = jbeamData.lockMap.lock or 0.25
+    minLockCoef = jbeamData.lockMap.revLock or 0.25
     preload = jbeamData.lockMap.preload or 0
-    rearBias = jbeamData.lockMap.rearBias or 0
-    hbrelease = jbeamData.lockMap.hbRelease or 0
+    rearBias = jbeamData.lockMap.rearBias or 0.5
+    hbrelease = jbeamData.lockMap.hbRelease or 0.65
+  end
+
+  --get tuning data for PEAL
+  if transfercase and transferType == "PEAL" then 
+    hbrelease = jbeamData.hbRelease or 0.65
   end
 end
 
