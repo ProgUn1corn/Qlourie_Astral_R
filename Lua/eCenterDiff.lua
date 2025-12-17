@@ -200,8 +200,8 @@ local function updateFixedStep(dt)
       transfercase.speedLimitCoef = 0
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
-      transfercase.diffTorqueSplitA = rearBias
-      transfercase.diffTorqueSplitB = 1 - rearBias
+      transfercase.diffTorqueSplitA = 0
+      transfercase.diffTorqueSplitB = 1
       transfercase.lsdPreload = 0
       --electrics.values.clutchRatio = 0
     else
