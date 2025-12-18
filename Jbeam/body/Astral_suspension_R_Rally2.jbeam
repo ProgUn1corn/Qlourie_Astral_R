@@ -192,7 +192,7 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":0.5,
+            "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
             "maxStress":150
@@ -208,7 +208,7 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":0.5,
+            "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
             "maxStress":150
@@ -356,7 +356,7 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 18000, 14500, 18500, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
+        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 16000, 13000, 17000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.040, 0.036, 0.048, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":36,"maxDis":48,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.015, 0.006, 0.039, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 182mm
@@ -564,7 +564,7 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":0.5,
+            "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
             "maxStress":150
@@ -611,7 +611,7 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":0.5,
+            "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
             "maxStress":150
@@ -693,6 +693,10 @@
         "value":3200,
     },
     "slotType" : "Astral_shim_R_Rally2_tarmac",
+    "slots" : [
+        ["type", "default", "description"],
+        ["Astral_LRS_R","Astral_LRS_R_Rally2_no", "LRS Valve Blocker", {"coreSlot":true}],
+    ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 3900, 2900, 4900, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3-Way"}],
@@ -702,7 +706,7 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false}],
+        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_R"}],
     ],
     "RearLRS": {
         "LRSp":0.135 //LRS starting point
@@ -730,6 +734,10 @@
         "value":3200,
     },
     "slotType" : "Astral_shim_R_Rally2_tarmac",
+    "slots" : [
+        ["type", "default", "description"],
+        ["Astral_LRS_R","Astral_LRS_R_Rally2_no", "LRS Valve Blocker", {"coreSlot":true}],
+    ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 4400, 3400, 5400, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3-Way"}],
@@ -739,7 +747,7 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false}],
+        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_R"}],
     ],
     "RearLRS": {
         "LRSp":0.135 //LRS starting point
@@ -767,6 +775,10 @@
         "value":3200,
     },
     "slotType" : "Astral_shim_R_Rally2_gravel",
+    "slots" : [
+        ["type", "default", "description"],
+        ["Astral_LRS_R","Astral_LRS_R_Rally2_no", "LRS Valve Blocker", {"coreSlot":true}],
+    ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 2310, 1310, 3310, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
@@ -776,7 +788,7 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false}],
+        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_R"}],
     ],
     "RearLRS": {
         "LRSp":0.2285 //LRS starting point
@@ -804,6 +816,10 @@
         "value":3200,
     },
     "slotType" : "Astral_shim_R_Rally2_gravel",
+    "slots" : [
+        ["type", "default", "description"],
+        ["Astral_LRS_R","Astral_LRS_R_Rally2_no", "LRS Valve Blocker", {"coreSlot":true}],
+    ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 2650, 1650, 3650, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
@@ -813,7 +829,7 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false}],
+        ["LRS", {"name":"RearLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_R"}],
     ],
     "RearLRS": {
         "LRSp":0.2285 //LRS starting point
@@ -833,5 +849,31 @@
             ["$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.68", "$=$dampRate_rebound_R*0.68", "$=clamp($dampVelocity_R+($dampRate_bump_R_fast-2300)/16000-($dampRate_bump_R-1650)/20000,0,99)", 1] //LRS active
         ]
     },
+},
+"Astral_LRS_R_Rally2_no": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"No",
+        "value":3200,
+    },
+    "slotType" : "Astral_LRS_R",
+    "components": {
+    	"dampers":{
+        	"Blocker_R":"false"
+    	},
+	}
+},
+"Astral_LRS_R_Rally2_yes": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Yes",
+        "value":3200,
+    },
+    "slotType" : "Astral_LRS_R",
+    "components": {
+    	"dampers":{
+        	"Blocker_R":"true"
+    	},
+	}
 },
 }
