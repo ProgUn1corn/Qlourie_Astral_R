@@ -15,11 +15,11 @@ local fLoads = {}
 local rLoads = {}
 local fDampers = {}
 local rDampers = {}
-local LRS = false
-local DSV = false
-local LRSp = 0
-local LRSc = 0
-local DSVp = 0
+local LRS
+local DSV
+local LRSp
+local LRSc
+local DSVp
 
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
@@ -231,12 +231,13 @@ local function init(jbeamData)
   end
 
   --LRS and DSV active
-  if jbeamData.LRS ~= nil then 
+  if jbeamData.LRS then 
     LRS = jbeamData.LRS
   else
     LRS = false
   end
-  if jbeamData.DSV ~= nil then 
+
+  if jbeamData.DSV then 
     DSV = jbeamData.DSV
   else
     DSV = false
@@ -245,7 +246,6 @@ local function init(jbeamData)
   --get active point
   LRSp = jbeamData.LRSp or 0
   DSVp = jbeamData.DSVp or 0
-  
 
   --printTable(fDampers)
   --printTable(fLoads)
