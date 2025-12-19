@@ -197,13 +197,12 @@ local function updateFixedStep(dt)
     transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
 
     if handbrake >= hbrelease then 
-      transfercase.speedLimitCoef = 0
       transfercase.lsdLockCoef = 0
       transfercase.lsdRevLockCoef = 0
       transfercase.diffTorqueSplitA = 0
       transfercase.diffTorqueSplitB = 1
       transfercase.lsdPreload = 0
-      --electrics.values.clutchRatio = 0
+      electrics.values.clutchRatio = 0
     else
       transfercase.lsdLockCoef = maxLockCoef
       transfercase.lsdRevLockCoef = minLockCoef
