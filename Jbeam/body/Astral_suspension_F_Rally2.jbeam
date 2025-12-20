@@ -714,24 +714,27 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_F"}],
+        ["LRS2", {"name":"FrontLRS"}],
     ],
     "FrontLRS": {
-        "LRSp":0.111 //LRS starting point
-        "fLoads": [
-            ["name", "beamName"]
-            ["FR", "LRS_FR"]
-            ["FL", "LRS_FL"]
+        "loads": [
+            ["name", "beamName", "LRSp"]
+            ["FR",   "LRS_FR",   0.1135]
+            ["FL",   "LRS_FL",   0.1135]
         ],
-        "fDampers": [
+        "dampers": [
             ["name", "beamName"]
-            ["FR", "damper_FR"]
-            ["FL", "damper_FL"]
+            ["FR",   "damper_FR"]
+            ["FL",   "damper_FL"]
         ],
-        "fDamping":[
-            ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.9", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-2900)/20000,0,99)", 0.66]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.418", "$=$dampRate_rebound_F*0.418", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-2900)/20000,0,99)", 1] //LRS active
+        "damping":[
+            ["active", "name", "beamDamp",               "beamDampFast",            "beamDampRebound",              "beamDampReboundFast",          "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
+            //normal
+            ["0",      "FR",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*0.95",   "$=$dampVelocity_F+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-2900)/20000", 0.66                          ]
+            ["0",      "FL",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*0.95",   "$=$dampVelocity_F+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-2900)/20000", 0.66                          ]
+            //LRS
+            ["1",      "FR",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.438",  "$=$dampRate_rebound_F*0.438",  "$=$dampVelocity_F+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-2900)/20000", 1                             ]
+            ["1",      "FL",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.438",  "$=$dampRate_rebound_F*0.438",  "$=$dampVelocity_F+($dampRate_bump_F_fast-3200)/32000-($dampRate_bump_F-2900)/20000", 1                             ]
         ]
     },
 },
@@ -753,26 +756,25 @@
         ["$dampRate_rebound_F", "range", "Clicks", "Suspension - Dampers and Springs", 5280, 4080, 6480, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper - 3-Way"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension - Dampers and Springs", 0.26, 0.11, 0.41, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.05,"subCategory":"Front Damper Auxiliary"}],
     ],
-    "controller": [ 
-        ["fileName"],
-        ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_F"}],
-    ],
     "FrontLRS": {
-        "LRSp":0.111 //LRS starting point
-        "fLoads": [
-            ["name", "beamName"]
-            ["FR", "LRS_FR"]
-            ["FL", "LRS_FL"]
+        "loads": [
+            ["name", "beamName", "LRSp"]
+            ["FR",   "LRS_FR",   0.1135]
+            ["FL",   "LRS_FL",   0.1135]
         ],
-        "fDampers": [
+        "dampers": [
             ["name", "beamName"]
-            ["FR", "damper_FR"]
-            ["FL", "damper_FL"]
+            ["FR",   "damper_FR"]
+            ["FL",   "damper_FL"]
         ],
-        "fDamping":[
-            ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.8", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3400)/20000,0,99)", 0.55]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.418", "$=$dampRate_rebound_F*0.418", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3400)/20000,0,99)", 1] //LRS active
+        "damping":[
+            ["active", "name", "beamDamp",               "beamDampFast",            "beamDampRebound",              "beamDampReboundFast",          "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
+            //normal
+            ["0",      "FR",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*0.95",   "$=$dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3400)/20000", 0.50                          ]
+            ["0",      "FL",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*0.95",   "$=$dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3400)/20000", 0.50                          ]
+            //LRS
+            ["1",      "FR",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.438",  "$=$dampRate_rebound_F*0.438",  "$=$dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3400)/20000", 1                             ]
+            ["1",      "FL",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.438",  "$=$dampRate_rebound_F*0.438",  "$=$dampVelocity_F+($dampRate_bump_F_fast-2000)/32000-($dampRate_bump_F-3400)/20000", 1                             ]
         ]
     },
 },
@@ -796,24 +798,27 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_F"}],
+        ["LRS2", {"name":"FrontLRS"}],
     ],
     "FrontLRS": {
-        "LRSp":0.2195 //LRS starting point
-        "fLoads": [
-            ["name", "beamName"]
-            ["FR", "LRS_FR"]
-            ["FL", "LRS_FL"]
+        "loads": [
+            ["name", "beamName", "LRSp"]
+            ["FR",   "LRS_FR",   0.220]
+            ["FL",   "LRS_FL",   0.220]
         ],
-        "fDampers": [
+        "dampers": [
             ["name", "beamName"]
-            ["FR", "damper_FR"]
-            ["FL", "damper_FL"]
+            ["FR",   "damper_FR"]
+            ["FL",   "damper_FL"]
         ],
-        "fDamping":[
-            ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.25", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-4800)/16000-($dampRate_bump_F-1310)/20000,0,99)", 1.25]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.69", "$=$dampRate_rebound_F*0.69", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-4800)/16000-($dampRate_bump_F-1310)/20000,0,99)", 1] //LRS active
+        "damping":[
+            ["active", "name", "beamDamp",               "beamDampFast",            "beamDampRebound",              "beamDampReboundFast",          "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
+            //normal
+            ["0",      "FR",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*1.25",   "$=$dampVelocity_F+($dampRate_bump_F_fast-4800)/16000-($dampRate_bump_F-1310)/10000", 1.25                          ]
+            ["0",      "FL",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*1.25",   "$=$dampVelocity_F+($dampRate_bump_F_fast-4800)/16000-($dampRate_bump_F-1310)/10000", 1.25                          ]
+            //LRS
+            ["1",      "FR",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.72",   "$=$dampRate_rebound_F*0.72",   "$=$dampVelocity_F+($dampRate_bump_F_fast-4800)/16000-($dampRate_bump_F-1310)/10000", 1                             ]
+            ["1",      "FL",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.72",   "$=$dampRate_rebound_F*0.72",   "$=$dampVelocity_F+($dampRate_bump_F_fast-4800)/16000-($dampRate_bump_F-1310)/10000", 1                             ]
         ]
     },
 },
@@ -837,24 +842,27 @@
     ],
     "controller": [ 
         ["fileName"],
-        ["LRS", {"name":"FrontLRS", "LRS":true, "DSV":false, "Blocker":"$=$components.dampers.Blocker_F"}],
+        ["LRS2", {"name":"FrontLRS"}],
     ],
     "FrontLRS": {
-        "LRSp":0.2195 //LRS starting point
-        "fLoads": [
-            ["name", "beamName"]
-            ["FR", "LRS_FR"]
-            ["FL", "LRS_FL"]
+        "loads": [
+            ["name", "beamName", "LRSp"]
+            ["FR",   "LRS_FR",   0.220]
+            ["FL",   "LRS_FL",   0.220]
         ],
-        "fDampers": [
+        "dampers": [
             ["name", "beamName"]
-            ["FR", "damper_FR"]
-            ["FL", "damper_FL"]
+            ["FR",   "damper_FR"]
+            ["FL",   "damper_FL"]
         ],
-        "fDamping":[
-            ["beamDamp", "beamDampFast", "beamDampRebound", "beamDampReboundFast", "beamDampVelocitySplit", "beamDampVelocitySplitRebound"]
-            ["$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.25", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3300)/16000-($dampRate_bump_F-1650)/20000,0,99)", 1.05]  //normal damping
-            ["$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.69", "$=$dampRate_rebound_F*0.69", "$=clamp($dampVelocity_F+($dampRate_bump_F_fast-3300)/16000-($dampRate_bump_F-1650)/20000,0,99)", 1] //LRS active
+        "damping":[
+            ["active", "name", "beamDamp",               "beamDampFast",            "beamDampRebound",              "beamDampReboundFast",          "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
+            //normal
+            ["0",      "FR",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*1.25",   "$=$dampVelocity_F+($dampRate_bump_F_fast-3300)/16000-($dampRate_bump_F-1650)/10000", 1.05                          ]
+            ["0",      "FL",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*1.25",   "$=$dampVelocity_F+($dampRate_bump_F_fast-3300)/16000-($dampRate_bump_F-1650)/10000", 1.05                          ]
+            //LRS
+            ["1",      "FR",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.72",   "$=$dampRate_rebound_F*0.72",   "$=$dampVelocity_F+($dampRate_bump_F_fast-3300)/16000-($dampRate_bump_F-1650)/10000", 1                             ]
+            ["1",      "FL",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.72",   "$=$dampRate_rebound_F*0.72",   "$=$dampVelocity_F+($dampRate_bump_F_fast-3300)/16000-($dampRate_bump_F-1650)/10000", 1                             ]
         ]
     },
 },
@@ -867,7 +875,7 @@
     "slotType" : "Astral_LRS_F",
     "components": {
     	"dampers":{
-        	"Blocker_F":"false"
+        	"Blocker_F":"true"
     	},
 	}
 },
@@ -880,7 +888,7 @@
     "slotType" : "Astral_LRS_F",
     "components": {
     	"dampers":{
-        	"Blocker_F":"true"
+        	"Blocker_F":"false"
     	},
 	}
 },
