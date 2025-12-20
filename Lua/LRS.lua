@@ -1,6 +1,14 @@
 -- This Source Code Form is subject to the terms of the bCDDL, v. 1.1.
 -- If a copy of the bCDDL was not distributed with this
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
+
+--THIS LUA IS OBSOLETED--
+--THIS LUA IS OBSOLETED--
+--THIS LUA IS OBSOLETED--
+--THIS LUA IS OBSOLETED--
+--THIS LUA IS OBSOLETED--
+
+
 local M = {}
 M.type = "auxilliary"
 
@@ -8,18 +16,23 @@ local abs = math.abs
 local min = math.min
 local max = math.max
 
---local gMass = {}
+--front
 local fDamping = {}
-local rDamping = {}
 local fLoads = {}
-local rLoads = {}
 local fDampers = {}
+local LRS_F
+local DSV_F
+local LRSp_F
+local DSVp_F
+
+--rear
+local rDamping = {}
+local rLoads = {}
 local rDampers = {}
-local LRS
-local DSV
-local LRSp
-local LRSc
-local DSVp
+local LRS_R
+local DSV_R
+local LRSp_R
+local DSVp_R
 
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
@@ -43,12 +56,12 @@ local function update(dt)
   for i, spring in ipairs(fLoads) do
     local springLoad = obj:getBeamLength(spring.bCid) or 0 --get suspension load
     
-    if springLoad >= LRSp then 
+    if springLoad >= LRSp_F then 
       spring.activeFlagLRS = true
     else
       spring.activeFlagLRS = false
     end
-    if springLoad <= DSVp then 
+    if springLoad <= DSVp_F then 
       spring.activeFlagDSV = true
     else
       spring.activeFlagDSV = false
@@ -58,7 +71,7 @@ local function update(dt)
     --print(fLoads[2].activeFlagLRS)
 
     for i, damper in ipairs(fDampers) do
-      if LRS == true then --active LRS
+      if LRS_F == true then --active LRS
         if fLoads[i].activeFlagLRS == true then 
           damper.newLSRebound = fDamping[2].beamDampRebound
           damper.newHSRebound = damper.newLSRebound
@@ -71,7 +84,7 @@ local function update(dt)
         damper.newHSRebound = damper.orgHSRebound   
       end
 
-      if DSV == true then --active DSV
+      if DSV_F == true then --active DSV
         if fLoads[i].activeFlagDSV == true then
           damper.newLSBump = fDamping[2].beamDamp
           damper.newHSBump = fDamping[2].beamDampFast
@@ -96,12 +109,12 @@ local function update(dt)
   for i, spring in ipairs(rLoads) do
     local springLoad = obj:getBeamLength(spring.bCid) or 0 --get suspension load
     
-    if springLoad >= LRSp then 
+    if springLoad >= LRSp_R then 
       spring.activeFlagLRS = true
     else
       spring.activeFlagLRS = false
     end
-    if springLoad <= DSVp  then 
+    if springLoad <= DSVp_R  then 
       spring.activeFlagDSV = true
     else
       spring.activeFlagDSV = false
@@ -111,7 +124,7 @@ local function update(dt)
     --print(rLoads[2].activeFlagLRS)
 
     for i, damper in ipairs(rDampers) do
-      if LRS == true then --active LRS
+      if LRS_R == true then --active LRS
         if rLoads[i].activeFlagLRS == true then 
           --damper.newLSRebound = rDamping[2].beamDampRebound
           damper.newLSRebound = rDamping[2].beamDampRebound
@@ -126,7 +139,7 @@ local function update(dt)
         damper.newHSRebound = damper.orgHSRebound   
       end
 
-      if DSV == true then --active DSV
+      if DSV_R == true then --active DSV
         if rLoads[i].activeFlagDSV == true then
           damper.newLSBump = rDamping[2].beamDamp
           damper.newHSBump = rDamping[2].beamDampFast
@@ -163,13 +176,17 @@ local function init(jbeamData)
   --call out damping values in Jbeam
   fDamping = tableFromHeaderTable(jbeamData.fDamping or {}) 
   rDamping = tableFromHeaderTable(jbeamData.rDamping or {})
-  
-  fLoads = {}
-  rLoads = {}
-  fDampers = {}
-  rDampers = {}
+  LRS_F = jbeamData.LRS_F
+  DSV_F = jbeamData.DSV_F
+  LRSp_F = jbeamData.LRSp_F or 0
+  DSVp_F = jbeamData.DSVp_F or 0
+  LRS_R = jbeamData.LRS_R
+  DSV_R = jbeamData.DSV_R
+  LRSp_R = jbeamData.LRSp_R or 0
+  DSVp_R = jbeamData.DSVp_R or 0
+  print(LRSp_F)
 
-  --front and rear separate process
+  --front
   local fSpring = tableFromHeaderTable(jbeamData.fLoads or {}) --call out spring load in Jbeam
   for _, loads in pairs(fSpring) do
     local bCid = beamNameTable[loads.beamName]
@@ -180,18 +197,6 @@ local function init(jbeamData)
       activeFlagDSV = false,
     }
     table.insert(fLoads, fl)
-  end
-
-  local rSpring = tableFromHeaderTable(jbeamData.rLoads or {})
-  for _, loads in pairs(rSpring) do
-    local bCid = beamNameTable[loads.beamName]
-    local rl = {
-      name = loads.name,
-      bCid = bCid,
-      activeFlagLRS = false,
-      activeFlagDSV = false,
-    }
-    table.insert(rLoads, rl)
   end
   
   local fLRS = tableFromHeaderTable(jbeamData.fDampers or {}) --call out damper in Jbeam
@@ -212,6 +217,19 @@ local function init(jbeamData)
     table.insert(fDampers, fd)
   end
 
+  --front
+  local rSpring = tableFromHeaderTable(jbeamData.rLoads or {})
+  for _, loads in pairs(rSpring) do
+    local bCid = beamNameTable[loads.beamName]
+    local rl = {
+      name = loads.name,
+      bCid = bCid,
+      activeFlagLRS = false,
+      activeFlagDSV = false,
+    }
+    table.insert(rLoads, rl)
+  end
+  
   local rLRS = tableFromHeaderTable(jbeamData.rDampers or {})
   for _, damper in pairs(rLRS) do
     local bCid = beamNameTable[damper.beamName]
@@ -229,30 +247,8 @@ local function init(jbeamData)
     }
     table.insert(rDampers, rd)
   end
-
-  --LRS and DSV active
-  if jbeamData.LRS then 
-    LRS = jbeamData.LRS
-  else
-    LRS = false
-  end
-
-  if jbeamData.DSV then 
-    DSV = jbeamData.DSV
-  else
-    DSV = false
-  end
-
-  --get active point
-  LRSp = jbeamData.LRSp or 0
-  DSVp = jbeamData.DSVp or 0
-
-  --printTable(fDampers)
-  --printTable(fLoads)
-  printTable(fDamping)
   
-  --printTable(rDampers)
-  --printTable(rLoads)
+  printTable(fDamping)
   printTable(rDamping)
 end
 
