@@ -266,6 +266,25 @@
     	},
 	}
 },
+"Astral_ramp_C_d": {
+	"information":{
+		"name":"Adjustable Debug Ramp",
+		"value":1000
+		"isAuxiliary":true
+	},
+	"slotType" : "Astral_ramp_C",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$powerRamp_C", "range", "Degrees", "Differentials", 54, 25, 90, "Coast Ramp Angle", "Adjust power side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Center"}]
+		["$coastRamp_C", "range", "Degrees", "Differentials", 25, 25, 90, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Center"}]
+	],
+	"components": {
+    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+        	"flock":"$=(1/tan($powerRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
+			"frevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
+    	},
+	}
+},
 "Astral_differential_center_locked": {
 	"information":{
 		"name":"Locking AWD Transfer Case ",
@@ -311,55 +330,6 @@
 		//--Transfer Case--
 		{"breakGroup":""}
 		{"beamSpring":4501000,"beamDamp":650},
-        {"beamDeform":35000,"beamStrength":"FLT_MAX"},
-		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
-		["tra","eg0"],
-		["tra","eg1"],
-		["tra","eg2"],
-		["tra","eg3"],
-		["tra","eg6"],
-		["tra","eg7"],
-		["tra","ftral"],
-		["tra","ftrar"],
-		{"deformGroup":"", "deformationTriggerRatio":0},
-		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-		{"beamLimitSpring":false,"beamLimitDamp":false},
-		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-	],
-},
-"Astral_differential_center_d": {
-	"information":{
-		"name":"Debug Open LSD",
-		"value":2500
-		"isAuxiliary":true
-	},
-	"slotType" : "Astral_transfercase",
-	"powertrain" : [
-		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"open", "friction":0.45, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
-	],
-	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_shaft", ["Astral_transfercase"]],
-    ],
-	"nodes": [       
-		["id", "posX", "posY", "posZ"],
-		{"frictionCoef":0.5},
-		{"nodeMaterial":"|NM_METAL"},
-		{"collision":true},
-		{"selfCollision":true},
-		{"nodeWeight":14},
-		//--Transfer Case--
-		{"group":["Astral_transfercase"]},
-		["tra", 0.022, -1.058, 0.2],
-	],
-	"beams": [
-		["id1:", "id2:"],
-		{"deformLimitExpansion":1.2},
-		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Transfer Case--
-		{"breakGroup":""}
-		{"beamSpring":3501000,"beamDamp":350},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","eg0"],

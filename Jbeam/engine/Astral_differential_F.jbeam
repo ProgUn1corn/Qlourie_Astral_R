@@ -77,31 +77,24 @@
     	},
 	}
 },
-"Astral_differential_F_d": {
+"Astral_ramp_F_d": {
 	"information":{
-		"name":"Debug Open LSD",
-		"value":1500
+		"name":"Adjustable Debug Ramp",
+		"value":1000
 		"isAuxiliary":true
 	},
-	"slotType" : "Astral_differential_F",
-	"slots": [
-		["type", "default", "description"],
-		["Astral_halfshafts_F","Astral_halfshafts_F","Front Halfshafts"],
-		["Astral_finaldrive_F","Astral_finaldrive_F_4.43","Front Final Drive", {"coreSlot":true}]
+	"slotType" : "Astral_ramp_F",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$powerRamp_F", "range", "Degrees", "Differentials", 50, 30, 65, "Coast Ramp Angle", "Adjust power side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Front"}]
+		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 65, 90, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Front"}]
 	],
-	"powertrain" : [
-		["type", "name", "inputName", "inputIndex"],
-		["torsionReactor", "torsionReactorF", "transferCase", 2],
-		["differential", "frontDiff", "torsionReactorF", 1, {"deformGroups":["gearbox"], "diffType":"open", "uiName":"Front Differential", "defaultVirtualInertia":0.25}]
-	]
-	"frontDiff": {
-        "friction": 2.64,
-        "dynamicFriction": 0.000947,
-        "torqueLossCoef": 0.0186,
-    },
-    "torsionReactorF": {
-        "torqueReactionNodes:":["eg1","eg0","eg4"],
-    }
+	"components": {
+    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+        	"flock":"$=(1/tan($powerRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
+    	},
+	}
 },
 "Astral_halfshafts_F": {
 	"information":{
