@@ -625,5 +625,75 @@
         {"beamSpring":2001000,"beamDamp":50},
         ["rarb2l", "rarb2r"],
     ]
+},
+"Astral_swaybar_R_d": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Debug Stiffness",
+        "value":2000
+        "isAuxiliary":true
+    },
+    "slotType" : "Astral_swaybar_R",
+    "variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$arb_R", "range", "Unit", "Suspension - Subframes", 1423, 800, 6000, "ARB Stiffness", "LOW-1423, MEDIUM-2337, HIGH-3927", {"stepDis":1, "subCategory":"Rear Alignment"}]
+	],
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        //lever length ~0.154m
+        {"spring":"$arb_R", "damp":11.4, "deform":12000, "strength":"FLT_MAX"},
+        ["rarb1r", "rarb2r", "rarb2l", "rarb1l", {"name": "ARBRear"}]
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_ARB_R", ["Astral_arb_R"]]
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"collision":true},
+        {"selfCollision":false},
+        {"nodeMaterial":"|NM_METAL"},
+        //--ARB--
+        //arb
+        {"group":["Astral_arb_R"]},
+        {"nodeWeight":1.5},
+        ["rarb1r", -0.488, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb1l",  0.488, 1.321, 0.186, {"selfCollision":false, "group":["Astral_arb_R","Astral_arb2_R"]}],
+        ["rarb2r", -0.488, 1.455, 0.261],
+        ["rarb2l",  0.488, 1.455, 0.261],
+        {"group":[""]}
+    ], 
+    "beams": [
+        ["id1:", "id2:"],
+        //--Anti-Roll Bar--
+        //bar lever
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":1501000,"beamDamp":150},
+        {"beamDeform":18000,"beamStrength":312000},
+        ["rarb1r", "rarb3r"],
+        ["rarb1r", "rarb2l"],
+        ["rarb1r", "rarb2r"],
+        ["rarb2r", "a41"],
+        ["rarb2r", "a42"],
+        ["rarb2r", "a9"],
+        ["rarb2r", "rx3r"],
+        ["rarb2r", "chs1r"],
+        ["rarb2r", "chs2r"],
+        //*
+        ["rarb1l", "rarb3l"],
+        ["rarb1l", "rarb2r"],
+        ["rarb1l", "rarb2l"],
+        ["rarb2l", "a42"],
+        ["rarb2l", "a41"],
+        ["rarb2l", "a10"],
+        ["rarb2l", "rx3l"],
+        ["rarb2l", "chs1l"],
+        ["rarb2l", "chs2l"],
+        //bar stiffness
+        {"beamSpring":1001000,"beamDamp":150},
+        {"beamSpring":2001000,"beamDamp":50},
+        ["rarb2l", "rarb2r"],
+    ]
 }
 }
