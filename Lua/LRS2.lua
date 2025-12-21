@@ -147,7 +147,7 @@ local function init(jbeamData)
     print("YEEEEEEEEEEEEEEESSSSSSSSSSSSSSSS")
   end
   
-  printTable(dampersLookup)
+  --printTable(dampersLookup)
   --printTable(dampingGroups)
 end
 
