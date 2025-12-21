@@ -53,7 +53,7 @@ local function update(dt)
   for _, damper in ipairs(dampers) do
     local loadLength = obj:getBeamLength(damper.loadCid)
     --print(loadLength)
-    if loadLength >= damper.LRSp then
+    if loadLength >= damper.LRSp and damper.blocker ~=1 then
       applyLRS(damper, "active")
       --print("YEEEEEEEEEEEEEEEEESSSSSSSSSSSSS")
     else
@@ -82,7 +82,6 @@ local function init(jbeamData)
       local damper = {
         name = damperData.name,
         damperCid = cid,
-        activeFlag = false
       }
       table.insert(dampers, damper)
       dampersLookup[damper.name] = damper
@@ -103,6 +102,9 @@ local function init(jbeamData)
       end
       if loadData.DSVp then
         damper.DSVp = loadData.DSVp
+      end
+      if loadData.blocker then
+        damper.blocker = loadData.blocker
       end
     elseif not damper then
       log("E", "LRS", "No matching damper for load '"..tostring(loadData.name).."'")
@@ -145,8 +147,8 @@ local function init(jbeamData)
     print("YEEEEEEEEEEEEEEESSSSSSSSSSSSSSSS")
   end
   
-  --printTable(dampersLookup)
-  printTable(dampingGroups)
+  printTable(dampersLookup)
+  --printTable(dampingGroups)
 end
 
 

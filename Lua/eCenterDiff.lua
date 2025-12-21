@@ -186,7 +186,7 @@ local function updateFixedStep(dt)
       transfercase.diffTorqueSplitB = 1
       transfercase.lsdPreload = 0
     else
-      transfercase.lsdLockCoef = newLockCoef * 0.4986
+      transfercase.lsdLockCoef = newLockCoef * 0.486
       transfercase.lsdRevLockCoef = transfercase.lsdLockCoef 
       transfercase.diffTorqueSplitA = rearBias
       transfercase.diffTorqueSplitB = 1 - rearBias
