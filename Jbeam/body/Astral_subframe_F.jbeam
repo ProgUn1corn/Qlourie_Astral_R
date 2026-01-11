@@ -58,8 +58,8 @@
         ["fx3r", -0.338, -0.759, 0.115, {"selfCollision":false}],
         ["fx3l",  0.338, -0.759, 0.115, {"selfCollision":false}],
         {"nodeWeight":4.5},
-        ["fx4r", -0.365, -1.216, 0.325],
-        ["fx4l",  0.365, -1.216, 0.325],
+        ["fx4r", -0.365, -1.186, 0.325],
+        ["fx4l",  0.365, -1.186, 0.325],
         //steering box
         {"nodeWeight":6.5},
         {"group":["Astral_sub_F", "Astral_str_F"]},
@@ -209,7 +209,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper mount to hub
-        {"beamSpring":1001000,"beamDamp":450},
+        {"beamSpring":1251000,"beamDamp":250},
         {"beamDeform":125000,"beamStrength":285000},
         {"dampCutoffHz":1000},
         ["fs2l","fh1l"],
@@ -317,7 +317,6 @@
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
-        {"beamSpring":2001000,"beamDamp":150},
         //strut platform height (preload)
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.2}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":0.2}],
@@ -423,7 +422,7 @@
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
-        {"beamSpring":12001000,"beamDamp":550,"beamDeform":125000,"beamStrength":1525000},
+        {"beamSpring":12001000,"beamDamp":500,"beamDeform":125000,"beamStrength":1525000},
         ["st2r","st2l", {"dampCutoffHz":1000}],
         
         //--Limiter and Damper--
@@ -441,7 +440,7 @@
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":125000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":80},
+        {"beamSpring":0,"beamDamp":60},
         ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1050,"dampCutoffHz":500}],
         ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1050,"dampCutoffHz":500}],
         ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1050,"dampCutoffHz":500}],
@@ -467,7 +466,7 @@
     ],
     "input": {
         //modifier for force feedback to account for differences in vehicles
-        "FFBcoef":"$=10.2*$ffbTune"
+        "FFBcoef":"$=8.5*$ffbTune"
     }
 },
 "Astral_wheeldata_F": {
