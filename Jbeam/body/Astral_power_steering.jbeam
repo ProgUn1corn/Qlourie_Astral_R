@@ -8,13 +8,13 @@
     "slotType" : "Astral_power_steering",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$pwrStrHi", "range", "", "Suspension - Steering", 0, -0.1, 0.4, "HS Power Steering Offset", "The power steering strength at high speed", {"subCategory":"Power Steering", "minDis":-10,"maxDis":40}],
-        ["$pwrStrLo", "range", "", "Suspension - Steering", 0, -0.35, 0.15, "LS Power Steering Offset", "The power steering strength at low speed", {"subCategory":"Power Steering", "minDis":-35,"maxDis":15}],
+        ["$pwrStrHi", "range", "", "Suspension - Steering", 0, -0.1, 0.4, "HS Power Steering Offset", "The power steering strength at high speed", {"subCategory":"Power Steering", "minDis":-50,"maxDis":50}],
+        ["$pwrStrLo", "range", "", "Suspension - Steering", 0, -0.38, 0.12, "LS Power Steering Offset", "The power steering strength at low speed", {"subCategory":"Power Steering", "minDis":-50,"maxDis":50}],
         ["$pwrStrMul", "range", "", "Suspension - Steering", 1, 0.5, 1.5, "Hydraulic Pump Strength", "The constant power acrossing whole power steering system", {"subCategory":"Power Steering", "minDis":50,"maxDis":150}],
     ],
     "controller": [
         ["fileName"],
-        ["powerSteering", {"strengthFast":"$=0.9-$pwrStrHi", "strengthSlow": "$=0.15-$pwrStrLo", "speedSlow": 5, "speedFast": 38, "constantOffset":"$=-0.05*$pwrStrMul"}]
+        ["powerSteering", {"strengthFast":"$=0.9-$pwrStrHi", "strengthSlow": "$=0.12-$pwrStrLo", "speedSlow": 4, "speedFast": 38, "constantOffset":"$=-0.048*$pwrStrMul"}]
     ]
 }
 }
