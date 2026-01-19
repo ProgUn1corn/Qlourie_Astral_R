@@ -29,7 +29,7 @@
         ["$LRS_F", "range", "Clicks", "Suspension - Dampers and Springs", 0.45, 0.3, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.025, 0.035, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":35,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.015, 0.051, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 99mm
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.012, 0.003, 0.039, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":27,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 99mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -57,7 +57,7 @@
         
         //--Steering Rack--
         //steering rack ends
-        {"nodeWeight":5.5},
+        {"nodeWeight":6},
         {"group":["Astral_rod_F"]},
         ["st2r", -0.2495, -1.124, "$=0.128+$shimRack_F"],
         ["st2l",  0.2495, -1.124, "$=0.128+$shimRack_F"],
@@ -73,7 +73,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":9.5},
+        {"nodeWeight":9},
         ["fs1r", -0.581, -1.22, 0.815],
         ["fs1l",  0.581, -1.22, 0.815],
         //lower spring collar
@@ -152,10 +152,10 @@
 
         //--Control arm--
         //tie rods
-        {"beamSpring":17001000,"beamDamp":500},
+        {"beamSpring":19001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F","beamPrecompressionTime":0.2,"dampCutoffHz":500}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -389,7 +389,7 @@
         ["$LRS_F", "range", "Clicks", "Suspension - Dampers and Springs", 0.7, 0.3, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.039, 0.033, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":33,"maxDis":45,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.055, 0.036, 0.069, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 166mm
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.052, 0.033, 0.066, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 166mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -417,7 +417,7 @@
 
         //--Steering Rack--
         //steering rack ends
-        {"nodeWeight":5.5},
+        {"nodeWeight":6},
         {"group":["Astral_rod_F"]},
         ["st2r", -0.2715, -1.124, "$=0.128+$shimRack_F"],
         ["st2l",  0.2715, -1.124, "$=0.128+$shimRack_F"],
@@ -433,7 +433,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":9.5},
+        {"nodeWeight":9},
         ["fs1r", -0.581, -1.22, 0.815],
         ["fs1l",  0.581, -1.22, 0.815],
         //lower spring collar
@@ -512,10 +512,10 @@
 
         //--Control arm--
         //tie rods
-        {"beamSpring":16001000,"beamDamp":500},
+        {"beamSpring":19001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0005","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0005","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0008","beamPrecompressionTime":0.2,"dampCutoffHz":500}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0008","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
