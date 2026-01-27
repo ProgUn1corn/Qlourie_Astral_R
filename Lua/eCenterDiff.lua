@@ -85,7 +85,7 @@ local function updateFixedStep(dt)
     --print(xLockCoef)
 
     --speed map that only affects steering contribution
-    local speedFactor = clamp(1 - 0.9 * (clampSpeed / 140) * (speedMap / 2000), 0.1, 1)
+    local speedFactor = clamp(1 - 0.9 * (clampSpeed / 140) * (-speedMap / 2000), 0.1, 1)
     --print(speedFactor)
 
     --set different condition flags
