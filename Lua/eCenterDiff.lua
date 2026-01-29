@@ -35,6 +35,9 @@ local coastStart = 0
 --passive values
 local maxLockCoef = 0
 
+--PEAL values
+local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 8)
+
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
 end
@@ -48,8 +51,6 @@ local function updateFixedStep(dt)
   clutch = electrics.values['clutch'] or 0 
 
   if transferType == "Active" then 
-    transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
-
     local throttle = 0
     local brake = 0
     local steer = 0
@@ -169,8 +170,6 @@ local function updateFixedStep(dt)
       yLockCoef = minLockCoef
       preloadAdj = preload * minLockCoef  * (1 - xLockCoef)  / finalDrive
     end
-    --print(yLockCoef)
-    --print(preloadAdj)
 
     --sum up X and Y lock factors
     local newLockCoef = clamp(yLockCoef, minLockCoef, 1)
@@ -178,48 +177,39 @@ local function updateFixedStep(dt)
     --print(newLockCoef)
     --print(newPreload)
     
-    if handbrake >= hbrelease then 
-      transfercase.speedLimitCoef = 0
-      transfercase.lsdLockCoef = 0
-      transfercase.lsdRevLockCoef = 0
-      transfercase.diffTorqueSplitA = 0
-      transfercase.diffTorqueSplitB = 1
-      transfercase.lsdPreload = 0
-    else
-      transfercase.lsdLockCoef = newLockCoef * 0.486
-      transfercase.lsdRevLockCoef = transfercase.lsdLockCoef 
-      transfercase.diffTorqueSplitA = rearBias
-      transfercase.diffTorqueSplitB = 1 - rearBias
-      transfercase.lsdPreload = newPreload
-    end
+    transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
+    local clutchTarget = (handbrake >= hbrelease) and 0 or 1
+    local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
+    clutchRatio = clamp(clutchRatio, 0, 1)
     
+    transfercase.lsdLockCoef = newLockCoef * 0.486 * clutchRatio
+    transfercase.lsdRevLockCoef = transfercase.lsdLockCoef
+    transfercase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
+    transfercase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
+    transfercase.lsdPreload = newPreload * clutchRatio
+    --print(transfercase.lsdLockCoef)
+
   elseif transferType == "Passive" then
     transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
+    local clutchTarget = (handbrake >= hbrelease) and 0 or 1
+    local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
+    clutchRatio = clamp(clutchRatio, 0, 1)
 
-    if handbrake >= hbrelease then 
-      transfercase.lsdLockCoef = 0
-      transfercase.lsdRevLockCoef = 0
-      transfercase.diffTorqueSplitA = 0
-      transfercase.diffTorqueSplitB = 1
-      transfercase.lsdPreload = 0
-      electrics.values.clutchRatio = 0
-    else
-      transfercase.lsdLockCoef = maxLockCoef
-      transfercase.lsdRevLockCoef = minLockCoef
-      transfercase.diffTorqueSplitA = rearBias
-      transfercase.diffTorqueSplitB = 1 - rearBias
-      transfercase.lsdPreload = preload
-    end
+    transfercase.lsdLockCoef = maxLockCoef * clutchRatio
+    transfercase.lsdRevLockCoef = minLockCoef * clutchRatio
+    transfercase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
+    transfercase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
+    transfercase.lsdPreload = preload * clutchRatio
+    --print(transfercase.lsdLockCoef)
 
   elseif transferType == "PEAL" then
-    if handbrake >= hbrelease then 
-      transfercase.clutchRatio = 0
-    else
-      transfercase.clutchRatio = 1
-    end
+    local clutchTarget = (handbrake >= hbrelease) and 0 or 1 
+    local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
+    clutchRatio = clamp(clutchRatio, 0, 1)
+    transfercase.clutchRatio = clutchRatio
+    --print(transfercase.clutchRatio)
   end
-  --print(transfercase.speedLimitCoef)
-  --print(transfercase.lsdLockCoef)
+  
 end
 
 local function init(jbeamData)
