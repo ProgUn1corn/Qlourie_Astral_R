@@ -20,6 +20,7 @@ local hbrelease = 0
 local newPreload = 0
 local rearBias = 0
 local finalDrive = 0
+local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 8)
 
 --active values
 local steerRatio = 0
@@ -36,7 +37,6 @@ local coastStart = 0
 local maxLockCoef = 0
 
 --PEAL values
-local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 8)
 
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
