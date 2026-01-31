@@ -23,14 +23,19 @@ local finalDrive = 0
 local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 8)
 
 --active values
+local throttle = 0
+local brake = 0
+local steer = 0
+local speed = 0
 local steerRatio = 0
 local speedMap = 0
 local throttleRatio = 0
 local throttleStart = 0
 local brakeRatio = 0
 local brakeStart = 0
-local lbLockCoef = 0  --l.foot
-local lbThreshold = 0 --l.foot
+local lbThreshold = 0 --left foot
+local lbThrottleGain = 0 --left foot
+local lbBrakeGain = 0 --left foot
 local coastStart = 0
 
 --passive values
@@ -51,81 +56,54 @@ local function updateFixedStep(dt)
   clutch = electrics.values['clutch'] or 0 
 
   if transferType == "Active" then 
-    local throttle = 0
-    local brake = 0
-    local steer = 0
-    local speed = 0
     --get input value
     throttle = electrics.values['throttle_input'] or 0
     brake = electrics.values['brake_input'] or 0
     steer = electrics.values['steering_input'] or 0
-    speed = electrics.values.wheelspeed*3.6 or 0 --m/s to km/h
+    speed = electrics.values.wheelspeed * 3.6 or 0
+    
+    --steering contribution with countersteer control and speed map
+    local lockRange = 0
+    local xLockCoef = 0
+    local contributionSteer = 0
     local normalSteer = abs(steer) --make value 0 to 1
     local clampSpeed = clamp(speed, 0, 140) --make speed-steer factor only affect 0-140 km/h
-
-    local yLockCoef = 0
-    local xLockCoef = 0
-    local preloadAdj = 0
-    local lockRange = 0
-    local throttleNormalized = 0
-    local brakeNormalized = 0
-
-    --steering contribution with countersteer control
     local yaw = obj:getYawAngularVelocity() --left is positive
-    if yaw > 0.15 then 
+    
+    if yaw > 0.15 then --calculate steering contribution
       if steer * yaw < 0 then
-        xLockCoef = 0
+        contributionSteer = 0
       else
         lockRange = 1 - minLockCoef
-        xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1) --calculate steering contribution
+        contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1) 
       end
     else
       lockRange = 1 - minLockCoef
-      xLockCoef = clamp(lockRange * normalSteer * steerRatio, 0, 1)
+      contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1)
     end
-    --print(xLockCoef)
 
-    --speed map that only affects steering contribution
     local speedFactor = clamp(1 - 0.9 * (clampSpeed / 140) * (-speedMap / 2000), 0.1, 1)
+    xLockCoef = contributionSteer * speedFactor
+    --print(xLockCoef)
     --print(speedFactor)
 
-    --set different condition flags
-    local throttleFlag = 0
-    local brakeFlag = 0
-    local lbFlag = 0
-    local coastFlag = 0
+    --Brake and throttle contribution with left foot factor
+    local activeMap = "coast"
+    local yLockCoef = 0
+    local preloadAdj = 0
+    local throttleNormalized = 0
+    local brakeNormalized = 0
+
+    if throttle <= coastStart and brake <= coastStart then
+        activeMap = "coast"
+    elseif throttle > brake then
+        activeMap = "throttle"
+    else
+        activeMap = "brake"
+    end
+   --print(activeMap)
     
-    --select different map flags
-    if throttle >= coastStart and brake <= lbThreshold then --throttle
-      throttleFlag = true
-      brakeFlag = false
-      lbFlag = false
-      coastFlag = false
-    end
-    
-    if throttle <= coastStart and brake >= coastStart then --brake
-      throttleFlag = false
-      brakeFlag = true
-      lbFlag = false
-      coastFlag = false
-    end
-
-    if brake >= lbThreshold and throttle >= coastStart then --l.foot brake
-      throttleFlag = false
-      brakeFlag = false
-      lbFlag = true
-      coastFlag = false
-    end
-
-    if throttle <= coastStart and brake <= coastStart then --coast
-      throttleFlag = false
-      brakeFlag = false
-      lbFlag = false
-      coastFlag = true
-    end
-
-    --calculate throttle lock map using torsen (clutch-type)
-    if throttleFlag == true then
+    if activeMap == "throttle" then --calculate throttle lock map using torsen (clutch-type)
       if throttleRatio - throttleStart <= 0 then
         yLockCoef = 1
         preloadAdj = 0
@@ -133,13 +111,10 @@ local function updateFixedStep(dt)
         lockRange = 1 - minLockCoef
         throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
         local contributionThrottle = lockRange * throttleNormalized + minLockCoef
-        yLockCoef = clamp(contributionThrottle - xLockCoef * speedFactor, minLockCoef, 1)
+        yLockCoef = clamp(contributionThrottle - xLockCoef, minLockCoef, 1)
         preloadAdj = 0
       end
-    end
-    
-    --calculate brake lock map additionally added with preload
-    if brakeFlag == true then
+    elseif activeMap == "brake" then --calculate brake lock map additionally added with preload
       if brakeRatio - brakeStart <= 0 then
         yLockCoef = 1
         preloadAdj = preload * yLockCoef
@@ -148,35 +123,52 @@ local function updateFixedStep(dt)
         brakeNormalized = (brake - brakeStart) / (brakeRatio - brakeStart)
         local contributionBrake = lockRange * brakeNormalized + minLockCoef
         yLockCoef = clamp(contributionBrake - xLockCoef, minLockCoef, 1)
-        preloadAdj = preload * yLockCoef - xLockCoef * speedFactor
+        preloadAdj = preload * yLockCoef - xLockCoef
       end
-    end
-
-    --calculate left foot brake map
-    if lbFlag == true then
-      lockRange = lbLockCoef - minLockCoef
-      local contributionLfBrake = clamp(lockRange * abs(throttle-brake) + minLockCoef, minLockCoef, 1)
-      yLockCoef = clamp(contributionLfBrake - xLockCoef * speedFactor, 0, 1)
-      if brake >= 0.5 then
-        preloadAdj = preload * minLockCoef / (yLockCoef * 2 / lbLockCoef) - xLockCoef * speedFactor
-      else
-        preloadAdj = 0
-      end
-    end
-
-    --calculate coast map
-    if coastFlag == true then
+    elseif activeMap == "coast" then --apply coast map
       lockRange = 1 - minLockCoef
       yLockCoef = minLockCoef
       preloadAdj = preload * minLockCoef  * (1 - xLockCoef)  / finalDrive
     end
+
+    local lbMap = throttle > coastStart and brake > coastStart --left foot
+    local lbGain = 0
+    local yLockLbReduction = 0
+    local preloadLbReduction = 0
+    
+    if lbMap then 
+      local lbInput
+      if activeMap == "throttle" then
+        lbInput = brake
+        lbGain = lbBrakeGain
+      elseif activeMap == "brake" then
+        lbInput = throttle
+        lbGain = lbThrottleGain
+      elseif activeMap == "coast" then
+        lbInput = nil
+        lbGain = nil
+      end
+
+      if lbInput and lbGain then
+        local lbInputNorm = clamp((lbInput - lbThreshold) / (1 - lbThreshold), 0, 1) 
+        yLockLbReduction = lbInputNorm ^ 1.3 * lbGain * 0.4
+        preloadLbReduction = lbInputNorm ^ 0.8 * preloadAdj * lbGain
+      else
+        yLockLbReduction = 0
+        preloadLbReduction = 0
+      end
+      yLockCoef = yLockCoef - yLockLbReduction
+      preloadAdj = preloadAdj - preloadLbReduction
+    end
+    --print(yLockLbReduction)
+    --print(preloadLbReduction)
 
     --sum up X and Y lock factors
     local newLockCoef = clamp(yLockCoef, minLockCoef, 1)
     local newPreload = clamp(preloadAdj, 0, preload)
     --print(newLockCoef)
     --print(newPreload)
-    
+
     transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1
     local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
@@ -209,7 +201,6 @@ local function updateFixedStep(dt)
     transfercase.clutchRatio = clutchRatio
     --print(transfercase.clutchRatio)
   end
-  
 end
 
 local function init(jbeamData)
@@ -225,8 +216,9 @@ local function init(jbeamData)
     throttleStart = jbeamData.lockMap.lockThrottleStart or 0.25 
     brakeRatio = jbeamData.lockMap.lockBrake or 0.8
     brakeStart = jbeamData.lockMap.lockBrakeStart or 0.25
-    lbLockCoef = jbeamData.lockMap.leftLock or 0.8
-    lbThreshold = jbeamData.lockMap.leftThreshold or 0.25
+    lbThreshold = jbeamData.lockMap.leftThreshold or 0.10
+    lbThrottleGain = jbeamData.lockMap.leftThrottleGain or 1 
+    lbBrakeGain = jbeamData.lockMap.leftBrakeGain or 1 
     coastStart = jbeamData.lockMap.coastStart or 0.05
     rearBias = jbeamData.lockMap.rearBias or 0.5
     hbrelease = jbeamData.lockMap.hbRelease or 0.65
