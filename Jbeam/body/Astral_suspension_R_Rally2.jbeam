@@ -50,7 +50,7 @@
         ["rh3r", -0.736, 1.1795, "$=0.0178+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.736, 1.1795, "$=0.0178+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake calipers
-        {"nodeWeight":"$=3.25*$brakeThickness_R"},
+        {"nodeWeight":"$=3.5*$brakeThickness_R"},
         ["rh5r", -0.785, 1.11, 0.188, {"group":["Astral_hub_RR","Astral_duct_RR"]}],
         ["rh5l",  0.785, 1.11, 0.188, {"group":["Astral_hub_RL","Astral_duct_RL"]}],
         {"selfCollision":true},
@@ -85,7 +85,7 @@
         ["rmassr", -0.5528, 1.339, 0.699],
         ["rmassl",  0.5528, 1.339, 0.699],
         //damper end
-        {"nodeWeight":2},
+        {"nodeWeight":3},
         {"group":["Astral_damper_R"]},
         ["rs2r", -0.5677, 1.351, 0.17],
         ["rs2l",  0.5677, 1.351, 0.17],
@@ -110,8 +110,8 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["rh2r", "strut_RR", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
-        ["rh2l", "strut_RL", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //spring collar
@@ -132,7 +132,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //camber
-        {"beamSpring":6001000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":180},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
         ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*2.51-0.0016","beamPrecompressionTime":0.2}],
@@ -195,7 +195,7 @@
             "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":150
+            "maxStress":2000
             //stop active
             "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.021,
             "beamLimitSpring":255000,
@@ -211,7 +211,7 @@
             "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":150
+            "maxStress":2000
             //stop active
             "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.021,
             "beamLimitSpring":255000,
@@ -253,9 +253,9 @@
             "precompressionRange":-0.018,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
-            "beamLimitDamp":"$=$dampRate_bump_R/9.6",
-            "beamLimitDampRebound":6800,
+            "beamLimitSpring":1500,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":6900,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -278,9 +278,9 @@
             "precompressionRange":-0.018,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
-            "beamLimitDamp":"$=$dampRate_bump_R/9.6",
-            "beamLimitDampRebound":6800,
+            "beamLimitSpring":1500,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":6900,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
@@ -306,9 +306,9 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //mount damper
-        {"spring":4250, "damp":5, "deform":45000, "strength":125000},
-        ["rh2r", "rs2r", "rh1r", "rh5r"],
-        ["rh2l", "rs2l", "rh1l", "rh5l"],  
+        {"spring":6000, "damp":0.5, "deform":45000, "strength":125000},
+        ["rs2r", "rh2r", "rh1r", "rh5r"],
+        ["rs2l", "rh2l", "rh1l", "rh5l"],  
     ],
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -380,7 +380,7 @@
         ["rh3r", -0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
-        {"nodeWeight":"$=3*$brakeThickness_R"},
+        {"nodeWeight":"$=3.25*$brakeThickness_R"},
         ["rh5r", -0.765, 1.111, 0.074, {"group":["Astral_hub_RR","Astral_duct_R"]}],
         ["rh5l",  0.765, 1.111, 0.074, {"group":["Astral_hub_RL","Astral_duct_R"]}],
         {"selfCollision":true},
@@ -415,7 +415,7 @@
         ["rmassr", -0.5533, 1.339, 0.699],
         ["rmassl",  0.5533, 1.339, 0.699],
         //damper end
-        {"nodeWeight":2.3},
+        {"nodeWeight":3.2},
         {"group":["Astral_damper_R"]},
         ["rs2r", -0.5764, 1.355, 0.0141],
         ["rs2l",  0.5764, 1.355, 0.0141],
@@ -440,8 +440,8 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["rh2r", "strut_RR", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
-        ["rh2l", "strut_RL", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //spring collar
@@ -462,7 +462,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //camber
-        {"beamSpring":6001000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":180},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1r"],
         ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*1.68+0.006","beamPrecompressionTime":0.2}],
@@ -567,7 +567,7 @@
             "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":150
+            "maxStress":2000
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.032,
             "beamLimitSpring":500,
@@ -587,9 +587,9 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
-            "beamLimitDamp":"$=$dampRate_bump_R/9.6",
-            "beamLimitDampRebound":6800,
+            "beamLimitSpring":1500,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":6900,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -614,7 +614,7 @@
             "volumeFactor":1.2,
             "decayFactor":10,
             "pitchFactor":2.5,
-            "maxStress":150
+            "maxStress":2000
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.032,
             "beamLimitSpring":500,
@@ -634,9 +634,9 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
-            "beamLimitDamp":"$=$dampRate_bump_R/9.6",
-            "beamLimitDampRebound":6800,
+            "beamLimitSpring":1500,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":6900,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
@@ -663,9 +663,9 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"], 
         //mount damper
-        {"spring":4250, "damp":5, "deform":45000, "strength":125000},
-        ["rh2r", "rs2r", "rh1r", "rh5r"],
-        ["rh2l", "rs2l", "rh1l", "rh5l"],  
+        {"spring":6000, "damp":0.5, "deform":45000, "strength":125000},
+        ["rs2r", "rh2r", "rh1r", "rh5r"],
+        ["rs2l", "rh2l", "rh1l", "rh5l"],  
     ],
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
