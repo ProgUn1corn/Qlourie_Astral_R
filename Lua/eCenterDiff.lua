@@ -72,7 +72,7 @@ local function updateFixedStep(dt)
     
     if yaw > 0.15 then --calculate steering contribution
       if steer * yaw < 0 then
-        contributionSteer = 0
+        --contributionSteer = 0
       else
         lockRange = 1 - minLockCoef
         contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1) 
@@ -174,7 +174,7 @@ local function updateFixedStep(dt)
     local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
     clutchRatio = clamp(clutchRatio, 0, 1)
     
-    transfercase.lsdLockCoef = newLockCoef * 0.486 * clutchRatio
+    transfercase.lsdLockCoef = newLockCoef * 0.499 * clutchRatio
     transfercase.lsdRevLockCoef = transfercase.lsdLockCoef
     transfercase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
     transfercase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
@@ -225,10 +225,10 @@ local function init(jbeamData)
     preload = jbeamData.lockMap.preload or 0
     finalDrive = jbeamData.lockMap.finalDrive or 4
     if throttleRatio ~= 0 and throttleRatio - throttleStart <= 0 then
-      print("Throttle start point is higher than throttle threshold! Locking center diff...")
+      log("Throttle start point is higher than throttle threshold! Locking center diff...")
     end
     if brakeRatio ~= 0 and brakeRatio - brakeStart <= 0 then
-      print("Brake start point is higher than brake threshold! Locking center diff...")
+      log("Brake start point is higher than brake threshold! Locking center diff...")
     end
   end
 
