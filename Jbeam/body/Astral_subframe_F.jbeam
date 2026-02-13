@@ -212,7 +212,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper mount to hub
-        {"beamSpring":4501000,"beamDamp":180},
+        {"beamSpring":3501000,"beamDamp":150},
         {"beamDeform":125000,"beamStrength":285000},
         //{"dampCutoffHz":1000},
         ["fs2l","fh1l"],
@@ -246,7 +246,7 @@
         ["fh1r","fw1rr"],
         ["fh3r","fw1rr", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5r","fw1rr", {"beamSpring":6001000,"beamDamp":60}],
-        ["fs2r","fw1rr", {"beamSpring":4501000,"beamDamp":100}],
+        ["fs2r","fw1rr", {"beamSpring":3501000,"beamDamp":100}],
         {"breakGroup":"wheel_FL"},
         ["fh1l","fw1l", {"name":"axle_FL"}],
         ["fh3l","fw1l", {"beamSpring":12001000,"beamDamp":20}],
@@ -255,7 +255,7 @@
         ["fh1l","fw1ll"],
         ["fh3l","fw1ll", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5l","fw1ll", {"beamSpring":6001000,"beamDamp":60}],
-        ["fs2l","fw1ll", {"beamSpring":4501000,"beamDamp":100}],
+        ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":100}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -290,6 +290,7 @@
         ["fh5r","fx1l"],
         ["fh5l","fx1r"],
         //damper mounting damping
+        {"beamSpring":0,"beamDamp":450},
         ["fs2r","br1l"],
         ["fs2l","br1r"],
         ["fs2r","chs4l"],
@@ -383,10 +384,14 @@
         //rigidify subframe
         ["fx1r", "fx2r", "fx2l", "fx3l"],
         ["fx1l", "fx2l", "fx2r", "fx3r"],
+        //mount damper
+        {"spring":4500, "damp":0.5, "deform":45000, "strength":125000},
+        ["fs2r", "fh2r", "fw1rr", "fw1r"],
+        ["fs2l", "fh2l", "fw1ll", "fw1l"], 
         //arm rigidifier
-        {"spring":15000, "damp":0, "deform":20000, "strength":20000},
-        //["farb3r", "fx2r", "fx1r", "fh1r"], 
-        //["farb3l", "fx2l", "fx1l", "fh1l"], 
+        {"spring":10000, "damp":0, "deform":20000, "strength":20000},
+        ["farb3r", "fx2r", "fx1r", "fh1r"], 
+        ["farb3l", "fx2l", "fx1l", "fh1l"], 
     ]
 },
 "Astral_steering_h": {

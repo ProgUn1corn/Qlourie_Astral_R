@@ -166,10 +166,10 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":100,"beamDamp":50},
+        {"beamSpring":50,"beamDamp":10},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}], //shaft rod diameter 18mm
-        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}],
+        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
+        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -192,10 +192,10 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":1.2,
+            "volumeFactor":2.75,
             "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":2000
+            "pitchFactor":5
+            "maxStress":1
             //stop active
             "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.021,
             "beamLimitSpring":255000,
@@ -208,10 +208,10 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":1.2,
+            "volumeFactor":2.75,
             "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":2000
+            "pitchFactor":5
+            "maxStress":1
             //stop active
             "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.021,
             "beamLimitSpring":255000,
@@ -255,7 +255,7 @@
             //rebound stop active
             "beamLimitSpring":1500,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":6900,
+            "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -280,7 +280,7 @@
             //rebound stop active
             "beamLimitSpring":1500,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":6900,
+            "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
@@ -302,13 +302,6 @@
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-    "torsionbars": [
-        ["id1:", "id2:", "id3:", "id4:"],
-        //mount damper
-        {"spring":6000, "damp":0.5, "deform":45000, "strength":125000},
-        ["rs2r", "rh2r", "rh1r", "rh5r"],
-        ["rs2l", "rh2l", "rh1l", "rh5l"],  
     ],
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
@@ -496,10 +489,10 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":100,"beamDamp":50},
+        {"beamSpring":50,"beamDamp":10},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}], //shaft rod diameter 18mm
-        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0.01}],
+        ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
+        ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
@@ -564,10 +557,10 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":1.2,
+            "volumeFactor":2.75,
             "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":2000
+            "pitchFactor":5
+            "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.032,
             "beamLimitSpring":500,
@@ -589,7 +582,7 @@
             //rebound stop active
             "beamLimitSpring":1500,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":6900,
+            "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
@@ -611,10 +604,10 @@
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
             "attackFactor":50,
-            "volumeFactor":1.2,
+            "volumeFactor":2.75,
             "decayFactor":10,
-            "pitchFactor":2.5,
-            "maxStress":2000
+            "pitchFactor":5
+            "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.032,
             "beamLimitSpring":500,
@@ -636,7 +629,7 @@
             //rebound stop active
             "beamLimitSpring":1500,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":6900,
+            "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
         {"breakGroup":""},
@@ -659,13 +652,6 @@
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
-    ],
-    "torsionbars": [
-        ["id1:", "id2:", "id3:", "id4:"], 
-        //mount damper
-        {"spring":6000, "damp":0.5, "deform":45000, "strength":125000},
-        ["rs2r", "rh2r", "rh1r", "rh5r"],
-        ["rs2l", "rh2l", "rh1l", "rh5l"],  
     ],
     "pressureWheels": [
         ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
