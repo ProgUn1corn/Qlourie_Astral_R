@@ -60,7 +60,7 @@
         ["fx4r", -0.365, -1.186, 0.325],
         ["fx4l",  0.365, -1.186, 0.325],
         //steering box
-        {"nodeWeight":5.2},
+        {"nodeWeight":5.5},
         {"group":["Astral_sub_F", "Astral_str_F"]},
         ["st1r", -0.164, -1.124, "$=0.128+$shimRack_F"],
         ["st1l",  0.164, -1.124, "$=0.128+$shimRack_F"],
@@ -84,7 +84,7 @@
         ["fx2l", "fx1l"],
         ["fx1l", "fx1r"],
         //side subframe
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":150},
         ["fx2r", "fx3r"],
         ["fx3r", "fx3l"],
         ["fx3l", "fx2l"],
@@ -97,7 +97,7 @@
         {"beamDeform":82500,"beamStrength":"FLT_MAX"},
         ["fx1r", "fx2l"],
         ["fx1l", "fx2r"],
-        {"beamSpring":4501000,"beamDamp":150},
+        {"beamSpring":3501000,"beamDamp":150},
         ["fx2r", "fx3l"],
         ["fx2l", "fx3r"],
         //mounting point
@@ -167,10 +167,11 @@
 
         //--Steering Rack--
         //steering box
-        {"beamSpring":6501000,"beamDamp":150},
+        {"beamSpring":8501000,"beamDamp":150},
         {"beamDeform":65000,"beamStrength":"FLT_MAX"},
         ["st1r","st1l"],
         //mounting to subframe
+        {"beamSpring":6501000,"beamDamp":150},
         {"beamDeform":50000,"beamStrength":"FLT_MAX"},
         ["st1r", "fx1r"],
         ["st1r", "fx2r"],
@@ -179,7 +180,7 @@
         ["st1r", "fx4l"],
         ["st1r", "fx1l"],
         ["st1r", "fx2l"],
-        //["st1r", "fx3l"],
+        ["st1r", "fx3l"],
         //["st1r", "fx1"],
         //*
         ["st1l", "fx1l"],
@@ -189,7 +190,7 @@
         ["st1l", "fx4r"],
         ["st1l", "fx1r"],
         ["st1l", "fx2r"],
-        //["st1l", "fx3r"],
+        ["st1l", "fx3r"],
         //["st1l", "fx1"],
 
         //--Hub and Wheel--
@@ -212,7 +213,7 @@
         ["fh3l","fh5l"],
         ["fh2l","fh5l"],
         //damper mount to hub
-        {"beamSpring":3501000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":150},
         {"beamDeform":125000,"beamStrength":285000},
         //{"dampCutoffHz":1000},
         ["fs2l","fh1l"],
@@ -225,7 +226,7 @@
         ["fs2l","fh2l"],
         {"dampCutoffHz":""},
         //damper flexbody help
-        {"beamSpring":101000,"beamDamp":25},
+        {"beamSpring":101000,"beamDamp":10},
         ["fs3r","fh1r"],
         ["fs3r","fh2r"],
         ["fs3r","fh5r"],
@@ -246,7 +247,7 @@
         ["fh1r","fw1rr"],
         ["fh3r","fw1rr", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5r","fw1rr", {"beamSpring":6001000,"beamDamp":60}],
-        ["fs2r","fw1rr", {"beamSpring":3501000,"beamDamp":100}],
+        ["fs2r","fw1rr", {"beamSpring":4501000,"beamDamp":100}],
         {"breakGroup":"wheel_FL"},
         ["fh1l","fw1l", {"name":"axle_FL"}],
         ["fh3l","fw1l", {"beamSpring":12001000,"beamDamp":20}],
@@ -255,7 +256,7 @@
         ["fh1l","fw1ll"],
         ["fh3l","fw1ll", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5l","fw1ll", {"beamSpring":6001000,"beamDamp":60}],
-        ["fs2l","fw1ll", {"beamSpring":3501000,"beamDamp":100}],
+        ["fs2l","fw1ll", {"beamSpring":4501000,"beamDamp":100}],
         {"breakGroup":""},
         {"optional":false},
 
@@ -268,12 +269,8 @@
         ["fx1r", "fh1r"],
         ["fx2l", "fh1l", {"precompressionRange":"$CasterFront","beamPrecompressionTime":0.2}],
         ["fx1l", "fh1l"],
-        //arb mount point
-        {"beamSpring":0,"beamDamp":250},
-        ["farb3r","fx1r"],
-        ["farb3l","fx1l"],
         //arm joint horizontal damping
-        {"beamSpring":0,"beamDamp":650},
+        {"beamSpring":0,"beamDamp":450},
         ["fh1r","a16"],
         ["fh1l","a19"],
         ["fh1r","fx3r"],
@@ -290,7 +287,6 @@
         ["fh5r","fx1l"],
         ["fh5l","fx1r"],
         //damper mounting damping
-        {"beamSpring":0,"beamDamp":450},
         ["fs2r","br1l"],
         ["fs2l","br1r"],
         ["fs2r","chs4l"],
@@ -448,22 +444,22 @@
         {"beamDeform":25000,"beamStrength":125000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamSpring":0,"beamDamp":80},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":800,"dampCutoffHz":500}],
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":80000, "damp":0.5, "deform":45000, "strength":1225000},
+        {"spring":50000, "damp":1, "deform":25000, "strength":100000},
         //rigidify steering arm
-        ["fw1rr", "fw1r", "fh1r", "fh3r"],
-        ["fw1ll", "fw1l", "fh1l", "fh3l"],
-        ["fw1r", "fw1rr", "fh1r", "fh3r"],
-        ["fw1l", "fw1ll", "fh1l", "fh3l"],
+        ["fw1rr", "fh2r", "fh1r", "fh3r"],
+        ["fw1ll", "fh2l", "fh1l", "fh3l"],
+        ["fw1r", "fh2r", "fw1rr", "fh1r"],
+        ["fw1l", "fh2l", "fw1ll", "fh1l"],
     ],
     "hydros": [
         ["id1:","id2:"],
@@ -494,11 +490,11 @@
         {"hubcapGroup":"hubcap_FR"},
         {"axleBeams":["axle_FR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"eg3", "torqueArm:":"eg0", "torqueArm2:":"eg4","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
+        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"fh1r", "torqueArm:":"fh2r", "torqueArm2:":"fw1rr","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
         {"hubcapBreakGroup":"hubcap_FL"},
         {"hubcapGroup":"hubcap_FL"},
         {"axleBeams":["axle_FL"]},
-        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"eg2", "torqueArm:":"eg1", "torqueArm2:":"eg5","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
+        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"fh1l", "torqueArm:":"fh2l", "torqueArm2:":"fw1ll","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},
