@@ -27,7 +27,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 12000, 10000, 14000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$LRS_R", "range", "Clicks", "Suspension - Dampers and Springs", 0.45, 0.3, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
+        ["$LRS_R", "range", "Clicks", "Suspension - Dampers and Springs", 0.5, 0.3, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.025, 0.035, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":35,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.012, 0.003, 0.039, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":27,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 136mm
@@ -67,7 +67,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_R","Astral_spring_R","Astral_chassis_R"]},
-        {"nodeWeight":10},
+        {"nodeWeight":11},
         ["rs1r", -0.55, 1.337, 0.797],
         ["rs1l",  0.55, 1.337, 0.797],
         //lower spring collar
@@ -179,14 +179,16 @@
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["rh2r","rs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.210,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
-            "beamLimitSpring":901000,                                      //total piston travel equals to longBound + shortBound
-            "beamLimitDamp":1500,                                            //effective damping travel is less than piston travel since hard stops are there
+            "beamLimitSpring":801000,                                      //total piston travel equals to longBound + shortBound
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.210,"boundZone":0.02,
-            "beamLimitSpring":901000,
-            "beamLimitDamp":1500, 
+            "beamLimitSpring":801000,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000, 
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //hard bump
@@ -206,15 +208,15 @@
         ["rh2r","rs1r", { //hard (elastic) rebound
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":55000,
-            "beamLimitDamp":550,
-            "beamLimitDampRebound":2550,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
             "beamLimitSpring":55000,
-            "beamLimitDamp":550,
-            "beamLimitDampRebound":2550,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RR"},
@@ -250,7 +252,7 @@
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":3500,
+            "beamLimitSpring":8010,
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hydraulic rebound stop
@@ -259,8 +261,8 @@
             "precompressionRange":-0.018,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":1500,
-            "beamLimitDamp":150,
+            "beamLimitSpring":500,
+            "beamLimitDamp":"$=$dampRate_bump_R/10",
             "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
@@ -297,7 +299,7 @@
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":3500,
+            "beamLimitSpring":8010,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hydraulic rebound stop
@@ -306,8 +308,8 @@
             "precompressionRange":-0.018,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":1500,
-            "beamLimitDamp":150,
+            "beamLimitSpring":500,
+            "beamLimitDamp":"$=$dampRate_bump_R/10",
             "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
@@ -381,7 +383,7 @@
         ["$LRS_R", "range", "Clicks", "Suspension - Dampers and Springs", 0.7, 0.3, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-28,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.039, 0.033, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":33,"maxDis":45,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.052, 0.033, 0.066, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 186mm
+        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.036, 0.021, 0.054, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 186mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -418,7 +420,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_R","Astral_spring_R","Astral_chassis_R"]},
-        {"nodeWeight":10},
+        {"nodeWeight":11},
         ["rs1r", -0.55, 1.337, 0.797],
         ["rs1l",  0.55, 1.337, 0.797],
         //lower spring collar
@@ -530,14 +532,16 @@
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["rh2r","rs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.260,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
-            "beamLimitSpring":901000,                                      //total piston travel equals to longBound + shortBound
-            "beamLimitDamp":1500,                                            //effective damping travel is less than piston travel since hard stops are there
+            "beamLimitSpring":801000,                                      //total piston travel equals to longBound + shortBound
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.260,"boundZone":0.02,
-            "beamLimitSpring":901000,
-            "beamLimitDamp":1500, 
+            "beamLimitSpring":801000,
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000, 
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //hard bump
@@ -557,15 +561,15 @@
         ["rh2r","rs1r", { //hard (elastic) rebound
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":55000,
-            "beamLimitDamp":550,
-            "beamLimitDampRebound":2550,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
             "beamLimitSpring":55000,
-            "beamLimitDamp":550,
-            "beamLimitDampRebound":2550,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RR"},
@@ -609,8 +613,8 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":1500,
-            "beamLimitDamp":150,
+            "beamLimitSpring":500,
+            "beamLimitDamp":"$=$dampRate_bump_R/10",
             "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
@@ -655,8 +659,8 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":1500,
-            "beamLimitDamp":150,
+            "beamLimitSpring":500,
+            "beamLimitDamp":"$=$dampRate_bump_R/10",
             "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
         ],
