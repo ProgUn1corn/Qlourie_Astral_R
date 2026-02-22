@@ -64,15 +64,15 @@
     	},
 	}
 },
-"Astral_ramp_F_5885": {
+"Astral_ramp_F_6085": {
 	"information":{
-		"name":"58/85",
+		"name":"60/85",
 		"value":1000
 	},
 	"slotType" : "Astral_ramp_F",
 	"components": {
     	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"flock":"$=(1/tan(58*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",  
+        	"flock":"$=(1/tan(60*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",  
 			"frevlock":"$=(1/tan(85*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)"
     	},
 	}
@@ -106,8 +106,8 @@
 		["id1:", "id2:"],
 		{"deformLimitExpansion":1.2},
 		//shaft
-		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":0.15},
-		{"beamSpring":0,"beamDamp":0,"beamDeform":9500,"beamStrength":18550},
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.12, "beamShortBound":0.12},
+		{"beamSpring":0,"beamDamp":20,"beamDeform":9500,"beamStrength":18550},
 		{"beamLimitSpring":6501000,"beamLimitDamp":250},
 		["fw1r","ftrar", {"name":"halfshaft_FR", "breakGroup":"wheel_FR", "breakGroupType":1, "deformGroup":"wheelaxleFR", "deformationTriggerRatio":0.001, "optional":true}],
 		["fw1l","ftral", {"name":"halfshaft_FL", "breakGroup":"wheel_FL", "breakGroupType":1, "deformGroup":"wheelaxleFL", "deformationTriggerRatio":0.001, "optional":true}],
@@ -117,8 +117,8 @@
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["shaft", "halfshaftFL", "frontDiff", 1, {"deformGroups":["wheelaxleFL"], "breakTriggerBeam":"halfshaft_FL", "uiName":"Front Left Halfshaft", "friction":1.35, "dynamicFriction":0.0036}],
-		["shaft", "halfshaftFR", "frontDiff", 2, {"deformGroups":["wheelaxleFR"], "breakTriggerBeam":"halfshaft_FR", "uiName":"Front Right Halfshaft", "friction":1.35, "dynamicFriction":0.0036}]
+		["shaft", "halfshaftFL", "frontDiff", 1, {"deformGroups":["wheelaxleFL"], "breakTriggerBeam":"halfshaft_FL", "uiName":"Front Left Halfshaft", "friction":1.49, "dynamicFriction":0.0036}],
+		["shaft", "halfshaftFR", "frontDiff", 2, {"deformGroups":["wheelaxleFR"], "breakTriggerBeam":"halfshaft_FR", "uiName":"Front Right Halfshaft", "friction":1.49, "dynamicFriction":0.0036}]
 	]
 },
 "Astral_finaldrive_F_4.43": {
