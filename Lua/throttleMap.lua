@@ -6,7 +6,7 @@ local M = {}
 local tMap
 local tMapDesc = {
   [1] = "Progressive",
-  [2] = "Linear Biased Digressive ",
+  [2] = "Linear Biased ",
   [3] = "Aggressive",
 }
 local throttle
@@ -31,23 +31,23 @@ local function updateGFX(dt)
   --get input value
   throttle = electrics.values['throttle_input'] or 0
 
-  --progressive map (used in really precise situations)
+  --progressive map (used in really precise and road situations)
   if tMap == 1 then
-    a = -0.13
-    k = -0.92
+    a =  0.15
+    k = -0.88
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
   
-  -- mostly linear/digressive map
+  -- mostly linear with a TINY bit of progressive map
   if tMap == 2 then
-    a = 0.86
-    k = 6.9
+    a =  0.69 --nice
+    k = -0.28
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
   
   --aggressive map
   if tMap == 3 then
-    a = 0.45
+    a = 0.59
     k = 9.8
     newThrottle = calculateThrottleMap(throttle, a, k)
   end
