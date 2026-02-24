@@ -60,10 +60,10 @@
 		{"group":[""]},
 		{"collision":false},
 		{"nodeWeight":1.35},
-		["cup", -0.112, -0.214, 0.35],
+		["cup", -0.112, -0.214, 0.25],
 		{"collision":true},
-		["br1r", -0.359, -1.559, 0.486, {"selfCollision":false}],
-		["br1l",  0.359, -1.559, 0.486, {"selfCollision":false}],
+		["br1r", -0.389, -1.559, 0.486, {"selfCollision":false}],
+		["br1l",  0.389, -1.559, 0.486, {"selfCollision":false}],
 		//downforce
 		{"nodeWeight":1},
 		["rdfr", -0.599, 0.661, 0.283, {"selfCollision":false, "collision":false}],
@@ -84,7 +84,7 @@
 		{"optional":true},
 		//--Center Chassis--
 		//main shape
-		{"beamSpring":4501000,"beamDamp":250},
+		{"beamSpring":4801000,"beamDamp":250},
 		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
 		["a8", "a12"],
 		["a9", "a13"],
@@ -163,7 +163,7 @@
 		["a23", "fs1l"],
 		["a22", "a73"]
 		{"dampCutoffHz":""},
-		//tunnel rigidifier
+		//refnode
 		{"beamSpring":1501000,"beamDamp":180},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
 		["cup", "a13"],
@@ -186,24 +186,24 @@
 		["a5", "a6"],
 		["a37", "a38"],
 		["a41", "a42"],
-		["a5", "a37"],
+		["a5", "a37", {"beamSpring":3501000,"beamDamp":150}],
 		["a37", "chs2r"],
 		["chs2r", "a41"],
 		["a41", "a8"],
 		//*
-		["a6", "a38"],
+		["a6", "a38", {"beamSpring":3501000,"beamDamp":150}],
 		["a38", "chs2l"],
 		["chs2l", "a42"],
 		["a42", "a11"],
 		//crossing
 		{"beamDeform":12000},
-		["a5", "a38"],
+		["a5", "a38", {"beamSpring":3501000,"beamDamp":150}],
 		["a37", "chs2l"],
 		["chs2r", "a42"],
 		["a41", "a11"],
 		["a41", "a9"],
 		//*
-		["a6", "a37"],
+		["a6", "a37", {"beamSpring":3501000,"beamDamp":150}],
 		["a38", "chs2r"],
 		["chs2l", "a41"],
 		["a42", "a8"],
@@ -520,15 +520,15 @@
 		{"group":["Astral_chassis_R"]},
 		["a6",  0.445, 1.855, 0.381],
 	    ["a5", -0.445, 1.855, 0.381],
-		{"nodeWeight":6.1},
-		["a37", -0.474, 1.56, 0.392, {"group":["Astral_chassis_R","Astral_spare"]}],
-		["a38",  0.474, 1.56, 0.392, {"group":["Astral_chassis_R","Astral_spare"]}],
+		{"nodeWeight":5.6},
+		["a37", -0.474, 1.618, 0.392, {"group":["Astral_chassis_R","Astral_spare"]}],
+		["a38",  0.474, 1.618, 0.392, {"group":["Astral_chassis_R","Astral_spare"]}],
 		["chs1r", -0.501, 1.32, 0.663],
 		["chs1l",  0.501, 1.32, 0.663],
 		["chs2r", -0.467, 1.25, 0.373, {"selfCollision":false}],
 		["chs2l",  0.467, 1.25, 0.373, {"selfCollision":false}],
-		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare"],"selfCollision":false, "nodeWeight":7}],
-		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare"],"selfCollision":false, "nodeWeight":7}],
+		["a41", -0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare"],"selfCollision":false, "nodeWeight":6.5}],
+		["a42",  0.528, 0.882, 0.364, {"group":["Astral_chassis_R","Astral_spare"],"selfCollision":false, "nodeWeight":6.5}],
         //overriden by suspension 
 		["rs1r", -0.6, 1.337, 0.797],
         ["rs1l",  0.6, 1.337, 0.797],
@@ -539,7 +539,7 @@
 
 		//--Center Chassis--
 		//tunnel
-		{"nodeWeight":5.23}
+		{"nodeWeight":5.48}
 		{"group":["Astral_chassis"]},
 		["a9",  -0.212, 0.666, 0.102],
 		["a10",  0.212, 0.666, 0.102],
@@ -597,11 +597,11 @@
         {"selfCollision":true},
         {"nodeMaterial":"|NM_METAL"},
 		//--Rear Chassis--
-		{"nodeWeight":8.2},
+		{"nodeWeight":7.2},
 		{"group":["Astral_chassis_R"]},
 		["a6",  0.445, 1.855, 0.381],
 	    ["a5", -0.445, 1.855, 0.381],
-		{"nodeWeight":6.3},
+		{"nodeWeight":6.05},
 		["a37", -0.474, 1.56, 0.392, {"group":["Astral_chassis_R","Astral_spare"]}],
 		["a38",  0.474, 1.56, 0.392, {"group":["Astral_chassis_R","Astral_spare"]}],
 		["chs1r", -0.501, 1.32, 0.663],
@@ -620,7 +620,7 @@
 
 		//--Center Chassis--
 		//tunnel
-		{"nodeWeight":6.22}
+		{"nodeWeight":6.47}
 		{"group":["Astral_chassis"]},
 		["a9",  -0.212, 0.666, 0.102],
 		["a10",  0.212, 0.666, 0.102],
@@ -756,8 +756,8 @@
 		{"group":["Astral_carbody"]},
 		["qp1r", -0.828, 1.219, 0.713, {"selfCollision":false}],
 		["qp1l",  0.828, 1.219, 0.713, {"selfCollision":false}],
-		["qp2r", -0.644, 1.187, 1.082],
-		["qp2l",  0.644, 1.187, 1.082],
+		["qp2r", -0.688, 1.197, 0.962],
+		["qp2l",  0.688, 1.197, 0.962],
        	//doors and frame
 		{"nodeWeight":2.5},
 		["d1r", -0.821, 0.861, 0.141],
@@ -810,7 +810,7 @@
 		//rigidifier
 		{"nodeWeight":1.5},
 		{"group":[""]},
-		["rfr",  0, 0.35, 1.1, {"selfCollision":false}],
+		["rfr",  0, 0.35, 1, {"selfCollision":false}],
     ],
 	"beams": [   
 		["id1:", "id2:"], 
