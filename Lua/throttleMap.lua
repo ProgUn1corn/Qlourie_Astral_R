@@ -6,7 +6,7 @@ local M = {}
 local tMap
 local tMapDesc = {
   [1] = "Progressive",
-  [2] = "Linear Biased ",
+  [2] = "Subtle Linear",
   [3] = "Aggressive",
 }
 local throttle
