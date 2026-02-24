@@ -360,9 +360,9 @@
     "slotType" : "Astral_shim_R_RX",
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 3050, 2000, 4100, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-12,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
+		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 3050, 2090, 4010, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
 		["$dampRate_bump_R_fast", "range", "Clicks", "Suspension - Dampers and Springs", 4800, 3200, 6400, "HS Bump", "High speed bump damping controls jump and big bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
-        ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 2989, 1960, 4018, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-36,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
+        ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 3050, 2090, 4010, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
         ["$dampVelocity_R", "range", "m/s", "Suspension - Dampers and Springs", 0.48, 0.21, 0.75, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.09,"subCategory":"Rear Damper Auxiliary"}],
     ],
     "controller": [ 
@@ -383,11 +383,11 @@
         "damping":[
             ["active", "name", "beamDamp",               "beamDampFast",            "beamDampRebound",              "beamDampReboundFast",          "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
             //normal
-            ["0",      "RR",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.95",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2000)/12500", 0.65                          ]
-            ["0",      "RL",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.95",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2000)/12500", 0.65                          ]
+            ["0",      "RR",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.95",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2090)/9600", 0.65                          ]
+            ["0",      "RL",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.95",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2090)/9600", 0.65                          ]
             //LRS
-            ["1",      "RR",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2000)/12500", 1                             ]
-            ["1",      "RL",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2000)/12500", 1                             ]
+            ["1",      "RR",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2090)/9600", 1                             ]
+            ["1",      "RL",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*$LRS_R", "$=$dampRate_rebound_R*$LRS_R", "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-2090)/9600", 1                             ]
         ]
     },
 },
