@@ -144,11 +144,11 @@ local function init(jbeamData)
 
   --Fvck LUA
   if dampers[1] == dampersLookup["FR"] then
-    print("YEEEEEEEEEEEEEEESSSSSSSSSSSSSSSS")
+    --print("YEEEEEEEEEEEEEEESSSSSSSSSSSSSSSS")
   end
   
   --printTable(dampersLookup)
-  printTable(dampingGroups)
+  --printTable(dampingGroups)
 end
 
 

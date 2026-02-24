@@ -20,7 +20,7 @@ local hbrelease = 0
 local newPreload = 0
 local rearBias = 0
 local finalDrive = 0
-local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 8)
+local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 6)
 
 --active values
 local throttle = 0
