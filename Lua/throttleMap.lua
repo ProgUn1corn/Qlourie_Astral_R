@@ -28,33 +28,35 @@ local function displayState()
 end
 
 local function updateGFX(dt)
-  --get input value
-  throttle = electrics.values['throttle_input'] or 0
+  if not electrics.values.cruiseControlActive or electrics.values.cruiseControlActive == 0 then 
+    --get input value
+    throttle = electrics.values['throttle_input'] or 0
 
-  --progressive map (used in really precise and road situations)
-  if tMap == 1 then
-    a =  0.15
-    k = -0.88
-    newThrottle = calculateThrottleMap(throttle, a, k)
-  end
-  
-  -- mostly linear with a TINY bit of progressive map
-  if tMap == 2 then
-    a =  0.69 --nice
-    k = -0.28
-    newThrottle = calculateThrottleMap(throttle, a, k)
-  end
-  
-  --aggressive map
-  if tMap == 3 then
-    a = 0.59
-    k = 9.8
-    newThrottle = calculateThrottleMap(throttle, a, k)
-  end
+    --progressive map (used in really precise and road situations)
+    if tMap == 1 then
+      a =  0.15
+      k = -0.88
+      newThrottle = calculateThrottleMap(throttle, a, k)
+    end
+    
+    -- mostly linear with a TINY bit of progressive map
+    if tMap == 2 then
+      a =  0.69 --nice
+      k = -0.28
+      newThrottle = calculateThrottleMap(throttle, a, k)
+    end
+    
+    --aggressive map
+    if tMap == 3 then
+      a = 0.59
+      k = 9.8
+      newThrottle = calculateThrottleMap(throttle, a, k)
+    end
 
-  --apply throttle map
-  electrics.values.throttle = newThrottle 
-  --print(tMap)
+    --apply throttle map
+    electrics.values.throttle = newThrottle 
+    --print(tMap)
+  end
 end
 
 local function reset()
