@@ -17,7 +17,7 @@
 		["Astral_shiftlight", "Astral_shiftlight_BRC", "Shift Light"],
 		["Astral_spare", "", "Spare Wheel"],
 		["Astral_gauge", "Astral_gauge_BRC", "Gauge"],
-		["Astral_tools", "Astral_tools_15", "Driver Weight Ballast"],
+		["Astral_tools", "Astral_tools_15", "Crew Weight Ballast"],
 		["Astral_dummy", "", "Test Equipment"],
 		["soundscape_horn", "soundscape_horn_6", "Horn"]
 	],
@@ -197,53 +197,17 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ]
 },
-"Astral_tools_15": {
-	"information":{
-    	"authors":"Un1corn",
-    	"name":"15kg Tools/Ballast",
-    	"value":250,
-    },
-    "slotType" : "Astral_tools",
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
-		//--Ballast--
-		{"nodeWeight":7.5},
-		{"group":[""]},
-        ["tools1", -0.38, 1.624, 0.35],
-        ["tools2",  0.38, 1.624, 0.35],
-    ],
-    "beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Ballast--
-        {"beamSpring":3501000,"beamDamp":250},
-		//rear link
-        ["tools1", "a5"],
-        ["tools1", "a6"],
-        ["tools1", "a38"],
-        ["tools1", "chs2r"],
-        ["tools1", "chs2l"],
-        ["tools1", "chs1r"],
-        //*
-        ["tools2", "a6"],
-        ["tools2", "a5"],
-        ["tools2", "a37"],
-        ["tools2", "chs2l"],
-        ["tools2", "chs2r"],
-        ["tools2", "chs1l"],
-    ],
-},
 "Astral_tools_10": {
 	"information":{
     	"authors":"Un1corn",
-    	"name":"10kg Tools/Ballast",
+    	"name":"Crew Tools/Ballast",
     	"value":250,
     },
     "slotType" : "Astral_tools",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$crewTools", "range", "kg", "Chassis", 10, 5, 15, "Crew Ballast Weight", "Act as a ballast for regulations and COG", {"stepDis":5,"subCategory":"Interior"}],  //affects unsprung mass and thermals
+    ],
     "nodes": [       
         ["id", "posX", "posY", "posZ"],
         {"frictionCoef":0.5},
@@ -251,7 +215,7 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":5},
+		{"nodeWeight":"$=$crewTools/2"},
 		{"group":[""]},
         ["tools1", -0.38, 1.624, 0.35],
         ["tools2",  0.38, 1.624, 0.35],
@@ -276,47 +240,7 @@
         ["tools2", "chs2r"],
         ["tools2", "chs1l"],
     ],
-},
-"Astral_tools_20": {
-	"information":{
-    	"authors":"Un1corn",
-    	"name":"20kg Tools/Ballast",
-    	"value":250,
-    },
-    "slotType" : "Astral_tools",
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
-		//--Ballast--
-		{"nodeWeight":10},
-		{"group":[""]},
-        ["tools1", -0.38, 1.624, 0.35],
-        ["tools2",  0.38, 1.624, 0.35],
-    ],
-    "beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Ballast--
-        {"beamSpring":3501000,"beamDamp":250},
-		//rear link
-        ["tools1", "a5"],
-        ["tools1", "a6"],
-        ["tools1", "a38"],
-        ["tools1", "chs2r"],
-        ["tools1", "chs2l"],
-        ["tools1", "chs1r"],
-        //*
-        ["tools2", "a6"],
-        ["tools2", "a5"],
-        ["tools2", "a37"],
-        ["tools2", "chs2l"],
-        ["tools2", "chs2r"],
-        ["tools2", "chs1l"],
-    ],
-},
+},,
 "Astral_ballast_R_RX": {
 	"information":{
     	"authors":"Un1corn",
@@ -331,7 +255,7 @@
         {"selfCollision":false},
         {"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
-		{"nodeWeight":35},
+		{"nodeWeight":30},
 		{"group":[""]},
         ["ballastRX", -0.354, -0.052, 0.131],
     ],
@@ -428,7 +352,7 @@
     ],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$driver", "range", "kg", "Body", 80, 80, 95, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Center of Gravity"}],
+        ["$driver", "range", "kg", "Chassis", 80, 80, 95, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Interior"}],
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
@@ -529,7 +453,7 @@
     ],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$driver", "range", "kg", "Body", 80, 80, 95, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Center of Gravity"}],
+        ["$driver", "range", "kg", "Chassis", 80, 80, 95, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Interior"}],
     ],
 	"nodes": [       
         ["id", "posX", "posY", "posZ"],
