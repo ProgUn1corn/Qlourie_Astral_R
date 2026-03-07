@@ -111,19 +111,19 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["rh2r", "strut_RR", true, true, 0.0, 15001000, "FLT_MAX", "FLT_MAX"],
-        ["rh2l", "strut_RL", true, true, 0.0, 15001000, "FLT_MAX", "FLT_MAX"],
-        ["rcl1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["rcl1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rcl1r", "strut_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rcl1l", "strut_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //spring collar
         ["rhe1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rhe1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //piston
-        ["rps1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["rps1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["rps1r", "strut_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["rps1l", "strut_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //mass
-        ["rmassr", "strut_RR", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
-        ["rmassl", "strut_RL", true, true, 0.0, 101000, "FLT_MAX", "FLT_MAX"],
+        ["rmassr", "strut_RR", true, true, 0.0, 250100, "FLT_MAX", "FLT_MAX"],
+        ["rmassl", "strut_RL", true, true, 0.0, 250100, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["rarb3r", "arb_RR", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"],
         ["rarb3l", "arb_RL", true, true, 0.0, 4501000, "FLT_MAX", "FLT_MAX"]
@@ -243,7 +243,7 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":500,
+            "beamLimitSpring":1500,
             "beamLimitDamp":12500, 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
@@ -260,7 +260,7 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
+            "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_bump_R/10",
             "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
@@ -290,7 +290,7 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":500,
+            "beamLimitSpring":1500,
             "beamLimitDamp":12500, 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
             "dampCutoffHz":250}
@@ -307,7 +307,7 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
+            "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_bump_R/10",
             "beamLimitDampRebound":4200,
             "dampCutoffHz":250}
@@ -315,7 +315,7 @@
         {"breakGroup":""},
         //detection mass
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":0,"beamDamp":5},
+        {"beamSpring":0,"beamDamp":2.5},
         ["rmassr", "rs1r", {"breakGroup":"damper_RR"}],
         ["rmassl", "rs1l", {"breakGroup":"damper_RL"}],
         {"beamSpring":25,"beamDamp":2.5},
@@ -324,10 +324,11 @@
         //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        ["rmassr", "rs1r", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":10,"beamLimitDampRebound":20,"breakGroup":"damper_RR"}],
-        ["rmassl", "rs1l", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":10,"beamLimitDampRebound":20,"breakGroup":"damper_RL"}],
-        ["rmassr", "rps1r", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":10,"beamLimitDampRebound":20,"breakGroup":"damper_RR"}],
-        ["rmassl", "rps1l", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":11000,"beamLimitDamp":10,"beamLimitDampRebound":20,"breakGroup":"damper_RL"}],
+        ["rmassr", "rs1r", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":15000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RR"}],
+        ["rmassl", "rs1l", {"longBoundRange":1,"shortBoundRange":0,"boundZone":0.01,"beamLimitSpring":15000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RL"}],
+        ["rmassr", "rps1r", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":15000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RR"}],
+        ["rmassl", "rps1l", {"longBoundRange":1,"shortBoundRange":0.02,"boundZone":0.01,"beamLimitSpring":15000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RL"}],
+        {"optional":false},
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":false,"beamLimitDamp":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}

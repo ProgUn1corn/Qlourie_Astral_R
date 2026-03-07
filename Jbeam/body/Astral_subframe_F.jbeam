@@ -287,18 +287,21 @@
         ["fh5r","fx1l"],
         ["fh5l","fx1r"],
         //damper mounting damping
+        {"beamSpring":0,"beamDamp":850},
         ["fs2r","br1l"],
         ["fs2l","br1r"],
-        ["fs2r","chs4l"],
-        ["fs2l","chs4r"],
+        ["fs2r","a54"],
+        ["fs2l","a53"],
         ["fh2r","chs3l"],
         ["fh2l","chs3r"],
+        ["fh2r","chs4l"],
+        ["fh2l","chs4r"],
         {"dampCutoffHz":""},
 
         //--Strut Aux--
         //top mount reinforcement
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":3001000,"beamDamp":150},
+        {"beamSpring":4501000,"beamDamp":180},
         {"beamDeform":45000,"beamStrength":225000},
         {"optional":true}
         {"breakGroup":"strut_FR"},
@@ -311,11 +314,12 @@
         {"breakGroup":""}
         {"optional":false}
         //piston outer shell
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1001000,"beamDamp":50},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
         //strut platform height (preload)
+        {"beamSpring":1501000,"beamDamp":50},
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":1}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":1}],
         
