@@ -67,7 +67,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_R","Astral_spring_R","Astral_chassis_R"]},
-        {"nodeWeight":11},
+        {"nodeWeight":11.5},
         ["rs1r", -0.55, 1.337, 0.797],
         ["rs1l",  0.55, 1.337, 0.797],
         //lower spring collar
@@ -112,8 +112,8 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
-        ["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2r", "strut_RR", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2l", "strut_RL", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1r", "strut_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //spring collar
@@ -136,10 +136,8 @@
         //camber
         {"beamSpring":4501000,"beamDamp":180},
         {"breakGroup":"wheel_RR"},
-        ["rh2r","rw1r"],
         ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*2.68-0.0024","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
-        ["rh2l","rw1l"],
         ["rh2l","rw1ll", {"precompressionRange":"$=$CamberRear*2.68-0.0024","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
@@ -177,14 +175,14 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
-        ["rh2r","rs1r", { //bottom out
+        ["rs2r","rs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.210,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
             "beamLimitSpring":801000,                                      //total piston travel equals to longBound + shortBound
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //bottom out
+        ["rs2l","rs1l", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.210,"boundZone":0.02,
             "beamLimitSpring":801000,
             "beamLimitDamp":1000,
@@ -233,7 +231,7 @@
             "beamDampReboundFast":"$=$dampRate_rebound_R",
             "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //1-phase valve close HBS with internal compression spring
+        ["rs2r","rs1r", { //1-phase valve close HBS with internal compression spring
             "name":"bumpstop_RR", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -247,15 +245,15 @@
             "beamLimitSpring":800,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
-            "dampCutoffHz":250}
+            "dampCutoffHz":200}
         ],
-        ["rh2r","rs1r", { 
+        ["rs2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
             "beamLimitSpring":8010,
-            "dampCutoffHz":250}
+            "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //hydraulic rebound stop
+        ["rs2r","rs1r", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.018,
             //leave rebound stop space
             "precompressionRange":-0.018,
@@ -280,7 +278,7 @@
             "beamDampReboundFast":"$=$dampRate_rebound_R",
             "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //1-phase valve close HBS with internal compression spring
+        ["rs2l","rs1l", { //1-phase valve close HBS with internal compression spring
             "name":"bumpstop_RL", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -294,15 +292,15 @@
             "beamLimitSpring":800,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
-            "dampCutoffHz":250}
+            "dampCutoffHz":200}
         ],
-        ["rh2r","rs1r", { 
+        ["rs2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
             "beamLimitSpring":8010,
-            "dampCutoffHz":250}
+            "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //hydraulic rebound stop
+        ["rs2l","rs1l", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.018,
             //leave rebound stop space
             "precompressionRange":-0.018,
@@ -421,7 +419,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_R","Astral_spring_R","Astral_chassis_R"]},
-        {"nodeWeight":11},
+        {"nodeWeight":11.5},
         ["rs1r", -0.55, 1.337, 0.797],
         ["rs1l",  0.55, 1.337, 0.797],
         //lower spring collar
@@ -466,8 +464,8 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
-        ["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2r", "strut_RR", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2l", "strut_RL", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1r", "strut_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //spring collar
@@ -490,10 +488,8 @@
         //camber
         {"beamSpring":4501000,"beamDamp":180},
         {"breakGroup":"wheel_RR"},
-        ["rh2r","rw1r"],
         ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*1.58+0.0062","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
-        ["rh2l","rw1l"],
         ["rh2l","rw1ll", {"precompressionRange":"$=$CamberRear*1.58+0.0062","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
@@ -531,14 +527,14 @@
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
-        ["rh2r","rs1r", { //bottom out
+        ["rs2r","rs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.260,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
             "beamLimitSpring":801000,                                      //total piston travel equals to longBound + shortBound
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", {
+        ["rs2l","rs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.260,"boundZone":0.02,
             "beamLimitSpring":801000,
             "beamLimitDamp":1000,
@@ -587,7 +583,7 @@
             "beamDampReboundFast":"$=$dampRate_rebound_R",
             "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //2-phase valve close HBS with stepping internal compression springs
+        ["rs2r","rs1r", { //2-phase valve close HBS with stepping internal compression springs
             "name":"bumpstop_RR", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -601,14 +597,14 @@
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
-            "dampCutoffHz":250}
+            "dampCutoffHz":200}
         ],
-        ["rh2r","rs1r", { //phase 2
+        ["rs2r","rs1r", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R+0.004","boundZone":0.01,
             "beamLimitSpring":8000,
-            "dampCutoffHz":250}
+            "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //hydraulic rebound stop
+        ["rs2r","rs1r", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.024,
             //leave rebound stop space
             "precompressionRange":-0.024,
@@ -633,7 +629,7 @@
             "beamDampReboundFast":"$=$dampRate_rebound_R",
             "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //2-phase valve close HBS with stepping internal compression springs
+        ["rs2l","rs1l", { //2-phase valve close HBS with stepping internal compression springs
             "name":"bumpstop_RL", 
             "soundFile":"event:>Vehicle>Suspension>longTravel_offroad_01>bump_stop_01",
             "colorFactor":1,
@@ -647,14 +643,14 @@
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
-            "dampCutoffHz":250}
+            "dampCutoffHz":200}
         ],
-        ["rh2l","rs1l", { //phase 2
+        ["rs2l","rs1l", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R+0.004","boundZone":0.01,
             "beamLimitSpring":8000,
-            "dampCutoffHz":250}
+            "dampCutoffHz":500}
         ],
-        ["rh2l","rs1l", { //hydraulic rebound stop
+        ["rs2l","rs1l", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.024,
             //leave rebound stop space
             "precompressionRange":-0.024,
