@@ -70,17 +70,20 @@ local function updateFixedStep(dt)
     local clampSpeed = clamp(speed, 0, 140) --make speed-steer factor only affect 0-140 km/h
     local yaw = obj:getYawAngularVelocity() --left is positive
     
-    if yaw > 0.15 then --calculate steering contribution
-      if steer * yaw < 0 then
+    --if yaw > 0.15 then --calculate steering contribution
+      --if steer * yaw < 0 then
         --contributionSteer = 0
-      else
-        lockRange = 1 - minLockCoef
-        contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1) 
-      end
-    else
-      lockRange = 1 - minLockCoef
-      contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1)
-    end
+      --else
+        --lockRange = 1 - minLockCoef
+        --contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1) 
+      --end
+   -- else
+      --lockRange = 1 - minLockCoef
+      --contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1)
+    --end
+
+    lockRange = 1 - minLockCoef
+    contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1)
 
     local speedFactor = clamp(1 - 0.9 * (clampSpeed / 140) * (-speedMap / 2000), 0.1, 1)
     xLockCoef = contributionSteer * speedFactor
