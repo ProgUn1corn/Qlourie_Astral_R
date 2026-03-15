@@ -44,7 +44,7 @@
         ["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5},
+        {"nodeWeight":4.75},
         ["rh2r", -0.562, 1.3465, 0.37, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.562, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
@@ -87,7 +87,7 @@
         ["rmassr", -0.5528, 1.339, 0.699],
         ["rmassl",  0.5528, 1.339, 0.699],
         //damper end
-        {"nodeWeight":3.25},
+        {"nodeWeight":3.5},
         {"group":["Astral_damper_R"]},
         ["rs2r", -0.5677, 1.351, 0.17],
         ["rs2l",  0.5677, 1.351, 0.17],
@@ -112,8 +112,8 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["rh2r", "strut_RR", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
-        ["rh2l", "strut_RL", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1r", "strut_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //spring collar
@@ -134,7 +134,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //camber
-        {"beamSpring":4501000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*2.68-0.0024","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
@@ -189,30 +189,30 @@
             "beamLimitDampRebound":1000, 
             "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //hard bump
+        ["rs2r","rs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.200,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":175100
             "beamLimitDamp":8000,
             "beamLimitDampRebound":4500,
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", {
+        ["rs2l","rs1l", {
             "longBoundRange":1,"shortBoundRange":0.200,"boundZone":0.01,
             "beamLimitSpring":175100
             "beamLimitDamp":8000,
             "beamLimitDampRebound":4500,
             "dampCutoffHz":250}
         ],
-        ["rh2r","rs1r", { //hard (elastic) rebound
+        ["rs2r","rs1r", { //hard (elastic) rebound
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":55000,
+            "beamLimitSpring":75000,
             "beamLimitDamp":750,
             "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", {
+        ["rs2l","rs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
-            "beamLimitSpring":55000,
+            "beamLimitSpring":75000,
             "beamLimitDamp":750,
             "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
@@ -396,7 +396,7 @@
         ["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5},
+        {"nodeWeight":4.75},
         ["rh2r", -0.5708, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5708, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
@@ -439,7 +439,7 @@
         ["rmassr", -0.5533, 1.339, 0.699],
         ["rmassl",  0.5533, 1.339, 0.699],
         //damper end
-        {"nodeWeight":3.25},
+        {"nodeWeight":3.5},
         {"group":["Astral_damper_R"]},
         ["rs2r", -0.5764, 1.355, 0.0141],
         ["rs2l",  0.5764, 1.355, 0.0141],
@@ -464,8 +464,8 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["rh2r", "strut_RR", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
-        ["rh2l", "strut_RL", true, true, 0.0, 17001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+        ["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1r", "strut_RR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         ["rcl1l", "strut_RL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
         //spring collar
@@ -486,7 +486,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Hub and Wheel--
         //camber
-        {"beamSpring":4501000,"beamDamp":180},
+        {"beamSpring":4501000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
         ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*1.58+0.0062","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
@@ -541,30 +541,30 @@
             "beamLimitDampRebound":1000, 
             "dampCutoffHz":500}
         ],
-        ["rh2r","rs1r", { //hard bump
+        ["rs2r","rs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":120100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", {
+        ["rs2l","rs1l", {
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01,
             "beamLimitSpring":120100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
         ],
-        ["rh2r","rs1r", { //hard (elastic) rebound
+        ["rs2r","rs1r", { //hard (elastic) rebound
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":55000,
+            "beamLimitSpring":75000,
             "beamLimitDamp":750,
             "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", {
+        ["rs2l","rs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
-            "beamLimitSpring":55000,
+            "beamLimitSpring":75000,
             "beamLimitDamp":750,
             "beamLimitDampRebound":1550,
             "dampCutoffHz":250}
