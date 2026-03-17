@@ -54,9 +54,9 @@
 		//cable
 		{"nodeWeight":0.05},
 		{"group":["Astral_cable"]},
-		["cab1", 0.443, -0.533, 0.749],
-		["cab2", 0.441, -0.412, 0.760],
-		["cab3", 0.429, -0.348, 0.776],
+		["cab1", 0.443, -0.543, 0.729],
+		["cab2", 0.441, -0.412, 0.740],
+		["cab3", 0.429, -0.318, 0.756],
 		{"nodeWeight":0.1},
 		["cabr", 0.421, -0.401, 0.861],
 		{"collision":true},
@@ -650,7 +650,7 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//steering wheel
-        ["steering", "Astral_steering_BRC", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1, {"baseTranslation":{"x":0, "y":-0.135, "z":0}}]
+        ["steering", "Astral_steering_BRC", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1, {"baseTranslation":{"x":0, "y":-0.125, "z":-0.02}}]
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -678,7 +678,7 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//steering wheel
-        ["steering", "Astral_steering_Rally2", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1, {"baseTranslation":{"x":0, "y":-0.145, "z":0}}]
+        ["steering", "Astral_steering_Rally2", "dsh1","dsh3","dsh2", {"x":90, "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1, {"baseTranslation":{"x":0, "y":-0.125, "z":-0.02}}]
 	],
 	"camerasInternal":[
 		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
@@ -741,9 +741,11 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//paddle shifter
-		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":7}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.005, "y":-0.200, "z":0.0}}]
+		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":90, "y":0, "z":180}, {"x":0, "y":0, "z":7}, {"x":0, "y":0.0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.005, "y":-0.200, "z":-0.01}}]
 		//aux shifter
-        ["sequentialLeverY", "Astral_sfstickaux", "a17","a18","a21", {"x":-100, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":0.138, "y":0.07, "z":0.267}}]
+        ["sequentialLeverY", "Astral_sfstick_aux", "a17","a18","a13", {"x":65, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 1]
+		//cylinder
+		["sequentialLeverY", "Astral_sequential_cylinder", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.008, "z":-0.002}, -1, 1, 0, 1]
 	]
 },
 "Astral_shifter_stick":{
@@ -756,7 +758,8 @@
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_shift", ["Astral_dash"]],
-        ["Astral_stickshifter", ["Astral_carbody","Astral_dash"]]
+		["Astral_sequential", ["Astral_chassis"]],
+		["Astral_sequential_boot", ["Astral_chassis"]],
 	],
 	"controller": [
 		["fileName"],
@@ -771,8 +774,12 @@
 	}
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
-		//paddle shifter
-		["sequentialLeverY", "Astral_sfstick", "dsh1","dsh3","dsh2", {"x":-89, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0.4, "z":0}, -1, 1, 0, 1, {"baseTranslation":{"x":-0.224, "y":-0.09, "z":-0.123}}]
+		//stick shifter
+		["sequentialLeverY", "Astral_sfstick", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 1]
+		//linkage
+		["sequentialLeverY", "Astral_sfstick_link", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.05, "z":0.005}, -1, 1, 0, 1]
+		//cylinder
+		["sequentialLeverY", "Astral_sequential_cylinder", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.008, "z":-0.002}, -1, 1, 0, 1]
 	]
 },
 "Astral_handbrake":{
@@ -789,7 +796,9 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//handbrake
-        ["parkingbrake", "Astral_hbstick", "a17","a18","a21", {"x":-88, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.085, "y":0.093, "z":0.337}}]
+        ["parkingbrake", "Astral_hbstick", "a17","a18","a13", {"x":78, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1]
+		//cylinder
+		["parkingbrake", "Astral_handbrake_cylinder", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.024, "z":-0.0055}, -1, 1, 0, 1]
 	],
 	"soundscape": [
 		["name", "src"],
