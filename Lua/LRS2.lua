@@ -1,4 +1,4 @@
--- This Source Code Form is subject to the terms of the bCDDL, v. 1.1.
+    -- This Source Code Form is subject to the terms of the bCDDL, v. 1.1.
 -- If a copy of the bCDDL was not distributed with this
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 
@@ -52,8 +52,9 @@ end
 local function update(dt) 
   for _, damper in ipairs(dampers) do
     local loadLength = obj:getBeamLength(damper.loadCid)
-    --print(loadLength)
-    if loadLength >= damper.LRSp and damper.blocker ~=1 then
+    local loadSmooth = damper.loadSmoother:get(loadLength, dt)
+    --print(loadSmooth)
+    if loadSmooth >= damper.LRSp and damper.blocker ~=1 then
       applyLRS(damper, "active")
       --print("YEEEEEEEEEEEEEEEEESSSSSSSSSSSSS")
     else
@@ -61,9 +62,6 @@ local function update(dt)
       --print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
     end
   end
-end
-
-local function reset()
 end
 
 local function init(jbeamData)
@@ -97,6 +95,7 @@ local function init(jbeamData)
     local damper = dampersLookup[loadData.name]
     if cid and damper then
       damper.loadCid = cid
+      damper.loadSmoother = newTemporalSmoothing(50, 50)
       if loadData.LRSp then
         damper.LRSp = loadData.LRSp
       end
@@ -148,6 +147,7 @@ local function init(jbeamData)
   end
   
   --printTable(dampersLookup)
+  --printTable(dampers)
   --printTable(dampingGroups)
 end
 
@@ -156,7 +156,6 @@ local function reset()
 end
 
 M.init = init
-M.reset = reset
 M.update = update
 M.applyLRS = applyLRS
 
