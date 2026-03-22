@@ -769,4 +769,102 @@
         ["wj1l", "wj2l", "wjs2l"],
     ],
 },
+"Astral_steering_animation": {
+    "information":{
+        "authors":"Un1corn",
+        "name":"Steering Torsion Hydros Test",
+        "value":9999999,
+        "isAuxiliary":true
+    },
+	"slotType" : "Astral_debug",
+    "nodes":[
+        ["id", "posX", "posY", "posZ"],
+        {"nodeMaterial":"|NM_METAL"},
+        {"collision":true},
+        {"selfCollision":false},
+        //--Steering Torsion Hydro--
+        //wheel
+        {"frictionCoef":0.5},
+        {"nodeWeight":0.25},
+        {"group":""},
+        ["dstw1l", -0.16, 2.5, 0.32],
+        ["dstw1r",  0.16, 2.5, 0.32],
+        ["dstw2l", -0.16, 2.5, 0],
+        ["dstw2r",  0.16, 2.5, 0],
+        //rigidifier
+        {"nodeWeight":1},
+        ["dstwr",  0,  2.75, 0.16],
+        ["dstwc" ,  0,    2.25, 0.16],
+        //base
+        {"frictionCoef":50},
+        {"nodeWeight":50},
+        ["bdstw1l", -0.16, 2.75, -0.16],
+        ["bdstw1r",  0.16, 2.75, -0.16],
+        ["bdstw2l", -0.16, 2.25, -0.16],
+        ["bdstw2r",  0.16, 2.25, -0.16],
+        {"collision":true},
+        {"selfCollision":true},
+        {"frictionCoef":0.5},
+    ],
+    "beams":[
+        ["id1:", "id2:"],
+        //--Steering Torsion Hydro--
+        //base
+        {"beamSpring":15010000,"beamDamp":1500},
+        ["bdstw1l","bdstw1r"],
+        ["bdstw1r","bdstw2r"],
+        ["bdstw2r","bdstw2l"],
+        ["bdstw2l","bdstw1l"],
+        ["bdstw1r","bdstw2l"],
+        ["bdstw1l","bdstw2r"],
+        //main shape
+        {"beamSpring":101000,"beamDamp":50},
+        {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+        ["dstw1l","dstw1r"],
+        ["dstw1r","dstw2r"],
+        ["dstw2r","dstw2l"],
+        ["dstw2l","dstw1l"],
+        ["dstw1r","dstw2l"],
+        ["dstw1l","dstw2r"],
+        //rigidifier
+        {"beamSpring":101000,"beamDamp":50},
+        ["dstwr","dstw1l"],
+        ["dstwr","dstw1r"],
+        ["dstwr","dstw2l"],
+        ["dstwr","dstw2r"],
+        ["dstwc","dstw1l"],
+        ["dstwc","dstw1r"],
+        ["dstwc","dstw2l"],
+        ["dstwc","dstw2r"],
+        ["dstwr","dstwc"],
+        //connect to base
+        {"beamSpring":501000,"beamDamp":50},
+        ["dstwr","bdstw1l"],
+        ["dstwr","bdstw1r"],
+        ["dstwr","bdstw2l"],
+        ["dstwr","bdstw2r"],
+        ["dstwc","bdstw1l"],
+        ["dstwc","bdstw1r"],
+        ["dstwc","bdstw2l"],
+        ["dstwc","bdstw2r"],
+    ],
+    "triangles":[
+        ["id1:", "id2:", "id3:"],
+        {"dragCoef":0},
+		{"liftCoef":0, "stallAngle":0},
+        {"groundModel":"metal"},
+        //--Steering Torsion Hydro--
+        //wheel
+        ["dstw1l", "dstw1r", "dstw2r"],
+        ["dstw1l", "dstw2r", "dstw2l"],
+        //base
+        ["bdstw1l", "bdstw1r", "bdstw2r"],
+        ["bdstw1l", "bdstw2r", "bdstw2l"],
+    ],
+    "torsionHydros": [
+        ["id1:","id2:","id3:","id4:"],
+        {"spring":100000, "damp":0.5, "deform":9999999999999, "strength":99999999999999},
+        ["dstw1l","dstwr","dstwc","bdstw1r", {"factor":-4.189,"inRate":24,"outRate":24,"inputSource":"steeringUnassisted"}],
+    ],
+},
 }
