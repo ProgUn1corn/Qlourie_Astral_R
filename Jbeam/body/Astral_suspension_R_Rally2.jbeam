@@ -38,7 +38,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6},
+        {"nodeWeight":6.5},
         ["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
@@ -46,6 +46,7 @@
         ["rh2r", -0.562, 1.3465, 0.37, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.562, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
+        {"nodeWeight":4.5},
         ["rh3r", -0.736, 1.1795, "$=0.0178+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.736, 1.1795, "$=0.0178+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake calipers
@@ -141,7 +142,7 @@
         
         //--Control arm--
         //toe-link
-        {"beamSpring":18001000,"beamDamp":1200},
+        {"beamSpring":18001000,"beamDamp":600},
         {"beamDeform":235100,"beamStrength":625000},
         ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
@@ -197,8 +198,8 @@
             "maxStress":1
             //stop active
             "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.021,
-            "beamLimitSpring":255000,
-            "beamLimitDamp":12500, 
+            "beamLimitSpring":205000,
+            "beamLimitDamp":9500, 
             "beamLimitDampRebound":5500,
             "dampCutoffHz":250}
         ],
@@ -213,8 +214,8 @@
             "maxStress":1
             //stop active
             "longBoundRange":0,"shortBoundRange":"$=0.190-$dampPos_F","boundZone":0.021,
-            "beamLimitSpring":255000,
-            "beamLimitDamp":12500, 
+            "beamLimitSpring":205000,
+            "beamLimitDamp":9500, 
             "beamLimitDampRebound":5500,
             "dampCutoffHz":250}
         ],
@@ -357,7 +358,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6},
+        {"nodeWeight":6.5},
         ["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
@@ -365,6 +366,7 @@
         ["rh2r", -0.5708, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5708, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
+        {"nodeWeight":4.5},
         ["rh3r", -0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
@@ -460,7 +462,7 @@
         
         //--Control arm--
         //toe-link
-        {"beamSpring":18001000,"beamDamp":1200},
+        {"beamSpring":18001000,"beamDamp":600},
         {"beamDeform":235100,"beamStrength":625000},
         ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
