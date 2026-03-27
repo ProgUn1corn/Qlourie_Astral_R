@@ -729,8 +729,8 @@
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$steeringAngle", "range", "Degrees", "Chassis and Interior", 0, -5, 5, "Steering Column Angle", "Adjust the angle of steering wheel", {"stepDis":1, "subCategory":"Interior"}],
-		["$steeringDist", "range", "mm", "Chassis and Interior", 0, -20, 40, "Steering Wheel Spacer", "Adjust the distance of steering wheel", {"stepDis":20, "minDis":0, "maxDis":60, "subCategory":"Interior"}],
+        ["$steeringAngle", "range", "Degrees", "Steering", 0, -5, 5, "Steering Column Angle", "Adjust the angle of steering wheel", {"stepDis":1, "subCategory":"Steering Position"}],
+		["$steeringDist", "range", "mm", "Steering", 0, -20, 40, "Steering Wheel Spacer", "Adjust the distance of steering wheel", {"stepDis":20, "minDis":0, "maxDis":60, "subCategory":"Steering Position"}],
     ],
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
@@ -972,11 +972,11 @@
 		//--Pedal Box--
 		{"nodeWeight":1},
 		{"group":["Astral_pedal"]},
-		["pd1", 0.597, -0.755, 0.16],
-		["pd2", 0.136, -0.755, 0.16],
-		["pd3", 0.136, -0.494, 0.16],
-		["pd4", 0.597, -0.494, 0.16],
-		["pdr", 0.362, -0.634, 0.28],
+		["pd1", 0.597, -0.775, 0.16],
+		["pd2", 0.136, -0.775, 0.16],
+		["pd3", 0.136, -0.514, 0.16],
+		["pd4", 0.597, -0.514, 0.16],
+		["pdr", 0.362, -0.654, 0.28],
 		{"collision":true},
 		{"selfCollision":true},
 		{"group":[""]}
@@ -984,7 +984,7 @@
 	"beams": [   
 		["id1:", "id2:"], 
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-		//--Pedal Box Position--
+		//--Pedal Box Steering Position--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//pedal shape
 		{"beamSpring":651000,"beamDamp":50},
