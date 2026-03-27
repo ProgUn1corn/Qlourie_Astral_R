@@ -95,7 +95,7 @@ local function init(jbeamData)
     local damper = dampersLookup[loadData.name]
     if cid and damper then
       damper.loadCid = cid
-      damper.loadSmoother = newTemporalSmoothing(50, 50)
+      damper.loadSmoother = newTemporalSmoothing(500, 500)
       if loadData.LRSp then
         damper.LRSp = loadData.LRSp
       end
