@@ -27,7 +27,7 @@
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampPos_R", "range", "mm", "Suspension - Dampers and Springs", 0.027, 0.021, 0.030, "Bump Stop Travel", "Hard bump stop startig point in total travel", {"stepDis":1,"minDis":21,"maxDis":30,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
+        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.033, 0.018, 0.054, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":21,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 102mm
     ],
     "nodes": [
@@ -164,7 +164,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":50,"beamDamp":10},
+        {"beamSpring":22.5,"beamDamp":5},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
@@ -347,8 +347,8 @@
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 14000, 11000, 15000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.040, 0.036, 0.048, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":36,"maxDis":48,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 350, 150, 425, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":425,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.012, 0.003, 0.036, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-9,"maxDis":24,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 182mm
+        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Auxiliary"}],
+        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.018, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 182mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -454,9 +454,9 @@
         //camber
         {"beamSpring":4501000,"beamDamp":150},
         {"breakGroup":"wheel_RR"},
-        ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*1.68+0.006","beamPrecompressionTime":0.2}],
+        ["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*1.68+0.0061","beamPrecompressionTime":0.2}],
         {"breakGroup":"wheel_RL"},
-        ["rh2l","rw1ll", {"precompressionRange":"$=$CamberRear*1.68+0.006","beamPrecompressionTime":0.2}],
+        ["rh2l","rw1ll", {"precompressionRange":"$=$CamberRear*1.68+0.0061","beamPrecompressionTime":0.2}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -484,7 +484,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":50,"beamDamp":10},
+        {"beamSpring":22.5,"beamDamp":5},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
