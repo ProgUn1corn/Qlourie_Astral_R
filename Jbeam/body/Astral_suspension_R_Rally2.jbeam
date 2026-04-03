@@ -38,15 +38,14 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.5},
+        {"nodeWeight":6.25},
         ["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5},
+        {"nodeWeight":4.75},
         ["rh2r", -0.562, 1.3465, 0.37, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.562, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
-        {"nodeWeight":4.5},
         ["rh3r", -0.736, 1.1795, "$=0.0178+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.736, 1.1795, "$=0.0178+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake calipers
@@ -142,7 +141,7 @@
         
         //--Control arm--
         //toe-link
-        {"beamSpring":18001000,"beamDamp":600},
+        {"beamSpring":18001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
         ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
@@ -164,7 +163,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":22.5,"beamDamp":5},
+        {"beamSpring":"$=4.11*$dampGas_R","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
@@ -254,7 +253,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -279,7 +278,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -345,7 +344,7 @@
     ],
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 14000, 11000, 15000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
+        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 13000, 10000, 14000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.040, 0.036, 0.048, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":36,"maxDis":48,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Auxiliary"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.018, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 182mm
@@ -358,15 +357,14 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.5},
+        {"nodeWeight":6.25},
         ["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5},
+        {"nodeWeight":4.75},
         ["rh2r", -0.5708, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5708, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
-        {"nodeWeight":4.5},
         ["rh3r", -0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
@@ -462,7 +460,7 @@
         
         //--Control arm--
         //toe-link
-        {"beamSpring":18001000,"beamDamp":600},
+        {"beamSpring":18001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
         ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
@@ -484,7 +482,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":22.5,"beamDamp":5},
+        {"beamSpring":"$=4.11*$dampGas_R","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
@@ -560,9 +558,9 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":500,
+            "beamLimitSpring":50,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2r","rs1r", { 
@@ -577,8 +575,8 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitSpring":50,
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -609,7 +607,7 @@
             "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_R","boundZone":0.032,
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2l","rs1l", { 
@@ -625,7 +623,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -678,7 +676,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 4000, 3000, 5000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3-Way"}],
-		["$dampRate_bump_R_fast", "range", "Clicks", "Suspension - Dampers and Springs", 5800, 4200, 7400, "HS Bump", "High speed bump damping controls jump and big bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3-Way"}],
+		["$dampRate_bump_R_fast", "range", "Clicks", "Suspension - Dampers and Springs", 5200, 3600, 6800, "HS Bump", "High speed bump damping controls jump and big bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3-Way"}],
         ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 3840, 2880, 4800, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper - 3-Way"}],
         ["$dampVelocity_R", "range", "m/s", "Suspension - Dampers and Springs", 0.35, 0.20, 0.50, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.05,"subCategory":"Rear Damper Auxiliary"}],
     ],
@@ -700,11 +698,11 @@
         "damping":[
             ["active", "name", "beamDamp",               "beamDampFast",            "beamDampRebound",              "beamDampReboundFast",          "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
             //normal
-            ["0",      "RR",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.96",   "$=$dampVelocity_R+($dampRate_bump_R_fast-4200)/32000-($dampRate_bump_R-3000)/20000", 0.66                          ]
-            ["0",      "RL",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.96",   "$=$dampVelocity_R+($dampRate_bump_R_fast-4200)/32000-($dampRate_bump_R-3000)/20000", 0.66                          ]
+            ["0",      "RR",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.96",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3600)/32000-($dampRate_bump_R-3000)/20000", 0.66                          ]
+            ["0",      "RL",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*0.96",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3600)/32000-($dampRate_bump_R-3000)/20000", 0.66                          ]
             //LRS
-            ["1",      "RR",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.499",  "$=$dampRate_rebound_R*0.499", "$=$dampVelocity_R+($dampRate_bump_R_fast-4200)/32000-($dampRate_bump_R-3000)/20000", 1                             ]
-            ["1",      "RL",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.499",  "$=$dampRate_rebound_R*0.499", "$=$dampVelocity_R+($dampRate_bump_R_fast-4200)/32000-($dampRate_bump_R-3000)/20000", 1                             ]
+            ["1",      "RR",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.499",  "$=$dampRate_rebound_R*0.499", "$=$dampVelocity_R+($dampRate_bump_R_fast-3600)/32000-($dampRate_bump_R-3000)/20000", 1                             ]
+            ["1",      "RL",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.499",  "$=$dampRate_rebound_R*0.499", "$=$dampVelocity_R+($dampRate_bump_R_fast-3600)/32000-($dampRate_bump_R-3000)/20000", 1                             ]
         ]
     },
 },
@@ -810,7 +808,7 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_R", "range", "Clicks", "Suspension - Dampers and Springs", 2550, 1550, 3550, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
-		["$dampRate_bump_R_fast", "range", "Clicks", "Suspension - Dampers and Springs", 4900, 3300, 6500, "HS Bump", "High speed bump damping controls jump and big bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
+		["$dampRate_bump_R_fast", "range", "Clicks", "Suspension - Dampers and Springs", 4800, 3200, 6400, "HS Bump", "High speed bump damping controls jump and big bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
         ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 2091, 1271, 2911, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-40,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
         ["$dampVelocity_R", "range", "m/s", "Suspension - Dampers and Springs", 0.65, 0.26, 1.04, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.13,"subCategory":"Rear Damper Auxiliary"}],
     ],
@@ -832,11 +830,11 @@
         "damping":[
             ["active", "name", "beamDamp",               "beamDampFast",            "beamDampRebound",              "beamDampReboundFast",          "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
             //normal
-            ["0",      "RR",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*1.1",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3300)/16000-($dampRate_bump_R-1550)/10000", 1.05                          ]
-            ["0",      "RL",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*1.1",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3300)/16000-($dampRate_bump_R-1550)/10000", 1.05                          ]
+            ["0",      "RR",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*1.1",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-1550)/10000", 1.05                          ]
+            ["0",      "RL",   "$dampRate_bump_R",       "$dampRate_bump_R_fast",   "$dampRate_rebound_R",          "$=$dampRate_rebound_R*1.1",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-1550)/10000", 1.05                          ]
             //LRS
-            ["1",      "RR",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.84",   "$=$dampRate_rebound_R*0.84",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3300)/16000-($dampRate_bump_R-1550)/10000", 1                             ]
-            ["1",      "RL",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.84",   "$=$dampRate_rebound_R*0.84",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3300)/16000-($dampRate_bump_R-1550)/10000", 1                             ]
+            ["1",      "RR",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.84",   "$=$dampRate_rebound_R*0.84",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-1550)/10000", 1                             ]
+            ["1",      "RL",   "$=$dampRate_bump_R*1.0", "$=$dampRate_bump_R_fast", "$=$dampRate_rebound_R*0.84",   "$=$dampRate_rebound_R*0.84",   "$=$dampVelocity_R+($dampRate_bump_R_fast-3200)/16000-($dampRate_bump_R-1550)/10000", 1                             ]
         ]
     },
 },

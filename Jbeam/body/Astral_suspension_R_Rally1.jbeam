@@ -40,15 +40,14 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.5},
+        {"nodeWeight":6.25},
         ["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5},
+        {"nodeWeight":4.75},
         ["rh2r", -0.562, 1.3465, 0.37, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.562, 1.3465, 0.37, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
-        {"nodeWeight":4.5},
         ["rh3r", -0.736, 1.1795, "$=0.0176+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.736, 1.1795, "$=0.0176+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake caliper
@@ -144,7 +143,7 @@
         
         //--Control arm--
         //toe-link
-        {"beamSpring":18001000,"beamDamp":600},
+        {"beamSpring":18001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
         ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0003","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0003","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
@@ -166,7 +165,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":22.5,"beamDamp":5},
+        {"beamSpring":"$=4.11*$dampGas_R","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
@@ -242,15 +241,15 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.028,
-            "beamLimitSpring":800,
+            "beamLimitSpring":50,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":12010,
+            "beamLimitSpring":15010,
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //hydraulic rebound stop
@@ -260,7 +259,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -289,15 +288,15 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.028,
-            "beamLimitSpring":800,
+            "beamLimitSpring":50,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/10", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":12010,
+            "beamLimitSpring":15010,
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", { //hydraulic rebound stop
@@ -307,7 +306,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -373,7 +372,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 14000, 11000, 15000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
+        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 13000, 10000, 14000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$LRS_R", "range", "Clicks", "Suspension - Dampers and Springs", 0.8, 0.5, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.039, 0.033, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":33,"maxDis":45,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Auxiliary"}],
@@ -387,15 +386,14 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.5},
+        {"nodeWeight":6.25},
         ["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5},
+        {"nodeWeight":4.75},
         ["rh2r", -0.5708, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5708, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
-        {"nodeWeight":4.5},
         ["rh3r", -0.739, 1.1795, "$=-0.0782+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.739, 1.1795, "$=-0.0782+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
@@ -491,7 +489,7 @@
         
         //--Control arm--
         //toe-link
-        {"beamSpring":18001000,"beamDamp":600},
+        {"beamSpring":18001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
         ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0016","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0016","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
@@ -513,7 +511,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":22.5,"beamDamp":5},
+        {"beamSpring":"$=4.11*$dampGas_R","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
@@ -538,14 +536,14 @@
         ],
         ["rs2r","rs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":120100
+            "beamLimitSpring":150100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
         ],
         ["rs2l","rs1l", {
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01,
-            "beamLimitSpring":120100
+            "beamLimitSpring":150100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
@@ -591,7 +589,7 @@
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.030,
             "beamLimitSpring":1500,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2r","rs1r", { //phase 2
@@ -605,8 +603,8 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitSpring":50,
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -635,9 +633,9 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.030,
-            "beamLimitSpring":500,
+            "beamLimitSpring":50,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2l","rs1l", { //phase 2
@@ -652,7 +650,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],

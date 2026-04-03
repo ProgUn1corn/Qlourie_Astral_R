@@ -39,15 +39,14 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.5},
+        {"nodeWeight":6.25},
         ["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
-        {"nodeWeight":5},
+        {"nodeWeight":4.75},
         ["rh2r", -0.5708, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5708, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
         //toe link
-        {"nodeWeight":4.5},
         ["rh3r", -0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.739, 1.1795, "$=-0.0788+$Bumpsteer_R", {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //brake caliper
@@ -143,7 +142,7 @@
         
         //--Control arm--
         //toe-link
-        {"beamSpring":18001000,"beamDamp":600},
+        {"beamSpring":18001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
         ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0012","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
@@ -165,7 +164,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":22.5,"beamDamp":5},
+        {"beamSpring":"$=4.11*$dampGas_R","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
@@ -241,15 +240,15 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":500,
+            "beamLimitSpring":50,
             "beamLimitDamp":12500, 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":12050,
+            "beamLimitSpring":11050,
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //hydraulic rebound stop
@@ -259,7 +258,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
@@ -288,15 +287,15 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.032,
-            "beamLimitSpring":500,
+            "beamLimitSpring":50,
             "beamLimitDamp":12500, 
-            "beamLimitDampRebound":"$=$dampRate_rebound_R/8", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
+            "beamLimitDampRebound":250
             "dampCutoffHz":200}
         ],
         ["rh2l","rs1l", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":12050,
+            "beamLimitSpring":11050,
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", { //hydraulic rebound stop
@@ -306,7 +305,7 @@
             "beamPrecompressionTime":0.1,
             //rebound stop active
             "beamLimitSpring":1500,
-            "beamLimitDamp":"$=$dampRate_bump_R/10",
+            "beamLimitDamp":150,
             "beamLimitDampRebound":5250
             "dampCutoffHz":250}
         ],
