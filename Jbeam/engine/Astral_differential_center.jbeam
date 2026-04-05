@@ -117,14 +117,14 @@
 		"lockMap":{
 			"lock":"$=$components.diff.clock"
 			"revLock":"$=$components.diff.crevlock"
-			"preload":"$=$lsdpreload_C*(1+($frictionFace_C-6)*0.074"
+			"preload":"$=$lsdpreload_C*(1+($frictionFace_C-6)*0.048)"
 			"rearBias":"$torquesplit"
 			"hbRelease":"$hbRelease"
 		}
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.048))/$components.diff.finaldrive", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.36, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.048))", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.36, "dynamicFriction":0.00038, "torqueLossCoef": 0.012, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
 	"flexbodies": [
         ["mesh", "[group]:", "nonFlexMaterials"],
