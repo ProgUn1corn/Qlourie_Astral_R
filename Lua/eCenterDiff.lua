@@ -188,14 +188,20 @@ local function updateFixedStep(dt)
     transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1
     local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
-    clutchRatio = clamp(clutchRatio, 0, 1)
+    local clutchOverride = clamp(1 - clutchRatio ^ 1.5, 0, 1)
+
+    if clutchOverride >= 0.01 then
+      electrics.values.clutchOverride = clutchOverride
+    else
+      electrics.values.clutchOverride = nil
+    end
 
     transfercase.lsdLockCoef = maxLockCoef * clutchRatio
     transfercase.lsdRevLockCoef = minLockCoef * clutchRatio
     transfercase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
     transfercase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
     transfercase.lsdPreload = preload * clutchRatio
-    --print(transfercase.lsdLockCoef)
+    --print(electrics.values.clutch)
 
   elseif transferType == "PEAL" then
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1 
