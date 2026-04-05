@@ -581,18 +581,19 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":0,"beamDamp":0},
+        {"beamSpring":"$=4.11*$dampGas_F","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        ["ds1","dm1", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0.05}], //shaft rod diameter 18mm
+        ["ds1","dm1", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         //main damper
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["ds1","dm1", { //bottom out
-            "longBoundRange":0,"shortBoundRange":0.300,"boundZone":0.02,
-            "beamLimitSpring":1001000,
-            "beamLimitDamp":1000, 
-            "dampCutoffHz":250}
+            "longBoundRange":0.01,"shortBoundRange":0.300,"boundZone":0.02, 
+            "beamLimitSpring":801000,                                     
+            "beamLimitDamp":1000,
+            "beamLimitDampRebound":1000,  
+            "dampCutoffHz":500}
         ],
         {"beamDeform":125000,"beamStrength":175000},
         ["ds1","dm1", { //FR damper
@@ -604,31 +605,31 @@
             "beamDampFast":"$dampRate_bump_F_fast",
             //HS rebound
             "beamDampReboundFast":"$=$dampRate_rebound_F",
-            "dampCutoffHz":400}
+            "dampCutoffHz":500}
         ],
-        ["ds1","dm1", { //1-phase valve close HBS
+        ["ds1","dm1", { //1-phase valve close HBS with internal bump spring
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$dampPos_hystop_F","boundZone":0.048,
-            "beamLimitSpring":2500,
-            "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.69)", 
-            "beamLimitDampRebound":"$=$dampRate_rebound_F/6", //different beams add up so it is limitRebound + rebound since they are 2 separate beams
-            "dampCutoffHz":250}
+            "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_F","boundZone":0.032,
+            "beamLimitSpring":50,
+            "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
+            "beamLimitDampRebound":250
+            "dampCutoffHz":200}
         ],
-        ["ds1","dm1", { //hard bump stop
-            //failsafe protection
-            "longBoundRange":1,"shortBoundRange":"$dampPos_stop_F","boundZone":0.01,
-            "beamLimitSpring":451000,
-            "beamLimitDamp":2000, 
-            "beamLimitDampRebound":0,
-            "dampCutoffHz":250}
+        ["ds1","dm1", { 
+            //bump spring 
+            "longBoundRange":1,"shortBoundRange":"$=0.285-$dampPos_hystop_F","boundZone":0.01,
+            "beamLimitSpring":12000,
+            "dampCutoffHz":500}
         ],
         ["ds1","dm1", { //hydraulic rebound stop
-            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.03,
+            "longBoundRange":0,"shortBoundRange":2,"boundZone":0.024,
             //leave rebound stop space
-            "precompressionRange":-0.03,
+            "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitDampRebound":3500,
+            "beamLimitSpring":1500,
+            "beamLimitDamp":150,
+            "beamLimitDampRebound":4250,
             "dampCutoffHz":250}
         ],
         {"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
