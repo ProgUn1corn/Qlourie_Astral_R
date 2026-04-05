@@ -26,7 +26,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 12000, 10000, 14000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
+        ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 8000, 6000, 10000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$LRS_R", "range", "Clicks", "Suspension - Dampers and Springs", 0.5, 0.5, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.025, 0.035, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":35,"subCategory":"Rear Damper Auxiliary"}],
         ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Auxiliary"}],
@@ -189,15 +189,15 @@
             "dampCutoffHz":500}
         ],
         ["rs2r","rs1r", { //hard bump
-            "longBoundRange":1,"shortBoundRange":0.200,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":125100
+            "longBoundRange":1,"shortBoundRange":0.195,"boundZone":0.01, //15mm hard stop for protection
+            "beamLimitSpring":105100
             "beamLimitDamp":8000,
             "beamLimitDampRebound":4500,
             "dampCutoffHz":250}
         ],
         ["rs2l","rs1l", {
-            "longBoundRange":1,"shortBoundRange":0.200,"boundZone":0.01,
-            "beamLimitSpring":125100
+            "longBoundRange":1,"shortBoundRange":0.195,"boundZone":0.01,
+            "beamLimitSpring":105100
             "beamLimitDamp":8000,
             "beamLimitDampRebound":4500,
             "dampCutoffHz":250}
@@ -241,7 +241,7 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.028,
-            "beamLimitSpring":50,
+            "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":250
             "dampCutoffHz":200}
@@ -249,7 +249,7 @@
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":15010,
+            "beamLimitSpring":17010,
             "dampCutoffHz":500}
         ],
         ["rh2r","rs1r", { //hydraulic rebound stop
@@ -288,7 +288,7 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.028,
-            "beamLimitSpring":50,
+            "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":250
             "dampCutoffHz":200}
@@ -296,7 +296,7 @@
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.210-$dampPos_hystop_R","boundZone":0.01,
-            "beamLimitSpring":15010,
+            "beamLimitSpring":17010,
             "dampCutoffHz":500}
         ],
         ["rh2l","rs1l", { //hydraulic rebound stop
@@ -536,14 +536,14 @@
         ],
         ["rs2r","rs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":150100
+            "beamLimitSpring":170100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
         ],
         ["rs2l","rs1l", {
             "longBoundRange":1,"shortBoundRange":0.250,"boundZone":0.01,
-            "beamLimitSpring":150100
+            "beamLimitSpring":170100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
@@ -603,7 +603,7 @@
             "precompressionRange":-0.024,
             "beamPrecompressionTime":0.1,
             //rebound stop active
-            "beamLimitSpring":50,
+            "beamLimitSpring":250,
             "beamLimitDamp":150,
             "beamLimitDampRebound":4250
             "dampCutoffHz":250}
@@ -633,7 +633,7 @@
             "maxStress":1
             //bump stop active
             "longBoundRange":1,"shortBoundRange":"$=0.270-$dampPos_hystop_R","boundZone":0.030,
-            "beamLimitSpring":50,
+            "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":250
             "dampCutoffHz":200}
