@@ -247,7 +247,7 @@
         ["fh2r","fw1r", {"beamSpring":4501000,"beamDamp":50}],
         ["fh3r","fw1r", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5r","fw1r", {"beamSpring":6001000,"beamDamp":60}],
-        ["fs2r","fw1r", {"beamSpring":4501000,"beamDamp":50}],
+        //["fs2r","fw1r", {"beamSpring":4501000,"beamDamp":50}],
         ["fh1r","fw1rr"],
         ["fh3r","fw1rr", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5r","fw1rr", {"beamSpring":6001000,"beamDamp":60}],
@@ -257,7 +257,7 @@
         ["fh2l","fw1l", {"beamSpring":4501000,"beamDamp":50}],
         ["fh3l","fw1l", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5l","fw1l", {"beamSpring":6001000,"beamDamp":60}],
-        ["fs2l","fw1l", {"beamSpring":4501000,"beamDamp":50}],
+        //["fs2l","fw1l", {"beamSpring":4501000,"beamDamp":50}],
         ["fh1l","fw1ll"],
         ["fh3l","fw1ll", {"beamSpring":12001000,"beamDamp":20}],
         ["fh5l","fw1ll", {"beamSpring":6001000,"beamDamp":60}],
@@ -266,29 +266,29 @@
         {"optional":false},
 
         //--Control Arm and Structure Damping--
+        //ARB link
+        {"beamSpring":0,"beamDamp":150},
+        ["farb3r","fx1r"],
+        ["farb3l","fx1l"],
         //control arm
-        {"beamSpring":15501000,"beamDamp":1550},
+        {"beamSpring":15001000,"beamDamp":1500},
         {"beamDeform":185100,"beamStrength":800000},
         {"dampCutoffHz":500},
         ["fx2r", "fh1r", {"precompressionRange":"$CasterFront","beamPrecompressionTime":0.2}],
         ["fx1r", "fh1r"],
         ["fx2l", "fh1l", {"precompressionRange":"$CasterFront","beamPrecompressionTime":0.2}],
         ["fx1l", "fh1l"],
-        //ARB link
-        {"beamSpring":0,"beamDamp":250},
-        ["farb3r","fx1r"],
-        ["farb3l","fx1l"],
-        //arm joint horizontal damping
+        //arm joint damping
         {"beamSpring":0,"beamDamp":450},
-        ["fh1r","a16"],
-        ["fh1r","a19"],
-        ["fh1l","a19"],
-        ["fh1l","a16"],
+        ["fh1r","a12"],
+        ["fh1r","a15"],
+        ["fh1l","a15"],
+        ["fh1l","a12"],
         ["fh1r","fx3r"],
         ["fh1l","fx3l"],
+        //hub steering damping
         ["fh3r","a17"],
         ["fh3l","a18"],
-        //hub steering damping
         ["fh3r","st2l"],
         ["fh3l","st2r"],
         ["fh3r","fx3l"],
@@ -573,8 +573,8 @@
         {"nodeWeight":1},
         ["farb1r", -0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
         ["farb1l",  0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
-        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.5}],
-        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.5}],
+        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.75}],
+        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.75}],
         {"group":[""]}
     ],
     "beams": [
@@ -635,8 +635,8 @@
         {"nodeWeight":1},
         ["farb1r", -0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
         ["farb1l",  0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
-        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.5}],
-        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.5}],
+        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.75}],
+        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.75}],
         {"group":[""]}
     ],
     "beams": [
@@ -697,8 +697,8 @@
         {"nodeWeight":1},
         ["farb1r", -0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
         ["farb1l",  0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
-        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.5}],
-        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.5}],
+        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.75}],
+        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.75}],
         {"group":[""]}
     ],
     "beams": [
@@ -764,8 +764,8 @@
         {"nodeWeight":1},
         ["farb1r", -0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
         ["farb1l",  0.522, -1.061, 0.195, {"group":["Astral_arb_F","Astral_arb2_F"]}],
-        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.5}],
-        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.5}],
+        ["farb2r", -0.541, -0.899, 0.185, {"nodeWeight":1.75}],
+        ["farb2l",  0.541, -0.899, 0.185, {"nodeWeight":1.75}],
         {"group":[""]}
     ],
     "beams": [

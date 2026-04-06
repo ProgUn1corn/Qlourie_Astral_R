@@ -39,7 +39,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.25},
+        {"nodeWeight":6},
         ["fh1r", -0.752, -1.295, 0.021, {"group":["Astral_hub_FR","Astral_arm_F"]}],
         ["fh1l",  0.752, -1.295, 0.021, {"group":["Astral_hub_FL","Astral_arm_F"]}],
         //strut attach
@@ -133,8 +133,8 @@
         ["fmassr", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
-        ["farb3r", "arb_FR", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
-        ["farb3l", "arb_FL", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"]
+        ["farb3r", "arb_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["farb3l", "arb_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -250,7 +250,7 @@
         ["fh2r","fs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.01,
-            "beamLimitSpring":22010,
+            "beamLimitSpring":25010,
             "dampCutoffHz":500}
         ],
         ["fh2r","fs1r", { //hydraulic rebound stop
@@ -296,7 +296,7 @@
         ["fh2l","fs1l", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.01,
-            "beamLimitSpring":22010,
+            "beamLimitSpring":25010,
             "dampCutoffHz":500}
         ],
         ["fh2l","fs1l", { //hydraulic rebound stop
@@ -374,7 +374,7 @@
     ],
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$dampRate_stop_F", "range", "Clicks", "Suspension - Dampers and Springs", 12000, 10000, 14000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$dampRate_stop_F", "range", "Clicks", "Suspension - Dampers and Springs", 10000, 8000, 12000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$LRS_F", "range", "Clicks", "Suspension - Dampers and Springs", 0.85, 0.5, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.045, 0.039, 0.051, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":39,"maxDis":51,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Front Damper Auxiliary"}],
@@ -388,7 +388,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.25},
+        {"nodeWeight":6},
         ["fh1r", -0.752, -1.300, -0.068, {"group":["Astral_hub_FR","Astral_arm_F"]}],
         ["fh1l",  0.752, -1.300, -0.068, {"group":["Astral_hub_FL","Astral_arm_F"]}],
         //strut attach
@@ -482,8 +482,8 @@
         ["fmassr", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
-        ["farb3r", "arb_FR", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
-        ["farb3l", "arb_FL", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"]
+        ["farb3r", "arb_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["farb3l", "arb_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -599,7 +599,7 @@
         ],
         ["fh2r","fs1r", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F+0.005","boundZone":0.012,
-            "beamLimitSpring":10500,
+            "beamLimitSpring":20000,
             "dampCutoffHz":500}
         ],
         ["fh2r","fs1r", { //hydraulic rebound stop
@@ -645,7 +645,7 @@
         ],
         ["fh2l","fs1l", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_F+0.005","boundZone":0.012,
-            "beamLimitSpring":10500,
+            "beamLimitSpring":20000,
             "dampCutoffHz":500}
         ],
         ["fh2l","fs1l", { //hydraulic rebound stop
