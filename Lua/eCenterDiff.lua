@@ -202,7 +202,7 @@ local function updateFixedStep(dt)
     transfercase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
     transfercase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
     transfercase.lsdPreload = preload * clutchRatio
-    print(electrics.values.clutch)
+    --print(electrics.values.clutch)
 
   elseif transferType == "PEAL" then
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1 
