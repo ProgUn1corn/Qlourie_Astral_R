@@ -184,7 +184,6 @@
         ["st1r", "fx1l"],
         ["st1r", "fx2l"],
         ["st1r", "fx3l"],
-        //["st1r", "fx1"],
         //*
         ["st1l", "fx1l"],
         ["st1l", "fx2l"],
@@ -194,7 +193,16 @@
         ["st1l", "fx1r"],
         ["st1l", "fx2r"],
         ["st1l", "fx3r"],
-        //["st1l", "fx1"],
+        //rack nodes damper
+        {"beamSpring":0,"beamDamp":250},
+        ["st1r","st2r"],
+        ["st1r","a21"],
+        ["st1r","chs4r"],
+        ["st1r","fx1"],
+        ["st1l","st2l"],
+        ["st1l","a22"],
+        ["st1l","chs4l"],
+        ["st1l","fx1"],
 
         //--Hub and Wheel--
         //hub form
@@ -229,7 +237,7 @@
         ["fs2l","fh2l"],
         {"dampCutoffHz":""},
         //damper flexbody help
-        {"beamSpring":101000,"beamDamp":10},
+        {"beamSpring":101000,"beamDamp":20},
         ["fs3r","fh1r"],
         ["fs3r","fh2r"],
         ["fs3r","fh5r"],
@@ -291,8 +299,6 @@
         ["fh3l","a18"],
         ["fh3r","st2l"],
         ["fh3l","st2r"],
-        ["fh3r","fx3l"],
-        ["fh3l","fx3r"],
         ["fh5r","fx2l"],
         ["fh5l","fx2r"],
         ["fh5r","fx1l"],
@@ -474,7 +480,16 @@
         ["fh5r","fx2r"],
         ["fh5l","fx2l"],
         {"beamPrecompression":1},
-        //steering damper
+        //tie rode damper
+        {"beamSpring":0,"beamDamp":250},
+        ["st2r","fx1r"],
+        ["st2r","fx2r"],
+        ["st2r","a20"],
+        ["st2r","fx4r"],
+        ["st2l","fx1l"],
+        ["st2l","fx2l"],
+        ["st2l","a21"],
+        ["st2l","fx4l"],
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":125000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
@@ -499,14 +514,14 @@
     "hydros": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":60,"beamDeform":"FLT_MAX","beamStrength":135000},
+        {"beamSpring":12001000,"beamDamp":80,"beamDeform":"FLT_MAX","beamStrength":135000},
         ["st2l","st1r", {"factor":"$= $components.steering.limiter","steeringWheelLock":"$steer_lock", "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l", {"factor":"$=-$components.steering.limiter","steeringWheelLock":"$steer_lock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
     ],
     "input": {
         //modifier for force feedback to account for differences in vehicles
-        "FFBcoef":"$=10.5*$ffbTune"
+        "FFBcoef":"$=10.4*$ffbTune"
     }
 },
 "Astral_wheeldata_F": {
