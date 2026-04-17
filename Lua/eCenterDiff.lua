@@ -191,7 +191,9 @@ local function updateFixedStep(dt)
     local clutchRatio = clutchHydraulicSmoother:get(clutchTarget, dt)
     local clutchOverride = clamp(1 - clutchRatio ^ 1.2, 0, 1)
 
-    if clutchOverride >= 0.01 then
+    local clutchInput = electrics.values['clutch_input'] or 0
+    local isClutchManual = clutchInput > 0.01
+    if not isClutchManual and clutchOverride >= 0.01 then
       electrics.values.clutchOverride = clutchOverride
     else
       electrics.values.clutchOverride = nil
