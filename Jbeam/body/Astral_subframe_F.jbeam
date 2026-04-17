@@ -195,11 +195,9 @@
         ["st1l", "fx3r"],
         //rack nodes damper
         {"beamSpring":0,"beamDamp":250},
-        ["st1r","st2r"],
         ["st1r","a21"],
         ["st1r","chs4r"],
         ["st1r","fx1"],
-        ["st1l","st2l"],
         ["st1l","a22"],
         ["st1l","chs4l"],
         ["st1l","fx1"],
@@ -467,22 +465,10 @@
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         //--Steering Rod--
         {"beamSpring":12001000,"beamDamp":500,"beamDeform":125000,"beamStrength":1525000},
-        ["st2r","st2l", {"dampCutoffHz":1000}],
-        
-        //--Limiter and Damper--
-        //steering limit
-        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":2501000,"beamDamp":250,"beamDeform":925000,"beamStrength":"FLT_MAX"},
-        {"beamPrecompression":0.80},
-        ["fh3r","fx1r"],
-        ["fh3l","fx1l"],
-        {"beamPrecompression":0.86},
-        ["fh5r","fx2r"],
-        ["fh5l","fx2l"],
-        {"beamPrecompression":1},
+        {"dampCutoffHz":1000}
+        ["st2r","st2l"],
         //tie rode damper
         {"beamSpring":0,"beamDamp":250},
-        {"dampCutoffHz":1000}
         ["st2r","fx1r"],
         ["st2r","fx2r"],
         ["st2r","a20"],
@@ -492,6 +478,7 @@
         ["st2l","a21"],
         ["st2l","fx4l"],
         {"dampCutoffHz":""},
+        //steering damper
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":125000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
@@ -500,6 +487,17 @@
         ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
         ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
         ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
+
+        //--Limiter--
+        //steering limit
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":2},
+        {"beamSpring":2501000,"beamDamp":250,"beamDeform":925000,"beamStrength":"FLT_MAX"},
+        {"beamPrecompression":0.80},
+        ["fh3r","fx1r"],
+        ["fh3l","fx1l"],
+        {"beamPrecompression":0.86},
+        ["fh5r","fx2r"],
+        ["fh5l","fx2l"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":false,"beamDamp":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false}
@@ -516,7 +514,7 @@
     "hydros": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":12001000,"beamDamp":80,"beamDeform":"FLT_MAX","beamStrength":135000},
+        {"beamSpring":12001000,"beamDamp":60,"beamDeform":"FLT_MAX","beamStrength":135000},
         ["st2l","st1r", {"factor":"$= $components.steering.limiter","steeringWheelLock":"$steer_lock", "inRate":1.5,"outRate":1.5}],
         ["st2r","st1l", {"factor":"$=-$components.steering.limiter","steeringWheelLock":"$steer_lock", "inRate":1.5,"outRate":1.5}],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1}
