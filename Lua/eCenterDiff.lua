@@ -52,9 +52,7 @@ local function updateFixedStep(dt)
   --print("THICC")
   --common detecion variables
   local handbrake = 0
-  local clutch = 0
   handbrake = electrics.values['parkingbrake_input'] or 0 
-  clutch = electrics.values['clutch'] or 0 
 
   if transferType == "Active" then 
     --get input value
