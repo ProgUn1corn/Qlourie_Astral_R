@@ -20,8 +20,7 @@ local hbrelease = 0
 local newPreload = 0
 local rearBias = 0
 local finalDrive = 0
-local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 6)
-local clutchHydraulicSmoother = newTemporalSmoothingNonLinear(48, 24)
+local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 8)
 
 --active values
 local throttle = 0
@@ -186,7 +185,7 @@ local function updateFixedStep(dt)
   elseif transferType == "Passive" then
     transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1
-    local clutchRatio = clutchHydraulicSmoother:get(clutchTarget, dt)
+    local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
     local clutchOverride = clamp(1 - clutchRatio ^ 1.2, 0, 1)
 
     local clutchInput = electrics.values['clutch_input'] or 0
