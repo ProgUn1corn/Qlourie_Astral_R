@@ -14,7 +14,7 @@
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
-		["Astral_diff", ["Astral_diff","Astral_sub_R"]],
+		["Astral_diff", ["Astral_sub_R"]],
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
@@ -38,10 +38,10 @@
 		{"selfCollision":false},
 		//--Rear Drivetrain--
 		{"nodeWeight":10},
-		{"group":["Astral_transfercase","Astral_diff"]},
+		{"group":["Astral_transfercase"]},
 		["rtrar", -0.114, 1.222, 0.200],
 		["rtral",  0.114, 1.222, 0.200],
-		{"nodeWeight":8},
+		{"nodeWeight":6},
 		["rtra",  0, 1.066 0.204],
 	],
 	"beams": [
@@ -57,7 +57,7 @@
 		["rtrar","rtra"],
 		
 		//mount to chassis
-		{"beamSpring":4501000,"beamDamp":250},
+		{"beamSpring":2501000,"beamDamp":250},
 		{"optional":true}
 		{"deformGroup":"differential_R", "deformationTriggerRatio":0.001}
 		["rtra","rx1"],
@@ -65,27 +65,29 @@
 		["rtrar","rx4r"],
 		["rtrar","rx3r"],
 		["rtrar","rx2r"],
-		["rtrar","rx1r", {"beamSpring":0,"beamDamp":500}],
+		//["rtrar","rx1r"],
 		["rtrar","rx4l"],
 		["rtrar","rx3l"],
 		["rtrar","rx2l"],
-		["rtrar","rx1l", {"beamSpring":0,"beamDamp":500}],
+		//["rtrar","rx1l"],
 		["rtrar","rx1"],
-		["rtra","rx1r"],
-		["rtra","rx3r"],
+		//["rtra","rx1r"],
+		["rtra","rx2r"],
+		["rtra","chs2r"],
 		["rtra","a41"],
 		//*
 		["rtral","rx4l"],
 		["rtral","rx3l"],
 		["rtral","rx2l"],
-		["rtral","rx1l", {"beamSpring":0,"beamDamp":500}],
+		//["rtral","rx1l"],
 		["rtral","rx4r"],
 		["rtral","rx3r"],
 		["rtral","rx2r"],
-		["rtral","rx1r", {"beamSpring":0,"beamDamp":500}],
+		//["rtral","rx1r"],
 		["rtral","rx1"],
-		["rtra","rx1l"],
-		["rtra","rx3l"],
+		//["rtra","rx1l"],
+		["rtra","rx2l"],
+		["rtra","chs2l"],
 		["rtra","a42"],
 		{"deformGroup":"", "deformationTriggerRatio":""}
 		{"dampCutoffHz":""},
@@ -160,6 +162,10 @@
         "value":150,
     },
     "slotType" : "Astral_driveshaft",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["Astral_shaft", ["Astral_transfercase","Astral_chassis"]],
+    ],
     "powertrain" : [
         ["type", "name", "inputName", "inputIndex"],
         ["torsionReactor", "torsionReactorR", "transferCase", 1, {}],
