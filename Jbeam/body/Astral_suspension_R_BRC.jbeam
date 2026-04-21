@@ -244,13 +244,13 @@
             "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":250
-            "dampCutoffHz":200}
+            "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_R","boundZone":0.01,
             "beamLimitSpring":20010,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.012,
@@ -260,7 +260,7 @@
             //rebound stop active
             "beamLimitSpring":150,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":4250
+            "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", {
@@ -269,7 +269,7 @@
             "precompressionRange":-0.012,
             "beamPrecompressionTime":0.1,
             "beamLimitSpring":15500,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
         {"beamDeform":125000,"beamStrength":175000},
@@ -299,13 +299,13 @@
             "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":250
-            "dampCutoffHz":200}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_R","boundZone":0.01,
             "beamLimitSpring":22510,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.012,
@@ -315,7 +315,7 @@
             //rebound stop active
             "beamLimitSpring":150,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":4250
+            "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", {
@@ -324,7 +324,7 @@
             "precompressionRange":-0.012,
             "beamPrecompressionTime":0.1,
             "beamLimitSpring":15500,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         {"breakGroup":""},
         //detection mass
@@ -533,7 +533,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":"$=4.11*$dampGas_R","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
+        {"beamSpring":"$=4.11*$dampGas_R","beamDamp":150}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["rh2r","rs1r", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["rh2l","rs1l", {"pressurePSI":"$dampGas_R","surface":0.00025447,"volumeCoef":0}],
@@ -612,12 +612,12 @@
             "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":250
-            "dampCutoffHz":200}
+            "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R+0.005","boundZone":0.012,
             "beamLimitSpring":17500,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.018,
@@ -627,7 +627,7 @@
             //rebound stop active
             "beamLimitSpring":150,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":4250
+            "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
         ["rh2r","rs1r", {
@@ -636,7 +636,7 @@
             "precompressionRange":-0.018,
             "beamPrecompressionTime":0.1,
             "beamLimitSpring":12500,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_RL"},
         {"beamDeform":125000,"beamStrength":175000},
@@ -666,12 +666,12 @@
             "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_R-($dampRate_bump_R*0.17)", 
             "beamLimitDampRebound":250
-            "dampCutoffHz":200}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R+0.005","boundZone":0.012,
             "beamLimitSpring":17500,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", { //hydraulic rebound stop
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.018,
@@ -681,7 +681,7 @@
             //rebound stop active
             "beamLimitSpring":150,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":4250
+            "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
         ["rh2l","rs1l", {
@@ -690,7 +690,7 @@
             "precompressionRange":-0.018,
             "beamPrecompressionTime":0.1,
             "beamLimitSpring":12500,
-            "dampCutoffHz":500}
+            "dampCutoffHz":250}
         ],
         {"breakGroup":""},
         //detection mass
