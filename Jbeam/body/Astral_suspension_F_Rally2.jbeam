@@ -164,7 +164,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":"$=4.11*$dampGas_F","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
+        {"beamSpring":"$=4.11*$dampGas_F","beamDamp":150}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["fh2l","fs1l", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0}],
@@ -223,14 +223,14 @@
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":72000,
             "beamLimitDamp":250,
-            "beamLimitDampRebound":2887,
+            "beamLimitDampRebound":1887,
             "dampCutoffHz":250}
         ],
         ["fs2l","fs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
             "beamLimitSpring":72000,
             "beamLimitDamp":250,
-            "beamLimitDampRebound":2887,
+            "beamLimitDampRebound":1887,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FR"},
@@ -503,7 +503,7 @@
         //--Damper Hydraulics--
         //damper internal gas preload
         {"beamPrecompression":1, "beamType":"|PRESSURED"},
-        {"beamSpring":"$=4.11*$dampGas_F","beamDamp":250}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
+        {"beamSpring":"$=4.11*$dampGas_F","beamDamp":150}, //k=(1.4*A^2*P)/V, 100mm length, 44 diameter
         {"beamLimitSpring":0,"beamLimitDamp":0},
         ["fh2r","fs1r", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0}], //shaft rod diameter 18mm
         ["fh2l","fs1l", {"pressurePSI":"$dampGas_F","surface":0.00025447,"volumeCoef":0}],
@@ -544,14 +544,14 @@
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
             "beamLimitSpring":72000,
             "beamLimitDamp":250,
-            "beamLimitDampRebound":2887,
+            "beamLimitDampRebound":1887,
             "dampCutoffHz":250}
         ],
         ["fs2l","fs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
             "beamLimitSpring":72000,
             "beamLimitDamp":250,
-            "beamLimitDampRebound":2887,
+            "beamLimitDampRebound":1887,
             "dampCutoffHz":250}
         ],
         {"breakGroup":"damper_FR"},
@@ -829,8 +829,8 @@
             ["0",      "FR",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*1.1",   "$=$dampVelocity_F+($dampRate_bump_F_fast-5300)/16000-($dampRate_bump_F-1350)/10000", 1.25                          ]
             ["0",      "FL",   "$dampRate_bump_F",       "$dampRate_bump_F_fast",   "$dampRate_rebound_F",          "$=$dampRate_rebound_F*1.1",   "$=$dampVelocity_F+($dampRate_bump_F_fast-5300)/16000-($dampRate_bump_F-1350)/10000", 1.25                          ]
             //LRS
-            ["1",      "FR",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.82",   "$=$dampRate_rebound_F*0.82",   "$=$dampVelocity_F+($dampRate_bump_F_fast-5300)/16000-($dampRate_bump_F-1350)/10000", 1                             ]
-            ["1",      "FL",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.82",   "$=$dampRate_rebound_F*0.82",   "$=$dampVelocity_F+($dampRate_bump_F_fast-5300)/16000-($dampRate_bump_F-1350)/10000", 1                             ]
+            ["1",      "FR",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.74",   "$=$dampRate_rebound_F*0.74",   "$=$dampVelocity_F+($dampRate_bump_F_fast-5300)/16000-($dampRate_bump_F-1350)/10000", 1                             ]
+            ["1",      "FL",   "$=$dampRate_bump_F*1.0", "$=$dampRate_bump_F_fast", "$=$dampRate_rebound_F*0.74",   "$=$dampRate_rebound_F*0.74",   "$=$dampVelocity_F+($dampRate_bump_F_fast-5300)/16000-($dampRate_bump_F-1350)/10000", 1                             ]
         ]
     },
 },
