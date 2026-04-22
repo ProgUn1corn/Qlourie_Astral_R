@@ -107,13 +107,13 @@ local function updateFixedStep(dt)
     if activeMap == "throttle" then --calculate throttle lock map using torsen (clutch-type)
       if throttleRatio - throttleStart <= 0 then
         yLockCoef = 1
-        preloadAdj = 0
+        preloadAdj = preload * minLockCoef  * (1 - xLockCoef)
       else
         lockRange = 1 - minLockCoef
         throttleNormalized = (throttle - throttleStart) / (throttleRatio - throttleStart)
         local contributionThrottle = lockRange * throttleNormalized + minLockCoef
         yLockCoef = clamp(contributionThrottle - xLockCoef, minLockCoef, 1)
-        preloadAdj = 0
+        preloadAdj = preload * minLockCoef  * (1 - xLockCoef)
       end
     elseif activeMap == "brake" then --calculate brake lock map additionally added with preload
       if brakeRatio - brakeStart <= 0 then
@@ -124,12 +124,12 @@ local function updateFixedStep(dt)
         brakeNormalized = (brake - brakeStart) / (brakeRatio - brakeStart)
         local contributionBrake = lockRange * brakeNormalized + minLockCoef
         yLockCoef = clamp(contributionBrake - xLockCoef, minLockCoef, 1)
-        preloadAdj = preload * yLockCoef - xLockCoef
+        preloadAdj = preload * yLockCoef * (1 - xLockCoef)
       end
     elseif activeMap == "coast" then --apply coast map
       lockRange = 1 - minLockCoef
       yLockCoef = minLockCoef
-      preloadAdj = preload * minLockCoef  * (1 - xLockCoef)  / finalDrive
+      preloadAdj = preload * minLockCoef  * (1 - xLockCoef)
     end
 
     local lbMap = throttle > coastStart and brake > coastStart --left foot
