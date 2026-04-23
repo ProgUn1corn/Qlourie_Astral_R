@@ -8,8 +8,8 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.355+$TrackFront", "y":-1.287, "z":0.17}}], 
-        ["Astral_brake_F","Astral_brake_F_370", "Brake Disc", {"nodeOffset":{"x":0, "y":-1.287, "z":0.17}}],
+        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.355+$TrackFront", "y":-1.287, "z":0.165}}], 
+        ["Astral_brake_F","Astral_brake_F_370", "Brake Disc", {"nodeOffset":{"x":0, "y":-1.287, "z":0.165}}],
         ["Astral_spring_F_BRC_tarmac","Astral_spring_F_BRC_tarmac_49", "Spring"],
         ["Astral_shim_F_BRC_tarmac","Astral_shim_F_BRC_tarmac_l", "Shim Stacks", {"coreSlot":true}],
     ],
@@ -26,10 +26,10 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Clicks", "Suspension - Dampers and Springs", 8000, 6000, 10000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$LRS_F", "range", "Clicks", "Suspension - Dampers and Springs", 0.5, 0.5, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$LRS_F", "range", "Clicks", "Suspension - Dampers and Springs", 0.5, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-30,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.025, 0.020, 0.030, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":20,"maxDis":30,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.009, 0.045, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-21,"maxDis":15,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 99mm
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.024, 0.006, 0.039, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-18,"maxDis":15,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 99mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -39,7 +39,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6},
+        {"nodeWeight":6.5},
         ["fh1r", -0.752, -1.295, 0.021, {"group":["Astral_hub_FR","Astral_arm_F"]}],
         ["fh1l",  0.752, -1.295, 0.021, {"group":["Astral_hub_FL","Astral_arm_F"]}],
         //strut attach
@@ -119,16 +119,16 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["fh2r", "strut_FR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
-        ["fh2l", "strut_FL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
-        ["fcl1r", "strut_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
-        ["fcl1l", "strut_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fh2r", "strut_FR", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["fh2l", "strut_FL", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["fcl1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fcl1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //spring collar
-        ["fhe1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["fhe1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fhe1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["fhe1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         //piston
-        ["fps1r", "strut_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
-        ["fps1l", "strut_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fps1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fps1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //mass
         ["fmassr", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
@@ -176,15 +176,15 @@
         {"beamLimitSpring":0,"beamLimitDamp":0},
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["fs2r","fs1r", { //bottom out
-            "longBoundRange":0.01,"shortBoundRange":0.190,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
-            "beamLimitSpring":1001000,                                       //total piston travel equals to longBound + shortBound
+            "longBoundRange":0.01,"shortBoundRange":0.185,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
+            "beamLimitSpring":801000,                                       //total piston travel equals to longBound + shortBound
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,                                           //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["fs2l","fs1l", {
-            "longBoundRange":0.01,"shortBoundRange":0.190,"boundZone":0.02,
-            "beamLimitSpring":1001000,
+            "longBoundRange":0.01,"shortBoundRange":0.185,"boundZone":0.02,
+            "beamLimitSpring":801000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000, 
             "dampCutoffHz":500}
@@ -205,14 +205,14 @@
         ],
         ["fs2r","fs1r", { //hard (elastic) rebound
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":72000,
+            "beamLimitSpring":74000,
             "beamLimitDamp":250,
             "beamLimitDampRebound":2550,
             "dampCutoffHz":250}
         ],
         ["fs2l","fs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
-            "beamLimitSpring":72000,
+            "beamLimitSpring":74000,
             "beamLimitDamp":250,
             "beamLimitDampRebound":2550,
             "dampCutoffHz":250}
@@ -241,7 +241,7 @@
             "pitchFactor":5
             "maxStress":1
             //bump stop active
-            "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$=0.185-$dampPos_hystop_F","boundZone":0.024,
             "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
             "beamLimitDampRebound":250
@@ -249,7 +249,7 @@
         ],
         ["fh2r","fs1r", { 
             //bump spring 
-            "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":"$=0.185-$dampPos_hystop_F","boundZone":0.01,
             "beamLimitSpring":20010,
             "dampCutoffHz":250}
         ],
@@ -295,7 +295,7 @@
             "decayFactor":10,
             "pitchFactor":5
             "maxStress":1
-            "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.024,
+            "longBoundRange":1,"shortBoundRange":"$=0.185-$dampPos_hystop_F","boundZone":0.024,
             "beamLimitSpring":250,
             "beamLimitDamp":"$=$dampRate_stop_F-($dampRate_bump_F*0.17)", 
             "beamLimitDampRebound":250
@@ -303,7 +303,7 @@
         ],
         ["fh2l","fs1l", { 
             //bump spring 
-            "longBoundRange":1,"shortBoundRange":"$=0.190-$dampPos_hystop_F","boundZone":0.01,
+            "longBoundRange":1,"shortBoundRange":"$=0.185-$dampPos_hystop_F","boundZone":0.01,
             "beamLimitSpring":20010,
             "dampCutoffHz":250}
         ],
@@ -373,8 +373,8 @@
     "slotType" : "Astral_group_F",
     "slots" : [
         ["type", "default", "description"],
-        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.318+$TrackFront", "y":-1.287, "z":0.038}}],  //WRC+ track width 1664mm
-        ["Astral_brake_F","Astral_brake_F_300", "Brake Disc", {"nodeOffset":{"x":0.025, "y":-1.287, "z":0.038}}],
+        ["Astral_hubs_F","Astral_hubs_F_BRC", "Hub", {"nodeOffset":{"x":"$=0.318+$TrackFront", "y":-1.287, "z":0.048}}],  //WRC+ track width 1664mm
+        ["Astral_brake_F","Astral_brake_F_300", "Brake Disc", {"nodeOffset":{"x":0.025, "y":-1.287, "z":0.048}}],
         ["Astral_spring_F_BRC_gravel","Astral_spring_F_BRC_gravel_225", "Spring"],
         ["Astral_shim_F_BRC_gravel","Astral_shim_F_BRC_gravel_l", "Shim Stacks", {"coreSlot":true}],
     ],
@@ -391,10 +391,10 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_F", "range", "Clicks", "Suspension - Dampers and Springs", 10000, 8000, 12000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$LRS_F", "range", "Clicks", "Suspension - Dampers and Springs", 0.85, 0.5, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$LRS_F", "range", "Clicks", "Suspension - Dampers and Springs", 0.85, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-30,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$dampPos_hystop_F", "range", "mm", "Suspension - Dampers and Springs", 0.045, 0.039, 0.051, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":39,"maxDis":51,"subCategory":"Front Damper Auxiliary"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Front Damper Auxiliary"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.018, 0.003, 0.036, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 182mm
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.024, 0.003, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-21,"maxDis":18,"subCategory":"Front Damper Auxiliary"}],  //From first skirt node, ride height is about 182mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -404,7 +404,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6},
+        {"nodeWeight":6.5},
         ["fh1r", -0.752, -1.300, -0.068, {"group":["Astral_hub_FR","Astral_arm_F"]}],
         ["fh1l",  0.752, -1.300, -0.068, {"group":["Astral_hub_FL","Astral_arm_F"]}],
         //strut attach
@@ -484,16 +484,16 @@
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
         //attach strut body to strut shaft rail
-        ["fh2r", "strut_FR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
-        ["fh2l", "strut_FL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
-        ["fcl1r", "strut_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
-        ["fcl1l", "strut_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fh2r", "strut_FR", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["fh2l", "strut_FL", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["fcl1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fcl1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //spring collar
-        ["fhe1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["fhe1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fhe1r", "strut_FR", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
+        ["fhe1l", "strut_FL", true, true, 0.0, 2501000, "FLT_MAX", "FLT_MAX"],
         //piston
-        ["fps1r", "strut_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
-        ["fps1l", "strut_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+        ["fps1r", "strut_FR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["fps1l", "strut_FL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //mass
         ["fmassr", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
@@ -518,8 +518,8 @@
         //tie rods
         {"beamSpring":16001000,"beamDamp":600},
         {"beamDeform":235100,"beamStrength":625000},
-        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0006","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
-        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.0006","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+        ["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.000","beamPrecompressionTime":0.2,"dampCutoffHz":1000}]
+        ["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.000","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
         //arb mount point
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -543,42 +543,42 @@
         {"beamDeform":225000,"beamStrength":"FLT_MAX"},
         ["fs2r","fs1r", { //bottom out
             "longBoundRange":0.01,"shortBoundRange":0.310,"boundZone":0.02, //longBound when rubber rebound stop failed (highly unlikely), shortBound includes rubber bump stop
-            "beamLimitSpring":1001000,                                      //total piston travel equals to longBound + shortBound
+            "beamLimitSpring":801000,                                      //total piston travel equals to longBound + shortBound
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000,                                            //effective damping travel is less than piston travel since hard stops are there
             "dampCutoffHz":500}
         ],
         ["fs2l","fs1l", {
             "longBoundRange":0.01,"shortBoundRange":0.310,"boundZone":0.02,
-            "beamLimitSpring":1001000,
+            "beamLimitSpring":801000,
             "beamLimitDamp":1000,
             "beamLimitDampRebound":1000, 
             "dampCutoffHz":500}
         ],
         ["fs2r","fs1r", { //hard bump
             "longBoundRange":1,"shortBoundRange":0.300,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":100100
+            "beamLimitSpring":120100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
         ],
         ["fs2l","fs1l", {
             "longBoundRange":1,"shortBoundRange":0.300,"boundZone":0.01,
-            "beamLimitSpring":100100
+            "beamLimitSpring":120100
             "beamLimitDamp":6000,
             "beamLimitDampRebound":3887,
             "dampCutoffHz":250}
         ],
         ["fs2r","fs1r", { //hard (elastic) rebound
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01, //10mm hard stop for protection
-            "beamLimitSpring":72000,
+            "beamLimitSpring":74000,
             "beamLimitDamp":250,
             "beamLimitDampRebound":2550,
             "dampCutoffHz":250}
         ],
         ["fs2l","fs1l", {
             "longBoundRange":0,"shortBoundRange":1,"boundZone":0.01,
-            "beamLimitSpring":72000,
+            "beamLimitSpring":74000,
             "beamLimitDamp":250,
             "beamLimitDampRebound":2550,
             "dampCutoffHz":250}
@@ -740,7 +740,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Clicks", "Suspension - Dampers and Springs", 4250, 3050, 5450, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
 		["$dampRate_bump_F_fast", "range", "Clicks", "Suspension - Dampers and Springs", 5400, 3800, 7000, "HS Bump", "High speed bump damping controls jump and big bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$dampRate_rebound_F", "range", "Clicks", "Suspension - Dampers and Springs", 3995, 2867, 5123, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$dampRate_rebound_F", "range", "Clicks", "Suspension - Dampers and Springs", 4250, 3050, 5450, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension - Dampers and Springs", 0.35, 0.20, 0.50, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.05,"subCategory":"Front Damper Auxiliary"}],
     ],
     "controller": [ 
@@ -780,7 +780,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampRate_bump_F", "range", "Clicks", "Suspension - Dampers and Springs", 4800, 3600, 6000, "LS Bump", "Low speed bump damping controls car dynamics and small bump absorption", {"stepDis":1,"minDis":-24,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
 		["$dampRate_bump_F_fast", "range", "Clicks", "Suspension - Dampers and Springs", 2800, 1200, 4400, "HS Bump", "High speed bump damping controls jump and big bump absorption", {"stepDis":1,"minDis":-20,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
-        ["$dampRate_rebound_F", "range", "Clicks", "Suspension - Dampers and Springs", 4512, 3384, 5640, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
+        ["$dampRate_rebound_F", "range", "Clicks", "Suspension - Dampers and Springs", 4800, 3600, 6000, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Front Damper - 3+2-Way"}],
         ["$dampVelocity_F", "range", "m/s", "Suspension - Dampers and Springs", 0.26, 0.11, 0.41, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.05,"subCategory":"Front Damper Auxiliary"}],
     ],
     "controller": [ 
