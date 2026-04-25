@@ -66,7 +66,7 @@ local function updateFixedStep(dt)
     local contributionSteer = 0
     local normalSteer = abs(steer) --make value 0 to 1
     local clampSpeed = clamp(speed, 0, 140) --make speed-steer factor only affect 0-140 km/h
-    local yaw = obj:getYawAngularVelocity() --left is positive
+    --local yaw = obj:getYawAngularVelocity() --left is positive
     
     --if yaw > 0.15 then --calculate steering contribution
       --if steer * yaw < 0 then
