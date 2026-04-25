@@ -51,15 +51,18 @@
         ["fx1l",  0.269, -1.285, 0.100],
         ["fx2r", -0.272, -0.975, 0.105],
         ["fx2l",  0.272, -0.975, 0.105],
-        //additional nodes
+        //mounting points
         {"nodeWeight":4.5},
         {"group":["Astral_sub_F","Astral_rod_F"]},
-        ["fx5r", -0.338, -0.759, 0.115, {"selfCollision":false}],
-        ["fx5l",  0.338, -0.759, 0.115, {"selfCollision":false}],
         ["fx4r", -0.419, -1.032, 0.291],
         ["fx4l",  0.419, -1.032, 0.291],
         ["fx3r", -0.430, -1.449, 0.296, {"selfCollision":false}],
         ["fx3l",  0.430, -1.449, 0.296, {"selfCollision":false}],
+        //mounting leg
+        {"nodeWeight":4},
+        {"group":["Astral_sub_F"]},
+        ["fx5r", -0.338, -0.759, 0.115, {"selfCollision":false}],
+        ["fx5l",  0.338, -0.759, 0.115, {"selfCollision":false}],
         //steering box
         {"nodeWeight":6},
         {"group":["Astral_sub_F", "Astral_str_F"]},
@@ -386,7 +389,7 @@
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":1}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":1}],
         //damper structure rail damping
-        {"beamSpring":0,"beamDamp":450},
+        {"beamSpring":0,"beamDamp":250},
         {"dampCutoffHz":500},
         ["fs2r","br1l"],
         ["fs2r","chsf"],
