@@ -47,8 +47,8 @@
         //cross member
         {"nodeWeight":6.5},
         {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rod_R","Astral_rarmg"]},
-        ["rx1r", -0.232, 1.061, 0.118, {"nodeWeight":9}],
-        ["rx1l",  0.232, 1.061, 0.118, {"nodeWeight":9}],
+        ["rx1r", -0.232, 1.061, 0.128, {"nodeWeight":9}],
+        ["rx1l",  0.232, 1.061, 0.128, {"nodeWeight":9}],
         {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rarmg"]},
         ["rx2r", -0.222, 1.373, 0.108],
         ["rx2l",  0.222, 1.373, 0.108],
@@ -237,24 +237,24 @@
         {"breakGroup":"wheel_RR"},
         {"optional":true},
         ["rh1r","rw1r", {"name":"axle_RR"}],
-        ["rh2r","rw1r", {"beamSpring":4501000,"beamDamp":50}],
+        ["rh2r","rw1r", {"beamSpring":3501000,"beamDamp":50}],
         ["rh3r","rw1r", {"beamSpring":12001000,"beamDamp":20}],
         ["rh5r","rw1r", {"beamSpring":6001000,"beamDamp":60}],
-        //["rs2r","rw1r", {"beamSpring":4501000,"beamDamp":50}],
+        ["rs2r","rw1r", {"beamSpring":3501000,"beamDamp":50}],
         ["rh1r","rw1rr"],
         ["rh3r","rw1rr", {"beamSpring":12001000,"beamDamp":20}],
         ["rh5r","rw1rr", {"beamSpring":6001000,"beamDamp":60}],
-        ["rs2r","rw1rr", {"beamSpring":4501000,"beamDamp":50}],
+        ["rs2r","rw1rr", {"beamSpring":3501000,"beamDamp":50}],
         {"breakGroup":"wheel_RL"},
         ["rh1l","rw1l", {"name":"axle_RL"}],
-        ["rh2l","rw1l", {"beamSpring":4501000,"beamDamp":50}],
+        ["rh2l","rw1l", {"beamSpring":3501000,"beamDamp":50}],
         ["rh3l","rw1l", {"beamSpring":12001000,"beamDamp":20}],
         ["rh5l","rw1l", {"beamSpring":6001000,"beamDamp":60}],
-        //["rs2l","rw1l", {"beamSpring":4501000,"beamDamp":50}],
+        ["rs2l","rw1l", {"beamSpring":3501000,"beamDamp":50}],
         ["rh1l","rw1ll"],
         ["rh3l","rw1ll", {"beamSpring":12001000,"beamDamp":20}],
         ["rh5l","rw1ll", {"beamSpring":6001000,"beamDamp":60}],
-        ["rs2l","rw1ll", {"beamSpring":4501000,"beamDamp":50}],
+        ["rs2l","rw1ll", {"beamSpring":3501000,"beamDamp":50}],
         {"breakGroup":""},
         {"optional":false},
         
@@ -433,8 +433,8 @@
         ["rs2l", "rh2l", "rw1ll", "rw1l"],  
         //arm rigidifier
         {"spring":10000, "damp":0.5, "deform":20000, "strength":20000},
-        ["rh1r", "rx1r", "rarb3r", "rx2r"], 
-        ["rh1l", "rx1l", "rarb3l", "rx2l"],   
+        ["rh3r", "rx1r", "rh1r", "rx2r"], 
+        ["rh3l", "rx1l", "rh1l", "rx2l"],   
     ]
 },
 "Astral_wheeldata_R": {
@@ -453,11 +453,11 @@
         {"hubcapGroup":"hubcap_RR"},
         {"axleBeams":["axle_RR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh2r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}], //rh2r because need heavier for handbrake
+        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh1r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}], //rh1r because strut not railing control arm
         {"hubcapBreakGroup":"hubcap_RL"},
         {"hubcapGroup":"hubcap_RL"},
         {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh2l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
+        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh1l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx1r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},{"disableMeshBreaking":false,"disableTriangleBreaking":false},
