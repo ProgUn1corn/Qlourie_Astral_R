@@ -34,7 +34,7 @@
         ["$CamberFront", "range", "mm", "Suspension - Subframes", 0, -0.002, 0.002, "Camber Spacer", "Adjust camber offset", {"stepDis":0.4,"subCategory":"Front Alignment","minDis":-2,"maxDis":2}],
         ["$CasterFront", "range", "mm", "Suspension - Subframes", 0, -0.007, 0.007, "Caster Arm Length", "Adjust caster offset", {"stepDis":0.7,"subCategory":"Front Alignment","minDis":-7,"maxDis":7}],
         ["$TrackFront", "range", "mm", "Suspension - Subframes", 0.0, -0.05, 0.05, "Track Width", "Adjust track width", {"stepDis":1,"minDis":-50,"maxDis":50,"subCategory":"Front Alignment"}],
-        ["$shimRack_F", "range", "mm", "Suspension - Subframes", 0.002, 0.0, 0.005, "Steering Rack Spacer", "Compensate for bumpsteer", {"stepDis":1,"minDis":0,"maxDis":5,"subCategory":"Front Alignment"}],
+        ["$shimRack_F", "range", "mm", "Suspension - Subframes", 0, 0, 0.004, "Steering Rack Spacer", "Compensate for bumpsteer", {"stepDis":2,"minDis":0,"maxDis":4,"subCategory":"Front Alignment"}],
         ["$arb_point_F", "range", "P", "Suspension - Subframes", 0, -0.1, 0, "ARB Mounting Point", "The point where ARB end link mounts", {"stepDis":1,"minDis":1,"maxDis":3,"subCategory":"Front Anti-roll"}],
     ],
     "nodes": [
@@ -569,12 +569,12 @@
     ],
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
-        {"spring":50000, "damp":1, "deform":25000, "strength":100000},
+        {"spring":125000, "damp":1, "deform":25000, "strength":100000},
         //rigidify steering arm
         ["fw1rr", "fh2r", "fh1r", "fh3r"],
         ["fw1ll", "fh2l", "fh1l", "fh3l"],
-        ["fw1r", "fh2r", "fw1rr", "fh1r"],
-        ["fw1l", "fh2l", "fw1ll", "fh1l"],
+        //["fw1r", "fw1rr", "fh1r", "fh5r"],
+        //["fw1l", "fw1ll", "fh1l", "fh5l"],
     ],
     "hydros": [
         ["id1:","id2:"],
@@ -605,11 +605,11 @@
         {"hubcapGroup":"hubcap_FR"},
         {"axleBeams":["axle_FR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh1r",  1, {"torqueCoupling:":"eg0", "torqueArm:":"eg5", "torqueArm2:":"eg4","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
+        ["FR", "wheel_FR", "tire_FR", "fw1rr", "fw1r", 9999, "fh5r",  1, {"torqueCoupling:":"eg3", "torqueArm:":"eg7", "torqueArm2:":"eg4","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1r","steerAxisDown:":"fh1r"}],
         {"hubcapBreakGroup":"hubcap_FL"},
         {"hubcapGroup":"hubcap_FL"},
         {"axleBeams":["axle_FL"]},
-        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh1l", -1, {"torqueCoupling:":"eg1", "torqueArm:":"eg4", "torqueArm2:":"eg5","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
+        ["FL", "wheel_FL", "tire_FL", "fw1ll", "fw1l", 9999, "fh5l", -1, {"torqueCoupling:":"eg2", "torqueArm:":"eg6", "torqueArm2:":"eg5","torqueJointNode1:":"","torqueJointNode2:":"","steerAxisUp:":"fs1l","steerAxisDown:":"fh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},

@@ -424,9 +424,11 @@
         ["rx1l", "rx1r", "rx2r", "rx4r"],
         ["rx2l", "rx2r", "rx1r", "rx3r"],
         //rigidify toe link
-        {"spring":100100, "damp":0.5, "deform":45000, "strength":125000},
-        ["rw1rr", "rw1r", "rh1r", "rh3r"],
-        ["rw1ll", "rw1l", "rh1l", "rh3l"], 
+        {"spring":75100, "damp":1, "deform":45000, "strength":125000},
+        ["rw1rr", "rh2r", "rh1r", "rh3r"],
+        ["rw1ll", "rh2l", "rh1l", "rh3l"],
+        ["rw1r", "rh2r", "rw1rr", "rh1r"],
+        ["rw1l", "rh2l", "rw1ll", "rh1l"],
         //mount damper
         {"spring":4500, "damp":0.5, "deform":45000, "strength":125000},
         ["rs2r", "rh2r", "rw1rr", "rw1r"],
@@ -453,11 +455,11 @@
         {"hubcapGroup":"hubcap_RR"},
         {"axleBeams":["axle_RR"]},
         //wheels are created from here, but using properties from previously loaded wheel parts
-        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh1r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}], //rh1r because strut not railing control arm
+        ["RR", "wheel_RR", "tire_RR", "rw1rr", "rw1r", 9999, "rh5r",  1, {"torqueCoupling:":"rtrar","torqueArm:":"rx1r", "torqueArm2:":"rx1l","steerAxisUp:":"rs1r","steerAxisDown:":"rh1r"}], //rh1r because strut not railing control arm
         {"hubcapBreakGroup":"hubcap_RL"},
         {"hubcapGroup":"hubcap_RL"},
         {"axleBeams":["axle_RL"]},
-        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh1l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx1r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
+        ["RL", "wheel_RL", "tire_RL", "rw1ll", "rw1l", 9999, "rh5l", -1, {"torqueCoupling:":"rtral","torqueArm:":"rx1l", "torqueArm2:":"rx1r","steerAxisUp:":"rs1l","steerAxisDown:":"rh1l"}],
         //cancel out a bunch of properties before future wheel parts are loaded
         {"selfCollision":true},
         {"axleBeams":[]},{"disableMeshBreaking":false,"disableTriangleBreaking":false},
