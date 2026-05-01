@@ -228,7 +228,7 @@
 
         //--Steering Rack--
         //steering box
-        {"beamSpring":6501000,"beamDamp":250},
+        {"beamSpring":6501000,"beamDamp":200},
         {"beamDeform":65000,"beamStrength":"FLT_MAX"},
         ["st1r","st1l"],
         //mounting to subframe
@@ -385,12 +385,12 @@
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
         //strut platform height (preload)
-        {"beamSpring":1501000,"beamDamp":50},
+        {"beamSpring":1201000,"beamDamp":80},
         ["fcl1r", "fh2r", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":1}],
         ["fcl1l", "fh2l", {"precompressionRange":"$=$RideHeightOffsetFront","beamPrecompressionTime":1}],
         //damper structure rail damping
-        {"beamSpring":0,"beamDamp":450},
         {"dampCutoffHz":500},
+        {"beamSpring":0,"beamDamp":250},
         ["fs2r","br1l"],
         ["fs2r","chsf"],
         ["fs2r","a17"],
@@ -522,8 +522,8 @@
     },
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 19001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 19001000, "FLT_MAX", "FLT_MAX"]
+        ["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:","id2:"],
@@ -533,6 +533,7 @@
         {"dampCutoffHz":1000}
         ["st2r","st2l"],
         //tie rode damper
+        {"dampCutoffHz":500}
         {"beamSpring":0,"beamDamp":250},
         ["st2r","fx1r"],
         ["st2r","fx2r"],
@@ -547,11 +548,11 @@
         {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
         {"beamDeform":25000,"beamStrength":125000},
         {"beamLimitSpring":0,"beamLimitDamp":0},
-        {"beamSpring":0,"beamDamp":150},
-        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1500,"dampCutoffHz":500}],
-        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1500,"dampCutoffHz":500}],
-        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1500,"dampCutoffHz":500}],
-        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1500,"dampCutoffHz":500}],
+        {"beamSpring":0,"beamDamp":60},
+        ["fh3r","fx1r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
+        ["fh3l","fx1l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
+        ["fh5r","fx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
+        ["fh5l","fx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200,"dampCutoffHz":500}],
 
         //--Limiter--
         //steering limit
@@ -586,7 +587,7 @@
     ],
     "input": {
         //modifier for force feedback to account for differences in vehicles
-        "FFBcoef":"$=10.4*$ffbTune"
+        "FFBcoef":"$=9.5*$ffbTune"
     }
 },
 "Astral_wheeldata_F": {
