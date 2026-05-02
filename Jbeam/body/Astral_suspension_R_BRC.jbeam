@@ -45,8 +45,8 @@
         ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
         {"nodeWeight":4.75},
-        ["rh2r", -0.56346, 1.34765, 0.32, {"group":["Astral_hub_RR","Astral_damper_R"]}],
-        ["rh2l",  0.56346, 1.34765, 0.32, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
+        ["rh2r", -0.5632, 1.3474, 0.33, {"group":["Astral_hub_RR","Astral_damper_R"]}],
+        ["rh2l",  0.5632, 1.3474, 0.33, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
         ["rh3r", -0.749, 1.1795, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh3l",  0.749, 1.1795, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
@@ -218,7 +218,7 @@
         ],
         {"breakGroup":"damper_RR"},
         {"beamDeform":125000,"beamStrength":175000},
-        ["rs2r","rs1r", { //RR damper
+        ["rh2r","rs1r", { //RR damper
             "name":"damper_RR", 
             //LS Control
             "beamDamp":"$dampRate_bump_R",
@@ -246,7 +246,7 @@
             "beamLimitDampRebound":250
             "dampCutoffHz":250}
         ],
-        ["rh2r","rs1r", { 
+        ["rs2r","rs1r", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.185-$dampPos_hystop_R","boundZone":0.01,
             "beamLimitSpring":25010}
@@ -262,7 +262,7 @@
             "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
-        ["rh2r","rs1r", {
+        ["rs2r","rs1r", {
             //rebound spring 
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             "precompressionRange":-0.012,
@@ -271,7 +271,7 @@
         ],
         {"breakGroup":"damper_RL"},
         {"beamDeform":125000,"beamStrength":175000},
-        ["rs2l","rs1l", { //RL damper
+        ["rh2l","rs1l", { //RL damper
             "name":"damper_RL",
             //LS Control
             "beamDamp":"$dampRate_bump_R",
@@ -299,7 +299,7 @@
             "beamLimitDampRebound":250
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", { 
+        ["rs2l","rs1l", { 
             //bump spring 
             "longBoundRange":1,"shortBoundRange":"$=0.185-$dampPos_hystop_R","boundZone":0.01,
             "beamLimitSpring":25010}
@@ -315,7 +315,7 @@
             "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", {
+        ["rs2l","rs1l", {
             //rebound spring 
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             "precompressionRange":-0.012,
@@ -582,7 +582,7 @@
         ],
         {"breakGroup":"damper_RR"},
         {"beamDeform":125000,"beamStrength":175000},
-        ["rs2r","rs1r", { //RR damper
+        ["rh2r","rs1r", { //RR damper
             "name":"damper_RR", 
             //LS Control
             "beamDamp":"$dampRate_bump_R",
@@ -610,7 +610,7 @@
             "beamLimitDampRebound":250
             "dampCutoffHz":250}
         ],
-        ["rh2r","rs1r", { //phase 2
+        ["rs2r","rs1r", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R+0.005","boundZone":0.012,
             "beamLimitSpring":20500}
         ],
@@ -625,7 +625,7 @@
             "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
-        ["rh2r","rs1r", {
+        ["rs2r","rs1r", {
             //rebound spring 
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             "precompressionRange":-0.018,
@@ -634,7 +634,7 @@
         ],
         {"breakGroup":"damper_RL"},
         {"beamDeform":125000,"beamStrength":175000},
-        ["rs2l","rs1l", { //RL damper
+        ["rh2l","rs1l", { //RL damper
             "name":"damper_RL",
             //LS Control
             "beamDamp":"$dampRate_bump_R",
@@ -662,7 +662,7 @@
             "beamLimitDampRebound":250
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", { //phase 2
+        ["rs2l","rs1l", { //phase 2
             "longBoundRange":1,"shortBoundRange":"$=0.310-$dampPos_hystop_R+0.005","boundZone":0.012,
             "beamLimitSpring":20500}
         ],
@@ -677,7 +677,7 @@
             "beamLimitDampRebound":3250
             "dampCutoffHz":250}
         ],
-        ["rh2l","rs1l", {
+        ["rs2l","rs1l", {
             //rebound spring 
             "longBoundRange":0,"shortBoundRange":2,"boundZone":0.01,
             "precompressionRange":-0.018,
