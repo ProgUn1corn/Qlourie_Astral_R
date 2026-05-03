@@ -51,15 +51,17 @@ end
 
 local function update(dt) 
   for _, damper in ipairs(dampers) do
-    local loadLength = obj:getBeamLength(damper.loadCid)
-    local loadSmooth = damper.loadSmoother:get(loadLength, dt)
-    --print(loadSmooth)
-    if loadSmooth >= damper.LRSp and damper.blocker ~=1 then
-      applyLRS(damper, "active")
-      --print("YEEEEEEEEEEEEEEEEESSSSSSSSSSSSS")
-    else
-      applyLRS(damper, "normal")
-      --print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+    if damper.loadCid then 
+      local loadLength = obj:getBeamLength(damper.loadCid)
+      local loadSmooth = damper.loadSmoother:get(loadLength, dt)
+      --print(loadSmooth)
+      if loadSmooth >= damper.LRSp and damper.blocker ~=1 then
+        applyLRS(damper, "active")
+        --print("YEEEEEEEEEEEEEEEEESSSSSSSSSSSSS")
+      else
+        applyLRS(damper, "normal")
+        --print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+      end
     end
   end
 end
@@ -146,8 +148,8 @@ local function init(jbeamData)
     --print("YEEEEEEEEEEEEEEESSSSSSSSSSSSSSSS")
   end
   
-  --printTable(dampersLookup)
-  --printTable(dampers)
+  --dump(dampersLookup)
+  --dump(dampers)
   --printTable(dampingGroups)
 end
 
