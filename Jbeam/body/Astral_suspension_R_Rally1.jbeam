@@ -27,10 +27,10 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 8000, 6000, 10000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$LRS_R", "range", "Clicks", "Suspension - Dampers and Springs", 0.5, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-30,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.025, 0.035, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":35,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.015, 0.000, 0.033, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 136mm
+        ["$dampRateRebound_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 3250, 1250, 5250, "HRS Damping", "HRS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.030, 0.025, 0.035, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":25,"maxDis":35,"subCategory":"Rear Damper Internal"}],
+        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 275, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Internal"}],
+        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.015, 0.000, 0.033, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Rear Damper - 3+2-Way"}],  //From last skirt node, ride height is about 136mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -77,14 +77,14 @@
         ["rcl1l",  0.5617, 1.3463, 0.381],
         //piston outer shell to mount LRS
         {"group":["Astral_piston_R"]},
-        {"nodeWeight":0.25},
+        {"nodeWeight":0.1},
         ["rps1r", -0.557, 1.3426, 0.547],
         ["rps1l",  0.557, 1.3426, 0.547],
         //mass
         {"group":[""]},
         {"nodeWeight":0.05},
-        ["rmassr", -0.55, 1.337, 0.797],
-        ["rmassl",  0.55, 1.337, 0.797],
+        ["rmassr", -0.5643, 1.348, 0.29],
+        ["rmassl",  0.5643, 1.348, 0.29],
         //damper end
         {"nodeWeight":3.5},
         {"group":["Astral_damper_R"]},
@@ -119,8 +119,8 @@
         ["rhe1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rhe1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //piston
-        ["rps1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["rps1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["rps1r", "strut_RR", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
+        ["rps1l", "strut_RL", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
         //mass
         ["rmassr", "strut_RR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
@@ -259,7 +259,7 @@
             //rebound stop active
             "beamLimitSpring":150,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":3250
+            "beamLimitDampRebound":"$dampRateRebound_stop_R",
             "dampCutoffHz":250}
         ],
         ["rs2r","rs1r", {
@@ -312,7 +312,7 @@
             //rebound stop active
             "beamLimitSpring":150,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":3250
+            "beamLimitDampRebound":"$dampRateRebound_stop_R",
             "dampCutoffHz":250}
         ],
         ["rs2l","rs1l", {
@@ -325,14 +325,14 @@
         {"breakGroup":""},
         //detection mass
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":125,"beamDamp":5},
-        ["rmassr", "rps1r", {"name":"LRS_RR","breakGroup":"damper_RR"}],
-        ["rmassl", "rps1l", {"name":"LRS_RL","breakGroup":"damper_RL"}],
+        {"beamSpring":125,"beamDamp":2.5},
+        ["rmassr", "rs2r", {"name":"LRS_RR","breakGroup":"damper_FR"}],
+        ["rmassl", "rs2l", {"name":"LRS_RL","breakGroup":"damper_FL"}],
         //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        ["rmassr", "rps1r", {"longBoundRange":0,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":25000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RR"}],
-        ["rmassl", "rps1l", {"longBoundRange":0,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":25000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RL"}],
+        ["rmassr", "rs2r", {"longBoundRange":1.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
+        ["rmassl", "rs2l", {"longBoundRange":1.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
         {"optional":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -385,10 +385,10 @@
     "variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 11000, 8000, 12000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$LRS_R", "range", "Clicks", "Suspension - Dampers and Springs", 0.8, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":1,"minDis":-30,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
-        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.039, 0.033, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":33,"maxDis":45,"subCategory":"Rear Damper Auxiliary"}],
-        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Auxiliary"}],
-        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.042, 0.027, 0.060, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Rear Damper Auxiliary"}],  //From last skirt node, ride height is about 186mm
+        ["$dampRateRebound_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 3250, 1250, 5250, "HRS Damping", "HRS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
+        ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.039, 0.033, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":33,"maxDis":45,"subCategory":"Rear Damper Internal"}],
+        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Internal"}],
+        ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.042, 0.027, 0.060, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-15,"maxDis":18,"subCategory":"Rear Damper - 3+2-Way"}],  //From last skirt node, ride height is about 186mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -435,14 +435,14 @@
         ["rcl1l",  0.5692, 1.35, 0.227],
         //piston outer shell to mount LRS
         {"group":["Astral_piston_R"]},
-        {"nodeWeight":0.45},
+        {"nodeWeight":0.1},
         ["rps1r", -0.5615, 1.3449, 0.455],
         ["rps1l",  0.5615, 1.3449, 0.455],
         //mass
         {"group":[""]},
         {"nodeWeight":0.05},
-        ["rmassr", -0.55, 1.337, 0.797],
-        ["rmassl",  0.55, 1.337, 0.797],
+        ["rmassr", -0.5723, 1.3522, 0.135],
+        ["rmassl",  0.5723, 1.3522, 0.135],
         //damper end
         {"nodeWeight":3.5},
         {"group":["Astral_damper_R"]},
@@ -477,8 +477,8 @@
         ["rhe1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         ["rhe1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
         //piston
-        ["rps1r", "strut_RR", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
-        ["rps1l", "strut_RL", true, true, 0.0, 1501000, "FLT_MAX", "FLT_MAX"],
+        ["rps1r", "strut_RR", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
+        ["rps1l", "strut_RL", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
         //mass
         ["rmassr", "strut_RR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["rmassl", "strut_RL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
@@ -616,7 +616,7 @@
             //rebound stop active
             "beamLimitSpring":250,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":3250
+            "beamLimitDampRebound":"$dampRateRebound_stop_R",
             "dampCutoffHz":250}
         ],
         ["rs2r","rs1r", {
@@ -668,7 +668,7 @@
             //rebound stop active
             "beamLimitSpring":150,
             "beamLimitDamp":150,
-            "beamLimitDampRebound":3250
+            "beamLimitDampRebound":"$dampRateRebound_stop_R",
             "dampCutoffHz":250}
         ],
         ["rs2l","rs1l", {
@@ -681,14 +681,14 @@
         {"breakGroup":""},
         //detection mass
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-        {"beamSpring":125,"beamDamp":5},
-        ["rmassr", "rps1r", {"name":"LRS_RR","breakGroup":"damper_RR"}],
-        ["rmassl", "rps1l", {"name":"LRS_RL","breakGroup":"damper_RL"}],
+        {"beamSpring":125,"beamDamp":2.5},
+        ["rmassr", "rs2r", {"name":"LRS_RR","breakGroup":"damper_FR"}],
+        ["rmassl", "rs2l", {"name":"LRS_RL","breakGroup":"damper_FL"}],
         //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
-        ["rmassr", "rps1r", {"longBoundRange":0,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":25000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RR"}],
-        ["rmassl", "rps1l", {"longBoundRange":0,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":25000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_RL"}],
+        ["rmassr", "rs2r", {"longBoundRange":1.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
+        ["rmassl", "rs2l", {"longBoundRange":1.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
         {"optional":false},
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},

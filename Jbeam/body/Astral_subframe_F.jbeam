@@ -378,8 +378,8 @@
         ["fs1l", "a81", {"beamSpring":1501000,"beamDamp":50}],
         {"breakGroup":""}
         {"optional":false}
-        //piston outer shell
-        {"beamSpring":1001000,"beamDamp":50},
+        //piston flexbody help
+        {"beamSpring":101000,"beamDamp":20},
         {"beamDeform":105000,"beamStrength":"FLT_MAX"},
         ["fps1r", "fs1r"],
         ["fps1l", "fs1l"],
@@ -411,11 +411,11 @@
         ["fhe1r","a17"],
         ["fhe1l","chsf"],
         ["fhe1l","a18"],
+        {"beamSpring":0,"beamDamp":10},
         ["fps1r","chs4l"],
         ["fps1r","a12"],
         ["fps1l","chs4r"],
         ["fps1l","a15"],
-        {"beamSpring":0,"beamDamp":10},
         ["fmassr","fs1l"],
         ["fmassl","fs1r"],
         ["fmassr","a84"],
@@ -480,7 +480,11 @@
     "torsionbars": [
         ["id1:", "id2:", "id3:", "id4:"],
         //rigidify subframe
-        {"spring":100000, "damp":0, "deform":25000, "strength":100000},
+        {"spring":65000, "damp":0, "deform":25000, "strength":100000},
+        ["fx1r", "fx1l", "fx2l", "fx4l"],
+        ["fx2r", "fx2l", "fx1l", "fx3l"],
+        ["fx1l", "fx1r", "fx2r", "fx4r"],
+        ["fx2l", "fx2r", "fx1r", "fx3r"],
         ["fx1r", "fx2r", "fx2l", "fx5l"],
         ["fx1l", "fx2l", "fx2r", "fx5r"],
         //mount damper
@@ -489,8 +493,8 @@
         ["fs2l", "fh2l", "fw1ll", "fw1l"], 
         //arm rigidifier
         {"spring":10000, "damp":0.5, "deform":20000, "strength":20000},
-        ["farb3r", "fx2r", "fx1r", "fh1r"], 
-        ["farb3l", "fx2l", "fx1l", "fh1l"], 
+        //["farb3r", "fx2r", "fx1r", "fh1r"], 
+        //["farb3l", "fx2l", "fx1l", "fh1l"], 
     ]
 },
 "Astral_steering_h": {
