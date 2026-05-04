@@ -13,6 +13,7 @@ local max = math.max
 local dampers = {}
 local dampersLookup = {}
 local dampingGroups = {}
+local loadSmoother = newTemporalSmoothing(500, 500)
 
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
@@ -30,43 +31,65 @@ function printTable(t, indent)
   end
 end
 
-function applyLRS(damper, mode)
-  local d = damper.damping and damper.damping[mode]
-  if not d then 
-    log("W", "applyLRS", "No damping data for damper " .. tostring(damper.name) .. " in mode: " .. tostring(mode)) 
+function applyLRS(damper, LRSMulti, DSVMulti)
+  local baseDamping = damper.damping
+  if not baseDamping then 
+    log("W", "applyLRS", "No damping data for damper " .. tostring(damper.name)) 
     return 
   end
   if damper.damperCid then
     obj:setBoundedBeamDamp(
       damper.damperCid, 
-      d.LSBump, 
-      d.LSRebound,
-      d.HSBump, 
-      d.HSRebound, 
-      d.velocityBump, 
-      d.velocityRebound
+      baseDamping.LSBump * DSVMulti,
+      baseDamping.LSRebound* LRSMulti,
+      baseDamping.HSBump* DSVMulti, 
+      baseDamping.HSRebound* LRSMulti, 
+      baseDamping.velocityBump, 
+      baseDamping.velocityRebound
     ) 
   end
 end
 
 local function update(dt) 
   for _, damper in ipairs(dampers) do
-    if damper.loadCid then 
-      local loadLength = obj:getBeamLength(damper.loadCid)
-      local loadSmooth = damper.loadSmoother:get(loadLength, dt)
+    local LRSMulti = 1
+    local DSVMulti = 1
+    if damper.LRS then --LRS
+      local loadLength = obj:getBeamLength(damper.LRS.LRSCid)
+      local loadSmooth = loadSmoother:get(loadLength, dt)
       --print(loadSmooth)
-      if loadSmooth >= damper.LRSp and damper.blocker ~=1 then
-        applyLRS(damper, "active")
-        --print("YEEEEEEEEEEEEEEEEESSSSSSSSSSSSS")
+      if loadSmooth >= damper.LRS.LRSp and damper.blocker ~=1 then
+        LRSMulti = LRSMulti * damper.LRS.LRSf
+        --print(LRSMulti)
       else
-        applyLRS(damper, "normal")
-        --print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+        --print(LRSMulti)
       end
     end
+
+    if damper.DSV then --DSV
+      local loadLength = obj:getBeamLength(damper.DSV.DSVCid)
+      local loadSmooth = loadSmoother:get(loadLength, dt)
+      --print(loadSmooth)
+      if loadSmooth >= damper.DSV.DSVp and damper.blocker ~=1 then
+        DSVMulti = DSVMulti * damper.DSV.DSVf
+        --print("DSVYEEEEEEEEEEEEEEEEESSSSSSSSSSSSS")
+      else
+        --print("DSVNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+      end
+    end
+
+    applyLRS(damper, LRSMulti, DSVMulti)
   end
 end
 
+local function reset()
+end
+
 local function init(jbeamData)
+  dampers = {}
+  dampersLookup = {}
+  dampingGroups = {}
+
   local beamNameLookup = {}
   for _, b in pairs(v.data.beams) do
     if b.name then
@@ -93,34 +116,45 @@ local function init(jbeamData)
   --inject loads table
   local loadsTable = tableFromHeaderTable(jbeamData.loads or {})
   for _, loadData in pairs(loadsTable) do
-    local cid = beamNameLookup[loadData.beamName]
     local damper = dampersLookup[loadData.name]
-    if cid and damper then
-      damper.loadCid = cid
-      damper.loadSmoother = newTemporalSmoothing(500, 500)
-      if loadData.LRSp then
-        damper.LRSp = loadData.LRSp
+    if damper then
+      if loadData.LRSName then --LRS
+        local LRScid = beamNameLookup[loadData.LRSName]
+        if LRScid then
+          damper.LRS={
+            LRSCid = LRScid,
+            LRSp = loadData.LRSp or 0.12,
+            LRSf = loadData.LRSf or 0.5,
+          }
+        else
+          log("E", "LRS", "Invalid LRS beam: "..tostring(loadData.LRSName)) 
+        end
       end
-      if loadData.DSVp then
-        damper.DSVp = loadData.DSVp
+      if loadData.DSVName then --DSV
+        local DSVcid = beamNameLookup[loadData.DSVName]
+        if DSVcid then
+          damper.DSV={
+            DSVCid = DSVcid,
+            DSVp = loadData.DSVp or 1,
+            DSVf = loadData.DSVf or 1.2,
+          }
+        else
+          log("E", "LRS", "Invalid DSV beam: "..tostring(loadData.DSVName)) 
+        end
       end
       if loadData.blocker then
         damper.blocker = loadData.blocker
       end
-    elseif not damper then
+    else
       log("E", "LRS", "No matching damper for load '"..tostring(loadData.name).."'")
-    elseif not cid then
-      log("E", "LRS", "Invalid load beam: "..tostring(loadData.beamName)) 
     end
   end
 
   --construct damping table
-  local LRSGroups = tableFromHeaderTable(jbeamData.damping or {})
-  for _, dampingData in pairs(LRSGroups) do
+  local dampingTable = tableFromHeaderTable(jbeamData.damping or {})
+  for _, dampingData in pairs(dampingTable) do
     local name = dampingData.name
-    local mode = tonumber(dampingData.active) == 1 and "active" or "normal"
-    dampingGroups[dampingData.name] = dampingGroups[dampingData.name] or {}
-    dampingGroups[dampingData.name][mode] = {
+    dampingGroups[name]= {
       LSBump = dampingData.beamDamp,
       HSBump = dampingData.beamDampFast,
       LSRebound = dampingData.beamDampRebound,
@@ -134,10 +168,7 @@ local function init(jbeamData)
   for _, damper in ipairs(dampers) do
     local damping = dampingGroups[damper.name]
     if damping then
-      damper.damping = {
-        normal = damping.normal or {},
-        active = damping.active or {}
-      }
+      damper.damping = damping
     else
       log("W", "LRS", "No damping data for damper: " .. tostring(damper.name))
     end
@@ -149,15 +180,12 @@ local function init(jbeamData)
   end
   
   --dump(dampersLookup)
-  --dump(dampers)
+  dump(dampers)
   --printTable(dampingGroups)
 end
 
-
-local function reset()
-end
-
 M.init = init
+M.reset = reset
 M.update = update
 M.applyLRS = applyLRS
 

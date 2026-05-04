@@ -212,7 +212,11 @@ local function updateFixedStep(dt)
   end
 end
 
+local function reset()
+end
+
 local function init(jbeamData)
+  --print("TWICE?")
   transfercase = powertrain.getDevice(jbeamData.transfercaseName)
   transferType = jbeamData.type or 0
   
@@ -257,6 +261,7 @@ local function init(jbeamData)
 end
 
 M.init = init
+M.reset = reset
 M.updateFixedStep = updateFixedStep
 
 return M
