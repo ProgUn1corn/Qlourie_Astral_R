@@ -14,6 +14,7 @@ local dampers = {}
 local dampersLookup = {}
 local dampingGroups = {}
 local loadSmoother = newTemporalSmoothing(500, 500)
+local loadSmoother2 = newTemporalSmoothing(1000, 1000)
 
 function clamp(value, min, max)
   return math.min(math.max(value, min), max)
@@ -67,13 +68,20 @@ local function update(dt)
     end
 
     if damper.DSV then --DSV
-      local loadLength = obj:getBeamLength(damper.DSV.DSVCid)
-      local loadSmooth = loadSmoother:get(loadLength, dt)
-      --print(loadSmooth)
-      if loadSmooth >= damper.DSV.DSVp and damper.blocker ~=1 then
-        DSVMulti = DSVMulti * damper.DSV.DSVf
-        --print("DSVYEEEEEEEEEEEEEEEEESSSSSSSSSSSSS")
+      local loadLen = obj:getBeamLength(damper.DSV.DSVCid)
+      local loadLenSmooth = loadSmoother:get(loadLen, dt)
+      local loadVel = obj:getBeamVelocity(damper.DSV.DSVCid)
+      local loadVelSmooth = loadSmoother2:get(loadVel, dt)
+      --print(loadLenSmooth)
+      --print(loadVelSmooth)
+      if loadVelSmooth <= -0.46 and loadLenSmooth <= damper.DSV.DSVp then
+        DSVMulti = 1 + (0.2 * damper.DSV.DSVf)
+        --print(DSVMulti)
+      elseif loadVelSmooth >= 0.28 and loadLenSmooth >= damper.DSV.DSVp2 then
+        DSVMulti = 1 - (0.167 * damper.DSV.DSVf)
+        --print(DSVMulti)
       else
+        DSVMulti = 1
         --print("DSVNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
       end
     end
@@ -135,8 +143,9 @@ local function init(jbeamData)
         if DSVcid then
           damper.DSV={
             DSVCid = DSVcid,
-            DSVp = loadData.DSVp or 1,
-            DSVf = loadData.DSVf or 1.2,
+            DSVp = loadData.DSVp or 0.11,
+            DSVp2 = loadData.DSVp2 or loadData.DSVp + 0.01,
+            DSVf = loadData.DSVf or 1,
           }
         else
           log("E", "LRS", "Invalid DSV beam: "..tostring(loadData.DSVName)) 
@@ -180,7 +189,7 @@ local function init(jbeamData)
   end
   
   --dump(dampersLookup)
-  dump(dampers)
+  --dump(dampers)
   --printTable(dampingGroups)
 end
 
