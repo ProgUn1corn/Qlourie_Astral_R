@@ -519,15 +519,6 @@
         ["$steer_center_F", "range", "", "Steering", 0, -0.001, 0.001, "Steering L/R Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Steering Angle"}]
         ["$steer_lock", "range", "Degrees", "Steering", 240, 180, 360, "Steering Wheel Lock", "Adjust the steering gear on the steering rack (steering ratio)", {"subCategory":"Steering Angle", "minDis":360,"maxDis":720, "stepDis":60}]
     ],
-    //steering rack rail
-    "rails": {
-        "steeringrack":{"links:":["st2r", "st2l"], "broken:":[], "looped":false, "capped":true}
-    },
-    "slidenodes": [
-        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
-        ["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
-        ["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
-    ],
     "beams": [
         ["id1:","id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},

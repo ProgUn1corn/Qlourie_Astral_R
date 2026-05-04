@@ -115,6 +115,8 @@
         //arb mounting rail
         "arb_FR":{"links:":["fh1r", "fx2r"], "broken:":[], "looped":false, "capped":true},
         "arb_FL":{"links:":["fh1l", "fx2l"], "broken:":[], "looped":false, "capped":true}
+        //steering rack
+        "steeringrack":{"links:":["st2r", "st2l"], "broken:":[], "looped":false, "capped":true}
     },
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
@@ -132,9 +134,14 @@
         //mass
         ["fmassr", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
+        ["fmass2r", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
+        ["fmass2l", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["farb3r", "arb_FR", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"],
         ["farb3l", "arb_FL", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"]
+        //steering arm
+        ["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:", "id2:"],
@@ -471,11 +478,13 @@
     ],
     "rails": {
         //strut shaft rail
-        "strut_FR":{"links:":["fs1r", "fs2r"], "broken:":[], "looped":false, "capped":true},
-        "strut_FL":{"links:":["fs1l", "fs2l"], "broken:":[], "looped":false, "capped":true},
+        "strut_FR":{"links:":["fs2r", "fs1r"], "broken:":[], "looped":false, "capped":true},
+        "strut_FL":{"links:":["fs2l", "fs1l"], "broken:":[], "looped":false, "capped":true},
         //arb mounting rail
         "arb_FR":{"links:":["fh1r", "fx2r"], "broken:":[], "looped":false, "capped":true},
         "arb_FL":{"links:":["fh1l", "fx2l"], "broken:":[], "looped":false, "capped":true}
+        //steering rack
+        "steeringrack":{"links:":["st2r", "st2l"], "broken:":[], "looped":false, "capped":true}
     },
     "slidenodes": [
         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
@@ -493,9 +502,14 @@
         //mass
         ["fmassr", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
+        ["fmass2r", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
+        ["fmass2l", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["farb3r", "arb_FR", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"],
         ["farb3l", "arb_FL", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"]
+        //steering arm
+        ["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
+        ["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
     ],
     "beams": [
         ["id1:", "id2:"],
