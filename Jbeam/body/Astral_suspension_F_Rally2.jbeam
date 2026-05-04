@@ -72,7 +72,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":8.8},
+        {"nodeWeight":8.9},
         ["fs1r", -0.581, -1.22, 0.815],
         ["fs1l",  0.581, -1.22, 0.815],
         //lower spring collar
@@ -83,7 +83,7 @@
         ["fcl1l",  0.6005, -1.2933, 0.418],
         //piston outer shell to mount LRS
         {"group":["Astral_piston_F"]},
-        {"nodeWeight":0.1}, //-0.15
+        {"nodeWeight":0.1},
         ["fps1r", -0.5928, -1.2643, 0.575],
         ["fps1l",  0.5928, -1.2643, 0.575],
         //mass
@@ -91,6 +91,8 @@
         {"nodeWeight":0.05},
         ["fmassr", -0.608, -1.31, 0.32],
         ["fmassl",  0.608, -1.31, 0.32], 
+        ["fmass2r", -0.587, -1.243, 0.69],
+        ["fmass2l",  0.587, -1.243, 0.69], 
         //damper end
         {"nodeWeight":3.5},
         {"group":["Astral_damper_F"]},
@@ -310,11 +312,19 @@
         {"beamSpring":150,"beamDamp":1.5},
         ["fmassr", "fs2r", {"name":"LRS_FR","breakGroup":"damper_FR"}],
         ["fmassl", "fs2l", {"name":"LRS_FL","breakGroup":"damper_FL"}],
+        {"beamSpring":25,"beamDamp":2.5},
+        ["fmass2r", "fs2r", {"name":"","breakGroup":"damper_FR"}],
+        ["fmass2l", "fs2l", {"name":"","breakGroup":"damper_FL"}],
+        {"beamSpring":250,"beamDamp":2.5},
+        ["fmass2r", "fs1r", {"name":"DSV_FR","breakGroup":"damper_FR"}],
+        ["fmass2l", "fs1l", {"name":"DSV_FL","breakGroup":"damper_FL"}],
         //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         ["fmassr", "fs2r", {"longBoundRange":0.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
         ["fmassl", "fs2l", {"longBoundRange":0.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
+        ["fmass2r", "fs1r", {"longBoundRange":0.01,"shortBoundRange":0.03,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
+        ["fmass2l", "fs1l", {"longBoundRange":0.01,"shortBoundRange":0.03,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
@@ -416,7 +426,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":8.8},
+        {"nodeWeight":9.1},
         ["fs1r", -0.581, -1.22, 0.815],
         ["fs1l",  0.581, -1.22, 0.815],
         //lower spring collar
@@ -476,8 +486,6 @@
         //mass
         ["fmassr", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         ["fmassl", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
-        ["fmass2r", "strut_FR", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
-        ["fmass2l", "strut_FL", true, true, 0.0, 150100, "FLT_MAX", "FLT_MAX"],
         //arb mounting point
         ["farb3r", "arb_FR", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"],
         ["farb3l", "arb_FL", true, true, 0.0, 3001000, "FLT_MAX", "FLT_MAX"]
@@ -731,13 +739,13 @@
     ],
     "controller": [ 
         ["fileName"],
-        //["LRS2", {"name":"FrontLRS"}],
+        ["LRS2", {"name":"FrontLRS"}],
     ],
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.122+$LRSShim_F", 0.499,    "DSV_FR",  1,      1.2,    "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.122+$LRSShim_F", 0.499,    "DSV_FL",  1,      1.2,    "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.127+$LRSShim_F", 0.499,    "DSV_FR",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.127+$LRSShim_F", 0.499,    "DSV_FL",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -746,8 +754,8 @@
         ],
         "damping":[
             ["name", "beamDamp",         "beamDampFast",          "beamDampRebound",     "beamDampReboundFast",        "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
-            ["FR",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.96", "$=$velocitySplit_F+($dampRate_bump_F_fast-3600)/32000-($dampRate_bump_F-3000)/20000", 0.66                          ]
-            ["FL",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.96", "$=$velocitySplit_F+($dampRate_bump_F_fast-3600)/32000-($dampRate_bump_F-3000)/20000", 0.66                          ]
+            ["FR",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.05", "$=$velocitySplit_F+($dampRate_bump_F_fast-3600)/32000-($dampRate_bump_F-3000)/20000", 0.46                          ]
+            ["FL",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.05", "$=$velocitySplit_F+($dampRate_bump_F_fast-3600)/32000-($dampRate_bump_F-3000)/20000", 0.46                          ]
         ]
     },
 },
@@ -777,8 +785,8 @@
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.122+$LRSShim_F", 0.499,    "DSV_FR",  1,      1.2,    "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.122+$LRSShim_F", 0.499,    "DSV_FL",  1,      1.2,    "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.127+$LRSShim_F", 0.499,    "DSV_FR",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.127+$LRSShim_F", 0.499,    "DSV_FL",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -787,8 +795,8 @@
         ],
         "damping":[
             ["name", "beamDamp",         "beamDampFast",          "beamDampRebound",     "beamDampReboundFast",        "beamDampVelocitySplit",                                                              "beamDampVelocitySplitRebound"]
-            ["FR",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.96", "$=$velocitySplit_F+($dampRate_bump_F_fast-1200)/32000-($dampRate_bump_F-3400)/20000", 0.66                          ]
-            ["FL",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*0.96", "$=$velocitySplit_F+($dampRate_bump_F_fast-1200)/32000-($dampRate_bump_F-3400)/20000", 0.66                          ]
+            ["FR",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.05", "$=$velocitySplit_F+($dampRate_bump_F_fast-1200)/32000-($dampRate_bump_F-3400)/20000", 0.36                          ]
+            ["FL",   "$dampRate_bump_F", "$dampRate_bump_F_fast", "$dampRate_rebound_F", "$=$dampRate_rebound_F*1.05", "$=$velocitySplit_F+($dampRate_bump_F_fast-1200)/32000-($dampRate_bump_F-3400)/20000", 0.36                          ]
         ]
     },
 },
@@ -818,8 +826,8 @@
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.120+$LRSShim_F", 0.740,  "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.120+$LRSShim_F", 0.740,  "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.124+$LRSShim_F", 0.740,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.124+$LRSShim_F", 0.740,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -859,8 +867,8 @@
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.120+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.120+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.124+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.124+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]

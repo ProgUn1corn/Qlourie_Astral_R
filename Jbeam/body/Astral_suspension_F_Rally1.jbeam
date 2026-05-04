@@ -74,7 +74,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":9},
+        {"nodeWeight":9.1},
         ["fs1r", -0.581, -1.22, 0.815],
         ["fs1l",  0.581, -1.22, 0.815],
         //lower spring collar
@@ -93,6 +93,8 @@
         {"nodeWeight":0.05},
         ["fmassr", -0.608, -1.31, 0.32],
         ["fmassl",  0.608, -1.31, 0.32], 
+        ["fmass2r", -0.587, -1.243, 0.69],
+        ["fmass2l",  0.587, -1.243, 0.69], 
         //damper end
         {"nodeWeight":3.5},
         {"group":["Astral_damper_F"]},
@@ -335,11 +337,19 @@
         {"beamSpring":150,"beamDamp":1.5},
         ["fmassr", "fs2r", {"name":"LRS_FR","breakGroup":"damper_FR"}],
         ["fmassl", "fs2l", {"name":"LRS_FL","breakGroup":"damper_FL"}],
+        {"beamSpring":25,"beamDamp":2.5},
+        ["fmass2r", "fs2r", {"name":"","breakGroup":"damper_FR"}],
+        ["fmass2l", "fs2l", {"name":"","breakGroup":"damper_FL"}],
+        {"beamSpring":250,"beamDamp":2.5},
+        ["fmass2r", "fs1r", {"name":"DSV_FR","breakGroup":"damper_FR"}],
+        ["fmass2l", "fs1l", {"name":"DSV_FL","breakGroup":"damper_FL"}],
         //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         ["fmassr", "fs2r", {"longBoundRange":0.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
         ["fmassl", "fs2l", {"longBoundRange":0.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
+        ["fmass2r", "fs1r", {"longBoundRange":0.01,"shortBoundRange":0.03,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
+        ["fmass2l", "fs1l", {"longBoundRange":0.01,"shortBoundRange":0.03,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
@@ -442,7 +452,7 @@
         //--Strut--
         //damper top point
         {"group":["Astral_piston_F","Astral_spring_F","Astral_chassis_F"]},
-        {"nodeWeight":9},
+        {"nodeWeight":9.1},
         ["fs1r", -0.581, -1.22, 0.815],
         ["fs1l",  0.581, -1.22, 0.815],
         //lower spring collar
@@ -461,6 +471,8 @@
         {"nodeWeight":0.05},
         ["fmassr", -0.6167, -1.339, 0.16],
         ["fmassl",  0.6167, -1.339, 0.16], 
+        ["fmass2r", -0.5878, -1.2427, 0.69],
+        ["fmass2l",  0.5878, -1.2427, 0.69], 
         //damper end
         {"nodeWeight":3.5},
         {"group":["Astral_damper_F"]},
@@ -702,11 +714,19 @@
         {"beamSpring":150,"beamDamp":1.5},
         ["fmassr", "fs2r", {"name":"LRS_FR","breakGroup":"damper_FR"}],
         ["fmassl", "fs2l", {"name":"LRS_FL","breakGroup":"damper_FL"}],
+        {"beamSpring":25,"beamDamp":2.5},
+        ["fmass2r", "fs2r", {"name":"","breakGroup":"damper_FR"}],
+        ["fmass2l", "fs2l", {"name":"","breakGroup":"damper_FL"}],
+        {"beamSpring":250,"beamDamp":2.5},
+        ["fmass2r", "fs1r", {"name":"DSV_FR","breakGroup":"damper_FR"}],
+        ["fmass2l", "fs1l", {"name":"DSV_FL","breakGroup":"damper_FL"}],
         //detection mass limit
         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":0,"beamDamp":0},
         ["fmassr", "fs2r", {"longBoundRange":0.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
         ["fmassl", "fs2l", {"longBoundRange":0.03,"shortBoundRange":0.005,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
+        ["fmass2r", "fs1r", {"longBoundRange":0.01,"shortBoundRange":0.03,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FR"}],
+        ["fmass2l", "fs1l", {"longBoundRange":0.01,"shortBoundRange":0.03,"boundZone":0.01,"beamLimitSpring":40000,"beamLimitDamp":50,"beamLimitDampRebound":50,"breakGroup":"damper_FL"}],
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
