@@ -75,11 +75,11 @@ local function update(dt)
       --print(loadLenSmooth)
       --print(loadVelSmooth)
       if loadVelSmooth <= -0.46 and loadLenSmooth <= damper.DSV.DSVp then
-        DSVMulti = 1 + (0.133 * damper.DSV.DSVf)
-        --print(DSVMulti)
+        DSVMulti = 1 + (0.167 * damper.DSV.DSVf)
+        print(DSVMulti)
       elseif loadVelSmooth >= 0.28 and loadLenSmooth >= damper.DSV.DSVp2 then
-        DSVMulti = 1 - (0.167 * damper.DSV.DSVf)
-        --print(DSVMulti)
+        DSVMulti = 1 - (0.133 * damper.DSV.DSVf)
+        print(DSVMulti)
       else
         DSVMulti = 1
         --print("DSVNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
