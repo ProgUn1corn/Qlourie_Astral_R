@@ -1,0 +1,170 @@
+{
+"Astral_differential_F_race": {
+	"information":{
+		"name":"1.5-Way Clutch-Type LSD",
+		"value":1500
+	},
+	"slotType" : "Astral_differential_F",
+	"slots": [
+		["type", "default", "description"],
+		["Astral_halfshafts_F","Astral_halfshafts_F","Front Halfshafts"],
+		["Astral_finaldrive_F","Astral_finaldrive_F_4.43","Front Final Drive", {"coreSlot":true}]
+		["Astral_ramp_F","Astral_ramp_F_5072","Front Ramp Set", {"coreSlot":true}]
+	],
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$lsdpreload_F", "range", "Nm", "Differentials", 35, 0, 120, "Preload Adjuster", "Initial locking torque between left and right wheels", {"stepDis":5, "subCategory":"Front"}],
+		["$frictionFace_F", "range", "Faces", "Differentials", 6, 4, 6, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":12, "stepDis":2, "subCategory":"Front"}]
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["torsionReactor", "torsionReactorF", "transferCase", 2],
+		["differential", "frontDiff", "torsionReactorF", 1, {"deformGroups":["gearbox"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_F*(1+($frictionFace_F-6)*0.048)", "lsdLockCoef":"$=$components.diff.flock", "lsdRevLockCoef":"$=$components.diff.frevlock", "uiName":"Front Differential", "defaultVirtualInertia":0.25}]
+	]
+	"frontDiff": {
+        "friction": 2.94,
+        "dynamicFriction": 0.000947,
+        "torqueLossCoef": 0.0196,
+    },
+    "torsionReactorF": {
+        "torqueReactionNodes:":["eg1","eg0","eg4"],
+    }
+},
+"Astral_ramp_F_4672": {
+	"information":{
+		"name":"46/85 (Coupled with 46/72)",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_F",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
+	],
+	"components": {
+    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+        	"flock":"$=(1/tan(46*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)"
+    	},
+	}
+},
+"Astral_ramp_F_5072": {
+	"information":{
+		"name":"50/85 (Coupled with 50/72)",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_F",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
+	],
+	"components": {
+    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+        	"flock":"$=(1/tan(50*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
+    	},
+	}
+},
+"Astral_ramp_F_6085": {
+	"information":{
+		"name":"60/85",
+		"value":1000
+	},
+	"slotType" : "Astral_ramp_F",
+	"components": {
+    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+        	"flock":"$=(1/tan(60*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",  
+			"frevlock":"$=(1/tan(85*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)"
+    	},
+	}
+},
+"Astral_ramp_F_d": {
+	"information":{
+		"name":"Adjustable Debug Ramp",
+		"value":1000
+		"isAuxiliary":true
+	},
+	"slotType" : "Astral_ramp_F",
+	"variables": [
+		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+		["$powerRamp_F", "range", "Degrees", "Differentials", 50, 30, 65, "Coast Ramp Angle", "Adjust power side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Front"}]
+		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 65, 90, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Front"}]
+	],
+	"components": {
+    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+        	"flock":"$=(1/tan($powerRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
+    	},
+	}
+},
+"Astral_halfshafts_F": {
+	"information":{
+		"name":"Front Halfshafts",
+		"value":500
+	},
+	"slotType" : "Astral_halfshafts_F",
+	"beams": [
+		["id1:", "id2:"],
+		{"deformLimitExpansion":1.2},
+		//shaft
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.12, "beamShortBound":0.12},
+		{"beamSpring":0,"beamDamp":20,"beamDeform":9500,"beamStrength":18550},
+		{"beamLimitSpring":6501000,"beamLimitDamp":250},
+		["fw1r","ftrar", {"name":"halfshaft_FR", "breakGroup":"wheel_FR", "breakGroupType":1, "deformGroup":"wheelaxleFR", "deformationTriggerRatio":0.001, "optional":true}],
+		["fw1l","ftral", {"name":"halfshaft_FL", "breakGroup":"wheel_FL", "breakGroupType":1, "deformGroup":"wheelaxleFL", "deformationTriggerRatio":0.001, "optional":true}],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
+        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["shaft", "halfshaftFL", "frontDiff", 1, {"deformGroups":["wheelaxleFL"], "breakTriggerBeam":"halfshaft_FL", "uiName":"Front Left Halfshaft", "friction":1.52, "dynamicFriction":0.0036}],
+		["shaft", "halfshaftFR", "frontDiff", 2, {"deformGroups":["wheelaxleFR"], "breakTriggerBeam":"halfshaft_FR", "uiName":"Front Right Halfshaft", "friction":1.52, "dynamicFriction":0.0036}]
+	]
+},
+"Astral_finaldrive_F_4.43": {
+	"information":{
+		"name":"Rally Final Drive 4.43",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_F",
+	"torsionReactorF":{
+		"gearRatio": 4.43
+	}
+	"components": {
+    	"diff":{
+        	"finaldrive":4.43
+    	},
+	}
+},
+"Astral_finaldrive_F_5.06": {
+	"information":{
+		"name":"Rally1 Final Drive 5.06",
+		"value":1000
+		"isAuxiliary":true
+	},
+	"slotType" : "Astral_finaldrive_F",
+	"torsionReactorF":{
+		"gearRatio": 5.06
+	},
+	"components": {
+    	"diff":{
+        	"finaldrive":5.06
+    	},
+	}
+},
+"Astral_finaldrive_F_3.99": {
+	"information":{
+		"name":"RX Final Drive 3.99",
+		"value":1000
+	},
+	"slotType" : "Astral_finaldrive_F",
+	"torsionReactorF":{
+		"gearRatio": 3.99
+	}
+	"components": {
+    	"diff":{
+        	"finaldrive":3.99
+    	},
+	}
+},
+}
