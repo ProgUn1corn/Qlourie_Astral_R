@@ -26,10 +26,6 @@
 	"slotType" : "Astral_enginemanagement_1",
 	"controller": [
 		["fileName"],
-		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
-		["drivingDynamics/sensors/sensorHub" ],
-		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
-		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
 		["launchControl"],
 		["driveModes"]
 		["throttleMap", {"tMap":2}]
@@ -49,7 +45,7 @@
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}],
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
 					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"00CCFF"}]
 				]
 			},
 			"med": {
@@ -62,8 +58,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":2, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM2", "maxActiveThrottleInput":"$maxAntiLagThrottle2", "minActiveBrakeInput":"$minAntiLagBrake2"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}],
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "FFF68F"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FFF68F"}]
 				]
 			},
 			"high": {
@@ -76,8 +72,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":3, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM3", "maxActiveThrottleInput":"$maxAntiLagThrottle3", "minActiveBrakeInput":"$minAntiLagBrake3"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}],
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:3", "modeColor": "FF2701"}],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "FF2701"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FF2701"}]
 				]
 			},
 			"off": {
@@ -90,16 +86,12 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":4, "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -30}],
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 1, "gainOffset": -0}],
-					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}],
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "BBBBBB"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"BBBBBB"}]
 				]
 			}
 		}
 	},
-	"vehicleData": {
-		"skewStiffnessFront": 153600,
-		"skewStiffnessRear": 131600
-	}
 	"mainEngine": {
 		//RPM
 		"hasRevLimiter": true,
@@ -194,10 +186,6 @@
 	"slotType" : "Astral_enginemanagement_1",
 	"controller": [
 		["fileName"],
-		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
-		["drivingDynamics/sensors/sensorHub" ],
-		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
-		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
 		["launchControl"],
 		["driveModes"]
 		["throttleMap", {"tMap":2}]
@@ -216,8 +204,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":1, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM1", "maxActiveThrottleInput":"$maxAntiLagThrottle1", "minActiveBrakeInput":"$minAntiLagBrake1"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"00CCFF"}]
 				]
 			},
 			"med": {
@@ -230,8 +218,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":2, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM2", "maxActiveThrottleInput":"$maxAntiLagThrottle2", "minActiveBrakeInput":"$minAntiLagBrake2"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "FFF68F"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FFF68F"}]
 				]
 			},
 			"high": {
@@ -244,8 +232,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":3, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM3", "maxActiveThrottleInput":"$maxAntiLagThrottle3", "minActiveBrakeInput":"$minAntiLagBrake3"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:3", "modeColor": "FF2701"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "FF2701"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FF2701"}]
 				]
 			},
 			"off": {
@@ -258,15 +246,11 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":4, "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -30}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 1, "gainOffset": -0}],
-					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "BBBBBB"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"BBBBBB"}]
 				]
 			}
 		}
-	},
-	"vehicleData": {
-		"skewStiffnessFront":135000,
-    	"skewStiffnessRear":125000
 	},
 	"mainEngine": {
 		//RPM
@@ -360,10 +344,6 @@
 	"slotType" : "Astral_enginemanagement_1",
 	"controller": [
 		["fileName"],
-		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
-		["drivingDynamics/sensors/sensorHub" ],
-		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
-		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
 		["launchControl"],
 		["driveModes"]
 		["throttleMap", {"tMap":2}]
@@ -383,8 +363,8 @@
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "00CCFF"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"00CCFF"}]
 				]
 			},
 			"med": {
@@ -397,8 +377,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":2, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM2", "maxActiveThrottleInput":"$maxAntiLagThrottle2", "minActiveBrakeInput":"$minAntiLagBrake2"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:Mid", "modeColor": "FFF68F"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "FFF68F"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FFF68F"}]
 				]
 			},
 			"high": {
@@ -411,8 +391,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":3, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM3", "maxActiveThrottleInput":"$maxAntiLagThrottle3", "minActiveBrakeInput":"$minAntiLagBrake3"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Stage:3", "modeColor": "FF2701"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "FF2701"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FF2701"}]
 				]
 			},
 			"off": {
@@ -425,15 +405,11 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":4, "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -30}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 1, "gainOffset": -0}],
-					["controller", {"controllerName":"gauge", "modeName": "Road", "modeColor": "DCDCDC"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+					["controller", {"controllerName":"gauge", "modeName": "Stage:1", "modeColor": "BBBBBB"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"BBBBBB"}]
 				]
 			}
 		}
-	},
-	"vehicleData": {
-		"skewStiffnessFront":135000,
-    	"skewStiffnessRear":125000
 	},
 	"mainEngine": {
 		//RPM
@@ -527,10 +503,6 @@
 	"slotType" : "Astral_enginemanagement_2",
 	"controller": [
 		["fileName"],
-		["drivingDynamics/CMU", {"name":"CMU", "debugSettings": {"enableDebugMode": false, "peerIP": "127.0.0.1"}}],
-		["drivingDynamics/sensors/sensorHub" ],
-		["drivingDynamics/sensors/virtualSensors" {"name":"sensors"}],
-		["drivingDynamics/sensors/vehicleData" {"name":"vehicleData"}],
 		["launchControl"],
 		["driveModes"]
 		["throttleMap", {"tMap":2}]
@@ -549,8 +521,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":1, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM1", "maxActiveThrottleInput":"$maxAntiLagThrottle1", "minActiveBrakeInput":"$minAntiLagBrake1"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Soft", "modeColor": "00CCFF"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "00CCFF"}],
+					["controller", {"controllerName":"gauge", "modeName": "Soft", "modeColor": "00CCFF"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"00CCFF"}]
 				]
 			},
 			"med": {
@@ -563,8 +535,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":2, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM2", "maxActiveThrottleInput":"$maxAntiLagThrottle2", "minActiveBrakeInput":"$minAntiLagBrake2"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Mid", "modeColor": "FFF68F"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FFF68F"}],
+					["controller", {"controllerName":"gauge", "modeName": "Medium", "modeColor": "FFF68F"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FFF68F"}]
 				]
 			},
 			"high": {
@@ -577,8 +549,8 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":3, "isEnabled":true, "minActiveEngineRPM":"$minAntiLagRPM3", "maxActiveThrottleInput":"$maxAntiLagThrottle3", "minActiveBrakeInput":"$minAntiLagBrake3"}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 2}],
-					["controller", {"controllerName":"gauge", "modeName": "Aggressive", "modeColor": "FF2701"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "FF2701"}],
+					["controller", {"controllerName":"gauge", "modeName": "Aggressive", "modeColor": "FF2701"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"FF2701"}]
 				]
 			},
 			"off": {
@@ -591,15 +563,11 @@
 					["controller", {"controllerName":"dynamicAntiLag", "ALS":4, "isEnabled":false}],
 					["turbocharger", {"name": "mainEngine", "wastegateOffset": -51}]
 					["exhaust", {"name": "mainEngine", "mufflingOffset": 1, "gainOffset": -0}],
-					["controller", {"controllerName":"gauge", "modeName": "Wastegate Off", "modeColor": "DCDCDC"}]
-					["controller", {"controllerName":"CMU", "uiDisplayData.simplePowertrainApp.activeColor": "DCDCDC"}],
+					["controller", {"controllerName":"gauge", "modeName": "OFF", "modeColor": "BBBBBB"}],
+					["simpleControlButton", {"buttonId":"als", "uiName":"ALS","icon":"powertrain_esc","color":"BBBBBB"}]
 				]
 			}
 		}
-	},
-	"vehicleData": {
-		"skewStiffnessFront":135000,
-    	"skewStiffnessRear":125000
 	},
 	"mainEngine": {
 		//RPM
