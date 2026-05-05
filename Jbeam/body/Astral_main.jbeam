@@ -2,7 +2,7 @@
 "Astral_chassis":{
 	"information":{
         "authors":"Un1corn",
-        "name":"Modified Reinforced Chassis",
+        "name":"Astral Hatchback Chassis",
         "value":10
 	},
 	"slotType" : "Astral_chassis",
@@ -150,7 +150,7 @@
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Center Chassis--
 		//main shape
-		{"beamSpring":4801000,"beamDamp":250},
+		{"beamSpring":"$=4801000*$components.chassis.stiffnessMulti","beamDamp":250},
 		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
 		["a8", "a12"],
 		["a9", "a13"],
@@ -243,7 +243,7 @@
 		
 		//--Rear Chassis--
 		//main shape
-		{"beamSpring":4501000,"beamDamp":180},
+		{"beamSpring":"$=4501000*$components.chassis.stiffnessMulti","beamDamp":180},
 		{"beamDeform":15000, "beamStrength":"FLT_MAX"},
 		["a5", "a6"],
 		["a37", "a38"],
@@ -378,7 +378,7 @@
 		
 		//--Front Chassis--
 		//main shape
-		{"beamSpring":4501000,"beamDamp":180},
+		{"beamSpring":"$=4501000*$components.chassis.stiffnessMulti","beamDamp":180},
 		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
 		["a53", "a54"],
 		["a53", "a20"],
@@ -584,7 +584,7 @@
 "Astral_cweight_BRC":{
 	"information":{
         "authors":"Un1corn",
-        "name":"WRC Chassis",
+        "name":"Reinforced Mod-A",
         "value":10
 	},
 	"slotType" : "Astral_cweight",
@@ -593,13 +593,14 @@
         	"frontWeight":6.3
 			"centerWeight":5.41
 			"rearWeight":6.3
+			"stiffnessMulti":1
     	},
 	}
 },
 "Astral_cweight_Rally2":{
 	"information":{
         "authors":"Un1corn",
-        "name":"Rally2 Chassis",
+        "name":"Reinforced Mod-B",
         "value":10
 	},
 	"slotType" : "Astral_cweight",
@@ -608,21 +609,23 @@
         	"frontWeight":7.9
 			"centerWeight":6.76
 			"rearWeight":7
+			"stiffnessMulti":1
     	},
 	}
 },
 "Astral_cweight_RX":{
 	"information":{
         "authors":"Un1corn",
-        "name":"RX Chassis",
+        "name":"Reinforced Mod-AA",
         "value":10
 	},
 	"slotType" : "Astral_cweight",
 	"components": {
     	"chassis":{
-        	"frontWeight":6.2
-			"centerWeight":5.25
-			"rearWeight":6.4
+        	"frontWeight":5.5
+			"centerWeight":4.25
+			"rearWeight":5.5
+			"stiffnessMulti":0.6
     	},
 	}
 },
