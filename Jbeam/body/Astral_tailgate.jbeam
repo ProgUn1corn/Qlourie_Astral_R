@@ -106,7 +106,7 @@
 		//--Rear Trunk--
 		//tailgate
 		{"selfCollision":false},
-		{"nodeWeight":0.6},
+		{"nodeWeight":0.5},
 		{"group":["Astral_tailgate"]},
 		["t1r", -0.222, 1.95, 0.51],
 		["t2r", -0.522, 1.87, 0.51],
@@ -128,7 +128,7 @@
 		["w8r", -0.301, 1.558, 1.082, {"group":["Astral_tailgate","Astral_wing_low","Astral_swanneck"]}],
 		["w8l",  0.301, 1.558, 1.082, {"group":["Astral_tailgate","Astral_wing_low","Astral_swanneck"]}],
 		//tail light
-		{"nodeWeight":0.25},
+		{"nodeWeight":0.15},
 		["rl1r", -0.251, 1.57, 0.765, {"selfCollision":false}],
 		["rl1l",  0.251, 1.57, 0.765, {"selfCollision":false}],
 		//latch
@@ -137,7 +137,7 @@
 		["t1", 0, 1.82, 0.477, {"selfCollision":false}],
 		//rigidifier
 		{"group":[""]},
-		{"nodeWeight":1.5},
+		{"nodeWeight":1},
 		["t3", 0, 1.2, 0.765, {"selfCollision":false}],
 		{"frictionCoef":0.5},
 		{"collision":true},
@@ -145,11 +145,10 @@
     ],
 	"beams": [   
 		["id1:", "id2:"], 
-		
         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Tailgate--
 		//main shape
-		{"beamSpring":201000,"beamDamp":100},
+		{"beamSpring":151000,"beamDamp":50},
 		{"beamDeform":15500,"beamStrength":"FLT_MAX"},
 		["t1r", "t2r"],
 		["t1r", "t1l"],
@@ -163,7 +162,7 @@
 		["t5r", "t6r"],
 		["t5r", "t5l"],
 		["t5l", "t6l"],
-		{"beamSpring":251000,"beamDamp":80},
+		{"beamSpring":201000,"beamDamp":80},
 		["t1r", "t3r"],
 		["t2r", "t4r"],
 		["t3r", "w8r"],
@@ -173,7 +172,7 @@
 		["t3l", "w8l"],
 		["t4l", "w7l"],
 		//crossing
-		{"beamSpring":201000,"beamDamp":80},
+		{"beamSpring":151000,"beamDamp":50},
 		{"beamDeform":12000},
 		["t1r", "t3l"],
 		["t2r", "t3r"],
@@ -203,7 +202,6 @@
 		["w8l", "t5r"],
 		{"beamStrength":"FLT_MAX"},
 		//rigids
-		{"beamSpring":201000,"beamDamp":80},
 		{"beamDeform":8000},
 		["t1r", "w8r"],
 		["t1l", "w8l"],
@@ -260,7 +258,7 @@
 		["rl1l", "t1r"],
 		["rl1l", "w8r"],
 		//connect to hinge
-		{"beamSpring":451000,"beamDamp":80},
+		{"beamSpring":251000,"beamDamp":50},
 		{"beamDeform":8000,"beamStrength":25500},
 		{"breakGroup":"tailgate_hinge"},
 		{"breakGroupType":0},
