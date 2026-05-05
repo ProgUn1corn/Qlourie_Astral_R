@@ -58,7 +58,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":true},
-		{"nodeWeight":10.5},
+		{"nodeWeight":14.2},
 		//--Transfer Case--
 		{"group":["Astral_transfercase"]},
 		["tra", 0.022, -1.008, 0.2],
@@ -69,7 +69,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Transfer Case--
 		{"breakGroup":""}
-		{"beamSpring":3501000,"beamDamp":350},
+		{"beamSpring":8501000,"beamDamp":650},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","eg0"],
@@ -128,7 +128,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":true},
-		{"nodeWeight":8},
+		{"nodeWeight":12},
 		//--Transfer Case--
 		{"group":["Astral_transfercase"]},
 		["tra", 0.022, -1.058, 0.2],
@@ -139,7 +139,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Transfer Case--
 		{"breakGroup":""}
-		{"beamSpring":3501000,"beamDamp":350},
+		{"beamSpring":8501000,"beamDamp":650},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","eg0"],
@@ -221,7 +221,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		{"collision":true},
 		{"selfCollision":true},
-		{"nodeWeight":5.75},
+		{"nodeWeight":10},
 		//--Transfer Case--
 		{"group":["Astral_transfercase"]},
 		["tra", 0.020, -1.118, 0.2],
@@ -232,7 +232,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Transfer Case--
 		{"breakGroup":""}
-		{"beamSpring":4501000,"beamDamp":650},
+		{"beamSpring":8501000,"beamDamp":650},
         {"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","eg0"],
@@ -247,6 +247,17 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
         {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+},
+"Astral_differential_center_fwd": {
+	"information":{
+		"name":"FWD Output Shaft ",
+		"value":2500
+	},
+	"slotType" : "Astral_transfercase",
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		["shaft", "transferCase", "gearbox", 1, {"deformGroups":["gearbox"], "outputPortOverride":[2], "friction":0.22, "dynamicFriction":0.00021, "uiName":"Front Output Shaft"}],
 	],
 },
 }
