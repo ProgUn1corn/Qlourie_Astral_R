@@ -16,7 +16,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Engine--
 		//engine and transmission mount
-		{"beamSpring":6501000,"beamDamp":250},
+		{"beamSpring":"$=6501000*$components.chassis.stiffnessMulti","beamDamp":250},
         {"beamDeform":65000,"beamStrength":120000},
         {"dampCutoffHz":500},
 		{"deformGroup":"mainEngine", "deformationTriggerRatio":0.001},
@@ -36,7 +36,7 @@
 		["em1l", "a54", {"beamStrength":65000, "name":"engine"}],
 		["em1l", "a53", {"beamStrength":65000, "name":"engine"}],
 		//other beams needed to anti rotation
-		{"beamSpring":4501000,"beamDamp":200},
+		{"beamSpring":"$=4501000*$components.chassis.stiffnessMulti","beamDamp":200},
 		["eg0", "chs4r"],
 		["eg0", "chs4l"],
 		["eg3", "a53"],
@@ -52,7 +52,7 @@
 		["eg6", "chs3l"],
 		//engine torque mount
 		{"optional":true},
-		{"beamSpring":6501000,"beamDamp":180},
+		{"beamSpring":"$=6501000*$components.chassis.stiffnessMulti","beamDamp":180},
 		{"beamDeform":55000,"beamStrength":90000},
 		{"breakGroup":"enginemount_S"},
 		["eg7", "fx5r", {"beamStrength":65000, "name":"engine"}],
