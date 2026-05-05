@@ -45,15 +45,15 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Subframe--
         //cross member
-        {"nodeWeight":6.5},
+        {"nodeWeight":"$=6.5-(1-$components.chassis.stiffnessMulti)"},
         {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rod_R","Astral_rarmg"]},
-        ["rx1r", -0.232, 1.061, 0.128, {"nodeWeight":9}],
-        ["rx1l",  0.232, 1.061, 0.128, {"nodeWeight":9}],
+        ["rx1r", -0.232, 1.061, 0.128, {"nodeWeight":"$=9-(1-$components.chassis.stiffnessMulti)"}],
+        ["rx1l",  0.232, 1.061, 0.128, {"nodeWeight":"$=9-(1-$components.chassis.stiffnessMulti)"}],
         {"group":["Astral_sub_R", "Astral_arm_R", "Astral_rarmg"]},
         ["rx2r", -0.222, 1.373, 0.108],
         ["rx2l",  0.222, 1.373, 0.108],
         //mounting points
-        {"nodeWeight":4},
+        {"nodeWeight":"$=4-(1-$components.chassis.stiffnessMulti)"},
         {"group":["Astral_sub_R"]},
         ["rx3r", -0.421, 0.978, 0.329, {"selfCollision":false}],
         ["rx3l",  0.421, 0.978, 0.329, {"selfCollision":false}],
@@ -123,7 +123,7 @@
         ["rx1", "rx3r"],
         ["rx1", "rx4r"],
         //top mount
-        {"beamSpring":3001000,"beamDamp":150},
+        {"beamSpring":"$=3001000*$components.chassis.stiffnessMulti","beamDamp":150},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx3r", "a41"],
         ["rx3r", "a42"],
@@ -161,7 +161,7 @@
         ["rx4l", "rs1r"],
         ["rx4l", "rs1l"],
         //lower mount
-        {"beamSpring":4501000,"beamDamp":180},
+        {"beamSpring":"$=4501000*$components.chassis.stiffnessMulti","beamDamp":180},
         {"beamDeform":75000,"beamStrength":"FLT_MAX"},
         ["rx1r", "a41"],
         ["rx1r", "a42"],
