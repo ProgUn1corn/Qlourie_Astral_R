@@ -586,7 +586,7 @@
 	"components": {
     	"chassis":{
         	"frontWeight":6.8
-			"centerWeight":5.59
+			"centerWeight":5.69
 			"rearWeight":6.3
 			"stiffnessMulti":1
     	},
@@ -602,7 +602,7 @@
 	"components": {
     	"chassis":{
         	"frontWeight":7.4
-			"centerWeight":6.54
+			"centerWeight":6.64
 			"rearWeight":6.9
 			"stiffnessMulti":1
     	},
@@ -620,7 +620,7 @@
         	"frontWeight":4.8
 			"centerWeight":3.8
 			"rearWeight":4.2
-			"stiffnessMulti":0.58
+			"stiffnessMulti":0.55
     	},
 	}
 },
@@ -724,6 +724,7 @@
 		["qp2r", -0.688, 1.197, 0.962],
 		["qp2l",  0.688, 1.197, 0.962],
        	//doors and frame
+		{"nodeWeight":1},
 		["d1r", -0.821, 0.861, 0.141],
 		["d1l",  0.821, 0.861, 0.141],
 		["d2r", -0.811, 0.393, 0.141],
@@ -868,7 +869,7 @@
 
 		//--Quarter Panel and Rear Pillar--
 		//quarter panel shape
-		{"beamSpring":1801000,"beamDamp":180},
+		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["qp1r", "qp2r"],
 		["qp1r", "a65"],
@@ -899,6 +900,7 @@
 		["qp1r", "a44"],
 		["qp1l", "a47"],
 		//rear door shape
+		{"beamSpring":1201000,"beamDamp":60},
 		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
 		["d1r", "d2r"],
 		["a40", "d1r"],
@@ -959,7 +961,7 @@
 
 		//--Door Frame--
 		//shape
-		{"beamSpring":1201000,"beamDamp":150},
+		{"beamSpring":1001000,"beamDamp":50},
 		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
 		["d2r", "d3r"],
 		["d3r", "d4r"],
@@ -973,7 +975,6 @@
 		["d2r", "d4r"],
 		["d2l", "d4l"],
 		//attach door frame
-		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":10000,"beamStrength":"FLT_MAX"},
 		["d2r", "a12"],
 		["d3r", "a16"],
