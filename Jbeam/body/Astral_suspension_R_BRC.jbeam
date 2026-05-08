@@ -405,7 +405,7 @@
         ["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 10000, 8000, 12000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$dampRateRebound_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 3250, 1250, 5250, "HRS Damping", "HRS damping stiffness", {"stepDis":1,"minDis":-16,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.045, 0.039, 0.051, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":39,"maxDis":51,"subCategory":"Rear Damper Internal"}],
-        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Internal"}],
+        ["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 250, 150, 350, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"minDis":150,"maxDis":350,"subCategory":"Rear Damper Internal"}],
         ["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.022, 0.001, 0.040, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-21,"maxDis":18,"subCategory":"Rear Damper - 3+2-Way"}],  //From last skirt node, ride height is about 179mm
     ],
     "nodes": [
@@ -763,7 +763,7 @@
         ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 4250, 3050, 5450, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$velocitySplit_R", "range", "m/s", "Suspension - Dampers and Springs", 0.35, 0.20, 0.50, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.05,"subCategory":"Rear Damper Internal"}],
         ["$LRS_R", "range", "x", "Suspension - Dampers and Springs", 0.45, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":0.025,"subCategory":"Rear Damper Internal"}],
-        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.01, 0.01, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
+        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.002, 0.002, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
         ["$DSV_R", "range", "", "Suspension - Dampers and Springs", 0.8, 0, 1, "DSV Valve", "The bump control effectiveness when DSV valve is activated", {"minDis":0,"maxDis":100,"subCategory":"Rear Damper Internal"}],
     ],
     "controller": [ 
@@ -773,8 +773,8 @@
     "RearLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf"]
-            ["RR",   "LRS_RR",   "$=0.126+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1125, "$DSV_R"]
-            ["RL",   "LRS_RL",   "$=0.126+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1125, "$DSV_R"]
+            ["RR",   "LRS_RR",   "$=0.1196+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1125, "$DSV_R"]
+            ["RL",   "LRS_RL",   "$=0.1196+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1125, "$DSV_R"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -802,7 +802,7 @@
         ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 4800, 3600, 6000, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$velocitySplit_R", "range", "m/s", "Suspension - Dampers and Springs", 0.26, 0.11, 0.41, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.05,"subCategory":"Rear Damper Internal"}],
         ["$LRS_R", "range", "x", "Suspension - Dampers and Springs", 0.45, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":0.025,"subCategory":"Rear Damper Internal"}],
-        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.01, 0.01, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
+        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.002, 0.002, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
         ["$DSV_R", "range", "", "Suspension - Dampers and Springs", 0.8, 0, 1, "DSV Valve", "The bump control effectiveness when DSV valve is activated", {"minDis":0,"maxDis":100,"subCategory":"Rear Damper Internal"}],
     ],
     "controller": [ 
@@ -812,8 +812,8 @@
     "RearLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf"]
-            ["RR",   "LRS_RR",   "$=0.126+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1125, "$DSV_R"]
-            ["RL",   "LRS_RL",   "$=0.126+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1125, "$DSV_R"]
+            ["RR",   "LRS_RR",   "$=0.1196+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1125, "$DSV_R"]
+            ["RL",   "LRS_RL",   "$=0.1196+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1125, "$DSV_R"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -841,7 +841,7 @@
         ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 1840, 880, 2800, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$velocitySplit_R", "range", "m/s", "Suspension - Dampers and Springs", 0.72, 0.33, 1.11, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.13,"subCategory":"Rear Damper Internal"}],
         ["$LRS_R", "range", "x", "Suspension - Dampers and Springs", 0.85, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":0.025,"subCategory":"Rear Damper Internal"}],
-        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.01, 0.01, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
+        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.002, 0.002, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
         ["$DSV_R", "range", "", "Suspension - Dampers and Springs", 0.60, 0, 1, "DSV Valve", "The bump control effectiveness when DSV valve is activated", {"minDis":0,"maxDis":100,"subCategory":"Rear Damper Internal"}],
     ],
     "controller": [ 
@@ -851,8 +851,8 @@
     "RearLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf"]
-            ["RR",   "LRS_RR",   "$=0.122+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1085, "$DSV_R"]
-            ["RL",   "LRS_RL",   "$=0.122+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1085, "$DSV_R"]
+            ["RR",   "LRS_RR",   "$=0.120+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1085, "$DSV_R"]
+            ["RL",   "LRS_RL",   "$=0.120+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1085, "$DSV_R"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -880,7 +880,7 @@
         ["$dampRate_rebound_R", "range", "Clicks", "Suspension - Dampers and Springs", 2000, 1040, 2960, "Rebound", "Rebound damping controls how fast the damper extends", {"stepDis":1,"minDis":-48,"maxDis":0,"subCategory":"Rear Damper - 3+2-Way"}],
         ["$velocitySplit_R", "range", "m/s", "Suspension - Dampers and Springs", 0.65, 0.26, 1.04, "Neutral Velocity Split", "Velocity split when clicks are at default", {"stepDis":0.13,"subCategory":"Rear Damper Internal"}],
         ["$LRS_R", "range", "x", "Suspension - Dampers and Springs", 0.85, 0.25, 1, "LRS Open Factor", "The openness of rebound when LRS bypass valve is activated", {"stepDis":0.025,"subCategory":"Rear Damper Internal"}],
-        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.01, 0.01, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
+        ["$LRSShim_R", "range", "mm", "Suspension - Dampers and Springs", 0, -0.002, 0.002, "LRS Shim", "Controls the open threshold of LRS", {"stepDis":0.5,"minDis":1,"maxDis":3,"subCategory":"Rear Damper Internal"}],
         ["$DSV_R", "range", "", "Suspension - Dampers and Springs", 0.60, 0, 1, "DSV Valve", "The bump control effectiveness when DSV valve is activated", {"minDis":0,"maxDis":100,"subCategory":"Rear Damper Internal"}],
     ],
     "controller": [ 
@@ -890,8 +890,8 @@
     "RearLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf"]
-            ["RR",   "LRS_RR",   "$=0.122+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1085, "$DSV_R"]
-            ["RL",   "LRS_RL",   "$=0.122+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1085, "$DSV_R"]
+            ["RR",   "LRS_RR",   "$=0.120+$LRSShim_R", "$LRS_R", "DSV_RR",  0.1085, "$DSV_R"]
+            ["RL",   "LRS_RL",   "$=0.120+$LRSShim_R", "$LRS_R", "DSV_RL",  0.1085, "$DSV_R"]
         ],
         "dampers": [
             ["name", "beamName"]

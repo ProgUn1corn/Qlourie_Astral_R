@@ -8,7 +8,6 @@
     "slotType" : "Astral_ballast_R",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$ballastPosR", "range", "%Front", "Chassis and Interior", 0, 0, 0.5, "Rear Ballast Offset", "Adjust ballast's position", {"subCategory":"Weight", "stepDis":1, "minDis":0,"maxDis":100}]
         ["$ballastWeightR", "range", "kg", "Chassis and Interior", 25, 5, 50, "Rear Ballast Weight", "Adjust ballast's weight", {"subCategory":"Weight", "stepDis":5}]
     ],
     "nodes": [       
@@ -20,8 +19,8 @@
 		//--Ballast--
 		{"nodeWeight":"$=$ballastWeightR/2"},
 		{"group":[""]},
-        ["ballast1", -0.165, "$=1.35-$ballastPosR", 0.092],
-        ["ballast2",  0.165, "$=1.35-$ballastPosR", 0.092],
+        ["ballast1", -0.165, "$=1.35", 0.092],
+        ["ballast2",  0.165, "$=1.35", 0.092],
     ],
     "beams": [   
 		["id1:", "id2:"], 
@@ -58,7 +57,6 @@
     "slotType" : "Astral_ballast_F",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-		["$ballastPosF", "range", "%Rear", "Chassis and Interior", 0, 0, 0.6, "Front Ballast Offset", "Adjust ballast's position", {"subCategory":"Weight", "stepDis":1, "minDis":0,"maxDis":100}],
         ["$ballastWeightF", "range", "kg", "Chassis and Interior", 20, 5, 30, "Front Ballast Weight", "Adjust ballast's weight", {"subCategory":"Weight", "stepDis":5}]
     ],
     "nodes": [       
@@ -70,8 +68,8 @@
 		//--Ballast--
 		{"nodeWeight":"$=$ballastWeightF/2"},
 		{"group":[""]},
-        ["ballast3", -0.25, "$=-1.6+$ballastPosF", 0.10],
-        ["ballast4",  0.25, "$=-1.6+$ballastPosF", 0.10],
+        ["ballast3", -0.25, "$=-1.6", 0.10],
+        ["ballast4",  0.25, "$=-1.6", 0.10],
     ],
     "beams": [   
 		["id1:", "id2:"], 

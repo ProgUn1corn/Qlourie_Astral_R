@@ -33,7 +33,7 @@
     ],
 	"refNodes": [
         ["ref:", "back:", "left:", "up:", "leftCorner:", "rightCorner:"],
-        ["a17", "a13", "a18", "cup", "a26", "a25"]
+        ["a17", "a13", "a18", "cup", "br1l", "br1r"]
     ],
     "cameraExternal":{
         "distance":5
@@ -125,8 +125,6 @@
 		{"group":["Astral_chassis_F","Astral_frame"]},
 		["br1r", -0.379, -1.559, 0.332, {"selfCollision":false, "nodeWeight":4.5}],
 		["br1l",  0.379, -1.559, 0.332, {"selfCollision":false, "nodeWeight":4.5}],
-		["a25", -0.629, -1.732, 0.29, {"selfCollision":false, "nodeWeight":3, "group":["Astral_chassis_F","Astral_duct_F"]}],
-		["a26",  0.629, -1.732, 0.29, {"selfCollision":false, "nodeWeight":3, "group":["Astral_chassis_F","Astral_duct_F"]}],
 		//overriden by suspension 
 		["fs1r", -0.581, -1.22, 0.815],
         ["fs1l",  0.581, -1.22, 0.815],
@@ -325,7 +323,7 @@
         ["rs1l", "a37"],
 		{"breakGroup":""}
 		//center support
-		{"beamSpring":3501000,"beamDamp":180},
+		{"beamSpring":2501000,"beamDamp":180},
 		{"beamDeform":65000,"beamStrength":125000},
 		["a37", "a8"],
 		["a41", "a12"],
@@ -379,12 +377,12 @@
 		["a53", "a20"],
 		["a53", "chs4r"],
 		["chs4r", "br1r"],
-		["br1r", "a25"],
+		["br1r", "a25", {"optional":true}],
 		//*
 		["a54", "a23"],
 		["a54", "chs4l"],
 		["chs4l", "br1l"],
-		["br1l", "a26"],
+		["br1l", "a26", {"optional":true}],
 		//crossing
 		{"beamDeform":8000},
 		["chs4r", "a54"],
@@ -397,12 +395,12 @@
 		//rigids
 		{"beamSpring":3501000,"beamDamp":180},
 		{"beamDeform":6500},
-		["a25", "chs4r"],
-		["a26", "chs4l"],
-		["a25", "a53"],
-		["a26", "a54"],
-		["a25", "chs3l"],
-		["a26", "chs3r"],
+		["a25", "chs4r", {"optional":true}],
+		["a26", "chs4l", {"optional":true}],
+		["a25", "a53", {"optional":true}],
+		["a26", "a54", {"optional":true}],
+		["a25", "chs3l", {"optional":true}],
+		["a26", "chs3r", {"optional":true}],
 		["br1r", "a53"],
 		["br1l", "a54"],
 		//wheel well
@@ -427,8 +425,8 @@
 		{"beamDeform":7500},
 		["chsf", "br1r"],
 		["chsf", "br1l"],
-		["chsf", "a25"],
-		["chsf", "a26"],
+		["chsf", "a25", {"optional":true}],
+		["chsf", "a26", {"optional":true}],
 		["chsf", "a53"],
 		["chsf", "a54"],
 		["chsf", "chs3r"],
@@ -457,7 +455,7 @@
         ["fs1l", "chs4l"],
 		{"breakGroup":""},
 		//center support
-		{"beamSpring":3501000,"beamDamp":180},
+		{"beamSpring":2501000,"beamDamp":180},
 		{"beamDeform":65000,"beamStrength":125000},
 		["a53", "a16"],
 		["a53", "a17"],
@@ -483,23 +481,23 @@
 		["chs3l", "a16"],
 		["fs1r", "a17"],
 		["fs1r", "a18"],
-		["a25", "a20"],
+		["a25", "a20", {"optional":true}],
 		//*
 		["a6", "a11"],
 		["chs1l", "a15"],
 		["chs3l", "a19"],
 		["fs1l", "a18"],
 		["fs1l", "a17"],
-		["a26", "a23"],
+		["a26", "a23", {"optional":true}],
 		{"dampCutoffHz":""},
 		
 		//--Wind Node--
 		{"beamSpring":1001000,"beamDamp":100},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
-		["a94", "a25"],
+		["a94", "a25", {"optional":true}],
 		["a94", "chs4r"],
 		//*
-		["a94", "a26"],
+		["a94", "a26", {"optional":true}],
 		["a94", "chs4l"]
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
@@ -583,10 +581,20 @@
         "value":10
 	},
 	"slotType" : "Astral_cweight",
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
+		//front chassis weight
+		["a25", -0.629, -1.732, 0.29, {"selfCollision":false, "nodeWeight":3, "group":["Astral_chassis_F","Astral_duct_F"]}],
+		["a26",  0.629, -1.732, 0.29, {"selfCollision":false, "nodeWeight":3, "group":["Astral_chassis_F","Astral_duct_F"]}],
+	],
 	"components": {
     	"chassis":{
         	"frontWeight":6.8
-			"centerWeight":5.69
+			"centerWeight":5.64
 			"rearWeight":6.3
 			"stiffnessMulti":1
     	},
@@ -599,10 +607,20 @@
         "value":10
 	},
 	"slotType" : "Astral_cweight",
+	"nodes": [       
+        ["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
+		//front chassis weight
+		["a25", -0.629, -1.732, 0.29, {"selfCollision":false, "nodeWeight":3, "group":["Astral_chassis_F","Astral_duct_F"]}],
+		["a26",  0.629, -1.732, 0.29, {"selfCollision":false, "nodeWeight":3, "group":["Astral_chassis_F","Astral_duct_F"]}],
+	],
 	"components": {
     	"chassis":{
-        	"frontWeight":7.4
-			"centerWeight":6.64
+        	"frontWeight":7.45
+			"centerWeight":6.58
 			"rearWeight":6.9
 			"stiffnessMulti":1
     	},
@@ -617,10 +635,10 @@
 	"slotType" : "Astral_cweight",
 	"components": {
     	"chassis":{
-        	"frontWeight":4.8
-			"centerWeight":3.8
-			"rearWeight":4.2
-			"stiffnessMulti":0.55
+        	"frontWeight":4.65
+			"centerWeight":3.91
+			"rearWeight":4.4
+			"stiffnessMulti":0.52
     	},
 	}
 },
@@ -695,7 +713,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		//--Rear Trunk--
 		//trunk
-		{"nodeWeight":1.6},
+		{"nodeWeight":1.2},
 		{"group":["Astral_carbody","Astral_chassis_R"]},
 		{"selfCollision":true},
 		["a32", -0.693, 1.69, 0.451, {"nodeWeight":"$=$components.brakes.brakeVentingDuctWeight_R+1.5"}],
@@ -797,7 +815,7 @@
 		//--Rear Trunk--
 		//trunk shape
 		{"beamSpring":651000,"beamDamp":125},
-		{"beamDeform":4500,"beamStrength":1145141919},
+		{"beamDeform":3500,"beamStrength":1145141919},
 		["a70", "a72"],
 		["a65", "a70"],
 		["a65", "a33"],
@@ -817,7 +835,7 @@
 		["a33", "a37"],
 		["a34", "a38"],
 		//crossing
-		{"beamDeform":3500},
+		{"beamDeform":2500},
 		["a70", "a74"],
 		["a65", "a74"],
 		["a65", "a34"],
@@ -833,7 +851,7 @@
 		["a34", "a37"],
 		//rigids
 		{"beamSpring":651000,"beamDamp":125},
-		{"beamDeform":2500},
+		{"beamDeform":1500},
 		["a33", "a70"],
 		["a65", "a72"],
 		["a34", "a71"],
@@ -852,7 +870,7 @@
 		["l1", "chsr"],
 		//connect to chassis
 		{"beamSpring":801000,"beamDamp":150},
-		{"beamDeform":4500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":3500,"beamStrength":"FLT_MAX"},
 		["a70", "chs1r"],
 		["a70", "chs1l"],
 		["a65", "a37"],
@@ -869,8 +887,8 @@
 
 		//--Quarter Panel and Rear Pillar--
 		//quarter panel shape
-		{"beamSpring":1501000,"beamDamp":150},
-		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
+		{"beamSpring":1201000,"beamDamp":120},
+		{"beamDeform":7500,"beamStrength":"FLT_MAX"},
 		["qp1r", "qp2r"],
 		["qp1r", "a65"],
 		["qp1r", "a40"],
@@ -885,7 +903,7 @@
 		["qp2l", "a71"],
 		["qp2l", "a75"],
 		//quarter panel crossing
-		{"beamDeform":5500},
+		{"beamDeform":4500},
 		["qp1r", "a71"],
 		["qp1r", "a75"],
 		["qp2r", "a68"],
@@ -900,8 +918,8 @@
 		["qp1r", "a44"],
 		["qp1l", "a47"],
 		//rear door shape
-		{"beamSpring":1201000,"beamDamp":60},
-		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
+		{"beamSpring":801000,"beamDamp":40},
+		{"beamDeform":8500,"beamStrength":"FLT_MAX"},
 		["d1r", "d2r"],
 		["a40", "d1r"],
 		["a40", "a72"],
@@ -916,7 +934,7 @@
 		["a47", "d2l"],
 		["a47", "a79"],
 		//rear door crossing
-		{"beamDeform":10000},
+		{"beamDeform":6000},
 		["d1r", "a44"],
 		["d2r", "a40"],
 		["a40", "a76"],
@@ -942,7 +960,7 @@
 		["qp2l", "a38"],
 		["qp2l", "a42"],
 		//door and pillar attach to body
-		{"beamDeform":14500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":8500,"beamStrength":"FLT_MAX"},
 		["d1r", "a41"],
 		["d1r", "a9"],
 		["d2r", "a13"],
@@ -961,8 +979,8 @@
 
 		//--Door Frame--
 		//shape
-		{"beamSpring":1001000,"beamDamp":50},
-		{"beamDeform":12500,"beamStrength":"FLT_MAX"},
+		{"beamSpring":801000,"beamDamp":40},
+		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["d2r", "d3r"],
 		["d3r", "d4r"],
 		["d4r", "a84"],
@@ -971,18 +989,20 @@
 		["d3l", "d4l"],
 		["d4l", "a87"],
 		//rigids
-		{"beamDeform":12500},
+		{"beamDeform":4500},
+		["d1r", "d3r"],
+		["d1l", "d3l"],
 		["d2r", "d4r"],
 		["d2l", "d4l"],
 		//attach door frame
-		{"beamDeform":10000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":8500,"beamStrength":"FLT_MAX"},
 		["d2r", "a12"],
 		["d3r", "a16"],
 		["d3r", "a17"],
 		["d3r", "a44"],
 		["d3r", "a84"],
 		["d4r", "a16"],
-		["d4r", "a20"],
+		["d4r", "a21"],
 		//*
 		["d2l", "a15"],
 		["d3l", "a19"],
@@ -990,7 +1010,7 @@
 		["d3l", "a47"],
 		["d3l", "a87"],
 		["d4l", "a19"],
-		["d4l", "a23"],
+		["d4l", "a22"],
 
 		//--Roof--
 		//main shape
