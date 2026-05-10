@@ -176,7 +176,7 @@
         //--Springs--
         //main spring
         {"optional":true},
-        {"beamSpring":"$=$components.springs.kF","beamDamp":50},
+        {"beamSpring":"$=$components.springs.kF","beamDamp":25},
         {"beamDeform":155000,"beamStrength":305000},
         ["fhe1r","fs1r", {
             "name":"spring_FR",
@@ -357,8 +357,8 @@
         ["fmassr", "fs2r", {"name":"LRS_FR"}],
         ["fmassr", "fh2r", { //hysteresis
             "beamSpring":250,
-            "beamDamp":4,
-            "beamDampRebound":8,
+            "beamDamp":2.5,
+            "beamDampRebound":25,
             "longBoundRange":0,"shortBoundRange":0.01,"boundZone":0.005,
             "beamLimitSpring":50000,
             "beamLimitDamp":150,
@@ -369,8 +369,8 @@
         ["fmassl", "fs2l", {"name":"LRS_FL"}],
         ["fmassl", "fh2l", { //hysteresis
             "beamSpring":250,
-            "beamDamp":4,
-            "beamDampRebound":8,
+            "beamDamp":2.5,
+            "beamDampRebound":25,
             "longBoundRange":0,"shortBoundRange":0.01,"boundZone":0.005,
             "beamLimitSpring":50000,
             "beamLimitDamp":150,
@@ -574,6 +574,44 @@
         ["farb3l","fx2l", {"precompressionRange":"$=$arb_point_F*0.35", "beamPrecompressionTime":0.2}],
         ["farb3r","fh1r", {"precompressionRange":"$=0-$arb_point_F*0.35", "beamPrecompressionTime":0.2}],
         ["farb3l","fh1l", {"precompressionRange":"$=0-$arb_point_F*0.35", "beamPrecompressionTime":0.2}],
+
+        //--Springs--
+        //main spring
+        {"optional":true},
+        {"beamSpring":"$=$components.springs.kF","beamDamp":25},
+        {"beamDeform":155000,"beamStrength":305000},
+        ["fhe1r","fs1r", {
+            "name":"spring_FR",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.55,
+            "attackFactor":30,
+            "volumeFactor":1.25,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":"$=$components.springs.lengthF","beamPrecompressionTime":0.3}
+        ],
+        ["fhe1l","fs1l", {
+            "name":"spring_FL",
+            "soundFile":"event:>Vehicle>Suspension>car_sports_01>spring_compress_01",
+            "colorFactor":0.55,
+            "attackFactor":30,
+            "volumeFactor":1.25,
+            "decayFactor":10,
+            "pitchFactor":0.7,
+            "maxStress":2500,
+            "precompressionRange":"$=$components.springs.lengthF","beamPrecompressionTime":0.3}
+        ],
+        //helper spring
+        {"beamSpring":3500,"beamDamp":5},
+        ["fhe1r","fcl1r", {"precompressionRange":0.091,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":0.091,"beamPrecompressionTime":0.3}],
+        //helper stopper
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":100, "beamShortBound":100},
+        {"beamSpring":1201000,"beamDamp":80},
+        ["fhe1r","fcl1r", {"precompressionRange":-0.067,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.067,"beamPrecompressionTime":0.3}],
+        {"optional":false},
         
         //--Damper Hydraulics--
         //damper internal gas preload
@@ -745,8 +783,8 @@
         ["fmassr", "fs2r", {"name":"LRS_FR"}],
         ["fmassr", "fh2r", { //hysteresis
             "beamSpring":250,
-            "beamDamp":4,
-            "beamDampRebound":8,
+            "beamDamp":2.5,
+            "beamDampRebound":25,
             "longBoundRange":0,"shortBoundRange":0.01,"boundZone":0.005,
             "beamLimitSpring":50000,
             "beamLimitDamp":150,
@@ -757,8 +795,8 @@
         ["fmassl", "fs2l", {"name":"LRS_FL"}],
         ["fmassl", "fh2l", { //hysteresis
             "beamSpring":250,
-            "beamDamp":4,
-            "beamDampRebound":8,
+            "beamDamp":2.5,
+            "beamDampRebound":25,
             "longBoundRange":0,"shortBoundRange":0.01,"boundZone":0.005,
             "beamLimitSpring":50000,
             "beamLimitDamp":150,
@@ -818,8 +856,8 @@
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.1214+$LRSShim_F", 0.588,    "DSV_FR",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.1214+$LRSShim_F", 0.588,    "DSV_FL",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.1216+$LRSShim_F", 0.588,   "DSV_FR",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.1216+$LRSShim_F", 0.588,   "DSV_FL",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -859,8 +897,8 @@
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf",   "DSVName", "DSVp", "DSVf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.1214+$LRSShim_F", 0.499,    "DSV_FR",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.1214+$LRSShim_F", 0.499,    "DSV_FL",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.1216+$LRSShim_F", 0.499,   "DSV_FR",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.1216+$LRSShim_F", 0.499,   "DSV_FL",  0.114,   0.80,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -900,8 +938,8 @@
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.1114+$LRSShim_F", 0.621,  "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.1114+$LRSShim_F", 0.621,  "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.1132+$LRSShim_F", 0.621,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.1132+$LRSShim_F", 0.621,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]
@@ -941,8 +979,8 @@
     "FrontLRS": {
         "loads": [
             ["name", "LRSName",  "LRSp",               "LRSf", "blocker"]
-            ["FR",   "LRS_FR",   "$=0.1114+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
-            ["FL",   "LRS_FL",   "$=0.1114+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
+            ["FR",   "LRS_FR",   "$=0.1132+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
+            ["FL",   "LRS_FL",   "$=0.1132+$LRSShim_F", 0.851,  "$=$components.dampers.blocker_F"]
         ],
         "dampers": [
             ["name", "beamName"]
