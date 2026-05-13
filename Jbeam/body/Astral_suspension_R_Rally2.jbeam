@@ -38,7 +38,7 @@
         {"nodeMaterial":"|NM_METAL"},
         //--Hub--
         //hub mounting points for control arm
-        {"nodeWeight":6.5},
+        {"nodeWeight":8},
         ["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
         ["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
         //strut attach
@@ -46,12 +46,12 @@
         ["rh2r", -0.5632, 1.3474, 0.33, {"group":["Astral_hub_RR","Astral_damper_R"]}],
         ["rh2l",  0.5632, 1.3474, 0.33, {"group":["Astral_hub_RL","Astral_damper_R"]}], 
         //toe link
-        ["rh3r", -0.739, 1.1795, "$=0.0214+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
-        ["rh3l",  0.739, 1.1795, "$=0.0214+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3r", -0.759, 1.1795, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+        ["rh3l",  0.759, 1.1795, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
         //brake calipers
         {"nodeWeight":"$=3.5*$brakeThickness_R"},
-        ["rh5r", -0.785, 1.11, 0.188, {"group":["Astral_hub_RR","Astral_duct_RR"]}],
-        ["rh5l",  0.785, 1.11, 0.188, {"group":["Astral_hub_RL","Astral_duct_RL"]}],
+        ["rh5r", -0.805, 1.074, 0.188, {"group":["Astral_hub_RR","Astral_duct_RR"]}],
+        ["rh5l",  0.805, 1.074, 0.188, {"group":["Astral_hub_RL","Astral_duct_RL"]}],
         {"selfCollision":true},
         
         //--Arm--
@@ -150,8 +150,8 @@
         //toe-link
         {"beamSpring":18001000,"beamDamp":1200},
         {"beamDeform":235100,"beamStrength":625000},
-        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R-0.000","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R-0.000","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3l", "rx1l", {"precompressionRange":"$=$toe_R-0.0002","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+        ["rh3r", "rx1r", {"precompressionRange":"$=$toe_R-0.0002","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
         //arb link
         {"beamSpring":1501000,"beamDamp":150},
         {"beamDeform":30000,"beamStrength":"FLT_MAX"},
