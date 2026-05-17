@@ -26,6 +26,7 @@
 	"controller": [ 
         ["fileName"],
         ["eCenterDiff", {"name":"activeCenterDiff"}],
+		//["driveModes", {"name":"centerLock"}],
     ],
 	"activeCenterDiff":{
 		"type":"Active",
@@ -46,6 +47,48 @@
 			"hbRelease":"$hbRelease"
 			"preload":"$preload_C"
 			"finalDrive":"$=$components.diff.finaldrive"
+		}
+	},
+	"centerLock": {
+		"enabledModes":["1", "2", "3", "4"],
+		"defaultMode": "2",
+		"modes": {
+			"1": {
+				"name": "Center Lock 1",
+				"order": 1,
+				"settings": [
+					["type"],	
+					["controller", {"controllerName":"eCenterDiff", "minLock":"1"}],
+					["simpleControlButton", {"buttonId":"throttle", "uiName":"Throttle Lock","icon":"powertrain_differential_open"}]
+				]
+			},
+			"2": {
+				"name": "Center Lock 2",
+				"order": 2,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"eCenterDiff", "minLock":"1"}],
+					["simpleControlButton", {"buttonId":"throttle", "uiName":"Throttle Lock","icon":"powertrain_differential_lsd"}]
+				]
+			},
+			"3": {
+				"name": "Center Lock 3",
+				"order": 3,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"eCenterDiff", "minLock":"1"}],
+					["simpleControlButton", {"buttonId":"throttle", "uiName":"Throttle Lock","icon":"powertrain_differential_closed"}]
+				]
+			},
+			"4": {
+				"name": "Center Lock 4",
+				"order": 4,
+				"settings": [
+					["type"],
+					["controller", {"controllerName":"eCenterDiff", "minLock":"1"}],
+					["simpleControlButton", {"buttonId":"throttle", "uiName":"Throttle Lock","icon":"powertrain_differential_lsd_active"}]
+				]
+			},
 		}
 	},
 	"powertrain" : [
