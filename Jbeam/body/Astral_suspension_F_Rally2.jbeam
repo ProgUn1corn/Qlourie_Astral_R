@@ -27,7 +27,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
         ["$dampPos_F", "range", "mm", "Suspension - Dampers and Springs", 0.025, 0.021, 0.030, "Bump Stop Travel", "Hard bump stop startig point in total travel", {"stepDis":1,"minDis":21,"maxDis":30,"subCategory":"Front Damper Internal"}],
         ["$dampGas_F", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 250, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"subCategory":"Front Damper Internal"}],
-        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.033, 0.015, 0.048, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-18,"maxDis":15,"subCategory":"Front Damper - 3-Way"}],   //From first skirt node, ride height is about 104mm
+        ["$RideHeightOffsetFront", "range", "mm", "Suspension - Dampers and Springs", 0.027, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-18,"maxDis":15,"subCategory":"Front Damper - 3-Way"}],   //From first skirt node, ride height is about 104mm
     ],
     "nodes": [
         ["id", "posX", "posY", "posZ"],
@@ -206,8 +206,8 @@
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":100, "beamShortBound":100},
         {"beamSpring":1201000,"beamDamp":80},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.104,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.104,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.101,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.101,"beamPrecompressionTime":0.3}],
         {"optional":false},
 
         //--Damper Hydraulics--
@@ -249,7 +249,7 @@
             "longBoundRange":1,"shortBoundRange":"$=0.180-$dampPos_F","boundZone":0.021,
             "beamLimitSpring":155000,
             "beamLimitDamp":7500, 
-            "beamLimitDampRebound":2500,
+            "beamLimitDampRebound":3500,
             "dampCutoffHz":250}
         ],
         ["fs2l","fs1l", {
@@ -265,7 +265,7 @@
             "longBoundRange":1,"shortBoundRange":"$=0.180-$dampPos_F","boundZone":0.021,
             "beamLimitSpring":155000,
             "beamLimitDamp":7500, 
-            "beamLimitDampRebound":2500,
+            "beamLimitDampRebound":3500,
             "dampCutoffHz":250}
         ],
         ["fs2r","fs1r", { //hard (elastic) rebound
@@ -607,8 +607,8 @@
         //helper stopper
         {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":100, "beamShortBound":100},
         {"beamSpring":1201000,"beamDamp":80},
-        ["fhe1r","fcl1r", {"precompressionRange":-0.067,"beamPrecompressionTime":0.3}],
-        ["fhe1l","fcl1l", {"precompressionRange":-0.067,"beamPrecompressionTime":0.3}],
+        ["fhe1r","fcl1r", {"precompressionRange":-0.064,"beamPrecompressionTime":0.3}],
+        ["fhe1l","fcl1l", {"precompressionRange":-0.064,"beamPrecompressionTime":0.3}],
         {"optional":false},
         
         //--Damper Hydraulics--
