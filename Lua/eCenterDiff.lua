@@ -260,8 +260,18 @@ local function init(jbeamData)
   end
 end
 
+local function setParameters(parameters)
+  --print(parameters.tMap)
+  if parameters.minLock then
+    minLockCoef = parameters.minLock
+  else
+    tMap = 2
+  end
+end
+
 M.init = init
 M.reset = reset
+M.setParameters = setParameters
 M.updateFixedStep = updateFixedStep
 
 return M

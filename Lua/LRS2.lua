@@ -13,7 +13,7 @@ local max = math.max
 local dampers = {}
 local dampersLookup = {}
 local dampingGroups = {}
-local loadSmoother = newTemporalSmoothing(500, 500)
+local loadSmoother = newTemporalSmoothing(1000, 1000)
 local loadSmoother2 = newTemporalSmoothing(1000, 1000)
 
 function clamp(value, min, max)
@@ -135,7 +135,7 @@ local function init(jbeamData)
             LRSf = loadData.LRSf or 0.5,
           }
         else
-          log("E", "LRS", "Invalid LRS beam: "..tostring(loadData.LRSName)) 
+          log("W", "LRS", "Invalid LRS beam: "..tostring(loadData.LRSName..", LRS not activated")) 
         end
       end
       if loadData.DSVName then --DSV
@@ -148,7 +148,7 @@ local function init(jbeamData)
             DSVf = loadData.DSVf or 1,
           }
         else
-          log("E", "LRS", "Invalid DSV beam: "..tostring(loadData.DSVName)) 
+          log("W", "LRS", "Invalid DSV beam: "..tostring(loadData.DSVName..", DSV not activated")) 
         end
       end
       if loadData.blocker then
@@ -189,7 +189,7 @@ local function init(jbeamData)
   end
   
   --dump(dampersLookup)
-  --dump(dampers)
+  --printTable(dampers)
   --printTable(dampingGroups)
 end
 
