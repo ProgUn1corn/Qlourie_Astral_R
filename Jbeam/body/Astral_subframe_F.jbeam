@@ -162,6 +162,7 @@
         ["fx2l", "a22"],
         ["fx2l", "a54"],
         //leg mounting
+        {"beamSpring":2501000,"beamDamp":150},
         {"breakGroup":"subframe_FRR"},
         ["fx3r", "a20"],
         ["fx3r", "a21"],
@@ -208,7 +209,7 @@
         ["st1l", "fx2r"],
         ["st1l", "fx1"],
         //rack nodes damper
-        {"beamSpring":0,"beamDamp":250},
+        {"beamSpring":0,"beamDamp":200},
         ["st1r","a21"],
         ["st1r","chs4r"],
         ["st1r","fx1"],
@@ -299,7 +300,7 @@
         ["fx2l", "fh1l", {"precompressionRange":"$CasterFront","beamPrecompressionTime":0.2}],
         ["fx1l", "fh1l"],
         //arm joint damping
-        {"beamSpring":0,"beamDamp":450},
+        {"beamSpring":0,"beamDamp":500},
         ["fh1r","a12"],
         ["fh1r","a15"],
         ["fh1l","a15"],
@@ -307,14 +308,10 @@
         ["fh1r","fx3r"],
         ["fh1l","fx3l"],
         //hub steering damping
-        ["fh3r","a17"],
-        ["fh3l","a18"],
         ["fh3r","st2l"],
         ["fh3l","st2r"],
         ["fh5r","fx2l"],
         ["fh5l","fx2r"],
-        ["fh5r","fx1l"],
-        ["fh5l","fx1r"],
         {"dampCutoffHz":""},
 
         //--Strut Aux--
@@ -348,17 +345,13 @@
         //damper structure rail damping
         {"dampCutoffHz":500},
         {"beamSpring":0,"beamDamp":500},
-        ["fs2r","br1l"],
         ["fs2r","chsf"],
         ["fs2r","a17"],
-        ["fs2l","br1r"],
         ["fs2l","chsf"],
         ["fs2l","a18"],
-        ["fh2r","a15"],
-        ["fh2r","a16"],
+        ["fh2r","a12"],
         ["fh2r","chs4l"],
-        ["fh2l","a12"],
-        ["fh2l","a19"],
+        ["fh2l","a15"],
         ["fh2l","chs4r"],
         {"beamSpring":0,"beamDamp":25},
         ["fcl1r","a16"],
