@@ -1,9 +1,9 @@
 {
 "Astral_interior":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Racing Interior",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Racing Interior",
+		"value":320
 	},
 	"slotType" : "Astral_interior",
 	"slots"	: [
@@ -22,11 +22,11 @@
 		["soundscape_horn", "soundscape_horn_6", "Horn"]
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_interior", ["Astral_chassis_F","Astral_chassis","Astral_dash"]],
 		["Astral_roofsheet", ["Astral_carbody"]],
 		["Astral_ECU", ["Astral_chassis_F"]],
-    ],
+	],
 	"soundscape": [
 		["name", "src"],
 		{"node:":"dsh1"},
@@ -36,27 +36,27 @@
 		["indLoop2", "event:>Vehicle>Interior>Indicator>FIPA_Clack"],
 		["LightOn", "event:>Vehicle>Interior>Light>BM1_On"],
 		["LightOff", "event:>Vehicle>Interior>Light>BM1_On"],
-    ],
+	],
 	"sounds": {
-        "$+cabinFilterCoef": 0.2
-    },
+		"$+cabinFilterCoef": 0.2
+	},
 	"camerasInternal":[
-        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
 		{"nodeWeight":1},
-        {"selfCollision":false},
-        {"collision":false},
-        {"beamDeform":5001000},
-        {"beamStrength":"FLT_MAX"},
+		{"selfCollision":false},
+		{"collision":false},
+		{"beamDeform":5001000},
+		{"beamStrength":"FLT_MAX"},
 		{"beamSpring":1001000},
-        {"beamDamp":150},
+		{"beamDamp":150},
 		["neardash", 0.330, -0.528, 0.985, 56, "a85","a87","a83","a82","a18","a19"],
-    ],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Dashboard for Wheel--
 		{"group":["Astral_dash"]},
 		{"nodeWeight":0.5},
@@ -79,9 +79,9 @@
 		{"selfCollision":true},
 		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Dash for Steering Wheel--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//whole dash board
@@ -153,7 +153,7 @@
 		["dsh2", "a82"],
 		["dsh3", "a18"],
 		["dsh3", "a22"],
-		
+
 		["dsh3", "a50"],
 		["dsh3", "d3l"],
 		["dsh3", "a54"],
@@ -185,42 +185,42 @@
 		["cab3", "a14"],
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ]
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	]
 },
 "Astral_onboard":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Onboard Camera",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Onboard Camera",
+		"value":320
 	},
 	"slotType" : "Astral_onboard",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_onboard1", ["Astral_carbody","Astral_rollcage"]],
 		["Astral_onboard2", ["Astral_carbody","Astral_rollcage"]],
-    ],
+	],
 	"camerasInternal":[
-        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:", "options"],
+		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:", "options"],
 		{"nodeWeight":0.13},
-        {"selfCollision":false},
-        {"collision":false},
-        {"beamDeform":5001000},
-        {"beamStrength":"FLT_MAX"},
+		{"selfCollision":false},
+		{"collision":false},
+		{"beamDeform":5001000},
+		{"beamStrength":"FLT_MAX"},
 		{"beamSpring":151000},
-        {"beamDamp":9},
+		{"beamDamp":9},
 		["POV1", -0.504, -0.504, 1.011, 50, "a53","a21","a85","a87","a80","a84", {"idRef:":"a17","idBack:":"onboardref1","idUp:":"cup"}]
 		{"beamSpring":151000},
 		{"beamDamp":3},
 		["POV2", -0.055, -0.408, 1.125, 45, "a81","a82","a80","a83","a85","a86"]
 		["FX", 0.825, -0.63, 0.925, 54, "a87","dh3l","d8l","d0l","d6l","d5l", {"idRef:":"d4l","idBack:":"d0l","idUp:":"dh2l"}]
-    ],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Refnode--
 		{"group":[""]},
 		{"nodeWeight":0.75},
@@ -229,9 +229,9 @@
 		{"selfCollision":true},
 		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Onboard Ref--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//dash nodes
@@ -251,144 +251,144 @@
 		{"optional":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ]
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	]
 },
 "Astral_tools_10": {
 	"information":{
-    	"authors":"Un1corn",
-    	"name":"Crew Tools/Ballast",
-    	"value":250,
-    },
-    "slotType" : "Astral_tools",
+		"authors":"Un1corn",
+		"name":"Crew Tools/Ballast",
+		"value":250,
+	},
+	"slotType" : "Astral_tools",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$crewTools", "range", "kg", "Chassis and Interior", 10, 5, 15, "Crew Ballast Weight", "Act as a ballast for regulations and COG", {"stepDis":5,"subCategory":"Weight"}],  //affects unsprung mass and thermals
-    ],
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+		["$crewTools", "range", "kg", "Chassis and Interior", 10, 5, 15, "Crew Ballast Weight", "Act as a ballast for regulations and COG", {"stepDis":5,"subCategory":"Weight"}],  //affects unsprung mass and thermals
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
 		{"nodeWeight":"$=$crewTools/2"},
 		{"group":[""]},
-        ["tools1", -0.38, 1.624, 0.35],
-        ["tools2",  0.38, 1.624, 0.35],
-    ],
-    "beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		["tools1", -0.38, 1.624, 0.35],
+		["tools2",  0.38, 1.624, 0.35],
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Ballast--
-        {"beamSpring":3501000,"beamDamp":250},
+		{"beamSpring":3501000,"beamDamp":250},
 		//rear link
-        ["tools1", "a5"],
-        ["tools1", "a6"],
-        ["tools1", "a38"],
-        ["tools1", "chs2r"],
-        ["tools1", "chs2l"],
-        ["tools1", "chs1r"],
-        //*
-        ["tools2", "a6"],
-        ["tools2", "a5"],
-        ["tools2", "a37"],
-        ["tools2", "chs2l"],
-        ["tools2", "chs2r"],
-        ["tools2", "chs1l"],
-    ],
+		["tools1", "a5"],
+		["tools1", "a6"],
+		["tools1", "a38"],
+		["tools1", "chs2r"],
+		["tools1", "chs2l"],
+		["tools1", "chs1r"],
+		//*
+		["tools2", "a6"],
+		["tools2", "a5"],
+		["tools2", "a37"],
+		["tools2", "chs2l"],
+		["tools2", "chs2r"],
+		["tools2", "chs1l"],
+	],
 },,
 "Astral_ballast_R_RX": {
 	"information":{
-    	"authors":"Un1corn",
-    	"name":"RX Ballast",
-    	"value":250,
-    },
-    "slotType" : "Astral_tools",
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+		"authors":"Un1corn",
+		"name":"RX Ballast",
+		"value":250,
+	},
+	"slotType" : "Astral_tools",
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
 		{"nodeWeight":45},
 		{"group":[""]},
-        ["ballastRX", -0.522, 0.299, 0.131],
-    ],
-    "beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		["ballastRX", -0.522, 0.299, 0.131],
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--RX Ballast--
-        //counter driver weight
+		//counter driver weight
 		{"beamSpring":4501000,"beamDamp":450},
 		{"beamDeform":25500,"beamStrength":"FLT_MAX"},
 		["ballastRX", "a50"],
 		["ballastRX", "a49"],
 		["ballastRX", "coref"],
-        ["ballastRX", "a12"],
-        ["ballastRX", "a13"],
-        ["ballastRX", "a16"],
-        ["ballastRX", "a17"],
+		["ballastRX", "a12"],
+		["ballastRX", "a13"],
+		["ballastRX", "a16"],
+		["ballastRX", "a17"],
 		["ballastRX", "a8"],
-        ["ballastRX", "a9"],
-    ],
+		["ballastRX", "a9"],
+	],
 }
 "Astral_ballast_R_Hybrid": {
 	"information":{
-    	"authors":"Un1corn",
-    	"name":"Dummy Hybrid Ballast",
-    	"value":250,
-    },
-    "slotType" : "Astral_dummy",
-    "flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		"authors":"Un1corn",
+		"name":"Dummy Hybrid Ballast",
+		"value":250,
+	},
+	"slotType" : "Astral_dummy",
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_hybridduct", ["Astral_carbody"]],
 		["Astral_hybrid_dummy", ["Astral_chassis"]],
-    ],
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Ballast--
 		{"nodeWeight":40},
 		{"group":[""]},
-        ["hybrid1", -0.297, 0.666, 0.289],
-        ["hybrid2",  0.297, 0.666, 0.289],
-    ],
-    "beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		["hybrid1", -0.297, 0.666, 0.289],
+		["hybrid2",  0.297, 0.666, 0.289],
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Hybrid--
-        {"beamSpring":3501000,"beamDamp":250},
+		{"beamSpring":3501000,"beamDamp":250},
 		["hybrid1", "hybrid2"],
 		//rear link
-        ["hybrid1", "a42"],
-        ["hybrid1", "a41"],
-        ["hybrid1", "a12"],
-        ["hybrid1", "a13"],
-        ["hybrid1", "chs1r"],
-        ["hybrid1", "chs1l"],
-        ["hybrid1", "rcm"],
-        ["hybrid1", "rs1r"],
-        //*
-        ["hybrid2", "a41"],
-        ["hybrid2", "a42"],
-        ["hybrid2", "a14"],
-        ["hybrid2", "a15"],
-        ["hybrid2", "chs1l"],
-        ["hybrid2", "chs1r"],
-        ["hybrid2", "rcm"],
-        ["hybrid2", "rs1l"],
-    ],
+		["hybrid1", "a42"],
+		["hybrid1", "a41"],
+		["hybrid1", "a12"],
+		["hybrid1", "a13"],
+		["hybrid1", "chs1r"],
+		["hybrid1", "chs1l"],
+		["hybrid1", "rcm"],
+		["hybrid1", "rs1r"],
+		//*
+		["hybrid2", "a41"],
+		["hybrid2", "a42"],
+		["hybrid2", "a14"],
+		["hybrid2", "a15"],
+		["hybrid2", "chs1l"],
+		["hybrid2", "chs1r"],
+		["hybrid2", "rcm"],
+		["hybrid2", "rs1l"],
+	],
 },
 "Astral_seat":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Single Seat",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Single Seat",
+		"value":320
 	},
 	"slotType" : "Astral_seat",
 	"slots"	: [
@@ -396,34 +396,34 @@
 		["Astral_driver", "", "Driver Model"]
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_seat", ["Astral_seat","Astral_chassis"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_seat", ["Astral_seat","Astral_chassis"]]
 		["Astral_tools", ["Astral_copilot","Astral_chassis"]]
 	],
 	"camerasInternal":[
-        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"selfCollision":false},
-        {"collision":false},
-        {"beamDeform":5001000},
-        {"beamStrength":"FLT_MAX"},
+		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+		{"selfCollision":false},
+		{"collision":false},
+		{"beamDeform":5001000},
+		{"beamStrength":"FLT_MAX"},
 		{"nodeWeight":1},
 		{"beamSpring":2500},
-        {"beamDamp":250},
+		{"beamDamp":250},
 		["driver", 0.330, 0.166, 1.025, 46, "a11","a10","a23","a22","a83","a80", {"cockpitCamera":true}]
-    ],
+	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$driver", "range", "kg", "Chassis and Interior", 80, 70, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Weight"}],
-    ],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
+		["$driver", "range", "kg", "Chassis and Interior", 80, 70, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Weight"}],
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":"$=$driver-20-1"},
+		{"nodeWeight":"$=$driver-20-1"},
 		{"group":["Astral_seat"]},
 		["a50",  0.330, 0.115, 0.321],
 		{"nodeWeight":20},
@@ -434,9 +434,9 @@
 		{"group":[""]},
 		{"selfCollision":true},
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Seat--
 		//main seat
 		{"beamSpring":2001000,"beamDamp":"$=4050*$components.chassis.stiffnessMulti","dampCutoffHz":500},
@@ -498,9 +498,9 @@
 },
 "Astral_seat2":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Two Seats",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Two Seats",
+		"value":320
 	},
 	"slotType" : "Astral_seat",
 	"slots"	: [
@@ -509,37 +509,37 @@
 		["Astral_copilot", "", "Co-Driver Model"]
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_seat", ["Astral_seat","Astral_chassis"]],
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_seat", ["Astral_seat","Astral_chassis"]],
 		["Astral_tools", ["Astral_copilot","Astral_chassis"]],
 		["Astral_copilotseat", ["Astral_copilot","Astral_chassis"]],
 		["Astral_foot", ["Astral_chassis"]],
 	],
 	"camerasInternal":[
-        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
-        {"selfCollision":false},
-        {"collision":false},
-        {"beamDeform":5001000},
-        {"beamStrength":"FLT_MAX"},
+		["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+		{"selfCollision":false},
+		{"collision":false},
+		{"beamDeform":5001000},
+		{"beamStrength":"FLT_MAX"},
 		{"nodeWeight":1},
 		{"beamSpring":2500},
-        {"beamDamp":250},
+		{"beamDamp":250},
 		["driver", 0.330, 0.166, 1.025, 46, "a11","a10","a23","a22","a83","a80", {"cockpitCamera":true}]
 		["copilot", -0.330, 0.166, 0.969, 46, "a8","a9","a20","a21","a80","a83"],
-    ],
+	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$driver", "range", "kg", "Chassis and Interior", 80, 70, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Weight"}],
-    ],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
+		["$driver", "range", "kg", "Chassis and Interior", 80, 70, 100, "Driver Weight", "Adjust driver weight", {"stepDis":0.5, "subCategory":"Weight"}],
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
 		//Driver and Co-Driver (with interior and drivers etc, can be used to adjust COG)
 		{"selfCollision":false}
-        {"nodeWeight":"$=$driver-20-1"},
+		{"nodeWeight":"$=$driver-20-1"},
 		{"group":["Astral_seat"]},
 		["a50",  0.330, 0.115, 0.321],
 		{"nodeWeight":20},
@@ -552,9 +552,9 @@
 		{"group":[""]},
 		{"selfCollision":true},
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Seat--
 		//main seat
 		{"beamSpring":2001000,"beamDamp":"$=4050*$components.chassis.stiffnessMulti","dampCutoffHz":500},
@@ -625,22 +625,22 @@
 },
 "Astral_copilot":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Rally Copilot",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Rally Copilot",
+		"value":320
 	},
 	"slotType" : "Astral_copilot",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_copilot", ["Astral_copilot","Astral_chassis"]],
 		["Astral_book", ["Astral_copilot","Astral_chassis"]],
 	],
 },
 "Astral_driver":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Literally Sticks of Human LOL",
-        "value":6969
+		"authors":"Un1corn",
+		"name":"Literally Sticks of Human LOL",
+		"value":6969
 	},
 	"slotType" : "Astral_driver",
 	"slots"	: [
@@ -648,37 +648,37 @@
 		["Astral_hands", "Astral_hands", "Hands"],
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_driver", ["Astral_seat"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_driver", ["Astral_seat"]]
 	],
 },
 "Astral_hands":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Don't Select If You Don't Want Driver Hands",
-        "value":6969
+		"authors":"Un1corn",
+		"name":"Don't Select If You Don't Want Driver Hands",
+		"value":6969
 	},
 	"slotType" : "Astral_hands",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_driver_arm_L", ["Astral_ahands"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_driver_arm_L", ["Astral_ahands"]]
 		["Astral_driver_arm_R", ["Astral_ahands"]]
 	],
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//hands (Can't animation)
 		//["steering", "Astral_driver_arm_L", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x": 0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1]
-        //["steering", "Astral_driver_arm_R", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x": 0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1]
+		//["steering", "Astral_driver_arm_R", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x": 0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1]
 		//["steering", "Astral_arm_L_b", "dsh1","dsh3","dsh2", {"x":114.514, "y":0 "z":190}, {"x":-5, "y":-10, "z":5}, {"x":0.04, "y":0.08, "z":-0.01}, -6, 1.5, 0, 0.1, {"baseTranslation":{"x":0.025, "y":-0.255, "z":-0.05}}]
 		//["steering", "Astral_arm_R_s", "a50","a49","driverref", {"x":195, "y":180 "z":8.5}, {"x":-5, "y":-1, "z":0}, {"x":0, "y":0.1, "z":0.005}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.073}}]
-        //["steering", "Astral_arm_R_u", "a50","a49","driverref", {"x":188, "y":180 "z":12}, {"x":-8, "y":-2, "z":0}, {"x":0.007, "y":0.1, "z":0.02}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.103}}]
+		//["steering", "Astral_arm_R_u", "a50","a49","driverref", {"x":188, "y":180 "z":12}, {"x":-8, "y":-2, "z":0}, {"x":0.007, "y":0.1, "z":0.02}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.103}}]
 		//["steering", "Astral_arm_R_b", "dsh1","dsh3","dsh2", {"x":114.514, "y":0 "z":170}, {"x": 5, "y":-10, "z":5}, {"x":0.04, "y":-0.08, "z":0.01}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0.025, "y":-0.255, "z":-0.05}}]
 	],
 	"nodes":[
-        ["id", "posX", "posY", "posZ"],
-        {"nodeMaterial":"|NM_METAL"},
-        {"collision":true},
-        {"selfCollision":false},
+		["id", "posX", "posY", "posZ"],
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":true},
+		{"selfCollision":false},
 		//--Animated Hands--
 		//driver arms
 		{"nodeWeight":1},
@@ -696,13 +696,13 @@
 		{"nodeWeight":7},
 		{"group":""},
 		["driverref",  0.330, 0.225, 0.755],
-        {"collision":true},
-        {"selfCollision":true},
-        {"frictionCoef":0.5},
-    ],
-    "beams":[
-        ["id1:", "id2:"],
-        //--Animated Hands--
+		{"collision":true},
+		{"selfCollision":true},
+		{"frictionCoef":0.5},
+	],
+	"beams":[
+		["id1:", "id2:"],
+		//--Animated Hands--
 		//arms
 		{"beamSpring":65000,"beamDamp":150},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
@@ -767,13 +767,13 @@
 		["darmrr","a49"],
 		["darmrr","a50"],
 		["darmrr","coref"],
-    ],
+	],
 },
 "Astral_strwheel":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Fanatec ClubSport 320mm Alcantara",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Fanatec ClubSport 320mm Alcantara",
+		"value":320
 	},
 	"slotType" : "Astral_strwheel",
 	"slots"	: [
@@ -781,18 +781,18 @@
 		["Astral_strwheel_hub", "Astral_strwheel_hub", "Wheel Hub"],
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_strwrod", ["Astral_dash","Astral_chassis"]],
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_strwrod", ["Astral_dash","Astral_chassis"]],
 	],
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$steeringAngle", "range", "Degrees", "Steering", 0, -5, 5, "Steering Column Angle", "Adjust the angle of steering wheel", {"stepDis":1, "subCategory":"Steering Position"}],
+		["$steeringAngle", "range", "Degrees", "Steering", 0, -5, 5, "Steering Column Angle", "Adjust the angle of steering wheel", {"stepDis":1, "subCategory":"Steering Position"}],
 		["$steeringDist", "range", "mm", "Steering", 0, -20, 40, "Steering Wheel Spacer", "Adjust the distance of steering wheel", {"stepDis":20, "minDis":0, "maxDis":60, "subCategory":"Steering Position"}],
-    ],
+	],
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//steering wheel
-        ["steering", "$='Astral_steering_rim_' .. $steeringDist", "dsh1", "dsh3", "dsh2", {"x":"$=80-$steeringAngle", "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1]
+		["steering", "$='Astral_steering_rim_' .. $steeringDist", "dsh1", "dsh3", "dsh2", {"x":"$=80-$steeringAngle", "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1]
 		//QR
 		["steering", "Astral_steering_QR", "dsh1","dsh3","dsh2", {"x":"$=80-$steeringAngle", "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1]
 		["steering", "Astral_shift", "dsh1","dsh3","dsh2", {"x":"$=-80+$steeringAngle", "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1]
@@ -800,51 +800,51 @@
 		["steering", "Astral_steering_shaft", "dsh1","dsh3","dsh2", {"x":"$=80-$steeringAngle", "y":0 "z":180}, {"x":0, "y":-1, "z":0}, {"x":0, "y":0, "z":0}, "$=-$steer_lock", "$steer_lock", 0, 1]
 	],
 	"nodes":[
-        ["id", "posX", "posY", "posZ"],
-        {"nodeMaterial":"|NM_METAL"},
-        {"collision":true},
-        {"selfCollision":false},
+		["id", "posX", "posY", "posZ"],
+		{"nodeMaterial":"|NM_METAL"},
+		{"collision":true},
+		{"selfCollision":false},
 		//--Steering Torsion Hydro--
-        //wheel
-        {"frictionCoef":0.5},
-        {"nodeWeight":0.3},
-        {"group":""},
-        ["stw1l", 0.49, "$=-0.192+($steeringDist/1000)", 0.93],
-        ["stw1r", 0.17, "$=-0.192+($steeringDist/1000)", 0.93],
-        ["stw2l", 0.49, "$=-0.192+($steeringDist/1000)", 0.61],
-        ["stw2r", 0.17, "$=-0.192+($steeringDist/1000)", 0.61],
-        //rigidifier and column
+		//wheel
+		{"frictionCoef":0.5},
+		{"nodeWeight":0.3},
 		{"group":""},
-        {"nodeWeight":1},
-        ["stwr",  0.330, "$= 0    +($steeringDist/1000)", 0.77],
-        ["stwc",  0.330, "$=-0.384+($steeringDist/1000)", 0.77],
-        {"collision":true},
-        {"selfCollision":true},
-        {"frictionCoef":0.5},
-    ],
-    "beams":[
-        ["id1:", "id2:"],
-        //--Steering Torsion Hydro--
-        //main shape
-        {"beamSpring":151000,"beamDamp":50},
-        {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
-        ["stw1l","stw1r"],
-        ["stw1r","stw2r"],
-        ["stw2r","stw2l"],
-        ["stw2l","stw1l"],
-        ["stw1r","stw2l"],
-        ["stw1l","stw2r"],
-        //rigidifier
-        {"beamSpring":101000,"beamDamp":50},
-        ["stwr","stw1l"],
-        ["stwr","stw1r"],
-        ["stwr","stw2l"],
-        ["stwr","stw2r"],
-        ["stwc","stw1l"],
-        ["stwc","stw1r"],
-        ["stwc","stw2l"],
-        ["stwc","stw2r"],
-        ["stwr","stwc"],
+		["stw1l", 0.49, "$=-0.192+($steeringDist/1000)", 0.93],
+		["stw1r", 0.17, "$=-0.192+($steeringDist/1000)", 0.93],
+		["stw2l", 0.49, "$=-0.192+($steeringDist/1000)", 0.61],
+		["stw2r", 0.17, "$=-0.192+($steeringDist/1000)", 0.61],
+		//rigidifier and column
+		{"group":""},
+		{"nodeWeight":1},
+		["stwr",  0.330, "$= 0	+($steeringDist/1000)", 0.77],
+		["stwc",  0.330, "$=-0.384+($steeringDist/1000)", 0.77],
+		{"collision":true},
+		{"selfCollision":true},
+		{"frictionCoef":0.5},
+	],
+	"beams":[
+		["id1:", "id2:"],
+		//--Steering Torsion Hydro--
+		//main shape
+		{"beamSpring":151000,"beamDamp":50},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		["stw1l","stw1r"],
+		["stw1r","stw2r"],
+		["stw2r","stw2l"],
+		["stw2l","stw1l"],
+		["stw1r","stw2l"],
+		["stw1l","stw2r"],
+		//rigidifier
+		{"beamSpring":101000,"beamDamp":50},
+		["stwr","stw1l"],
+		["stwr","stw1r"],
+		["stwr","stw2l"],
+		["stwr","stw2r"],
+		["stwc","stw1l"],
+		["stwc","stw1r"],
+		["stwc","stw2l"],
+		["stwc","stw2r"],
+		["stwr","stwc"],
 		//wheel damping
 		{"beamSpring":0,"beamDamp":50},
 		["stw1l","a49"],
@@ -887,30 +887,30 @@
 		["stw2l","cabr"],
 		["stw1r","cabr"],
 		["stw2r","cabr"],
-    ],
-    "triangles":[
-        ["id1:", "id2:", "id3:"],
-        {"dragCoef":0},
+	],
+	"triangles":[
+		["id1:", "id2:", "id3:"],
+		{"dragCoef":0},
 		{"liftCoef":0, "stallAngle":0},
-        {"groundModel":"metal"},
-        //--Steering Torsion Hydro--
-        //wheel
-        ["stw1l", "stw1r", "stw2r"],
-        ["stw1l", "stw2r", "stw2l"],
+		{"groundModel":"metal"},
+		//--Steering Torsion Hydro--
+		//wheel
+		["stw1l", "stw1r", "stw2r"],
+		["stw1l", "stw2r", "stw2l"],
 		{"dragCoef":""},
 		{"liftCoef":"", "stallAngle":""},
-    ],
+	],
 	"torsionHydros": [
-        ["id1:","id2:","id3:","id4:"],
-        {"spring":1500, "damp":1.5, "deform":9999999999999, "strength":99999999999999},
-        ["stw1l","stwr","stwc","a54", {"factor":"$=(pi/180)*(-$steer_lock)","inRate":24,"outRate":24,"inputSource":"steeringUnassisted"}],
-    ],
+		["id1:","id2:","id3:","id4:"],
+		{"spring":1500, "damp":1.5, "deform":9999999999999, "strength":99999999999999},
+		["stw1l","stwr","stwc","a54", {"factor":"$=(pi/180)*(-$steer_lock)","inRate":24,"outRate":24,"inputSource":"steeringUnassisted"}],
+	],
 },
 "Astral_strwheel_hub":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Simagic Neo X Hub",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Simagic Neo X Hub",
+		"value":320
 	},
 	"slotType" : "Astral_strwheel_hub",
 	"props": [
@@ -921,13 +921,13 @@
 },
 "Astral_shifter_paddle":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Paddle Shifter",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Paddle Shifter",
+		"value":320
 	},
 	"slotType" : "Astral_shifter",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_paddle_mount", ["Astral_dash", "Astral_chassis", "Astral_chassis_F"]],
 		["Astral_sequential", ["Astral_chassis"]],
 	],
@@ -935,12 +935,12 @@
 		["fileName"],
 		["propAnimation/sequentialLever", {"name":"sequentialLever"}]
 	],
-    "sequentialLever": {
-        "shiftSoundNode:":["dsh1"],
-        "shiftSoundEventSequentialGearUp": "file:>art>sound>shift>shift_up.wav",
-        "shiftSoundEventSequentialGearDown": "file:>art>sound>shift>shift_down.wav",
-        "shiftSoundVolumeSequentialGearUp": 1.5,
-        "shiftSoundVolumeSequentialGearDown": 1
+	"sequentialLever": {
+		"shiftSoundNode:":["dsh1"],
+		"shiftSoundEventSequentialGearUp": "file:>art>sound>shift>shift_up.wav",
+		"shiftSoundEventSequentialGearDown": "file:>art>sound>shift>shift_down.wav",
+		"shiftSoundVolumeSequentialGearUp": 1.5,
+		"shiftSoundVolumeSequentialGearDown": 1
 	}
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
@@ -948,7 +948,7 @@
 		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":"$=-80+$steeringAngle", "y":0, "z":0}, {"x":0, "y":0, "z":5}, {"x":0.15, "y":-0.075, "z":0}, -1, 1, 0, 1]
 		["sequentialLeverY", "Astral_paddle_control", "dsh1","dsh3","dsh2", {"x":"$=-80+$steeringAngle", "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0.0, "z":0}, 0, 0, 0, 1]
 		//aux shifter
-        ["sequentialLeverY", "Astral_sfstick_aux", "a17","a18","a13", {"x":75, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 0.8]
+		["sequentialLeverY", "Astral_sfstick_aux", "a17","a18","a13", {"x":75, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 0.8]
 		//linkage
 		["sequentialLeverY", "Astral_paddle_link", "dsh1","dsh3","dsh2", {"x":"$=-80+$steeringAngle", "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0.1, "z":-0.0014}, -1, 1, 0, 1]
 		["sequentialLeverY", "Astral_sfstick_link", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.05, "z":0.005}, -1, 1, 0, 0.8]
@@ -958,13 +958,13 @@
 },
 "Astral_shifter_stick":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Stick Shifter",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Stick Shifter",
+		"value":320
 	},
 	"slotType" : "Astral_shifter",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_sequential", ["Astral_chassis"]],
 		["Astral_sequential_boot", ["Astral_chassis"]],
 	],
@@ -972,12 +972,12 @@
 		["fileName"],
 		["propAnimation/sequentialLever", {"name":"sequentialLever"}]
 	],
-    "sequentialLever": {
-        "shiftSoundNode:":["a18"],
-        "shiftSoundEventSequentialGearUp": "file:>art>sound>shift>shift_up.wav",
-        "shiftSoundEventSequentialGearDown": "file:>art>sound>shift>shift_down.wav",
-        "shiftSoundVolumeSequentialGearUp": 1.5,
-        "shiftSoundVolumeSequentialGearDown": 1
+	"sequentialLever": {
+		"shiftSoundNode:":["a18"],
+		"shiftSoundEventSequentialGearUp": "file:>art>sound>shift>shift_up.wav",
+		"shiftSoundEventSequentialGearDown": "file:>art>sound>shift>shift_down.wav",
+		"shiftSoundVolumeSequentialGearUp": 1.5,
+		"shiftSoundVolumeSequentialGearDown": 1
 	}
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
@@ -991,53 +991,53 @@
 },
 "Astral_handbrake":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Hydraulic Handbrake",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Hydraulic Handbrake",
+		"value":320
 	},
 	"slotType" : "Astral_handbrake",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_handbrake", ["Astral_chassis"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_handbrake", ["Astral_chassis"]]
 	],
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//handbrake
-        ["parkingbrake", "Astral_hbstick", "a17","a18","a13", {"x":78, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 0.5]
+		["parkingbrake", "Astral_hbstick", "a17","a18","a13", {"x":78, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 0.5]
 		//cylinder
 		["parkingbrake", "Astral_handbrake_cylinder", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.024, "z":-0.0055}, -1, 1, 0, 0.5]
 	],
 	"soundscape": [
 		["name", "src"],
 		{"node:":"a18"},
-        ["handbrakeDisengaged","event:>Vehicle>Interior>Handbrake_Race>Race_01_Unlock"],
-        ["handbrakeEngaging","event:>Vehicle>Interior>Handbrake_Race>Race_01_Lock"]
-    ]
+		["handbrakeDisengaged","event:>Vehicle>Interior>Handbrake_Race>Race_01_Unlock"],
+		["handbrakeEngaging","event:>Vehicle>Interior>Handbrake_Race>Race_01_Lock"]
+	]
 },
 "Astral_pedal":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Lightweight Pedal Box",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Lightweight Pedal Box",
+		"value":320
 	},
 	"slotType" : "Astral_pedal",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_pedal", ["Astral_pedal"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_pedal", ["Astral_pedal"]]
 	],
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//--Racing Pedals--
-        ["throttle", "Astral_gas", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
+		["throttle", "Astral_gas", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
 		["brake", "Astral_brake", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":8, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1],
 		["clutch", "Astral_clutch", "pd2","pd1","pd3", {"x":90, "y":0 "z":0}, {"x":8, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1]
-    ],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Pedal Box--
 		{"nodeWeight":1},
 		{"group":["Astral_pedal"]},
@@ -1050,9 +1050,9 @@
 		{"selfCollision":true},
 		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Pedal Box Steering Position--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//pedal shape
@@ -1104,35 +1104,35 @@
 		{"optional":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ]
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	]
 },
 "Astral_spare_gravel":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"1 Gravel Spare Wheel",
-        "value":320
+		"authors":"Un1corn",
+		"name":"1 Gravel Spare Wheel",
+		"value":320
 	},
 	"slotType" : "Astral_spare",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_spare_3", ["Astral_spare", "Astral_chassis_R"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_spare_3", ["Astral_spare", "Astral_chassis_R"]]
 	],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":23.23},
+		{"nodeWeight":23.23},
 		{"group":["Astral_spare", "Astral_chassis_R"]},
 		["spr1", 0, 1.474, 0.44],
-		{"group":[""]} 
+		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
 		{"beamSpring":2501000,"beamDamp":180},
@@ -1155,32 +1155,32 @@
 },
 "Astral_spare_gravel2":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"2 Gravel Spare Wheel",
-        "value":320
+		"authors":"Un1corn",
+		"name":"2 Gravel Spare Wheel",
+		"value":320
 	},
 	"slotType" : "Astral_spare",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_spare_3", ["Astral_spare", "Astral_chassis_R"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_spare_3", ["Astral_spare", "Astral_chassis_R"]]
 		["Astral_spare_32", ["Astral_spare", "Astral_chassis_R"]]
 	],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":23.23},
+		{"nodeWeight":23.23},
 		{"group":["Astral_spare", "Astral_chassis_R"]},
 		["spr1", 0, 1.474, 0.44],
 		["spr2", 0, 0.701, 0.73],
-		{"group":[""]} 
+		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
 		{"beamSpring":2501000,"beamDamp":180},
@@ -1220,30 +1220,30 @@
 },
 "Astral_spare_tarmac":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"1 Tarmac Spare Wheel",
-        "value":320
+		"authors":"Un1corn",
+		"name":"1 Tarmac Spare Wheel",
+		"value":320
 	},
 	"slotType" : "Astral_spare",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_spare_4", ["Astral_spare", "Astral_chassis_R"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_spare_4", ["Astral_spare", "Astral_chassis_R"]]
 	],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":19.5},
+		{"nodeWeight":19.5},
 		{"group":["Astral_spare", "Astral_chassis_R"]},
 		["spr1", 0, 1.474, 0.49],
-		{"group":[""]} 
+		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
 		{"beamSpring":2501000,"beamDamp":180},
@@ -1266,32 +1266,32 @@
 },
 "Astral_spare_tarmac2":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"2 Tarmac Spare Wheel",
-        "value":320
+		"authors":"Un1corn",
+		"name":"2 Tarmac Spare Wheel",
+		"value":320
 	},
 	"slotType" : "Astral_spare",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_spare_4", ["Astral_spare", "Astral_chassis_R"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_spare_4", ["Astral_spare", "Astral_chassis_R"]]
 		["Astral_spare_42", ["Astral_spare", "Astral_chassis_R"]]
 	],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":19.5},
+		{"nodeWeight":19.5},
 		{"group":["Astral_spare", "Astral_chassis_R"]},
 		["spr1", 0, 1.474, 0.49],
 		["spr2", 0, 0.761, 0.73],
-		{"group":[""]} 
+		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
 		{"beamSpring":2501000,"beamDamp":180},
@@ -1331,30 +1331,30 @@
 },
 "Astral_spare_arctic":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"1 Arctic Spare Wheel",
-        "value":320
+		"authors":"Un1corn",
+		"name":"1 Arctic Spare Wheel",
+		"value":320
 	},
 	"slotType" : "Astral_spare",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_spare_5", ["Astral_spare", "Astral_chassis_R"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_spare_5", ["Astral_spare", "Astral_chassis_R"]]
 	],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":22.5},
+		{"nodeWeight":22.5},
 		{"group":["Astral_spare", "Astral_chassis_R"]},
 		["spr1", 0, 1.474, 0.44],
-		{"group":[""]} 
+		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
 		{"beamSpring":2501000,"beamDamp":180},
@@ -1377,32 +1377,32 @@
 },
 "Astral_spare_arctic2":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"2 Arctic Spare Wheel",
-        "value":320
+		"authors":"Un1corn",
+		"name":"2 Arctic Spare Wheel",
+		"value":320
 	},
 	"slotType" : "Astral_spare",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_spare_5", ["Astral_spare", "Astral_chassis_R"]]
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_spare_5", ["Astral_spare", "Astral_chassis_R"]]
 		["Astral_spare_52", ["Astral_spare", "Astral_chassis_R"]]
 	],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//Spare wheel
-        {"nodeWeight":22.5},
+		{"nodeWeight":22.5},
 		{"group":["Astral_spare", "Astral_chassis_R"]},
 		["spr1", 0, 1.474, 0.44],
 		["spr2", 0, 0.761, 0.73],
-		{"group":[""]} 
+		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Spare--
 		//connect to chassis
 		{"beamSpring":2501000,"beamDamp":180},
@@ -1442,32 +1442,32 @@
 },
 "Astral_gauge_BRC":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"WRC+ Gauge",
-        "value":320
+		"authors":"Un1corn",
+		"name":"WRC+ Gauge",
+		"value":320
 	},
 	"slotType" : "Astral_gauge",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$shiftRPMoffset", "range", "RPM", "Engine and ECU", 1500, 0, 5000, "Shift Light RPM Offset", "The amount of RPM offset from max RPM", {"stepDis":50, "subCategory":"Shift Light"}],
 		["$shiftRPMrange", "range", "RPM", "Engine and ECU", 1500, 500, 2500, "Shift Light RPM Range", "The amount of RPM across the shift light", {"stepDis":50, "subCategory":"Shift Light"}],
-    ],
+	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_gauge_BRC", ["Astral_dash"]],
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_gauge_BRC", ["Astral_dash"]],
 		["Astral_shiftlight_BRC", ["Astral_dash"]],
 		["Astral_shiftlight", ["Astral_dash"]],
 		["Astral_cable", ["Astral_cable"]]
 	],
 	"controller": [
-        ["fileName"],
-        ["shiftLights"],
+		["fileName"],
+		["shiftLights"],
 		["gauges/genericGauges", {"name":"gauge"}],
-        ["gauges/customModules/combustionEngineData"],
-        ["gauges/customModules/accelerationData"],
-        ["gauges/customModules/tireData"],
+		["gauges/customModules/combustionEngineData"],
+		["gauges/customModules/accelerationData"],
+		["gauges/customModules/tireData"],
 		["gauges/customModules/environmentData"]
-    ],
+	],
 	"gauge": {
 		"configuration": {
 			"materialName": "@digidash_screen"
@@ -1493,8 +1493,8 @@
 				"lights",
 				"odometer",
 				"throttle_input",
-                "brake_input",
-                "clutch_input",
+				"brake_input",
+				"clutch_input",
 			],
 			"customModules": [
 				["moduleName", "property"]
@@ -1550,7 +1550,7 @@
 					"tenPrecision":0
 				}
 			}
-        },
+		},
 		"configuration_top_right2": {
 			"cells":{
 				"top_right2": {
@@ -1589,7 +1589,7 @@
 					"path":"electrics.turboBoost"
 				}
 			}
-        },
+		},
 		"configuration_top_bar": {
 			"cells":{
 				"top_bar": {
@@ -1601,51 +1601,51 @@
 				}
 			}
 		}
-    },
+	},
 	"shiftLights": {
-        "engineName":"mainEngine",
-        "maxEngineRPMOffset": "$shiftRPMoffset",
-        "rpmRange": "$shiftRPMrange",
-        "keepLEDsActive": true,
-        "hasStallWarning": false,
-        "outputElectrics": ["led0", "led1", "led2",],
-        "flashDuration": 0.02,
+		"engineName":"mainEngine",
+		"maxEngineRPMOffset": "$shiftRPMoffset",
+		"rpmRange": "$shiftRPMrange",
+		"keepLEDsActive": true,
+		"hasStallWarning": false,
+		"outputElectrics": ["led0", "led1", "led2",],
+		"flashDuration": 0.02,
 		"flashingOutputElectrics": ["led0", "led1", "led2"],
-        "flashingAlternateOutputElectrics": []
-    },
-    "glowMap":{
-		"dashblue":               {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
-        "dashyellow":             {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
-        "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
-    }
+		"flashingAlternateOutputElectrics": []
+	},
+	"glowMap":{
+		"dashblue":			   {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
+		"dashyellow":			 {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
+		"dashred":				{"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
+	}
 },
 "Astral_gauge_Rally2":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"Rally2 Gauge",
-        "value":320
+		"authors":"Un1corn",
+		"name":"Rally2 Gauge",
+		"value":320
 	},
 	"slotType" : "Astral_gauge",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$shiftRPMoffset", "range", "RPM", "Engine and ECU", 1500, 0, 5000, "Shift Light RPM Offset", "The amount of RPM offset from max RPM", {"stepDis":50, "subCategory":"Shift Light"}],
 		["$shiftRPMrange", "range", "RPM", "Engine and ECU", 1500, 500, 2500, "Shift Light RPM Range", "The amount of RPM across the shift light", {"stepDis":50, "subCategory":"Shift Light"}],
-    ],
+	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_gauge_Rally2", ["Astral_dash"]],
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_gauge_Rally2", ["Astral_dash"]],
 		["Astral_shiftlight", ["Astral_dash"]],
 		["Astral_cable", ["Astral_cable"]]
 	],
 	"controller": [
-        ["fileName"],
-        ["shiftLights"],
+		["fileName"],
+		["shiftLights"],
 		["gauges/genericGauges", {"name":"gauge"}],
-        ["gauges/customModules/combustionEngineData"],
-        ["gauges/customModules/accelerationData"],
-        ["gauges/customModules/tireData"],
+		["gauges/customModules/combustionEngineData"],
+		["gauges/customModules/accelerationData"],
+		["gauges/customModules/tireData"],
 		["gauges/customModules/environmentData"]
-    ],
+	],
 	"gauge": {
 		"configuration": {
 			"materialName": "@digidash_screen"
@@ -1671,8 +1671,8 @@
 				"lights",
 				"odometer",
 				"throttle_input",
-                "brake_input",
-                "clutch_input",
+				"brake_input",
+				"clutch_input",
 			],
 			"customModules": [
 				["moduleName", "property"]
@@ -1728,7 +1728,7 @@
 					"tenPrecision":0
 				}
 			}
-        },
+		},
 		"configuration_top_right2": {
 			"cells":{
 				"top_right2": {
@@ -1767,7 +1767,7 @@
 					"path":"electrics.turboBoost"
 				}
 			}
-        },
+		},
 		"configuration_top_bar": {
 			"cells":{
 				"top_bar": {
@@ -1779,39 +1779,39 @@
 				}
 			}
 		}
-    },
+	},
 	"shiftLights": {
-        "engineName":"mainEngine",
-        "maxEngineRPMOffset": "$shiftRPMoffset",
-        "rpmRange": "$shiftRPMrange",
-        "keepLEDsActive": true,
-        "hasStallWarning": false,
-        "outputElectrics": ["led0", "led1", "led2",],
-        "flashDuration": 0.02,
+		"engineName":"mainEngine",
+		"maxEngineRPMOffset": "$shiftRPMoffset",
+		"rpmRange": "$shiftRPMrange",
+		"keepLEDsActive": true,
+		"hasStallWarning": false,
+		"outputElectrics": ["led0", "led1", "led2",],
+		"flashDuration": 0.02,
 		"flashingOutputElectrics": ["led0", "led1", "led2"],
-        "flashingAlternateOutputElectrics": []
-    },
-    "glowMap":{
-		"dashblue":               {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
-        "dashyellow":             {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
-        "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
-    }
+		"flashingAlternateOutputElectrics": []
+	},
+	"glowMap":{
+		"dashblue":			   {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
+		"dashyellow":			 {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
+		"dashred":				{"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
+	}
 },
 "Astral_gauge_RX":{
 	"information":{
-        "authors":"Un1corn",
-        "name":"RX1 Gauge",
-        "value":320
+		"authors":"Un1corn",
+		"name":"RX1 Gauge",
+		"value":320
 	},
 	"slotType" : "Astral_gauge",
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$shiftRPMoffset", "range", "RPM", "Engine and ECU", 2100, 0, 5000, "Shift Light RPM Offset", "The amount of RPM offset from max RPM", {"stepDis":50, "subCategory":"Shift Light"}],
 		["$shiftRPMrange", "range", "RPM", "Engine and ECU", 1500, 500, 2500, "Shift Light RPM Range", "The amount of RPM across the shift light", {"stepDis":50, "subCategory":"Shift Light"}],
-    ],
+	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_gauge_RX", ["Astral_dash"]],
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_gauge_RX", ["Astral_dash"]],
 		["Astral_shiftlight_RX", ["Astral_dash"]],
 		["Astral_brakelight_RX", ["Astral_carbody"]],
 		["Astral_rearmirror", ["Astral_carbody"]],
@@ -1819,18 +1819,18 @@
 		["Astral_cable", ["Astral_cable"]]
 	],
 	"mirrors": [
-        ["mesh", "idRef:", "id1:", "id2:"],
-        ["Astral_rearmirror","rm1","rfr","rcm",{"refBaseTranslation":{"x":0,"y":0,"z":0},"baseRotationGlobal":{"x":0,"y":0,"z":0}}],
-    ],
+		["mesh", "idRef:", "id1:", "id2:"],
+		["Astral_rearmirror","rm1","rfr","rcm",{"refBaseTranslation":{"x":0,"y":0,"z":0},"baseRotationGlobal":{"x":0,"y":0,"z":0}}],
+	],
 	"controller": [
-        ["fileName"],
-        ["shiftLights"],
+		["fileName"],
+		["shiftLights"],
 		["gauges/genericGauges", {"name":"gauge"}],
-        ["gauges/customModules/combustionEngineData"],
-        ["gauges/customModules/accelerationData"],
-        ["gauges/customModules/tireData"],
+		["gauges/customModules/combustionEngineData"],
+		["gauges/customModules/accelerationData"],
+		["gauges/customModules/tireData"],
 		["gauges/customModules/environmentData"]
-    ],
+	],
 	"gauge": {
 		"configuration": {
 			"materialName": "@digidash_screen"
@@ -1856,8 +1856,8 @@
 				"lights",
 				"odometer",
 				"throttle_input",
-                "brake_input",
-                "clutch_input",
+				"brake_input",
+				"clutch_input",
 			],
 			"customModules": [
 				["moduleName", "property"]
@@ -1913,7 +1913,7 @@
 					"tenPrecision":0
 				}
 			}
-        },
+		},
 		"configuration_top_right2": {
 			"cells":{
 				"top_right2": {
@@ -1952,7 +1952,7 @@
 					"path":"electrics.turboBoost"
 				}
 			}
-        },
+		},
 		"configuration_top_bar": {
 			"cells":{
 				"top_bar": {
@@ -1964,30 +1964,30 @@
 				}
 			}
 		}
-    },
+	},
 	"shiftLights": {
-        "engineName":"mainEngine",
-        "maxEngineRPMOffset": "$shiftRPMoffset",
-        "rpmRange": "$shiftRPMrange",
-        "keepLEDsActive": true,
-        "hasStallWarning": true,
-        "outputElectrics": ["led0", "led1", "led2",],
-        "flashDuration": 0.02,
+		"engineName":"mainEngine",
+		"maxEngineRPMOffset": "$shiftRPMoffset",
+		"rpmRange": "$shiftRPMrange",
+		"keepLEDsActive": true,
+		"hasStallWarning": true,
+		"outputElectrics": ["led0", "led1", "led2",],
+		"flashDuration": 0.02,
 		"flashingOutputElectrics": ["led0", "led1", "led2"],
-        "flashingAlternateOutputElectrics": []
-    },
-    "glowMap":{
-		"dashblue":               {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
-        "dashyellow":             {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
-        "dashred":                {"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
-		"Astral_brakelight":      {"simpleFunction":{"brake":0.6}, "off":"Astral_brakelight_off", "on":"Astral_brakelight_on", "on_intense":"Astral_brakelight_onIntense"}
-    },
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":false},
-        {"selfCollision":false},
-        {"nodeMaterial":"|NM_METAL"},
+		"flashingAlternateOutputElectrics": []
+	},
+	"glowMap":{
+		"dashblue":			   {"simpleFunction":{"led0":1}, "off":"dashblue_off", "on":"dashblue_on"},
+		"dashyellow":			 {"simpleFunction":{"led1":1}, "off":"dashyellow_off", "on":"dashyellow_on"},
+		"dashred":				{"simpleFunction":{"led2":1}, "off":"dashred_off", "on":"dashred_on"},
+		"Astral_brakelight":	  {"simpleFunction":{"brake":0.6}, "off":"Astral_brakelight_off", "on":"Astral_brakelight_on", "on_intense":"Astral_brakelight_onIntense"}
+	},
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":false},
+		{"selfCollision":false},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Dashboard for Wheel--
 		{"group":["Astral_carbody"]},
 		{"nodeWeight":0.5},
@@ -1996,9 +1996,9 @@
 		{"selfCollision":true},
 		{"group":[""]}
 	],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear View--
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//mount to roof
@@ -2013,7 +2013,7 @@
 		["rm1", "a86"],
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ]
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	]
 }
 }

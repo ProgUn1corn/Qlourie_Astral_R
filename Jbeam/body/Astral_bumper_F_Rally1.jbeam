@@ -1,10 +1,10 @@
 {
 "Astral_bumper_F_Rally1": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rally1 Front Bumper",
-        "value":5500
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"Rally1 Front Bumper",
+		"value":5500
+	},
 	"slotType" : "Astral_bumper_F",
 	"slots":[
 		["type", "default", "description"],
@@ -12,20 +12,20 @@
 		["Astral_grille_Rally1","Astral_grille_Rally1","Front Grille"],
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_bumper_F_Rally1", ["Astral_bumper_F"]],
 		["Astral_bumper_indicator", ["Astral_bumper_F"]],
 		["$=$components.lights.rallylight_Rally1", ["Astral_bumper_F"]],
 		["Astral_logo", ["Astral_bumper_F"]],
 		["Astral_brakeduct_Rally1", ["Astral_bumper_F"]],
 		["Astral_lipsplitter_Rally1", ["Astral_lips"]]
-    ],
-	"nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.6},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_PLASTIC"},
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.6},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_PLASTIC"},
 		//--Front Bumper and Fender--
 		//bumper
 		{"nodeWeight":0.18},
@@ -80,16 +80,16 @@
 		["fbr1l",  0.416, -1.5, 0.486],
 		{"collision":true},
 		{"selfCollision":true}
-    ],
-	"beams": [   
-		["id1:", "id2:"], 
+	],
+	"beams": [
+		["id1:", "id2:"],
 		{"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Front Bumper--
 		//Bumper
 		//bumper shape
 		{"beamSpring":85000,"beamDamp":10},
-        {"beamDeform":5500,"beamStrength":"FLT_MAX"},
+		{"beamDeform":5500,"beamStrength":"FLT_MAX"},
 		{"breakGroup":""},
 		["fb1r", "fb1"],
 		["fb4r", "fb1r"],
@@ -222,7 +222,7 @@
 		["sp7l", "sp7r"]
 		["sp3m", "sp5l"]
 		//rigidifier
-        {"beamSpring":80100,"beamDamp":10},
+		{"beamSpring":80100,"beamDamp":10},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["fbr1r", "fbr1l"],
 		["fbr1r", "fb1"],
@@ -252,7 +252,7 @@
 		//Attach
 		//bumper side attach
 		{"beamSpring":65000,"beamDamp":20},
-        {"beamDeform":3000,"beamStrength":3550},
+		{"beamDeform":3000,"beamStrength":3550},
 		{"breakGroup":"fbr"},
 		["fb1", "a88"],
 		["fb1r", "br1r"],
@@ -354,9 +354,9 @@
 		["fbr1l", "sp3m"],
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":0.9, "beamType":"|SUPPORT", "beamLongBound":2},
-        {"beamSpring":101000,"beamDamp":150},
-        {"beamDeform":65500,"beamStrength":65500},
+		{"beamPrecompression":0.9, "beamType":"|SUPPORT", "beamLongBound":2},
+		{"beamSpring":101000,"beamDamp":150},
+		{"beamDeform":65500,"beamStrength":65500},
 		["fb5", "a25"],
 		["fb2r", "a25"],
 		["fb7r", "a88"],
@@ -398,10 +398,10 @@
 		{"breakGroup":""},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ],
-    "triangles": [   
-		["id1:", "id2:", "id3:"], 
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+	"triangles": [
+		["id1:", "id2:", "id3:"],
 		{"groundModel":"plastic"},
 		//--Front Bumper and Fender--
 		//bumper
@@ -463,26 +463,26 @@
 		["sp4l", "sp5l", "sp6l"],
 		{"dragCoef":0},
 		{"liftCoef":"","stallAngle":""}
-    ]
+	]
 },
 "Astral_grille_Rally1": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rally1 Grilie",
-        "value":5500
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"Rally1 Grilie",
+		"value":5500
+	},
 	"slotType" : "Astral_grille_Rally1",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_grilleframe_Rally1", ["Astral_bumper_F"]],
 		["Astral_grille_Rally1", ["Astral_bumper_F"]],
-		["$=$components.brakes.ductMesh", ["Astral_duct_F"], [], {"pos":{"x":-0.80, "y":"$=$components.brakes.ductPosY", "z":"$=$components.brakes.ductPosZ"}, "scale":{"x":1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
-        ["$=$components.brakes.ductMesh", ["Astral_duct_F"], [], {"pos":{"x": 0.80, "y":"$=$components.brakes.ductPosY", "z":"$=$components.brakes.ductPosZ"}, "scale":{"x":-1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}], 
-    ],
+		["$=$components.brakes.ductMesh", ["Astral_duct_F"], [], {"pos":{"x":-0.80, "y":"$=$components.brakes.ductPosY", "z":"$=$components.brakes.ductPosZ"}, "scale":{"x":1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}],
+		["$=$components.brakes.ductMesh", ["Astral_duct_F"], [], {"pos":{"x": 0.80, "y":"$=$components.brakes.ductPosY", "z":"$=$components.brakes.ductPosZ"}, "scale":{"x":-1,  "y":1.0,  "z":1.0}, "rot":{"x":0, "y":0, "z":0}}],
+	],
 	"components": {
-    	"brakes":{
-        	"brakeVentingCoef_F":1.92,
-    	},
+		"brakes":{
+			"brakeVentingCoef_F":1.92,
+		},
 		"engine":{
 			"radiatorAreaOffset":0,
 			"radiatorEffectivenessOffset":0,

@@ -1,25 +1,25 @@
 {
 "Astral_diffuser": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"WRC+ Diffuser",
-        "value":10000
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"WRC+ Diffuser",
+		"value":10000
+	},
 	"slotType" : "Astral_diffuser",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_diffuser", ["Astral_diffuser"]],
 		["Astral_diffuser_fin", ["Astral_diffuser"]],
 		["Astral_diffuser_fin_add", ["Astral_guard_R"]],
-    ],
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Rear underplate and diffuser--
-        //diffuser
+		//diffuser
 		{"nodeWeight":0.15},
 		{"group":["Astral_diffuser"]},
 		["df1r", -0.649, 1.944, 0.098],
@@ -32,11 +32,11 @@
 		{"nodeWeight":0.3},
 		["dfr", 0, 1.615, 0.255, {"selfCollision":false}],
 		{"group":[""]}
-    ],
-	"beams": [   
-		["id1:", "id2:"], 
-		
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	],
+	"beams": [
+		["id1:", "id2:"],
+
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Diffuser--
 		//diffuser end
 		{"beamSpring":95000,"beamDamp":6},
@@ -109,9 +109,9 @@
 		{"breakGroupType":0},
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":0.95, "beamType":"|SUPPORT", "beamLongBound":1.5},
-        {"beamSpring":101000,"beamDamp":30},
-        {"beamDeform":10000,"beamStrength":125000},
+		{"beamPrecompression":0.95, "beamType":"|SUPPORT", "beamLongBound":1.5},
+		{"beamSpring":101000,"beamDamp":30},
+		{"beamDeform":10000,"beamStrength":125000},
 		["df1r", "rb6r"],
 		["df1r", "rb3r"],
 		["df2r", "rb1r"],
@@ -121,14 +121,14 @@
 		["df2l", "rb1l"],
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ],
-    "triangles": [   
-		["id1:", "id2:", "id3:"], 
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+	"triangles": [
+		["id1:", "id2:", "id3:"],
 		{"groundModel":"metal"},
 		//--Diffuser Collision--
 		//vertical
-	    {"dragCoef":0},
+		{"dragCoef":0},
 		["df3r", "df2r", "df1r"],
 		["df2r", "df3r", "df3l"],
 		//*

@@ -1,10 +1,10 @@
 {
 "Astral_bumper_R_BRC": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"WRC+ Rear Bumper",
-        "value":640
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"WRC+ Rear Bumper",
+		"value":640
+	},
 	"slotType" : "Astral_bumper_R",
 	"slots":[
 		["type", "default", "description"],
@@ -13,15 +13,15 @@
 		["Astral_flap_R","","Rear Mud Flap"],
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_bumper_R_BRC", ["Astral_bumper_R"]],
-    ],
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.8},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_PLASTIC"},
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.8},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_PLASTIC"},
 		//--Rear Bumper--
 		//bumper
 		{"nodeWeight":0.2},
@@ -61,15 +61,15 @@
 		["rbr1l",  0.516, 1.54, 0.396],
 		{"collision":true},
 		{"selfCollision":true}
-    ],
-	"beams": [   
-		["id1:", "id2:"], 
+	],
+	"beams": [
+		["id1:", "id2:"],
 		{"deformLimitExpansion":1.2},
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Rear Bumper--
 		//bumper shape
 		{"beamSpring":85000,"beamDamp":10},
-        {"beamDeform":4000,"beamStrength":6500},
+		{"beamDeform":4000,"beamStrength":6500},
 		["rb1r", "rb1"],
 		["rb4r", "rb1r"],
 		["rb2r", "rb3r"],
@@ -179,7 +179,7 @@
 		{"breakGroup":""},
 		{"breakGroupType":0},
 		//rigidifier
-        {"beamSpring":80100,"beamDamp":20},
+		{"beamSpring":80100,"beamDamp":20},
 		{"beamDeform":6500,"beamStrength":"FLT_MAX"},
 		["rbr1r", "rbr1l"],
 		["rbr1r", "rb1"],
@@ -208,7 +208,7 @@
 		["rbr1l", "rbe3l"],
 		//bumper side attach
 		{"beamSpring":65000,"beamDamp":15},
-        {"beamDeform":3500,"beamStrength":3800},
+		{"beamDeform":3500,"beamStrength":3800},
 		{"breakGroup":"rbr"},
 		["rb4r", "a37"],
 		["rb4r", "a32"],
@@ -251,14 +251,14 @@
 		["rb1l", "a35"],
 		["rb1l", "a34"],
 		["rb1l", "a68"],
-		["rb1l", "chs1l"],	
+		["rb1l", "chs1l"],
 		["rb5", "a38"],
-		["rb1", "a68"],	
+		["rb1", "a68"],
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":1.5},
-        {"beamSpring":101000,"beamDamp":30},
-        {"beamDeform":10000,"beamStrength":125000},
+		{"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":1.5},
+		{"beamSpring":101000,"beamDamp":30},
+		{"beamDeform":10000,"beamStrength":125000},
 		["rb5", "a33"],
 		["rb6r", "a33"],
 		["rb7r", "a37"],
@@ -276,10 +276,10 @@
 		["rb3l", "rb2r"],
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ],
-    "triangles": [   
-		["id1:", "id2:", "id3:"], 
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+	"triangles": [
+		["id1:", "id2:", "id3:"],
 		{"groundModel":"plastic"},
 		//--Rear Bumper and Fender--
 		//bumper
@@ -317,51 +317,51 @@
 		["re4l", "rbe1l", "re1l"],
 		{"dragCoef":0},
 		{"liftCoef":"","stallAngle":""}
-    ]
+	]
 	"components": {
-    	"bumpers":{
+		"bumpers":{
 			"rearflap":"Astral_flap_R_cut",
-    	},
+		},
 	}
 },
 "Astral_louver": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Louver",
-        "value":640
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"Louver",
+		"value":640
+	},
 	"slotType" : "Astral_louver",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_bumper_R_BRC_louver", ["Astral_bumper_R"]],
 		["Astral_bumper_R_BRC_louver_shell", ["Astral_bumper_R"]],
-    ],
+	],
 },
 "Astral_louver_vo1": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Louver VO1",
-        "value":640
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"Louver VO1",
+		"value":640
+	},
 	"slotType" : "Astral_louver",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_bumper_R_BRC_louver_vo1", ["Astral_bumper_R"]],
 		["Astral_bumper_R_BRC_louver_shell", ["Astral_bumper_R"]],
-    ],
+	],
 },
 "Astral_louver_vo2": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Louver VO2",
-        "value":640
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"Louver VO2",
+		"value":640
+	},
 	"slotType" : "Astral_louver",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_bumper_R_BRC_louver", ["Astral_bumper_R"]],
 		["Astral_bumper_R_BRC_louver_vo2", ["Astral_bumper_R"]],
 		["Astral_bumper_R_BRC_louver_shell", ["Astral_bumper_R"]],
-    ],
+	],
 },
 }

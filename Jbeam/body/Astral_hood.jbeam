@@ -1,63 +1,63 @@
 {
 "Astral_hood_BRC": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"WRC+ Hood Panel",
-        "value":640
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"WRC+ Hood Panel",
+		"value":640
+	},
 	"slotType" : "Astral_hood",
 	"slots":[
 		["type", "default", "description"],
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_hood_BRC", ["Astral_hood"]],
 		["Astral_hoodhinge", ["Astral_hood"]]
-    ],
+	],
 	"controller": [
-        ["fileName"],
-        ["advancedCouplerControl", {"name":"hoodCoupler"}],
-    ]
-    "hoodCoupler":{
-        "groupType": "autoCoupling",
-        "couplerNodes":[
-            ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
-			["hl3r",      "hd5r",        10500,                     0.01,                   0.005,                      0.1,                 0.01,                  "hlr1"]
-			["hl3l",      "hd5l",        10500,                     0.01,                   0.005,                      0.1,                 0.01,                  "hll1"]
-        ]
-        "attachSoundVolume":1,
-        "detachSoundVolume":1,
-        "soundNode:":["a94"]
-        "attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
-        "detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
-        "breakSoundEvent":""
-        "openForceMagnitude": 5,
-        "openForceDuration": 0.5,
-        "closeForceMagnitude": 20,
-        "closeForceDuration": 1.0,
-    },
+		["fileName"],
+		["advancedCouplerControl", {"name":"hoodCoupler"}],
+	]
+	"hoodCoupler":{
+		"groupType": "autoCoupling",
+		"couplerNodes":[
+			["cid1",	"cid2",	 "autoCouplingStrength",	"autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
+			["hl3r",	  "hd5r",		10500,					 0.01,				   0.005,					  0.1,				 0.01,				  "hlr1"]
+			["hl3l",	  "hd5l",		10500,					 0.01,				   0.005,					  0.1,				 0.01,				  "hll1"]
+		]
+		"attachSoundVolume":1,
+		"detachSoundVolume":1,
+		"soundNode:":["a94"]
+		"attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
+		"detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
+		"breakSoundEvent":""
+		"openForceMagnitude": 5,
+		"openForceDuration": 0.5,
+		"closeForceMagnitude": 20,
+		"closeForceDuration": 1.0,
+	},
 	"triggers":[
-        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
-        ["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
+		["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+		["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
 		["hood_L", "", "hd5l","hd5r","hd4l", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":0.03}]
 		["hood_int", "", "hd5r","hd5l","hd4r", "box", {"x":0.15, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.22, "y":0, "z":0}],
-    ],
-    "triggerEventLinks":[
-        ["triggerId:triggers", "action", "targetEventId:events"],
-        ["hood_R", "action0", "hoodLatch"],
+	],
+	"triggerEventLinks":[
+		["triggerId:triggers", "action", "targetEventId:events"],
+		["hood_R", "action0", "hoodLatch"],
 		["hood_L", "action0", "hoodLatch"],
 		["hood_int", "action0", "hoodLatch"],
-    ],
+	],
 	"events":[
-        ["id", "title", "desc"],
-        ["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
-    ],
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
+		["id", "title", "desc"],
+		["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Hood--
 		//hood
 		{"nodeWeight":0.4},
@@ -79,10 +79,10 @@
 		{"nodeWeight":0.8},
 		{"group":[""]},
 		["hd1", 0, -1.4, 0.529,{"selfCollision":false}]
-    ],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Hood--
 		//main shape
 		{"beamSpring":201000,"beamDamp":40},
@@ -185,15 +185,15 @@
 		//hood strut
 		{"beamPrecompression":1, "beamType":"|PRESSURED"},
 		{"beamSpring":5,"beamDamp":50},
-        {"beamDeform":15500,"beamStrength":25500},
+		{"beamDeform":15500,"beamStrength":25500},
 		{"breakGroup":"hood"},
 		//["hd4r", "a53", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
-        //["hd4l", "a54", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
+		//["hd4l", "a54", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":6},
-        {"beamSpring":250100,"beamDamp":50},
-        {"beamDeform":115000,"beamStrength":145000},
+		{"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":6},
+		{"beamSpring":250100,"beamDamp":50},
+		{"beamDeform":115000,"beamStrength":145000},
 		["hd5r", "a25"],
 		["hd5l", "a26"],
 		//["hd3r", "br1r"],
@@ -215,10 +215,10 @@
 		{"breakGroup":""},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ],
-    "triangles": [   
-		["id1:", "id2:", "id3:"], 
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+	"triangles": [
+		["id1:", "id2:", "id3:"],
 		{"groundModel":"metal"},
 		//--Hood--
 		//hood
@@ -241,67 +241,67 @@
 		["hd4l", "hd5", "hd5l"],
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
-    ]
-}, 
+	]
+},
 "Astral_hood_Rally2": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rally2 Hood Panel",
-        "value":640
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"Rally2 Hood Panel",
+		"value":640
+	},
 	"slotType" : "Astral_hood",
 	"slots":[
 		["type", "default", "description"],
 	],
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_hood_Rally2", ["Astral_hood"]],
 		["Astral_hoodhinge", ["Astral_hood"]]
-    ],
+	],
 	"controller": [
-        ["fileName"],
-        ["advancedCouplerControl", {"name":"hoodCoupler"}],
-    ]
-    "hoodCoupler":{
-        "groupType": "autoCoupling",
-        "couplerNodes":[
-            ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
-			["hl3r",      "hd5r",        10500,                     0.01,                   0.005,                      0.1,                 0.01,                  "hlr1"]
-			["hl3l",      "hd5l",        10500,                     0.01,                   0.005,                      0.1,                 0.01,                  "hll1"]
-        ]
-        "attachSoundVolume":1,
-        "detachSoundVolume":1,
-        "soundNode:":["a94"]
-        "attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
-        "detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
-        "breakSoundEvent":""
-        "openForceMagnitude": 5,
-        "openForceDuration": 0.5,
-        "closeForceMagnitude": 20,
-        "closeForceDuration": 1.0,
-    },
+		["fileName"],
+		["advancedCouplerControl", {"name":"hoodCoupler"}],
+	]
+	"hoodCoupler":{
+		"groupType": "autoCoupling",
+		"couplerNodes":[
+			["cid1",	"cid2",	 "autoCouplingStrength",	"autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
+			["hl3r",	  "hd5r",		10500,					 0.01,				   0.005,					  0.1,				 0.01,				  "hlr1"]
+			["hl3l",	  "hd5l",		10500,					 0.01,				   0.005,					  0.1,				 0.01,				  "hll1"]
+		]
+		"attachSoundVolume":1,
+		"detachSoundVolume":1,
+		"soundNode:":["a94"]
+		"attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
+		"detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
+		"breakSoundEvent":""
+		"openForceMagnitude": 5,
+		"openForceDuration": 0.5,
+		"closeForceMagnitude": 20,
+		"closeForceDuration": 1.0,
+	},
 	"triggers":[
-        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
-        ["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
+		["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+		["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
 		["hood_L", "", "hd5l","hd5r","hd4l", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":0.03}]
 		["hood_int", "", "hd5r","hd5l","hd4r", "box", {"x":0.15, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.22, "y":0, "z":0}],
-    ],
-    "triggerEventLinks":[
-        ["triggerId:triggers", "action", "targetEventId:events"],
-        ["hood_R", "action0", "hoodLatch"],
+	],
+	"triggerEventLinks":[
+		["triggerId:triggers", "action", "targetEventId:events"],
+		["hood_R", "action0", "hoodLatch"],
 		["hood_L", "action0", "hoodLatch"],
 		["hood_int", "action0", "hoodLatch"],
-    ],
-    "events":[
-        ["id", "title", "desc"],
-        ["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
-    ],
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
+	],
+	"events":[
+		["id", "title", "desc"],
+		["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Hood--
 		//hood
 		{"nodeWeight":0.4},
@@ -323,10 +323,10 @@
 		{"nodeWeight":0.8},
 		{"group":[""]},
 		["hd1", 0, -1.4, 0.529,{"selfCollision":false}]
-    ],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Hood--
 		//main shape
 		{"beamSpring":201000,"beamDamp":40},
@@ -429,15 +429,15 @@
 		//hood strut
 		{"beamPrecompression":1, "beamType":"|PRESSURED"},
 		{"beamSpring":5,"beamDamp":50},
-        {"beamDeform":15500,"beamStrength":25500},
+		{"beamDeform":15500,"beamStrength":25500},
 		{"breakGroup":"hood"},
 		//["hd4r", "a53", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
-        //["hd4l", "a54", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
+		//["hd4l", "a54", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":6},
-        {"beamSpring":250100,"beamDamp":50},
-        {"beamDeform":115000,"beamStrength":145000},
+		{"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":6},
+		{"beamSpring":250100,"beamDamp":50},
+		{"beamDeform":115000,"beamStrength":145000},
 		["hd5r", "a25"],
 		["hd5l", "a26"],
 		["hd3r", "br1r"],
@@ -459,10 +459,10 @@
 		{"breakGroup":""},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ],
-    "triangles": [   
-		["id1:", "id2:", "id3:"], 
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+	"triangles": [
+		["id1:", "id2:", "id3:"],
 		{"groundModel":"metal"},
 		//--Hood--
 		//hood
@@ -485,64 +485,64 @@
 		["hd4l", "hd5", "hd5l"],
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
-    ]
+	]
 },
 "Astral_hood_RX1": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"RX1 Hood Panel",
-        "value":640
-    },
+	"information":{
+		"authors":"Un1corn",
+		"name":"RX1 Hood Panel",
+		"value":640
+	},
 	"slotType" : "Astral_hood",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
+		["mesh", "[group]:", "nonFlexMaterials"],
 		["Astral_hood_RX", ["Astral_hood"]],
 		["Astral_hoodhinge", ["Astral_hood"]]
-    ],
+	],
 	"controller": [
-        ["fileName"],
-        ["advancedCouplerControl", {"name":"hoodCoupler"}],
-    ]
-    "hoodCoupler":{
-        "groupType": "autoCoupling",
-        "couplerNodes":[
-            ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
-			["hl3r",      "hd5r",        10500,                     0.01,                   0.005,                      0.1,                 0.01,                  "hlr1"]
-			["hl3l",      "hd5l",        10500,                     0.01,                   0.005,                      0.1,                 0.01,                  "hll1"]
-        ]
-        "attachSoundVolume":1,
-        "detachSoundVolume":1,
-        "soundNode:":["a94"]
-        "attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
-        "detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
-        "breakSoundEvent":""
-        "openForceMagnitude": 5,
-        "openForceDuration": 0.5,
-        "closeForceMagnitude": 20,
-        "closeForceDuration": 1.0,
-    },
+		["fileName"],
+		["advancedCouplerControl", {"name":"hoodCoupler"}],
+	]
+	"hoodCoupler":{
+		"groupType": "autoCoupling",
+		"couplerNodes":[
+			["cid1",	"cid2",	 "autoCouplingStrength",	"autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
+			["hl3r",	  "hd5r",		10500,					 0.01,				   0.005,					  0.1,				 0.01,				  "hlr1"]
+			["hl3l",	  "hd5l",		10500,					 0.01,				   0.005,					  0.1,				 0.01,				  "hll1"]
+		]
+		"attachSoundVolume":1,
+		"detachSoundVolume":1,
+		"soundNode:":["a94"]
+		"attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close"
+		"detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
+		"breakSoundEvent":""
+		"openForceMagnitude": 5,
+		"openForceDuration": 0.5,
+		"closeForceMagnitude": 20,
+		"closeForceDuration": 1.0,
+	},
 	"triggers":[
-        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
-        ["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
+		["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+		["hood_R", "", "hd5r","hd5l","hd4r", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":-0.08}],
 		["hood_L", "", "hd5l","hd5r","hd4l", "box", {"x":0.05, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":-0.22, "y":0.18, "z":0.03}]
 		["hood_int", "", "hd5r","hd5l","hd4r", "box", {"x":0.15, "y":0.05, "z":0.05}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.22, "y":0, "z":0}],
-    ],
-    "triggerEventLinks":[
-        ["triggerId:triggers", "action", "targetEventId:events"],
-        ["hood_R", "action0", "hoodLatch"],
+	],
+	"triggerEventLinks":[
+		["triggerId:triggers", "action", "targetEventId:events"],
+		["hood_R", "action0", "hoodLatch"],
 		["hood_L", "action0", "hoodLatch"],
 		["hood_int", "action0", "hoodLatch"],
-    ],
+	],
 	"events":[
-        ["id", "title", "desc"],
-        ["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
-    ],
-    "nodes": [       
-        ["id", "posX", "posY", "posZ"],
-        {"frictionCoef":0.5},
-        {"collision":true},
-        {"selfCollision":true},
-        {"nodeMaterial":"|NM_METAL"},
+		["id", "title", "desc"],
+		["hoodLatch", "Hood Latch", "Open hood", {"onUp":"controller.getControllerSafe('hoodCoupler').toggleGroup()"}],
+	],
+	"nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"collision":true},
+		{"selfCollision":true},
+		{"nodeMaterial":"|NM_METAL"},
 		//--Hood--
 		//hood
 		{"nodeWeight":0.4},
@@ -564,10 +564,10 @@
 		{"nodeWeight":0.8},
 		{"group":[""]},
 		["hd1", 0, -1.4, 0.529,{"selfCollision":false}]
-    ],
-	"beams": [   
-		["id1:", "id2:"], 
-        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+	],
+	"beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Hood--
 		//main shape
 		{"beamSpring":201000,"beamDamp":40},
@@ -670,15 +670,15 @@
 		//hood strut
 		{"beamPrecompression":1, "beamType":"|PRESSURED"},
 		{"beamSpring":5,"beamDamp":50},
-        {"beamDeform":15500,"beamStrength":25500},
+		{"beamDeform":15500,"beamStrength":25500},
 		{"breakGroup":"hood"},
 		//["hd4r", "a53", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
-        //["hd4l", "a54", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
+		//["hd4l", "a54", {"pressurePSI":90,"surface":0.00007854,"volumeCoef":0.01}],
 		{"breakGroup":""},
 		//limiters
-        {"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":6},
-        {"beamSpring":250100,"beamDamp":50},
-        {"beamDeform":115000,"beamStrength":145000},
+		{"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":6},
+		{"beamSpring":250100,"beamDamp":50},
+		{"beamDeform":115000,"beamStrength":145000},
 		["hd5r", "a25"],
 		["hd5l", "a26"],
 		["hd3r", "br1r"],
@@ -700,10 +700,10 @@
 		{"breakGroup":""},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
-    ],
-    "triangles": [   
-		["id1:", "id2:", "id3:"], 
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+	],
+	"triangles": [
+		["id1:", "id2:", "id3:"],
 		{"groundModel":"metal"},
 		//--Hood--
 		//hood
@@ -726,6 +726,6 @@
 		["hd4l", "hd5", "hd5l"],
 		{"dragCoef":0},
 		{"liftCoef":0,"stallAngle":0}
-    ]
+	]
 },
 }
