@@ -23,14 +23,14 @@
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "diff_R", "driveShaft", 1, {"deformGroups":["differential_R"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_R*(1+($frictionFace_R-6)*0.048)", "lsdLockCoef":"$=$components.diff.rlock", "lsdRevLockCoef":"$=$components.diff.rrevlock", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
+		//["differential", "diff_R", "driveShaft", 1, {"deformGroups":["differential_R"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_R*(1+($frictionFace_R-6)*0.048)", "lsdLockCoef":"$=$components.diff.rlock", "lsdRevLockCoef":"$=$components.diff.rrevlock", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
 	],
 	"diff_R": {
-        "friction": 3.01,
-        "dynamicFriction": 0.00124,
-        "torqueLossCoef": 0.0256,
-    },
-	"nodes": [       
+		"friction": 3.01,
+		"dynamicFriction": 0.00124,
+		"torqueLossCoef": 0.0256,
+	},
+	"nodes": [
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
 		{"nodeMaterial":"|NM_METAL"},
@@ -55,7 +55,7 @@
 		["rtral","rtrar"],
 		["rtral","rtra"],
 		["rtrar","rtra"],
-		
+
 		//mount to chassis
 		{"beamSpring":2501000,"beamDamp":250},
 		{"optional":true}
@@ -92,7 +92,7 @@
 		{"optional":false}
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
 	],
 },
 "Astral_ramp_R_3885": {
@@ -102,10 +102,10 @@
 	},
 	"slotType" : "Astral_ramp_R",
 	"components": {
-    	"diff":{ //35, 8+8 as 100% in relavent, about 65% lock
-        	"rlock":"$=(1/tan(38*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)", 
+		"diff":{ //35, 8+8 as 100% in relavent, about 65% lock
+			"rlock":"$=(1/tan(38*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)",
 			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)"
-    	},
+		},
 	}
 },
 "Astral_ramp_R_4485": {
@@ -115,10 +115,10 @@
 	},
 	"slotType" : "Astral_ramp_R",
 	"components": {
-    	"diff":{ //35, 8+8 as 100% in relavent, about 65% lock
-        	"rlock":"$=(1/tan(44*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)", 
+		"diff":{ //35, 8+8 as 100% in relavent, about 65% lock
+			"rlock":"$=(1/tan(44*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)",
 			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)"
-    	},
+		},
 	}
 },
 "Astral_ramp_R_5085": {
@@ -128,10 +128,10 @@
 	},
 	"slotType" : "Astral_ramp_R",
 	"components": {
-    	"diff":{ //35, 8+8 as 100% in relavent, about 65% lock
-        	"rlock":"$=(1/tan(50*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)",   
+		"diff":{ //35, 8+8 as 100% in relavent, about 65% lock
+			"rlock":"$=(1/tan(50*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)",
 			"rrevlock":"$=(1/tan(85*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_R-8)*0.0947)"
-    	},
+		},
 	}
 },
 "Astral_ramp_R_d": {
@@ -147,49 +147,49 @@
 		["$coastRamp_R", "range", "Degrees", "Differentials", 90, 50, 90, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Rear"}]
 	],
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"flock":"$=(1/tan($powerRamp_R*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
-			"frevlock":"$=(1/tan($coastRamp_R*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
-    	},
+		"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+			"flock":"$=(1/tan($powerRamp_R*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+			"frevlock":"$=(1/tan($coastRamp_R*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+		},
 	}
 },
 "Astral_driveshaft": {
-    "information":{
-        "authors":"Un1corn",
-        "name":"Rear Driveshaft",
-        "value":150,
-    },
-    "slotType" : "Astral_driveshaft",
+	"information":{
+		"authors":"Un1corn",
+		"name":"Rear Driveshaft",
+		"value":150,
+	},
+	"slotType" : "Astral_driveshaft",
 	"flexbodies": [
-        ["mesh", "[group]:", "nonFlexMaterials"],
-        ["Astral_shaft", ["Astral_transfercase","Astral_chassis"]],
-    ],
-    "powertrain" : [
-        ["type", "name", "inputName", "inputIndex"],
-        ["torsionReactor", "torsionReactorR", "transferCase", 1, {}],
-        ["shaft", "driveShaft", "torsionReactorR", 1, {"deformGroup":"driveshaft", "breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":0.25, "dynamicFriction":0.003}],
-    ],
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["Astral_shaft", ["Astral_transfercase","Astral_chassis"]],
+	],
+	"powertrain" : [
+		["type", "name", "inputName", "inputIndex"],
+		//["torsionReactor", "torsionReactorR", "transferCase", 1, {}],
+		//["shaft", "driveShaft", "torsionReactorR", 1, {"deformGroup":"driveshaft", "breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":0.25, "dynamicFriction":0.003}],
+	],
 	"torsionReactorR": {
-        "torqueReactionNodes:":["eg0","eg3","eg5"],
-    }
+		"torqueReactionNodes:":["eg0","eg3","eg5"],
+	}
 	"beams": [
 		["id1:", "id2:"],
 		{"beamPrecompression":1, "beamType":"|BOUNDED"}	,
 		//--Driveshaft--
 		{"beamLongBound":0.007,"beamShortBound":0.007},
-        {"beamSpring":0,"beamDamp":50},
-        {"beamLimitSpring":10501000,"beamLimitDamp":250},
+		{"beamSpring":0,"beamDamp":50},
+		{"beamLimitSpring":10501000,"beamLimitDamp":250},
 		{"beamDeform":4500,"beamStrength":8500},
 		["tra","rtra", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
 		{"beamLongBound":0.01, "beamShortBound":0.01},
-        {"beamLimitSpring":8501000,"beamLimitDamp":250},
+		{"beamLimitSpring":8501000,"beamLimitDamp":250},
 		["tra","rtrar", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
 		["tra","rtral", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
 		{"dampCutoffHz":""},
 		{"optional":false}
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
 	],
 },
 "Astral_halfshafts_R": {
@@ -200,8 +200,8 @@
 	"slotType" : "Astral_halfshafts_R",
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["shaft", "wheelaxleRL", "diff_R", 1, {"deformGroups":["wheelaxleRL"], "breakTriggerBeam":"halfshaft_RL", "uiName":"Rear Left Halfshaft", "friction":1.41, "dynamicFriction":0.003}],
-		["shaft", "wheelaxleRR", "diff_R", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.41, "dynamicFriction":0.003}]
+		//["shaft", "wheelaxleRL", "diff_R", 1, {"deformGroups":["wheelaxleRL"], "breakTriggerBeam":"halfshaft_RL", "uiName":"Rear Left Halfshaft", "friction":1.41, "dynamicFriction":0.003}],
+		//["shaft", "wheelaxleRR", "diff_R", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.41, "dynamicFriction":0.003}]
 	],
 		"beams": [
 		["id1:", "id2:"],
@@ -216,7 +216,7 @@
 		["rw1l","rtral", {"name":"halfshaft_RL", "breakGroup":"wheel_RL", "breakGroupType":1, "deformGroup":"wheelaxleRL", "deformationTriggerRatio":0.001, "optional":true}],
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
 	],
 },
 "Astral_finaldrive_R_4.43": {

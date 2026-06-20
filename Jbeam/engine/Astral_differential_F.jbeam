@@ -18,17 +18,17 @@
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["torsionReactor", "torsionReactorF", "transferCase", 2],
-		["differential", "diff_F", "torsionReactorF", 1, {"deformGroups":["gearbox"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_F*(1+($frictionFace_F-6)*0.048)", "lsdLockCoef":"$=$components.diff.flock", "lsdRevLockCoef":"$=$components.diff.frevlock", "uiName":"Front Differential", "defaultVirtualInertia":0.25}]
+		["torsionReactor", "torsionReactorF", "transfercase", 2],
+		["differential", "differential_F", "torsionReactorF", 1, {"diffType":"lsd", "gearRatio":1, "lsdPreload":"$=$lsdpreload_F*(1+($frictionFace_F-6)*0.048)", "lsdLockCoef":"$=$components.diff.flock", "lsdRevLockCoef":"$=$components.diff.frevlock", "uiName":"Front Differential","defaultVirtualInertia":0.25}],
 	]
-	"diff_F": {
-        "friction": 2.94,
-        "dynamicFriction": 0.000947,
-        "torqueLossCoef": 0.0196,
-    },
-    "torsionReactorF": {
-        "torqueReactionNodes:":["eg1","eg0","eg4"],
-    }
+	"differential_F": {
+		"friction": 2.94,
+		"dynamicFriction": 0.000947,
+		"torqueLossCoef": 0.0196,
+	},
+	"torsionReactorF": {
+		"torqueReactionNodes:":["eg1","eg0","eg4"],
+	}
 },
 "Astral_ramp_F_4672": {
 	"information":{
@@ -41,10 +41,10 @@
 		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
 	],
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"flock":"$=(1/tan(46*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
+		"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+			"flock":"$=(1/tan(46*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
 			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)"
-    	},
+		},
 	}
 },
 "Astral_ramp_F_5072": {
@@ -58,10 +58,10 @@
 		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 72, 85, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":13, "subCategory":"Front"}]
 	],
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"flock":"$=(1/tan(50*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
-			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
-    	},
+		"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+			"flock":"$=(1/tan(50*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+		},
 	}
 },
 "Astral_ramp_F_6085": {
@@ -71,10 +71,10 @@
 	},
 	"slotType" : "Astral_ramp_F",
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"flock":"$=(1/tan(60*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",  
+		"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+			"flock":"$=(1/tan(60*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
 			"frevlock":"$=(1/tan(85*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)"
-    	},
+		},
 	}
 },
 "Astral_ramp_F_d": {
@@ -90,16 +90,16 @@
 		["$coastRamp_F", "range", "Degrees", "Differentials", 72, 50, 90, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Front"}]
 	],
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"flock":"$=(1/tan($powerRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
-			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
-    	},
+		"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+			"flock":"$=(1/tan($powerRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+			"frevlock":"$=(1/tan($coastRamp_F*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+		},
 	}
 },
 "Astral_halfshafts_F": {
 	"information":{
 		"name":"Front Halfshafts",
-		"value":500
+		"value":200
 	},
 	"slotType" : "Astral_halfshafts_F",
 	"beams": [
@@ -107,19 +107,19 @@
 		{"deformLimitExpansion":1.2},
 		//shaft
 		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.12, "beamShortBound":0.12},
-		{"beamSpring":0,"beamDamp":20,"beamDeform":9500,"beamStrength":18550},
+		{"beamSpring":0,"beamDamp":10,"beamDeform":9500,"beamStrength":18550},
 		{"beamLimitSpring":6501000,"beamLimitDamp":250},
 		["fw1r","ftrar", {"name":"halfshaft_FR", "breakGroup":"wheel_FR", "breakGroupType":1, "deformGroup":"wheelaxleFR", "deformationTriggerRatio":0.001, "optional":true}],
 		["fw1l","ftral", {"name":"halfshaft_FL", "breakGroup":"wheel_FL", "breakGroupType":1, "deformGroup":"wheelaxleFL", "deformationTriggerRatio":0.001, "optional":true}],
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["shaft", "wheelaxleFL", "diff_F", 1, {"deformGroups":["wheelaxleFL"], "breakTriggerBeam":"halfshaft_FL", "uiName":"Front Left Halfshaft", "friction":1.52, "dynamicFriction":0.0036}],
-		["shaft", "wheelaxleFR", "diff_F", 2, {"deformGroups":["wheelaxleFR"], "breakTriggerBeam":"halfshaft_FR", "uiName":"Front Right Halfshaft", "friction":1.52, "dynamicFriction":0.0036}],
-	]
+		["shaft", "wheelaxleFL", "differential_F", 1, {"deformGroups":["wheelaxleFL"], "breakTriggerBeam":"halfshaft_FL", "electricsName":"halfshaft_FL", "uiName":"Front Left Halfshaft","friction":1.52, "dynamicFriction":0.0032}],
+		["shaft", "wheelaxleFR", "differential_F", 2, {"deformGroups":["wheelaxleFR"], "breakTriggerBeam":"halfshaft_FR", "electricsName":"halfshaft_FR", "uiName":"Front Right Halfshaft", "friction":1.52, "dynamicFriction":0.0032}],
+	],
 },
 "Astral_finaldrive_F_4.43": {
 	"information":{
@@ -127,13 +127,13 @@
 		"value":1000
 	},
 	"slotType" : "Astral_finaldrive_F",
-	"torsionReactorF":{
+	"differential_F":{
 		"gearRatio": 4.43
 	}
 	"components": {
-    	"diff":{
-        	"finaldrive":4.43
-    	},
+		"diff":{
+			"finaldrive":4.43
+		},
 	}
 },
 "Astral_finaldrive_F_5.06": {
@@ -143,13 +143,13 @@
 		"isAuxiliary":true
 	},
 	"slotType" : "Astral_finaldrive_F",
-	"torsionReactorF":{
+	"differential_F":{
 		"gearRatio": 5.06
 	},
 	"components": {
-    	"diff":{
-        	"finaldrive":5.06
-    	},
+		"diff":{
+			"finaldrive":5.06
+		},
 	}
 },
 "Astral_finaldrive_F_3.99": {
@@ -158,13 +158,13 @@
 		"value":1000
 	},
 	"slotType" : "Astral_finaldrive_F",
-	"torsionReactorF":{
+	"differential_F":{
 		"gearRatio": 3.99
 	}
 	"components": {
-    	"diff":{
-        	"finaldrive":3.99
-    	},
+		"diff":{
+			"finaldrive":3.99
+		},
 	}
 },
 }

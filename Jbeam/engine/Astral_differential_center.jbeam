@@ -23,14 +23,14 @@
 		["$preload_C", "range", "Nm", "Differentials", 150, 0, 300, "Active Preload Torque", "The max torque that can be provided by the active system additional to input torque", {"minDis":0, "maxDis":300, "stepDis":6, "subCategory":"Active Map 1.Master"}],
 		["$coastStart", "range", "", "Differentials", 0.05, 0, 0.15, "Coast Map Threshold", "Max input percentage where coast map is still applied", {"minDis":0, "maxDis":15, "stepDis":1, "subCategory":"Active Map 1.Master"}],
 	],
-	"controller": [ 
-        ["fileName"],
-        ["eCenterDiff", {"name":"activeCenterDiff"}],
+	"controller": [
+		["fileName"],
+		["eCenterDiff", {"name":"activeCenterDiff"}],
 		//["driveModes", {"name":"centerLock"}],
-    ],
+	],
 	"activeCenterDiff":{
 		"type":"Active",
-		"transfercaseName":"transferCase",
+		"transfercaseName":"transfercase",
 		"lockMap":{
 			"minLock":"$minLock_C"
 			"lockThrottle":"$lockThrottle_C"
@@ -57,7 +57,7 @@
 				"name": "Center Lock 1",
 				"order": 1,
 				"settings": [
-					["type"],	
+					["type"],
 					["controller", {"controllerName":"eCenterDiff", "minLock":"1"}],
 					["simpleControlButton", {"buttonId":"throttle", "uiName":"Throttle Lock","icon":"powertrain_differential_open"}]
 				]
@@ -93,9 +93,9 @@
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":0, "lsdLockCoef":0.5, "lsdRevLockCoef":0.38, "diffTorqueSplit":0.5, "friction":0.50, "dynamicFriction":0.00032, "torqueLossCoef": 0.022, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]  //overridden by Lua
+		//["differential", "transfercase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":0, "lsdLockCoef":0.5, "lsdRevLockCoef":0.38, "diffTorqueSplit":0.5, "friction":0.50, "dynamicFriction":0.00032, "torqueLossCoef": 0.022, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]  //overridden by Lua
 	],
-	"nodes": [       
+	"nodes": [
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
 		{"nodeMaterial":"|NM_METAL"},
@@ -113,7 +113,7 @@
 		//--Transfer Case--
 		{"breakGroup":""}
 		{"beamSpring":8501000,"beamDamp":850},
-        {"beamDeform":35000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","eg0"],
 		["tra","eg1"],
@@ -126,7 +126,7 @@
 		{"deformGroup":"", "deformationTriggerRatio":0},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
 	],
 },
 "Astral_differential_center_m": {
@@ -146,13 +146,13 @@
 		["$frictionFace_C", "range", "Faces", "Differentials", 6, 4, 6, "Friction Face", "Adjust locking ratio with different number of pads", {"minDis":8, "maxDis":12, "stepDis":2, "subCategory":"Center"}]
 		["$hbRelease", "range", "", "Differentials", 0.4, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
-	"controller": [ 
-        ["fileName"],
-        ["eCenterDiff", {"name":"activeCenterDiff"}],
-    ],
-	"activeCenterDiff":{
+	"controller": [
+		["fileName"],
+		["eCenterDiff", {"name":"passiveCenterDiff"}],
+	],
+	"passiveCenterDiff":{
 		"type":"Passive",
-		"transfercaseName":"transferCase",
+		"transfercaseName":"transfercase",
 		"lockMap":{
 			"lock":"$=$components.diff.clock"
 			"revLock":"$=$components.diff.crevlock"
@@ -163,9 +163,9 @@
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["differential", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.048))", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.35, "dynamicFriction":0.00030, "torqueLossCoef": 0.020, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
+		//["differential", "transfercase", "gearbox", 1, {"deformGroups":["transfercase"], "diffType":"lsd", "lsdPreload":"$=($lsdpreload_C*(1+($frictionFace_C-6)*0.048))", "lsdLockCoef":"$=$components.diff.clock", "lsdRevLockCoef":"$=$components.diff.crevlock", "diffTorqueSplit":"$=$torquesplit", "friction":0.35, "dynamicFriction":0.00030, "torqueLossCoef": 0.020, "uiName":"Center Diff", "defaultVirtualInertia":0.25}]
 	],
-	"nodes": [       
+	"nodes": [
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
 		{"nodeMaterial":"|NM_METAL"},
@@ -183,7 +183,7 @@
 		//--Transfer Case--
 		{"breakGroup":""}
 		{"beamSpring":8501000,"beamDamp":650},
-        {"beamDeform":35000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","eg0"],
 		["tra","eg1"],
@@ -196,7 +196,7 @@
 		{"deformGroup":"", "deformationTriggerRatio":0},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
 	],
 },
 "Astral_ramp_C_4525": {
@@ -210,10 +210,10 @@
 		["$coastRamp_C", "range", "Degrees", "Differentials", 35, 25, 35, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":10, "subCategory":"Center"}]
 	],
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"clock":"$=(1/tan(54*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_C-8)*0.0947)", 
-			"crevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_C-8)*0.0947)" 
-    	},
+		"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+			"clock":"$=(1/tan(54*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_C-8)*0.0947)",
+			"crevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_C-8)*0.0947)"
+		},
 	}
 },
 "Astral_ramp_C_d": {
@@ -229,10 +229,10 @@
 		["$coastRamp_C", "range", "Degrees", "Differentials", 25, 25, 90, "Coast Ramp Angle", "Adjust coast side ramp coupled in the ramp set", {"stepDis":1, "subCategory":"Center"}]
 	],
 	"components": {
-    	"diff":{//35, 8+8 as 100% in relavent, about 65% lock
-        	"flock":"$=(1/tan($powerRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",              
-			"frevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)", 
-    	},
+		"diff":{//35, 8+8 as 100% in relavent, about 65% lock
+			"flock":"$=(1/tan($powerRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+			"frevlock":"$=(1/tan($coastRamp_C*pi/180))/(1/tan(35*pi/180))*0.325*(1+($frictionFace_F-8)*0.0947)",
+		},
 	}
 },
 "Astral_differential_center_locked": {
@@ -246,19 +246,19 @@
 		["$hbRelease", "range", "", "Differentials", 0.4, 0, 1, "Handbrake Release", "The handbrake thershold for disconnecting front and rear", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
 	],
 	"controller": [
-        ["fileName"],
-        ["eCenterDiff", {"name":"activeCenterDiff"}],
-    ],
-	"activeCenterDiff":{
+		["fileName"],
+		["eCenterDiff", {"name":"PEAL"}],
+	],
+	"PEAL":{
 		"type":"PEAL",
-		"transfercaseName":"transferCase",
+		"transfercaseName":"transfercase",
 		"hbRelease":"$hbRelease"
 	},
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["splitShaft", "transferCase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":2000, "lockDampRatio":0.165, "friction":0.20, "dynamicFriction":0.00028, "torqueLossCoef": 0.015, "uiName":"Transfer Case","defaultVirtualInertia":0.1}],
+		["splitShaft", "transfercase", "gearbox", 1, {"deformGroups":["transfercase"], "splitType":"locked", "primaryOutputID":2, "lockTorque":2000, "lockDampRatio":0.165, "friction":0.20, "dynamicFriction":0.00028, "torqueLossCoef": 0.015, "uiName":"Transfer Case","defaultVirtualInertia":0.1}],
 	],
-	"nodes": [       
+	"nodes": [
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
 		{"nodeMaterial":"|NM_METAL"},
@@ -276,7 +276,7 @@
 		//--Transfer Case--
 		{"breakGroup":""}
 		{"beamSpring":8501000,"beamDamp":450},
-        {"beamDeform":35000,"beamStrength":"FLT_MAX"},
+		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
 		{"deformGroup":"transfercase", "deformationTriggerRatio":0.001},
 		["tra","eg0"],
 		["tra","eg1"],
@@ -289,7 +289,7 @@
 		{"deformGroup":"", "deformationTriggerRatio":0},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
-        {"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
+		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
 	],
 },
 "Astral_differential_center_fwd": {
@@ -300,7 +300,7 @@
 	"slotType" : "Astral_transfercase",
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		["shaft", "transferCase", "gearbox", 1, {"deformGroups":["gearbox"], "outputPortOverride":[2], "friction":0.22, "dynamicFriction":0.00021, "uiName":"Front Output Shaft"}],
+		//["shaft", "transfercase", "gearbox", 1, {"deformGroups":["gearbox"], "outputPortOverride":[2], "friction":0.22, "dynamicFriction":0.00021, "uiName":"Front Output Shaft"}],
 	],
 },
 }
