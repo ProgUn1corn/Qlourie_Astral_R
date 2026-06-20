@@ -3,7 +3,7 @@
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 local M = {}
 M.type = "auxilliary"
-M.relevantDevice = "transferCase"
+M.relevantDevice = "transfercase"
 
 --math
 local abs = math.abs
@@ -11,7 +11,7 @@ local min = math.min
 local max = math.max
 local clamp = math.clamp
 
-local transferCase = nil
+local transfercase = nil
 local preload = 0
 
 --common values
@@ -53,7 +53,7 @@ local function updateFixedStep(dt)
   local handbrake = 0
   handbrake = electrics.values['parkingbrake_input'] or 0 
 
-  if transferCase and transferType == "Active" then 
+  if transfercase and transferType == "Active" then 
     --get input value
     throttle = electrics.values['throttle_input'] or 0
     brake = electrics.values['brake_input'] or 0
@@ -170,20 +170,20 @@ local function updateFixedStep(dt)
     --print(newLockCoef)
     --print(newPreload)
 
-    transferCase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
+    transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1
     local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
     clutchRatio = clamp(clutchRatio, 0, 1)
     
-    transferCase.lsdLockCoef = newLockCoef * 0.499 * clutchRatio
-    transferCase.lsdRevLockCoef = transferCase.lsdLockCoef
-    transferCase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
-    transferCase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
-    transferCase.lsdPreload = newPreload * clutchRatio
-    --print(transferCase.lsdLockCoef)
+    transfercase.lsdLockCoef = newLockCoef * 0.499 * clutchRatio
+    transfercase.lsdRevLockCoef = transfercase.lsdLockCoef
+    transfercase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
+    transfercase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
+    transfercase.lsdPreload = newPreload * clutchRatio
+    --print(transfercase.lsdLockCoef)
 
-  elseif transferCase and transferType == "Passive" then
-    transferCase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
+  elseif transfercase and transferType == "Passive" then
+    transfercase.speedLimitCoef = 0 -- WHY THIS IS NOT 0 BY DEFAULT?
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1
     local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
     local clutchOverride = clamp(1 - clutchRatio ^ 1.2, 0, 1)
@@ -196,19 +196,19 @@ local function updateFixedStep(dt)
       electrics.values.clutchOverride = nil
     end
 
-    transferCase.lsdLockCoef = maxLockCoef * clutchRatio
-    transferCase.lsdRevLockCoef = minLockCoef * clutchRatio
-    transferCase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
-    transferCase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
-    transferCase.lsdPreload = preload * clutchRatio
+    transfercase.lsdLockCoef = maxLockCoef * clutchRatio
+    transfercase.lsdRevLockCoef = minLockCoef * clutchRatio
+    transfercase.diffTorqueSplitA = lerp(0, rearBias, clutchRatio)
+    transfercase.diffTorqueSplitB = lerp(1, 1 - rearBias, clutchRatio)
+    transfercase.lsdPreload = preload * clutchRatio
     --print(electrics.values.clutch)
 
-  elseif transferCase and transferType == "PEAL" then
+  elseif transfercase and transferType == "PEAL" then
     local clutchTarget = (handbrake >= hbrelease) and 0 or 1 
     local clutchRatio = clutchRatioSmoother:get(clutchTarget, dt)
     clutchRatio = clamp(clutchRatio, 0, 1)
-    transferCase.clutchRatio = clutchRatio
-    --print(transferCase.clutchRatio)
+    transfercase.clutchRatio = clutchRatio
+    --print(transfercase.clutchRatio)
   end
 end
 
@@ -217,11 +217,11 @@ end
 
 local function init(jbeamData)
   --print("TWICE?")
-  transferCase = powertrain.getDevice(jbeamData.transferCaseName) or nil
+  transfercase = powertrain.getDevice(jbeamData.transfercaseName) or nil
   transferType = jbeamData.type or 0
   
   --get tuning data for active
-  if transferCase and transferType == "Active" then 
+  if transfercase and transferType == "Active" then 
     minLockCoef = jbeamData.lockMap.minLock or 0.1
     steerRatio = jbeamData.lockMap.steerRatio or 1
     speedMap = jbeamData.lockMap.speedMap or 0
@@ -246,7 +246,7 @@ local function init(jbeamData)
   end
 
   --get tuning data for passive
-  if transferCase and transferType == "Passive" then 
+  if transfercase and transferType == "Passive" then 
     maxLockCoef = jbeamData.lockMap.lock or 0.25
     minLockCoef = jbeamData.lockMap.revLock or 0.25
     preload = jbeamData.lockMap.preload or 0
@@ -255,7 +255,7 @@ local function init(jbeamData)
   end
 
   --get tuning data for PEAL
-  if transferCase and transferType == "PEAL" then 
+  if transfercase and transferType == "PEAL" then 
     hbrelease = jbeamData.hbRelease or 0.65
   end
 end
