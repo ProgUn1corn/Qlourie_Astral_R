@@ -162,7 +162,7 @@
 		["fx2l", "a22"],
 		["fx2l", "a54"],
 		//leg mounting
-		{"beamSpring":2501000,"beamDamp":150},
+		{"beamSpring":3501000,"beamDamp":150},
 		{"breakGroup":"subframe_FRR"},
 		["fx3r", "a20"],
 		["fx3r", "a21"],
@@ -218,16 +218,29 @@
 		["st1l","fx1"],
 
 		//--Hub and Wheel--
-		//hub form
-		{"beamSpring":8501000,"beamDamp":150},
+		//pivots
+		{"beamSpring":9501000,"beamDamp":180},
 		{"beamDeform":95000,"beamStrength":"FLT_MAX"},
 		["fh1r","fh3r"],
+		//*
+		["fh1l","fh3l"],
+		//damper mount to hub
+		{"beamSpring":6001000,"beamDamp":150},
+		{"beamDeform":125000,"beamStrength":285000},
+		["fs2r","fh1r"],
+		["fs2r","fh3r"],
+		["fs2r","fh5r"],
+		["fs2r","fh2r"],
 		["fh2r","fh1r"],
 		["fh2r","fh3r"],
 		//*
-		["fh1l","fh3l"],
+		["fs2l","fh1l"],
+		["fs2l","fh3l"],
+		["fs2l","fh5l"],
+		["fs2l","fh2l"],
 		["fh2l","fh1l"],
 		["fh2l","fh3l"],
+		//brake mount
 		{"beamSpring":5501000,"beamDamp":150},
 		["fh1r","fh5r"],
 		["fh3r","fh5r"],
@@ -236,17 +249,6 @@
 		["fh1l","fh5l"],
 		["fh3l","fh5l"],
 		["fh2l","fh5l"],
-		//damper mount to hub
-		{"beamSpring":2501000,"beamDamp":150},
-		{"beamDeform":125000,"beamStrength":285000},
-		["fs2l","fh1l"],
-		["fs2r","fh1r"],
-		["fs2l","fh3l"],
-		["fs2r","fh3r"],
-		["fs2l","fh5l"],
-		["fs2r","fh5r"],
-		["fs2r","fh2r"],
-		["fs2l","fh2l"],
 		//damper flexbody help
 		{"beamSpring":85000,"beamDamp":20},
 		["fs3r","fh1r"],
@@ -265,24 +267,24 @@
 		{"breakGroup":"wheel_FR"},
 		{"optional":true},
 		["fh1r","fw1r", {"name":"axle_FR"}],
-		["fh2r","fw1r", {"beamSpring":4501000,"beamDamp":150}],
+		["fh2r","fw1r", {"beamSpring":3001000,"beamDamp":150}],
 		["fh3r","fw1r", {"beamSpring":10001000,"beamDamp":20}],
 		["fh5r","fw1r", {"beamSpring":5501000,"beamDamp":60}],
-		["fs2r","fw1r", {"beamSpring":2501000,"beamDamp":50}],
+		["fs2r","fw1r"],
 		["fh1r","fw1rr"],
 		["fh3r","fw1rr", {"beamSpring":10001000,"beamDamp":20}],
 		["fh5r","fw1rr", {"beamSpring":5501000,"beamDamp":60}],
-		["fs2r","fw1rr", {"beamSpring":2501000,"beamDamp":50}],
+		["fs2r","fw1rr"],
 		{"breakGroup":"wheel_FL"},
 		["fh1l","fw1l", {"name":"axle_FL"}],
-		["fh2l","fw1l", {"beamSpring":4501000,"beamDamp":150}],
+		["fh2l","fw1l", {"beamSpring":3001000,"beamDamp":150}],
 		["fh3l","fw1l", {"beamSpring":10001000,"beamDamp":20}],
 		["fh5l","fw1l", {"beamSpring":5501000,"beamDamp":60}],
-		["fs2l","fw1l", {"beamSpring":2501000,"beamDamp":50}],
+		["fs2l","fw1l"],
 		["fh1l","fw1ll"],
 		["fh3l","fw1ll", {"beamSpring":10001000,"beamDamp":20}],
 		["fh5l","fw1ll", {"beamSpring":5501000,"beamDamp":60}],
-		["fs2l","fw1ll", {"beamSpring":2501000,"beamDamp":50}],
+		["fs2l","fw1ll"],
 		{"breakGroup":""},
 		{"optional":false},
 
@@ -441,7 +443,7 @@
 		["fx1r", "fx2r", "fx2l", "fx3l"],
 		["fx1l", "fx2l", "fx2r", "fx3r"],
 		//mount damper
-		{"spring":5000, "damp":0.5, "deform":8000, "strength":25000},
+		{"spring":10000, "damp":1, "deform":8000, "strength":25000},
 		["fs2r", "fh2r", "fh1r", "fh3r"],
 		["fs2l", "fh2l", "fh1l", "fh3l"],
 		//ARB rigidifier
@@ -516,7 +518,7 @@
 	],
 	"torsionbars": [
 		["id1:", "id2:", "id3:", "id4:"],
-		{"spring":100000, "damp":0.5, "deform":25000, "strength":100000},
+		{"spring":100000, "damp":1, "deform":25000, "strength":100000},
 		//rigidify steering arm
 		["fw1rr", "fh2r", "fh3r", "fh1r"],
 		["fw1ll", "fh2l", "fh3l", "fh1l"],
