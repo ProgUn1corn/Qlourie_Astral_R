@@ -42,11 +42,10 @@
 		["rh1r", -0.749, 1.341, 0.01, {"group":["Astral_hub_RR","Astral_arm_R"]}],
 		["rh1l",  0.749, 1.341, 0.01, {"group":["Astral_hub_RL","Astral_arm_R"]}],
 		//strut attach
-		{"nodeWeight":4},
+		{"nodeWeight":4.25},
 		["rh2r", -0.5632, 1.3474, 0.33, {"group":["Astral_hub_RR","Astral_damper_R"]}],
 		["rh2l",  0.5632, 1.3474, 0.33, {"group":["Astral_hub_RL","Astral_damper_R"]}],
 		//toe link
-		{"nodeWeight":4.5},
 		["rh3r", -0.745, 1.151, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
 		["rh3l",  0.745, 1.151, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
 		//brake calipers
@@ -86,7 +85,7 @@
 		//["rmass2r", -0.5535, 1.348, 0.672],
 		//["rmass2l",  0.5535, 1.348, 0.672],
 		//damper end
-		{"nodeWeight":3.6},
+		{"nodeWeight":3.8},
 		{"group":["Astral_damper_R"]},
 		["rs2r", -0.5677, 1.351, 0.17],
 		["rs2l",  0.5677, 1.351, 0.17],
@@ -114,8 +113,8 @@
 	"slidenodes": [
 		["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
 		//attach strut body to strut shaft rail
-		["rh2r", "strut_RR", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
-		["rh2l", "strut_RL", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+		["rh2r", "strut_RR", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
+		["rh2l", "strut_RL", true, true, 0.0, 16001000, "FLT_MAX", "FLT_MAX"],
 		["rcl1r", "strut_RR", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
 		["rcl1l", "strut_RL", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
 		//spring collar
@@ -146,10 +145,10 @@
 
 		//--Control arm--
 		//toe-link
-		{"beamSpring":18001000,"beamDamp":1200},
+		{"beamSpring":18001000,"beamDamp":900},
 		{"beamDeform":235100,"beamStrength":625000},
-		["rh3l", "rx1l", {"precompressionRange":"$=$toe_R-0.001","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-		["rh3r", "rx1r", {"precompressionRange":"$=$toe_R-0.001","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+		["rh3l", "rx1l", {"precompressionRange":"$=$toe_R-0.0008","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+		["rh3r", "rx1r", {"precompressionRange":"$=$toe_R-0.0008","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
 		//arb link
 		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -160,10 +159,10 @@
 		//zip tie
 		{"beamSpring":6500,"beamDamp":25},
 		{"beamDeform":1250,"beamStrength":1550},
-		//["rarmg2l","rh2l", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
-		//["rarmg2r","rh2r", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
-		//["rarmg2l","rs2l", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
-		//["rarmg2r","rs2r", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
+		["rarmg2l","rh2l", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
+		["rarmg2r","rh2r", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
+		["rarmg2l","rs2l", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
+		["rarmg2r","rs2r", {"beamPrecompression":0.92,"beamPrecompressionTime":0.2}],
 
 		//--Springs--
 		//main spring
@@ -422,7 +421,7 @@
 		["rh1r", -0.749, 1.341, -0.09, {"group":["Astral_hub_RR","Astral_arm_R"]}],
 		["rh1l",  0.749, 1.341, -0.09, {"group":["Astral_hub_RL","Astral_arm_R"]}],
 		//strut attach
-		{"nodeWeight":4.75},
+		{"nodeWeight":4.25},
 		["rh2r", -0.5708, 1.3512, 0.18, {"group":["Astral_hub_RR","Astral_damper_R"]}],
 		["rh2l",  0.5708, 1.3512, 0.18, {"group":["Astral_hub_RL","Astral_damper_R"]}],
 		//toe link
@@ -523,10 +522,10 @@
 
 		//--Control arm--
 		//toe-link
-		{"beamSpring":18001000,"beamDamp":1200},
+		{"beamSpring":18001000,"beamDamp":900},
 		{"beamDeform":235100,"beamStrength":625000},
-		["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0018","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-		["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0018","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+		["rh3l", "rx1l", {"precompressionRange":"$=$toe_R+0.0014","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+		["rh3r", "rx1r", {"precompressionRange":"$=$toe_R+0.0014","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
 		//arb link
 		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":30000,"beamStrength":"FLT_MAX"},
