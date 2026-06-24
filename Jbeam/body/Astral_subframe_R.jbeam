@@ -47,13 +47,13 @@
 		//cross member
 		{"nodeWeight":7},
 		{"group":["Astral_sub_R", "Astral_arm_R", "Astral_rod_R","Astral_rarmg"]},
-		["rx1r", -0.232, 1.061, 0.128, {"nodeWeight":"$=8.5"}],
-		["rx1l",  0.232, 1.061, 0.128, {"nodeWeight":"$=8.5"}],
+		["rx1r", -0.232, 1.061, 0.128, {"nodeWeight":"$=8.25"}],
+		["rx1l",  0.232, 1.061, 0.128, {"nodeWeight":"$=8.25"}],
 		{"group":["Astral_sub_R", "Astral_arm_R", "Astral_rarmg"]},
 		["rx2r", -0.222, 1.373, 0.108],
 		["rx2l",  0.222, 1.373, 0.108],
 		//mounting points
-		{"nodeWeight":"$=3.5"},
+		{"nodeWeight":"$=3.75"},
 		{"group":["Astral_sub_R"]},
 		["rx3r", -0.421, 0.978, 0.329, {"selfCollision":false}],
 		["rx3l",  0.421, 0.978, 0.329, {"selfCollision":false}],
@@ -122,7 +122,7 @@
 		["rx1", "rx3r"],
 		["rx1", "rx4r"],
 		//top mount
-		{"beamSpring":"$=2551000","beamDamp":150},
+		{"beamSpring":"$=3251000","beamDamp":150},
 		{"beamDeform":75000,"beamStrength":"FLT_MAX"},
 		["rx3r", "a41"],
 		["rx3r", "a42"],
@@ -198,18 +198,16 @@
 		//*
 		["rh1l","rh3l"],
 		//damper mount to hub
-		{"beamSpring":5501000,"beamDamp":125},
+		{"beamSpring":5001000,"beamDamp":150},
 		{"beamDeform":125000,"beamStrength":285000},
 		["rs2r","rh1r"],
 		["rs2r","rh3r"],
-		["rs2r","rh5r"],
 		["rs2r","rh2r"],
 		["rh2r","rh1r"],
 		["rh2r","rh3r"],
 		//*
 		["rs2l","rh1l"],
 		["rs2l","rh3l"],
-		["rs2l","rh5l"],
 		["rs2l","rh2l"],
 		["rh2l","rh1l"],
 		["rh2l","rh3l"],
@@ -218,10 +216,12 @@
 		["rh1r","rh5r"],
 		["rh3r","rh5r"],
 		["rh2r","rh5r"],
+		["rs2r","rh5r"],
 		//*
 		["rh1l","rh5l"],
 		["rh3l","rh5l"],
 		["rh2l","rh5l"],
+		["rs2l","rh5l"],
 		//damper flexbody help
 		{"beamSpring":85000,"beamDamp":20},
 		["rs3r","rh1r"],
@@ -241,7 +241,7 @@
 		{"breakGroup":"wheel_RR"},
 		{"optional":true},
 		["rh1r","rw1r", {"name":"axle_RR"}],
-		["rh2r","rw1r", {"beamSpring":3001000,"beamDamp":150}],
+		["rh2r","rw1r", {"beamSpring":5501000,"beamDamp":150}],
 		["rh3r","rw1r", {"beamSpring":10001000,"beamDamp":20}],
 		["rh5r","rw1r", {"beamSpring":5501000,"beamDamp":60}],
 		["rs2r","rw1r"],
@@ -251,7 +251,7 @@
 		["rs2r","rw1rr"],
 		{"breakGroup":"wheel_RL"},
 		["rh1l","rw1l", {"name":"axle_RL"}],
-		["rh2l","rw1l", {"beamSpring":3001000,"beamDamp":150}],
+		["rh2l","rw1l", {"beamSpring":5501000,"beamDamp":150}],
 		["rh3l","rw1l", {"beamSpring":10001000,"beamDamp":20}],
 		["rh5l","rw1l", {"beamSpring":5501000,"beamDamp":60}],
 		["rs2l","rw1l"],
@@ -417,7 +417,7 @@
 	],
 	"torsionbars": [
 		["id1:", "id2:", "id3:", "id4:"],
-		{"spring":65000, "damp":1, "deform":25000, "strength":100000},
+		{"spring":75000, "damp":1, "deform":25000, "strength":100000},
 		//rigidify subframe
 		["rx1r", "rx1l", "rx2l", "rx4l"],
 		["rx2r", "rx2l", "rx1l", "rx3l"],
@@ -428,7 +428,7 @@
 		["rw1rr", "rh2r", "rh3r", "rh1r"],
 		["rw1ll", "rh2l", "rh3l", "rh1l"],,
 		//mount damper
-		{"spring":7500, "damp":0.5, "deform":8000, "strength":25000},
+		{"spring":40500, "damp":0.5, "deform":38000, "strength":75000},
 		["rs2r", "rh2r", "rh3r", "rh1r"],
 		["rs2l", "rh2l", "rh3l", "rh1l"],
 		//ARB rigidifier

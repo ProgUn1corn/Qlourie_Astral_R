@@ -51,7 +51,7 @@
 		["fx1l",  0.229, -1.295, 0.100],
 		["fx2r", -0.272, -0.975, 0.105],
 		["fx2l",  0.272, -0.975, 0.105],
-		{"nodeWeight":4.5},
+		{"nodeWeight":4.25},
 		{"group":["Astral_sub_F"]},
 		["fx3r", -0.298, -0.848, 0.135],
 		["fx3l",  0.298, -0.848, 0.135],
@@ -61,7 +61,7 @@
 		["fx4r", -0.413, -1.218, 0.294],
 		["fx4l",  0.413, -1.218, 0.294],
 		//steering box
-		{"nodeWeight":6},
+		{"nodeWeight":5.5},
 		{"group":["Astral_sub_F", "Astral_str_F"]},
 		["st1r", -0.130, -1.094, "$=0.128+$shimRack_F"],
 		["st1l",  0.130, -1.094, "$=0.128+$shimRack_F"],
@@ -226,18 +226,16 @@
 		//*
 		["fh1l","fh3l"],
 		//damper mount to hub
-		{"beamSpring":6001000,"beamDamp":125},
+		{"beamSpring":6001000,"beamDamp":150},
 		{"beamDeform":125000,"beamStrength":285000},
 		["fs2r","fh1r"],
 		["fs2r","fh3r"],
-		["fs2r","fh5r"],
 		["fs2r","fh2r"],
 		["fh2r","fh1r"],
 		["fh2r","fh3r"],
 		//*
 		["fs2l","fh1l"],
 		["fs2l","fh3l"],
-		["fs2l","fh5l"],
 		["fs2l","fh2l"],
 		["fh2l","fh1l"],
 		["fh2l","fh3l"],
@@ -246,10 +244,12 @@
 		["fh1r","fh5r"],
 		["fh3r","fh5r"],
 		["fh2r","fh5r"],
+		["fs2r","fh5r"],
 		//*
 		["fh1l","fh5l"],
 		["fh3l","fh5l"],
 		["fh2l","fh5l"],
+		["fs2l","fh5l"],
 		//damper flexbody help
 		{"beamSpring":85000,"beamDamp":20},
 		["fs3r","fh1r"],
@@ -268,7 +268,7 @@
 		{"breakGroup":"wheel_FR"},
 		{"optional":true},
 		["fh1r","fw1r", {"name":"axle_FR"}],
-		["fh2r","fw1r", {"beamSpring":3001000,"beamDamp":150}],
+		["fh2r","fw1r", {"beamSpring":6001000,"beamDamp":150}],
 		["fh3r","fw1r", {"beamSpring":10001000,"beamDamp":20}],
 		["fh5r","fw1r", {"beamSpring":5501000,"beamDamp":60}],
 		["fs2r","fw1r"],
@@ -278,7 +278,7 @@
 		["fs2r","fw1rr"],
 		{"breakGroup":"wheel_FL"},
 		["fh1l","fw1l", {"name":"axle_FL"}],
-		["fh2l","fw1l", {"beamSpring":3001000,"beamDamp":150}],
+		["fh2l","fw1l", {"beamSpring":6001000,"beamDamp":150}],
 		["fh3l","fw1l", {"beamSpring":10001000,"beamDamp":20}],
 		["fh5l","fw1l", {"beamSpring":5501000,"beamDamp":60}],
 		["fs2l","fw1l"],
@@ -444,7 +444,7 @@
 		["fx1r", "fx2r", "fx2l", "fx3l"],
 		["fx1l", "fx2l", "fx2r", "fx3r"],
 		//mount damper
-		{"spring":7500, "damp":0.5, "deform":8000, "strength":25000},
+		{"spring":40500, "damp":0.5, "deform":38000, "strength":75000},
 		["fs2r", "fh2r", "fh1r", "fh3r"],
 		["fs2l", "fh2l", "fh1l", "fh3l"],
 		//ARB rigidifier
