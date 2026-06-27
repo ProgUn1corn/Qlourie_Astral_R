@@ -28,7 +28,7 @@
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$dampPos_R", "range", "mm", "Suspension - Dampers and Springs", 0.025, 0.021, 0.030, "Bump Stop Travel", "Hard bump stop startig point in total travel", {"stepDis":1,"minDis":21,"maxDis":30,"subCategory":"Rear Damper Internal"}],
 		["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 225, 150, 250, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"subCategory":"Rear Damper Internal"}],
-		["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.027, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-18,"maxDis":15,"subCategory":"Rear Damper - 3-Way"}],  //From last skirt node, ride height is about 102mm
+		["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.027, 0.009, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-18,"maxDis":15,"subCategory":"Rear Damper - 3-Way"}], //rg1 node from the ground about 106mm
 	],
 	"nodes": [
 		["id", "posX", "posY", "posZ"],
@@ -386,8 +386,8 @@
 	"slotType" : "Astral_group_R",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.290+$TrackRear", "y":1.26, "z":0.068}}], //Rally2 track width 1615mm
-		["Astral_brake_R","Astral_brake_R_300", "Brake Disc", {"nodeOffset":{"x":0, "y":1.26, "z":0.068}}],
+		["Astral_hubs_R","Astral_hubs_R_Rally2","Hub", {"nodeOffset":{"x":"$=0.290+$TrackRear", "y":1.26, "z":0.070}}],
+		["Astral_brake_R","Astral_brake_R_300", "Brake Disc", {"nodeOffset":{"x":0, "y":1.26, "z":0.070}}],
 		["Astral_brake_duct_R_Rally2","Astral_brake_duct_R_Rally2", "Rear Duct", {"coreSlot":true}],
 		["Astral_spring_R_Rally2_gravel","Astral_spring_R_Rally2_gravel_205", "Spring"],
 		["Astral_shim_R_Rally2_gravel","Astral_shim_R_Rally2_gravel_l", "Shim Stacks", {"coreSlot":true}]
@@ -407,12 +407,12 @@
 		["$dampRate_stop_R", "range", "Clicks", "Suspension - Dampers and Springs", 11000, 8000, 12000, "HBS Damping", "HBS damping stiffness", {"stepDis":1,"minDis":-8,"maxDis":0,"subCategory":"Rear Damper - 3+1-Way"}],
 		["$dampPos_hystop_R", "range", "mm", "Suspension - Dampers and Springs", 0.040, 0.033, 0.045, "HBS Travel", "Adjust hydraulic bump stop's travel length", {"stepDis":1,"minDis":33,"maxDis":45,"subCategory":"Rear Damper Internal"}],
 		["$dampGas_R", "range", "PSI", "Suspension - Dampers and Springs", 200, 150, 250, "Gas Internal Pressure", "The pressure of nitrogen gas inside damper", {"stepDis":25,"subCategory":"Rear Damper Internal"}],
-		["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.024, 0.003, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-21,"maxDis":18,"subCategory":"Rear Damper - 3+1-Way"}],  //From last skirt node, ride height is about 182mm
+		["$RideHeightOffsetRear", "range", "mm", "Suspension - Dampers and Springs", 0.024, 0.003, 0.042, "Spring Collar Offset", "Changes the platform height", {"stepDis":3,"minDis":-21,"maxDis":18,"subCategory":"Rear Damper - 3+1-Way"}], //rg1 node from the ground about 184mm
 	],
 	"nodes": [
 		["id", "posX", "posY", "posZ"],
 		{"frictionCoef":0.5},
-		{"collision":true},
+		{"collision":true},1
 		{"selfCollision":true},
 		{"nodeMaterial":"|NM_METAL"},
 		//--Hub--
