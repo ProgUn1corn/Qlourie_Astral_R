@@ -23,9 +23,9 @@
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		//["differential", "diff_R", "driveShaft", 1, {"deformGroups":["differential_R"], "diffType":"lsd", "lsdPreload":"$=$lsdpreload_R*(1+($frictionFace_R-6)*0.048)", "lsdLockCoef":"$=$components.diff.rlock", "lsdRevLockCoef":"$=$components.diff.rrevlock", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
+		["differential", "differential_R", "driveshaft", 1, {"diffType":"lsd", "lsdPreload":"$=$lsdpreload_R*(1+($frictionFace_R-6)*0.048)", "lsdLockCoef":"$=$components.diff.rlock", "lsdRevLockCoef":"$=$components.diff.rrevlock", "uiName":"Rear Differential", "defaultVirtualInertia":0.25}]
 	],
-	"diff_R": {
+	"differential_R": {
 		"friction": 3.01,
 		"dynamicFriction": 0.00124,
 		"torqueLossCoef": 0.0256,
@@ -62,11 +62,11 @@
 		{"deformGroup":"differential_R", "deformationTriggerRatio":0.001}
 		["rtra","rx1"],
 		//
-		["rtrar","rx4r"],
+		//["rtrar","rx4r"],
 		["rtrar","rx3r"],
 		["rtrar","rx2r"],
 		["rtrar","rx1r"],
-		["rtrar","rx4l"],
+		//["rtrar","rx4l"],
 		["rtrar","rx3l"],
 		["rtrar","rx2l"],
 		["rtrar","rx1l"],
@@ -75,11 +75,11 @@
 		["rtra","rx2r"],
 		["rtra","chs2r"],
 		//*
-		["rtral","rx4l"],
+		//["rtral","rx4l"],
 		["rtral","rx3l"],
 		["rtral","rx2l"],
 		["rtral","rx1l"],
-		["rtral","rx4r"],
+		//["rtral","rx4r"],
 		["rtral","rx3r"],
 		["rtral","rx2r"],
 		["rtral","rx1r"],
@@ -166,8 +166,8 @@
 	],
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		//["torsionReactor", "torsionReactorR", "transferCase", 1, {}],
-		//["shaft", "driveShaft", "torsionReactorR", 1, {"deformGroup":"driveshaft", "breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":0.25, "dynamicFriction":0.003}],
+		["torsionReactor", "torsionReactorR", "transfercase", 1, {}],
+        ["shaft", "driveshaft", "torsionReactorR", 1, {"breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":0.25, "dynamicFriction": 0.0003}],
 	],
 	"torsionReactorR": {
 		"torqueReactionNodes:":["eg0","eg3","eg5"],
@@ -200,10 +200,10 @@
 	"slotType" : "Astral_halfshafts_R",
 	"powertrain" : [
 		["type", "name", "inputName", "inputIndex"],
-		//["shaft", "wheelaxleRL", "diff_R", 1, {"deformGroups":["wheelaxleRL"], "breakTriggerBeam":"halfshaft_RL", "uiName":"Rear Left Halfshaft", "friction":1.41, "dynamicFriction":0.003}],
-		//["shaft", "wheelaxleRR", "diff_R", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.41, "dynamicFriction":0.003}]
+		["shaft", "wheelaxleRL", "differential_R", 1, {"deformGroups":["wheelaxleRL"], "breakTriggerBeam":"halfshaft_RL", "uiName":"Rear Left Halfshaft", "friction":1.41, "dynamicFriction":0.003}],
+		["shaft", "wheelaxleRR", "differential_R", 2, {"deformGroups":["wheelaxleRR"], "breakTriggerBeam":"halfshaft_RR", "uiName":"Rear Right Halfshaft", "friction":1.41, "dynamicFriction":0.003}]
 	],
-		"beams": [
+	"beams": [
 		["id1:", "id2:"],
 		{"deformLimitExpansion":1.2},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
@@ -225,7 +225,7 @@
 		"value":1000
 	},
 	"slotType" : "Astral_finaldrive_R",
-	"diff_R":{
+	"differential_R":{
 		"gearRatio": 4.43
 	}
 },
@@ -246,7 +246,7 @@
 		"value":1000
 	},
 	"slotType" : "Astral_finaldrive_R",
-	"diff_R":{
+	"differential_R":{
 		"gearRatio": 3.99
 	}
 },
