@@ -49,7 +49,7 @@ function clamp(value, min, max)
 end
 
 local function steerLock(steer, speed)
-    local normalSteer = abs(steer)
+    local normalSteer = abs(steer) ^ 0.5
     local clampSpeed = clamp(speed, 0, 140)
     local contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1)
     local speedFactor = clamp(1 - 0.9 * (clampSpeed / 140) * (-speedMap / 2000), 0.1, 1)
