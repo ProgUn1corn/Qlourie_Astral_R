@@ -337,7 +337,7 @@
 		{"selfCollision":true},
 		{"nodeMaterial":"|NM_PLASTIC"},
 		//--Center Tunnel Underguard--
-		{"nodeWeight":2.5},
+		{"nodeWeight":1.5},
 		["ugr",  0, 0, 0.35, {"selfCollision":false}]
 		{"group":[""]},
 		{"nodeMaterial":"|NM_METAL"},
@@ -350,7 +350,7 @@
 		{"deformLimitExpansion":1.2},
 		//--Center Tunnel Underguard--
 		//rigidifier
-		{"beamSpring":2501000,"beamDamp":100},
+		{"beamSpring":1501000,"beamDamp":100},
 		{"beamDeform":17500,"beamStrength":"FLT_MAX"},
 		["ugr", "a22"],
 		["ugr", "a21"],
@@ -802,23 +802,15 @@
 		//guard damping
 		{"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
-		{"beamSpring":0,"beamDamp":750},
+		{"beamSpring":0,"beamDamp":250},
 		{"dampCutoffHz":1000},
 		["fg1r", "br1r"],
-		["fg1r", "br1l"],
-		["fg1r", "br1r"],
 		["fg2r", "chs3r"],
-		["fg2r", "fs1r"],
 		["fg3r", "a84"],
-		["fg3r", "a80"],
 		//*
 		["fg1l", "br1l"],
-		["fg1l", "br1r"],
-		["fg1l", "br1l"],
 		["fg2l", "chs3l"],
-		["fg2l", "fs1l"],
 		["fg3l", "a87"],
-		["fg3l", "a83"],
 		{"dampCutoffHz":""},
 		//--Limiters--
 		//guard limiter
@@ -873,7 +865,7 @@
 		{"nodeMaterial":"|NM_METAL"},
 		//--Front undertray--
 		//front under guard
-		{"nodeWeight":0.75},
+		{"nodeWeight":0.5},
 		{"group":["Astral_guard_F"]},
 		["fg1r", -0.527, -1.681, 0.117],
 		["fg1l",  0.527, -1.681, 0.117],
@@ -962,27 +954,6 @@
 		["fg3l", "tra"],
 		{"optional":false},
 		{"breakGroup":""},
-		//guard damping
-		{"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
-		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
-		{"beamSpring":0,"beamDamp":750},
-		{"dampCutoffHz":1000},
-		["fg1r", "br1r"],
-		["fg1r", "br1l"],
-		["fg1r", "br1r"],
-		["fg2r", "chs3r"],
-		["fg2r", "fs1r"],
-		["fg3r", "a84"],
-		["fg3r", "a80"],
-		//*
-		["fg1l", "br1l"],
-		["fg1l", "br1r"],
-		["fg1l", "br1l"],
-		["fg2l", "chs3l"],
-		["fg2l", "fs1l"],
-		["fg3l", "a87"],
-		["fg3l", "a83"],
-		{"dampCutoffHz":""},
 		//--Limiters--
 		//guard limiter
 		{"beamPrecompression":0.98, "beamType":"|SUPPORT", "beamLongBound":2},
