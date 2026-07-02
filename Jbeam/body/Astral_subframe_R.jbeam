@@ -72,14 +72,14 @@
 		["id1:", "id2:"],
 		//--Subframe--
 		//running gear
-		{"beamSpring":8001000,"beamDamp":180},
+		{"beamSpring":8501000,"beamDamp":180},
 		{"beamDeform":105000,"beamStrength":"FLT_MAX"},
 		["rx1r", "rx2r"],
 		["rx2r", "rx2l"],
 		["rx2l", "rx1l"],
 		["rx1l", "rx1r"],
 		//mounting points
-		{"beamSpring":2551000,"beamDamp":150},
+		{"beamSpring":3001000,"beamDamp":150},
 		{"beamDeform":75000,"beamStrength":"FLT_MAX"},
 		["rx3r", "rx3l"],
 		["rx4r", "rx4l"],
@@ -90,11 +90,11 @@
 		["rx4l", "rx2l"],
 		["rx4r", "rx2r"],
 		//crossing
-		{"beamSpring":8001000,"beamDamp":180},
+		{"beamSpring":8501000,"beamDamp":180},
 		{"beamDeform":75000,"beamStrength":"FLT_MAX"},
 		["rx1r", "rx2l"],
 		["rx1l", "rx2r"],
-		{"beamSpring":2551000,"beamDamp":150},
+		{"beamSpring":3001000,"beamDamp":150},
 		["rx4l", "rx3r"],
 		["rx4r", "rx3l"],
 		["rx4l", "rx2r"],
@@ -122,7 +122,7 @@
 		["rx1", "rx3r"],
 		["rx1", "rx4r"],
 		//top mount
-		{"beamSpring":"$=3251000","beamDamp":150},
+		{"beamSpring":"$=3001000","beamDamp":150},
 		{"beamDeform":75000,"beamStrength":"FLT_MAX"},
 		["rx3r", "a41"],
 		["rx3r", "a42"],
@@ -241,7 +241,7 @@
 		{"breakGroup":"wheel_RR"},
 		{"optional":true},
 		["rh1r","rw1r", {"name":"axle_RR"}],
-		["rh2r","rw1r", {"beamSpring":5501000,"beamDamp":150}],
+		["rh2r","rw1r"],
 		["rh3r","rw1r", {"beamSpring":10001000,"beamDamp":20}],
 		["rh5r","rw1r", {"beamSpring":5501000,"beamDamp":60}],
 		["rs2r","rw1r"],
@@ -251,7 +251,7 @@
 		["rs2r","rw1rr"],
 		{"breakGroup":"wheel_RL"},
 		["rh1l","rw1l", {"name":"axle_RL"}],
-		["rh2l","rw1l", {"beamSpring":5501000,"beamDamp":150}],
+		["rh2l","rw1l"],
 		["rh3l","rw1l", {"beamSpring":10001000,"beamDamp":20}],
 		["rh5l","rw1l", {"beamSpring":5501000,"beamDamp":60}],
 		["rs2l","rw1l"],
@@ -278,16 +278,25 @@
 		//arm joint damping
 		{"beamSpring":0,"beamDamp":500},
 		["rh1r","a16"],
-		["rh1l","a19"],
 		["rh1r","a19"],
-		["rh1l","a16"],
 		["rh1r","a9"],
+		["rh1l","a16"],
+		["rh1l","a19"],
 		["rh1l","a10"],
 		//hub steering damping
 		["rh5r","chs2l"],
 		["rh5l","chs2r"],
 		["rh3r","rx1l"],
 		["rh3l","rx1r"],
+		//steering damper
+		{"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+		{"beamDeform":25000,"beamStrength":125000},
+		{"beamLimitSpring":0,"beamLimitDamp":0},
+		{"beamSpring":0,"beamDamp":120},
+		["rh3r","rx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200}],
+		["rh3l","rx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200}],
+		["rh5r","rx2r", {"beamDampVelocitySplit":0.15,"beamDampFast":1200}],
+		["rh5l","rx2l", {"beamDampVelocitySplit":0.15,"beamDampFast":1200}],
 		{"dampCutoffHz":""},
 
 		//--Strut Aux--
@@ -300,9 +309,9 @@
 		{"beamSpring":1001000,"beamDamp":50},
 		["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":1}],
 		["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":1}],
-		//damper mounting damping
+		//damper mounting damping (ball joint)
 		{"dampCutoffHz":500},
-		{"beamSpring":0,"beamDamp":500},
+		{"beamSpring":0,"beamDamp":750},
 		["rs2r","a6"],
 		["rs2r","a12"],
 		["rs2l","a5"],
