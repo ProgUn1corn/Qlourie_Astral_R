@@ -59,7 +59,7 @@
 		"groupType": "autoCoupling",
 		"couplerNodes":[
 			["cid1",	"cid2",	 "autoCouplingStrength",	"autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpeed", "couplingStartRadius",  "breakGroup"]
-			["l1",	  "t1",		25000,					 0.01,				   0.005,					  0.2,				 0.1,				   "tailgate"]
+			["l1",	    "t1",	  40000,					   0.01,				  0.005,					   0.2,		  	     0.1,				     "tailgate"]
 		]
 		"attachSoundVolume":1,
 		"detachSoundVolume":1,
@@ -67,9 +67,9 @@
 		"attachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_close",
 		"detachSoundEvent": "event:>Vehicle>Latches>Trunk>modern_05_open",
 		"breakSoundEvent":""
-		"openForceMagnitude": 60,
+		"openForceMagnitude": 150,
 		"openForceDuration": 1,
-		"closeForceMagnitude": 150,
+		"closeForceMagnitude": 300,
 		"closeForceDuration": 2.5,
 	},
 	"triggers":[
@@ -106,7 +106,7 @@
 		//--Rear Trunk--
 		//tailgate
 		{"selfCollision":false},
-		{"nodeWeight":0.5},
+		{"nodeWeight":0.55},
 		{"group":["Astral_tailgate"]},
 		["t1r", -0.222, 1.95, 0.51],
 		["t2r", -0.522, 1.87, 0.51],
@@ -263,28 +263,34 @@
 		{"breakGroup":"tailgate_hinge"},
 		{"breakGroupType":0},
 		["t6r", "a76"],
-		["t6r", "a77"],
 		["t6r", "a72"],
 		["t6r", "a73"],
 		["t6r", "a79"],
+		["t6r", "a70"],
+		["t6r", "qp2r"],
 		["t5r", "a72"],
 		["t5r", "a73"],
 		["t5r", "a74"],
 		["t5r", "a77"],
-		["t5r", "a78"],
+		["t5r", "a65"],
+		["t5r", "a40"],
+		["t5r", "qp2l"],
 		//*
 		["t6l", "a79"],
-		["t6l", "a78"],
 		["t6l", "a75"],
 		["t6l", "a74"],
 		["t6l", "a76"],
+		["t6l", "a75"],
+		["t6l", "qp2l"],
 		["t5l", "a75"],
 		["t5l", "a74"],
 		["t5l", "a73"],
 		["t5l", "a78"],
-		["t5l", "a77"],
+		["t5l", "a68"],
+		["t5l", "a43"],
+		["t5l", "qp2r"],
 		//damping
-		{"beamSpring":0,"beamDamp":15},
+		{"beamSpring":0,"beamDamp":40},
 		["t4r", "chs1r"],
 		["t4r", "chs2r"],
 		["t3r", "chs2r"],
@@ -306,7 +312,7 @@
 		["w8l", "rs1r"],
 		//gas struts
 		{"beamPrecompression":1, "beamType":"|PRESSURED"},
-		{"beamSpring":50,"beamDamp":20},
+		{"beamSpring":50,"beamDamp":10},
 		{"beamDeform":15500,"beamStrength":25500},
 		["a70", "w7r", {"pressurePSI":947,"surface":0.00007854,"volumeCoef":0.01}],
 		["a71", "w7l", {"pressurePSI":947,"surface":0.00007854,"volumeCoef":0.01}],
