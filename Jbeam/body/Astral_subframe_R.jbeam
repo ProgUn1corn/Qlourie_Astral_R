@@ -165,24 +165,22 @@
 		{"beamSpring":"$=4501000","beamDamp":180},
 		{"beamDeform":75000,"beamStrength":"FLT_MAX"},
 		["rx1r", "a41"],
-		["rx1r", "a42"],
+		//["rx1r", "a42"],
 		["rx1r", "a12"],
-		["rx1r", "a13"],
 		["rx1r", "a37"],
-		["rx2r", "a9"],
-		["rx2r", "a8"],
+		["rx2r", "a11"],
 		["rx2r", "a37"],
 		["rx2r", "a5"],
+		//["rx2r", "a6"],
 		//*
 		["rx1l", "a42"],
-		["rx1l", "a41"],
+		//["rx1l", "a41"],
 		["rx1l", "a15"],
-		["rx1l", "a14"],
 		["rx1l", "a38"],
 		["rx2l", "a10"],
-		["rx2l", "a11"],
 		["rx2l", "a38"],
 		["rx2l", "a6"],
+		//["rx2l", "a5"],
 		//track rod damper
 		{"beamSpring":0,"beamDamp":250},
 		["rx1r","a9"],
@@ -200,7 +198,8 @@
 		//*
 		["rh1l","rh3l"],
 		//damper mount to hub
-		{"beamSpring":5001000,"beamDamp":150},
+		{"dampCutoffHz":500},
+		{"beamSpring":6001000,"beamDamp":1500},
 		{"beamDeform":125000,"beamStrength":285000},
 		["rs2r","rh1r"],
 		["rs2r","rh3r"],
@@ -213,6 +212,7 @@
 		["rs2l","rh2l"],
 		["rh2l","rh1l"],
 		["rh2l","rh3l"],
+		{"dampCutoffHz":""},
 		//brake mount
 		{"beamSpring":5501000,"beamDamp":150},
 		["rh1r","rh5r"],
@@ -266,11 +266,11 @@
 
 		//--Control Arm and Structure Damping--
 		//ARB link
-		{"beamSpring":0,"beamDamp":150},
+		{"beamSpring":0,"beamDamp":500},
 		["rarb3r","rx1r"],
 		["rarb3l","rx1l"],
 		//control arm
-		{"beamSpring":18001000,"beamDamp":1800},
+		{"beamSpring":18001000,"beamDamp":2400},
 		{"beamDeform":125100,"beamStrength":600000},
 		{"dampCutoffHz":500},
 		["rh1r", "rx2r"],
@@ -312,7 +312,7 @@
 		["rcl1r", "rh2r", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":1}],
 		["rcl1l", "rh2l", {"precompressionRange":"$=$RideHeightOffsetRear","beamPrecompressionTime":1}],
 		//damper mounting damping (ball joint)
-		{"beamSpring":0,"beamDamp":100},
+		{"beamSpring":0,"beamDamp":200},
 		["rs2r","a6"],
 		["rs2r","a12"],
 		["rs2l","a5"],
@@ -321,7 +321,7 @@
 		["rh2r","chs1l"],
 		["rh2l","a19"],
 		["rh2l","chs1r"],
-		{"beamSpring":0,"beamDamp":10},
+		{"beamSpring":0,"beamDamp":20},
 		["rcl1r","a12"],
 		["rcl1r","a42"],
 		["rcl1l","a15"],
@@ -384,6 +384,11 @@
 		//*
 		["rw1ll", "a15"],
 		["rw1l", "a10"],
+		//control arm limiter
+		{"beamPrecompression":0.996},
+		{"beamSpring":1501000,"beamDamp":500},
+		["rh1r", "a9"],
+		["rh1l", "a10"],
 		{"beamPrecompression":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
 		{"beamLimitSpring":false,"beamLimitDamp":false},
@@ -428,10 +433,10 @@
 		["id1:", "id2:", "id3:", "id4:"],
 		//rigidify subframe
 		{"spring":75000, "damp":1, "deform":25000, "strength":100000},
-		["rx1r", "rx1l", "rx2l", "rx4l"],
-		["rx2r", "rx2l", "rx1l", "rx3l"],
-		["rx1l", "rx1r", "rx2r", "rx4r"],
-		["rx2l", "rx2r", "rx1r", "rx3r"],
+		//["rx1r", "rx1l", "rx2l", "rx4l"],
+		//["rx2r", "rx2l", "rx1l", "rx3l"],
+		//["rx1l", "rx1r", "rx2r", "rx4r"],
+		//["rx2l", "rx2r", "rx1r", "rx3r"],
 		//rigidify toe link
 		{"spring":120100, "damp":1, "deform":45000, "strength":125000},
 		["rw1rr", "rh2r", "rh3r", "rh1r"],
