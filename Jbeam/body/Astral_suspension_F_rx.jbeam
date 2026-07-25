@@ -123,25 +123,25 @@
 	"slidenodes": [
 		["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
 		//attach strut body to strut shaft rail
-		["fh2r", "strut_FR", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
-		["fh2l", "strut_FL", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
-		["fcl1r", "strut_FR", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
-		["fcl1l", "strut_FL", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
+		["fh2r", "strut_FR", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+		["fh2l", "strut_FL", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+		["fcl1r", "strut_FR", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
+		["fcl1l", "strut_FL", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
 		//spring collar
-		["fhe1r", "strut_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
-		["fhe1l", "strut_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+		["fhe1r", "strut_FR", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
+		["fhe1l", "strut_FL", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
 		//piston
-		["fps1r", "strut_FR", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
-		["fps1l", "strut_FL", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
+		["fps1r", "strut_FR", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
+		["fps1l", "strut_FL", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
 		//mass
-		["fmassr", "strut2_FR", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
-		["fmassl", "strut2_FL", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
+		["fmassr", "strut2_FR", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
+		["fmassl", "strut2_FL", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
 		//arb mounting point
-		["farb3r", "arb_FR", true, true, 0.0, 4001000, "FLT_MAX", "FLT_MAX"],
-		["farb3l", "arb_FL", true, true, 0.0, 4001000, "FLT_MAX", "FLT_MAX"]
+		["farb3r", "arb_FR", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
+		["farb3l", "arb_FL", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"]
 		//steering arm
-		["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
-		["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
+		["st1r", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+		["st1l", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"]
 	],
 	"beams": [
 		["id1:", "id2:"],
@@ -158,10 +158,10 @@
 
 		//--Control arm--
 		//tie rods
-		{"beamSpring":18001000,"beamDamp":900},
+		{"beamSpring":18001000,"beamDamp":400},
 		{"beamDeform":235100,"beamStrength":625000},
-		["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.001","beamPrecompressionTime":0.2,"dampCutoffHz":500}]
-		["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.001","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
+		["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.001","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+		["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F+0.001","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
 		//arb mount point
 		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -237,29 +237,29 @@
 		["fs2r","fs1r", { //hard bump
 			"longBoundRange":1,"shortBoundRange":0.255,"boundZone":0.015, //15mm hard stop co working with HBS
 			"beamLimitSpring":204100
-			"beamLimitDamp":2227,
-			"beamLimitDampRebound":3421,
+			"beamLimitDamp":5227,
+			"beamLimitDampRebound":7421,
 			"dampCutoffHz":250}
 		],
 		["fs2l","fs1l", {
 			"longBoundRange":1,"shortBoundRange":0.255,"boundZone":0.015,
 			"beamLimitSpring":204100
-			"beamLimitDamp":2227,
-			"beamLimitDampRebound":3421,
+			"beamLimitDamp":5227,
+			"beamLimitDampRebound":7421,
 			"dampCutoffHz":250}
 		],
 		["fs2r","fs1r", { //hard (elastic) rebound
 			"longBoundRange":0,"shortBoundRange":1,"boundZone":0.005, //10mm hard stop for protection
 			"beamLimitSpring":154114,
-			"beamLimitDamp":3625,
-			"beamLimitDampRebound":2750,
+			"beamLimitDamp":6625,
+			"beamLimitDampRebound":4750,
 			"dampCutoffHz":250}
 		],
 		["fs2l","fs1l", {
 			"longBoundRange":0,"shortBoundRange":1,"boundZone":0.005,
 			"beamLimitSpring":154114,
-			"beamLimitDamp":3625,
-			"beamLimitDampRebound":2750,
+			"beamLimitDamp":6625,
+			"beamLimitDampRebound":4750,
 			"dampCutoffHz":250}
 		],
 		{"breakGroup":"damper_FR"},
@@ -533,25 +533,25 @@
 	"slidenodes": [
 		["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
 		//attach strut body to strut shaft rail
-		["fh2r", "strut_FR", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
-		["fh2l", "strut_FL", true, true, 0.0, 10001000, "FLT_MAX", "FLT_MAX"],
-		["fcl1r", "strut_FR", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
-		["fcl1l", "strut_FL", true, true, 0.0, 2001000, "FLT_MAX", "FLT_MAX"],
+		["fh2r", "strut_FR", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+		["fh2l", "strut_FL", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+		["fcl1r", "strut_FR", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
+		["fcl1l", "strut_FL", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
 		//spring collar
-		["fhe1r", "strut_FR", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
-		["fhe1l", "strut_FL", true, true, 0.0, 1001000, "FLT_MAX", "FLT_MAX"],
+		["fhe1r", "strut_FR", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
+		["fhe1l", "strut_FL", true, true, 0.0, 1201000, "FLT_MAX", "FLT_MAX"],
 		//piston
-		["fps1r", "strut_FR", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
-		["fps1l", "strut_FL", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
+		["fps1r", "strut_FR", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
+		["fps1l", "strut_FL", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
 		//mass
-		["fmassr", "strut2_FR", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
-		["fmassl", "strut2_FL", true, true, 0.0, 100100, "FLT_MAX", "FLT_MAX"],
+		["fmassr", "strut2_FR", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
+		["fmassl", "strut2_FL", true, true, 0.0, 200100, "FLT_MAX", "FLT_MAX"],
 		//arb mounting point
-		["farb3r", "arb_FR", true, true, 0.0, 4001000, "FLT_MAX", "FLT_MAX"],
-		["farb3l", "arb_FL", true, true, 0.0, 4001000, "FLT_MAX", "FLT_MAX"]
+		["farb3r", "arb_FR", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"],
+		["farb3l", "arb_FL", true, true, 0.0, 3501000, "FLT_MAX", "FLT_MAX"]
 		//steering arm
-		["st1r", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"],
-		["st1l", "steeringrack", true, true, 0.0, 18001000, "FLT_MAX", "FLT_MAX"]
+		["st1r", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"],
+		["st1l", "steeringrack", true, true, 0.0, 12001000, "FLT_MAX", "FLT_MAX"]
 	],
 	"beams": [
 		["id1:", "id2:"],
@@ -568,10 +568,10 @@
 
 		//--Control arm--
 		//tie rods
-		{"beamSpring":18001000,"beamDamp":900},
+		{"beamSpring":18001000,"beamDamp":400},
 		{"beamDeform":235100,"beamStrength":625000},
-		["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0000","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
-		["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.0002","beamPrecompressionTime":0.2,"dampCutoffHz":500}],
+		["fh3r","st2r", {"precompressionRange":"$=$toe_F-$steer_center_F+0.0000","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
+		["fh3l","st2l", {"precompressionRange":"$=$toe_F+$steer_center_F-0.0002","beamPrecompressionTime":0.2,"dampCutoffHz":1000}],
 		//arb mount point
 		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -647,29 +647,29 @@
 		["fs2r","fs1r", { //hard bump
 			"longBoundRange":1,"shortBoundRange":0.195,"boundZone":0.01, //10mm hard stop for protection
 			"beamLimitSpring":204100
-			"beamLimitDamp":2227,
-			"beamLimitDampRebound":3421,
+			"beamLimitDamp":5227,
+			"beamLimitDampRebound":7421,
 			"dampCutoffHz":250}
 		],
 		["fs2l","fs1l", {
 			"longBoundRange":1,"shortBoundRange":0.195,"boundZone":0.01,
 			"beamLimitSpring":204100
-			"beamLimitDamp":2227,
-			"beamLimitDampRebound":3421,
+			"beamLimitDamp":5227,
+			"beamLimitDampRebound":7421,
 			"dampCutoffHz":250}
 		],
 		["fs2r","fs1r", { //hard (elastic) rebound
 			"longBoundRange":0,"shortBoundRange":1,"boundZone":0.005, //10mm hard stop for protection
 			"beamLimitSpring":154114,
-			"beamLimitDamp":3625,
-			"beamLimitDampRebound":2750,
+			"beamLimitDamp":6625,
+			"beamLimitDampRebound":4750,
 			"dampCutoffHz":250}
 		],
 		["fs2l","fs1l", {
 			"longBoundRange":0,"shortBoundRange":1,"boundZone":0.005,
 			"beamLimitSpring":154114,
-			"beamLimitDamp":3625,
-			"beamLimitDampRebound":2750,
+			"beamLimitDamp":6625,
+			"beamLimitDampRebound":4750,
 			"dampCutoffHz":250}
 		],
 		{"breakGroup":"damper_FR"},
