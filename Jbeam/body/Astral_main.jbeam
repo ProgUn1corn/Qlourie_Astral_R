@@ -110,6 +110,11 @@
 		["a19",  0.728, -0.314, 0.098],
 		["a20", -0.728, -0.755, 0.098],
 		["a23",  0.728, -0.755, 0.098],
+		//tunnel rigidifier
+		{"nodeWeight":2.5},
+		{"group":[""]},
+		["chsc1",  0, 0.262, 0.355, {"selfCollision":false, "collision":true}],
+		["chsc2",  0, -0.214, 0.355, {"selfCollision":false, "collision":true}],
 
 		//--Front Chassis--
 		{"nodeWeight":"$=$components.chassis.frontWeight"},
@@ -141,7 +146,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Center Chassis--
 		//main shape
-		{"beamSpring":"$=5001000*$components.chassis.stiffnessMulti","beamDamp":250},
+		{"beamSpring":"$=4001000*$components.chassis.stiffnessMulti","beamDamp":200},
 		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
 		["a8", "a12"],
 		["a9", "a13"],
@@ -189,8 +194,10 @@
 		["a19", "a22"],
 		//rigids
 		{"beamDeform":19000},
-		["a8", "a11"],
-		["a23", "a20"],
+		["a8", "a10"],
+		["a9", "a11"],
+		["a20", "a22"],
+		["a21", "a23"],
 		["a8", "a23"],
 		["a11", "a20"],
 		["a21", "a12"],
@@ -199,8 +206,37 @@
 		["a9", "a16"],
 		["a13", "a20"],
 		["a14", "a23"],
+		//center beam rigids
+		["a9", "a17"],
+		["a10", "a18"],
+		["a13", "a21"],
+		["a14", "a22"],
+		//rigidifier
+		{"beamSpring":"$=2001000*$components.chassis.stiffnessMulti","beamDamp":150},
+		{"beamDeform":20000},
+		["chsc1", "chsc2"],
+		["chsc2", "a16"],
+		["chsc2", "a17"],
+		["chsc2", "a18"],
+		["chsc2", "a19"],
+		["chsc2", "a21"],
+		["chsc2", "a22"],
+		["chsc2", "a13"],
+		["chsc2", "a14"],
+		["chsc2", "a53"],
+		["chsc2", "a54"]
+		["chsc1", "a12"],
+		["chsc1", "a13"],
+		["chsc1", "a14"],
+		["chsc1", "a15"],
+		["chsc1", "a9"],
+		["chsc1", "a10"],
+		["chsc1", "a17"],
+		["chsc1", "a18"],
+		["chsc1", "a41"],
+		["chsc1", "a42"],
 		//damping
-		{"beamSpring":0,"beamDamp":750},
+		{"beamSpring":0,"beamDamp":250},
 		{"dampCutoffHz":500},
 		["a8", "rs1r"],
 		["a12", "a76"],
@@ -217,7 +253,7 @@
 		["a22", "a73"]
 		{"dampCutoffHz":""},
 		//refnode
-		{"beamSpring":1801000,"beamDamp":180},
+		{"beamSpring":1201000,"beamDamp":120},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"}
 		["cup", "a13"],
 		["cup", "a14"],
@@ -227,10 +263,11 @@
 		["cup", "a19"],
 		["cup", "a21"],
 		["cup", "a22"],
-		//["cup", "a53"],
-		//["cup", "a54"],
-		//["cup", "a42"],
-		//["cup", "a41"],
+		["cup", "a53"],
+		["cup", "a54"],
+		["cup", "a43"],
+		["cup", "a40"],
+		["cup", "chsc2"],
 
 		//--Rear Chassis--
 		//main shape
@@ -339,7 +376,6 @@
 		["a42", "a15"],
 		["a42", "a14"],
 		["a42", "a13"],
-		["a42", "a23"],
 		["chs1l", "a15"],
 		["chs1l", "a12"],
 		["chs2l", "a11"],
@@ -348,16 +384,14 @@
 		//chassis downforce
 		{"beamSpring":1001000,"beamDamp":50},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
-		["rdfr", "rdfl"],
 		["rdfr", "a9"],
 		["rdfr", "a8"],
 		["rdfr", "a41"],
 		["rdfr", "a42"],
 		["rdfr", "a40"],
 		["rdfr", "a13"],
-		["rdfr", "a21"],
-		["rdfr", "a20"],
 		["rdfr", "a53"],
+		["rdfr", "chsc1"],
 		//*
 		["rdfl", "a10"],
 		["rdfl", "a11"],
@@ -365,9 +399,8 @@
 		["rdfl", "a41"],
 		["rdfl", "a43"],
 		["rdfl", "a14"],
-		["rdfl", "a23"],
-		["rdfl", "a22"],
 		["rdfl", "a54"],
+		["rdfl", "chsc1"],
 
 		//--Front Chassis--
 		//main shape
@@ -398,12 +431,7 @@
 		{"beamSpring":4001000,"beamDamp":180},
 		{"beamDeform":6500},
 		["br1r", "a53"],
-		["br1r", "a21"],
-		["br1r", "a22"],
-		//*
 		["br1l", "a54"],
-		["br1l", "a22"],
-		["br1l", "a21"],
 		//*
 		["a25", "chs4r", {"optional":true}],
 		["a26", "chs4l", {"optional":true}],
@@ -608,7 +636,7 @@
 			"frontWeight":6.64
 			"centerWeight":5.54
 			"rearWeight":6.28
-			"stiffnessMulti":0.98
+			"stiffnessMulti":0.95
 		},
 	}
 },
@@ -647,10 +675,10 @@
 	"slotType" : "Astral_cweight",
 	"components": {
 		"chassis":{
-			"frontWeight":5.21
-			"centerWeight":4.11
-			"rearWeight":4.48
-			"stiffnessMulti":0.67
+			"frontWeight":5.11
+			"centerWeight":4.21
+			"rearWeight":4.38
+			"stiffnessMulti":0.65
 		},
 	}
 },

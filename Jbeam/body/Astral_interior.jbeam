@@ -49,7 +49,7 @@
 		{"beamStrength":"FLT_MAX"},
 		{"beamSpring":1001000},
 		{"beamDamp":150},
-		["neardash", 0.330, -0.528, 0.985, 56, "a85","a87","a83","a82","a18","a19"],
+		["neardash", 0.330, -0.528, 0.985, 56, "a85","a87","a83","a82","chsc2","a19"],
 	],
 	"nodes": [
 		["id", "posX", "posY", "posZ"],
@@ -63,7 +63,7 @@
 		["dsh1", 0.330, -0.471224, 0.7436],
 		["dsh2", 0.330, -0.551224, 0.7436],
 		["dsh3", 0.459824, -0.471224, 0.7436],
-		{"nodeWeight":0.75}
+		{"nodeWeight":0.78}
 		["dsh4", 0.330,  -0.778,  0.799],
 		["dsh5", -0.330, -0.778,  0.799],
 		["dsh6", -0.330, -0.577,  0.799],
@@ -83,9 +83,10 @@
 		["id1:", "id2:"],
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Dash for Steering Wheel--
-		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		//whole dash board
-		{"beamSpring":551000,"beamDamp":25},
+		{"beamSpring":751000,"beamDamp":25},
+		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+		{"optional":true},
 		["dsh4", "dsh5"],
 		["dsh5", "dsh6"],
 		["dsh6", "dsh4"],
@@ -101,15 +102,12 @@
 		["dsh4", "rc1l"],
 		["dsh4", "rc5l"],
 		["dsh4", "rc6l"],
-		["dsh4", "rc6r"],
 		["dsh5", "rc1r"],
 		["dsh5", "rc5r"],
 		["dsh5", "rc6r"],
-		["dsh5", "rc6l"],
 		["dsh6", "rc1r"],
 		["dsh6", "rc5r"],
 		["dsh6", "rc6r"],
-		["dsh6", "rc6l"],
 		["dsh4", "a82"],
 		["dsh4", "a87"],
 		["dsh4", "a86"],
@@ -117,6 +115,7 @@
 		["dsh4", "a19"],
 		["dsh4", "a16"],
 		["dsh4", "a22"],
+		["dsh4", "chsc2"],
 		["dsh5", "a81"],
 		["dsh5", "a84"],
 		["dsh5", "a85"],
@@ -124,36 +123,38 @@
 		["dsh5", "a16"],
 		["dsh5", "a19"],
 		["dsh5", "a21"],
+		["dsh5", "chsc2"],
 		["dsh6", "a84"],
 		["dsh6", "a53"],
 		["dsh6", "a54"],
 		["dsh6", "a16"],
 		["dsh6", "a19"],
 		["dsh6", "a81"],
+		["dsh6", "chsc2"],
 		//steering mount
+		{"beamSpring":501000,"beamDamp":25},
 		["dsh1", "rc6l"],
 		["dsh2", "rc6l"],
 		["dsh3", "rc6l"],
 		["dsh1", "rc6r"],
 		["dsh2", "rc6r"],
 		["dsh3", "rc6r"],
-		["dsh1", "a18"],
+		["dsh1", "chsc2"],
 		["dsh1", "a22"],
 		["dsh1", "a19"],
 		["dsh1", "a23"],
 		["dsh1", "a50"],
 		["dsh1", "a53"],
 		["dsh1", "a82"],
-		["dsh2", "a18"],
+		["dsh2", "chsc2"],
 		["dsh2", "a22"],
 		["dsh2", "a19"],
 		["dsh2", "a23"],
 		["dsh2", "a50"],
 		["dsh2", "a53"],
 		["dsh2", "a82"],
-		["dsh3", "a18"],
+		["dsh3", "chsc2"],
 		["dsh3", "a22"],
-
 		["dsh3", "a50"],
 		["dsh3", "d3l"],
 		["dsh3", "a54"],
@@ -183,6 +184,7 @@
 		["cab3", "a82"],
 		["cab3", "a15"],
 		["cab3", "a14"],
+		{"optional":false},
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		{"beamSpring":false,"beamDamp":false,"beamDeform":false,"beamStrength":false},
 		{"beamLimitSpring":"","beamLimitDamp":"","beamLimitDampRebound":""},
@@ -209,7 +211,7 @@
 		{"beamStrength":"FLT_MAX"},
 		{"beamSpring":151000},
 		{"beamDamp":9},
-		["POV1", -0.504, -0.504, 1.011, 50, "a53","a21","a85","a87","a80","a84", {"idRef:":"a17","idBack:":"onboardref1","idUp:":"cup"}]
+		["POV1", -0.504, -0.504, 1.011, 50, "a53","a21","a85","a87","a80","a84", {"idRef:":"chsc2","idBack:":"onboardref1","idUp:":"cup"}]
 		{"beamSpring":151000},
 		{"beamDamp":3},
 		["POV2", -0.055, -0.408, 1.125, 45, "a81","a82","a80","a83","a85","a86"]
@@ -240,9 +242,8 @@
 		["onboardref1", "a8"],
 		["onboardref1", "a9"],
 		["onboardref1", "a12"],
-		["onboardref1", "a13"],
+		["onboardref1", "a14"],
 		["onboardref1", "a16"],
-		["onboardref1", "a17"],
 		["onboardref1", "a40"],
 		["onboardref1", "a43"],
 		{"optional":true},
@@ -327,9 +328,8 @@
 		["ballastRX", "a49"],
 		["ballastRX", "coref"],
 		["ballastRX", "a12"],
-		["ballastRX", "a13"],
+		["ballastRX", "a14"],
 		["ballastRX", "a16"],
-		["ballastRX", "a17"],
 		["ballastRX", "a8"],
 		["ballastRX", "a9"],
 	],
@@ -368,7 +368,6 @@
 		["hybrid1", "a42"],
 		["hybrid1", "a41"],
 		["hybrid1", "a12"],
-		["hybrid1", "a13"],
 		["hybrid1", "chs1r"],
 		["hybrid1", "chs1l"],
 		["hybrid1", "rcm"],
@@ -376,7 +375,6 @@
 		//*
 		["hybrid2", "a41"],
 		["hybrid2", "a42"],
-		["hybrid2", "a14"],
 		["hybrid2", "a15"],
 		["hybrid2", "chs1l"],
 		["hybrid2", "chs1r"],
@@ -439,28 +437,24 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Seat--
 		//main seat
-		{"beamSpring":2001000,"beamDamp":"$=4050*$components.chassis.stiffnessMulti","dampCutoffHz":500},
+		{"beamSpring":2051000,"beamDamp":"$=2050*$components.chassis.stiffnessMulti","dampCutoffHz":500},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		{"optional":true},
 		["a50", "a15"],
-		["a50", "a13"],
 		["a50", "a19"],
-		["a50", "a17"],
 		["a50", "a53"],
 		["a50", "a54"],
-		["a50", "a42"],
+		["a50", "a10"],
 		["a50", "a47"],
 		["a50", "a44"],
 		["a50", "rcr"],
 		//copilot seat
 		{"beamSpring":1001000,"beamDamp":100},
 		["a49", "a12"],
-		["a49", "a14"],
 		["a49", "a16"],
-		["a49", "a18"],
 		["a49", "a54"],
 		["a49", "a53"],
-		["a49", "a41"],
+		["a49", "a9"],
 		["a49", "a44"],
 		["a49", "a47"],
 		["a49", "rcr"],
@@ -469,9 +463,7 @@
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		["driverref", "a50"],
 		["driverref", "a15"],
-		["driverref", "a14"],
 		["driverref", "a19"],
-		["driverref", "a18"],
 		["driverref", "a53"],
 		["driverref", "a41"],
 		["driverref", "a47"],
@@ -480,9 +472,7 @@
 		{"beamSpring":1001000,"beamDamp":100},
 		["coref", "a49"],
 		["coref", "a12"],
-		["coref", "a13"],
 		["coref", "a16"],
-		["coref", "a17"],
 		["coref", "a54"],
 		["coref", "a42"],
 		["coref", "a44"],
@@ -561,27 +551,23 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Seat--
 		//main seat
-		{"beamSpring":2001000,"beamDamp":"$=4050*$components.chassis.stiffnessMulti","dampCutoffHz":500},
+		{"beamSpring":2051000,"beamDamp":"$=2050*$components.chassis.stiffnessMulti","dampCutoffHz":500},
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		{"optional":true},
 		["a50", "a15"],
-		["a50", "a13"],
 		["a50", "a19"],
-		["a50", "a17"],
 		["a50", "a53"],
 		["a50", "a54"],
-		["a50", "a42"],
+		["a50", "a10"],
 		["a50", "a47"],
 		["a50", "a44"],
 		["a50", "rcr"],
 		//copilot seat
 		["a49", "a12"],
-		["a49", "a14"],
 		["a49", "a16"],
-		["a49", "a18"],
 		["a49", "a54"],
 		["a49", "a53"],
-		["a49", "a41"],
+		["a49", "a9"],
 		["a49", "a44"],
 		["a49", "a47"],
 		["a49", "rcr"],
@@ -590,9 +576,7 @@
 		{"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
 		["driverref", "a50"],
 		["driverref", "a15"],
-		["driverref", "a14"],
 		["driverref", "a19"],
-		["driverref", "a18"],
 		["driverref", "a53"],
 		["driverref", "a41"],
 		["driverref", "a47"],
@@ -601,9 +585,7 @@
 		//*
 		["coref", "a49"],
 		["coref", "a12"],
-		["coref", "a13"],
 		["coref", "a16"],
-		["coref", "a17"],
 		["coref", "a54"],
 		["coref", "a42"],
 		["coref", "a44"],
@@ -675,8 +657,8 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//hands (Can't animation)
-		//["steering", "Astral_driver_arm_L", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x": 0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1]
-		//["steering", "Astral_driver_arm_R", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x": 0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1]
+		//["steering", "Astral_driver_arm_L", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x": 0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1]
+		//["steering", "Astral_driver_arm_R", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x": 0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1]
 		//["steering", "Astral_arm_L_b", "dsh1","dsh3","dsh2", {"x":114.514, "y":0 "z":190}, {"x":-5, "y":-10, "z":5}, {"x":0.04, "y":0.08, "z":-0.01}, -6, 1.5, 0, 0.1, {"baseTranslation":{"x":0.025, "y":-0.255, "z":-0.05}}]
 		//["steering", "Astral_arm_R_s", "a50","a49","driverref", {"x":195, "y":180 "z":8.5}, {"x":-5, "y":-1, "z":0}, {"x":0, "y":0.1, "z":0.005}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.073}}]
 		//["steering", "Astral_arm_R_u", "a50","a49","driverref", {"x":188, "y":180 "z":12}, {"x":-8, "y":-2, "z":0}, {"x":0.007, "y":0.1, "z":0.02}, -1.5, 6, 0, 0.1, {"baseTranslation":{"x":-0, "y":0.442, "z":-0.103}}]
@@ -956,12 +938,12 @@
 		["sequentialLeverY", "Astral_paddle", "dsh1","dsh3","dsh2", {"x":"$=-80+$steeringAngle", "y":0, "z":0}, {"x":0, "y":0, "z":5}, {"x":0.15, "y":-0.075, "z":0}, -1, 1, 0, 1]
 		["sequentialLeverY", "Astral_paddle_control", "dsh1","dsh3","dsh2", {"x":"$=-80+$steeringAngle", "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0.0, "z":0}, 0, 0, 0, 1]
 		//aux shifter
-		["sequentialLeverY", "Astral_sfstick_aux", "a17","a18","a13", {"x":75, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 0.8]
+		["sequentialLeverY", "Astral_sfstick_aux", "chsc2","chsc2","a13", {"x":75, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 0.8]
 		//linkage
 		["sequentialLeverY", "Astral_paddle_link", "dsh1","dsh3","dsh2", {"x":"$=-80+$steeringAngle", "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0.1, "z":-0.0014}, -1, 1, 0, 1]
-		["sequentialLeverY", "Astral_sfstick_link", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.05, "z":0.005}, -1, 1, 0, 0.8]
+		["sequentialLeverY", "Astral_sfstick_link", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.05, "z":0.005}, -1, 1, 0, 0.8]
 		//cylinder
-		["sequentialLeverY", "Astral_sequential_cylinder", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.008, "z":-0.002}, -1, 1, 0, 0.8]
+		["sequentialLeverY", "Astral_sequential_cylinder", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.008, "z":-0.002}, -1, 1, 0, 0.8]
 	]
 },
 "Astral_shifter_stick":{
@@ -981,7 +963,7 @@
 		["propAnimation/sequentialLever", {"name":"sequentialLever"}]
 	],
 	"sequentialLever": {
-		"shiftSoundNode:":["a18"],
+		"shiftSoundNode:":["chsc2"],
 		"shiftSoundEventSequentialGearUp": "file:>art>sound>shift>shift_up.wav",
 		"shiftSoundEventSequentialGearDown": "file:>art>sound>shift>shift_down.wav",
 		"shiftSoundVolumeSequentialGearUp": 0.56,
@@ -990,11 +972,11 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//stick shifter
-		["sequentialLeverY", "Astral_sfstick", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 0.5]
+		["sequentialLeverY", "Astral_sfstick", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x":10, "y":0, "z":0}, {"x":0, "y":0, "z":0}, -1, 1, 0, 0.5]
 		//linkage
-		["sequentialLeverY", "Astral_sfstick_link", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.05, "z":0.005}, -1, 1, 0, 0.5]
+		["sequentialLeverY", "Astral_sfstick_link", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.05, "z":0.005}, -1, 1, 0, 0.5]
 		//cylinder
-		["sequentialLeverY", "Astral_sequential_cylinder", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.008, "z":-0.002}, -1, 1, 0, 0.5]
+		["sequentialLeverY", "Astral_sequential_cylinder", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.008, "z":-0.002}, -1, 1, 0, 0.5]
 	]
 },
 "Astral_handbrake":{
@@ -1011,13 +993,13 @@
 	"props": [
 		["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"]
 		//handbrake
-		["parkingbrake", "Astral_hbstick", "a17","a18","a13", {"x":78, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 0.5]
+		["parkingbrake", "Astral_hbstick", "chsc2","chsc2","a13", {"x":78, "y":0 "z":0}, {"x":-15, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 0.5]
 		//cylinder
-		["parkingbrake", "Astral_handbrake_cylinder", "a17","a18","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.024, "z":-0.0055}, -1, 1, 0, 0.5]
+		["parkingbrake", "Astral_handbrake_cylinder", "chsc2","chsc2","a13", {"x":90, "y":0 "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":-0.024, "z":-0.0055}, -1, 1, 0, 0.5]
 	],
 	"soundscape": [
 		["name", "src"],
-		{"node:":"a18"},
+		{"node:":"chsc2"},
 		["handbrakeDisengaged","event:>Vehicle>Interior>Handbrake_Race>Race_01_Unlock"],
 		["handbrakeEngaging","event:>Vehicle>Interior>Handbrake_Race>Race_01_Lock"]
 	]

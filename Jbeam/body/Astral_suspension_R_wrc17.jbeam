@@ -48,8 +48,8 @@
 		["rh2r", -0.5632, 1.3474, 0.33, {"group":["Astral_hub_RR","Astral_damper_R"]}],
 		["rh2l",  0.5632, 1.3474, 0.33, {"group":["Astral_hub_RL","Astral_damper_R"]}],
 		//toe link
-		["rh3r", -0.745, 1.151, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
-		["rh3l",  0.745, 1.151, "$=0.0204+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+		["rh3r", -0.745, 1.151, "$=0.0218+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
+		["rh3l",  0.745, 1.151, "$=0.0218+$Bumpsteer_R", {"group":["Astral_hub_RR","Astral_arm_R"]}],
 		//brake calipers
 		{"nodeWeight":"$=4.0*$brakeThickness_R"},
 		["rh5r", -0.805, 1.094, 0.188, {"group":["Astral_hub_RR","Astral_duct_RR"]}],
@@ -65,7 +65,7 @@
 		//--Strut--
 		//damper top point
 		{"group":["Astral_piston_R","Astral_spring_R","Astral_chassis_R"]},
-		{"nodeWeight":8.6},
+		{"nodeWeight":10.0},
 		["rs1r", -0.55, 1.337, 0.797],
 		["rs1l",  0.55, 1.337, 0.797],
 		//lower spring collar
@@ -137,7 +137,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Hub and Wheel--
 		//camber
-		{"beamSpring":8501000,"beamDamp":150},
+		{"beamSpring":6001000,"beamDamp":150},
 		{"breakGroup":"wheel_RR"},
 		["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*2.28-0.0026","beamPrecompressionTime":0.2}],
 		{"breakGroup":"wheel_RL"},
@@ -149,8 +149,8 @@
 		//toe-link
 		{"beamSpring":18001000,"beamDamp":1200},
 		{"beamDeform":235100,"beamStrength":625000},
-		["rh3l", "rx1l", {"precompressionRange":"$=$toe_R-0.0006","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
-		["rh3r", "rx1r", {"precompressionRange":"$=$toe_R-0.0006","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+		["rh3l", "rx1l", {"precompressionRange":"$=$toe_R-0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
+		["rh3r", "rx1r", {"precompressionRange":"$=$toe_R-0.0004","beamPrecompressionTime":0.2, "dampCutoffHz":500}],
 		//arb link
 		{"beamSpring":1501000,"beamDamp":150},
 		{"beamDeform":30000,"beamStrength":"FLT_MAX"},
@@ -547,7 +547,7 @@
 		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
 		//--Hub and Wheel--
 		//camber
-		{"beamSpring":8501000,"beamDamp":150},
+		{"beamSpring":6001000,"beamDamp":150},
 		{"breakGroup":"wheel_RR"},
 		["rh2r","rw1rr", {"precompressionRange":"$=$CamberRear*1.54+0.0068","beamPrecompressionTime":0.2}],
 		{"breakGroup":"wheel_RL"},
