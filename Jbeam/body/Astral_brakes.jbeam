@@ -26,13 +26,13 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$brakeThickness_F", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Front Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
-		["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":45,"maxDis":65,"subCategory":"Brakes"}],
+		["$brakeBias", "range", "", "Brakes and Handbrake", 0.50, 0.40, 0.60, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":40,"maxDis":60,"subCategory":"Brakes"}],
 		["$pedalRatio", "range", "Bias", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Linearity Bias", "Set the characteristics of brake pressure curve bias", {"stepDis":0.1,,"minDis":0.5,"maxDis":1.5,"subCategory":"Brakes"}],
 		["$maxPressure", "range", "", "Brakes and Handbrake", 0.90, 0.69, 1, "Max Pedal Force", "Set the max pressure can be applied to the hydraulic system", {"minDis":69,"maxDis":100,"subCategory":"Brakes"}],
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3167*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3167 for constant 300mm
+		{"brakeTorque":"$=3081*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3081 for constant 300mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -40,7 +40,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.185},
+		{"brakeDiameter":0.300},
 		{"brakeMass":"$=8.2*$brakeThickness_F"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
@@ -80,7 +80,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3167*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3167 for constant 300mm
+		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3081*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3081 for constant 300mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
@@ -88,7 +88,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.185},
+		{"brakeDiameter":0.300},
 		{"brakeMass":"$=8.2*$brakeThickness_R"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
@@ -125,13 +125,13 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$brakeThickness_F", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Front Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
-		["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":45,"maxDis":65,"subCategory":"Brakes"}],
+		["$brakeBias", "range", "", "Brakes and Handbrake", 0.50, 0.40, 0.60, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":40,"maxDis":60,"subCategory":"Brakes"}],
 		["$pedalRatio", "range", "Bias", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Linearity Bias", "Set the characteristics of brake pressure curve bias", {"stepDis":0.1,,"minDis":0.5,"maxDis":1.5,"subCategory":"Brakes"}],
 		["$maxPressure", "range", "", "Brakes and Handbrake", 0.90, 0.69, 1, "Max Pedal Force", "Set the max pressure can be applied to the hydraulic system", {"minDis":69,"maxDis":100,"subCategory":"Brakes"}],
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3378*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3378 for constant 320mm
+		{"brakeTorque":"$=3286*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3286 for constant 320mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -139,7 +139,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.205},
+		{"brakeDiameter":0.320},
 		{"brakeMass":"$=8.6*$brakeThickness_F"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
@@ -179,7 +179,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3378*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3378 for constant 320mm
+		{"brakeTorque":"$=$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3286*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3286 for constant 320mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
@@ -187,7 +187,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.205},
+		{"brakeDiameter":0.320},
 		{"brakeMass":"$=8.6*$brakeThickness_R"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
@@ -224,13 +224,13 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$brakeThickness_F", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Front Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
-		["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":45,"maxDis":65,"subCategory":"Brakes"}],
+		["$brakeBias", "range", "", "Brakes and Handbrake", 0.50, 0.40, 0.60, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":40,"maxDis":60,"subCategory":"Brakes"}],
 		["$pedalRatio", "range", "Bias", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Linearity Bias", "Set the characteristics of brake pressure curve bias", {"stepDis":0.1,,"minDis":5.5,"maxDis":6.5,"subCategory":"Brakes"}],
 		["$maxPressure", "range", "", "Brakes and Handbrake", 0.90, 0.69, 1, "Max Pedal Force", "Set the max pressure can be applied to the hydraulic system", {"minDis":69,"maxDis":100,"subCategory":"Brakes"}],
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3748*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3748 for constant 355mm
+		{"brakeTorque":"$=3645*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3645 for constant 355mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -238,7 +238,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.230},
+		{"brakeDiameter":0.355},
 		{"brakeMass":"$=9.6*$brakeThickness_F"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
@@ -278,7 +278,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3748*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3748 for constant 355mm
+		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3645*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3645 for constant 355mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
@@ -286,7 +286,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.230},
+		{"brakeDiameter":0.355},
 		{"brakeMass":"$=9.6*$brakeThickness_R"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
@@ -323,13 +323,13 @@
 	"variables": [
 		["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
 		["$brakeThickness_F", "range", "mm", "Brakes and Handbrake", 1, 0.95, 1.05, "Front Brake Disc Thickness", "Affects thermal inertia and unsprung mass", {"stepDis":1,"minDis":31,"maxDis":33,"subCategory":"Brakes"}],  //affects unsprung mass and thermals
-		["$brakeBias", "range", "", "Brakes and Handbrake", 0.55, 0.45, 0.65, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":45,"maxDis":65,"subCategory":"Brakes"}],
+		["$brakeBias", "range", "", "Brakes and Handbrake", 0.50, 0.40, 0.60, "Balance Bar", "Fine tune brake bias based on selected cylinders", {"stepDis":1,,"minDis":40,"maxDis":60,"subCategory":"Brakes"}],
 		["$pedalRatio", "range", "Bias", "Brakes and Handbrake", 6, 5.5, 6.5, "Brake Linearity Bias", "Set the characteristics of brake pressure curve bias", {"stepDis":0.1,,"minDis":5.5,"maxDis":6.5,"subCategory":"Brakes"}],
 		["$maxPressure", "range", "", "Brakes and Handbrake", 0.90, 0.69, 1, "Max Pedal Force", "Set the max pressure can be applied to the hydraulic system", {"minDis":69,"maxDis":100,"subCategory":"Brakes"}],
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3906*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3906 for constant 370mm
+		{"brakeTorque":"$=3800*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3800 for constant 370mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -337,7 +337,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.245},
+		{"brakeDiameter":0.370},
 		{"brakeMass":"$=9.9*$brakeThickness_F"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
@@ -377,7 +377,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or3906*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3906 for constant 370mm
+		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3800*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3800 for constant 370mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
@@ -385,7 +385,7 @@
 
 		//brake thermals
 		{"enableBrakeThermals":true},
-		{"brakeDiameter":0.245},
+		{"brakeDiameter":0.370},
 		{"brakeMass":"$=9.9*$brakeThickness_R"},
 		{"brakeType":"vented-disc"},
 		{"rotorMaterial":"steel"},
