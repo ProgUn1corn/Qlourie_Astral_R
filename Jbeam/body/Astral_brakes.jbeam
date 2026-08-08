@@ -8,7 +8,7 @@
 	"slotType" : "Astral_brake_F",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_gravel", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_F","Astral_brake_pad_F_gravel", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -32,7 +32,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3167*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*$brakeBias"},  //3167 for constant 300mm
+		{"brakeTorque":"$=3167*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3167 for constant 300mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -59,7 +59,7 @@
 	"slotType" : "Astral_brake_R",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_gravel", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_R","Astral_brake_pad_R_gravel", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -80,10 +80,10 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3167*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*(1-$brakeBias)"},  //3167 for constant 300mm
+		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3167*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3167 for constant 300mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
-		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP*$HBLimiter"},
+		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
 		{"brakeSpring":150},
 
 		//brake thermals
@@ -107,7 +107,7 @@
 	"slotType" : "Astral_brake_F",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_gravel", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_F","Astral_brake_pad_F_gravel", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -131,7 +131,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3378*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*$brakeBias"},  //3378 for constant 320mm
+		{"brakeTorque":"$=3378*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3378 for constant 320mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -158,7 +158,7 @@
 	"slotType" : "Astral_brake_R",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_gravel", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_R","Astral_brake_pad_R_gravel", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -179,10 +179,10 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3378*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*(1-$brakeBias)"},  //3378 for constant 320mm
+		{"brakeTorque":"$=$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3378*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3378 for constant 320mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
-		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP*$HBLimiter"},
+		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
 		{"brakeSpring":135},
 
 		//brake thermals
@@ -206,7 +206,7 @@
 	"slotType" : "Astral_brake_F",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_tarmac", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_F","Astral_brake_pad_F_tarmac", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -230,7 +230,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3748*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*$brakeBias"},  //3748 for constant 355mm
+		{"brakeTorque":"$=3748*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3748 for constant 355mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -257,7 +257,7 @@
 	"slotType" : "Astral_brake_R",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_tarmac", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_R","Astral_brake_pad_R_tarmac", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -278,10 +278,10 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3748*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*(1-$brakeBias)"},  //3748 for constant 355mm
+		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or 3748*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3748 for constant 355mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
-		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP*$HBLimiter"},
+		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
 		{"brakeSpring":125},
 
 		//brake thermals
@@ -305,7 +305,7 @@
 	"slotType" : "Astral_brake_F",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_tarmac", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_F","Astral_brake_pad_F_tarmac", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -329,7 +329,7 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3906*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*$brakeBias"},  //3906 for constant 370mm
+		{"brakeTorque":"$=3906*($components.brakes.multiplierMC_F)*($components.brakes.multiplierBP_F)*$maxPressure*$brakeBias"},  //3906 for constant 370mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
 		{"parkingTorque":0},
@@ -356,7 +356,7 @@
 	"slotType" : "Astral_brake_R",
 	"slots" : [
 		["type", "default", "description"],
-		["Astral_brake_pad","Astral_brake_pad_tarmac", "Brake Pad", {"coreSlot":true}]
+		["Astral_brake_pad_R","Astral_brake_pad_R_tarmac", "Brake Pad", {"coreSlot":true}]
 	],
 	"flexbodies": [
 		["mesh", "[group]:", "nonFlexMaterials"],
@@ -377,10 +377,10 @@
 	],
 	"pressureWheels":[
 		["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
-		{"brakeTorque":"$=3906*($components.brakes.multiplierMC)*($components.brakes.multiplierBP)*$maxPressure*(1-$brakeBias)"},  //3906 for constant 370mm
+		{"brakeTorque":"$=$brakeBias == nil and 1000*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure or3906*($components.brakes.multiplierMC_R)*($components.brakes.multiplierBP_R)*$maxPressure*(1-$brakeBias)"},  //3906 for constant 370mm
 		{"brakeInputSplit":"$=$pedalRatio/12"},
 		{"brakeSplitCoef":"$=$pedalRatio/6.6"},
-		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP*$HBLimiter"},
+		{"parkingTorque":"$=$components.brakes.HBTorque*$components.brakes.multiplierBP_R*$HBLimiter"},
 		{"brakeSpring":125},
 
 		//brake thermals
