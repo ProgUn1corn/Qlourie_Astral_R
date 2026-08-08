@@ -21,7 +21,7 @@ local hbrelease
 local newPreload
 local rearBias
 local finalDrive
-local clutchRatioSmoother = newTemporalSmoothingNonLinear(16, 8)
+local clutchRatioSmoother = newTemporalSmoothingNonLinear(24, 16)
 
 --active values
 local throttle
@@ -49,7 +49,7 @@ function clamp(value, min, max)
 end
 
 local function steerLock(steer, speed)
-    local normalSteer = abs(steer) ^ 0.67
+    local normalSteer = abs(steer) ^ 0.74
     local clampSpeed = clamp(speed, 0, 140)
     local contributionSteer = clamp(lockRange * normalSteer * steerRatio, 0, 1)
     local speedFactor = clamp(1 - 0.9 * (clampSpeed / 140) * (-speedMap / 2000), 0.1, 1)
@@ -65,7 +65,7 @@ end
 
 local function brakeLock(brake, brakeStart, brakeRatio, xLockCoef)
     local brakeNormalized = clamp((brake - brakeStart) / (brakeRatio - brakeStart), 0, 1)
-    local brakeCurve = brakeNormalized ^ 0.69
+    local brakeCurve = brakeNormalized ^ 0.67
     local yLock = clamp(lockRange * brakeCurve + minLockCoef - xLockCoef, minLockCoef, 1)
     return yLock
 end
